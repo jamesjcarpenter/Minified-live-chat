@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">  
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="js/transin.js"></script>
+      <script type="text/javascript" src="js/transitions.js"></script>
+      <!-- animsition.css -->
+    
+<!-- animsition.js -->
+
+  <!-- Site Properties -->
+  <title>Homepage</title>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/components/transition.css">
+  <style type="text/css">
+  body { visibility:hidden !important; 
+  }
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+      background-image: url(images/keyboard.png) !important;
+   background-repeat: no-repeat !important;
+   background-position: center !important;
+   min-width:100%!important;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+      .container {
+        position: relative;
+        width: 700px !important;
+        left: 0px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      .segment .dimmer {
+        position:fixed;
+        padding:0;
+        margin:0;
+
+        top:0;
+        left:0;
+
+        width: 100%;
+        height: 100%;
+      }
+      .loader {
+        position:fixed;
+        padding:0;
+        margin:0;
+
+        top:0;
+        left:0;
+
+        width: 100%;
+        height: 100%;
+      }
+      #btnlogin {
+        display: none !important;
+      }
+      #btnlogout {
+        display: none !important;
+    }
+  </style>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <script src="semantic/dist/components/visibility.js"></script>
+  <script src="semantic/dist/components/sidebar.js"></script>
+  <script src="semantic/dist/components/transition.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
+<body>
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="active item">home</a>
+    <a class="item">about</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button" id="test">log in</a>
+        <a class="ui button" id="test">log out</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button">sign up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+<!-- Page Contents -->
+<div class="pusher">
+
+  
+  <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">home</a>
+        <a class="item">about</a>
+        <a href="/profile" class="item">view profile</a>
+        <div class="right item">
+            <h1 id="#name-render"></h1>
+            {{#if user}}
+            <form action="/logout" method="post">
+            <button name="logout" class="ui large inverted button" id="btnlogout">log out</button>
+            </form>
+          {{else}}
+          <a href="/users/login" class="ui inverted button" id="btnlogin">log in</a>
+          <a href="/users/register" class="ui inverted button"id="btnlogin">sign up</a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    {{#if user}}
+    <div id="loggedin" class="ui inverted header">
+        <h3>welcome back,</h3>
+      <h1><p>{{user.name}}</p></h1>
+        </div>
+        {{/if}}
+        </div>
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        hardshatters.
+      </h1>
+      <h3>Lorem ipsum dolor sit toilet, ad odio erroribus Holden, iuvaret incorrupte id Shit, ut dicta dolor perpetua Bruh.</h3>
+      
+      <div class="ui animated huge primary button" tabindex="0">
+<div id="join-btn" class="visible content">create a room <i class="right user plus icon"></i></div>
+<a href="/" class="hidden content">
+  <i class="right arrow icon"></i></a>
+</div>
+</div>
+
+    
+
+{{{body}}} 
+
+
+
+    <h3 class="ui center aligned header"></h3>
+  </div>
+  <h2 class="ui center aligned icon header">
+  <i class="circular center aligned camera retro icon"></i>
+  livestreams
+  </h2>
+<div class="container">
+<div class="ui basic segment">
+</div>
+<div class="centered ui grid">
+<div class="ui people shape">
+  <div class="sides">
+    <div class="side">
+      <div class="ui card">
+        <div class="image">
+          <img src="/images/victorbaton.png">
+        </div>
+        <div class="content">
+          <div class="header">victorbaton</div>
+          <div class="meta">
+            <a>Birthdate unknown
+            <br>
+            Streamtime unknown</a>
+          </div>
+          <div class="description">
+          Pain and suffering are always inevitable for a large intelligence and a deep heart..
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated"><i class="user icon"></i>
+            0 watching
+          </span>
+          <span>
+            <i class="frown icon"></i>
+            0 Friends
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="side active">
+      <div class="ui card">
+        <div class="ui rounded image">
+          <img src="/images/slater.jpg">
+        </div>
+        <div class="center aligned content">
+          <a class="header">brother_trucker</a>
+          <div class="meta">
+            <span class="date">Streaming since: 9:02 AM</span>
+          </div>
+          <div class="description">
+            hell yea
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="smile icon"></i>
+            22 Friends
+            &nbsp;
+            &nbsp; 
+            <i class="users icon"></i>
+            666 watching
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui ignored black icon direction buttons">
+    <div class="ui button left" id="liveuserbutton1" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+    <div class="ui icon button right" id="liveuserbutton2" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+  </div>
+</div>
+</div>
+</div>
+<div class="ui basic segment">
+</div>
+<script src="js/scrollbox.js"></script>
+<div class="ui basic segment">
+</div>
+<div class="ui basic segment">
+</div>
+<div class="ui small basic segment">
+</div>
+<h2 class="ui center aligned icon header">
+<i class="circular center aligned wechat icon"></i>
+live chats
+</h2>
+  <br>
+  <br>
+  
+  
+  <div class="scroll container" id="#scroller">
+  <div class="ui container">
+    <div id="remote-videos" class="ui relaxed grid">
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">r9k
+        </h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">ttimechat</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-left">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">herbology</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+    </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-left">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">glitchify</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+    </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-left">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">dabbit</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+      </br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-left">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">pinoyextreme101</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+      </br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">gts3</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">th3outcasts</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+      </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">r9k
+        </h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">ttimechat</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-left">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">herbology</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+    </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-left">
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">glitchify</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+    </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-left">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">dabbit</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+      </br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column" id="infinite-scrolling">
+      <div data-aos="fade-down-left">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">pinoyextreme101</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+      </br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">gts3</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+    </div>
+      <div class="four wide column">
+      <div data-aos="fade-down-right">
+        <br>
+        <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered circular medium image" src="images/image.png">
+        <h4 class="ui center aligned header">th3outcasts</h4>
+        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+        <br>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contact Us</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Pro services</a>
+            <a href="#" class="item">FAQ</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">hardshatters</h4>
+          <p>	&#169; 2001</p>
+          <div class="transition visible">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+AOS.init();
+</script>
+<script src="js/usercheck.js"></script>
+<script src="scripts/handlebars/dist/handlebars.min.js "></script>
+</body>
+
+</html>

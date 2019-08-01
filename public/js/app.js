@@ -1,34 +1,70 @@
 window.addEventListener('load', () => {
   // Chat platform
-  const chatTemplate = Handlebars.compile($('#chat-template').html());
-  const chatContentTemplate = Handlebars.compile($('#chat-content-template').html());
-  const chatEl = $('#chat');
-  const formEl = $('.form');
-  const messages = [];
-  let username;
-  console.log(formEl);
+
   // Local Video
   const localImageEl = $('#local-image');
   const localVideoEl = $('#local-video');
 
   // Remote Videos
-  const remoteVideoTemplate = Handlebars.compile($('#remote-video-template').html());
   const remoteVideosEl = $('#remote-videos');
   let remoteVideosCount = 0;
 
   // Hide cameras until they are initialized
   localVideoEl.hide();
+  
+  var socket = io.connect('http://localhost:3000');
+
+  // on connection to server, ask for user's name with an anonymous callback
+socket.on('connect', function(){
+  // call the server-side function 'adduser' and send one parameter (value of prompt)
+  socket.emit('adduser', prompt("What's your name?"));
+});
+
+// listener, whenever the server emits 'updatechat', this updates the chat body
+socket.on('updatechat', function (username, data) {
+  $('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+});
+
+// listener, whenever the server emits 'updaterooms', this updates the room the client is in
+socket.on('updaterooms', function(rooms, current_room) {
+  $('#rooms').empty();
+  $.each(rooms, function(key, value) {
+    if(value == current_room){
+      $('#rooms').append('<div>' + value + '</div>');
+    }
+    else {
+      $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+    }
+  });
+});
+
+function switchRoom(room){
+  socket.emit('switchRoom', room);
+}
+
+// on load of page
+$(function(){
+  // when the client clicks SEND
+  $('#datasend').click( function() {
+    var message = $('#data').val();
+    $('#data').val('');
+    // tell server to execute 'sendchat' and send along one parameter
+    socket.emit('sendchat', message);
+  });
+
+  // when the client hits ENTER on their keyboard
+  $('#data').keypress(function(e) {
+    if(e.which == 13) {
+      $(this).blur();
+      $('#datasend').focus().click();
+    }
+  });
+});
 
   // toggle sidebar
 
 
   // Add validation rules to Create/Join Room Form
-  formEl.form({
-    fields: {
-      roomName: 'empty',
-      username: 'empty',
-    },
-  });
 
   // create our webrtc connection
   const webrtc = new SimpleWebRTC({
@@ -47,6 +83,8 @@ window.addEventListener('load', () => {
   webrtc.on('localStream', () => {
     localImageEl.hide();
     localVideoEl.show();
+  //  webrtc.joinRoom(roomName);
+  //  postMessage(`${username} joined chatroom`);
   });
 
   // Remote video was added
@@ -75,82 +113,83 @@ window.addEventListener('load', () => {
   };
 
   // Post Local Message
-  const postMessage = (message) => {
-    const chatMessage = {
-      username,
-      message,
-      postedOn: new Date().toLocaleTimeString('en-GB'),
-    };
+//  const postMessage = (message) => {
+//    const chatMessage = {
+//      username,
+//      message,
+////    };
     // Send to all peers
-    webrtc.sendToAll('chat', chatMessage);
+//    webrtc.sendToAll('chat', chatMessage);
     // Update messages locally
-    messages.push(chatMessage);
-    $('#post-message').val('');
-    updateChatMessages();
-  };
+//    messages.push(chatMessage);
+//    $('#post-message').val('');
+//    updateChatMessages();
+//  };
 
   // Display Chat Interface
-  const showChatRoom = (room) => {
-    formEl.hide();
-    const html = chatTemplate({ room });
-    chatEl.html(html);
-    const postForm = $('form');
-    postForm.form({
-      message: 'empty',
-    });
-    $('#post-btn').on('click', () => {
-      const message = $('#post-message').val();
-      postMessage(message);
-    });
-    $('#post-message').on('keyup', (event) => {
-      if (event.keyCode === 13) {
-        const message = $('#post-message').val();
-        postMessage(message);
-      }
-    });
-  };
+//  const showChatRoom = (room) => {
+//    formEl.hide();
+//    const html = chatTemplate({ room });
+//    chatEl.html(html);
+//    const postForm = $('form');
+//    postForm.form({
+//      message: 'empty',
+//    });
+//    $('#post-btn').on('click', () => {
+//      const message = $('#post-message').val();
+//      postMessage(message);
+//    });
+//    $('#post-message').on('keyup', (event) => {
+//      if (event.keyCode === 13) {
+//        const message = $('#post-message').val();
+//        postMessage(message);
+//      }
+//    });
+//  };
 
   // Register new Chat Room
-  const createRoom = (roomName) => {
-    // eslint-disable-next-line no-console
-    console.info(`Creating new room: ${roomName}`);
-    webrtc.createRoom(roomName, (err, name) => {
-      formEl.form('clear');
-      showChatRoom(name);
-      postMessage(`${username} created chatroom`);
-    });
-  };
+
 
   // Join existing Chat Room
-  const joinRoom = (roomName) => {
+//  const joinRoom = (roomName) => {
     // eslint-disable-next-line no-console
-    console.log(`Joining Room: ${roomName}`);
-    webrtc.joinRoom(roomName);
-    showChatRoom(roomName);
-    postMessage(`${username} joined chatroom`);
-  };
+  //  console.log(`Joining Room: ${roomName}`);
+  //  webrtc.joinRoom(roomName);
+//    showChatRoom(roomName);
+  //  postMessage(`${username} joined chatroom`);
+//  };
 
   // Receive message from remote user
-  webrtc.connection.on('message', (data) => {
-    if (data.type === 'chat') {
-      const message = data.payload;
-      messages.push(message);
-      updateChatMessages();
-    }
-  });
+//  webrtc.connection.on('message', (data) => {
+  //  if (data.type === 'chat') {
+    //  const message = data.payload;
+//      messages.push(message);
+//      updateChatMessages();
+//    }
+//  });
 
   // Room Submit Button Handler
-  $('.submit').on('click', (event) => {
-    if (!formEl.form('is valid')) {
-      return false;
-    }
+  window.addEventListener('load', () => {
     username = $('#username').val();
     const roomName = $('#roomName').val().toLowerCase();
-    if (event.target.id === 'create-btn') {
-      createRoom(roomName);
-    } else {
-      joinRoom(roomName);
-    }
-    return false;
   });
+  $('.jiggle .placeholder')
+  .transition({
+    animation : 'jiggle',
+    duration  : 1300,
+  });
+  
+  $('.jiggle #local-video')
+  .transition({
+    animation : 'jiggle',
+    duration  : 1300,
+  });
+  $('.ui.checkbox')
+  .checkbox()
+;
+});
+$('.event .content .summary .date .ui #newmsg')
+.transition({
+  animation : 'fly in',
+  duration  : 1200,
 });
