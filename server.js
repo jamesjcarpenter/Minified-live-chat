@@ -205,6 +205,8 @@ io.sockets.on('connection', function (socket) {
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 
+app.use(express.static('/semantic'));
+
 // global variables
 app.use(function(req, res, next) {
   res.locals.user = req.user || null;
