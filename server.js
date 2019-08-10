@@ -78,7 +78,6 @@ var handler = function (req, res) {
   res.end('Hello World\n');
 };
 
-var server = http.createServer();
 server.setSecure(credentials);
 server.addListener("request", handler);
 
