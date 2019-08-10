@@ -3,8 +3,12 @@ var https = require('https');
 var fs = require('fs');
 
 var options = {
+  port:80,
+  path: '/',
+  method: 'GET',
   key: fs.readFileSync('privatekey.pem'),
-  cert: fs.readFileSync('certificate.pem')};
+  cert: fs.readFileSync('certificate.pem')
+};
 //make sure you keep this order
 var app = express();
 var server = https.createServer(app);
