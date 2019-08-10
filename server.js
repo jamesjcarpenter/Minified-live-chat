@@ -7,7 +7,7 @@ var io = require('socket.io').listen(server);
 
 //... 
 
-server.listen(3000);
+server.listen(80);
 var expressValidator = require('express-validator');
 const helmet = require('helmet')
 var cors = require('cors')
@@ -32,7 +32,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 //set cookie lifetime
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
-  PORT = 3000,
+  PORT = 80,
   NODE_ENV = 'development',
   
   SESS_NAME = 'sid',
@@ -142,7 +142,7 @@ app.use(helmet())
 
 
 //set port to 3000
-const port = 3000;
+const port = 80;
 
 const isProduction = process.env.NODE_ENV === 'production';
 
