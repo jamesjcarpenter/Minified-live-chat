@@ -3,7 +3,7 @@ var https = require('https');
 var fs = require('fs');
 
 var options = {
-  port:80,
+  port:443,
   path: '/',
   method: 'GET',
   key: fs.readFileSync('privatekey.pem'),
@@ -16,7 +16,7 @@ var io = require('socket.io').listen(server);
 
 //... 
 
-server.listen(80);
+server.listen(443);
 var expressValidator = require('express-validator');
 const helmet = require('helmet')
 var cors = require('cors')
@@ -41,7 +41,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 //set cookie lifetime
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
-  PORT = 80,
+  PORT = 443,
   NODE_ENV = 'development',
   
   SESS_NAME = 'sid',
@@ -161,7 +161,7 @@ app.use(helmet())
 
 
 //set port to 3000
-const port = 80;
+const port = 443;
 
 const isProduction = process.env.NODE_ENV === 'production';
 
