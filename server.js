@@ -5,7 +5,7 @@ var app = express();
 require('./config/keys/anomic_io.ca-bundle');
 require('./config/keys/anomic_io.crt');
 require('./config/keys/anomic_io.p7b');
-
+fs.readFileSync.(__dirname + path)
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({
