@@ -65,13 +65,7 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-app.get('/', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
 
-app.get('/room', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
 
 
 
