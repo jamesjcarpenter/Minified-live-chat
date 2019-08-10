@@ -1,24 +1,27 @@
 var express = require('express')
+var app = express();
 var https = require('https');
 var fs = require('fs');
+require('./config/keys/anomic_io.ca-bundle');
+require('./config/keys/anomic_io.crt');
+require('./config/keys/anomic_io.p7b');
 
-var options = {
-  port:443,
-  path: '/',
-  method: 'GET',
-  key: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/fullchain.pem')
-};
+const hostname = 'anomic.io';
+const port = 443;
+var server = https.createServer({
+cert: fs.readFileSync('./config/keys/anomic_io.crt'),
+ca: fs.readFileSync('./config/keys/anomic_io.ca-bundle'),
+key: fs.readFileSync('./config/keys/private.key'),
+requestCert: false,
+rejectUnauthorized: false,
+},app);
+server.listen(443);
+
 //make sure you keep this order
-var app = express();
-var server = https.createServer(app);
 var io = require('socket.io').listen(server);
 
 //... 
 
-
-
-server.listen(443);
 var expressValidator = require('express-validator');
 const helmet = require('helmet')
 var cors = require('cors')
