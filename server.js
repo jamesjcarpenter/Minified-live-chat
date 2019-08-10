@@ -6,6 +6,9 @@ var app = express();
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({
+cert: fs.readFileSync('./config/keys/anomic_io.crt'),
+ca: fs.readFileSync('./config/keys/anomic_io.ca-bundle'),
+key: fs.readFileSync('./config/keys/private.key'),
 },app);
 server.listen(443);
 
