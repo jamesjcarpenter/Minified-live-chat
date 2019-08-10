@@ -6,9 +6,8 @@ var options = {
   port:443,
   path: '/',
   method: 'GET',
-  key: fs.readFileSync('/etc/letsencrypt/live/anomic.io/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/anomic.io/cert.pem'),
-  chain: fs.readFileSync('/etc/letsencrypt/live/anomic.io/chain.pem'),
+  key: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/fullchain.pem')
 };
 //make sure you keep this order
 var app = express();
