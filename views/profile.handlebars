@@ -4,54 +4,16 @@
   <!-- Standard Meta -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">jQuery.noConflict();</script>
-      <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-      <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous">jQuery.noConflict();</script>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">  
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/transin.js"></script>
+    <script type="text/javascript" src="js/transitions.js"></script>
+    <!-- animsition.css -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <script src="semantic/dist/semantic.js"></script>
   <script src="semantic/dist/components/form.js"></script>
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/site.css">
-
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/container.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/grid.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/header.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/image.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/menu.css">
-
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/divider.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/form.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/input.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/button.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/list.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/message.css">
-  <link rel="stylesheet" type="text/css" href="semantic/dist/components/icon.css">
-  <script src="semantic/dist/semantic.js"></script>
-  <script src="/dist/components/visibility.js"></script>
-  <script src="/dist/components/sidebar.js"></script>
-  <script src="/dist/components/transition.js"></script>
   <!-- Site Properties -->
   <title>Sticky Example - Semantic</title>
-
-  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
-
-  <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/image.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
-
-  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
   <script>
   $(document)
     .ready(function() {
@@ -177,13 +139,15 @@
   <div class="ui main text container">
     <div class="ui medium basic segment">
         <img class="ui medium circular floated left image" src="images/image.png">
+        {{  image.public.id }}
         <h2 class="ui header">
   <i class="icon gem outline large"></i>
   <div class="content">
-    <h1 class="ui header huge">acslaterlol</h1>
+    <h1 class="ui header huge">{{user.name}}</h1>
   </div>
 </h2>
-    <h6 class="ui header mini">Member since: 5.1.2001</h6>
+    <h6 class="ui header mini">Member since: {{user.createdOn}}</h6>
+    <h6 class="ui header mini">{{user.is_active}}</h6>
     <div class="ui buttons">
     <button class="ui primary basic button">
   <i class="mail icon"></i>

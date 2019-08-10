@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
+const express = require('express')
+const session = require('express-session')
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 const UserSchema = new mongoose.Schema({
+  userId: { type: String, default: "", required: true },
   name: {
     type: String,
     required: true,
@@ -13,8 +16,11 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  is_active: { type: Boolean, default: false },
+  createdOn: { type: Date, default: Date.now },
+  updatedOn: { type: Date, default: Date.now }
 });
 var User = module.exports = mongoose.model('User', UserSchema);
 

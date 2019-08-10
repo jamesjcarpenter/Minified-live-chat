@@ -1,8 +1,8 @@
 window.addEventListener('load', () => {
    $(".pusher")
     .transition({
-      animation  : 'horizontal flip in',
-      duration:2100,
+      animation  : 'scale in',
+      duration:700,
       interval:0
      });
        
@@ -14,8 +14,6 @@ window.addEventListener('load', () => {
        // load content on bottom edge visible
        onBottomVisible: function() {
          // loads a max of 5 times
-         $('body').dimmer('show');
-         $('body').load('show');
        }
      });
   });

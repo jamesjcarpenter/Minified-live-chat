@@ -17,18 +17,18 @@ var FileStore = require('session-file-store')(session);
 const path = require('path')
 var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
+const Chat = require("./models/chat");
 const User = require("./models/user");
+const Room = require("./models/roomschema");
+const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/admin', {
+const db = require('./config/keys').MongoURI;
+mongoose.connect(db, { useNewUrlParser: true })
+.then(() => console.log('MongoDB connected..'))
+.catch(err => console.log(err));
 
-})
-.then(function() {
-  console.log("MongoDB connected");
-})
-.catch(function(error) {
-  console.log("Error connecting to MongoDB: " + error);
-});
+
 //set cookie lifetime
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
@@ -60,18 +60,11 @@ var passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 const errorHandler = require('errorhandler');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log("Connected to server.");
-});
 mongoose.Promise = global.Promise;
 
-const collection = db.collection('users');
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
@@ -100,9 +93,46 @@ var sessionstorage = require('sessionstorage');
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/room', routes, users);
 
 
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
 
+
+cloudinary.config({
+cloud_name: 'dfbstyaqa',
+api_key: '838116593586736',
+api_secret: 'zi-GCPqDBsAjaTInss9-lFSxdWQ',
+});
+const storage = cloudinaryStorage({
+cloudinary: cloudinary,
+folder: "demo",
+allowedFormats: ["jpg", "png"],
+transformation: [{ width: 500, height: 500, crop: "limit" }]
+});
+const parser = multer({ storage: storage });
+
+
+app.post('/api/images', parser.single("image"), (req, res) => {
+  console.log(req.file) // to see what is returned to you
+  const image = {};
+  image.url = req.file.url;
+  image.id = req.file.public_id;
+  Image.create(image) // save image information in database
+    .then(newImage => res.json(newImage), res.redirect('/profile'))
+    .catch(err => console.log(err));
+});
+
+
+app.use(function(req, res, next) {
+  res.locals.user = req.user || null;
+    if(req.user == null){
+      username = 'guest';
+    }
+  next();
+});
 //TO DO: SET MEMORY STORE TO connect-mongodb-session // is currently in MEMORY STORE, local
 // Set public folder as root
 //helmet is good for express security
@@ -145,34 +175,35 @@ app.use((err, req, res, next) => {
     },
   });
 });
-
+app.use(function(req, res, next) {
+  req.user = req.isAuthenticated,
+  username = req.user.name;
+  var username = req.user.name;
+  next();
+});
 //chat
-
 var usernames = {};
-var rooms = ['room1','room2','room3'];
+var rooms = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
-	socket.on('adduser', function(username){
+	socket.on('adduser', function(req, res){
 		// store the username in the socket session for this client
-		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
-		// add the client's username to the global list
-		usernames[username] = username;
+		socket.room = 'r9k';
 		// send client to room 1
-		socket.join('room1');
+		socket.join('r9k');
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'connected to room1');
+		socket.emit('updatechat', 'SERVER', 'connected to r9k');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
+		socket.broadcast.to('r9k').emit('updatechat', 'SERVER', user.name + ' has connected to this room');
+		socket.emit('updaterooms', rooms, 'r9k');
 	});
 
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+		io.sockets.in(socket.room).emit('updatechat', user.name, data);
 	});
 
 	socket.on('switchRoom', function(newroom){
@@ -182,21 +213,21 @@ io.sockets.on('connection', function (socket) {
 		socket.join(newroom);
 		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
 		// sent message to OLD room
-		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username+' has left this room');
+		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', user.name + ' has left this room');
 		// update socket session room title
 		socket.room = newroom;
-		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
+		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', user.name + ' has joined this room');
 		socket.emit('updaterooms', rooms, newroom);
 	});
 
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
 		// remove the username from global usernames list
-		delete usernames[socket.username];
+		delete usernames[user.name];
 		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
-		socket.broadcast.emit('updatechat', socket.username + ' has disconnected');
+		socket.broadcast.emit('updatechat', user.name + ' has disconnected');
 		socket.leave(socket.room);
 	});
 });
@@ -208,9 +239,14 @@ app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 app.use(express.static('/semantic'));
 
 // global variables
+
 app.use(function(req, res, next) {
-  res.locals.user = req.user || null;
-  next();
+   res.locals.url = {
+       query : req.query,
+       url   : req.originalUrl
+   }
+
+   next();
 });
  
 app.use(function(req, res, next) {

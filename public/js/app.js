@@ -1,65 +1,15 @@
 window.addEventListener('load', () => {
   // Chat platform
-
   // Local Video
+  
   const localImageEl = $('#local-image');
   const localVideoEl = $('#local-video');
 
   // Remote Videos
   const remoteVideosEl = $('#remote-videos');
   let remoteVideosCount = 0;
-
   // Hide cameras until they are initialized
   localVideoEl.hide();
-  
-  var socket = io.connect('http://localhost:3000');
-
-  // on connection to server, ask for user's name with an anonymous callback
-socket.on('connect', function(){
-  // call the server-side function 'adduser' and send one parameter (value of prompt)
-  socket.emit('adduser', prompt("What's your name?"));
-});
-
-// listener, whenever the server emits 'updatechat', this updates the chat body
-socket.on('updatechat', function (username, data) {
-  $('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
-});
-
-// listener, whenever the server emits 'updaterooms', this updates the room the client is in
-socket.on('updaterooms', function(rooms, current_room) {
-  $('#rooms').empty();
-  $.each(rooms, function(key, value) {
-    if(value == current_room){
-      $('#rooms').append('<div>' + value + '</div>');
-    }
-    else {
-      $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
-    }
-  });
-});
-
-function switchRoom(room){
-  socket.emit('switchRoom', room);
-}
-
-// on load of page
-$(function(){
-  // when the client clicks SEND
-  $('#datasend').click( function() {
-    var message = $('#data').val();
-    $('#data').val('');
-    // tell server to execute 'sendchat' and send along one parameter
-    socket.emit('sendchat', message);
-  });
-
-  // when the client hits ENTER on their keyboard
-  $('#data').keypress(function(e) {
-    if(e.which == 13) {
-      $(this).blur();
-      $('#datasend').focus().click();
-    }
-  });
-});
 
   // toggle sidebar
 
@@ -102,29 +52,93 @@ $(function(){
     remoteVideosCount += 1;
   });
 
-  // Update Chat Messages
-  const updateChatMessages = () => {
-    const html = chatContentTemplate({ messages });
-    const chatContentEl = $('#chat-content');
-    chatContentEl.html(html);
-    // automatically scroll downwards
-    const scrollHeight = chatContentEl.prop('scrollHeight');
-    chatContentEl.animate({ scrollTop: scrollHeight }, 'slow');
-  };
+  // listener, whenever the server emits 'updaterooms', this updates the room the client is in
+  socket.on('updaterooms', function(rooms, current_room) {
+      $('#rooms').empty();
+      $.each(rooms, function(key, value) {
+        if(value == current_room){
+          $('#rooms').append('<div>' + value + '</div>');
+        }
+        else {
+          $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+        }
+      });
+    });
 
-  // Post Local Message
-//  const postMessage = (message) => {
-//    const chatMessage = {
-//      username,
-//      message,
-////    };
-    // Send to all peers
-//    webrtc.sendToAll('chat', chatMessage);
-    // Update messages locally
-//    messages.push(chatMessage);
-//    $('#post-message').val('');
-//    updateChatMessages();
-//  };
+    function switchRoom(room){
+      socket.emit('switchRoom', room);
+    }
+
+  socket.on('onlineStack',function(stack){
+     $('#list').empty();
+     $('#list').append($('<li>').append($('<button id="ubtn" class="btn btn-danger btn-block btn-lg"></button>').text("Group").css({"font-size":"18px"})));
+     var totalOnline = 0;
+     for (var user in stack){
+       //setting txt1. shows users button.
+       if(user == username){
+         var txt1 = $('<button class="boxF disabled"> </button>').text(user).css({"font-size":"18px"});
+       }
+       else{
+         var txt1 = $('<button id="ubtn" class="btn btn-success  btn-md">').text(user).css({"font-size":"18px"});
+       }
+       //setting txt2. shows online status.
+       if(stack[user] == "Online"){
+         var txt2 = $('<span class="badge"></span>').text("*"+stack[user]).css({"float":"right","color":"#009933","font-size":"18px"});
+         totalOnline++;
+
+       }
+       else{
+         var txt2 = $('<span class="badge"></span>').text(stack[user]).css({"float":"right","color":"#a6a6a6","font-size":"18px"});
+       }
+       //listing all users.
+       $('#list').append($('<li>').append(txt1,txt2));
+       $('#totalOnline').text(totalOnline);
+     }//end of for.
+     $('#scrl1').scrollTop($('#scrl1').prop("scrollHeight"));
+   }); //end of receiving onlineStack event.
+
+
+  // on load of page
+  $(function(){
+    // when the client clicks SEND
+    $('#datasend').click( function() {
+      var message = $('#data').val();
+      $('#data').val('');
+      // tell server to execute 'sendchat' and send along one parameter
+      socket.emit('sendchat', message);
+    });
+
+    // when the client hits ENTER on their keyboard
+    $('#data').keypress(function(e) {
+      if(e.which == 13) {
+        $(this).blur();
+        $('#datasend').focus().click();
+      }
+    });
+  });
+  socket.on('updateroomusers', function(roomusers) {
+  $("#roomusers").empty();
+  $.each(roomusers, function (key, value) {
+  $('#roomusers').append('+value+');
+  });
+  });
+  // create an array to hold all the usernames of the poeple in a specific room
+  //var roomusers = [];
+  // get all the clients in ‘room1′
+//  var clients = io.sockets.adapter.rooms['r9k'];
+//  clients.length;
+  // loop through clients in ‘room1′ and add their usernames to the roomusers array
+//  for(var i = 0; i < clients.length; i++) {
+//  roomusers[roomusers.length] = clients[i].username;
+//  }
+//  // broadcast to everyone in room 1 the usernames of the clients connected.
+//  io.sockets.to('r9k').emit('updateroomusers', roomusers);
+  
+  //index.html code
+
+
+  //Post Local Message
+
 
   // Display Chat Interface
 //  const showChatRoom = (room) => {
@@ -169,10 +183,7 @@ $(function(){
 //  });
 
   // Room Submit Button Handler
-  window.addEventListener('load', () => {
-    username = $('#username').val();
-    const roomName = $('#roomName').val().toLowerCase();
-  });
+
   $('.jiggle .placeholder')
   .transition({
     animation : 'jiggle',
@@ -193,3 +204,13 @@ $('.event .content .summary .date .ui #newmsg')
   animation : 'fly in',
   duration  : 1200,
 });
+
+var designer = new CanvasDesigner();
+
+// both links are mandatory
+// widget.html will internally use widget.js
+designer.widgetHtmlURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.html'; // you can place this file anywhere
+designer.widgetJsURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.js';     // you can place this file anywhere
+
+// <iframe> will be appended to "document.body"
+designer.appendTo(document.body.inner|| document.documentElement);

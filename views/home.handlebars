@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">  
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="js/jquery-textTweener.min.js"></script>
       <script type="text/javascript" src="js/transin.js"></script>
       <script type="text/javascript" src="js/transitions.js"></script>
       <!-- animsition.css -->
@@ -33,6 +34,7 @@
   <link rel="stylesheet" type="text/css" href="semantic/dist/components/sidebar.css">
   <link rel="stylesheet" type="text/css" href="semantic/dist/components/transition.css">
   <style type="text/css">
+@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
   body { visibility:hidden !important; 
   }
     .hidden.menu {
@@ -43,9 +45,9 @@
       min-height: 700px;
       padding: 1em 0em;
       background-image: url(images/keyboard.png) !important;
-   background-repeat: no-repeat !important;
-   background-position: center !important;
-   min-width:100%!important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      min-width:100%!important;
     }
     .masthead .logo.item img {
       margin-right: 1em;
@@ -122,13 +124,7 @@
         margin-top: 0.5em;
         font-size: 1.5em;
       }
-      .container {
-        position: relative;
-        width: 700px !important;
-        left: 0px;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
+
       .segment .dimmer {
         position:fixed;
         padding:0;
@@ -221,44 +217,98 @@
           <i class="sidebar icon"></i>
         </a>
         <a class="active item">home</a>
-        <a class="item">about</a>
+        <a class="item">about</a>            {{#if user}}
         <a href="/profile" class="item">view profile</a>
+        <a class="right item">
+                        <b><h4 id="greeting">wb, {{user.name}}&nbsp;&nbsp;<i class="fitted small thumbs up icon"></i></h4></b>
+                        </a>
         <div class="right item">
-            <h1 id="#name-render"></h1>
-            {{#if user}}
             <form action="/logout" method="post">
             <button name="logout" class="ui large inverted button" id="btnlogout">log out</button>
             </form>
           {{else}}
+          <div class="right item">
           <a href="/users/login" class="ui inverted button" id="btnlogin">log in</a>
           <a href="/users/register" class="ui inverted button"id="btnlogin">sign up</a>
           {{/if}}
         </div>
       </div>
-    </div>
-    <div class="container">
-    {{#if user}}
-    <div id="loggedin" class="ui inverted header">
-        <h3>welcome back,</h3>
-      <h1><p>{{user.name}}</p></h1>
-        </div>
-        {{/if}}
-        </div>
-
     <div class="ui text container">
       <h1 class="ui inverted header">
-        hardshatters.
+        anomic.
       </h1>
-      <h3>Lorem ipsum dolor sit toilet, ad odio erroribus Holden, iuvaret incorrupte id Shit, ut dicta dolor perpetua Bruh.</h3>
-      
+      <div class="ui header">
       <div class="ui animated huge primary button" tabindex="0">
 <div id="join-btn" class="visible content">create a room <i class="right user plus icon"></i></div>
-<a href="/" class="hidden content">
-  <i class="right arrow icon"></i></a>
+<div class="ui mini inverted basic modal">
+  <div class="ui centered large header">
+    <i class="wechat icon"></i>
+    enter a room name.
+  </div>
+  <div class="content">
+    <div class="field">
+      
+      
+
+
+
+<div class="ui form">
+<form action="/room" method="get" enctype="application/x-www-form-urlencoded">
+<div class="field">
+  <div class="field">      <div class="ui grid centered">
+    <input placeholder="Room name" type="text" name="name" value="">
+  </div>
+    </div>
 </div>
+</div>
+  </div>
+  </div>
+  <div class="actions">
+    <div class="ui basic segment"></div>
+    <div class="ui large centered red inverted cancel button">
+      <i class="centered remove icon"></i>
+      NVM
+    </div>
+    <button class="ui large centered green ok inverted button" type="submit" action="submit">
+      <i class="centered checkmark icon"></i>
+      OK
+    </button>
+    <div class="ui basic segment"></div>
+    <div class="ui centered grid">
+        <h6><p>by creating a room you are consenting to our privacy agreement, along with terms & conditions.</p></h6>
+        </div>
+        </form>
+  </div>
+</div>
+</div>
+<a class="hidden content"></a>
+  </div>
+</div>
+</div>    <div id="texttween">
+    <h3 id="texttween" class="ui centered grid">
+    <div class="ui container">
+    <br>
+    <br>
+    <span class="ui text"><p>"im on an internet high"</p></span>
+    <br>
+    <span class="ui text"><p>"and i dont care anymore"</p></span>
+    <br>
+    </div>
+    <div id="texttween">
+        <h3 id="texttween" class="ui centered grid">
+    <span class="ui text">"my chats"</span>
+    <br>
+    <span class="ui text">"are doing the hobbit numbers"</span>
+    </h3>
+  </div> 
+  </div>
 </div>
 
-    
+<script>
+$("#texttween").TextTweener({
+  duration: "6500"
+});
+</script>  
 
 {{{body}}} 
 
@@ -312,9 +362,10 @@
           <a class="header">brother_trucker</a>
           <div class="meta">
             <span class="date">Streaming since: 9:02 AM</span>
-          </div>
+          </div><div class="ui basic segment">
           <div class="description">
             hell yea
+          </div>
           </div>
         </div>
         <div class="extra content">
@@ -330,7 +381,7 @@
       </div>
     </div>
   </div>
-  <div class="ui ignored black icon direction buttons">
+  <div class="ui ignored grey icon direction buttons">
     <div class="ui button left" id="liveuserbutton1" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
     <div class="ui icon button right" id="liveuserbutton2" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
   </div>
@@ -360,7 +411,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-right">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/robotsleep.png">
         <h4 class="ui center aligned header">r9k
         </h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
@@ -371,7 +422,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-right">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/ttimechat.jpeg">
         <h4 class="ui center aligned header">ttimechat</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -381,7 +432,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-left">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/herbology.gif">
         <h4 class="ui center aligned header">herbology</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -391,7 +442,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-left">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/glitchify.gif">
         <h4 class="ui center aligned header">glitchify</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -402,7 +453,7 @@ live chats
       <div data-aos="fade-down-left">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/dabbit.jpeg">
         <h4 class="ui center aligned header">dabbit</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
@@ -413,7 +464,7 @@ live chats
       <div data-aos="fade-down-left">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/pinoyextreme101.jpg">
         <h4 class="ui center aligned header">pinoyextreme101</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
@@ -424,7 +475,7 @@ live chats
       <div data-aos="fade-down-right">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/gts3.jpeg">
         <h4 class="ui center aligned header">gts3</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -435,7 +486,7 @@ live chats
       <div data-aos="fade-down-right">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/th3outcasts.png">
         <h4 class="ui center aligned header">th3outcasts</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -445,7 +496,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-right">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/robotsleep.png">
         <h4 class="ui center aligned header">r9k
         </h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
@@ -456,7 +507,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-right">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/ttimechat.jpeg">
         <h4 class="ui center aligned header">ttimechat</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -466,7 +517,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-left">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/herbology.gif">
         <h4 class="ui center aligned header">herbology</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -476,7 +527,7 @@ live chats
       <div class="four wide column">
       <div data-aos="fade-down-left">
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/glitchify.gif">
         <h4 class="ui center aligned header">glitchify</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -487,7 +538,7 @@ live chats
       <div data-aos="fade-down-left">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/dabbit.jpeg">
         <h4 class="ui center aligned header">dabbit</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
@@ -498,7 +549,7 @@ live chats
       <div data-aos="fade-down-left">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/pinoyextreme101.jpg">
         <h4 class="ui center aligned header">pinoyextreme101</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
@@ -509,7 +560,7 @@ live chats
       <div data-aos="fade-down-right">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/gts3.jpeg">
         <h4 class="ui center aligned header">gts3</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -520,7 +571,7 @@ live chats
       <div data-aos="fade-down-right">
         <br>
         <div class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/image.png">
+        <img class="ui centered circular medium image" src="images/th3outcasts.png">
         <h4 class="ui center aligned header">th3outcasts</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
@@ -556,7 +607,7 @@ live chats
           </div>
         </div>
         <div class="seven wide column">
-          <h4 class="ui inverted header">hardshatters</h4>
+          <h4 class="ui inverted header">hardchatters</h4>
           <p>	&#169; 2001</p>
           <div class="transition visible">
         </div>
@@ -570,7 +621,20 @@ live chats
 <script>
 AOS.init();
 </script>
+<script>$('.ui.inverted.header')
+  .transition('scale', '1900ms')
+;
+</script>
+<script>
+$('.ui.mini.inverted.basic.modal')
+.modal({  
+  blurring: true,
+})
+$('.ui.mini.inverted.basic.modal')
+.modal('attach events', '.ui.huge.animated.primary.button', 'show');
+</script>
 <script src="js/usercheck.js"></script>
+<script src="js/room.js"></script>
 <script src="scripts/handlebars/dist/handlebars.min.js "></script>
 </body>
 

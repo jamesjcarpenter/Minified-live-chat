@@ -13,47 +13,192 @@
         crossorigin="anonymous"></script>
   <title><h1> <strong>{{ room }}</strong></h1></title>
   <style>
-    body { visibility:hidden !important; 
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+    body { visibility:hidden !important; width:100%;
     }
     html { padding-top:1px; overflow-y: hidden; overflow-x: hidden;}
     #chat-content { padding-top:30px!important; height: 530px; width: 385px; overflow-y: scroll; overflow-x: hidden; line-height:1.06; position:relative;}
     .segment { background-color: 111111 }
-    #local-video { display:block!important; width:100%; max-height:100%;}
-    #remote-videos { display:block!important; width:100%; height:100%; position:relative;}
-    #chat { margin-top:160px; margin-right:60px;}
-    #youtube-buttons { max-width: 450px; padding-top:20px;}
+    #local-video { display:block!important; width:100%; max-height:100%;position:relative;}
+    #remote-videos { display:block!important; width:100%; height:100%; position:relative;right:2.5vw;}
+    #chat { display:block!important;margin-right:60px;position:relative;}
+    #youtube-buttons { max-width: 100%;padding-top:12.4vh;}
+    .youtubewrapper { margin-right:24em;}
     #slidersound { padding-top:20px; }
+    #conversation{display:block!important;
+    }
     #chatbox {  
+      display:block!important;
     text-align:left;  
     margin:0 auto;  
-    margin-bottom:25px;  
-    padding:10px;  
+    margin-bottom:0px;  
+    padding:10px;
     background:#fff;  
-    height:670px;  
-    width:430px;  
+    height:auto;  
     border:1px solid #ACD8F0;  
     overflow:auto; }  
     #data {
-      width: 310px;
+      padding:10px;
+      padding-top:10px;
+      padding-bottom:5px;
+      padding-right:30px;
+      margin-bottom:0px;
+      margin-left:auto;
+      margin-right:auto;
+      display:inline-grid;
+    }
+    #chatbox{
+      padding:10px;
+      padding-top:10px;
+      padding-right:30px;
+      padding-bottom:5px;
+      width:100%;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom:0px;
+      min-width:200px;
+      display:inline-grid;
     }
     #datasend {
       display: none!important;
     }
+  #copywrapper {
+    top:2.2em;
+    right:8.25em;
+    
+  }
+  #inputwrapper{
+    width:21.5vw;
+    border: 22px outset rgba(41,161,164,0.62);
+    border-radius: 21px 21px 9px 9px;
+  }
+  #message{
+    padding-top:10px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:10px;
+    margin:0 auto;
+    margin-left:45px;
+    bottom:5px;
+    
+  }
+  
+  #username{
+    padding-left:15px;
+    padding-right:20px;
+    margin:0 auto;
+    margin-bottom:0;
+  }
+  #useravatar{
+    top:17px;
+    bottom:0;
+    margin:0 auto;
+    height:3.5vh;
+    width:1.75vw;
+
+  }
+    .aspectwrapper {
+  display: inline-block; /* shrink to fit */
+  width: 100%;           /* whatever width you like */
+  position: relative;    /* so .content can use position: absolute */
+}
+.aspectwrapper::after {
+  padding-top: 56.25%; /* percentage of containing block _width_ */
+  display: block;
+  content: '';
+}
+.content {
+  position: absolute;
+  top: 0; bottom: 0; right: 0; left: 0;  /* follow the parent's edges */
+  outline: thin dashed green;            /* just so you can see the box */
+}
+    .ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+.win-size-grip {
+   position: absolute;
+   width: 16px;
+   height: 16px;
+   padding: 4px;
+   bottom: 0;
+   right: 0;
+   cursor: nwse-resize;
+   background: url(https://raw.githubusercontent.com/RickStrahl/jquery-resizable/master/assets/wingrip.png) no-repeat;
+ }
   </style>
-  <h3 class="ui small center aligned icon header">
-  <i class="ui small circular users icon"></i>
-  r9k
+  <h3 class="ui tiny center aligned icon header">
+  <i class="ui tiny circular user secret icon"></i>
+   <%- JSON.stringify(name) %>
 </h3>
+<script>
+$(document).ready(function() {
+    $("#draggable").draggable().resizable({
+        alsoResize: "#chatbox, #data",
+        minWidth:400,
+        minHeight:400,
+    });
+    $("#b, #b1").resizable({
+        alsoResize: "#b1, #b"
+    });
+  });
+  </script>
 </head>
 <body>
-<div class="ui fixed attached vertical labeled icon menu">
-  <a href="/home">
-    <button class="ui left attached large button grey">
-      <div class="ui basic segment">
-  
-      <span class="button"><h5>DIRECTORY&nbsp;&nbsp;<i class="ui home icon"></i></h5></span>
+
+  <div class="ui rail internal right"id="copywrapper">
+  <div class="ui action input" id="inputwrapper">
+  <input type="text" value='<%- JSON.stringify(url)%>'>
+  <button class="ui teal right labeled icon button">
+    <i class="copy icon"></i>
+    Copy
+  </button>
+</div>
+</div>
+  <% if(!user){ %>
+  <div class="ui mini basic test modal">
+    <div class="ui large icon header">
+      <i class="user secret icon"></i>
+      enter a username.
+    </div>
+    <div class="content">
+      <div class="field">
+        
+        <div class="ui big form">
+  <div class="field">
+    <div class="field">      <div class="five column doubling ui grid">
+      <input placeholder="Username" type="text" name="username">
+    </div>
+  </div>
+</div>
+    </div>
+    </div>
+    <div class="actions">
+      <div class="ui basic segment"></div>
+      <div class="ui large centered red basic cancel inverted button">
+        <i class="centered remove icon"></i>
+        NVM
       </div>
-    </button>
+      <div class="ui large centered green ok inverted button" action="submit">
+        <i class="centered checkmark icon"></i>
+        OK
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
+<div class="ui fixed attached vertical labeled icon gray menu">
+  <a href="/home">
+      <div class="ui basic segment">
+      <span class="ui button"><h5><i class="ui home icon"></i></h5></span>
+      </div>
   </a>
   <div class="ui basic segment">
   </div>
@@ -64,7 +209,10 @@
   <div class="ui basic segment">
   </div>
   <a class="item">
-    <i class="gamepad icon"></i>
+    <i class="users icon"></i>
+  </a>
+  <a class="item">
+    <i class="paint brush icon"></i>
   </a>
   <a class="item">
     <i class="video camera icon"></i>
@@ -82,28 +230,27 @@
         </div>
       </div>
   </a>
-  <a>
 <!-- Chat Template -->
 
 
 
   </div>
   <div class="ui container">
-    <div class="ui header medium"></div>
-    <div class="ui eight column grid">
-      <div class="ui fifteen wide column">
+    <div class="ui stackable grid">
         <div class="ui icon buttons">
           <button id="broadcast-btn" class="large ui inverted green button">Broadcast&nbsp; &nbsp; <i class="camera icon"></i></button>
         </div>
         <div class="ui icon buttons">
-        <button class="large ui inverted secondary button">Media Settings&nbsp; &nbsp; <i class="cogs icon"></i></button> 
+        <button class="large ui teal secondary button">Media Settings&nbsp; &nbsp; <i class="cogs icon"></i></button> 
         </div>
+      </div>
                   
-          
+          <% user %>
               <!-- Remote Cameras -->
               <h3 class="ui center aligned header"></h3>
               <div class="ui small jiggle images">
-              <div id="remote-videos" class="ui grid">
+              <div id="remote-videos" class="five column doubling ui stackable grid">
+                <div id="remote-videos" class="ui stackable grid">
                 <div class="four wide column">
                   <div class="ui segment">
                   <div class="ui rounded medium placeholder">
@@ -168,7 +315,8 @@
 </div>
 </div>
 </div>
-<div class="four wide column">
+<div 
+class="four wide column">
   <div class="ui segment">
   <div class="ui rounded medium placeholder">
 <div class="rectangular medium image"></div>
@@ -201,9 +349,9 @@
             </div>
             
 
-          <div class="ui centered grid">  
-            
-              <div class="ui labeled icon buttons" id="youtube-buttons">
+
+            <div class="youtubewrapper">
+              <div class="ui top attached icon buttons" id="youtube-buttons">
                 <button class="ui youtube button">
                 <i class="youtube icon"></i>
                 YouTube
@@ -225,14 +373,9 @@
                 </button>
             </div>
           </div>
-            <div class="inline aligned field">
-  <div class="ui slider checkbox" id="slidersound">
-    <input type="checkbox" tabindex="0" class="hidden">
-    <label><i class="sound icon"></i></label>
-  </div>
-  <label></label>
+        </div>
+
 </div>
-          </div>
             <!-- Local Camera -->
           
         
@@ -244,23 +387,49 @@
 
   
   
-
-
-  <div class="ui rail floated right internal">
-        <div class="ui floated right segment">
-          
-          <div id="chatbox">
-    	<div id="conversation"style="width:400px;height:770px;overflow:auto;padding:10px;padding-top:20px; top:100px; opacity:0.8;">
-      </div></div>  
-        <div class="ui input focus">
-        <input type="text" id="data"/>
-      </div>
+  <div class="ui right internal rail"style="margin:0 auto;margin-right:4.25em;margin-top:7em;margin-bottom:0em;bottom:0;position:fixed;min-width:20vw;max-width:20vw;right:0;top:0;">
+        <div id="draggable"style="position:relative;overflow-y:visible; max-height:100%;width:100%">
+          <div id="chatbox"class="ui divider"style="position:relative;width:100%;overflow-y:scroll;min-width:21.5vw;">
+            <br>
+    	<div id="conversation"style="position:relative;width:100%;height:70vh;padding:20px;max-width:100%;max-height:100%;">
+    </div></div>
+        <div class="ui input focus"style="position:relative;min-height:3.3vh;width:100%;min-width:21.5vw;">
+        <input id="data"class="content"style="position:relative;width:100%;height:4.5vh;min-height:100%;max-height:100%" />
+      </div><div class="win-size-grip"></div>
     <input class="ui button grey" type="button" id="datasend" value="send">
     </div>
 </div>
-
   <!-- Scripts -->
+  <script>  var socket = io.connect('http://localhost:3000');
+
+    // on connection to server, ask for user's name with an anonymous callback
+  socket.on('connect', function(){
+    // call the server-side function 'adduser' and send one parameter (value of prompt)
+    socket.emit('adduser',
+    $('.ui.modal')
+    .modal({  
+      blurring: true,
+      closable  : false,
+      onDeny    : function(){
+        window.alert('Wait not yet!');
+        return false;
+      },
+      onApprove : function() {
+        window.close();
+      }
+    
+    
+    }).modal('show'));
+  });
+
+  // listener, whenever the server emits 'updatechat', this updates the chat body
+  socket.on('updatechat', function (username, data) {
+    $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + <%- JSON.stringify(user.name) %> + '' + '</tag>' + '<samp><em>' + <%- JSON.stringify(new Date(Date.now()).toLocaleTimeString()) %> + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui teal medium left pointing label"id="message">' + '</span><p><span class="ui medium white text">' + data + '</div></p></span></div></div>' + '</h6></div></div>');
+  });
+</script>
+  
   <script id="chat-template" type="text/x-handlebars-template">  </script>
+  <script src="https://www.webrtc-experiment.com/Canvas-Designer/canvas-designer-widget.js"></script>
   <script id="chat-content-template" type="text/x-handlebars-template"></script>
   <script src="js/transin.js"></script>
   <script src="js/transout.js"></script>
