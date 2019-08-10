@@ -2,9 +2,6 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express')
 var app = express();
-require('./config/keys/anomic_io.ca-bundle');
-require('./config/keys/anomic_io.crt');
-require('./config/keys/anomic_io.p7b');
 
 const hostname = 'anomic.io';
 const port = 443;
