@@ -1,8 +1,13 @@
 var express = require('express')
-  , http = require('http');
+var https = require('https');
+var fs = require('fs');
+
+var options = {
+  key: fs.readFileSync('privatekey.pem'),
+  cert: fs.readFileSync('certificate.pem')};
 //make sure you keep this order
 var app = express();
-var server = http.createServer(app);
+var server = https.createServer(app);
 var io = require('socket.io').listen(server);
 
 //... 
@@ -65,25 +70,7 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-var tls = require('tls');
-var fs = require('fs');
 
-var options = {
-  key: fs.readFileSync('server-key.pem'),
-  cert: fs.readFileSync('server-cert.pem')
-};
-
-var credentials = crypto.createCredentials({key: privateKey, cert: certificate});
-
-var handler = function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-};
-
-tls.createServer(options, function (s) {
-  s.write("welcome!\n");
-  s.pipe(s);
-}).listen(80);
 
 
 var corsOptions = {
