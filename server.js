@@ -2,14 +2,13 @@ var express = require('express')
 var https = require('https');
 var fs = require('fs');
 
-var hskey = fs.readFileSync('hacksparrow-key.pem');
-var hscert = fs.readFileSync('hacksparrow-cert.pem');
-
 var options = {
-  key: hskey,
-  cert: hscert
+  port:443,
+  path: '/',
+  method: 'GET',
+  key: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/fullchain.pem')
 };
-
 //make sure you keep this order
 var app = express();
 var server = https.createServer(app);
