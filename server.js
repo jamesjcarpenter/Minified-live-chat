@@ -65,11 +65,13 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
+var tls = require('tls');
+var fs = require('fs');
 
-const crypto = require('crypto')
-fs = require("fs")
-var privateKey = fs.readFileSync('privatekey.pem').toString();
-var certificate = fs.readFileSync('certificate.pem').toString();
+var options = {
+  key: fs.readFileSync('server-key.pem'),
+  cert: fs.readFileSync('server-cert.pem')
+};
 
 var credentials = crypto.createCredentials({key: privateKey, cert: certificate});
 
@@ -78,8 +80,10 @@ var handler = function (req, res) {
   res.end('Hello World\n');
 };
 
-server.setSecure(credentials);
-server.addListener("request", handler);
+tls.createServer(options, function (s) {
+  s.write("welcome!\n");
+  s.pipe(s);
+}).listen(80);
 
 
 var corsOptions = {
