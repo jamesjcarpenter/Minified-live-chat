@@ -1,7 +1,10 @@
 var express = require('express')
 var https = require('https');
+var http = require('http');
+var url = new URL("http://anomic.io")
+var client = http;
 var fs = require('fs');
-
+client=(url.protocol=="https") ? https:client;
 var options = {
   port:443,
   path: '/',
