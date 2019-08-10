@@ -66,8 +66,8 @@ mongoose.Promise = global.Promise;
 app.use(cors())
 
 
-const crypto = require('crypto'),
-fs = require("fs"),
+const crypto = require('crypto')
+fs = require("fs")
 var privateKey = fs.readFileSync('privatekey.pem').toString();
 var certificate = fs.readFileSync('certificate.pem').toString();
 
