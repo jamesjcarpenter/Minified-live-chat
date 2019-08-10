@@ -50,8 +50,9 @@ app.use(session({
   secret: SESS_SECRET,
   cookie: {
     maxAge: SESS_LIFETIME,
+    httpOnly: true,
     sameSite: true,
-    //secure: IN_PROD
+    secure: false,
   }
 }))
 
@@ -62,6 +63,23 @@ app.use(passport.session());
 const errorHandler = require('errorhandler');
 mongoose.Promise = global.Promise;
 
+app.use(cors())
+
+app.get('/', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+
+app.get('/room', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+
+
+
+
+var corsOptions = {
+  origin: 'http://anomic.io',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 
 app.use(express.urlencoded({ extended: false }));
