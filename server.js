@@ -166,8 +166,6 @@ app.use(helmet())
 
 
 //set port to 3000
-const port = 443;
-
 const isProduction = process.env.NODE_ENV === 'production';
 
 if(!isProduction) {
