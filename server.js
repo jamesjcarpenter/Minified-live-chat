@@ -2,19 +2,22 @@ var express = require('express')
 var https = require('https');
 var fs = require('fs');
 
+var hskey = fs.readFileSync('hacksparrow-key.pem');
+var hscert = fs.readFileSync('hacksparrow-cert.pem');
+
 var options = {
-  port:443,
-  path: '/',
-  method: 'GET',
-  key: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/anomic.io-0001/fullchain.pem')
+  key: hskey,
+  cert: hscert
 };
+
 //make sure you keep this order
 var app = express();
 var server = https.createServer(app);
 var io = require('socket.io').listen(server);
 
 //... 
+
+
 
 server.listen(443);
 var expressValidator = require('express-validator');
@@ -78,7 +81,7 @@ app.use(cors())
 
 
 var corsOptions = {
-  origin: 'http://anomic.io',
+  origin: 'https://anomic.io',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
