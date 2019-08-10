@@ -6,8 +6,8 @@ var options = {
   port:443,
   path: '/',
   method: 'GET',
-  key: fs.readFileSync('privatekey.pem'),
-  cert: fs.readFileSync('certificate.pem')
+  key: fs.readFileSync('anomic_io.key'),
+  cert: fs.readFileSync('anomic_io.csr')
 };
 //make sure you keep this order
 var app = express();
