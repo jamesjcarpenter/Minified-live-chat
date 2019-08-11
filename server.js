@@ -2,15 +2,12 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express')
 var app = express();
-require('./config/ssli/anomic_io.ca-bundle');
-require('./config/ssli/anomic_io.crt');
-require('./config/ssli/anomic_io.p7b');
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({
-cert: fs.readFileSync('./config/keys/anomic_io.crt'),
-ca: fs.readFileSync('./config/keys/anomic_io.ca-bundle'),
-key: fs.readFileSync('./config/keys/private.key'),
+cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
+ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
+key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
 },app);
