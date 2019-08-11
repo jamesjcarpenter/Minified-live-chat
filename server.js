@@ -3,15 +3,8 @@ var https = require('https');
 var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
-const port = 443;
-var server = https.createServer({
-requestCert: false,
-rejectUnauthorized: false,
-},app);
-server.listen(443);
-
-//make sure you keep this order
-var io = require('socket.io').listen(server);
+var server = https;
+var io = require('socket.io');
 
 //... 
 
@@ -39,7 +32,6 @@ mongoose.connect(db, { useNewUrlParser: true })
 //set cookie lifetime
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
-  PORT = 443,
   NODE_ENV = 'development',
   
   SESS_NAME = 'sid',
