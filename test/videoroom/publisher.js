@@ -45,7 +45,7 @@ janus.connect().then(() => {
       })
     })
 
-    document.getElementById('start-rtp-button').addEventListener('click', () => {
+    document.getElementById('broadcast-btn').addEventListener('click', () => {
       const host = document.getElementById('rtp-host').value
       const videoPort = parseInt(document.getElementById('rtp-video-port').value, 10)
       const audioPort = parseInt(document.getElementById('rtp-audio-port').value, 10)
@@ -97,7 +97,7 @@ janus.connect().then(() => {
               peerConnection.setRemoteDescription(new RTCSessionDescription(jsep)).then(() => {
                 console.log('remoteDescription set')
 
-                const videoElement = document.getElementById('video')
+                const videoElement = document.getElementById('remote-video')
                 videoElement.srcObject = stream
                 videoElement.play()
               })

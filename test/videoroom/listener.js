@@ -16,8 +16,6 @@ let janusRoomId
 let janusRoomPrivateMemberId
 let janusRoomMemberId
 
-const startButton = document.getElementById('start')
-startButton.onclick = connect
 
 if (params.get('janusRoomId') && params.get('janusRoomPrivateMemberId') && params.get('janusRoomMemberId')) {
   document.getElementById('janusRoomId').value = params.get('janusRoomId')
@@ -58,7 +56,7 @@ function connect () {
       peerConnection.onaddstream = (mediaStreamEvent) => {
         console.log('@onaddstream', mediaStreamEvent)
 
-        const videoElement = document.getElementById('video')
+        const videoElement = document.getElementById('remote-video')
         videoElement.srcObject = mediaStreamEvent.stream
         videoElement.play()
       }
