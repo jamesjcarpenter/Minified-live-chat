@@ -94,55 +94,6 @@ var client = new JanusClient({
 });
 
 
-client.onConnected(()=>{
-    client.createSession().then((session)=>{
-        ...
-    }).catch((err)=>{
-        ...
-    })
-});
-
-
-client.onDisconnected(()=>{
-    
-});
-
-
-client.onError((err)=>{
-    
-});
-
-
-videoRoomHandle.create({
-   publishers: 3,
-   is_private: 'no',
-   secret: '****',
-   pin: '****',
-   audiocodec: 'opus',
-   videocodec: 'vp8',
-   record: false
-}).then((result)=>{
-    var roomId = result.room;
-    ..
-});
-
-session.videoRoom().publishFeed(room, offerSdp).then((publisherHandle)=>{
-    var answerSdp = publisherHandle.getAnswer();
-    ...
-});
-
-publisherHandle.trickle(candidate).then(()=>{
-    ...
-});
-
-session.videoRoom().listenFeed(room, feed).then((listenerHandle)=>{
-    var offerSdp = listenerHandle.getOffer();
-    ...
-});
-
-listenerHandle.trickle(candidate).then(()=>{
-    ...
-});
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
