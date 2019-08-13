@@ -22,6 +22,12 @@
 	OTHER DEALINGS IN THE SOFTWARE.
  */
 
+ var janus = new Janus(
+         {
+                 server: 'https://anomic.io:8088/janus',
+                                
+});
+
 // List of sessions
 Janus.sessions = {};
 
