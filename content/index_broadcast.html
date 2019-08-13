@@ -1,0 +1,194 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="conference.css">
+</head>
+
+<body onLoad="broadcastOnLoad()">
+<div id="mainDiv">
+    <table border=1 id="mainDivTable" style=''>
+        <tr style='height:5%;'>
+            <th colspan=2>gitHub:<a href='https://github.com/justinb01981/tiny-webrtc-gw/wiki'>https://github.com/justinb01981/tiny-webrtc-gw/wiki</a></th>
+        </tr>
+
+        <tr id='rowChat' style='height:5%'>
+            <td colspan=2 align='center'>
+                username:<textarea rows=1 cols=16 id='userName'>user123</textarea>
+                <button onclick='location="login.html"' id='login'>login</button>
+                <button onclick='logout();' id='logout'>logout</button>
+           </td>
+        </tr>
+
+        <tr style='height:5%;'>
+            <th colspan=1>Meeting Room</th><th colspan=1>Local</th>
+        </tr>
+        <tr style='height:30%;'>
+            <td colspan=1 id="thPresenter" align="center" >
+                <video class="videoMain" id="videoMain" style='width:100%;' autoplay muted loop playsinline controls="true"></video>
+
+            </td>
+            <td colspan=1 align="center">
+                <div id="localPreviewDiv">
+                    <video class="videoLocal" id="localVideo" muted style='width:100%;' autoplay muted loop playsinline controls="true" ></video>
+                </div>
+            </td>
+        </tr>
+
+        <tr style='height:5%;'>
+            <td style='border-width:0px;' align='right'>
+                Room:
+                <input type='text' id='roomName' onInput='roomEdited(this)'>
+                </input>
+                <input type='button' value='+' onClick='onAdvanced(this)' style='display:none;'>
+                </input>
+            </td>
+            <td style='border-width:0px;' align='left'>
+                <iframe style='width:100%; height:50px; border-width:0px; -webkit-overflow-scrolling:touch; overflow:scroll; ' name='connectIframe' src='connect_iframe.html' id='connect_iframe'>
+                </iframe>
+
+
+                <!--
+                <button id='joinButton' onClick='startLiveBcast(this)'>
+                    Join
+                </button>
+                -->
+            </td>
+        </tr>
+
+        <tr style='height:10%;'>
+           <td colspan=2 align='center'>
+                <iframe name='chatFrame' src='chat.html' width='100%; height:100px%; overflow:scroll; -webkit-overflow-scrolling:touch;'>
+                </iframe>
+            </td>
+        </tr>
+
+        <!--
+        <tr>
+            <td>
+                <table border=1 style="display:inline-block;">
+                    <tr>
+                        <td>
+                            <img src='newUser.jpg'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onClick='onBtnAddUser("");'>Add User</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+	-->
+
+    </table>
+
+</div> <!-- mainDiv -->
+</body>
+
+<script src="src/js/adapter.js"></script>
+<script src="src/js/lib/ga.js"></script>
+<script src="js/popup.js"></script>
+<script src="js/peers.js"></script>
+<script src="js/broadcast.js"></script>
+<script src="js/peerdynamic.js"></script>
+<script language="javascript">
+
+var onLeave;
+var urlArgRoom;
+var urlArgName;
+var iframeConnectState = {selectedUser: null, selectedRoom: null, advancedSettings: false, onConnectVideo: null, joinMode: null, awaiting: null, usersLast: null, iframeOnDisconnect: null};
+var onLoadDoneAnswerUpload;
+
+var joinPopupCloseDone = function(videoElem) {
+    videoElem.closeAction = function() {
+        if(videoElem.onended) {
+          videoElem.onended();
+        }
+        disconnectVideo(videoElem);
+
+        if(iframeConnectState.iframeOnDisconnect) {
+          iframeConnectState.iframeOnDisconnect();
+        }
+    }
+
+    if(videoElem.id == 'localVideo')
+    {
+        //attachMediaStream(videoElem, winPopupRemoteConnection.getLocalStreams()[0]);
+    }
+}
+
+var chatLinkClicked = function(elem) {
+    var roomUserPath = elem.value;
+    var b = roomUserPath.indexOf('/');
+    var roomString = roomUserPath.substring(0, b);
+
+    document.getElementById('roomName').value = roomString;
+    iframeConnectState.selectedUser = roomUserPath.substring(b+1, roomUserPath.length);
+    iframeConnectState.selectedRoom = roomString;
+
+    console.debug(getConnectIframe());
+}
+
+var chatReloaded = function(elem) {
+    reloadConnectIframe();
+}
+
+function joinSDP() {
+    return "empty";
+}
+
+function reloadConnectIframe()
+{
+    getConnectIframe().contentWindow.location = 'connect_iframe.html';
+}
+
+function onLoadDone() {
+    onLeave = function() {
+        var elemRemote = document.getElementById('videoMain');
+        var elemLocal = document.getElementById('localVideo');
+
+        if(elemRemote.closeAction) elemRemote.closeAction(elemRemote);
+        if(elemLocal.closeAction) elemLocal.closeAction(elemLocal);
+
+        getConnectIframe().contentWindow.location.reload();
+    }
+
+    onJoinPending = function() {
+    }
+
+    if('%$URLARGUMENTSNAME$%'.length > 0) {
+        urlArgName = '%$URLARGUMENTSNAME$%';
+    }
+
+    if('%$URLARGUMENTSROOM$%'.length > 0) {
+        document.getElementById('roomName').value = '%$URLARGUMENTSROOM$%';
+        urlArgRoom = '%$URLARGUMENTSROOM$%';
+        connectIframe.location = connectIframe.location;
+    }
+}
+
+function getConnectIframe() {
+    return document.getElementById('connect_iframe');
+}
+
+function onAdvanced(button) {
+    var iframe = getConnectIframe();
+
+    if(button.value == '-')
+    {
+        iframe.style.cssText = 'z-index:1; position:static; height:25%; overflow:scroll;';
+        button.value = '+';
+        iframeConnectState.advancedSettings = false;
+    }
+    else
+    {
+        iframe.style.cssText = 'z-index:1; position:fixed; height:200%; overflow:scroll; background-color:white; ';
+        button.value = '-';
+        iframeConnectState.advancedSettings = true;
+    }
+}
+
+// don't add things here, do that in broadcast.js
+</script>
+
+</html>

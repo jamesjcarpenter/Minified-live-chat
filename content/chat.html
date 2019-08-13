@@ -1,0 +1,123 @@
+<html>
+<meta http-equiv="Cache-Control" content="no-store" />
+<script src="js/chatlog.js"></script>
+<script language="javascript">
+var msgfield1;
+var focused = null;
+var iframeRefresh = null;
+var CHATURL = '/content/chat.html';
+var chatRefreshTimestamp = %$CHATLOGTSVALUE$%;
+var maxLines = 128;
+function onload() {
+    var refresh_interval = 5000;
+
+    focused = null;
+
+    msgfield1 = document.getElementById("chatmsg");
+
+    msgfield1.onfocus = function() { setFocus(msgfield1);};
+    msgfield1.onblur = function() { loseFocus(msgfield1);};
+
+    if(window.parent.location.pathname != CHATURL) {
+        // top-level chat iframe
+        iframeRefresh = document.getElementById('chatIFrame');
+
+        setInterval(function () {
+            if(document.getElementById('autorefresh_check').checked)
+            {
+                iframeRefresh.src = 'chat_iframe.html';
+            }
+        }, refresh_interval);
+    }
+
+    var ul = document.getElementById('chatloglist');
+    var lines = jsChatlogLines;
+    while(lines.length > maxLines) lines.shift();
+    appendMessagesToUnorderedList(ul, lines);
+
+    bottomTableRow = document.getElementById("bottomrow");
+    
+    // TODO: move chat entry field outside of table
+    //bottomTableRow.scrollIntoView(false);
+
+    if(window.parent.chatReloaded)
+    {
+        window.parent.chatReloaded();
+    }
+}
+function textRefresh() {
+
+    var textfield1 = document.getElementById("chatlog");
+
+    var text = textfield1.value;
+    var loc = '' + document.location
+    loc = loc.replace('chat.html', 'index_broadcast.html?args=');
+    while(text.indexOf('$SUBSCRIBELINK') >= 0) {
+        text = text.replace('$SUBSCRIBELINK', loc);
+    }
+    textfield1.value = text;
+
+    textfield1.scrollTop = textfield1.scrollHeight;
+
+}
+function setRefresh(b) {
+    var e = document.getElementById('autorefresh_check');
+    e.checked = b;
+}
+function setFocus(e) {
+    setRefresh(false);
+    focused = e;
+}
+function loseFocus(e) {
+    setRefresh(true);
+    if(focused == e) focused = null;
+}
+function sendmsg() {
+    setRefresh(false);
+
+    var myUserName = parent.document.getElementById('userName').value;
+    var d = new Date();
+    var msg = myUserName+':' + msgfield1.value;
+    var find = ' ';
+    var re = new RegExp(find, 'g');
+    //msg = msg.replace(re, '&nbsp;');
+    msg += '\n';
+    msgfield1.value = msg;
+    document.msgform.submit();
+}
+</script>
+<body onload='onload();'>
+<table align='left' style='width:100%;'>
+<tfoot>
+<tr>
+<td style='vertical-align:bottom;'>
+<form method=POST name="msgform" action="/chatmsg">
+<textarea name="msg" id="chatmsg" style='width:100%; height:30px;'></textarea>
+</form>
+</td>
+<td>
+<button style='width:60px; height:30px;' onclick='sendmsg();'>send msg</button>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>
+    <ul id='chatloglist' style='height:75px; overflow:scroll; -webkit-overflow-scrolling:touch; compact; font-family:monospace; font-size:8pt; padding-left:0; list-style:none;'>
+    </ul>
+</td>
+<td>
+<input type='checkbox' id='autorefresh_check' checked>autorefresh</input>
+</td>
+</tr>
+</tbody>
+</table>
+
+<!-- refreshing iframe embed -->
+<input type='text' id='chattimestamp' value='%$CHATLOGTSVALUE$%' style='display: none;'></input>
+<iframe src='content/chat_iframe.html' id='chatIFrame' style='display:none;'>
+</iframe>
+<!-- end refreshing iframe -->
+
+</body>
+</html>

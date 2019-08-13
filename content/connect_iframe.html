@@ -1,0 +1,209 @@
+<html>
+<body onload='connectIFrameOnLoad(this)'>
+<table>
+<tr>
+
+<td>
+<select id='joinMode' name='joinMode' style='display:none;' onchange='onJoinModeChange(this)'>
+  <option value='broadcast'>broadcast</option>
+  <option value='watch'>watch</option>
+</select>
+</td>
+<td>
+<select id='selectUser' name='selectUser' style='display:none;' onchange='onSelectUserChange(this)'>
+</select>
+</td>
+<td>
+<a href='javascript: onOK()'>
+<img id='joinButton' src='/content/img/enter.png' alt='enter' style='width:24px; height:24px;'>
+</a>
+</td>
+<td>
+<a href='javascript: onLeave()'>
+<img id='leaveButton' src='/content/img/exit.png' alt='exit' style='width:24px; height:24px;'>
+</a>
+</td>
+
+</tr>
+</table>
+</body>
+
+<script src='src/js/adapter.js'></script>
+<script src='src/js/lib/ga.js'></script>
+<script src='js/popup.js'></script>
+<script src='js/peers.js'></script>
+<script src='js/peerdynamic.js'></script>
+<script src='js/broadcast.js'></script>
+<script language='javascript'>
+
+function connectIFrameOnLoad(htmlBodyElem)
+{
+  let selectedUserTry = null;
+  let roomTextfield = window.parent.document.getElementById('roomName');
+  var myName = window.parent.document.getElementById('userName').value;
+  let state = window.parent.iframeConnectState;
+
+  console.debug('connectIFrameOnLoad');
+
+  window.parent.connectIframe = window;
+  window.parent.connectIframe.document = window.document;
+
+  if(window.parent.iframeConnectState == null) return;
+    
+  let selectUser = window.document.getElementById('selectUser');
+  let joinButton = window.document.getElementById('joinButton');
+  let leaveButton = window.document.getElementById('leaveButton');
+
+  if(window.parent.iframeConnectState.selectedRoom)
+  {
+    roomTextfield.disabled = true;
+    joinButton.style.cssText = 'display:none;';
+    selectUser.style.cssText = '';
+  }
+  else
+  {
+    roomTextfield.disabled = false;
+    joinButton.style.cssText = '';
+    selectUser.style.cssText = 'display:none';
+  }
+
+  let optionLabel = document.createElement('option');
+  optionLabel.value = 'NULL';
+  optionLabel.text = '<select streamer to watch>';
+  selectUser.options.add(optionLabel);
+
+  let usersNow = [];
+
+  if(state.selectedRoom != null)
+  {
+    for(let p = 0; p < peerList.length; p++)
+    {
+      if(peerList[p]['recvonly'] ||
+         roomTextfield.value != peerList[p]['room'])
+      {
+        continue;
+      }
+
+      var name = peerList[p]['name'];
+
+      usersNow.push(name);
+      if(!selectedUserTry && name != myName)
+      {
+        selectedUserTry = name;
+      }
+
+      let option = document.createElement('option');
+      option.value = name;
+      option.text = name;
+      selectUser.options.add(option);
+    }
+
+    /*
+    if(selectedUserTry && !state.selectedUser && state.usersLast != usersNow)
+    {
+      state.selectedUser = selectedUserTry;
+      onJoin();
+    }
+    */
+
+    state.usersLast = usersNow;
+  }
+
+  state.iframeOnDisconnect = function() {
+    console.debug('state.iframeOnDisconnect()');
+  }
+}
+
+function onJoin() {
+  var parentDoc = window.parent.document;
+  var joinMode = document.getElementById('joinMode');
+  var roomElem = parentDoc.getElementById('roomName');
+  if(!roomElem.value) { alert('enter a room name'); return; }
+
+  window.parent.onLoadMedia().then(function() {
+    if(window.parent.iframeConnectState.selectedRoom)
+    {
+      joinMode.value = 'watch';
+    }
+    else
+    {
+      joinMode.value = 'broadcast';
+      window.parent.iframeConnectState.selectedRoom = roomElem.value;
+    }
+    console.debug('joinMode:' + joinMode.value);
+
+    var vidElem = joinMode.value == 'broadcast' ?
+      parentDoc.getElementById('localVideo') :
+      parentDoc.getElementById('videoMain');
+
+    if(vidElem.closeAction) {
+      vidElem.closeAction();
+    }
+
+    window.parent.iframeConnectState.onConnectVideo = window.parent.joinIframeOnLoadBroadcast;
+    window.parent.iframeConnectState.joinMode = joinMode.value;
+
+    connectVideoIframe(vidElem, 
+      window.parent.iframeConnectState.onConnectVideo,
+      vidElem.value);
+  }).catch(function(e) {
+
+    var roomElem = parentDoc.getElementById('roomName');
+    var vidElem = parentDoc.getElementById('videoMain');
+
+    console.debug('failed to get local video-source');
+    window.parent.iframeConnectState.selectedRoom = roomElem.value;
+
+    if(vidElem.closeAction) {
+      vidElem.closeAction();
+    }
+
+    window.parent.iframeConnectState.onConnectVideo = window.parent.joinIframeOnLoadBroadcast;
+    window.parent.iframeConnectState.joinMode = 'watch';
+    if(window.parent.iframeConnectState.selectedUser) {
+      connectVideoIframe(vidElem, window.parent.iframeConnectState.onConnectVideo,vidElem.value);
+    }
+    else {
+      window.location = window.location;
+    }
+  });
+}
+
+function onOK() {
+  onJoin();
+}
+
+function onLeave()
+{
+  window.parent.iframeConnectState.selectedRoom = null;
+  window.parent.iframeConnectState.selectedUser = null;
+  window.parent.iframeConnectState.awaiting = null;
+  window.parent.onLeave();
+  window.location.reload();
+}
+
+function onSelectUserChange(elem)
+{
+  var elemOption = elem.options[elem.selectedIndex];
+
+  window.parent.iframeConnectState.selectedUser = elem.value;
+
+  if(elemOption.value != 'NULL')
+  {
+    onOK();
+  }
+}
+
+function onJoinModeChange(elem)
+{
+  var selectUser = document.getElementById('selectUser');
+  selectUser.style.cssText = 'display:none;';
+  if(elem.value == 'watch')
+  {
+    selectUser.style.cssText = '';
+  }
+}
+</script>
+
+</html>
+
