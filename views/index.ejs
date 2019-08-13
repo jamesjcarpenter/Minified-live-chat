@@ -152,6 +152,7 @@ $(document).ready(function() {
   </script>
 </head>
 <body>
+
   <div class="ui rail internal right"id="copywrapper">
   <div class="ui action input" id="inputwrapper">
   <input type="text" value='<%- JSON.stringify(url)%>'>
@@ -377,19 +378,13 @@ class="four wide column">
 </div>
             <!-- Local Camera -->
           
-            <div class="form-group row">
-                <label for="janusRoomMemberId" class="col-sm-4 col-form-label col-form-label-sm">Room Bitrate:</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control form-control-sm" id="bitrate">
-                </div>
-            </div>
-            <button id="bitrate-button" class="btn btn-primary btn-sm btn-block">Set Room Bitrate</button>
+        
 
           <!-- Chat Room Messages -->
   <!-- TEMPLATES -->
   <!-- Remote Video Template -->
   
-    <a id="start" target="_blank" class="btn btn-primary btn-sm btn-block">Open listener</a>
+
   
   
   <div class="ui right internal rail"style="margin:0 auto;margin-right:4.25em;margin-top:7em;margin-bottom:0em;bottom:0;position:fixed;min-width:20vw;max-width:20vw;right:0;top:0;">
@@ -403,11 +398,9 @@ class="four wide column">
       </div><div class="win-size-grip"></div>
     <input class="ui button grey" type="button" id="datasend" value="send">
     </div>
-    
-    
 </div><script src='https://meet.jit.si/external_api.js'></script>
   <!-- Scripts -->
-  <script>  var socket = io.connect('https://anomic.io:443');
+  <script>  var socket = io.connect('https://anomic.io/8089');
 
     // on connection to server, ask for user's name with an anonymous callback
   socket.on('connect', function(){
@@ -447,6 +440,7 @@ class="four wide column">
   <script src="js/app.js"></script>
   <script src="./janus.js"></script>
   <script src="js/videoroomtest.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   </div>
   </div>
 </body>

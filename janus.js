@@ -450,7 +450,7 @@ function Janus(gatewayCallbacks) {
 		gatewayCallbacks.error("Invalid server url");
 		return {};
 	}
-	var websockets = true;
+	var websockets = false;
 	var ws = null;
 	var wsHandlers = {};
 	var wsKeepaliveTimeoutId = null;
