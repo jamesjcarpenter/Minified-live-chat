@@ -123,7 +123,7 @@ videoRoomHandle.create({
    record: false
 }).then((result)=>{
     var roomId = result.room;
-    ...
+    ..
 });
 
 session.videoRoom().publishFeed(room, offerSdp).then((publisherHandle)=>{
