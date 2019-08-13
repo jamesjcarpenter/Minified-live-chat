@@ -377,13 +377,19 @@ class="four wide column">
 </div>
             <!-- Local Camera -->
           
-        
+            <div class="form-group row">
+                <label for="janusRoomMemberId" class="col-sm-4 col-form-label col-form-label-sm">Room Bitrate:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control form-control-sm" id="bitrate">
+                </div>
+            </div>
+            <button id="bitrate-button" class="btn btn-primary btn-sm btn-block">Set Room Bitrate</button>
 
           <!-- Chat Room Messages -->
   <!-- TEMPLATES -->
   <!-- Remote Video Template -->
   
-
+    <a id="start" target="_blank" class="btn btn-primary btn-sm btn-block">Open listener</a>
   
   
   <div class="ui right internal rail"style="margin:0 auto;margin-right:4.25em;margin-top:7em;margin-bottom:0em;bottom:0;position:fixed;min-width:20vw;max-width:20vw;right:0;top:0;">
@@ -397,25 +403,7 @@ class="four wide column">
       </div><div class="win-size-grip"></div>
     <input class="ui button grey" type="button" id="datasend" value="send">
     </div>
-    <div class="form-group row">
-        <label for="janusRoomId" class="col-sm-4 col-form-label col-form-label-sm">janusRoomId:</label>
-        <div class="col-sm-8">
-            <input type="text" disabled class="form-control form-control-sm" id="janusRoomId">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="janusRoomPrivateMemberId" class="col-sm-4 col-form-label col-form-label-sm">janusRoomPrivateMemberId:</label>
-        <div class="col-sm-8">
-            <input type="text" disabled class="form-control form-control-sm" id="janusRoomPrivateMemberId">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="janusRoomMemberId" class="col-sm-4 col-form-label col-form-label-sm">janusRoomMemberId:</label>
-        <div class="col-sm-8">
-            <input type="text" disabled class="form-control form-control-sm" id="janusRoomMemberId">
-        </div>
-    </div>
-    <a id="start" target="_blank" class="btn btn-primary btn-sm btn-block">Open listener</a>
+    
     
 </div><script src='https://meet.jit.si/external_api.js'></script>
   <!-- Scripts -->
