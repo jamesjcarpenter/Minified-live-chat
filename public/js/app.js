@@ -105,8 +105,7 @@ socket.on('connect', function(data) {
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
-      socket.broadcast.emit('sendchat', message);
-      socket.emit('sendchat', message);
+      io.emit('sendchat', message);
     });
 
     // when the client hits ENTER on their keyboard
