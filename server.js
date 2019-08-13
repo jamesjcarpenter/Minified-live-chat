@@ -217,7 +217,7 @@ io.sockets.on('connection', function (socket) {
 		// send client to room 1
 		socket.join('r9k');
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'connected to r9k');
+		io.emit('updatechat', 'SERVER', 'connected to r9k');
 		// echo to room 1 that a person has connected to their room
 		socket.broadcast.to('r9k').emit('updatechat', 'SERVER', user.name + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'r9k');

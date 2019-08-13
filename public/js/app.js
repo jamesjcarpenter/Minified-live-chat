@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
   localVideoEl.hide();
 
   // toggle sidebar
-var socket = io.connect('anomic.io/');
+var socket = io.connect('anomic.io/:443');
 
   // Add validation rules to Create/Join Room Form
 
@@ -105,7 +105,7 @@ var socket = io.connect('anomic.io/');
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
-      socket.emit('sendchat', message);
+      socket.broadcast.emit('sendchat', message);
     });
 
     // when the client hits ENTER on their keyboard
