@@ -4,17 +4,17 @@ var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
-var server = "/janus" + https.createServer({
-cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
-ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
-key: fs.readFileSync('./config/ssli/private.key'),
-requestCert: false,
-rejectUnauthorized: false,
-},app);
-server.listen(443);
+var server = "/janus"; //+ https.createServer({
+//cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
+//ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
+//key: fs.readFileSync('./config/ssli/private.key'),
+//requestCert: false,
+//rejectUnauthorized: false,
+//},app);
+//server.listen(443);
 
 //make sure you keep this order
-var io = require('socket.io').listen(server);
+//var io = require('socket.io').listen(server);
 
 //... 
 
@@ -42,7 +42,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 //set cookie lifetime
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
-  PORT = 443,
+//  PORT = 443,
   NODE_ENV = 'development',
   
   SESS_NAME = 'sid',
@@ -62,7 +62,7 @@ app.use(session({
     maxAge: SESS_LIFETIME,
     httpOnly: true,
     sameSite: true,
-    secure: false,
+    secure: true,
   }
 }))
 
@@ -205,55 +205,55 @@ app.use(function(req, res, next) {
   next();
 });
 //chat
-var usernames = {};
-var rooms = require("./models/roomschema");
-io.sockets.on('connection', function (socket) {
+//var usernames = {};
+//var rooms = require("./models/roomschema");
+//io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
-	socket.on('adduser', function(req, res){
+	//socket.on('adduser', function(req, res){
 		// store the username in the socket session for this client
 		// store the room name in the socket session for this client
-		socket.room = 'r9k';
+		//socket.room = 'r9k';
 		// send client to room 1
-		socket.join('r9k');
+		//socket.join('r9k');
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'connected to r9k');
+		//socket.emit('updatechat', 'SERVER', 'connected to r9k');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to('r9k').emit('updatechat', 'SERVER', user.name + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'r9k');
-	});
+	//	socket.broadcast.to('r9k').emit('updatechat', 'SERVER', user.name + ' has connected to this room');
+		//socket.emit('updaterooms', rooms, 'r9k');
+	//});
 
 	// when the client emits 'sendchat', this listens and executes
-	socket.on('sendchat', function (data) {
+//	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		io.sockets.in(socket.room).emit('updatechat', user.name, data);
-	});
+		//io.sockets.in(socket.room).emit('updatechat', user.name, data);
+	//});
 
-	socket.on('switchRoom', function(newroom){
+//	socket.on('switchRoom', function(newroom){
 		// leave the current room (stored in session)
-		socket.leave(socket.room);
+	//	socket.leave(socket.room);
 		// join new room, received as function parameter
-		socket.join(newroom);
-		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
+		//socket.join(newroom);
+		//socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
 		// sent message to OLD room
-		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', user.name + ' has left this room');
+	//	socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', user.name + ' has left this room');
 		// update socket session room title
-		socket.room = newroom;
-		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', user.name + ' has joined this room');
-		socket.emit('updaterooms', rooms, newroom);
-	});
+		//socket.room = newroom;
+		//socket.broadcast.to(newroom).emit('updatechat', 'SERVER', user.name + ' has joined this room');
+		//socket.emit('updaterooms', rooms, newroom);
+	//});
 
 	// when the user disconnects.. perform this
-	socket.on('disconnect', function(){
+//	socket.on('disconnect', function(){
 		// remove the username from global usernames list
-		delete usernames[user.name];
+	//	delete usernames[user.name];
 		// update list of users in chat, client-side
-		io.sockets.emit('updateusers', usernames);
+	//	io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
-		socket.broadcast.emit('updatechat', user.name + ' has disconnected');
-		socket.leave(socket.room);
-	});
-});
+//		socket.broadcast.emit('updatechat', user.name + ' has disconnected');
+//		socket.leave(socket.room);
+//	});
+//});
 
 
 // Provide access to node_modules folder
