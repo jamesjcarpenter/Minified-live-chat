@@ -66,7 +66,7 @@ var socket = io.connect('anomic.io/:443');
     });
 
     function switchRoom(room){
-      socket.emit('switchRoom', room);
+      socket.broadcast.emit('switchRoom', room);
     }
 
   socket.on('onlineStack',function(stack){
@@ -105,6 +105,7 @@ var socket = io.connect('anomic.io/:443');
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
+      socket.broadcast.emit('sendchat', message);
       socket.emit('sendchat', message);
     });
 
