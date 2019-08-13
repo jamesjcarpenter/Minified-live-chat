@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
   localVideoEl.hide();
 
   // toggle sidebar
-var socket = io.connect('anomic.io/:443');
+var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
 
