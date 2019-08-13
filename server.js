@@ -232,7 +232,7 @@ io.sockets.on('connection', function (socket) {
       socket.on('pong', function(data){
           console.log("Pong received from client");
       });
-  }
+  })
   
   setTimeout(sendHeartbeat, 8000);
 
