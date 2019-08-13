@@ -33,10 +33,10 @@
 // means of access (e.g., try WebSockets first and, if that fails, fall
 // back to plain HTTP) or just have failover servers:
 //
-//		var server = [
-//			"ws://" + window.location.hostname + ":8188",
-//			"/janus"
-//		];
+		var server = [
+			"ws://" + window.location.hostname + ":8188",
+			"/janus"
+		];
 //
 // This will tell the library to try connecting to each of the servers
 // in the presented order. The first working server will be used for
