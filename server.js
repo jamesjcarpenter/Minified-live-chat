@@ -3,6 +3,7 @@ var https = require('https');
 var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
+var JanusClient = require('janus-videoroom-client').Janus;
 const port = 443;
 var server = https.createServer({
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
@@ -84,7 +85,64 @@ var corsOptions = {
 }
 
 
+
 app.use(express.urlencoded({ extended: false }));
+
+
+var client = new JanusClient({
+    url: 'anomic.io/rooms/'
+});
+
+
+client.onConnected(()=>{
+    client.createSession().then((session)=>{
+        ...
+    }).catch((err)=>{
+        ...
+    })
+});
+
+
+client.onDisconnected(()=>{
+    
+});
+
+
+client.onError((err)=>{
+    
+});
+
+
+videoRoomHandle.create({
+   publishers: 3,
+   is_private: 'no',
+   secret: '****',
+   pin: '****',
+   audiocodec: 'opus',
+   videocodec: 'vp8',
+   record: false
+}).then((result)=>{
+    var roomId = result.room;
+    ...
+});
+
+session.videoRoom().publishFeed(room, offerSdp).then((publisherHandle)=>{
+    var answerSdp = publisherHandle.getAnswer();
+    ...
+});
+
+publisherHandle.trickle(candidate).then(()=>{
+    ...
+});
+
+session.videoRoom().listenFeed(room, feed).then((listenerHandle)=>{
+    var offerSdp = listenerHandle.getOffer();
+    ...
+});
+
+listenerHandle.trickle(candidate).then(()=>{
+    ...
+});
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
