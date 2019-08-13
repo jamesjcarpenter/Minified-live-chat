@@ -22,11 +22,7 @@
 	OTHER DEALINGS IN THE SOFTWARE.
  */
 
- var janus = new Janus(
-         {
-                 server: 'https://anomic.io:8088/janus',
-                                
-});
+
 
 // List of sessions
 Janus.sessions = {};
@@ -454,7 +450,7 @@ function Janus(gatewayCallbacks) {
 		gatewayCallbacks.error("Invalid server url");
 		return {};
 	}
-	var websockets = false;
+	var websockets = true;
 	var ws = null;
 	var wsHandlers = {};
 	var wsKeepaliveTimeoutId = null;
