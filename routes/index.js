@@ -71,3 +71,4 @@ module.exports = {
   JanusAdminConfig,
   JanusRoomConfig
 }
+module.exports = router;
