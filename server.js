@@ -88,9 +88,6 @@ var corsOptions = {
 app.use(express.urlencoded({ extended: false }));
 
 
-var client = new JanusClient({
-    url: 'anomic.io/rooms/'
-});
 
 
 
