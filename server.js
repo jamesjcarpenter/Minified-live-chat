@@ -223,6 +223,19 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('updaterooms', rooms, 'r9k');
 	});
 
+  function sendHeartbeat(){
+      setTimeout(sendHeartbeat, 8000);
+      io.sockets.emit('ping', { beat : 1 });
+  }
+  
+  io.sockets.on('connection', function (socket) {
+      socket.on('pong', function(data){
+          console.log("Pong received from client");
+      });
+  }
+  
+  setTimeout(sendHeartbeat, 8000);
+
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
