@@ -4,7 +4,7 @@ var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
-var server = https.createServer({
+var server = "/janus" + https.createServer({
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
