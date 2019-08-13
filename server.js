@@ -3,7 +3,6 @@ var https = require('https');
 var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
-var JanusClient = require('janus-videoroom-client').Janus;
 const port = 443;
 var server = https.createServer({
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
