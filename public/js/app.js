@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
   localVideoEl.hide();
 
   // toggle sidebar
-var socket = io.connect('anomic.io/');
+var socket = io.connect('https://anomic.io/:443');
 
   // Add validation rules to Create/Join Room Form
 
@@ -162,9 +162,6 @@ var socket = io.connect('anomic.io/');
 //  };
 
   // Register new Chat Room
-
-
-
 
 
   // Join existing Chat Room

@@ -22,8 +22,6 @@
 	OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
-
 // List of sessions
 Janus.sessions = {};
 
@@ -450,7 +448,7 @@ function Janus(gatewayCallbacks) {
 		gatewayCallbacks.error("Invalid server url");
 		return {};
 	}
-	var websockets = true;
+	var websockets = false;
 	var ws = null;
 	var wsHandlers = {};
 	var wsKeepaliveTimeoutId = null;
