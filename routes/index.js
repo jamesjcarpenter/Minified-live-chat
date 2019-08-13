@@ -48,7 +48,7 @@ router.post('/logout', (req, res) => {
   })
 })
 
-const Janus = require('janus.js')
+const Janus = require('../janus.js')
 const JanusAdmin = require('../src/JanusAdmin')
 const JanusPlugin = require('../src/JanusPlugin')
 const EchoJanusPlugin = require('../src/plugin/EchoJanusPlugin')
