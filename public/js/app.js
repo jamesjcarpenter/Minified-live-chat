@@ -99,7 +99,7 @@ var socket = io.connect('anomic.io/');
 
 
   // on load of page
-  $(function(){
+socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();
