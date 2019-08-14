@@ -4,17 +4,17 @@ var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
-var options = { cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
+var server = https.createServer({
+cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
-rejectUnauthorized: false, }
-var server = "janus"
+rejectUnauthorized: false,
+},app);
+server.listen(443);
 
 //make sure you keep this order
-var io = require('socket.io');
-
-app.listen(server, options);
+var io = require('socket.io').listen(server);
 
 //... 
 
