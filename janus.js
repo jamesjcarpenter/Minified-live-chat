@@ -25,7 +25,7 @@
 // List of sessions
 Janus.sessions = {};
 
-var server = "wss://" + window.location.hostname + ":8088/janus";
+var server = "https://" + window.location.hostname + ":8088/janus";
 
 Janus.isExtensionEnabled = function() {
 	if(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
