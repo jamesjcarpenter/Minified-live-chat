@@ -20,7 +20,7 @@
 // If you want to use the WebSockets frontend to Janus, instead, you'll
 // have to pass a different kind of address, e.g.:
 //
-// 		var server = "ws://" + window.location.hostname + ":8188";
+		var server = "ws://" + window.location.hostname + ":8188";
 //
 // Of course this assumes that support for WebSockets has been built in
 // when compiling the server. WebSockets support has not been tested
@@ -33,20 +33,20 @@
 // means of access (e.g., try WebSockets first and, if that fails, fall
 // back to plain HTTP) or just have failover servers:
 //
-		var server = [
-			"ws://" + window.location.hostname + ":8188",
-			"/janus"
-		];
+//		var server = [
+//			"ws://" + window.location.hostname + ":8188",
+//			"/janus"
+//		];
 //
 // This will tell the library to try connecting to each of the servers
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-var server = null;
-if(window.location.protocol === 'http:')
-	server = "http://" + window.location.hostname + ":8088/janus";
-else
-	server = "https://" + window.location.hostname + ":8089/janus";
+//var server = null;
+//if(window.location.protocol === 'http:')
+	//server = "http://" + window.location.hostname + ":8088/janus";
+//else
+	//server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var sfutest = null;
