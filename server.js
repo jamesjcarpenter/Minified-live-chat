@@ -4,7 +4,7 @@ var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
-var server = "anomic.io/janus:8088";
+var server = "/janus:8088";
 
 //make sure you keep this order
 
