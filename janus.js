@@ -25,8 +25,6 @@
 // List of sessions
 Janus.sessions = {};
 
-var server = "https://anomic.io:8088/janus";
-
 Janus.isExtensionEnabled = function() {
 	if(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
 		// No need for the extension, getDisplayMedia is supported
