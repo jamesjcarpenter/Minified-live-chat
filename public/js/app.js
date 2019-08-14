@@ -123,16 +123,16 @@ socket.on('connect', function(data) {
   });
   });
   // create an array to hold all the usernames of the poeple in a specific room
-  var roomusers = [];
+//  var roomusers = [];
   // get all the clients in ‘room1′
-  var clients = io.sockets.adapter.rooms['r9k'];
-  clients.length;
+//  var clients = io.sockets.adapter.rooms['r9k'];
+//  clients.length;
   // loop through clients in ‘room1′ and add their usernames to the roomusers array
-  for(var i = 0; i < clients.length; i++) {
-  roomusers[roomusers.length] = clients[i].username;
-  }
+//  for(var i = 0; i < clients.length; i++) {
+//  roomusers[roomusers.length] = clients[i].username;
+//  }
   // broadcast to everyone in room 1 the usernames of the clients connected.
-  io.sockets.to('r9k').emit('updateroomusers', roomusers);
+//  io.sockets.to('r9k').emit('updateroomusers', roomusers);
   
   //index.html code
 
