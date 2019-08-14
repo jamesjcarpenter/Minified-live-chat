@@ -20,7 +20,7 @@
 // If you want to use the WebSockets frontend to Janus, instead, you'll
 // have to pass a different kind of address, e.g.:
 //
-		var server = "https://10.0.0.1:8088/janus";
+		var server = "https://127.0.0.1:8088/janus";
 //
 // Of course this assumes that support for WebSockets has been built in
 // when compiling the server. WebSockets support has not been tested
