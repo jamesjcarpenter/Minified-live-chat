@@ -7,7 +7,7 @@ const port = 443;
 var server = "janus";
 
 //make sure you keep this order
-var io = require('socket.io').listen(port);
+var io = require('socket.io').listen(server);
 
 //... 
 
