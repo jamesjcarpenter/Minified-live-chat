@@ -119,7 +119,9 @@ $(document).ready(function() {
 												color: '#aaa',
 												top: '10px',
 												left: (navigator.mozGetUserMedia ? '-100px' : '300px')
-											} });
+											} 
+										$.unblockUI();
+										});
 									} else {
 										// Restore screen
 										$.unblockUI();
