@@ -2,7 +2,7 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express')
 var app = express();
-var server = "/opt/janus";
+var server = "/janus:8088";
 
 //make sure you keep this order
 
