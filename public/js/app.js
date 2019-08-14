@@ -1,15 +1,7 @@
 window.addEventListener('load', () => {
   // Chat platform
   // Local Video
-  
-  const localImageEl = $('#local-image');
-  const localVideoEl = $('#local-video');
 
-  // Remote Videos
-  const remoteVideosEl = $('#remote-videos');
-  let remoteVideosCount = 0;
-  // Hide cameras until they are initialized
-  localVideoEl.hide();
 
   // toggle sidebar
 var socket = io.connect('anomic.io/');
