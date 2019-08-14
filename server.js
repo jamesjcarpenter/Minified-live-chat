@@ -12,7 +12,9 @@ rejectUnauthorized: false, }
 var server = "janus"
 
 //make sure you keep this order
-var io = require('socket.io').listen(server, options);
+var io = require('socket.io');
+
+app.listen(server, options);
 
 //... 
 
