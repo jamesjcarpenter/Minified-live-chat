@@ -9,8 +9,8 @@ ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false }
-var server = "/janus"
-server.listen(443);
+var server = "/janus";
+server.listen(port);
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
