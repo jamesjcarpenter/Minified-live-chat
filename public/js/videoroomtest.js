@@ -111,7 +111,7 @@ $(document).ready(function() {
 									if(on) {
 										// Darken screen and show hint
 										$.blockUI({
-											message: '<div><img src="up_arrow.png"/></div>',
+											message: '<div><img src="images/up_arrow.png"/></div>',
 											css: {
 												border: 'none',
 												padding: '15px',
