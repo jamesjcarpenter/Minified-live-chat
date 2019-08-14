@@ -5,7 +5,6 @@ var app = express();
 const hostname = 'anomic.io';
 const port = 443;
 var server = "/janus";
-server.listen(80);
 
 //make sure you keep this order
 
