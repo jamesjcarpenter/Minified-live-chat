@@ -2,7 +2,7 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express')
 var app = express();
-var server = "anomic.io:8088/janus";
+var server = "anomic.io/janus";
 
 //make sure you keep this order
 
