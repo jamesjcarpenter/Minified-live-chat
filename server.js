@@ -4,7 +4,7 @@ var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
-var server = "janus";
+var server = "/janus";
 
 //make sure you keep this order
 var io = require('socket.io').listen(https);
