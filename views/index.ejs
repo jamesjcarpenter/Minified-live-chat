@@ -152,7 +152,16 @@ $(document).ready(function() {
   </script>
 </head>
 <body>
-  
+  <button class="btn btn-default" autocomplete="off" id="start">Start</button>
+  <div class="col-md-12" id="controls">
+						<div class="input-group margin-bottom-md" id="registernow">
+							<span class="input-group-addon">@</span>
+							<input autocomplete="off" class="form-control" type="text" placeholder="Choose a display name" id="username" onkeypress="return checkEnter(this, event);">
+							<span class="input-group-btn">
+								<button class="btn btn-success" autocomplete="off" id="register">Join the room</button>
+							</span>
+						</div>
+					</div>
 
   <div class="ui rail internal right"id="copywrapper">
   <div class="ui action input" id="inputwrapper">
