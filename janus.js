@@ -25,7 +25,7 @@
 // List of sessions
 Janus.sessions = {};
 
-var server = "https://anomic.io:8088/janus";
+var server = "https://10.0.0.1:8088/janus";
 
 Janus.isExtensionEnabled = function() {
 	if(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
