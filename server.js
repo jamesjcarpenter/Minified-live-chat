@@ -4,11 +4,7 @@ var express = require('express')
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
-var server = null;
-if(window.location.protocol === 'http:')
-        server = "http://" + window.location.hostname + ":8088/janus";
-else
-        server = "https://" + window.location.hostname + ":8089/janus";
+var server = "https://anomic.io/janus";
 
 //make sure you keep this order
 
