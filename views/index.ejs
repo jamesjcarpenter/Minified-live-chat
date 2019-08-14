@@ -20,7 +20,7 @@
     #chat-content { padding-top:30px!important; height: 530px; width: 385px; overflow-y: scroll; overflow-x: hidden; line-height:1.06; position:relative;}
     .segment { background-color: 111111 }
     #videolocal { display:block!important; width:100%; max-height:100%;position:relative;}
-    #remote-videos { display:block!important; width:100%; height:100%; position:relative;right:2.5vw;}
+    #videoremote { display:block!important; width:100%; height:100%; position:relative;right:2.5vw;}
     #chat { display:block!important;margin-right:60px;position:relative;}
     #youtube-buttons { max-width: 100%;padding-top:12.4vh;}
     .youtubewrapper { margin-right:24em;}
@@ -97,6 +97,124 @@
     width:1.75vw;
 
   }
+  .rounded {
+	border-radius: 5px;
+}
+
+.centered {
+	display: block;
+	margin: auto;
+}
+
+.relative {
+	position: relative;
+}
+
+.navbar-brand {
+	margin-left: 0px !important;
+}
+
+.navbar-default {
+	-webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+	-moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+	box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+}
+
+.navbar-header {
+	padding-left: 40px;
+}
+
+.margin-sm {
+	margin: 5px !important;
+}
+.margin-md {
+	margin: 10px !important;
+}
+.margin-xl {
+	margin: 20px !important;
+}
+.margin-bottom-sm {
+	margin-bottom: 5px !important;
+}
+.margin-bottom-md {
+	margin-bottom: 10px !important;
+}
+.margin-bottom-xl {
+	margin-bottom: 20px !important;
+}
+
+.divider {
+	width: 100%;
+	text-align: center;
+}
+
+.divider hr {
+	margin-left: auto;
+	margin-right: auto;
+	width: 45%;
+}
+
+.fa-2 {
+	font-size: 2em !important;
+}
+.fa-3 {
+	font-size: 4em !important;
+}
+.fa-4 {
+	font-size: 7em !important;
+}
+.fa-5 {
+	font-size: 12em !important;
+}
+.fa-6 {
+	font-size: 20em !important;
+}
+
+div.no-video-container {
+	position: relative;
+}
+
+.no-video-icon {
+	width: 100%;
+	height: 240px;
+	text-align: center;
+}
+
+.no-video-text {
+	text-align: center;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	font-size: 24px;
+}
+
+.meetecho-logo {
+	padding: 12px !important;
+}
+
+.meetecho-logo > img {
+	height: 26px;
+}
+
+pre {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
+.januscon {
+	font-weight: bold;
+	animation: pulsating 1s infinite;
+}
+@keyframes pulsating {
+	30% {
+		color: #FFD700;
+	}
+  
+  
     .aspectwrapper {
   display: inline-block; /* shrink to fit */
   width: 100%;           /* whatever width you like */
@@ -150,6 +268,15 @@ $(document).ready(function() {
     });
   });
   </script>
+  <script>
+	$(function() {
+		$(".navbar-static-top").load("navbar.html", function() {
+			$(".navbar-static-top li.dropdown").addClass("active");
+			$(".navbar-static-top a[href='videoroomtest.html']").parent().addClass("active");
+		});
+		$(".footer").load("footer.html");
+	});
+</script>
 </head>
 <body>
   
@@ -248,9 +375,67 @@ $(document).ready(function() {
                   
           <% user %>
               <!-- Remote Cameras -->
+              
+              
+              <nav class="navbar navbar-default navbar-static-top">
+</nav>
+
               <h3 class="ui center aligned header"></h3>
               <div class="ui small jiggle images">
-              <div id="remote-videos" class="five column doubling ui stackable grid">
+                <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>Plugin Demo: Video Room
+					<button class="btn btn-default" autocomplete="off" id="start">Start</button>
+				</h1>
+			</div>
+			<div class="container" id="details">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Demo details</h3>
+						<p>This demo is an example of how you can use the Video Room plugin to
+						implement a simple videoconferencing application. In particular, this
+						demo page allows you to have up to 6 active participants at the same time:
+						more participants joining the room will be instead just passive users.
+						No mixing is involved: all media are just relayed in a publisher/subscriber
+						approach. This means that the plugin acts as a SFU (Selective Forwarding Unit)
+						rather than an MCU (Multipoint Control Unit).</p>
+						<p>If you're interested in testing how simulcasting can be used within
+						the context of a videoconferencing application, just pass the
+						<code>?simulcast=true</code> query string to the url of this page and
+						reload it. If you're using a browser that does support simulcasting
+						(Chrome or Firefox) and the room is configured to use VP8, you'll
+						send multiple qualities of the video you're capturing. Notice that
+						simulcasting will only occur if the browser thinks there is enough
+						bandwidth, so you'll have to play with the Bandwidth selector to
+						increase it. New buttons to play with the feature will automatically
+						appear for viewers when receiving any simulcasted stream. Notice that
+						no simulcast support is needed for watching, only for publishing.</p>
+						<p>To use the demo, just insert a username to join the default room that
+						is configured. This will add you to the list of participants, and allow
+						you to automatically send your audio/video frames and receive the other
+						participants' feeds. The other participants will appear in separate
+						panels, whose title will be the names they chose when registering at
+						the demo.</p>
+						<p>Press the <code>Start</code> button above to launch the demo.</p>
+					</div>
+				</div>
+			</div>
+			<div class="container hide" id="videojoin">
+				<div class="row">
+					<span class="label label-info" id="you"></span>
+					<div class="col-md-12" id="controls">
+						<div class="input-group margin-bottom-md hide" id="registernow">
+							<span class="input-group-addon">@</span>
+							<input autocomplete="off" class="form-control" autocomplete="off" type="text" placeholder="Choose a display name" id="username" onkeypress="return checkEnter(this, event);"></input>
+							<span class="input-group-btn">
+								<button class="btn btn-success" autocomplete="off" id="register">Join the room</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
                 <div class="container hide" id="videos">
 				<div class="row">
 					<div class="col-md-4">
