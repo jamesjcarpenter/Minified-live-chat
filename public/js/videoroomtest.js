@@ -110,7 +110,7 @@ $(document).ready(function() {
 									Janus.debug("Consent dialog should be " + (on ? "on" : "off") + " now");
 									if(on) {
 										// Darken screen and show hint
-										$.blockUI({
+										$.unblockUI({
 											message: '<div><img src="images/up_arrow.png"/></div>',
 											css: {
 												border: 'none',
@@ -120,7 +120,6 @@ $(document).ready(function() {
 												top: '10px',
 												left: (navigator.mozGetUserMedia ? '-100px' : '300px')
 											} 
-										$.unblockUI();
 										});
 									} else {
 										// Restore screen
