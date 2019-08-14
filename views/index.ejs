@@ -250,6 +250,11 @@ pre {
 	font-weight: bold;
 	animation: pulsating 1s infinite;
 }
+.blockUI.blockOverlay {
+  cursor:pointer!important;
+  width:200px!important;
+  height:100px!important!;
+}
 @keyframes pulsating {
 	30% {
 		color: #FFD700;
@@ -575,9 +580,6 @@ pre {
     $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + <%- JSON.stringify(user.name) %> + '' + '</tag>' + '<samp><em>' + <%- JSON.stringify(new Date(Date.now()).toLocaleTimeString()) %> + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui teal medium left pointing label"id="message">' + '</span><p><span class="ui medium white text">' + data + '</div></p></span></div></div>' + '</h6></div></div>');
   });
 </script>
-  <script>socket.on('ping', function(data){
-    socket.emit('pong', {beat: 1});
-});</script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
   <script src="https://www.webrtc-experiment.com/Canvas-Designer/canvas-designer-widget.js"></script>
   <script id="chat-content-template" type="text/x-handlebars-template"></script>
