@@ -174,13 +174,13 @@ socket.on('connect', function(data) {
 //  };
 
   // Receive message from remote user
-    webrtc.connection.on('message', (data) => {
-    if (data.type === 'chat') {
-      const message = data.payload;
-      messages.push(message);
-      updateChatMessages();
-   }
-  });
+//    webrtc.connection.on('message', (data) => {
+//    if (data.type === 'chat') {
+//      const message = data.payload;
+//      messages.push(message);
+//      updateChatMessages();
+//   }
+//  });
 
   // Room Submit Button Handler
 
