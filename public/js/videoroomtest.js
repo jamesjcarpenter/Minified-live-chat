@@ -397,7 +397,7 @@ function registerUsername() {
 function publishOwnFeed(useAudio) {
 	// Publish our stream
 	$('#publish').attr('disabled', true).unbind('click');
-	$('#publish').removeAttr('disabled').html("Stop broadcast")
+	$('#unpublish').removeAttr('disabled').html("Stop broadcast")
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
