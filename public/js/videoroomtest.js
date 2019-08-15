@@ -70,10 +70,7 @@ $(document).ready(function() {
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
 		$('#start').one('click', function() {
-			.click(function() {
-				$(this).attr('disabled', true).unbind('click');
-				$('#start').remove();
-			}
+			$(this).attr('disabled', true).unbind('click');
 			// Make sure the browser supports WebRTC
 			if(!Janus.isWebrtcSupported()) {
 				bootbox.alert("No WebRTC support... ");
@@ -100,6 +97,7 @@ $(document).ready(function() {
 									$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
+											$('#start').remove();
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
