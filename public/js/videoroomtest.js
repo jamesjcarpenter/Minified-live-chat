@@ -92,7 +92,6 @@ $(document).ready(function() {
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
-									$('#videojoin').removeClass('hide').show();
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#username').focus();
@@ -330,7 +329,7 @@ $(document).ready(function() {
 									Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
 									mystream = null;
 									$('#videolocal').html('<div></div>');
-									$('#publish').click(function() { publishOwnFeed(true); });
+									$('#publish').click(function() { publishOwnFeed(true); $('#videojoin').removeClass('hide').show();});
 									$("#videolocal").parent().parent().unblock();
 									$('#bitrate').parent().parent().addClass('hide');
 									$('#bitrate a').unbind('click');
