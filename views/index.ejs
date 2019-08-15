@@ -364,34 +364,35 @@ pre {
               <div id="remote-videos" class="five column doubling ui stackable grid">
 
 <div class="wrapui">
+<div id="mynav"><header class="navbar navbar-static-top">
 <div class="container">
-	<div class="row">
+	<div class="ui row">
 		<div class="col-md-12">
 			<div class="page-header">
 			</div>
 			<div class="container" id="details">
-				<div class="row">
+				<div class="ui row">
 					<div class="col-md-12">
 					</div>
 				</div>
 			</div>
       
       
-			<div class="container" id="videojoin">
+			<div class="ui container" id="videojoin">
 				<div class="row">
-					<span class="label label-info" id="you"></span>
+					<span class="ui label label-info" id="you"></span>
 					<div class="col-md-12" id="controls">
-						<div class="input-group margin-bottom-md" id="registernow">
-							<span class="input-group-addon">@</span>
-							<input autocomplete="off" class="form-control" autocomplete="off" type="text" placeholder="Choose a display name" id="username" onkeypress="return checkEnter(this, event);"></input>
-							<span class="input-group-btn">
-							<button class="btn btn-success" autocomplete="off" id="register"><div id="start">Join the room</button>
+						<div class="ui input-group margin-bottom-md" id="registernow">
+							<span class="ui input-group-addon">@</span>
+							<input autocomplete="off" class="ui form-control" autocomplete="off" type="text" placeholder="Choose a display name" id="username" onkeypress="return checkEnter(this, event);"></input>
+							<span class="ui input-group-btn">
+							<button class="ui button btn btn-success" autocomplete="off" id="register"><div id="start">Join the room</button>
 							</span></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="container hide" id="videos">
+			<div class="ui container hide" id="videos">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="panel panel-default">
@@ -419,45 +420,45 @@ pre {
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info hide" id="remote1"></span></h3>
+						<div class="ui panel panel-default">
+							<div class="ui panel-heading">
+								<h3 class="ui panel-title"><span class="label label-info hide" id="remote1"></span></h3>
 							</div>
-							<div class="panel-body relative" id="videoremote1"></div>
+							<div class="ui panel-body relative" id="videoremote1"></div>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info hide" id="remote2"></span></h3>
+						<div class="ui panel panel-default">
+							<div class="ui panel-heading">
+								<h3 class="ui panel-title"><span class="label label-info hide" id="remote2"></span></h3>
 							</div>
-							<div class="panel-body relative" id="videoremote2"></div>
+							<div class="ui panel-body relative" id="videoremote2"></div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="ui row">
 					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info hide" id="remote3"></span></h3>
+						<div class="ui panel panel-default">
+							<div class="ui panel-heading">
+								<h3 class="ui panel-title"><span class="ui label label-info hide" id="remote3"></span></h3>
 							</div>
-							<div class="panel-body relative" id="videoremote3"></div>
+							<div class="ui panel-body relative" id="videoremote3"></div>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info hide" id="remote4"></span></h3>
+						<div class="ui panel panel-default">
+							<div class="ui panel-heading">
+								<h3 class="ui panel-title"><span class="label label-info hide" id="remote4"></span></h3>
 							</div>
-							<div class="panel-body relative" id="videoremote4"></div>
+							<div class="ui panel-body relative" id="videoremote4"></div>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info hide" id="remote5"></span></h3>
+						<div class="ui panel panel-default">
+							<div class="ui panel-heading">
+								<h3 class="ui panel-title"><span class="ui label label-info hide" id="remote5"></span></h3>
 							</div>
-							<div class="panel-body relative" id="videoremote5"></div>
+							<div class="ui panel-body relative" id="videoremote5"></div>
 						</div>
 					</div>
 				</div>
@@ -520,7 +521,9 @@ pre {
     <input class="ui button grey" type="button" id="datasend" value="send">
     </div>
   </div>
-</div><script src='https://meet.jit.si/external_api.js'></script>
+</div>
+ </header></div>
+<script src='https://meet.jit.si/external_api.js'></script>
   <!-- Scripts -->
   <script>  var socket = io.connect('anomic.io/');
 
