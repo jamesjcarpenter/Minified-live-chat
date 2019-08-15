@@ -131,7 +131,6 @@ $(document).ready(function() {
 								},
 								webrtcState: function(on) {
 									Janus.log("Janus says our WebRTC PeerConnection is " + (on ? "up" : "down") + " now");
-									$("#videolocal").parent().parent().parent().unblock();
 									if(!on)
 										return;
 									$('#publish').remove();
@@ -395,6 +394,7 @@ function registerUsername() {
 function publishOwnFeed(useAudio) {
 	// Publish our stream
 	$('#publish').attr('disabled', true).unbind('click');
+	$("#videolocal").parent().parent().unblock();
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
