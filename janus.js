@@ -479,10 +479,10 @@ function Janus(gatewayCallbacks) {
 	if(iceServers === undefined || iceServers === null)
 		iceServers = [
 			{
-			urls: "stun:stun.l.google.com:19302",
+			url: "stun:stun.l.google.com:19302",
 			},
 			{
-				"url": "turn:165.22.137.67:8443?transport=tcp",
+				url: "turn:165.22.137.67:8443?transport=tcp",
 			}
 			
 			
