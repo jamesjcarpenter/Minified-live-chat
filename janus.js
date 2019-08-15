@@ -477,17 +477,7 @@ function Janus(gatewayCallbacks) {
 	}
 	var iceServers = gatewayCallbacks.iceServers;
 	if(iceServers === undefined || iceServers === null)
-		iceServers = [
-			{
-			url: "stun:stun.l.google.com:19302",
-			},
-			{
-				url: "turn:165.22.137.67:8443?transport=tcp",
-			}
-			
-			
-			
-			];
+		iceServers = [{urls: "stun:stun.l.google.com:19302"}];
 	var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
 	var bundlePolicy = gatewayCallbacks.bundlePolicy;
 	// Whether IPv6 candidates should be gathered
