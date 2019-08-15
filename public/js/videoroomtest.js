@@ -396,7 +396,8 @@ function registerUsername() {
 
 function publishOwnFeed(useAudio) {
 	// Publish our stream
-	$('#publish').attr('disabled', false).unbind('click');
+	$('#publish').attr('disabled', true).unbind('click');
+	$('#publish').hide();
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
@@ -450,6 +451,7 @@ function unpublishOwnFeed() {
 	$('#unpublish').attr('disabled', true).unbind('click');
 	var unpublish = { "request": "unpublish" };
 	sfutest.send({"message": unpublish});
+	$('#videolocal').html('<button id="publish" class="ui button green">Publish</button>');
 }
 
 function newRemoteFeed(id, display, audio, video) {
