@@ -125,6 +125,7 @@ $(document).ready(function() {
 										// Restore screen
 										$.unblockUI();
 									}
+									$.unblockUI();
 								},
 								mediaState: function(medium, on) {
 									Janus.log("Janus " + (on ? "started" : "stopped") + " receiving our " + medium);
