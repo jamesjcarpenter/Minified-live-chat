@@ -94,7 +94,7 @@ $(document).ready(function() {
 									// Prepare the username registration
 									$('#registernow').removeClass('hide').show();
 									
-									el = document.getElementById('#start');
+									el = document.getElementById('start');
 										if (el.onclick) {
    									el.onclick();
 										} else if (el.click) {
