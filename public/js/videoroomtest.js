@@ -93,7 +93,6 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#videojoin').removeClass('hide').show();
-									$('#wrapperchat').removeClass('hide').show();
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#username').focus();
