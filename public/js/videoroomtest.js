@@ -20,7 +20,13 @@
 // If you want to use the WebSockets frontend to Janus, instead, you'll
 // have to pass a different kind of address, e.g.:
 //
-var server = "https://" + window.location.hostname + ":8089/janus";
+
+var server = null;
+if(window.location.protocol === 'http:')
+        server = "http://" + window.location.hostname + ":8088/janus";
+else
+        server = "https://" + window.location.hostname + ":8089/janus";
+				
 //
 // Of course this assumes that support for WebSockets has been built in
 // when compiling the server. WebSockets support has not been tested
