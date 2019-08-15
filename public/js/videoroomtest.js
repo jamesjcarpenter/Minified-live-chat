@@ -114,11 +114,11 @@ $(document).ready(function() {
 											message: '<div><img src="images/up_arrow.png"/></div>',
 											css: {
 												border: 'none',
-												padding: '15px',
+												padding: '0px',
 												backgroundColor: 'transparent',
 												color: '#aaa',
-												top: '10px',
-												left: (navigator.mozGetUserMedia ? '-100px' : '300px')
+												top: '0px',
+												left: (navigator.mozGetUserMedia ? '0px' : '0px')
 											} 
 										});
 									} else {
