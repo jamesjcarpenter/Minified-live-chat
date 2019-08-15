@@ -110,7 +110,7 @@ $(document).ready(function() {
 									Janus.debug("Consent dialog should be " + (on ? "on" : "off") + " now");
 									if(on) {
 										// Darken screen and show hint
-										$.unblockUI({
+										$.blockUI({
 											message: '<div><img src="images/up_arrow.png"/></div>',
 											css: {
 												border: 'none',
