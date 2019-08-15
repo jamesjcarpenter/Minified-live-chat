@@ -131,6 +131,7 @@ $(document).ready(function() {
 								},
 								webrtcState: function(on) {
 									Janus.log("Janus says our WebRTC PeerConnection is " + (on ? "up" : "down") + " now");
+									$("#videolocal").parent().parent().unblock();
 									if(!on)
 										return;
 									$('#publish').remove();
@@ -297,7 +298,7 @@ $(document).ready(function() {
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
 											sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
 										$("#videolocal").parent().parent().block({
-											message: '<b></b>',
+											message: '<b>Publishing...</b>',
 											css: {
 												border: 'none',
 												backgroundColor: 'transparent',
@@ -328,7 +329,7 @@ $(document).ready(function() {
 									Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
 									mystream = null;
 									$('#videolocal').html('<div></div>');
-									$('#publish').click(function() { publishOwnFeed(true); $('#videojoin').removeClass('hide').show();});
+									$('#publish').click(function() { publishOwnFeed(true); });
 									$("#videolocal").parent().parent().unblock();
 									$('#bitrate').parent().parent().addClass('hide');
 									$('#bitrate a').unbind('click');
@@ -394,7 +395,6 @@ function registerUsername() {
 function publishOwnFeed(useAudio) {
 	// Publish our stream
 	$('#publish').attr('disabled', true).unbind('click');
-	$("#videolocal").parent().parent().unblock();
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
