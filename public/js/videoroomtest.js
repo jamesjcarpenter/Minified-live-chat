@@ -132,6 +132,7 @@ $(document).ready(function() {
 								},
 								webrtcState: function(on) {
 									Janus.log("Janus says our WebRTC PeerConnection is " + (on ? "up" : "down") + " now");
+									$('#bitrate').parent().parent().addClass('hide');
 									$("#videolocal").parent().parent().unblock();
 									if(!on)
 										return;
@@ -330,6 +331,7 @@ $(document).ready(function() {
 									Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
 									mystream = null;
 									$('#videolocal').html('<div></div>');
+									$('#publish').unbind('click');
 									$('#publish').click(function() { publishOwnFeed(true); });
 									$("#videolocal").parent().parent().unblock();
 									$('#bitrate').parent().parent().addClass('hide');
