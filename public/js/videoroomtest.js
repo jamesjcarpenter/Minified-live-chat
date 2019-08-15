@@ -451,7 +451,7 @@ function unpublishOwnFeed() {
 	$('#unpublish').attr('disabled', true).unbind('click');
 	var unpublish = { "request": "unpublish" };
 	sfutest.send({"message": unpublish});
-	$('#publish').attr('disabled', false).unbind('click').html("BROADCAST&nbsp; &nbsp; <i class="camera icon"></i>")
+	$('#publish').attr('disabled', false).unbind('click').html("BROADCAST&nbsp; &nbsp; <i class='camera icon'></i>")
 }
 
 function newRemoteFeed(id, display, audio, video) {
