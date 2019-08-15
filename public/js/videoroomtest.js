@@ -96,8 +96,8 @@ $(document).ready(function() {
 									$('#register').click(registerUsername);
 									$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
-									$('#start').remove();
 										.click(function() {
+											$('#start').remove();
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
