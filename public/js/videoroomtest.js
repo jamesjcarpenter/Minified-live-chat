@@ -70,11 +70,9 @@ $(document).ready(function() {
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
 		$('#start').one('click', function() {
-			$(this).attr('disabled', true).unbind('click');
-			
-			window.onload = function(){
-    		var button = document.getElementById('click');
-    		button.form.submit();
+			.click(function() {
+				$(this).attr('disabled', true).unbind('click');
+				$('#start').remove();
 			}
 			// Make sure the browser supports WebRTC
 			if(!Janus.isWebrtcSupported()) {
