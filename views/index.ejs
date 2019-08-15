@@ -112,6 +112,22 @@
   display: block;
   content: '';
 }
+.blockUI {
+  height:0px!important;
+  width:0px!important;
+}
+.unblockUI {
+  height:0px!important;
+  width:0px!important;
+}
+.blockUI.blockOverlay {
+  height:0px!important;
+  width:0px!important;
+}
+.blockUI.blockMsg.blockElement {
+  height:0px!important;
+  width:0px!important;
+}
 .content {
   position: absolute;
   top: 0; bottom: 0; right: 0; left: 0;  /* follow the parent's edges */
@@ -193,22 +209,6 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 45%;
-}
-
-.fa-2 {
-	font-size: 2em !important;
-}
-.fa-3 {
-	font-size: 4em !important;
-}
-.fa-4 {
-	font-size: 7em !important;
-}
-.fa-5 {
-	font-size: 12em !important;
-}
-.fa-6 {
-	font-size: 20em !important;
 }
 
 div.no-video-container {
@@ -378,11 +378,11 @@ pre {
 			</div>
       
       
-			<div class="container hide" id="videojoin">
+			<div class="container" id="videojoin">
 				<div class="row">
 					<span class="label label-info" id="you"></span>
 					<div class="col-md-12" id="controls">
-						<div class="input-group margin-bottom-md hide" id="registernow">
+						<div class="input-group margin-bottom-md" id="registernow">
 							<span class="input-group-addon">@</span>
 							<input autocomplete="off" class="form-control" autocomplete="off" type="text" placeholder="Choose a display name" id="username" onkeypress="return checkEnter(this, event);"></input>
 							<span class="input-group-btn">
