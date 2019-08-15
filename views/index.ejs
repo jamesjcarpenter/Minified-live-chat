@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <script src="/socket.io/socket.io.js"></script>
       <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
-      <link rel="stylesheet/less" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/4.0.0-beta/iso_bootstrap4.0.0min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css" type="text/css"/>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" ></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
@@ -262,7 +261,6 @@ pre {
   <i class="ui tiny circular user secret icon"></i>
    <%- JSON.stringify(name) %>
 </h3>
-<script src="less.js" type="text/javascript"></script>
 </head>
 <body>
   
@@ -360,13 +358,11 @@ pre {
       </div>
                   
           <% user %>
-              <!-- Remote Cameras -->
+              <div class="bootstrap">
               <h3 class="ui center aligned header"></h3>
               <div class="ui small jiggle images">
               <div id="remote-videos" class="five column doubling ui stackable grid">
-<div class="bootstrap">
-<div class="wrapui">
-<div id="mynav"><header class="navbar navbar-static-top">
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -388,8 +384,8 @@ pre {
 							<span class="input-group-addon">@</span>
 							<input autocomplete="off" class="form-control" autocomplete="off" type="text" placeholder="Choose a display name" id="username" onkeypress="return checkEnter(this, event);"></input>
 							<span class="input-group-btn">
-							<button class="btn btn-success" autocomplete="off" id="register">Join the room</button>
-							</span></div>
+							<button class="btn btn-success" autocomplete="off" id="register"><a id="start">Join the room</a></button>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -467,12 +463,12 @@ pre {
 			</div>
 		</div>
 	</div>
-</div>
+
 	<hr>
 	<div class="footer">
 	</div>
 </div>
-</div>
+
 
             <div class="youtubewrapper">
               <div class="ui top attached icon buttons" id="youtube-buttons">
@@ -510,7 +506,7 @@ pre {
   
 
   
-  <div class="container hide" id="wrapperchat">
+  
   <div class="ui right internal rail"style="margin:0 auto;margin-right:4.25em;margin-top:7em;margin-bottom:0em;bottom:0;position:fixed;min-width:20vw;max-width:20vw;right:0;top:0;">
         <div id="draggable"style="position:relative;overflow-y:visible; max-height:100%;width:100%">
           <div id="chatbox"class="ui divider"style="position:relative;width:100%;overflow-y:scroll;min-width:21.5vw;">
@@ -523,9 +519,7 @@ pre {
     <input class="ui button grey" type="button" id="datasend" value="send">
     </div>
   </div>
-</div>
- </header></div>
-<script src='https://meet.jit.si/external_api.js'></script>
+</div><script src='https://meet.jit.si/external_api.js'></script>
   <!-- Scripts -->
   <script>  var socket = io.connect('anomic.io/');
 
