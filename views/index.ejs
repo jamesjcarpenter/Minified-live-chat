@@ -351,7 +351,7 @@ pre {
   <div class="ui container">
     <div class="ui stackable grid">
         <div class="ui icon buttons">
-          <button id="start" class="large ui inverted green button">Broadcast&nbsp; &nbsp; <i class="camera icon"></i></button>
+          <button id="publish" class="large ui inverted green button">Broadcast&nbsp; &nbsp; <i class="camera icon"></i></button>
         </div>
         <div class="ui icon buttons">
         <button class="large ui teal secondary button">Media Settings&nbsp; &nbsp; <i class="cogs icon"></i></button> 
@@ -385,8 +385,8 @@ pre {
 							<span class="input-group-addon">@</span>
 							<input autocomplete="off" class="form-control" autocomplete="off" type="text" placeholder="Choose a display name" id="username" onkeypress="return checkEnter(this, event);"></input>
 							<span class="input-group-btn">
-								<button class="btn btn-success" autocomplete="off" id="register">Join the room</button>
-							</span>
+							<button class="btn btn-success" autocomplete="off" id="register"><div id="start">Join the room</button>
+							</span></div>
 						</div>
 					</div>
 				</div>
@@ -421,7 +421,7 @@ pre {
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Remote Video #1 <span class="label label-info hide" id="remote1"></span></h3>
+								<h3 class="panel-title"><span class="label label-info hide" id="remote1"></span></h3>
 							</div>
 							<div class="panel-body relative" id="videoremote1"></div>
 						</div>
@@ -429,7 +429,7 @@ pre {
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Remote Video #2 <span class="label label-info hide" id="remote2"></span></h3>
+								<h3 class="panel-title"><span class="label label-info hide" id="remote2"></span></h3>
 							</div>
 							<div class="panel-body relative" id="videoremote2"></div>
 						</div>
@@ -439,7 +439,7 @@ pre {
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Remote Video #3 <span class="label label-info hide" id="remote3"></span></h3>
+								<h3 class="panel-title"><span class="label label-info hide" id="remote3"></span></h3>
 							</div>
 							<div class="panel-body relative" id="videoremote3"></div>
 						</div>
@@ -447,7 +447,7 @@ pre {
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Remote Video #4 <span class="label label-info hide" id="remote4"></span></h3>
+								<h3 class="panel-title"><span class="label label-info hide" id="remote4"></span></h3>
 							</div>
 							<div class="panel-body relative" id="videoremote4"></div>
 						</div>
@@ -455,7 +455,7 @@ pre {
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Remote Video #5 <span class="label label-info hide" id="remote5"></span></h3>
+								<h3 class="panel-title"><span class="label label-info hide" id="remote5"></span></h3>
 							</div>
 							<div class="panel-body relative" id="videoremote5"></div>
 						</div>
@@ -507,7 +507,7 @@ pre {
   
 
   
-  
+  <div class="container hide" id="wrapperchat">
   <div class="ui right internal rail"style="margin:0 auto;margin-right:4.25em;margin-top:7em;margin-bottom:0em;bottom:0;position:fixed;min-width:20vw;max-width:20vw;right:0;top:0;">
         <div id="draggable"style="position:relative;overflow-y:visible; max-height:100%;width:100%">
           <div id="chatbox"class="ui divider"style="position:relative;width:100%;overflow-y:scroll;min-width:21.5vw;">
@@ -519,6 +519,7 @@ pre {
       </div><div class="win-size-grip"></div>
     <input class="ui button grey" type="button" id="datasend" value="send">
     </div>
+  </div>
 </div><script src='https://meet.jit.si/external_api.js'></script>
   <!-- Scripts -->
   <script>  var socket = io.connect('anomic.io/');
