@@ -93,9 +93,16 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#registernow').removeClass('hide').show();
+									
+									el = document.getElementById('#start');
+										if (el.onclick) {
+   									el.onclick();
+										} else if (el.click) {
+   									el.click();
+										}
+									$('#start').removeAttr('disabled').html("Stop")
 									$('#register').click(registerUsername);
 									$('#username').focus();
-									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
