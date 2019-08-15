@@ -106,7 +106,6 @@ $(document).ready(function() {
 							    
 							    
 							    }).modal('show'));
-							  });
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#username').focus();
