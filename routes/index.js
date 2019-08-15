@@ -31,6 +31,14 @@ router.get('/profile', function(req, res) {
       res.render('profile.handlebars', { username: req.user });
 });
 
+router.get('/admin', function(req, res) {
+  req.user = req.isAuthenticated,
+  username = req.user.name;
+  res.locals.query = req.query;
+   res.locals.url   = req.originalUrl;
+   res.render('admin.ejs', { name: req.params.name, username: req.user.name });
+});
+
 router.get('/dashboard', function(req, res) {
       res.render('dashboard.handlebars', { username: req.user });
 });
