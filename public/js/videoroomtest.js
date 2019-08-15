@@ -161,7 +161,6 @@ $(document).ready(function() {
 											myid = msg["id"];
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
-											publishOwnFeed(false);
 											// Any new feed to attach to?
 											if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
 												var list = msg["publishers"];
@@ -298,7 +297,7 @@ $(document).ready(function() {
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
 											sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
 										$("#videolocal").parent().parent().block({
-											message: '<b>Publishing...</b>',
+											message: '<b></b>',
 											css: {
 												border: 'none',
 												backgroundColor: 'transparent',
