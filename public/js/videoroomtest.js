@@ -92,26 +92,12 @@ $(document).ready(function() {
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
-									$('.ui.modal')
-							    .modal({  
-							      blurring: true,
-							      closable  : false,
-							      onDeny    : function(){
-							        window.alert('Wait not yet!');
-							        return false;
-							      },
-							      onApprove : function() {
-							        window.close();
-							      }
-							    
-							    
-							    }).modal('show'));
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
+									$('#start').remove();
 										.click(function() {
-											$('#start').remove();
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
