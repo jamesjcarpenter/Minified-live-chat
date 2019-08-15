@@ -71,6 +71,11 @@ $(document).ready(function() {
 		// Use a button to start the demo
 		$('#start').one('click', function() {
 			$(this).attr('disabled', true).unbind('click');
+			
+			window.onload = function(){
+    		var button = document.getElementById('click');
+    		button.form.submit();
+			}
 			// Make sure the browser supports WebRTC
 			if(!Janus.isWebrtcSupported()) {
 				bootbox.alert("No WebRTC support... ");
@@ -93,16 +98,9 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#registernow').removeClass('hide').show();
-									
-									el = document.getElementById('start');
-										if (el.onclick) {
-   									el.onclick();
-										} else if (el.click) {
-   									el.click();
-										}
-									$('#start').removeAttr('disabled').html("Stop")
 									$('#register').click(registerUsername);
 									$('#username').focus();
+									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
