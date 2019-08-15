@@ -131,7 +131,7 @@ $(document).ready(function() {
 								},
 								webrtcState: function(on) {
 									Janus.log("Janus says our WebRTC PeerConnection is " + (on ? "up" : "down") + " now");
-									$("#videolocal").parent().parent().unblock();
+									$("#videolocal").parent().parent().parent().unblock();
 									if(!on)
 										return;
 									$('#publish').remove();
@@ -298,7 +298,7 @@ $(document).ready(function() {
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
 											sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
 										$("#videolocal").parent().parent().block({
-											message: '<b>Publishing...</b>',
+											message: '<b></b>',
 											css: {
 												border: 'none',
 												backgroundColor: 'transparent',
