@@ -95,7 +95,6 @@ $(document).ready(function() {
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#username').focus();
-									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$('#start').remove();
 											$(this).attr('disabled', true);
