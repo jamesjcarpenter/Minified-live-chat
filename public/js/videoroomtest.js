@@ -94,6 +94,7 @@ $(document).ready(function() {
 									// Prepare the username registration
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
+									$('ui.modal').show();
 									$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
