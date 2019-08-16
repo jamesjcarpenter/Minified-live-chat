@@ -21,18 +21,7 @@
 	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 	OTHER DEALINGS IN THE SOFTWARE.
  */
- var iceServers = [{urls: "stun:stun.l.google.com:19302",
- 							},
- 							{
- 								"url": "turn:165.22.137.67:3478?transport=udp",
- 		"username": "apostles00",
- 		"credential": "Zero!"
- 							},
- 							{
- 								"url": "turn:165.22.137.67:3478:3478?transport=tcp",
- 		"username": "apostles00",
- 		"credential": "Zero!"
- 							}];
+
 
 
  var server = null;
