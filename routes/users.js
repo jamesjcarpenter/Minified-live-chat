@@ -127,7 +127,7 @@ passport.use(new LocalStrategy({
         roomname,
       });
     newRoom.save();
-  });
+  })
 });
       
 module.exports = router;
