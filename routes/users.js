@@ -129,11 +129,12 @@ passport.use(new LocalStrategy({
         } else {
           const newRoom = new Room({
             roomname,
-            newRoom.save();
+            save();
           });
         });
       });
     });
+  });
   
   
 module.exports = router;
