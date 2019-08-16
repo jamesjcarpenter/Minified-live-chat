@@ -129,7 +129,7 @@ passport.use(new LocalStrategy({
         } else {
           const newRoom = new Room({
             roomname,
-            save();
+            save()
           });
         });
       });
