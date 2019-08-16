@@ -213,14 +213,14 @@ io.sockets.on('connection', function (socket) {
 	socket.on('adduser', function(req, res){
 		// store the username in the socket session for this client
 		// store the room name in the socket session for this client
-		socket.room = 'r9k';
+		socket.room = 'room1';
 		// send client to room 1
-		socket.join('r9k');
+		socket.join('room1');
 		// echo to client they've connected
-		io.emit('updatechat', 'SERVER', 'connected to r9k');
+		io.emit('updatechat', 'SERVER', 'connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to('r9k').emit('updatechat', 'SERVER', user.name + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'r9k');
+		socket.broadcast.to('room1').emit('updatechat', 'SERVER', user.name + ' has connected to this room');
+		socket.emit('updaterooms', rooms, 'room1');
 	});
 
   function sendHeartbeat(){
