@@ -1,7 +1,7 @@
 
 module.exports = {
   janus: {
-    url: 'wss://localhost:8989',
+    url: 'https://localhost:8989',
     keepAliveIntervalMs: 30000,
     options: {
       rejectUnauthorized: false
@@ -14,9 +14,9 @@ module.exports = {
   },
   peerConnectionConfig: {
     iceServers: [
-      { url: 'stun:turnserver.techteamer.com:443' },
-      { username: 'demo', url: 'turn:turnserver.techteamer.com:443?transport=udp', credential: 'secret' },
-      { username: 'demo', url: 'turn:turnserver.techteamer.com:443?transport=tcp', credential: 'secret' }
+      { url: 'stun.voip.eutalia.it:3478' },
+      { username: 'apostles00', url: 'turn:165.22.137.67:3478?transport=udp', credential: 'Zero!' },
+      { username: 'apostles00', url: 'turn:165.22.137.67:3478?transport=tcp', credential: 'Zero!' }
     ]
   }
 }
