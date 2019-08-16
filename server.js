@@ -9,12 +9,7 @@ cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
-rejectUnauthorized: false,
-peerConnectionConfig: {
-  iceServers: [
-    { url: 'stun.voip.eutalia.it:3478' },
-    { username: 'apostles00', url: 'turn:165.22.137.67:3478?transport=udp', credential: 'Zero!' },
-    { username: 'apostles00', url: 'turn:165.22.137.67:3478?transport=tcp', credential: 'Zero!' },
+rejectUnauthorized: false
 },app);
 server.listen(443);
 
