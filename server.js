@@ -9,7 +9,7 @@ cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
-rejectUnauthorized: false
+rejectUnauthorized: false,
 },app);
 server.listen(443);
 
