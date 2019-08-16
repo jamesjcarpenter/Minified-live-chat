@@ -121,7 +121,6 @@ passport.use(new LocalStrategy({
   
   
   router.post('/newroom', (req, res) => {
-    const { roomname } = req.body;
       Room.findOne({ room: roomname }).then(room => {
         if (room) {
           console.log('Room name in use.')
@@ -135,6 +134,6 @@ passport.use(new LocalStrategy({
       });
     });
   });
-  
+});
   
 module.exports = router;
