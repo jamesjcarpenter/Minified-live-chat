@@ -122,18 +122,6 @@ passport.use(new LocalStrategy({
   
   router.post('newroom', (req, res) => {
     const { roomname } = req.body;
-    let errors = [];
-  
-    if (!roomname) {
-      errors.push({ msg: 'Please enter a name for your room.' });
-    }
-  
-    if (errors.length > 0) {
-      res.render('home', {
-        errors,
-        roomname,
-      });
-    } else {
       Room.findOne({ room: roomname }).then(room => {
         if (room) {
           console.log('Room name in use.')
@@ -141,10 +129,11 @@ passport.use(new LocalStrategy({
         } else {
           const newRoom = new Room({
             roomname,
+            newRoom.save();
           });
-        newRoom.save();
+        });
       });
-    })
+    });
   });
   
   
