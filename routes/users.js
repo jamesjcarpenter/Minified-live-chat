@@ -118,22 +118,7 @@ passport.use(new LocalStrategy({
   
   //
   
-  
-  
-  router.post('/newroom', (req, res) => {
-      Room.findOne({ room: roomname }).then(room => {
-        if (room) {
-          console.log('Room name in use.')
-          res.redirect('/home');
-        } else {
-          const newRoom = new Room({
-            roomname,
-            save()
-          });
-        });
-      });
-    });
-  });
-});
+//  router.post('/newroom', function(req, res){
+    
   
 module.exports = router;
