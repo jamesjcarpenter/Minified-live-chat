@@ -24,7 +24,7 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('index.ejs', { name: req.params.name, chat: req.session.chat, username: req.user.name, room: req.room.roomname; });
+   res.render('index.ejs', { name: req.params.name, chat: req.session.chat, username: req.user.name, room: req.room.roomname });
 });
 
 router.get('/profile', function(req, res) {
