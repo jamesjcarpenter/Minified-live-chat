@@ -21,6 +21,25 @@
 	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 	OTHER DEALINGS IN THE SOFTWARE.
  */
+ var iceServers = [{urls: "stun:stun.l.google.com:19302",
+ 							},
+ 							{
+ 								"url": "turn:165.22.137.67:3478?transport=udp",
+ 		"username": "apostles00",
+ 		"credential": "Zero!"
+ 							},
+ 							{
+ 								"url": "turn:165.22.137.67:3478:3478?transport=tcp",
+ 		"username": "apostles00",
+ 		"credential": "Zero!"
+ 							}];
+
+
+ var server = null;
+ if(window.location.protocol === 'http:')
+         server = "http://" + window.location.hostname + ":8088/janus";
+ else
+         server = "https://" + window.location.hostname + ":8089/janus";
 
 // List of sessions
 Janus.sessions = {};
@@ -471,18 +490,7 @@ function Janus(gatewayCallbacks) {
 	}
 	var iceServers = gatewayCallbacks.iceServers;
 	if(iceServers === undefined || iceServers === null)
-		iceServers = [{urls: "stun:stun.l.google.com:19302",
-									},
-									{
-										"url": "turn:165.22.137.67:3478?transport=udp",
-        "username": "apostles00",
-        "credential": "Zero!"
-									},
-									{
-										"url": "turn:165.22.137.67:3478:3478?transport=tcp",
-        "username": "apostles00",
-        "credential": "Zero!"
-									}];
+		iceServers = [{urls: "stun:stun.l.google.com:19302"}];
 	var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
 	var bundlePolicy = gatewayCallbacks.bundlePolicy;
 	// Whether IPv6 candidates should be gathered
@@ -522,6 +530,26 @@ function Janus(gatewayCallbacks) {
 		longPollTimeout = gatewayCallbacks.longPollTimeout;
 	if(isNaN(longPollTimeout))
 		longPollTimeout = 60000;
+
+	// overrides for default maxBitrate values for simulcasting
+	function getMaxBitrates(simulcastMaxBitrates) {
+		var maxBitrates = {
+			high: 900000,
+			medium: 300000,
+			low: 100000,
+		};
+
+		if (simulcastMaxBitrates !== undefined && simulcastMaxBitrates !== null) {
+			if (simulcastMaxBitrates.high)
+				maxBitrates.high = simulcastMaxBitrates.high;
+			if (simulcastMaxBitrates.medium)
+				maxBitrates.medium = simulcastMaxBitrates.medium;
+			if (simulcastMaxBitrates.low)
+				maxBitrates.low = simulcastMaxBitrates.low;
+		}
+
+		return maxBitrates;
+	}
 
 	var connected = false;
 	var sessionId = null;
@@ -1809,13 +1837,14 @@ function Janus(gatewayCallbacks) {
 						config.pc.addTrack(track, stream);
 					} else {
 						Janus.log('Enabling rid-based simulcasting:', track);
+						const maxBitrates = getMaxBitrates(callbacks.simulcastMaxBitrates);
 						config.pc.addTransceiver(track, {
 							direction: "sendrecv",
 							streams: [stream],
 							sendEncodings: [
-								{ rid: "h", active: true, maxBitrate: 900000 },
-								{ rid: "m", active: true, maxBitrate: 300000, scaleResolutionDownBy: 2 },
-								{ rid: "l", active: true, maxBitrate: 100000, scaleResolutionDownBy: 4 }
+								{ rid: "h", active: true, maxBitrate: maxBitrates.high },
+								{ rid: "m", active: true, maxBitrate: maxBitrates.medium, scaleResolutionDownBy: 2 },
+								{ rid: "l", active: true, maxBitrate: maxBitrates.low, scaleResolutionDownBy: 4 }
 							]
 						});
 					}
@@ -1844,7 +1873,7 @@ function Janus(gatewayCallbacks) {
 					config.remoteSdp = jsep.sdp;
 					// Any trickle candidate we cached?
 					if(config.candidates && config.candidates.length > 0) {
-						for(var i in config.candidates) {
+						for(var i = 0; i< config.candidates.length; i++) {
 							var candidate = config.candidates[i];
 							Janus.debug("Adding remote candidate:", candidate);
 							if(!candidate || candidate.completed === true) {
@@ -2421,7 +2450,7 @@ function Janus(gatewayCallbacks) {
 					config.remoteSdp = jsep.sdp;
 					// Any trickle candidate we cached?
 					if(config.candidates && config.candidates.length > 0) {
-						for(var i in config.candidates) {
+						for(var i = 0; i< config.candidates.length; i++) {
 							var candidate = config.candidates[i];
 							Janus.debug("Adding remote candidate:", candidate);
 							if(!candidate || candidate.completed === true) {
@@ -2599,10 +2628,13 @@ function Janus(gatewayCallbacks) {
 				var parameters = sender.getParameters();
 				if(!parameters)
 					parameters = {};
+
+
+				const maxBitrates = getMaxBitrates(callbacks.simulcastMaxBitrates);
 				parameters.encodings = [
-					{ rid: "h", active: true, maxBitrate: 900000 },
-					{ rid: "m", active: true, maxBitrate: 300000, scaleResolutionDownBy: 2 },
-					{ rid: "l", active: true, maxBitrate: 100000, scaleResolutionDownBy: 4 }
+					{ rid: "h", active: true, maxBitrate: maxBitrates.high },
+					{ rid: "m", active: true, maxBitrate: maxBitrates.medium, scaleResolutionDownBy: 2 },
+					{ rid: "l", active: true, maxBitrate: maxBitrates.low, scaleResolutionDownBy: 4 }
 				];
 				sender.setParameters(parameters);
 			}
@@ -2839,10 +2871,12 @@ function Janus(gatewayCallbacks) {
 			Janus.log(sender);
 			var parameters = sender.getParameters();
 			Janus.log(parameters);
+
+			const maxBitrates = getMaxBitrates(callbacks.simulcastMaxBitrates);
 			sender.setParameters({encodings: [
-				{ rid: "high", active: true, priority: "high", maxBitrate: 1000000 },
-				{ rid: "medium", active: true, priority: "medium", maxBitrate: 300000 },
-				{ rid: "low", active: true, priority: "low", maxBitrate: 100000 }
+				{ rid: "high", active: true, priority: "high", maxBitrate: maxBitrates.high },
+				{ rid: "medium", active: true, priority: "medium", maxBitrate: maxBitrates.medium },
+				{ rid: "low", active: true, priority: "low", maxBitrate: maxBitrates.low }
 			]});
 		}
 		config.pc.createAnswer(mediaConstraints)
