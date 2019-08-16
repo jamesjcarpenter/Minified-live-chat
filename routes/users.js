@@ -118,16 +118,15 @@ passport.use(new LocalStrategy({
   
   ///
   
- router.post('/newroom', function(req, res){
-    const { roomname } = req.body;
-    if (!roomname) {
-      errors.push({ msg: 'Please enter all fields' });
-    } else {
-      const newRoom = new Room({
-        roomname,
-      });
-    newRoom.save();
-  })
-});
+ //router.post('/newroom', function(req, res){
+  //  const { roomname } = req.body;
+  //  if (!roomname) {
+    //  errors.push({ msg: 'Please enter all fields' });
+//    } else {
+///      const newRoom = new Room({
+  //      roomname,
+  //      save()
+//    });
+//  });
       
 module.exports = router;
