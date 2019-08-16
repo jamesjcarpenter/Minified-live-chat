@@ -18,7 +18,7 @@ peerConnectionConfig: {
 },app);
 server.listen(443);
 
-//make sure you keep this orde
+//make sure you keep this order
 var io = require('socket.io').listen(server);
 
 //... 
