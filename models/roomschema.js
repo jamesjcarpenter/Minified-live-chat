@@ -11,13 +11,13 @@ const RoomSchema = new mongoose.Schema({
 var Room = module.exports = mongoose.model('Room', RoomSchema);
 
 
-module.exports.getRoomByRoomName = function(roomname, callback){
-  var query = {roomname: roomname};
-  Room.findOne(query, callback);
-}
+//module.exports.getRoomByRoomName = function(roomname, callback){
+//  var query = {roomname: roomname};
+//  Room.findOne(query, callback);
+//}
 
-module.exports.createRoom = function(newRoom, callback){
+//module.exports.createRoom = function(newRoom, callback){
         // Store hash in your password DB.
-        newRoom.save(callback);
-}
+  //      newRoom.save(callback);
+//}
 //

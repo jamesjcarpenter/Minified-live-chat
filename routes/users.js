@@ -118,7 +118,7 @@ passport.use(new LocalStrategy({
   
   ///
   
- //router.post('/newroom', function(req, res){
+ //router.post('/room', function(req, res){
   //  const { roomname } = req.body;
   //  if (!roomname) {
     //  errors.push({ msg: 'Please enter all fields' });

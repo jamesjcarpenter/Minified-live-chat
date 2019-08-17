@@ -205,6 +205,9 @@ app.use(function(req, res, next) {
   next();
 });
 //chat
+require("./libs/chat.js").sockets(https);
+
+
 var usernames = {};
 var rooms = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
