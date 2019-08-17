@@ -26,7 +26,7 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('index.ejs');
+   res.render('index.ejs', {user: req.session.user, chat: req.session.chat});
 });
 
 router.get('/profile', function(req, res) {
