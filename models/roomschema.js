@@ -20,3 +20,4 @@ module.exports.createRoom = function(newRoom, callback){
         // Store hash in your password DB.
         newRoom.save(callback);
 }
+//
