@@ -55,7 +55,8 @@ const cons = require('consolidate');
 // secure = HTTPs secure. needs to be on before deployment.
 app.use(session({
   name: SESS_NAME,
-  resave: false,
+  resave: true,
+  store: new mongoStore({ mongooseConnection: mongoose.connection }),
   saveUninitialized: true,
   secret: SESS_SECRET,
   cookie: {
@@ -150,7 +151,7 @@ app.post('/api/images', parser.single("image"), (req, res) => {
     .catch(err => console.log(err));
 });
 
-
+const userModel = mongoose.model("User");
 app.use(function(req, res, next) {
   res.locals.user = req.user || null;
     if(req.user == null){
