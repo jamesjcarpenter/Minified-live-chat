@@ -566,7 +566,7 @@ pre {
 
 	// listener, whenever the server emits 'updatechat', this updates the chat body
 	socket.on('updatechat', function (username, data) {
-		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+		$('#username').append('<b>'+username + '</b>');
 	});
 
 	// listener, whenever the server emits 'updateusers', this updates the username list
