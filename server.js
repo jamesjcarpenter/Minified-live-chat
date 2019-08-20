@@ -589,7 +589,6 @@ eventEmitter.on("findEmail", function(email) {
 //
 
 return io;
-};
 
 
 // Provide access to node_modules folder
