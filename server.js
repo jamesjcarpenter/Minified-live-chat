@@ -206,7 +206,7 @@ app.use(function(req, res, next) {
 });
 //chat
 require("./libs/chat.js").sockets(https);
-
+const eventEmitter = new events.EventEmitter();
 
 var usernames = {};
 var rooms = require("./models/roomschema");
