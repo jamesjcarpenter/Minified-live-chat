@@ -200,7 +200,8 @@ app.use((err, req, res, next) => {
 });
 app.use(function(req, res, next) {
   req.user = req.isAuthenticated,
-  user.name = req.user.name;
+  username = req.user.name;
+  var username = req.user.name;
   next();
 });
 //chat
@@ -243,7 +244,7 @@ io.sockets.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		io.emit('updatechat', this.user.name, data);
+		io.emit('updatechat', user.name, data);
 	});
 
 	socket.on('switchRoom', function(newroom){
