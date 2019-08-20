@@ -214,7 +214,7 @@ var chat = require("./models/chat");
 var rooms = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
 
-	// when the client emits 'sendchat', this listens and executes
+  // when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.emit('updatechat', socket.username, data);
@@ -237,12 +237,11 @@ io.sockets.on('connection', function (socket) {
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
 		// remove the username from global usernames list
-		delete usernames[user.name];
+		delete usernames[socket.username];
 		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
-		socket.broadcast.emit('updatechat', user.name + ' has disconnected');
-		socket.leave(socket.room);
+		socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 	});
 });
 
