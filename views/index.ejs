@@ -517,7 +517,47 @@ pre {
   <!-- TEMPLATES -->
   <!-- Remote Video Template -->
   
+  <main>
+    <div class="container-fluid">
+      <input type="hidden" id="user" value="<%= user.username %>"/>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2>Chat Options</h2></div>
 
+            <div class="panel-body" id="scrl1">
+              <h4 class="boxF">For Group Chat Click on Group Button and for One-to-One chat click on Username</h4>
+              <ul id="list" ></ul>
+            </div>
+            <div class="panel-footer">
+              <p id="typing"  class="btn btn-danger btn-block btn-lg"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4 id="frndName">Chat Room</h4>
+            </div>
+            <div class="panel-body" id="scrl2">
+              <p id="loading">Loading..... Please Wait.</p>
+              <p id="noChat">No More Chats To Display.....</p>
+              <p id="initMsg">!!...Click On User Or Group Button To Start Chat...!!</p>
+              <ul id="messages"></ul>
+            </div>
+            <div class="panel-footer">
+              <form id="chatForm" action="">
+                <input id="myMsg" class="input-box-send" autocomplete="off" placeholder="Write Message Here.." />
+                <button id="sendBtn" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-send"></span> <b>Send</b></button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
   
   
   <div class="ui right internal rail"style="margin:0 auto;margin-right:4.25em;margin-top:7em;margin-bottom:0em;bottom:0;position:fixed;min-width:20vw;max-width:20vw;right:0;top:0;">
