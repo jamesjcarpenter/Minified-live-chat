@@ -65,12 +65,7 @@ app.use(session({
     secure: false,
   }
 }))
-var sessionStore = new MongoStore({
-        host: '127.0.0.1',
-        port: '27017',
-        db: 'session',
-        url: 'mongodb://localhost:27017/demo'
-    });
+
 
 var passport = require('passport');
 app.use(passport.initialize());
