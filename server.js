@@ -218,9 +218,9 @@ io.sockets.on('connection', function (socket) {
 	socket.on('adduser', function(req, res){
 		// store the username in the socket session for this client
 		// store the room name in the socket session for this client
-    socket.username = user.name;
+    socket.username = username;
 		// add the client's username to the global list
-		usernames[username] = user.name;
+		usernames[username] = username;
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected');
     
