@@ -209,7 +209,7 @@ require("./libs/chat.js").sockets(https);
 
 
 var usernames = {};
-var rooms = require("./models/roomschema");
+var room = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
@@ -222,7 +222,7 @@ io.sockets.on('connection', function (socket) {
 		// echo to client they've connected
 		io.emit('updatechat', 'SERVER', 'connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
+		socket.broadcast.to('room1').emit('updatechat', 'SERVER', user.name + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
 	});
 
