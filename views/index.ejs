@@ -517,57 +517,6 @@ pre {
   <!-- TEMPLATES -->
   <!-- Remote Video Template -->
   
-  <% include ./partials/header.ejs %>
-  <div class="panel panel-primary" style="margin-left:10%;margin-right:10%;">
-<div class="panel-heading">
-  <h3>Wel Come to MEAN   Chat, Your Favourite Messaging App!</h3>
-  <div > <ul id="hell0" class="list-unstyled">
-
-  </ul> </div>
-</div></div>
-<hr><br>
-  <main>
-    <div class="container-fluid">
-      <input type="hidden" id="user" value="<%= user.username %>"/>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h2>Chat Options</h2></div>
-
-            <div class="panel-body" id="scrl1">
-              <h4 class="boxF">For Group Chat Click on Group Button and for One-to-One chat click on Username</h4>
-              <ul id="list" ></ul>
-            </div>
-            <div class="panel-footer">
-              <p id="typing"  class="btn btn-danger btn-block btn-lg"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-8">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h4 id="frndName">Chat Room</h4>
-            </div>
-            <div class="panel-body" id="scrl2">
-              <p id="loading">Loading..... Please Wait.</p>
-              <p id="noChat">No More Chats To Display.....</p>
-              <p id="initMsg">!!...Click On User Or Group Button To Start Chat...!!</p>
-              <ul id="messages"></ul>
-            </div>
-            <div class="panel-footer">
-              <form id="chatForm" action="">
-                <input id="myMsg" class="input-box-send" autocomplete="off" placeholder="Write Message Here.." />
-                <button id="sendBtn" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-send"></span> <b>Send</b></button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </main>
-  <% include ./partials/footer.ejs %>
 
   
   
@@ -611,7 +560,7 @@ pre {
 
   // listener, whenever the server emits 'updatechat', this updates the chat
   socket.on('updatechat', function (username, data) {
-    $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + <%- JSON.stringify(user.name) %> + '' + '</tag>' + '<samp><em>' + <%- JSON.stringify(new Date(Date.now()).toLocaleTimeString()) %> + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui teal medium left pointing label"id="message">' + '</span><p><span class="ui medium white text">' + data + '</div></p></span></div></div>' + '</h6></div></div>');
+    $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + <%- JSON.stringify(user.user.name) %> + '' + '</tag>' + '<samp><em>' + <%- JSON.stringify(new Date(Date.now()).toLocaleTimeString()) %> + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui teal medium left pointing label"id="message">' + '</span><p><span class="ui medium white text">' + data + '</div></p></span></div></div>' + '</h6></div></div>');
   });
 </script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
