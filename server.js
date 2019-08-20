@@ -209,7 +209,8 @@ require("./libs/chat.js").sockets(https);
 
 
 var usernames = {};
-var user = require("./models/user");
+var users = require("./models/users");
+var chat = require("./models/chat");
 var rooms = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
 
