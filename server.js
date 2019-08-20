@@ -214,12 +214,6 @@ var chat = require("./models/chat");
 var rooms = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
 
-  if(user){
-    req.user = req.isAuthenticated,
-    username = req.user.name;
-    var username = req.user.name;
-    next();
-  });
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(req, res){
 		// store the username in the socket session for this client
@@ -230,7 +224,7 @@ io.sockets.on('connection', function (socket) {
 		// echo to client they've connected
 		io.emit('updatechat', 'SERVER', 'connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to('room1').emit('updatechat', 'SERVER', req.user.name + ' has connected to this room');
+		socket.broadcast.to('room1').emit('updatechat', 'SERVER', socket.username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
 	});
 
