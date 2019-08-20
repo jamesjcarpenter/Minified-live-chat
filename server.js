@@ -10,6 +10,7 @@ ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
+store: new mongoStore({ mongooseConnection: mongoose.connection }),
 },app);
 server.listen(443);
 
@@ -56,7 +57,6 @@ const cons = require('consolidate');
 app.use(session({
   name: SESS_NAME,
   resave: true,
-  store: new mongoStore({ mongooseConnection: mongoose.connection }),
   saveUninitialized: true,
   secret: SESS_SECRET,
   cookie: {
