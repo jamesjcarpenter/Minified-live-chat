@@ -10,7 +10,6 @@ ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
-store: new mongoStore({ mongooseConnection: mongoose.connection }),
 },app);
 server.listen(443);
 
@@ -66,7 +65,12 @@ app.use(session({
     secure: false,
   }
 }))
-
+var sessionStore = new MongoStore({
+        host: '127.0.0.1',
+        port: '27017',
+        db: 'session',
+        url: 'mongodb://localhost:27017/demo'
+    });
 
 var passport = require('passport');
 app.use(passport.initialize());
