@@ -209,7 +209,8 @@ require("./libs/chat.js").sockets(https);
 
 
 var usernames = {};
-var room = require("./models/roomschema");
+var users = require("./models/users");
+var rooms = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
