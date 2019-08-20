@@ -1,11 +1,15 @@
-var MongoClient = require('mongodb').MongoClient;  
-var url = require('./config/keys').MongoURI;
-MongoClient.connect(url, function(err, db) {  
-if (err) throw err;  
-var myobj = { name: "Ajeet Kumar", age: "28", address: "Delhi" };  
-db.collection("employees").insertOne(myobj, function(err, res) {  
-if (err) throw err;  
-console.log("1 record inserted");  
-db.close();  
-});  
-});  
+var mongoose = require('mongoose');
+const db = require('./config/keys').MongoURI;
+
+mongoose.connect(db);
+
+var conn = mongoose.connection;
+
+var room = {
+    a: 'abc'
+};
+
+conn.collection('aaa').insert(rooms);
+
+console.log('rooms: ');
+console.log(room);
