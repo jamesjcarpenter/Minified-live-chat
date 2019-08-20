@@ -222,7 +222,7 @@ io.sockets.on('connection', function (socket) {
 		// echo to client they've connected
 		io.emit('updatechat', 'SERVER', 'connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to('room1').emit('updatechat', 'SERVER', user.username + ' has connected to this room');
+		socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
 	});
 
