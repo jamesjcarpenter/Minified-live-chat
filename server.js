@@ -165,14 +165,6 @@ app.use(helmet())
 //TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
 // configure passport
 
-var room = {
-    a: 'abc'
-};
-
-db.collection('aaa').insert(rooms);
-
-console.log('rooms: ');
-console.log(room);
 
 //set port to 3000
 const isProduction = process.env.NODE_ENV === 'production';
