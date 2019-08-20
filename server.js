@@ -200,8 +200,7 @@ app.use((err, req, res, next) => {
 });
 app.use(function(req, res, next) {
   req.user = req.isAuthenticated,
-  username = req.user.name;
-  var username = req.user.name;
+  user.name = req.user.name;
   next();
 });
 //chat
