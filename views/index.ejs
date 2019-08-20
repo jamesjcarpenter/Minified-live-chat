@@ -297,7 +297,7 @@ pre {
     </div>
   </div>
 </div>
-
+<% user %>
 <div class="ui fixed attached vertical labeled icon gray menu">
   <a href="/home">
       <div class="ui basic segment">
@@ -335,7 +335,7 @@ pre {
       </div>
   </a>
 <!-- Chat Template -->
-
+<%- JSON.stringify(name) %>
 <div id="hell0">
 </div>
 
@@ -371,7 +371,7 @@ pre {
       </div>
                   
 
-              <%- JSON.stringify(user.name) %>
+              
               <h3 class="ui center aligned header"></h3>
               <div class="ui small jiggle images">
               <div id="remote-videos" class="five column doubling ui stackable grid">
@@ -387,7 +387,7 @@ pre {
 					</div>
 				</div>
 			</div>
-      <%- JSON.stringify(user.name) %>
+      
 			<div class="container" id="videojoin">
 				<div class="row">
 					<span class="label label-info" id="you"></span>
@@ -481,6 +481,7 @@ pre {
 	<div class="footer">
 	</div>
 </div>
+
 
             <div class="youtubewrapper">
               <div class="ui top attached icon buttons" id="youtube-buttons">
