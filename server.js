@@ -169,7 +169,7 @@ var room = {
     a: 'abc'
 };
 
-conn.collection('aaa').insert(rooms);
+db.collection('aaa').insert(rooms);
 
 console.log('rooms: ');
 console.log(room);
