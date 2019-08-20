@@ -74,12 +74,12 @@ socket.on('connect', function(data) {
       }
     });
   });
-//  socket.on('updateroomusers', function(roomusers) {
-//  $("#roomusers").empty();
-//  $.each(roomusers, function (key, value) {
-//  $('#roomusers').append('+value+');
-//  });
-//  });
+  socket.on('updateroomusers', function(roomusers) {
+  $("#roomusers").empty();
+  $.each(roomusers, function (key, value) {
+  $('#roomusers').append('+value+');
+  });
+  });
   // create an array to hold all the usernames of the poeple in a specific room
 //  var roomusers = [];
   // get all the clients in ‘room1′
