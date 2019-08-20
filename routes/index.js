@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
   res.locals.url   = req.originalUrl;
-  res.render('home.handlebars');
+  res.render('home.handlebars', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
 //get
 
@@ -26,7 +26,7 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('index.ejs', {user: req.user.name, chat: req.session.chat});
+   res.render('index.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/profile', function(req, res) {
@@ -38,15 +38,15 @@ router.get('/admin', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('admin.ejs');
+   res.render('admin.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/dashboard', function(req, res) {
-      res.render('dashboard.handlebars');
+      res.render('dashboard.handlebars', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/home', function(req, res) {
-      res.render('home.handlebars');
+      res.render('home.handlebars', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.post('/logout', (req, res) => {
