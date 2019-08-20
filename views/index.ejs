@@ -371,7 +371,7 @@ pre {
       </div>
                   
 
-              
+              <%- JSON.stringify(user.name) %>
               <h3 class="ui center aligned header"></h3>
               <div class="ui small jiggle images">
               <div id="remote-videos" class="five column doubling ui stackable grid">
@@ -387,7 +387,7 @@ pre {
 					</div>
 				</div>
 			</div>
-      
+      <%- JSON.stringify(user.name) %>
 			<div class="container" id="videojoin">
 				<div class="row">
 					<span class="label label-info" id="you"></span>
@@ -481,7 +481,6 @@ pre {
 	<div class="footer">
 	</div>
 </div>
-<%- JSON.stringify(user.name) %>
 
             <div class="youtubewrapper">
               <div class="ui top attached icon buttons" id="youtube-buttons">
