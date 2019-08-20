@@ -292,7 +292,6 @@ $(document).ready(function() {
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
-									$('#username').removeClass('hide').html(myusername).show();
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
