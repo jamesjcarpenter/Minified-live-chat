@@ -2,7 +2,7 @@ $ (function(){
 
   var socket = io('/room');
 
-  var username = $('#username').val();
+  var username = $('#user').val();
   var noChat = 0; //setting 0 if all chats histroy is not loaded. 1 if all chats loaded.
   var msgCount = 0; //counting total number of messages displayed.
   var oldInitDone = 0; //it is 0 when old-chats-init is not executed and 1 if executed.
@@ -56,7 +56,7 @@ $ (function(){
 
 
   //on button click function.
-  $(document).on("click","#datasend",function(){
+  $(document).on("click","#ubtn",function(){
 
     //empty messages.
     $('#messages').empty();
@@ -152,13 +152,13 @@ $ (function(){
   }); // end of listening old-chats event.
 
   // keyup handler.
-  $('#data').keyup(function(){
-    if($('#data').val()){
-      $('#datasend').show(); //showing send button.
+  $('#myMsg').keyup(function(){
+    if($('#myMsg').val()){
+      $('#sendBtn').show(); //showing send button.
       socket.emit('typing');
     }
     else{
-      $('#datasend').hide(); //hiding send button to prevent sending empty messages.
+      $('#sendBtn').hide(); //hiding send button to prevent sending empty messages.
     }
   }); //end of keyup handler.
 
@@ -177,9 +177,9 @@ $ (function(){
 
   //sending message.
   $('form').submit(function(){
-    socket.emit('chat-msg',{msg:$('#data').val(),msgTo:toUser,date:Date.now()});
-    $('#data').val("");
-    $('#datasend').hide();
+    socket.emit('chat-msg',{msg:$('#myMsg').val(),msgTo:toUser,date:Date.now()});
+    $('#myMsg').val("");
+    $('#sendBtn').hide();
     return false;
   }); //end of sending message.
 
