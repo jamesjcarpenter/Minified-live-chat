@@ -1,0 +1,241 @@
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+    body { visibility:hidden !important; width:100%;
+    }
+    html { padding-top:1px; overflow-y: hidden; overflow-x: hidden;}
+    #chat-content { padding-top:30px!important; height: 530px; width: 385px; overflow-y: scroll; overflow-x: hidden; line-height:1.06; position:relative;}
+    .segment { background-color: 111111 }
+    #local-video { display:block!important; width:100%; max-height:100%;position:relative;}
+    #remote-videos { display:block!important; width:100%; height:100%; position:relative;right:2.5vw;}
+    #chat { display:block!important;margin-right:60px;position:relative;}
+    #youtube-buttons { max-width: 100%;padding-top:12.4vh;}
+    .youtubewrapper { margin-right:24em;}
+    #slidersound { padding-top:20px; }
+    #conversation{display:block!important;
+    }
+    #chatbox {  
+      display:block!important;
+    text-align:left;  
+    margin:0 auto;  
+    margin-bottom:0px;  
+    padding:10px;
+    background:#fff;  
+    height:auto;  
+    border:1px solid #ACD8F0;  
+    overflow:auto; }  
+    #data {
+      padding:10px;
+      padding-top:10px;
+      padding-bottom:5px;
+      padding-right:30px;
+      margin-bottom:0px;
+      margin-left:auto;
+      margin-right:auto;
+      display:inline-grid;
+    }
+    #chatbox{
+      padding:10px;
+      padding-top:10px;
+      padding-right:30px;
+      padding-bottom:5px;
+      width:100%;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom:0px;
+      min-width:200px;
+      display:inline-grid;
+    }
+    #datasend {
+      display: none!important;
+    }
+  #copywrapper {
+    top:2.2em;
+    right:8.25em;
+    
+  }
+  #inputwrapper{
+    width:21.5vw;
+    border: 22px outset rgba(41,161,164,0.62);
+    border-radius: 21px 21px 9px 9px;
+  }
+  #message{
+    padding-top:10px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:10px;
+    margin:0 auto;
+    margin-left:45px;
+    bottom:5px;
+    
+  }
+  
+  #username{
+    padding-left:15px;
+    padding-right:20px;
+    margin:0 auto;
+    margin-bottom:0;
+  }
+  #useravatar{
+    top:17px;
+    bottom:0;
+    margin:0 auto;
+    height:3.5vh;
+    width:1.75vw;
+
+  }
+    .aspectwrapper {
+  display: inline-block; /* shrink to fit */
+  width: 100%;           /* whatever width you like */
+  position: relative;    /* so .content can use position: absolute */
+}
+.aspectwrapper::after {
+  padding-top: 56.25%; /* percentage of containing block _width_ */
+  display: block;
+  content: '';
+}
+.blockUI {
+  height:0px!important;
+  width:0px!important;
+}
+.unblockUI {
+  height:0px!important;
+  width:0px!important;
+}
+.blockUI.blockOverlay {
+  height:0px!important;
+  width:0px!important;
+}
+.blockUI.blockMsg.blockElement {
+  height:0px!important;
+  width:0px!important;
+}
+.content {
+  position: absolute;
+  top: 0; bottom: 0; right: 0; left: 0;  /* follow the parent's edges */
+  outline: thin dashed green;            /* just so you can see the box */
+}
+    .ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px; display: block; }
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+.win-size-grip {
+   position: absolute;
+   width: 16px;
+   height: 16px;
+   padding: 4px;
+   bottom: 0;
+   right: 0;
+   cursor: nwse-resize;
+   background: url(https://raw.githubusercontent.com/RickStrahl/jquery-resizable/master/assets/wingrip.png) no-repeat;
+ }
+ .rounded {
+	border-radius: 5px;
+}
+
+.centered {
+	display: block;
+	margin: auto;
+}
+
+.relative {
+	position: relative;
+}
+
+.navbar-brand {
+	margin-left: 0px !important;
+}
+
+.navbar-default {
+	-webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+	-moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+	box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+}
+
+.navbar-header {
+	padding-left: 40px;
+}
+
+.margin-sm {
+	margin: 5px !important;
+}
+.margin-md {
+	margin: 10px !important;
+}
+.margin-xl {
+	margin: 20px !important;
+}
+.margin-bottom-sm {
+	margin-bottom: 5px !important;
+}
+.margin-bottom-md {
+	margin-bottom: 10px !important;
+}
+.margin-bottom-xl {
+	margin-bottom: 20px !important;
+}
+
+.divider {
+	width: 100%;
+	text-align: center;
+}
+
+.divider hr {
+	margin-left: auto;
+	margin-right: auto;
+	width: 45%;
+}
+
+div.no-video-container {
+	position: relative;
+}
+
+.no-video-icon {
+	width: 100%;
+	height: 240px;
+	text-align: center;
+}
+
+.no-video-text {
+	text-align: center;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	font-size: 24px;
+}
+
+#scrollable{
+    float: left;
+    min-height: 70vh;
+    width: 100%;
+    overflow-y: auto;
+    min-width:21.5vw;
+    overflow-x:hidden;
+}
+#scroller{
+    margin-top: 50px;
+}
+
+pre {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+
+.januscon {
+	font-weight: bold;
+	animation: pulsating 1s infinite;
+}
+@keyframes pulsating {
+	30% {
+		color: #FFD700;
+	}
+}
