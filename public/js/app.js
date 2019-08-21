@@ -4,6 +4,8 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 
+$("#data").focus();
+
   // toggle sidebar
 var socket = io.connect('anomic.io/');
 
