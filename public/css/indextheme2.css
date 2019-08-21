@@ -87,9 +87,11 @@ background-color: 		#383838!important;
     margin:0 auto;
     margin-left:45px;
     bottom:5px;
-    
+    background-color:red;
   }
-  
+  .label{
+    background-color:red;
+  }
   #username{
     padding-left:15px;
     padding-right:20px;
