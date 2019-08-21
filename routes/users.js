@@ -8,6 +8,9 @@ var LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 var sessionStorage = require('sessionstorage');
 
+const shortid = require("shortid");
+const today = Date.now();
+const id = shortid.generate();
 
 router.get('/login', function(req, res) {
       res.render('login.handlebars', { username: req.user });
@@ -40,9 +43,12 @@ router.post('/register', (req, res) => {
         res.redirect('/login');
       } else {
         const newUser = new User({
+          id,
           name,
           email,
-          password
+          password,
+          today,
+          today
         });
 
         bcrypt.genSalt(10, (err, salt) => {
