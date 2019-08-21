@@ -75,29 +75,50 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-const { RateLimiterMemory } = require('rate-limiter-flexible');
+const redis = require('redis');
+const redisClient = redis.createClient({ enable_offline_queue: false });
 
-app.listen(3000);
+const Redis = require('ioredis');
+const redisClient = new Redis({ enableOfflineQueue: false });
 
-const rateLimiter = new RateLimiterMemory(
-  {
-    points: 5, // 5 points
-    duration: 1, // per second
-  });
+const { RateLimiterRedis } = require('rate-limiter-flexible');
 
-io.on('connection', (socket) => {
-  socket.on('bcast', async (data) => {
-    try {
-      await rateLimiter.consume(socket.handshake.address); // consume 1 point per event from IP
-      socket.emit('news', { 'data': data });
-      socket.broadcast.emit('news', { 'data': data });
-    } catch(rejRes) {
-      // no available points to consume
-      // emit error or warning message
-      socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
-    }
-  });
+// It is recommended to process Redis errors and setup some reconnection strategy
+redisClient.on('error', (err) => {
+  
 });
+
+const opts = {
+  // Basic options
+  storeClient: redisClient,
+  points: 5, // Number of points
+  duration: 5, // Per second(s)
+  
+  // Custom
+  execEvenly: false, // Do not delay actions evenly
+  blockDuration: 0, // Do not block if consumed more than points
+  keyPrefix: 'rlflx', // must be unique for limiters with different purpose
+};
+
+const rateLimiterRedis = new RateLimiterRedis(opts);
+
+rateLimiterRedis.consume(remoteAddress)
+    .then((rateLimiterRes) => {
+      // ... Some app logic here ...
+    })
+    .catch((rejRes) => {
+      if (rejRes instanceof Error) {
+        // Some Redis error
+        // Never happen if `insuranceLimiter` set up
+        // Decide what to do with it in other case
+      } else {
+        // Can't consume
+        // If there is no error, rateLimiterRedis promise rejected with number of ms before next request allowed
+        const secs = Math.round(rejRes.msBeforeNext / 1000) || 1;
+        res.set('Retry-After', String(secs));
+        res.status(429).send('Too Many Requests');
+      }
+    });
 
 
 var corsOptions = {
