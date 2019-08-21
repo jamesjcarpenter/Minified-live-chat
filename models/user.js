@@ -5,8 +5,8 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 const UserSchema = new mongoose.Schema({
-  userId: { type: String, default: "", required: true },
-  bio: { type: String, default: "", required: true },
+  userId: { type: String, default: ""},
+  bio: { type: String, default: ""},
   name: {
     type: String,
     required: true,
