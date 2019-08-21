@@ -210,9 +210,6 @@ require("../models/chat.js");
 require("../models/roomschema.js");
 
 //using mongoose Schema models
-const userModel = mongoose.model("User");
-const chatModel = mongoose.model("Chat");
-const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
 module.exports.sockets = function(https) {
