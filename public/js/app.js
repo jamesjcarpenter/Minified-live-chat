@@ -18,6 +18,7 @@ var socket = io.connect('anomic.io/');
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + username + '</tag>' + '<samp><em>' + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui teal medium left pointing label"id="message">' + '</span><p><span class="ui medium white text">' + data + '</div></p></span></div></div>' + '</h6></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1000);
+    $("#data").focus();
   });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
 
