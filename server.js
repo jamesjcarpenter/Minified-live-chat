@@ -205,9 +205,9 @@ app.use(function(req, res, next) {
   next();
 });
 //chat
-require("../models/user.js");
-require("../models/chat.js");
-require("../models/roomschema.js");
+require("./models/user.js");
+require("./models/chat.js");
+require("./models/roomschema.js");
 
 //using mongoose Schema models
 
