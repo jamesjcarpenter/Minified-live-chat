@@ -6,10 +6,22 @@ window.addEventListener('load', () => {
   // toggle sidebar
 var socket = io.connect('anomic.io/');
 
-  // Add validation rules to Create/Join Room Form
-  socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', prompt("What's your name?"));
+    socket.emit('adduser',
+    $('.ui.modal')
+    .modal({  
+      blurring: true,
+      closable  : false,
+      onDeny    : function(){
+        window.alert('Wait not yet!');
+        return false;
+      },
+      onApprove : function() {
+        window.close();
+      }
+    //
+    
+    }).modal('show'));
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {

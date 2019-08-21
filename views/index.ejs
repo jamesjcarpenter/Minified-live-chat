@@ -535,24 +535,7 @@ pre {
   <script>  var socket = io.connect('anomic.io/');
 
     // on connection to server, ask for user's name with an anonymous callback
-  socket.on('connect', function(){
-    // call the server-side function 'adduser' and send one parameter (value of prompt)
-    socket.emit('adduser', function(username){
-    $('.ui.modal')
-    .modal({  
-      blurring: true,
-      closable  : false,
-      onDeny    : function(){
-        window.alert('Wait not yet!');
-        return false;
-      },
-      onApprove : function() {
-        window.close();
-      }
-    //
-    }).modal('show'));
 //
-
 
 
   // listener, whenever the server emits 'updatechat', this updates the chat
