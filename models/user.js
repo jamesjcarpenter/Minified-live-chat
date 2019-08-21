@@ -23,8 +23,8 @@ const UserSchema = new mongoose.Schema({
   bio: String,
   image: String,
   tags: [ String ]
-}, { _id: false }
-});
+}, 
+{ _id: false });
 var User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.createUser = function(newUser, callback){
