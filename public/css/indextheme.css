@@ -187,6 +187,9 @@
 .page-header {
   display:none;
 }
+#themechanger{
+  left:7.5vw;
+}
 .divider hr {
 	margin-left: auto;
 	margin-right: auto;
