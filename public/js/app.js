@@ -8,7 +8,7 @@ var socket = io.connect('anomic.io/');
 io.sockets.on('connection', function (socket) {
 
   // when the client emits 'adduser', this listens and executes
-  socket.on('adduser', function(req, res){
+  socket.on(function(req, res){
     // store the username in the socket session for this client
     // store the room name in the socket session for this client
     socket.room = 'room1';
