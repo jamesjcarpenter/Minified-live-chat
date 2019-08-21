@@ -87,7 +87,7 @@ background-color: 		#383838!important;
   }
   #inputwrapper{
     width:21.5vw;
-    border: 22px outset rgba(105,89,205,0.62);
+    border: 22px outset rgba(105,89,205,0.75);
     border-radius: 21px 21px 9px 9px;
     background-color: #6959CD!important;
   }
@@ -99,10 +99,10 @@ background-color: 		#383838!important;
     margin:0 auto;
     margin-left:45px;
     bottom:5px;
-    background-color:red;
+    background-color:#6959CD!important;
   }
   .label{
-    background-color:	#888888;
+    background-color:	#6959CD!important;
   }
   #username{
     padding-left:15px;
