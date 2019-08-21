@@ -1,11 +1,11 @@
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-    body { visibility:hidden !important; width:100%; background-color: #404040!important; color:white;
+    body { visibility:hidden !important; width:100%; background-color: 	#303030!important; color:white;
     }
     #attachmenu { background-color: 		#383838!important;
     }
     html { padding-top:1px; overflow-y: hidden; overflow-x: hidden; color:white;}
     #data.content {
-      background-color: 		#787878!important;
+      background-color: 		#787878!important;color:white;
     }
     .p {
       color:white;}
