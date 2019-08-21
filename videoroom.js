@@ -93,7 +93,9 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#videojoin').removeClass('hide').show();
+									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
+									$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -353,7 +355,8 @@ function checkEnter(field, event) {
 		registerUsername();
 		return false;
 	} else {
-		return true;
+		registerUsername();
+		return false;
 	}
 }
 
@@ -361,6 +364,7 @@ function registerUsername() {
 		var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
 		myusername = username;
 		sfutest.send({"message": register});
+	}
 }
 
 function publishOwnFeed(useAudio) {
