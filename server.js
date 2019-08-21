@@ -27,9 +27,9 @@ var FileStore = require('session-file-store')(session);
 const path = require('path')
 var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
-require("./models/chat");
-require("./models/user");
-require("./models/roomschema");
+const Chat = require("./models/chat");
+const User = require("./models/user");
+const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
@@ -55,7 +55,7 @@ const cons = require('consolidate');
 // secure = HTTPs secure. needs to be on before deployment.
 app.use(session({
   name: SESS_NAME,
-  resave: true,
+  resave: false,
   saveUninitialized: true,
   secret: SESS_SECRET,
   cookie: {
@@ -100,6 +100,7 @@ app.use(function(req, res, next) {
 });
 var routes = require('./routes/index.js');
 var users = require('./routes/users');
+var user = require('./models/user');
 
 var engines = require('consolidate');
 
@@ -149,7 +150,7 @@ app.post('/api/images', parser.single("image"), (req, res) => {
     .catch(err => console.log(err));
 });
 
-const userModel = mongoose.model("User");
+
 app.use(function(req, res, next) {
   res.locals.user = req.user || null;
     if(req.user == null){

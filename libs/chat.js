@@ -19,10 +19,6 @@ module.exports.sockets = function(https) {
   io = socketio.listen(https);
 
 
-  var usernames = {};
-  var users = require("./models/user");
-  var chat = require("./models/chat");
-  var rooms = require("./models/roomschema");
   io.sockets.on('connection', function (socket) {
 
   	// when the client emits 'adduser', this listens and executes
