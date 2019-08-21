@@ -2,6 +2,7 @@ window.addEventListener('load', () => {
   // Chat platform
   // Local Video
 $('#start').click();
+$('#start').hide();
 
   // toggle sidebar
 var socket = io.connect('anomic.io/');
@@ -169,6 +170,12 @@ $('.event .content .summary .date .ui #newmsg')
   animation : 'fly in',
   duration  : 1200,
 });
+
+window.onunload = function() {
+    $('#start').show();
+    $('#start').click();
+}
+
 
 var designer = new CanvasDesigner();
 
