@@ -277,6 +277,8 @@ app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 
 app.use(express.static('/semantic'));
 
+app.use(express.static('/libs/'));
+
 // global variables
 
 app.use(function(req, res, next) {

@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-const mongoose = require("mongoose");
-const User = mongoose.model("User");
-const Chat = mongoose.model("Chat");
-const Room = mongoose.model("Room");
 
 router.all('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
@@ -26,19 +22,6 @@ router.get('/', function(req, res) {
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 router.get('/room', function(req, res) {
-  var newChat = new Chat({
-    msgFrom: data.msgFrom,
-    msgTo: data.msgTo,
-    msg: data.msg,
-    room: data.room,
-    createdOn: data.date
-  });
-  newRoom = new Room({
-    name1: rr,
-    name2: rr,
-    lastActive: 1,
-    createdOn: 1
-  });
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
