@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const Chat = mongoose.model("Chat");
 const Room = mongoose.model("Room");
