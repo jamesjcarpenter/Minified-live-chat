@@ -240,9 +240,14 @@ io.sockets.on('connection', function (socket) {
   setTimeout(sendHeartbeat, 8000);
 
 	// when the client emits 'sendchat', this listens and executes
-	socket.on('sendchat', function (data) {
+	socket.on('sendchat', function (username, data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		io.emit('updatechat', data);
+		io.emit('updatechat', username, data);
+    console.log(username);
+    console.log(user);
+    console.log(user.name);
+    console.log(user.username);
+    console.log(name);
 	});
 
 	socket.on('switchRoom', function(newroom){
@@ -252,10 +257,10 @@ io.sockets.on('connection', function (socket) {
 		socket.join(newroom);
 		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
 		// sent message to OLD room
-		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER' + ' has left this room');
+		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', username + ' has left this room');
 		// update socket session room title
 		socket.room = newroom;
-		socket.broadcast.to(newroom).emit('updatechat', 'SERVER' + ' has joined this room');
+		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', username + ' has joined this room');
 		socket.emit('updaterooms', rooms, newroom);
 	});
 
