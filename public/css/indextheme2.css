@@ -38,7 +38,6 @@
     margin:0 auto;  
     margin-bottom:0px;  
     padding:10px;
-    background:#fff;  
     height:auto;  
 background-color: 		#383838!important;
     border:1px solid #ACD8F0;  }  
@@ -64,6 +63,7 @@ background-color: 		#383838!important;
       margin-bottom:0px;
       min-width:200px;
       display:inline-grid;
+      background-color: 		#383838!important;
     }
     #datasend {
       display: none!important;
@@ -94,6 +94,7 @@ background-color: 		#383838!important;
     padding-right:20px;
     margin:0 auto;
     margin-bottom:0;
+    color:white;
   }
   #useravatar{
     top:17px;
@@ -238,6 +239,7 @@ div.no-video-container {
     overflow-y: auto;
     min-width:21.5vw;
     overflow-x:hidden;
+    background-color: 		#383838!important;
 }
 #scroller{
     margin-top: 50px;
