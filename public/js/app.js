@@ -8,7 +8,6 @@ var socket = io.connect('anomic.io/room');
 
   // Add validation rules to Create/Join Room Form
   var usernames = {};
-  var rooms = require("./models/roomschema");
   io.sockets.on('connection', function (socket) {
 
   	// when the client emits 'adduser', this listens and executes

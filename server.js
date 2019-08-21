@@ -206,7 +206,7 @@ app.use(function(req, res, next) {
 });
 //chat
 require("./libs/chat.js").sockets(https);
-
+  var rooms = require("./models/roomschema");
 
 
 // Provide access to node_modules folder
