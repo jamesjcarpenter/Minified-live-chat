@@ -75,8 +75,7 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-const rateLimiterRedisMiddleware = require('./libs/rateLimiterRedis');
-app.use(rateLimiterRedisMiddleware);
+
 
 
 var corsOptions = {
