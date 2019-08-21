@@ -25,6 +25,19 @@ router.get('/room', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
+  newRoom = new roomModel({
+    name1: room.name1,
+    name2: room.name2,
+    lastActive: today,
+    createdOn: today
+  });
+  var newChat = new Chat({
+    msgFrom: data.msgFrom,
+    msgTo: data.msgTo,
+    msg: data.msg,
+    room: data.room,
+    createdOn: data.date
+  });
    res.locals.url   = req.originalUrl;
    res.render('index.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
