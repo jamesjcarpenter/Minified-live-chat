@@ -97,7 +97,7 @@ $(document).ready(function() {
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
-									sfutest.send({"message": unpublished});
+									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -296,17 +296,17 @@ $(document).ready(function() {
 									$('#publisher').removeClass('hide').html(myusername).show();
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
-									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
-											sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
-										$("#videolocal").parent().parent().block({
-											message: '<b>Publishing...</b>',
-											css: {
-												border: 'none',
-												backgroundColor: 'transparent',
-												color: 'white'
-											}
-										});
-									}
+					//				if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
+						//					sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
+					//					$("#videolocal").parent().parent().block({
+				//							message: '<b>Publishing...</b>',
+				//							css: {
+					//							border: 'none',
+					//							backgroundColor: 'transparent',
+						//						color: 'white'
+						//					}
+					//					});
+				//					}
 									var videoTracks = stream.getVideoTracks();
 									if(videoTracks === null || videoTracks === undefined || videoTracks.length === 0) {
 										// No webcam
