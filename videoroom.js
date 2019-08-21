@@ -162,7 +162,7 @@ $(document).ready(function() {
 											myid = msg["id"];
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
-											publishOwnFeed(true);
+											publishOwnFeed(false);
 											// Any new feed to attach to?
 											if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
 												var list = msg["publishers"];
@@ -296,17 +296,17 @@ $(document).ready(function() {
 									$('#publisher').removeClass('hide').html(myusername).show();
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
-					//				if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
-						//					sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
-					//					$("#videolocal").parent().parent().block({
-				//							message: '<b>Publishing...</b>',
-				//							css: {
-					//							border: 'none',
-					//							backgroundColor: 'transparent',
-						//						color: 'white'
-						//					}
-					//					});
-				//					}
+									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
+											sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
+										$("#videolocal").parent().parent().block({
+											message: '<b>Publishing...</b>',
+											css: {
+												border: 'none',
+												backgroundColor: 'transparent',
+												color: 'white'
+											}
+										});
+									}
 									var videoTracks = stream.getVideoTracks();
 									if(videoTracks === null || videoTracks === undefined || videoTracks.length === 0) {
 										// No webcam

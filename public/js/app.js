@@ -4,6 +4,8 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 
+$('#localvideo').hide();
+
 $('#unpublish').click();
   // toggle sidebar
 var socket = io.connect('anomic.io/');
