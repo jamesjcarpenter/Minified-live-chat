@@ -33,7 +33,7 @@ module.exports.sockets = function(https) {
       console.log(username + "  logged In");
 
       //storing variable.
-      socket.username = username;
+      socket.username = user.name;
       userSocket[socket.username] = socket.id;
 
       socket.broadcast.emit("broadcast", {
@@ -306,27 +306,6 @@ module.exports.sockets = function(https) {
             checkUname(1); //send 1 if username not found.
           } else {
             checkUname(0); //send 0 if username found.
-          }
-        }
-      }
-    );
-  }); //end of findUsername event.
-
-  //event to find and check username.
-  eventEmitter.on("findEmail", function(email) {
-    userModel.find(
-      {
-        email: email
-      },
-      function(err, result) {
-        if (err) {
-          console.log("Error : " + err);
-        } else {
-          //console.log(result);
-          if (result == "") {
-            checkEmail(1); //send 1 if email not found.
-          } else {
-            checkEmail(0); //send 0 if email found.
           }
         }
       }
