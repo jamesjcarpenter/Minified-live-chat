@@ -1,10 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-const Chat = require("../models/chat");
-const User = require("../models/user");
-const Room = require("../models/roomschema");
-const Image = require("../models/profileimg");
 
 router.all('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
@@ -29,17 +25,6 @@ router.get('/room', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
-  newRoom = new Room({
-    lastActive: today,
-    createdOn: today
-  });
-  var newChat = new Chat({
-    msgFrom: data.msgFrom,
-    msgTo: data.msgTo,
-    msg: data.msg,
-    room: data.room,
-    createdOn: data.date
-  });
    res.locals.url   = req.originalUrl;
    res.render('index.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
 });

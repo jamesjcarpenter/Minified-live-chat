@@ -10,9 +10,9 @@ require("../models/chat.js");
 require("../models/roomschema.js");
 
 //using mongoose Schema models
-const userModel = mongoose.model("User");
-const chatModel = mongoose.model("Chat");
-const roomModel = mongoose.model("Room");
+const User = mongoose.model("User");
+const Chat = mongoose.model("Chat");
+const Room = mongoose.model("Room");
 
 //reatime magic begins here
 module.exports.sockets = function(https) {
@@ -136,7 +136,7 @@ module.exports.sockets = function(https) {
   eventEmitter.on("save-chat", function(data) {
     // var today = Date.now();
 
-    var newChat = new chatModel({
+    var newChat = new Chat({
       msgFrom: data.msgFrom,
       msgTo: data.msgTo,
       msg: data.msg,
@@ -221,7 +221,7 @@ module.exports.sockets = function(https) {
           if (result == "" || result == undefined || result == null) {
             var today = Date.now();
 
-            newRoom = new roomModel({
+            newRoom = new Room({
               name1: room.name1,
               name2: room.name2,
               lastActive: today,
