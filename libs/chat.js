@@ -10,15 +10,16 @@ require("../models/chat.js");
 require("../models/roomschema.js");
 
 //using mongoose Schema models
-const User = mongoose.model("User");
-const Chat = mongoose.model("Chat");
-const Room = mongoose.model("Room");
+const userModel = mongoose.model("User");
+const chatModel = mongoose.model("Chat");
+const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
 module.exports.sockets = function(https) {
   io = socketio.listen(https);
+
   //setting chat route
-  const ioChat = io.of("anomic.io/");
+  const ioChat = io.of("/room");
   const userStack = {};
   let oldChats, sendUserStack, setRoom;
   const userSocket = {};
@@ -136,7 +137,7 @@ module.exports.sockets = function(https) {
   eventEmitter.on("save-chat", function(data) {
     // var today = Date.now();
 
-    var newChat = new Chat({
+    var newChat = new chatModel({
       msgFrom: data.msgFrom,
       msgTo: data.msgTo,
       msg: data.msg,
@@ -221,7 +222,7 @@ module.exports.sockets = function(https) {
           if (result == "" || result == undefined || result == null) {
             var today = Date.now();
 
-            newRoom = new Room({
+            newRoom = new roomModel({
               name1: room.name1,
               name2: room.name2,
               lastActive: today,

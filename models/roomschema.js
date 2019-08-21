@@ -11,6 +11,13 @@ const RoomSchema = new mongoose.Schema({
 });
 var Room = module.exports = mongoose.model('Room', RoomSchema);
 
+function saveRoom(data) {
+    var newRoom = new Room(data);
+    newRoom.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+    })
+}
 
 //module.exports.getRoomByRoomName = function(roomname, callback){
 //  var query = {roomname: roomname};
