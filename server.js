@@ -213,7 +213,9 @@ var rooms = require("./models/roomschema");
 io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
-	socket.on('adduser', function(req, res){
+	socket.on('adduser', function(username){
+    socket.username = username;
+    usernames[username] = username;
 		// store the username in the socket session for this client
 		// store the room name in the socket session for this client
 		socket.room = 'room1';
@@ -247,7 +249,6 @@ io.sockets.on('connection', function (socket) {
     console.log(user);
     console.log(user.name);
     console.log(user.username);
-    console.log(name);
 	});
 
 	socket.on('switchRoom', function(newroom){

@@ -7,7 +7,10 @@ window.addEventListener('load', () => {
 var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
-
+  socket.on('connect', function(){
+		// call the server-side function 'adduser' and send one parameter (value of prompt)
+		socket.emit('adduser', prompt("What's your name?"));
+	});
   // create our webrtc connection
 
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
