@@ -93,7 +93,7 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#videojoin').removeClass('hide').show();
-									registerUsername();
+									$('#register').click(registerUsername);
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
