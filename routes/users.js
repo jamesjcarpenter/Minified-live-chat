@@ -43,12 +43,12 @@ router.post('/register', (req, res) => {
         res.redirect('/login');
       } else {
         const newUser = new User({
-          id,
-          name,
-          email,
-          password,
-          today,
-          today
+          userId: id,
+          name: name,
+          email: email,
+          password: password,
+          createdOn: today,
+          updatedOn: today
         });
 
         bcrypt.genSalt(10, (err, salt) => {
