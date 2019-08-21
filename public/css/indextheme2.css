@@ -16,7 +16,10 @@
     #slidersound { padding-top:20px;  background-color: 		#383838!important;}
     #conversation{display:block!important;
     }
-    
+    #videolocal { background-color: #383838!important; }
+    .i {
+      background-color: white;
+    }
     #chatbox {  
       display:block!important;
     text-align:left;  
