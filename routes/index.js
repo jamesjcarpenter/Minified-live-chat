@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+const User = mongoose.model("User");
+const Chat = mongoose.model("Chat");
+const Room = mongoose.model("Room");
 
 router.all('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
