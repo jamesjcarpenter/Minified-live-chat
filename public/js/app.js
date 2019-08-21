@@ -8,6 +8,7 @@ $("#data").focus();
 
 document.getElementById('themechanger').onclick = function () { 
     document.getElementById('themecss').href = 'css/indextheme2.css';
+    $('.ui.button').addClass('ui.button.inverted').removeClass('.ui.button');
 };
 
 
