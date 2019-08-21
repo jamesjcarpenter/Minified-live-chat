@@ -435,7 +435,7 @@ function publishOwnFeed(useAudio) {
 
 function publishNoFeed() {
 	// Publish our stream
-	$('#publish').attr('disabled', false).unbind('click');
+	$('#publish').attr('disabled', false);
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
