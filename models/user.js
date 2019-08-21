@@ -19,7 +19,11 @@ const UserSchema = new mongoose.Schema({
   },
   is_active: { type: Boolean, default: false },
   createdOn: { type: Date, default: Date.now },
-  updatedOn: { type: Date, default: Date.now }
+  updatedOn: { type: Date, default: Date.now },
+  bio: String,
+  image: String,
+  tags: [ String ]
+}, { _id: false }
 });
 var User = module.exports = mongoose.model('User', UserSchema);
 
