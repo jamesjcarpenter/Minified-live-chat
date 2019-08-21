@@ -304,7 +304,7 @@ module.exports.sockets = function(https) {
           if (result == "") {
             checkUname(1); //send 1 if username not found.
           } else {
-            checkUname(0); //send 0 if username found.
+            checkUname(user.name); //send 0 if username found.
           }
         }
       }
