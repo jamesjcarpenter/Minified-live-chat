@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   // Chat platform
   // Local Video
-
+$('#start').click();
 
   // toggle sidebar
 var socket = io.connect('anomic.io/');
