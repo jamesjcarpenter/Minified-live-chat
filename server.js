@@ -75,6 +75,8 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
 const { RateLimiterClusterMaster, RateLimiterCluster } = require('rate-limiter-flexible');
 if (cluster.isMaster) {
   // Doesn't require any options, it is only storage and messages handler
