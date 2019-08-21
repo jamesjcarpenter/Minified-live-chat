@@ -8,7 +8,10 @@ $("#data").focus();
 
 document.getElementById('themechanger').onclick = function () { 
     document.getElementById('themecss').href = 'css/indextheme2.css';
+    var btnElement = document.getElementByClassName("button");
+    btnElement.style = "inverted"; //to change the font color
 };
+
 
   // toggle sidebar
 var socket = io.connect('anomic.io/');
