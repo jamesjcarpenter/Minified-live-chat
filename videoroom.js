@@ -353,7 +353,7 @@ function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 	if(theCode == 13) {
 		registerUsername();
-		return true;
+		return false;
 	} else {
 		return true;
 	}
@@ -364,6 +364,27 @@ function registerUsername() {
 		// Create fields to register
 		$('#register').click(registerUsername);
 		$('#username').focus();
+	} else {
+		// Try a registration
+		$('#username').attr('disabled', true);
+		$('#register').attr('disabled', true).unbind('click');
+		var username = $('#username').val();
+		if(username === "") {
+			$('#you')
+				.removeClass().addClass('label label-warning')
+				.html("Insert your display name (e.g., pippo)");
+			$('#username').removeAttr('disabled');
+			$('#register').removeAttr('disabled').click(registerUsername);
+			return;
+		}
+		if(/[^a-zA-Z0-9]/.test(username)) {
+			$('#you')
+				.removeClass().addClass('label label-warning')
+				.html('Input is not alphanumeric');
+			$('#username').removeAttr('disabled').val("");
+			$('#register').removeAttr('disabled').click(registerUsername);
+			return;
+		}
 		var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
 		myusername = username;
 		sfutest.send({"message": register});
