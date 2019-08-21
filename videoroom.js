@@ -96,8 +96,7 @@ $(document).ready(function() {
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#username').focus();
-									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
-									myusername = username;
+									var register = { "request": "join", "room": myroom, "ptype": "publisher"};
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
