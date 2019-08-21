@@ -10,7 +10,7 @@ document.getElementById('themechanger').onclick = function () {
     document.getElementById('themecss').href = 'css/indextheme2.css';
     $('.ui.button').addClass('inverted');
     $('.icon').addClass('inverted');
-    $('#message.ui.teal.medium.left.pointing.label').addClass('inverted').removeClass('teal');
+    $('#message').addClass('inverted').removeClass('teal');
 };
 
 
