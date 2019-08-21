@@ -98,11 +98,7 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									$('#start').removeAttr('disabled').html("Stop")
-										.click(function() {
-											$(this).attr('disabled', true);
 											janus.destroy();
-										});
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
