@@ -93,26 +93,7 @@ const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
 app.use(rateLimiterRedisMiddleware);
 
-const { RateLimiterMemory } = require('rate-limiter-flexible');
 
-const rateLimiter = new RateLimiterMemory(
-  {
-    points: 0, // 5 points
-    duration: 1, // per second
-  });
-
-io.on('connection', (socket) => {
-  socket.on('bcast', async (data) => {
-    try {
-      await rateLimiter.consume(socket.handshake.address); // consume 1 point per event from IP
-      socket.emit('news', { 'data': data });
-      socket.broadcast.emit('news', { 'data': data });
-    } catch(rejRes) {
-      console.log('spammer');
-      socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
-    }
-  });
-});
 
 
 app.use(express.static(__dirname + '/public'));
