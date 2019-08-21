@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-const Chat = require("./models/chat");
-const User = require("./models/user");
-const Room = require("./models/roomschema");
-const Image = require("./models/profileimg");
+const Chat = require("../models/chat");
+const User = require("../models/user");
+const Room = require("../models/roomschema");
+const Image = require("../models/profileimg");
 
 router.all('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
