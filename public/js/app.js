@@ -4,6 +4,11 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 
+
+$('#scroller').click(function (){
+	$('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1000);
+});
+
   // toggle sidebar
 var socket = io.connect('anomic.io/');
 
