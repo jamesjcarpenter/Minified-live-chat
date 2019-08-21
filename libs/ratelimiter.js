@@ -1,5 +1,6 @@
 const redis = require('redis');
 const {RateLimiterRedis} = require('rate-limiter-flexible');
+const { RateLimiterMemory } = require('rate-limiter-flexible');
 
 const redisClient = redis.createClient({
   enable_offline_queue: false,
