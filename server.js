@@ -75,7 +75,7 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-const { RateLimiterClusterMaster, RateLimiterCluster } = require('rate-limiter-flexible');
+const { RateLimiterMemory } = require('rate-limiter-flexible');
 const rateLimiter = new RateLimiterMemory(
   {
     points: 3, // 5 points
