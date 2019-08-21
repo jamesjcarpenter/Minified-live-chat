@@ -92,8 +92,11 @@ $(document).ready(function() {
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
-									$('#videojoin').removeClass('hide').show();
-									var register = { "request": "join", "room": myroom, "ptype": "publisher"};
+						//			$('#videojoin').removeClass('hide').show();
+							//		$('#registernow').removeClass('hide').show();
+							//		$('#register').click(registerUsername);
+					//				$('#username').focus();
+									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
