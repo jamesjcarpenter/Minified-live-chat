@@ -138,7 +138,6 @@
   </div>
   <div class="ui main text container">
     <div class="ui medium basic segment">
-        <img id="avatarimg" class="ui medium circular floated left image" src="images/image.png">
         {{  image.public.id }}
         
         <script>
@@ -158,7 +157,7 @@
             path = path || 'avatars/'; // default path here
             var num = Math.floor( Math.random() * imgAr.length );
             var img = imgAr[ num ];
-            var imgStr = '<img width=250px height=250px src="' + path + img + '" alt = "">';
+            var imgStr = '<img class="ui medium circular floated left image" src="' + path + img + '" alt = "">';
             document.write(imgStr); document.close();
         }
 </script>
