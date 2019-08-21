@@ -5,6 +5,8 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 const UserSchema = new mongoose.Schema({
+  userId: { type: String, default: "", required: true },
+  bio: { type: String, default: "", required: true },
   name: {
     type: String,
     required: true,
@@ -20,9 +22,6 @@ const UserSchema = new mongoose.Schema({
   is_active: { type: Boolean, default: false },
   createdOn: { type: Date, default: Date.now },
   updatedOn: { type: Date, default: Date.now },
-  bio: { type: String, },
-  image: { type: String, },
-  userId: { type: Number, },
 });
 var User = module.exports = mongoose.model('User', UserSchema);
 
