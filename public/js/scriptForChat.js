@@ -176,7 +176,7 @@ $ (function(){
   }); //end of typing event.
 
   //sending message.
-  $('form').submit(function(){
+  $('content').submit(function(){
     socket.emit('chat-msg',{msg:$('#data').val(),msgTo:toUser,date:Date.now()});
     $('#data').val("");
     $('#datasend').hide();
