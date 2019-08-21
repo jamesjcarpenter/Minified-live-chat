@@ -25,7 +25,7 @@
       display:none;
     }
     .ui.center.aligned.header {
-      display:none;
+      background-color: #303030!important;
     }
     #chat-content { padding-top:30px!important; height: 530px; width: 385px; overflow-y: scroll; overflow-x: hidden; line-height:1.06; position:relative;background-color: 	#404040!important;}
     #local-video { display:block!important; width:100%; max-height:100%;position:relative;}
