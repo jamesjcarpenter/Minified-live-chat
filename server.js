@@ -207,12 +207,25 @@ app.use(function(req, res, next) {
 //chat
 require("./libs/chat.js").sockets(https);
 
+
+var usernames = {};
+var rooms = require("./models/roomschema");
+io.sockets.on('connection', function (socket) {
+
+	// when the client emits 'adduser', this listens and executes
+	socket.on('adduser', function(req, res){
+		// store the username in the socket session for this client
+		// store the room name in the socket session for this client
+		socket.room = 'room1';
+		// send client to room 1
+});
+});
+
+
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 
 app.use(express.static('/semantic'));
-
-app.use(express.static('/libs'));
 
 // global variables
 
