@@ -12,10 +12,6 @@ var socket = io.connect('anomic.io/');
 		socket.emit('adduser', prompt("What's your name?"));
 	});
   // create our webrtc connection
-  socket.on('updatechat', function (username, data) {
-  		$('#username').append('<b>'+ username);
-      $('#conversation').append('<b>'+data);
-  	});
 
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
 
