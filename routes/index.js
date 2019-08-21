@@ -30,8 +30,6 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
   newRoom = new Room({
-    name1: room.name1,
-    name2: room.name2,
     lastActive: today,
     createdOn: today
   });
