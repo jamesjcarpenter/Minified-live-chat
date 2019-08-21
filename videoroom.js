@@ -164,7 +164,7 @@ $(document).ready(function() {
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
 											publishOwnFeed(false);
 											sfutest.hangup();
-											$('#videolocal').hide();
+											return;
 											// Any new feed to attach to?
 											if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
 												var list = msg["publishers"];
