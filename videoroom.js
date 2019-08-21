@@ -365,7 +365,6 @@ function registerUsername() {
 		myusername = username;
 		sfutest.send({"message": register});
 	}
-}
 
 function publishOwnFeed(useAudio) {
 	// Publish our stream
