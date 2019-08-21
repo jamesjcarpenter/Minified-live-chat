@@ -22,9 +22,8 @@ const UserSchema = new mongoose.Schema({
   updatedOn: { type: Date, default: Date.now },
   bio: String,
   image: String,
-  tags: [ String ]
-}, 
-{ _id: false });
+  _id: Number,
+});
 var User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.createUser = function(newUser, callback){
