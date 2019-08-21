@@ -1,6 +1,6 @@
 $ (function(){
 
-  var socket = io('/room');
+  var socket = io('anomic.io/');
 
   var username = $('#username').val();
   var noChat = 0; //setting 0 if all chats histroy is not loaded. 1 if all chats loaded.

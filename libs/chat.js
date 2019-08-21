@@ -18,7 +18,7 @@ const roomModel = mongoose.model("Room");
 module.exports.sockets = function(https) {
   io = socketio.listen(https);
   //setting chat route
-  const ioChat = io.of("/room");
+  const ioChat = io.of("anomic.io/");
   const userStack = {};
   let oldChats, sendUserStack, setRoom;
   const userSocket = {};
