@@ -75,49 +75,8 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-const redis = require('redis');
-
-const Redis = require('ioredis');
-const redisClient = new Redis({ enableOfflineQueue: false });
-
-const { RateLimiterRedis } = require('rate-limiter-flexible');
-
-// It is recommended to process Redis errors and setup some reconnection strategy
-redisClient.on('error', (err) => {
-  
-});
-
-const opts = {
-  // Basic options
-  storeClient: redisClient,
-  points: 5, // Number of points
-  duration: 5, // Per second(s)
-  
-  // Custom
-  execEvenly: false, // Do not delay actions evenly
-  blockDuration: 0, // Do not block if consumed more than points
-  keyPrefix: 'rlflx', // must be unique for limiters with different purpose
-};
-
-const rateLimiterRedis = new RateLimiterRedis(opts);
-
-rateLimiterRedis.consume(remoteAddress)
-    .then((rateLimiterRes) => {
-      // ... Some app logic here ...
-    })
-    .catch((rejRes) => {
-      if (rejRes instanceof Error) {
-        // Some Redis error
-        // Never happen if `insuranceLimiter` set up
-        // Decide what to do with it in other case
-      } else {
-        // Can't consume
-        // If there is no error, rateLimiterRedis promise rejected with number of ms before next request allowed
-        const secs = Math.round(rejRes.msBeforeNext / 1000) || 1;
-        res.set('Retry-After', String(secs));
-        res.status(429).send('Too Many Requests');
-      }
-    });
+const rateLimiterRedisMiddleware = require('./libs/rateLimiterRedis');
+app.use(rateLimiterRedisMiddleware);
 
 
 var corsOptions = {
