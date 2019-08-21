@@ -75,8 +75,29 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-const rateLimiterRedisMiddleware = require('./libs/rateLimiterRedis');
-app.use(rateLimiterRedisMiddleware);
+const { RateLimiterMemory } = require('rate-limiter-flexible');
+
+app.listen(3000);
+
+const rateLimiter = new RateLimiterMemory(
+  {
+    points: 5, // 5 points
+    duration: 1, // per second
+  });
+
+io.on('connection', (socket) => {
+  socket.on('bcast', async (data) => {
+    try {
+      await rateLimiter.consume(socket.handshake.address); // consume 1 point per event from IP
+      socket.emit('news', { 'data': data });
+      socket.broadcast.emit('news', { 'data': data });
+    } catch(rejRes) {
+      // no available points to consume
+      // emit error or warning message
+      socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
+    }
+  });
+});
 
 
 var corsOptions = {
