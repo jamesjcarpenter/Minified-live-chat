@@ -75,32 +75,25 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-const cluster = require('cluster');
-const numCPUs = require('os').cpus().length;
 const { RateLimiterClusterMaster, RateLimiterCluster } = require('rate-limiter-flexible');
-if (cluster.isMaster) {
-  // Doesn't require any options, it is only storage and messages handler
-  new RateLimiterClusterMaster();
-
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
-} else {
-  const rateLimiter = new RateLimiterCluster({
-    keyPrefix: 'myclusterlimiter', // Must be unique for each limiter
-    points: 100,
-    duration: 1,
-    timeoutMs: 3000 // Promise is rejected, if master doesn't answer for 3 secs
+const rateLimiter = new RateLimiterMemory(
+  {
+    points: 3, // 5 points
+    duration: 1, // per second
   });
-  
-  rateLimiter.consume(remoteAddress, 2) // consume 2 points
-    .then((rateLimiterRes) => {
-      // 2 points consumed
-    })
-    .catch((rateLimiterRes) => {
-      // Not enough points to consume
+
+  io.on('connection', (socket) => {
+    socket.on('bcast', async (data) => {
+      try {
+        await rateLimiter.consume(socket.handshake.address); // consume 1 point per event from IP
+        socket.emit('news', { 'data': data });
+        socket.broadcast.emit('news', { 'data': data });
+      } catch(rejRes) {
+        console.log('spammer');
+        socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
+      }
     });
-}  
+  });
 
 var corsOptions = {
   origin: 'https://anomic.io',
