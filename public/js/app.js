@@ -6,8 +6,8 @@ $('#start').hide();
 
 $("#data").focus();
 
-document.getElementById('#themechanger').onclick = function () { 
-    document.getElementById('#themecss').href = 'css/indextheme2.css';
+document.getElementById('themechanger').onclick = function () { 
+    document.getElementById('themecss').href = 'css/indextheme2.css';
 };
 
   // toggle sidebar
