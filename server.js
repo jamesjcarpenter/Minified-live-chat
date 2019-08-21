@@ -83,13 +83,15 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-const rateCheck = require('./libs/ratelimiter')
-app.use(rateCheck)
+
 
 app.use(express.urlencoded({ extended: false }));
 
 
 
+const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
+
+app.use(rateLimiterRedisMiddleware);
 
 
 app.use(express.static(__dirname + '/public'));
