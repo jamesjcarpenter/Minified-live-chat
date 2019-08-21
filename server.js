@@ -76,7 +76,6 @@ mongoose.Promise = global.Promise;
 app.use(cors())
 
 const redis = require('redis');
-const redisClient = redis.createClient({ enable_offline_queue: false });
 
 const Redis = require('ioredis');
 const redisClient = new Redis({ enableOfflineQueue: false });
