@@ -93,14 +93,7 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#videojoin').removeClass('hide').show();
-									$('#registernow').removeClass('hide').show();
-									$('#register').click(registerUsername);
-									$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
-										.click(function() {
-											$(this).attr('disabled', true);
-											janus.destroy();
-										});
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
@@ -355,16 +348,41 @@ function checkEnter(field, event) {
 		registerUsername();
 		return false;
 	} else {
-		registerUsername();
-		return false;
+		return true;
 	}
 }
 
 function registerUsername() {
+	if($('#username').length === 0) {
+		// Create fields to register
+		$('#register').click(registerUsername);
+		$('#username').focus();
+	} else {
+		// Try a registration
+		$('#username').attr('disabled', true);
+		$('#register').attr('disabled', true).unbind('click');
+		var username = $('#username').val();
+		if(username === "") {
+			$('#you')
+				.removeClass().addClass('label label-warning')
+				.html("Insert your display name (e.g., pippo)");
+			$('#username').removeAttr('disabled');
+			$('#register').removeAttr('disabled').click(registerUsername);
+			return;
+		}
+		if(/[^a-zA-Z0-9]/.test(username)) {
+			$('#you')
+				.removeClass().addClass('label label-warning')
+				.html('Input is not alphanumeric');
+			$('#username').removeAttr('disabled').val("");
+			$('#register').removeAttr('disabled').click(registerUsername);
+			return;
+		}
 		var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
 		myusername = username;
 		sfutest.send({"message": register});
 	}
+}
 
 function publishOwnFeed(useAudio) {
 	// Publish our stream
