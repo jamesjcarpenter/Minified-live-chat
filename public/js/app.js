@@ -11,6 +11,32 @@ var socket = io.connect('anomic.io/');
   // create our webrtc connection
 
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
+
+  // on load of page
+socket.on('connect', function(data) {
+    // when the client clicks SEND
+    $('#datasend').click( function() {
+      var message = $('#data').val();
+      $('#data').val('');
+      // tell server to execute 'sendchat' and send along one parameter
+      socket.emit('sendchat', message);
+    });
+
+    // when the client hits ENTER on their keyboard
+    $('#data').keypress(function(e) {
+      if(e.which == 13) {
+        $(this).blur();
+        $('#datasend').focus().click();
+      }
+    });
+  });
+  socket.on('updateroomusers', function(roomusers) {
+  $("#roomusers").empty();
+  $.each(roomusers, function (key, value) {
+  $('#roomusers').append('+value+');
+  });
+  });
+  
   socket.on('updaterooms', function(rooms, current_room) {
       $('#rooms').empty();
       $.each(rooms, function(key, value) {
@@ -55,31 +81,6 @@ var socket = io.connect('anomic.io/');
      $('#scrl1').scrollTop($('#scrl1').prop("scrollHeight"));
    }); //end of receiving onlineStack event.
 
-
-  // on load of page
-socket.on('connect', function(data) {
-    // when the client clicks SEND
-    $('#datasend').click( function() {
-      var message = $('#data').val();
-      $('#data').val('');
-      // tell server to execute 'sendchat' and send along one parameter
-      socket.emit('sendchat', message);
-    });
-
-    // when the client hits ENTER on their keyboard
-    $('#data').keypress(function(e) {
-      if(e.which == 13) {
-        $(this).blur();
-        $('#datasend').focus().click();
-      }
-    });
-  });
-  socket.on('updateroomusers', function(roomusers) {
-  $("#roomusers").empty();
-  $.each(roomusers, function (key, value) {
-  $('#roomusers').append('+value+');
-  });
-  });
   // create an array to hold all the usernames of the poeple in a specific room
 //  var roomusers = [];
   // get all the clients in ‘room1′
