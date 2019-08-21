@@ -162,6 +162,7 @@ $(document).ready(function() {
 											myid = msg["id"];
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
+											publishOwnFeed(true);
 											// Any new feed to attach to?
 											if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
 												var list = msg["publishers"];
