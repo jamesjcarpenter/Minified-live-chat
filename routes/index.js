@@ -29,7 +29,7 @@ router.get('/room', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
-  newRoom = new roomModel({
+  newRoom = new Room({
     name1: room.name1,
     name2: room.name2,
     lastActive: today,
