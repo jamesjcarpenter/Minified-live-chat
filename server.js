@@ -75,26 +75,9 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-const { RateLimiterMemory } = require('rate-limiter-flexible');
-const rateLimiter = new RateLimiterMemory(
-  {
-    points: 1, // 5 points
-    duration: 1, // per second
-  });
+const rateLimiterRedisMiddleware = require('./libs/rateLimiterRedis');
+app.use(rateLimiterRedisMiddleware);
 
-io.on('connection', (socket) => {
-  socket.on('bcast', async (data) => {
-    try {
-      await rateLimiter.consume(socket.handshake.address); // consume 1 point per event from IP
-      socket.emit('news', { 'data': data });
-      console.log('lefoo');
-      socket.broadcast.emit('news', { 'data': data });
-    } catch(rejRes) {
-      console.log('ree');
-      socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
-    }
-  });
-});
 
 var corsOptions = {
   origin: 'https://anomic.io',
