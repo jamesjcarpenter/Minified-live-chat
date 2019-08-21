@@ -7,7 +7,7 @@ $('#start').hide();
 $("#data").focus();
 
 document.getElementById('themechanger').onclick = function () { 
-    document.getElementById('themecss').href = 'css/semantic.css';
+    document.getElementById('semthemecss').href = 'css/semantic.css';
 };
 
   // toggle sidebar
