@@ -189,8 +189,9 @@
 }
 #themechanger{
   position:absolute;
-  left:9vw;
+  left:1.2vw;
   bottom:1vw;
+  z-index:1000;
 }
 .divider hr {
 	margin-left: auto;
