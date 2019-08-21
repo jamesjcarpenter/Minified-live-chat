@@ -93,6 +93,10 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#videojoin').removeClass('hide').show();
+									$('#start').removeAttr('disabled').html("Stop")
+										.click(function() {
+											$(this).attr('disabled', true);
+											janus.destroy();
 										});
 								},
 								error: function(error) {
