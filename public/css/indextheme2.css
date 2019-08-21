@@ -5,7 +5,7 @@
     }
     html { padding-top:1px; overflow-y: hidden; overflow-x: hidden; color:white;}
     #data.content {
-      background-color: 	#383838!important;
+      background-color: 	#A0A0A0!important;
     }
     .h1 {color:white;}
     .h2 {color:white;}
@@ -26,7 +26,7 @@
     #youtube-buttons { max-width: 100%;padding-top:12.4vh;}
     .youtubewrapper { margin-right:24em;}
     #slidersound { padding-top:20px;  background-color: 		#383838!important;}
-    #conversation{display:block!important;
+    #conversation{display:block!important; background-color: #404040!important;
     }
     #videolocal { background-color: #383838!important; }
     .i {
