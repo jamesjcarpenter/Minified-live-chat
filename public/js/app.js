@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 
-$('#localvideo').hide();
+$('#videolocal').hide();
 
 $('#unpublish').click();
   // toggle sidebar
