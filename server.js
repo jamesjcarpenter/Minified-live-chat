@@ -87,9 +87,10 @@ io.on('connection', (socket) => {
     try {
       await rateLimiter.consume(socket.handshake.address); // consume 1 point per event from IP
       socket.emit('news', { 'data': data });
+      console.log('lefoo');
       socket.broadcast.emit('news', { 'data': data });
     } catch(rejRes) {
-      socket.emit(prompt("You need to stop."));
+      console.log('ree');
       socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
     }
   });
