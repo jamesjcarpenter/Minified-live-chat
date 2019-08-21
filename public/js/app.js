@@ -12,12 +12,7 @@ document.getElementById('themechanger').onclick = function () {
     $('.icon').addClass('inverted');
     $('ui.teal.medium.left.pointing.label').addClass('inverted');
 };
-document.getElementById('themechanger').onclick = function () { 
-    document.getElementById('themecss').href = 'css/indextheme1.css';
-    $('.ui.button').addClass('inverted');
-    $('.icon').addClass('inverted');
-    $('ui.teal.medium.left.pointing.label').addClass('inverted');
-};
+
 
 
   // toggle sidebar
