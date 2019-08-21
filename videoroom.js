@@ -93,7 +93,17 @@ $(document).ready(function() {
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 									$('#videojoin').removeClass('hide').show();
+									$('#registernow').removeClass('hide').show();
+									$('#register').click(registerUsername);
+									$('#username').focus();
+									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
+									myusername = username;
+									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
+										.click(function() {
+											$(this).attr('disabled', true);
+											janus.destroy();
+										});
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
