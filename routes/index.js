@@ -22,6 +22,19 @@ router.get('/', function(req, res) {
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 router.get('/room', function(req, res) {
+  var newChat = new Chat({
+    msgFrom: data.msgFrom,
+    msgTo: data.msgTo,
+    msg: data.msg,
+    room: data.room,
+    createdOn: data.date
+  });
+  newRoom = new Room({
+    name1: rr,
+    name2: rr,
+    lastActive: 1,
+    createdOn: 1
+  });
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
