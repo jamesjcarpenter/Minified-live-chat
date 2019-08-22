@@ -65,8 +65,8 @@
     margin-bottom:0px;  
     padding:10px;
     height:auto;  
-background-color: 		#383838!important;
-    border:1px solid #ACD8F0;  
+    background-color: 		#383838!important;
+    border: 5px double rgba(219,219,219,0.56); 
       word-wrap: break-word;
         position:justify;
         font-size: 12px;
