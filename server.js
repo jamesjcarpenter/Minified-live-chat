@@ -75,7 +75,8 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-
+const Autolinker = require( 'autolinker' );
+var linkedText = Autolinker.link( textToAutolink[, options] );
 
 
 var corsOptions = {
