@@ -54,6 +54,8 @@ app.use(helmet.contentSecurityPolicy({
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
    formAction: ["'self'"],
+   connectSrc: ["'self'", '/janus', ':8088/janus', ':8089/janus', 'https://anomic.io/socket.io/?EIO=3&transport=polling&t=MoxfJXe'],
+   frameSrc: ["'self'", 'https://www.webrtc-experiment.com/']
    
  },
  browserSniff: false
