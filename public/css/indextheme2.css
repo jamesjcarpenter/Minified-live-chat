@@ -30,6 +30,12 @@
     input{
       color:white;
     }
+    #messagedata{
+      word-wrap: break-word;
+      position:justify;
+      font-size: 12px;
+      width: 80%;
+    }
     .page-header {
       display:none;
     }

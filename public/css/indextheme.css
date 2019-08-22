@@ -64,6 +64,13 @@
   #publish {
     margin-left:4vw;
   }
+  
+  #messagedata{
+    word-wrap: break-word;
+    position:justify;
+    font-size: 12px;
+    width: 80%;
+  }
   #message{
     padding-top:10px;
     padding-left:20px;
