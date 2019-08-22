@@ -24,8 +24,6 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    if (JSON.stringify(data).length > 10000) //roughly 10 bytes
-     return;
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
