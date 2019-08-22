@@ -89,7 +89,7 @@ app.use(helmet.featurePolicy({
   features: {
     fullscreen: ["'none'"],
     vibrate: ["'none'"],
-    payment: ['none'],
+    payment: ["'none'"],
     syncXhr: ["'none'"],
     accelerometer: ["'none'"],
     geolocation: ["'none'"],
