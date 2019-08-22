@@ -17,7 +17,6 @@
   "dependencies": {
     "aos": "^2.3.4",
     "assert": "^2.0.0",
-    "autolinker": "^3.11.0",
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
@@ -47,7 +46,6 @@
     "jquery": "^3.4.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
-    "method-override": "^3.0.0",
     "moment": "^2.24.0",
     "mongodb": "^3.3.0-beta2",
     "mongoose": "^5.6.6",
@@ -55,7 +53,6 @@
     "multer-gridfs-storage": "^3.3.0",
     "multer-storage-cloudinary": "^2.2.1",
     "natives": "^1.1.6",
-    "parsejson": "0.0.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-authenticate": "^1.2.0",
@@ -66,12 +63,10 @@
     "session-file-store": "^1.3.1",
     "sessionstorage": "^0.1.0",
     "shortid": "^2.2.14",
-    "simplewebrtc": "^3.0.2",
     "socket-anti-spam": "^2.0.0",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
     "strategy": "^1.1.1",
-    "vex-js": "^4.1.0",
     "webrtc-adapter": "^7.2.8"
   },
   "devDependencies": {
