@@ -48,8 +48,8 @@ app.use(helmet())
 app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ["'self'"],
-   scriptSrc: ["'self'", 'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io' ],
-   styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+   scriptSrc: ["'self'", "'unsafe-inline'", 'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io' ],
+   styleSrc: ["'self'", "'unsafe-inline'", 'maxcdn.bootstrapcdn.com'],
    fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
    connectSrc: ["'self'"],
    imgSrc: ["'self'"],
@@ -88,7 +88,6 @@ app.use(helmet.expectCt())
 app.use(helmet.featurePolicy({
   features: {
     fullscreen: ["'none'"],
-    vibrate: ["'none'"],
     payment: ["'none'"],
     syncXhr: ["'none'"],
     accelerometer: ["'none'"],
