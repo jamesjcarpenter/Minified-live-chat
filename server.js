@@ -98,7 +98,6 @@ app.use(helmet.featurePolicy({
     usb: ["'none'"],
   }
 }))
-app.use(helmet.hpkp())
 app.use(helmet.noCache())
 //TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
 // configure passport
