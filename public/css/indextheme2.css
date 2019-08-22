@@ -11,6 +11,10 @@
     .ui.divider {
       background-color: 		#383838!important;
     }
+    
+    .ui.basic.segment {
+      background-color: 	#303030!important;
+    }
     #themechanger{
       position:absolute;
       left:0.2vw;

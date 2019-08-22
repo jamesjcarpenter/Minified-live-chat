@@ -5,6 +5,8 @@ $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
+$('.label.label-info').hide();
+
 $("#data").focus();
 
 document.getElementById('themechanger').onclick = function () { 
