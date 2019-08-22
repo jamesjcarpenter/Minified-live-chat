@@ -11,6 +11,10 @@
     .youtubewrapper { position:absolute; bottom:-44vw; right:-23.5vw;}
     #slidersound { padding-top:20px; }
     #conversation{display:block!important;
+      word-wrap: break-word;
+      position:justify;
+      font-size: 12px;
+      width: 80%;
     }
     #chatbox {  
       display:block!important;
@@ -21,7 +25,11 @@
     background:#fff;  
     height:auto;  
     border:1px solid #ACD8F0;  
-    overflow:auto; }  
+    overflow:auto;
+    word-wrap: break-word;
+    position:justify;
+    font-size: 12px;
+    width: 80%; }  
     #data {
       padding:10px;
       padding-top:10px;
@@ -31,6 +39,10 @@
       margin-left:auto;
       margin-right:auto;
       display:inline-grid;
+      word-wrap: break-word;
+      position:justify;
+      font-size: 12px;
+      width: 80%;
     }
     #chatbox{
       padding:10px;
@@ -43,6 +55,10 @@
       margin-bottom:0px;
       min-width:200px;
       display:inline-grid;
+      word-wrap: break-word;
+      position:justify;
+      font-size: 12px;
+      width: 80%;
     }
     #datasend {
       display: none!important;
@@ -81,6 +97,10 @@
     bottom:5px;
     color:white;
     background-color: #1bc298;
+    word-wrap: break-word;
+    position:justify;
+    font-size: 12px;
+    width: 80%;
     
   }
   
