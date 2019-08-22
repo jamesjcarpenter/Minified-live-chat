@@ -97,7 +97,7 @@ const SocketAntiSpam  = require('socket-anti-spam');
 
 const socketAntiSpam = new SocketAntiSpam({
   banTime:            1,         // Ban time in minutes
-  kickThreshold:      2,          // User gets kicked after this many spam score
+  kickThreshold:      14,          // User gets kicked after this many spam score
   kickTimesBeforeBan: 1,          // User gets banned after this many kicks
   banning:            true,       // Uses temp IP banning after kickTimesBeforeBan
   io:                 io,  // Bind the socket.io variable
