@@ -292,10 +292,10 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
-										$('#videolocal').append('<button class="circular small ui icon button" id="mute" style="position: absolute; bottom: -30px; left: 0px; margin: 15px;"><i class="volume up icon"></i></button>');
+										$('#videolocal').append('<button class="ui small icon button" id="mute" style="position: absolute; bottom: -30px; left: 0px; margin: 15px;"><i class="volume up icon"></i></button>');
 										$('#mute').click(toggleMute);
 										// Add an 'unpublish' button
-										$('#videolocal').append('<button class="circular small ui icon button" id="unpublish" style="position: absolute; bottom: -30px; right: 0px; margin: 15px;"><i class="times circle icon"></button>');
+										$('#videolocal').append('<button class="ui small icon button" id="unpublish" style="position: absolute; bottom: -30px; right: 0px; margin: 15px;"><i class="times circle icon"></button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
@@ -451,7 +451,7 @@ function toggleMute() {
 	else
 		sfutest.muteAudio();
 	muted = sfutest.isAudioMuted();
-	$('#mute').html(muted ? "Unmute" : "Mute");
+	$('#mute').html(muted ? "<i class='volume mute icon'>" : "<i class='volume up icon'>");
 }
 
 function unpublishOwnFeed() {
