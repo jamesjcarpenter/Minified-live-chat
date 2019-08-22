@@ -287,12 +287,6 @@
 
     // on connection to server, ask for user's name with an anonymous callback
 //
-socket.on('connect', function(){
-  if (JSON.stringify(data).length > 10000) //roughly 10 bytes
-   return;
-  // call the server-side function 'adduser' and send one parameter (value of prompt)
-  socket.emit('adduser', vex.dialog.prompt("Enter username."));
-});
 
 
   // listener, whenever the server emits 'updatechat', this updates the chat
