@@ -5,7 +5,7 @@ $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
-$('.label.label-info').hide();
+$('.ui.basic.segment').hide();
 
 $("#data").focus();
 
