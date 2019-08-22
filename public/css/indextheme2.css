@@ -12,10 +12,12 @@
       background-color: 		#383838!important;
     }
     #unpublish {
-      margin-bottom:5.25em;
+      margin:0 auto;
+      top:6em;
     }
     #mute {
-      margin-bottom:5.25em;
+      margin:0 auto;
+      top:6em;
     }
     #themechanger{
       position:absolute;
