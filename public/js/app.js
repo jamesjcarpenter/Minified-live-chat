@@ -31,38 +31,41 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + username + '</tag>' + '<samp><em>' + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui medium left pointing label"id="message">' + '</span><p><span class="ui medium white text">' + data + '</div></p></span></div></div>' + '</h6></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
+    
+    var sIO = {};
+    
+    sIO.on = (function(){
+        var messages = {};
+        var speedLimit = 5; //5ms
+        return function(message, handler) {
+            messages[message] = messages[message] || {};
+            if(messages[message].timestamp && new Date().getTime() - messages[message].timestamp < speedLimit) return false;
+            else messages[message].timestamp = new Date().getTime();
+            
+            handler();
+            return true;
+            //execute code, Ex:
+        }
+    }());
+    
+    //sIO.on("hello",function(){console.log("it works");});
+    
+    //sIO.on("hi",function(){console.log("it works too");});
+    
+    var i = 0;
+    for(; i < 3; i++)
+    console.log(sIO.on("hello",function(){
+        console.log("works!");
+    }));
+    
+    setInterval(function(){
+        console.log(sIO.on("help",function(){}));
+    }, 5);
+
+    
   });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   
-  var sIO = {};
-  
-  sIO.on = (function(){
-      var messages = {};
-      var speedLimit = 5; //5ms
-      return function(message, handler) {
-          messages[message] = messages[message] || {};
-          if(messages[message].timestamp && new Date().getTime() - messages[message].timestamp < speedLimit) return false;
-          else messages[message].timestamp = new Date().getTime();
-          
-          handler();
-          return true;
-          //execute code, Ex:
-      }
-  }());
-  
-  //sIO.on("hello",function(){console.log("it works");});
-  
-  //sIO.on("hi",function(){console.log("it works too");});
-  
-  var i = 0;
-  for(; i < 3; i++)
-  console.log(sIO.on("hello",function(){
-      console.log("works!");
-  }));
-  
-  setInterval(function(){
-      console.log(sIO.on("help",function(){}));
-  }, 5);
 
 
   // on load of page
