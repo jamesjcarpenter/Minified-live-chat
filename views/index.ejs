@@ -24,18 +24,6 @@
   <h3 class="ui tiny center aligned icon header">
   <i class="ui tiny circular user secret icon"></i>
 </h3>
-<script>
-$(document).ready(function() {
-    $("#draggable").draggable().resizable({
-        alsoResize: "#chatbox, #data",
-        minWidth:400,
-        minHeight:400,
-    });
-    $("#b, #b1").resizable({
-        alsoResize: "#b1, #b"
-    });
-  });
-  </script>
 
 </head>
 <body>
@@ -303,7 +291,18 @@ $(document).ready(function() {
     // on connection to server, ask for user's name with an anonymous callback
 //
 
-
+<script>
+$(document).ready(function() {
+    $("#draggable").draggable().resizable({
+        alsoResize: "#chatbox, #data",
+        minWidth:400,
+        minHeight:400,
+    });
+    $("#b, #b1").resizable({
+        alsoResize: "#b1, #b"
+    });
+  });
+  </script>
   // listener, whenever the server emits 'updatechat', this updates the chat
 </script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
