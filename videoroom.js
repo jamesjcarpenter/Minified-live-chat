@@ -404,6 +404,13 @@ function registerUsername() {
 
 function publishOwnFeed(useAudio) {
 	// Publish our stream
+	$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
+	// Add a 'mute' button
+	$('#videolocal').append('<button class="ui button mini yellow" id="mute" style="position: absolute; bottom: 0px; left: 0px; margin: 15px;">mute&nbsp; &nbsp;<i class="mini volume up icon"></i></button>');
+	$('#mute').click(toggleMute);
+	// Add an 'unpublish' button
+	$('#videolocal').append('<button class="ui button mini red" id="unpublish" style="position: absolute; bottom: 0px; right: 0px; margin: 15px;">cam-down <i class="mini camera icon"></button>');
+	$('#unpublish').click(unpublishOwnFeed);
 	$('#publish').attr('disabled', false).unbind('click');
 	sfutest.createOffer(
 		{
