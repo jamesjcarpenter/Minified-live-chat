@@ -135,7 +135,7 @@ $(document).ready(function() {
 									$("#videolocal").parent().parent().unblock();
 									if(!on)
 										return;
-									$('#publish').remove();
+								//	$('#publish').remove();
 									// This controls allows us to override the global room bitrate cap
 									$('#bitrate').parent().parent().removeClass('hide').show();
 									$('#bitrate a').click(function() {
