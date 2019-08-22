@@ -454,7 +454,6 @@ function toggleMute() {
 function unpublishOwnFeed() {
 	// Unpublish our stream
 	$('#unpublish').attr('disabled', true).unbind('click');
-	$("#videolocal").hide();
 	var unpublish = { "request": "unpublish" };
 	sfutest.send({"message": unpublish});
 }
