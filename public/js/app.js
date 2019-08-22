@@ -3,6 +3,8 @@ window.addEventListener('load', () => {
   // Local Video
 $('#start').click();
 $('#start').hide();
+$('#bitrateset').hide();
+$('#publisher').append('<h4>' + username + '</h4>');
 
 $("#data").focus();
 
