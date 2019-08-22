@@ -167,6 +167,12 @@ background-color: 		#383838!important;
     max-width:339px;
     max-height:254px;
   }
+  
+  .chatwrap {
+    position:fixed;
+    right:3vw;
+    top:5vh;
+  }
   .label{
     background-color:	#383838!important;
   }
