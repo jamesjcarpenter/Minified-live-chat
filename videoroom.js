@@ -135,7 +135,7 @@ $(document).ready(function() {
 									$("#videolocal").parent().parent().unblock();
 									if(!on)
 										return;
-								//	$('#publish').remove();
+									$('#publish').remove();
 									// This controls allows us to override the global room bitrate cap
 									$('#bitrate').parent().parent().removeClass('hide').show();
 									$('#bitrate a').click(function() {
@@ -162,6 +162,7 @@ $(document).ready(function() {
 											myid = msg["id"];
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
+											publishOwnFeed(false);
 											// Any new feed to attach to?
 											if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
 												var list = msg["publishers"];
