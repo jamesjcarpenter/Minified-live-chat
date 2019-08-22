@@ -94,7 +94,8 @@ background-color: 		#383838!important;
   #inputwrapper{
     top:0vw;
     right:0vw;
-    position:absolute;
+    margin:0 auto;
+    position:fixed;
     width:21.5vw;
     border: 22px outset rgba(41,161,164,0.62);
     border-radius: 21px 21px 9px 9px;
