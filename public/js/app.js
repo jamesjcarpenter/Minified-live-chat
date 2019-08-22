@@ -38,7 +38,7 @@ var socket = io.connect('anomic.io/');
   });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   
-$('#publisher').append('<h4>' + username + '</h4>');
+//$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
 socket.on('connect', function(data) {
