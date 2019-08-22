@@ -402,6 +402,8 @@ function registerUsername() {
 function publishOwnFeed(useAudio) {
 	// Publish our stream
 	$('#publish').attr('disabled', false).unbind('click');
+	$('#unpublish').attr('disabled', false).unbind('click');
+	$('#unpublish').click(unpublishOwnFeed);
 	$('#videolocal').parent().parent().unblock();
 	$('#videolocal').show();
 	sfutest.createOffer(
