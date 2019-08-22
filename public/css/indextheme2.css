@@ -11,6 +11,12 @@
     .ui.divider {
       background-color: 		#383838!important;
     }
+    #unpublish {
+      margin-top:3.25em;
+    }
+    #mute {
+      margin-top:3.25em;
+    }
     #themechanger{
       position:absolute;
       left:0.2vw;
