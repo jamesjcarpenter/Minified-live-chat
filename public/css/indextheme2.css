@@ -84,7 +84,9 @@
       font-size: 12px;
       width: 80%;
     }
-    
+    input:focus {
+      outline:none !important;
+  }  
     
     #chatbox{
       padding:10px;
