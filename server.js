@@ -83,7 +83,7 @@ const uuidv4 = require('uuid/v4')
 
 app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }))
 
-app.use(helmet.crossdomain())
+app.use(helmet.permittedCrossDomainPolicies())
 app.use(helmet.expectCt())
 app.use(helmet.featurePolicy({
   features: {
