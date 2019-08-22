@@ -6,6 +6,7 @@
     html { padding-top:1px; overflow-y: hidden; overflow-x: hidden; color:white;}
     #data.content {
       background-color: 			#2e2e2e!important;color:white;
+      outline:none !important;
     }
     .ui.divider {
       background-color: 		#383838!important;
@@ -29,6 +30,7 @@
     }
     input{
       color:white;
+      outline:none !important;
     }
     #messagedata{
       word-wrap: break-word;
