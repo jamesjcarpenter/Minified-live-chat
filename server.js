@@ -19,7 +19,7 @@ var io = require('socket.io').listen(server);
 
 //... 
 //..
-var expressValidator = require('express-validator');
+var { check, validationResult } = require('express-validator');
 const helmet = require('helmet')
 var cors = require('cors')
 const bodyParser = require('body-parser')
