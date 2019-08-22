@@ -5,7 +5,6 @@ $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
-$('.ui.basic.segment').hide();
 
 $("#data").focus();
 
