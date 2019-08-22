@@ -109,6 +109,11 @@ socketAntiSpam.event.on('ban', data => {
   res.send('You have been muted for 1 minute due to spam, Gene');
 })
 
+socketAntiSpam.event.on('kick', data => {
+  console.log('spammer ding dong bannu');
+  res.send('You have been kicked due to spam, Gene');
+})
+
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
