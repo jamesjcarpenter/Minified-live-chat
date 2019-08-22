@@ -163,7 +163,7 @@ $(document).ready(function() {
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
 											mystream = null;
-											//	$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
+												$('#publish').html('<button id="publish" class="ui button green">BROADCAST</button>');
 												$('#publish').click(function() { publishOwnFeed(true); });
 												$("#videolocal").parent().parent().unblock();
 												$('#bitrate').parent().parent().addClass('hide');
@@ -334,7 +334,7 @@ $(document).ready(function() {
 								oncleanup: function() {
 									Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
 									mystream = null;
-									$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
+									$('#publish').html('<button id="publish" class="ui button green">BROADCAST</button>');
 									$('#publish').click(function() { publishOwnFeed(true); });
 									$("#videolocal").parent().parent().unblock();
 									$('#bitrate').parent().parent().addClass('hide');
@@ -400,7 +400,7 @@ function registerUsername() {
 
 function publishOwnFeed(useAudio) {
 	// Publish our stream
-//	$('#publish').attr('disabled', true).unbind('click');
+	$('#publish').attr('disabled', true).unbind('click');
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
@@ -451,7 +451,7 @@ function toggleMute() {
 
 function unpublishOwnFeed() {
 	// Unpublish our stream
-//	$('#unpublish').attr('disabled', true).unbind('click');
+	$('#unpublish').attr('disabled', true).unbind('click');
 	var unpublish = { "request": "unpublish" };
 	sfutest.send({"message": unpublish});
 }
