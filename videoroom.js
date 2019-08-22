@@ -165,7 +165,7 @@ $(document).ready(function() {
 											mystream = null;
 												//$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 												$('#publish').click(function() { publishOwnFeed(true); });
-												$("#videolocal").parent().parent().removeClass('hide');
+												$("#videolocal").parent().parent().unblock();
 												$('#bitrate').parent().parent().addClass('hide');
 												$('#bitrate a').unbind('click');
 											// Any new feed to attach to?
@@ -336,7 +336,8 @@ $(document).ready(function() {
 									mystream = null;
 								//	$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 									$('#publish').click(function() { publishOwnFeed(true); });
-									$("#videolocal").parent().parent().addClass('hide');
+									$("#videolocal").parent().parent().unblock();
+									$("#videolocal").hide();
 									$('#bitrate').parent().parent().addClass('hide');
 									$('#bitrate a').unbind('click');
 								}
@@ -401,6 +402,7 @@ function registerUsername() {
 function publishOwnFeed(useAudio) {
 	// Publish our stream
 	$('#publish').attr('disabled', false).unbind('click');
+	$('#unpublish').attr('disabled', false).unbind('click');
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
@@ -452,6 +454,7 @@ function toggleMute() {
 function unpublishOwnFeed() {
 	// Unpublish our stream
 	$('#unpublish').attr('disabled', true).unbind('click');
+	$("#videolocal").hide();
 	var unpublish = { "request": "unpublish" };
 	sfutest.send({"message": unpublish});
 }
