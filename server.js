@@ -112,6 +112,9 @@ socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
 
+var vex = require('vex-js')
+vex.registerPlugin(require('vex-dialog'))
+vex.defaultOptions.className = 'vex-theme-os'
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
