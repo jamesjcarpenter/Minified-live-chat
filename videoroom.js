@@ -292,10 +292,10 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
-										$('#videolocal').append('<button class="ui mini compact icon button" id="mute" style="position: absolute; bottom: -5px; left: 10px; margin: 15px;"><i class="volume up icon"></i></button>');
+										$('#videolocal').append('<button class="ui mini compact icon button" id="mute" style="position: absolute; bottom: -5px; left: 0px; margin: 15px;"><i class="volume up icon"></i></button>');
 										$('#mute').click(toggleMute);
 										// Add an 'unpublish' button
-										$('#videolocal').append('<button class="ui mini compact icon button" id="unpublish" style="position: absolute; bottom: -5px; right: 10px; margin: 15px;"><i class="times circle icon"></button>');
+										$('#videolocal').append('<button class="ui mini compact icon button" id="unpublish" style="position: absolute; bottom: -5px; right: 0px; margin: 15px;"><i class="times circle icon"></button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
