@@ -12,8 +12,8 @@
       background-color: 		#383838!important;
     }
     
-    .ui.basic.segment {
-      background-color: 	#303030!important;
+    #segmented {
+    background-color:  #303030!important;
     }
     #themechanger{
       position:absolute;
