@@ -165,7 +165,7 @@ $(document).ready(function() {
 											mystream = null;
 												//$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 												$('#publish').click(function() { publishOwnFeed(true); });
-												$("#videolocal").parent().parent().unblock();
+												$("#videolocal").parent().parent().removeClass('hide');
 												$('#bitrate').parent().parent().addClass('hide');
 												$('#bitrate a').unbind('click');
 											// Any new feed to attach to?
@@ -336,7 +336,7 @@ $(document).ready(function() {
 									mystream = null;
 								//	$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 									$('#publish').click(function() { publishOwnFeed(true); });
-									$("#videolocal").parent().unblock();
+									$("#videolocal").parent().parent().addClass('hide');
 									$('#bitrate').parent().parent().addClass('hide');
 									$('#bitrate a').unbind('click');
 								}
