@@ -98,7 +98,7 @@
     max-height:254px;
   }
   .chatwrap {
-    position:fixed;
+    position:absolute;
     right:25vw;
     top:5vh;
   }

@@ -169,7 +169,7 @@ background-color: 		#383838!important;
   }
   
   .chatwrap {
-    position:fixed;
+    position:absolute;
     right:25vw;
     top:5vh;
   }
