@@ -340,6 +340,8 @@ $(document).ready(function() {
 									$('#myvideo').hide();
 									$('#bitrate').parent().parent().addClass('hide');
 									$('#bitrate a').unbind('click');
+									$('#unpublish').unbind('click');
+									$('#unpublish').hide();
 								}
 							});
 					},
