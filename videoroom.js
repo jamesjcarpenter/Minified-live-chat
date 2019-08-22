@@ -403,6 +403,7 @@ function publishOwnFeed(useAudio) {
 	// Publish our stream
 	$('#publish').attr('disabled', false).unbind('click');
 	$('#unpublish').attr('disabled', false).unbind('click');
+	$('#videolocal').parent().parent().unblock();
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
