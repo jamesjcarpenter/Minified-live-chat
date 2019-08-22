@@ -9,11 +9,11 @@ var sanitize = require('mongo-sanitize');
 var csrfProtection = csrf({ cookie: true });
 var parseForm = bodyParser.urlencoded({ extended: false });
 
-var username = sanitize(req.user.name);
-var res.locals.query = sanitize(req.query);
-var res.locals.url = sanitize(req.originalUrl);
-var name = sanitize(req.params.name);
-var chat = sanitize(req.session.chat);
+// var username = sanitize(req.user.name);
+// var res.locals.query = sanitize(req.query);
+// var res.locals.url = sanitize(req.originalUrl);
+// var name = sanitize(req.params.name);
+// var chat = sanitize(req.session.chat);
 
 router.use('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
