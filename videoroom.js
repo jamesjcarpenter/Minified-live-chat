@@ -287,10 +287,10 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
-										$('#videolocal').append('<button class="btn btn-warning btn-xs" id="mute" style="position: absolute; bottom: 0px; left: 0px; margin: 15px;">Mute</button>');
+										$('#videolocal').append('<button class="ui button mini yellow" id="mute" style="position: absolute; bottom: 0px; left: 0px; margin: 15px;">Mute</button>');
 										$('#mute').click(toggleMute);
 										// Add an 'unpublish' button
-										$('#videolocal').append('<button class="btn btn-warning btn-xs" id="unpublish" style="position: absolute; bottom: 0px; right: 0px; margin: 15px;">Unpublish</button>');
+										$('#videolocal').append('<button class="ui button mini red" id="unpublish" style="position: absolute; bottom: 0px; right: 0px; margin: 15px;">Unpublish</button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
@@ -314,7 +314,7 @@ $(document).ready(function() {
 										if($('#videolocal .no-video-container').length === 0) {
 											$('#videolocal').append(
 												'<div class="no-video-container">' +
-													'<i class="fa fa-video-camera fa-5 no-video-icon"></i>' +
+													'<i class="camera icon"></i>' +
 													'<span class="no-video-text">No webcam available</span>' +
 												'</div>');
 										}
@@ -329,7 +329,7 @@ $(document).ready(function() {
 								oncleanup: function() {
 									Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
 									mystream = null;
-									$('#videolocal').html('<button id="publish" class="btn btn-primary">Publish</button>');
+									$('#videolocal').html('<button id="publish" class="ui button green">Publish</button>');
 									$('#publish').click(function() { publishOwnFeed(true); });
 									$("#videolocal").parent().parent().unblock();
 									$('#bitrate').parent().parent().addClass('hide');
@@ -598,7 +598,7 @@ function newRemoteFeed(id, display, audio, video) {
 						$('#videoremote'+remoteFeed.rfindex).append(
 							'<div class="no-video-container">' +
 								'<i class="fa fa-video-camera fa-5 no-video-icon"></i>' +
-								'<span class="no-video-text">No remote video available</span>' +
+								'<span class="no-video-text"></span>' +
 							'</div>');
 					}
 				} else {

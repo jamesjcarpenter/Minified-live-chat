@@ -61,6 +61,9 @@
     border: 22px outset rgba(41,161,164,0.62);
     border-radius: 21px 21px 9px 9px;
   }
+  #publish {
+    margin-left:4vw;
+  }
   #message{
     padding-top:10px;
     padding-left:20px;
@@ -81,7 +84,6 @@
     min-height:5vh;
     max-width:339px;
     max-height:254px;
-    margin-right:3.5vw;
   }
   #remotevideo1 {
     width:100%;
@@ -90,7 +92,6 @@
     min-height:5vh;
     max-width:339px;
     max-height:254px;
-    margin-right:3.5vw;
   }
   #remotevideo2 {
     width:100%;
@@ -99,7 +100,6 @@
     min-height:5vh;
     max-width:339px;
     max-height:254px;
-    margin-right:3.5vw;
   }
   
   #remotevideo3 {
@@ -109,7 +109,6 @@
     min-height:5vh;
     max-width:339px;
     max-height:254px;
-    margin-right:3.5vw;
   }
   #remotevideo4 {
     width:100%;
@@ -118,7 +117,6 @@
     min-height:5vh;
     max-width:339px;
     max-height:254px;
-    margin-right:3.5vw;
   }
   #remotevideo5 {
     width:100%;
@@ -127,7 +125,6 @@
     min-height:107px;
     max-width:339px;
     max-height:254px;
-    margin-right:3.5vw;
   }
   #remotevideo6 {
     width:100%;
@@ -136,7 +133,6 @@
     min-height:5vh;
     max-width:339px;
     max-height:254px;
-    margin-right:3.5vw;
   }
   
   #username{
