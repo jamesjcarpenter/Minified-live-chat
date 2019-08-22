@@ -285,12 +285,6 @@
 <div id="loading"></div>
 <div id="initMsg"></div>
 <div id="chatForm"></div>
-  <!-- Scripts -->
-  <script>  var socket = io.connect('anomic.io/');
-
-    // on connection to server, ask for user's name with an anonymous callback
-//
-
 <script>
 $(document).ready(function() {
     $("#draggable").draggable().resizable({
@@ -303,6 +297,13 @@ $(document).ready(function() {
     });
   });
   </script>
+  <!-- Scripts -->
+  <script>  var socket = io.connect('anomic.io/');
+
+    // on connection to server, ask for user's name with an anonymous callback
+//
+
+
   // listener, whenever the server emits 'updatechat', this updates the chat
 </script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
