@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+  
   // Chat platform
   // Local Video
 $('#start').click();

@@ -39,7 +39,6 @@ router.post('/register', (req, res) => {
   } else {
     User.findOne({ email: email }).then(user => {
       if (user) {
-        console.log('email in use')
         res.redirect('/login');
       } else {
         const newUser = new User({
@@ -107,7 +106,7 @@ passport.use(new LocalStrategy({
     passport.authenticate('local', {failureRedirect: '/users/login'}),
     function(req, res) {
       req.session.Auth = req.user;
-      console.log(req.session.Auth = req.user)
+    //  console.log(req.session.Auth = req.user)
       res.redirect('/');
   });
   

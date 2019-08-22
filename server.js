@@ -1,6 +1,7 @@
 var fs = require('fs');
 var https = require('https');
-var express = require('express')
+var express = require('express'),
+mongoSanitize = require('express-mongo-sanitize');
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
@@ -40,6 +41,85 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 
 //set cookie lifetime
+
+app.use(helmet())
+
+
+app.use(helmet.contentSecurityPolicy({
+ directives: {
+   defaultSrc: ["'self'"],
+   scriptSrc: ["'self'", 'code.jquery.com', 'maxcdn.bootstrapcdn.com', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io' ],
+   styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+   fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+   connectSrc: ["'self'"],
+   imgSrc: ["'self'"],
+   objectSrc: ["'none'"],
+   formAction: ["'self'"],
+   
+ },
+ browserSniff: false
+}));
+
+const uuidv4 = require('uuid/v4')
+
+app.use(function (req, res, next) {
+  res.locals.nonce = uuidv4()
+  next()
+})
+
+app.use(csp({
+  directives: {
+    scriptSrc: [
+      "'self'",
+      (req, res) => `'nonce-${res.locals.nonce}'`  // 'nonce-614d9122-d5b0-4760-aecf-3a5d17cf0ac9'
+    ]
+  }
+}))
+
+app.use(function (req, res) {
+  res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
+})
+
+
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }))
+
+app.use(helmet.crossdomain())
+app.use(helmet.expectCt())
+app.use(helmet.featurePolicy({
+  features: {
+    fullscreen: ["'none'"],
+    vibrate: ["'none'"],
+    payment: ['none'],
+    syncXhr: ["'none'"],
+    accelerometer: ["'none'"],
+    geolocation: ["'none'"],
+    gyroscope: ["'none'"],
+    magnetometer: ["'none'"],
+    usb: ["'none'"],
+  }
+}))
+app.use(helmet.hpkp())
+app.use(helmet.noCache())
+//TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
+// configure passport
+
+
+// Sets "Referrer-Policy: same-origin".
+app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
+
+// Sets "Referrer-Policy: unsafe-url".
+app.use(helmet.referrerPolicy({ policy: 'unsafe-url' }))
+
+// Sets "Referrer-Policy: no-referrer,unsafe-url"
+app.use(helmet.referrerPolicy({
+  policy: ['no-referrer', 'unsafe-url']
+}))
+
+// Sets "Referrer-Policy: no-referrer".
+app.use(helmet.referrerPolicy())
+
+
+
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
   PORT = 443,
@@ -53,6 +133,7 @@ const IN_PROD = NODE_ENV === 'production'
 const cons = require('consolidate');
 //express session start options:
 // secure = HTTPs secure. needs to be on before deployment.
+app.set('trust proxy', 1)
 app.use(session({
   name: SESS_NAME,
   resave: false,
@@ -62,7 +143,9 @@ app.use(session({
     maxAge: SESS_LIFETIME,
     httpOnly: true,
     sameSite: true,
-    secure: false,
+    secure: true,
+    domain: '.anomic.io',
+    proxy: true,
   }
 }))
 
@@ -75,7 +158,7 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-
+var sanitizeHtml = require('sanitize-html');
 
 
 var corsOptions = {
@@ -87,7 +170,9 @@ var corsOptions = {
 
 app.use(express.urlencoded({ extended: false }));
 
-
+app.use(mongoSanitize({
+  replaceWith: '_'
+}))
 
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
@@ -184,9 +269,7 @@ app.use(function(req, res, next) {
 //TO DO: SET MEMORY STORE TO connect-mongodb-session // is currently in MEMORY STORE, local
 // Set public folder as root
 //helmet is good for express security
-app.use(helmet())
-//TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
-// configure passport
+
 
 
 //set port to 3000

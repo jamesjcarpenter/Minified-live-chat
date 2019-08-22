@@ -1,23 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+const session = require('express-session')
+var csrf = require('csurf');
+var bodyParser = require('body-parser');
+var sanitize = require('mongo-sanitize');
 
-router.all('*', function (req, res, next) {
+var csrfProtection = csrf({ cookie: true });
+var parseForm = bodyParser.urlencoded({ extended: false });
+
+var username = sanitize(req.user.name);
+var res.locals.query = sanitize(req.query);
+var res.locals.url = sanitize(req.originalUrl);
+var name = sanitize(req.params.name);
+var chat = sanitize(req.session.chat);
+
+router.use('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
-  console.log('ok');
-  console.log(req.isAuthenticated());
+   console.log('ok');
+   console.log(req.isAuthenticated());
   next()
-});
+ });
 
 
 router.get('/', function(req, res) {
-  req.user = req.isAuthenticated,
-  username = req.user.name;
-  res.locals.query = req.query;
-  res.locals.url   = req.originalUrl;
   res.render('home.handlebars', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
-//get
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
@@ -33,12 +41,12 @@ router.get('/profile', function(req, res) {
       res.render('profile.handlebars');
 });
 
-router.get('/admin', function(req, res) {
+router.get('/admin', csrfProtection, function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('admin.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
+   res.render('admin.ejs', { csrfToken: req.csrfToken(), name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/dashboard', function(req, res) {
