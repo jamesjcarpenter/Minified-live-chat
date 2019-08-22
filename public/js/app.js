@@ -20,12 +20,7 @@ document.getElementById('themechanger').onclick = function () {
 var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
-  socket.on('connect', function(){
-    if (JSON.stringify(data).length > 10000) //roughly 10 bytes
-     return;
-		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', prompt("Enter username."));
-	});
+
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + username + '</tag>' + '<samp><em>' + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui medium left pointing label"id="message">' + '</span><p><span class="ui medium white text">' + data + '</div></p></span></div></div>' + '</h6></div></div>');
