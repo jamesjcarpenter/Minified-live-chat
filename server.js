@@ -98,7 +98,7 @@ const SocketAntiSpam  = require('socket-anti-spam');
 const socketAntiSpam = new SocketAntiSpam({
   banTime:            1,         // Ban time in minutes
   kickThreshold:      14,          // User gets kicked after this many spam score
-  kickTimesBeforeBan: 1,          // User gets banned after this many kicks
+  kickTimesBeforeBan: 3,          // User gets banned after this many kicks
   banning:            true,       // Uses temp IP banning after kickTimesBeforeBan
   io:                 io,  // Bind the socket.io variable
 })
@@ -106,6 +106,7 @@ const socketAntiSpam = new SocketAntiSpam({
 // Call functions with created reference 'socketAntiSpam'
 socketAntiSpam.event.on('ban', data => {
   console.log('spammer ding dong bannu');
+  res.redirect('/home');
 })
 
 
