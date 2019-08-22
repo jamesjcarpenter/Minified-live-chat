@@ -118,7 +118,7 @@ background-color: 		#383838!important;
     margin:0 auto;
     position:fixed;
     width:21.5vw;
-    border: 22px outset rgba(41,161,164,0.62);
+    border: 22px outset rgba(104, 104, 232, 0.8);
     border-radius: 21px 21px 9px 9px;
   }
   #message{
