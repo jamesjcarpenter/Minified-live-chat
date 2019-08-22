@@ -78,8 +78,6 @@ app.use(cors())
 const Autolinker = require( 'autolinker' );
 var autolinker = new Autolinker( { newWindow: true, truncate: 25 } );
 
-var html = autolinker.link();
-
 
 var corsOptions = {
   origin: 'https://anomic.io',
