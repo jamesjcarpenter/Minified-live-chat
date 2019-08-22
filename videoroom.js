@@ -162,7 +162,12 @@ $(document).ready(function() {
 											myid = msg["id"];
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
-											publishOwnFeed(true);
+											mystream = null;
+												$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
+												$('#publish').click(function() { publishOwnFeed(true); });
+												$("#videolocal").parent().parent().unblock();
+												$('#bitrate').parent().parent().addClass('hide');
+												$('#bitrate a').unbind('click');
 											// Any new feed to attach to?
 											if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
 												var list = msg["publishers"];
@@ -287,10 +292,10 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
-										$('#videolocal').append('<button class="ui button mini yellow" id="mute" style="position: absolute; bottom: 0px; left: 0px; margin: 15px;">Mute</button>');
+										$('#videolocal').append('<button class="ui button mini yellow" id="mute" style="position: absolute; bottom: 0px; left: 0px; margin: 15px;">mute&nbsp; &nbsp;<i class="mini volume up icon"></i></button>');
 										$('#mute').click(toggleMute);
 										// Add an 'unpublish' button
-										$('#videolocal').append('<button class="ui button mini red" id="unpublish" style="position: absolute; bottom: 0px; right: 0px; margin: 15px;">Unpublish</button>');
+										$('#videolocal').append('<button class="ui button mini red" id="unpublish" style="position: absolute; bottom: 0px; right: 0px; margin: 15px;">cam-down <i class="mini camera icon"></button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
@@ -299,7 +304,7 @@ $(document).ready(function() {
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
 											sfutest.webrtcStuff.pc.iceConnectionState !== "connected") {
 										$("#videolocal").parent().parent().block({
-											message: '<b>Publishing...</b>',
+											message: '<b>CAMMING UP...</b>',
 											css: {
 												border: 'none',
 												backgroundColor: 'transparent',
@@ -329,7 +334,7 @@ $(document).ready(function() {
 								oncleanup: function() {
 									Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
 									mystream = null;
-									$('#videolocal').html('<button id="publish" class="ui button green">Publish</button>');
+									$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 									$('#publish').click(function() { publishOwnFeed(true); });
 									$("#videolocal").parent().parent().unblock();
 									$('#bitrate').parent().parent().addClass('hide');
