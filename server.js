@@ -105,13 +105,11 @@ const socketAntiSpam = new SocketAntiSpam({
 
 // Call functions with created reference 'socketAntiSpam'
 socketAntiSpam.event.on('ban', data => {
-  console.log('spammer ding dong bannu');
-  res.send('You have been muted for 1 minute due to spam, Gene');
+  console.log('You have been banned for 1 minute due to spam, Gene');
 })
 
 socketAntiSpam.event.on('kick', data => {
-  console.log('spammer ding dong bannu');
-  res.send('You have been kicked due to spam, Gene');
+  console.log('You have been kicked due to spam, Gene');
 })
 
 
