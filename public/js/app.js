@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
+$('#segmented').hide();
 
 
 $("#data").focus();

@@ -13,7 +13,7 @@
     }
     
     #segmented {
-    background-color:  #303030!important;
+    display:none!important;
     }
     #themechanger{
       position:absolute;
