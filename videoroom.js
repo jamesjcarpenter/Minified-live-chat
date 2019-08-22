@@ -135,7 +135,7 @@ $(document).ready(function() {
 									$("#videolocal").parent().parent().unblock();
 									if(!on)
 										return;
-									$('#publish').remove();
+								//	$('#publish').remove();
 									// This controls allows us to override the global room bitrate cap
 									$('#bitrate').parent().parent().removeClass('hide').show();
 									$('#bitrate a').click(function() {
@@ -163,7 +163,7 @@ $(document).ready(function() {
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
 											mystream = null;
-												$('#publish').html('<button id="publish" class="ui button green">BROADCAST</button>');
+												//$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 												$('#publish').click(function() { publishOwnFeed(true); });
 												$("#videolocal").parent().parent().unblock();
 												$('#bitrate').parent().parent().addClass('hide');
@@ -334,7 +334,7 @@ $(document).ready(function() {
 								oncleanup: function() {
 									Janus.log(" ::: Got a cleanup notification: we are unpublished now :::");
 									mystream = null;
-									$('#publish').html('<button id="publish" class="ui button green">BROADCAST</button>');
+									$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 									$('#publish').click(function() { publishOwnFeed(true); });
 									$("#videolocal").parent().parent().unblock();
 									$('#bitrate').parent().parent().addClass('hide');
@@ -400,7 +400,7 @@ function registerUsername() {
 
 function publishOwnFeed(useAudio) {
 	// Publish our stream
-	$('#publish').attr('disabled', true).unbind('click');
+	//$('#publish').attr('disabled', false).unbind('click');
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
