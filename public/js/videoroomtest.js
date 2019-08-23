@@ -294,7 +294,7 @@ $(document).ready(function() {
 									$('#videojoin').hide();
 									$('#videos').removeClass('hide').show();
 									if($('#myvideo').length === 0) {
-										$('#videolocal').append('<video class="ui image small" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
+										$('#videolocal').append('<video class="ui image medium" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
 										$('#videolocal').append('<button class="ui mini grey button" id="mute" style="position: absolute; bottom: 0px; left: 0px; margin: 15px; padding: 5px;">Mute</button>');
 										$('#mute').click(toggleMute);
