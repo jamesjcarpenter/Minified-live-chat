@@ -42,7 +42,7 @@ var validator = require('validator');
 var sanitize = require('mongo-sanitize');
 //set cookie lifetime
 
-var clean = sanitize(req.params.username);
+
 
 
 app.use(function(req, res, next) {
