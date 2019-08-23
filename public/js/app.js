@@ -20,6 +20,12 @@ document.getElementById('themechanger').onclick = function () {
 
 JSON.stringify({a: "</script>"}).replace("</", "<\\/")
 
+function fixedEncodeURIComponent (str) {
+  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
+}
+
   // toggle sidebar
 var socket = io.connect('anomic.io/');
 
@@ -34,7 +40,8 @@ var socket = io.connect('anomic.io/');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
     $("<div>").text(encodeURI(data)).appendTo("#messagedata")
-    $("<div>").text(encodeURI(username)).appendTo("#username")
+    $("<div>").text(fixedEncodeURIComponent(username)).appendTo("#username")
+    fixedEncodeURIComponent();
   //  encodeURIComponent(data);
   //  encodeURIComponent(username);
     
