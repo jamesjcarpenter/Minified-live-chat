@@ -30,6 +30,7 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
+    $('#conversation').append($('<div class="ui grey label"id="message"><div id="messagedata"><p></p></div></div>').text());
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
@@ -44,12 +45,6 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<div class="ui left pointing label"id="message"><div id="messagedata"><p></p></div></div>').text(data));
     
   });
-  
-  socket.on('serverupdatechat', function () {
-  $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
-  $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
-  $('#conversation').append($('<div class="ui grey label"id="message"><div id="messagedata"><p></p></div></div>').text());
-});
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   
 //$('#publisher').append('<h4>' + username + '</h4>');
