@@ -42,7 +42,8 @@
     width: 80%; }  
     #data {
       padding:10px;
-      padding-top:20px;
+      padding-top:10px;
+      margin-top:20px;
       padding-bottom:5px;
       padding-right:30px;
       margin-bottom:0px;
