@@ -44,8 +44,6 @@ const { JSDOM } = require('jsdom');
 const window = (new JSDOM('')).window;
 const DOMPurify = createDOMPurify(window);
 
-const clean = DOMPurify.sanitize(dirty);
-
 
 
 
@@ -352,6 +350,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+    const clean = DOMPurify.sanitize(data);
 	});
   
   
