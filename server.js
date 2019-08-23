@@ -38,8 +38,7 @@ const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
-var validator = require('validator');
-var sanitize = require('mongo-sanitize');
+var sanitize = require('validator').sanitize;
 //set cookie lifetime
 
 
@@ -179,9 +178,7 @@ var corsOptions = {
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(mongoSanitize({
-  replaceWith: '_'
-}))
+
 
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
@@ -327,6 +324,15 @@ var rooms = ['room1','room2','room3'];
 
 io.sockets.on('connection', function (socket) {
 
+  socket.on('chat', function (data) {
+      io.sockets.in('test').emit('chat', {
+              user: sh.session.user,
+              message: data.message,
+              time: new Date()
+      });
+  });
+
+
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -346,7 +352,7 @@ io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
-    message = sanitize(data.message);
+    message = sanitize(data.message)();
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
