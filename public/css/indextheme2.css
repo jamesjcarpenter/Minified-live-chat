@@ -42,7 +42,6 @@
       word-wrap: break-word;
       position:justify;
       font-size: 12px;
-      padding:10px;
       width: 80%;
     }
     .page-header {
@@ -61,7 +60,6 @@
     #conversation{display:block!important; background-color: 	#3d3d3d!important;    word-wrap: break-word;
         position:justify;
         font-size: 12px;
-        padding-bottom:20px;
         width: 80%;
     }
     #videolocal { background-color: #383838!important; }
@@ -86,7 +84,6 @@
       padding-bottom:5px;
       padding-right:30px;
       margin-bottom:0px;
-      margin-top:20px;
       margin-left:auto;
       margin-right:auto;
       display:inline-grid;
@@ -136,7 +133,7 @@
   #message{
     padding-top:10px;
     padding-left:20px;
-    padding-right:10px;
+    padding-right:20px;
     padding-bottom:10px;
     margin:0 auto;
     margin-left:45px;
@@ -356,8 +353,8 @@ div.no-video-container {
     float: left;
     min-height: 70vh;
     width: 100%;
-    padding-bottom:10px;
     overflow-y: auto;
+    padding-bottom:10px;
     min-width:21.5vw;
     overflow-x:hidden;
     background-color: 	#3d3d3d!important;

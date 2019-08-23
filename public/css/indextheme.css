@@ -43,7 +43,6 @@
     #data {
       padding:10px;
       padding-top:10px;
-      margin-top:20px;
       padding-bottom:5px;
       padding-right:30px;
       margin-bottom:0px;
@@ -331,6 +330,7 @@ div.no-video-container {
     overflow-y: auto;
     min-width:21.5vw;
     overflow-x:hidden;
+    padding-bottom:10px;
 }
 #scroller{
     margin-top: 50px;
