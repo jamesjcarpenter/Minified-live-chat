@@ -8,11 +8,12 @@ var server = https.createServer({
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
-requestCert: true,
-rejectUnauthorized: true,
+requestCert: false,
+rejectUnauthorized: false,
 maxHttpBufferSize: 128,
 },app);
 server.listen(443);
+server.bind('/janus');
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
