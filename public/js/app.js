@@ -30,7 +30,6 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    $('#conversation').append($('<div class="ui grey label"id="message"><div id="messagedata"><p></p></div></div>').text());
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
