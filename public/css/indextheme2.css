@@ -83,7 +83,6 @@
       padding-top:10px;
       padding-bottom:5px;
       padding-right:30px;
-      margin-top:20px;
       margin-bottom:0px;
       margin-left:auto;
       margin-right:auto;
@@ -355,7 +354,6 @@ div.no-video-container {
     min-height: 70vh;
     width: 100%;
     overflow-y: auto;
-    padding-bottom:20px;
     min-width:21.5vw;
     overflow-x:hidden;
     background-color: 	#3d3d3d!important;
