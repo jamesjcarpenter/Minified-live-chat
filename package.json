@@ -27,6 +27,7 @@
     "cors": "^2.8.5",
     "csurf": "^1.10.0",
     "debug": "^4.1.1",
+    "dompurify": "^1.0.11",
     "ejs": "^2.6.2",
     "engine.io-client": "^3.3.2",
     "errorhandler": "^1.5.1",

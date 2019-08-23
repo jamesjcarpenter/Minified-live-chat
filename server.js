@@ -38,8 +38,13 @@ const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
-var sanitize = require('validator').sanitize;
-//set cookie lifetime
+const createDOMPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+
+const window = (new JSDOM('')).window;
+const DOMPurify = createDOMPurify(window);
+
+const clean = DOMPurify.sanitize(dirty);
 
 
 
@@ -374,9 +379,6 @@ io.sockets.on('connection', function (socket) {
 	//	socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
 	});
-  var set4 = data;
-  console.log(encodeURI(set4));
-  encodeURI(set4);
 });
 
 
