@@ -332,7 +332,7 @@ io.sockets.on('connection', function (socket) {
       });
   });
 
-
+    message = sanitize(data.message).xss()
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -352,7 +352,6 @@ io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
-    message = sanitize(data.message).xss()
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
