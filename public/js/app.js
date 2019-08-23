@@ -34,7 +34,7 @@ var socket = io.connect('anomic.io/');
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
-    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"><span class="ui tiny white text"><div class="ui medium left pointing label"id="message">' + '</span><p><span class="ui medium white text"id="messagedata">' + '</div></p></span></div></div>' + '</h6></div></div>');
+    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
     
