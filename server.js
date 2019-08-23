@@ -10,6 +10,7 @@ ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
+maxHttpBufferSize: 128,
 },app);
 server.listen(443);
 
