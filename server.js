@@ -38,7 +38,7 @@ const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
-
+var validator = require('validator');
 
 //set cookie lifetime
 
@@ -307,8 +307,6 @@ app.use(function(req, res, next) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   var username = req.user.name;
-  const data = req.sanitize(data).trim();
-  console.log(data === req.body.data);
   next();
 });
 //chat
@@ -344,6 +342,7 @@ io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
+    validator.blacklist(input, chars)
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
