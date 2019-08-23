@@ -345,9 +345,6 @@ io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
-    var set4 = data;
-    console.log(encodeURI(set4));
-    encodeURI(set4);
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
@@ -377,6 +374,9 @@ io.sockets.on('connection', function (socket) {
 	//	socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
 	});
+  var set4 = data;
+  console.log(encodeURI(set4));
+  encodeURI(set4);
 });
 
 
