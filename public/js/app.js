@@ -39,7 +39,7 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + '</tag>' + '<samp><em>' + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui medium left pointing label"id="message">' + '</span><p><span class="ui medium white text"id="messagedata">' + '</div></p></span></div></div>' + '</h6></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
-    $("<div>").text(encodeURI(data)).appendTo("#messagedata")
+    $("<div>").text(encodeURI(data)).appendTo("#message")
     $("<div>").text(encodeURI(username)).appendTo("#username")
     fixedEncodeURIComponent(data);
     fixedEncodeURIComponent(username);
