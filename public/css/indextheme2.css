@@ -86,7 +86,7 @@
       padding-bottom:5px;
       padding-right:30px;
       margin-bottom:0px;
-      margin-top:35px;
+      margin-top:20px;
       margin-left:auto;
       margin-right:auto;
       display:inline-grid;
@@ -356,6 +356,7 @@ div.no-video-container {
     float: left;
     min-height: 70vh;
     width: 100%;
+    padding-bottom:10px;
     overflow-y: auto;
     min-width:21.5vw;
     overflow-x:hidden;
