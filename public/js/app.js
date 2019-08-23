@@ -45,7 +45,11 @@ var socket = io.connect('anomic.io/');
     
   });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
-  
+  socket.on('serverupdatechat', function (username, data, server) {
+    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+        $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
+        $('#conversation').append($('<div class="ui grey label"id="message"><div id="messagedata"><p></p></div></div>').text(server));
+          });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
