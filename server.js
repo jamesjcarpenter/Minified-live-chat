@@ -355,7 +355,7 @@ io.sockets.on('connection', function (socket) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
-  message = sanitize(data.message).xss()
+  message = sanitize(data).xss()
   
   
 	socket.on('switchRoom', function(newroom){
