@@ -327,7 +327,7 @@ io.sockets.on('connection', function (socket) {
   socket.on('chat', function (data) {
       io.sockets.in('test').emit('chat', {
               user: sh.session.user,
-              message: data.message,
+              message: data,
               time: new Date()
       });
   });
