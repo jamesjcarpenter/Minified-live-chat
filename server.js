@@ -1,7 +1,7 @@
 var fs = require('fs');
 var https = require('https');
 var express = require('express'),
-mongoSanitize = require('express-mongo-sanitize');
+var mongoSanitize = require('express-mongo-sanitize');
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
@@ -169,9 +169,19 @@ var corsOptions = {
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use(mongoSanitize({
+var payload = {...};
+ 
+// Remove any keys containing prohibited characters
+mongoSanitize.sanitize(payload);
+ 
+// Replace any prohibited characters in keys
+mongoSanitize.sanitize(payload, {
   replaceWith: '_'
-}))
+});
+ 
+// Check if the payload has keys with prohibited characters
+var hasProhibited = mongoSanitize.has(payload);
+
 
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
@@ -342,7 +352,7 @@ io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
-    check('#data').isLength({ min: 3 }).trim().escape(),
+    
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
