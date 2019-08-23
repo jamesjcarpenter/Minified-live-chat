@@ -8,8 +8,9 @@ var server = https.createServer({
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
-requestCert: false,
-rejectUnauthorized: false,
+requestCert: true,
+rejectUnauthorized: true,
+maxHttpBufferSize: 128,
 },app);
 server.listen(443);
 
@@ -162,15 +163,10 @@ app.use(passport.session());
 const errorHandler = require('errorhandler');
 mongoose.Promise = global.Promise;
 
-app.use(cors())
-
-
-
-var corsOptions = {
-  origin: 'https://anomic.io',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
+app.use(cors({
+  origin: ["https://anomic.io"],
+  optionsSuccessStatus: 200;
+}))
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -318,6 +314,9 @@ var rooms = require("./models/roomschema");
 // usernames which are currently connected to the chat
 var usernames = {};
 
+
+
+
 // rooms which are currently available in chat
 var rooms = ['room1','room2','room3'];
 
@@ -328,7 +327,6 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
@@ -362,9 +360,13 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	// when the user disconnects.. perform this
-	socket.on('disconnect', function(){
+	socket.on('disconnect', function(payload){
 		// remove the username from global usernames list
 		delete usernames[socket.username];
+  
+    redis.del(socket.handshake.userId, function (err, res) {
+             console.log('user with %s disconnected', socket.id);
+        });
 		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
