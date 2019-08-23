@@ -39,18 +39,18 @@ mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
 var validator = require('validator');
-
+var sanitize = require('mongo-sanitize');
 //set cookie lifetime
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 
-app.use(mongoSanitize());
- 
-// Or, to replace prohibited characters with _, use:
-app.use(mongoSanitize({
-  replaceWith: '_'
-}))
+var clean = sanitize(req.params.username);
 
+
+app.use(function(req, res, next) {
+  req.user = req.isAuthenticated,
+  username = req.user.name;
+  var username = req.user.name;
+  next();
+});
 
 app.use(helmet())
 
@@ -178,6 +178,10 @@ var corsOptions = {
 
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use(mongoSanitize({
+  replaceWith: '_'
+}))
 
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
@@ -309,12 +313,6 @@ app.use((err, req, res, next) => {
     },
   });
 });
-app.use(function(req, res, next) {
-  req.user = req.isAuthenticated,
-  username = req.user.name;
-  var username = req.user.name;
-  next();
-});
 //chat
 require("./libs/chat.js").sockets(https);
 
@@ -348,7 +346,7 @@ io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
-    
+    message = sanitize(data.message).xss()
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
