@@ -165,7 +165,7 @@ mongoose.Promise = global.Promise;
 
 app.use(cors({
   origin: ["https://anomic.io"],
-  optionsSuccessStatus: 200;
+  optionsSuccessStatus: 200,
 }))
 
 
