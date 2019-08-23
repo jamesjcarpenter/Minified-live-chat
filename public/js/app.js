@@ -18,7 +18,7 @@ document.getElementById('themechanger').onclick = function () {
     $('#cpybutton').removeClass('ui teal').addClass('ui black');
 };
 
-JSON.stringify({a: "</script>"}).replace("</", "<\\/")
+//JSON.stringify({a: "</script>"}).replace("</", "<\\/")
 
 function fixedEncodeURIComponent (str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
@@ -40,8 +40,9 @@ var socket = io.connect('anomic.io/');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
     $("<div>").text(encodeURI(data)).appendTo("#messagedata")
-    $("<div>").text(fixedEncodeURIComponent(username)).appendTo("#username")
-    fixedEncodeURIComponent();
+    $("<div>").text(encodeURI(username)).appendTo("#username")
+    fixedEncodeURIComponent(data);
+    fixedEncodeURIComponent(username);
   //  encodeURIComponent(data);
   //  encodeURIComponent(username);
     
