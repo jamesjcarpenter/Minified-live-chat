@@ -312,6 +312,23 @@ app.use(function(req, res, next) {
 //chat
 require("./libs/chat.js").sockets(https);
 
+var specialChars = "!@#$^&%*()+=-[]\/{}|:<>?,.";
+
+for (var i = 0; i < specialChars.length; i++) {
+  stringToReplace = stringToReplace.replace(new RegExp("\\" + specialChars[i], "gi"), "");
+}
+
+function removeSpecials(str) {
+    var lower = str.toLowerCase();
+    var upper = str.toUpperCase();
+
+    var res = "";
+    for(var i=0; i<lower.length; ++i) {
+        if(lower[i] != upper[i] || lower[i].trim() === '')
+            res += str[i];
+    }
+    return res;
+}
 
 var usernames = {};
 var rooms = require("./models/roomschema");
@@ -340,9 +357,11 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('updaterooms', rooms, 'room1');
 	});
 
+
+
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
-    validator.blacklist(input, chars)
+    removeSpecials();
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
