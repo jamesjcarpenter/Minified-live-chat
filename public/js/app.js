@@ -40,7 +40,7 @@ var socket = io.connect('anomic.io/');
     $("#data").focus();
     
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
-    $('#conversation').append($('<span class="ui small text"><samp></samp></span>').text(<%- JSON.stringify(new Date(Date.now()).toLocaleTimeString())%> ));
+    $('#conversation').append($('<span class="ui small text"><samp></samp></span>').text(JSON.stringify(new Date(Date.now()).toLocaleTimeString()).replace(/\"/g, ""));));
     $('#conversation').append($('<div class="ui left pointing label"id="message"><div id="messagedata"><p></p></div></div>').text(data));
     
   });
