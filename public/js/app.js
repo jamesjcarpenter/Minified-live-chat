@@ -34,7 +34,6 @@ var socket = io.connect('anomic.io/');
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
-    $('#conversation').append('<div class="ui container"><h6>' +'<h6>' + '<div class="ui medium basic segment"><span class="ui small white text"><p>'+ '<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><tag id="username">' + fixedEncodeURIComponent(username) + '</tag>' + '<samp><em>' + '</em></samp>' + '</p></span><span class="ui tiny white text"><div class="ui medium left pointing label"id="message">' + '</span><p><span class="ui medium white text"id="messagedata">' + fixedEncodeURIComponent(data) + '</div></p></span></div></div>' + '</h6></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
     
@@ -81,37 +80,37 @@ socket.on('connect', function(data) {
       });
     });
 
-    function switchRoom(room){
-      socket.broadcast.emit('switchRoom', room);
-    }
+    // function switchRoom(room){
+    //   socket.broadcast.emit('switchRoom', room);
+    // }
 
-  socket.on('onlineStack',function(stack){
-     $('#list').empty();
-     $('#list').append($('<li>').append($('<button id="ubtn" class="btn btn-danger btn-block btn-lg"></button>').text("Group").css({"font-size":"18px"})));
-     var totalOnline = 0;
-     for (var user in stack){
-       //setting txt1. shows users button.
-       if(user == username){
-         var txt1 = $('<button class="boxF disabled"> </button>').text(user).css({"font-size":"18px"});
-       }
-       else{
-         var txt1 = $('<button id="ubtn" class="btn btn-success  btn-md">').text(user).css({"font-size":"18px"});
-       }
-       //setting txt2. shows online status.
-       if(stack[user] == "Online"){
-         var txt2 = $('<span class="badge"></span>').text("*"+stack[user]).css({"float":"right","color":"#009933","font-size":"18px"});
-         totalOnline++;
-
-       }
-       else{
-         var txt2 = $('<span class="badge"></span>').text(stack[user]).css({"float":"right","color":"#a6a6a6","font-size":"18px"});
-       }
-       //listing all users.
-       $('#list').append($('<li>').append(txt1,txt2));
-       $('#totalOnline').text(totalOnline);
-     }//end of for.
-     $('#scrl1').scrollTop($('#scrl1').prop("scrollHeight"));
-   }); //end of receiving onlineStack event.
+  // socket.on('onlineStack',function(stack){
+  //    $('#list').empty();
+  //    $('#list').append($('<li>').append($('<button id="ubtn" class="btn btn-danger btn-block btn-lg"></button>').text("Group").css({"font-size":"18px"})));
+  //    var totalOnline = 0;
+  //    for (var user in stack){
+  //      //setting txt1. shows users button.
+  //      if(user == username){
+  //        var txt1 = $('<button class="boxF disabled"> </button>').text(user).css({"font-size":"18px"});
+  //      }
+  //      else{
+  //        var txt1 = $('<button id="ubtn" class="btn btn-success  btn-md">').text(user).css({"font-size":"18px"});
+  //      }
+  //      //setting txt2. shows online status.
+  //      if(stack[user] == "Online"){
+  //        var txt2 = $('<span class="badge"></span>').text("*"+stack[user]).css({"float":"right","color":"#009933","font-size":"18px"});
+  //        totalOnline++;
+  // 
+  //      }
+  //      else{
+  //        var txt2 = $('<span class="badge"></span>').text(stack[user]).css({"float":"right","color":"#a6a6a6","font-size":"18px"});
+  //      }
+  //      //listing all users.
+  //      $('#list').append($('<li>').append(txt1,txt2));
+  //      $('#totalOnline').text(totalOnline);
+  //    }//end of for.
+  //    $('#scrl1').scrollTop($('#scrl1').prop("scrollHeight"));
+  //  }); //end of receiving onlineStack event.
 
   // create an array to hold all the usernames of the poeple in a specific room
 //  var roomusers = [];
