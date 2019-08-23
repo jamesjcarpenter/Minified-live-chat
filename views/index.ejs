@@ -117,6 +117,7 @@
                   
               <div class="five column doubling ui stackable grid">
                 			<div class="ui basic header">
+<div class="bootstrap">
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -129,8 +130,8 @@
 			</div>
       
 <div class="ui button" id="start"></div>
-<div class="ui two column stackable grid">
 			<div class="container hide" id="videos">
+				<div class="row">
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -140,6 +141,15 @@
 											<button id="bitrateset" autocomplete="off" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 												Bandwidth<span class="caret"></span>
 											</button>
+											<ul id="bitrate" class="dropdown-menu" role="menu">
+												<li><a href="#" id="0">No limit</a></li>
+												<li><a href="#" id="128">Cap to 128kbit</a></li>
+												<li><a href="#" id="256">Cap to 256kbit</a></li>
+												<li><a href="#" id="512">Cap to 512kbit</a></li>
+												<li><a href="#" id="1024">Cap to 1mbit</a></li>
+												<li><a href="#" id="1500">Cap to 1.5mbit</a></li>
+												<li><a href="#" id="2000">Cap to 2mbit</a></li>
+											</ul>
 										</div>
 									</div>
 								</h3>
@@ -147,29 +157,23 @@
 							<div class="ui basic segment" id="videolocal"></div>
 						</div>
 					</div>
-
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title"><span class="label label-info" id="remote1"></span></h3>
 							</div>
-              <div class="ui basic segment"></div>
 							<div class="panel-body relative" id="videoremote1"></div>
 						</div>
-					</div></div>
-          					</div>
-          							</div>
+					</div>
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title"><span class="label label-info" id="remote2"></span></h3>
 							</div>
-              <div class="ui basic segment"></div>
 							<div class="panel-body relative" id="videoremote2"></div>
 						</div>
 					</div>
 				</div>
-        </div>
 				<div class="row">
 					<div class="col-md-4">
 						<div class="panel panel-default">
@@ -179,7 +183,6 @@
 							<div class="panel-body relative" id="videoremote3"></div>
 						</div>
 					</div>
-          </div>
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -188,7 +191,6 @@
 							<div class="panel-body relative" id="videoremote4"></div>
 						</div>
 					</div>
-          </div>
 					<div class="col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-heading">
