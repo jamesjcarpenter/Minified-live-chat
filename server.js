@@ -313,6 +313,23 @@ app.use((err, req, res, next) => {
 //chat
 require("./libs/chat.js").sockets(https);
 
+var entityMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+  '/': '&#x2F;',
+  '`': '&#x60;',
+  '=': '&#x3D;'
+};
+
+function escapeHtml (string) {
+  return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+    return entityMap[s];
+  });
+}
+
 
 var usernames = {};
 var rooms = require("./models/roomschema");
@@ -323,15 +340,6 @@ var usernames = {};
 var rooms = ['room1','room2','room3'];
 
 io.sockets.on('connection', function (socket) {
-
-  socket.on('chat', function (data) {
-      io.sockets.in('test').emit('chat', {
-              user: sh.session.user,
-              message: data,
-              time: new Date()
-      });
-  });
-
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
@@ -355,7 +363,6 @@ io.sockets.on('connection', function (socket) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
-  message = sanitize(data).xss()
   
   
 	socket.on('switchRoom', function(newroom){
