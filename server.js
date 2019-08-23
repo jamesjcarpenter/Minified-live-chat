@@ -13,7 +13,6 @@ rejectUnauthorized: false,
 maxHttpBufferSize: 128,
 },app);
 server.listen(443);
-server.bind('/janus');
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
