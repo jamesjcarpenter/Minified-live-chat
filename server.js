@@ -364,9 +364,6 @@ io.sockets.on('connection', function (socket) {
 		// remove the username from global usernames list
 		delete usernames[socket.username];
   
-    redis.del(socket.handshake.userId, function (err, res) {
-             console.log('user with %s disconnected', socket.id);
-        });
 		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
