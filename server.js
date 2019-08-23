@@ -169,7 +169,7 @@ var corsOptions = {
 
 app.use(express.urlencoded({ extended: false }));
 
-var payload = {...};
+var payload = {};
  
 // Remove any keys containing prohibited characters
 mongoSanitize.sanitize(payload);
