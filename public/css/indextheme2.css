@@ -41,8 +41,14 @@
     #messagedata{
       word-wrap: break-word;
       position:justify;
-      font-size: 12px;
+      font-size: 13px;
       width: 80%;
+    }
+    
+    #servermessage {
+      background-color:	#4545cc!important;
+      color:white;
+      font-size:15px;
     }
     .page-header {
       display:none;
@@ -142,7 +148,7 @@
     color:white;
     word-wrap: break-word;
     position:justify;
-    font-size: 12px;
+    font-size: 13px;
     width: 80%;
   }
   

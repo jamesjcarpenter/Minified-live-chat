@@ -24,7 +24,12 @@
   #date {
     color:#484848;
   }
-
+  #servermessage {
+    background-color: #1bc298;
+    color:white;
+    font-size:15px;
+  }
+  
     #chatbox {  
       display:block!important;
     text-align:left;  
@@ -93,7 +98,7 @@
   #messagedata{
     word-wrap: break-word;
     position:justify;
-    font-size: 12px;
+    font-size: 13px;
     width: 80%;
   }
   #message{
@@ -108,7 +113,7 @@
     background-color: #1bc298;
     word-wrap: break-word;
     position:justify;
-    font-size: 12px;
+    font-size: 13px;
     width: 80%;
     
   }
