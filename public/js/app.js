@@ -38,8 +38,8 @@ var socket = io.connect('anomic.io/');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
 
-    $('#conversation').append($('#message').text(data.message));
-    $('#conversation').append($('#username').text(username));
+    $('#conversation').append($('<div></div>').text(data.message));
+    $('#conversation').append($('<div></div>').text(username));
     
   });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
