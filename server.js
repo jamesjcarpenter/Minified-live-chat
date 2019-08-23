@@ -41,6 +41,16 @@ mongoose.connect(db, { useNewUrlParser: true })
 var validator = require('validator');
 
 //set cookie lifetime
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+app.use(mongoSanitize());
+ 
+// Or, to replace prohibited characters with _, use:
+app.use(mongoSanitize({
+  replaceWith: '_'
+}))
+
 
 app.use(helmet())
 
@@ -168,20 +178,6 @@ var corsOptions = {
 
 
 app.use(express.urlencoded({ extended: false }));
-
-var payload = {};
- 
-// Remove any keys containing prohibited characters
-mongoSanitize.sanitize(payload);
- 
-// Replace any prohibited characters in keys
-mongoSanitize.sanitize(payload, {
-  replaceWith: '_'
-});
- 
-// Check if the payload has keys with prohibited characters
-var hasProhibited = mongoSanitize.has(payload);
-
 
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
