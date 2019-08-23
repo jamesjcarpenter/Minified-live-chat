@@ -14,7 +14,7 @@
       word-wrap: break-word;
       position:justify;
       font-size: 12px;
-      padding-bottom:40px;
+      padding-bottom:20px;
       width: 80%;
     }
     
@@ -23,7 +23,7 @@
 }
 
   #date {
-    color:white;
+    color:#696969;
   }
 
     #chatbox {  
@@ -32,6 +32,7 @@
     margin:0 auto;  
     margin-bottom:0px;  
     padding:10px;
+    padding-bottom:20px;
     background:#fff;  
     height:auto;  
     border:1px solid #ACD8F0;  
