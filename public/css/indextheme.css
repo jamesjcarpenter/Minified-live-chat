@@ -32,7 +32,6 @@
     margin:0 auto;  
     margin-bottom:0px;  
     padding:10px;
-    padding-bottom:20px;
     background:#fff;  
     height:auto;  
     border:1px solid #ACD8F0;  
@@ -43,7 +42,7 @@
     width: 80%; }  
     #data {
       padding:10px;
-      padding-top:10px;
+      padding-top:20px;
       padding-bottom:5px;
       padding-right:30px;
       margin-bottom:0px;
