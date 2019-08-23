@@ -48,7 +48,7 @@ var socket = io.connect('anomic.io/');
   socket.on('serverupdatechat', function (server) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
-        $('#conversation').append($('<div class="ui large grey label"id="servermessage"><p></p>&nbsp;&nbsp;<i class="grin squint tears outline"></i></div>').text(server));
+        $('#conversation').append($('<div class="ui large grey label"id="servermessage"><p></p></div>').text(server));
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
