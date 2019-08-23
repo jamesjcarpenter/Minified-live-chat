@@ -347,7 +347,7 @@ io.sockets.on('connection', function (socket) {
 	socket.on('sendchat', function (data) {
     var set4 = data;
     console.log(encodeURI(set4));
-    encodeURIComponent(set4);
+    encodeURI(set4);
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
