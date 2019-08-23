@@ -14,12 +14,17 @@
       word-wrap: break-word;
       position:justify;
       font-size: 12px;
+      padding-bottom:15px;
       width: 80%;
     }
     
     input:focus {
     outline:none !important;
 }
+
+  #date {
+    color:white;
+  }
 
     #chatbox {  
       display:block!important;
@@ -90,12 +95,13 @@
     word-wrap: break-word;
     position:justify;
     font-size: 12px;
+    padding:10px;
     width: 80%;
   }
   #message{
     padding-top:10px;
     padding-left:20px;
-    padding-right:20px;
+    padding-right:10px;
     padding-bottom:10px;
     margin:0 auto;
     margin-left:45px;
