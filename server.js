@@ -1,7 +1,6 @@
 var fs = require('fs');
 var https = require('https');
-var express = require('express'),
-mongoSanitize = require('express-mongo-sanitize');
+var express = require('express');
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
@@ -38,11 +37,6 @@ const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
-const createDOMPurify = require('dompurify');
-const { JSDOM } = require('jsdom');
-
-const window = (new JSDOM('')).window;
-const DOMPurify = createDOMPurify(window);
 
 
 
@@ -94,7 +88,7 @@ const uuidv4 = require('uuid/v4')
 // })
 // 
 
-app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }))
+app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
 app.use(helmet.permittedCrossDomainPolicies())
 app.use(helmet.expectCt())
@@ -169,7 +163,6 @@ mongoose.Promise = global.Promise;
 
 app.use(cors())
 
-var sanitizeHtml = require('sanitize-html');
 
 
 var corsOptions = {
