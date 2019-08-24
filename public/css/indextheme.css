@@ -33,8 +33,15 @@
   #camgrid{
     display:block;
     position:fixed;
-    min-width:60vmin;
-    min-height:50vmin;
+    min-width:30vmin;
+    min-height:70vmin;
+  }
+  
+  #videos{
+      display:block;
+      position:fixed;
+      min-width:30vmin;
+      min-height:70vmin;
   }
   
   #chatrail {
