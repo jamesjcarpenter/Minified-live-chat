@@ -39,7 +39,15 @@ mongoose.connect(db, { useNewUrlParser: true })
 .catch(err => console.log(err));
 
 
+app.use(cors())
 
+
+
+
+var corsOptions = {
+  origin: 'https://anomic.io',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 app.use(function(req, res, next) {
   req.user = req.isAuthenticated,
@@ -161,15 +169,6 @@ app.use(passport.session());
 const errorHandler = require('errorhandler');
 mongoose.Promise = global.Promise;
 
-app.use(cors())
-
-
-
-
-var corsOptions = {
-  origin: 'https://anomic.io',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
 
 
 
