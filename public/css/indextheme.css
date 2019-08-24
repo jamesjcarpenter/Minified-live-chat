@@ -119,6 +119,7 @@
   }
   
   #videolocal {
+    position:absolute;
     width:100%;
     height:100%;
     min-width: 5vw;
@@ -132,8 +133,8 @@
       height:100%;
       min-width: 5vw;
       min-height:5vh;
-      max-width:22.6vw;
-      max-height:24.4vh;
+      max-width:42.6vw;
+      max-height:44.4vh;
 
   }
   #remotevideo1 {
@@ -142,8 +143,8 @@
     height:100%;
     min-width: 1vw;
     min-height:5vh;
-    max-width:22.6vw;
-    max-height:24.4vh;
+    max-width:42.6vw;
+    max-height:44.4vh;
   }
   #remotevideo2 {
     position:relative;
@@ -151,8 +152,8 @@
     height:100%;
     min-width: 5vw;
     min-height:5vh;
-    max-width:22.6vw;
-    max-height:24.4vh;
+    max-width:42.6vw;
+    max-height:44.4vh;
   }
   
   #remotevideo3 {
@@ -161,8 +162,8 @@
     height:100%;
     min-width: 5vw;
     min-height:5vh;
-    max-width:22.6vw;
-    max-height:24.4vh;
+    max-width:42.6vw;
+    max-height:44.4vh;
   }
   #remotevideo4 {
     position:relative;
@@ -170,24 +171,24 @@
     height:100%;
     min-width: 5vw;
     min-height:5vh;
-    max-width:22.6vw;
-    max-height:24.4vh;
+    max-width:42.6vw;
+    max-height:44.4vh;
   }
   #remotevideo5 {
     width:100%;
     height:100%;
     min-width: 143px;
     min-height:107px;
-    max-width:22.6vw;
-    max-height:24.4vh;
+    max-width:42.6vw;
+    max-height:44.4vh;
   }
   #remotevideo6 {
     width:100%;
     height:100%;
     min-width: 5vw;
     min-height:5vh;
-    max-width:22.6vw;
-    max-height:24.4vh;
+    max-width:42.6vw;
+    max-height:44.4vh;
   }
   
   #username{
