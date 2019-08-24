@@ -70,14 +70,6 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use(csp({
-  directives: {
-    scriptSrc: [
-      "'self'",
-      (req, res) => `'nonce-${res.locals.nonce}'`  // 'nonce-348c18b14aaf3e00938d8bdd613f1149'
-    ]
-  }
-}))
 
 app.use((req, res) => {
   res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
