@@ -127,7 +127,7 @@
     max-height:254px;
   }
   #myvideo {
-      position:absolute;
+      position:relative;
       width:100%;
       height:100%;
       min-width: 5vw;
