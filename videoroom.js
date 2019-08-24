@@ -515,12 +515,12 @@ function newRemoteFeed(id, display, audio, video) {
 						}
 						remoteFeed.rfid = msg["id"];
 						remoteFeed.rfdisplay = msg["display"];
-						if(remoteFeed.spinner === undefined || remoteFeed.spinner === null) {
-							var target = document.getElementById('videoremote'+remoteFeed.rfindex);
-							remoteFeed.spinner = new Spinner({top:100}).spin(target);
-						} else {
-							remoteFeed.spinner.spin();
-						}
+						// if(remoteFeed.spinner === undefined || remoteFeed.spinner === null) {
+						// 	var target = document.getElementById('videoremote'+remoteFeed.rfindex);
+						// 	remoteFeed.spinner = new Spinner({top:100}).spin(target);
+						// } else {
+						// 	remoteFeed.spinner.spin();
+						// }
 						Janus.log("Successfully attached to feed " + remoteFeed.rfid + " (" + remoteFeed.rfdisplay + ") in room " + msg["room"]);
 						$('#remote'+remoteFeed.rfindex).removeClass('hide').html(remoteFeed.rfdisplay).show();
 					} else if(event === "event") {
@@ -582,9 +582,9 @@ function newRemoteFeed(id, display, audio, video) {
 				//		'<span class="label label-info hide" id="curbitrate'+remoteFeed.rfindex+'" style="position: absolute; bottom: 0px; right: 0px; margin: 15px;"></span>');
 					// Show the video, hide the spinner and show the resolution when we get a playing event
 					$("#remotevideo"+remoteFeed.rfindex).bind("playing", function () {
-						if(remoteFeed.spinner !== undefined && remoteFeed.spinner !== null)
-							remoteFeed.spinner.stop();
-						remoteFeed.spinner = null;
+						// if(remoteFeed.spinner !== undefined && remoteFeed.spinner !== null)
+						// 	remoteFeed.spinner.stop();
+						// remoteFeed.spinner = null;
 						$('#waitingvideo'+remoteFeed.rfindex).remove();
 						if(this.videoWidth)
 							$('#remotevideo'+remoteFeed.rfindex).removeClass('hide').show();
@@ -636,9 +636,9 @@ function newRemoteFeed(id, display, audio, video) {
 			},
 			oncleanup: function() {
 				Janus.log(" ::: Got a cleanup notification (remote feed " + id + ") :::");
-				if(remoteFeed.spinner !== undefined && remoteFeed.spinner !== null)
-					remoteFeed.spinner.stop();
-				remoteFeed.spinner = null;
+				// if(remoteFeed.spinner !== undefined && remoteFeed.spinner !== null)
+				// 	remoteFeed.spinner.stop();
+				// remoteFeed.spinner = null;
 				$('#remotevideo'+remoteFeed.rfindex).remove();
 				$('#waitingvideo'+remoteFeed.rfindex).remove();
 				$('#novideo'+remoteFeed.rfindex).remove();
