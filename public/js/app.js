@@ -1,5 +1,8 @@
 window.addEventListener('load', () => {
   
+  
+  var socket = io.connect('https://anomic.io/443');
+  
   // Chat platform
   // Local Video
 $('#start').click();
