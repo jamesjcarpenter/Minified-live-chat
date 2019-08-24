@@ -105,7 +105,7 @@ app.use(helmet.contentSecurityPolicy({
 app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
 app.use(helmet.permittedCrossDomainPolicies())
-app.use(helmet.expectCt())
+// app.use(helmet.expectCt())
 // app.use(helmet.featurePolicy({
 //   features: {
 //     fullscreen: ["'none'"],
