@@ -31,7 +31,6 @@ var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
 const Chat = require("./models/chat");
 const User = require("./models/user");
-const style = require('style-loader');
 const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
@@ -60,19 +59,13 @@ app.use(function(req, res, next) {
 });
 
 app.use(helmet())
-require("./libs/style");
 
-app.use((req, res, next) => {
-  // nonce should be base64 encoded
-  res.locals.styleNonce = Buffer.from(uuidv4()).toString('base64')
-  next()
-})
 
 app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ["'self'", 'https://anomic.io/:', 'https://anomic.io/janus', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus'],
    scriptSrc: ["'self'", 'https://anomic.io/semantic', 'https://anomic.io/handlebars', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'https://anomic.io/simplewebrtc', 'https://anomic.io/socket.io', 'https://anomic.io/js', 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
-   styleSrc: ["'self'", (req, res) => `nonce-${res.locals.styleNonce}`, 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/'],
+   styleSrc: ["'unsafe-inline'", "'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/'],
    fontSrc: ["'self'", 'https://anomic.io/*', 'https://anomic.io/semantic/', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic/dist/'],
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
