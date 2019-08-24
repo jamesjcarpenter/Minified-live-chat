@@ -204,29 +204,23 @@
     width: 80%;
   }
   
-  #btnplacement{
-    position:absolute;
+  #publish {
+    display:block;
     top:0;
     margin:0 auto;
-    left:3.5vw;
+    left:7.5em;
     width:100%;
     height:100%;
-  }
-  #publish {
-    position:relative;
-    min-width: 0.5vmin;
-    min-height:0.5vmin;
-    max-width:3.5vmax;
-    max-height:2.5vmax;
     
   }
   
   #mediasettings{
-    position:relative;
-    min-width: 0.5vmin;
-    min-height:0.5vmin;
-    max-width:3.5vmax;
-    max-height:2.5vmax;
+    display:inline-block;
+    top:0;
+    margin:0 auto;
+    left:8.85em;
+    width:100%;
+    height:100%;
   }
   
   

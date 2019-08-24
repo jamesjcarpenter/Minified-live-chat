@@ -143,6 +143,7 @@
   }
   
   #btnplacement{
+    display:block;
     position:absolute;
     top:0;
     margin:0 auto;
@@ -151,6 +152,7 @@
     height:100%;
   }
   #publish {
+    display:inline-block;
     position:relative;
     min-width: 0.5vmin;
     min-height:0.5vmin;
@@ -160,6 +162,7 @@
   }
   
   #mediasettings{
+    display:inline-block;
     position:relative;
     min-width: 0.5vmin;
     min-height:0.5vmin;
