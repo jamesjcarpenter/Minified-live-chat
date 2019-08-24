@@ -30,6 +30,13 @@
     font-size:15px;
   }
   
+  #camgrid{
+    display:block;
+    position:fixed;
+    min-width:60vmin;
+    min-height:50vmin;
+  }
+  
   #chatrail {
     margin:0 auto!important;
     margin-top:5.5em!important;
