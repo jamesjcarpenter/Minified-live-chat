@@ -59,22 +59,22 @@ app.use(function(req, res, next) {
 app.use(helmet())
 
 
-// app.use(helmet.contentSecurityPolicy({
-//  directives: {
-//    defaultSrc: ["'self'", 'https://anomic.io/:', 'https://anomic.io/janus'],
-//    scriptSrc: ["'self'", 'https://anomic.io/semantic', 'https://anomic.io/handlebars', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'https://anomic.io/simplewebrtc', 'https://anomic.io/socket.io', 'https://anomic.io/js', 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
-//    styleSrc: ["'unsafe-inline'", "'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/'],
-//    fontSrc: ["'self'", 'https://anomic.io/semantic/', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic/dist/'],
-//    imgSrc: ["'self'"],
-//    objectSrc: ["'none'"],
-//    formAction: ["'self'"],
-//    connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'ws://anomic.io', 'https://anomic.io', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus' ],
-//    frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
-//    upgradeInsecureRequests: true,
-//    workerSrc: false,
-//  },
-//  browserSniff: false
-// }));
+app.use(helmet.contentSecurityPolicy({
+ directives: {
+   defaultSrc: ["'self'", 'https://anomic.io/:', 'https://anomic.io/janus'],
+   scriptSrc: ["'self'", 'https://anomic.io/semantic', 'https://anomic.io/handlebars', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'https://anomic.io/simplewebrtc', 'https://anomic.io/socket.io', 'https://anomic.io/js', 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
+   styleSrc: ["'unsafe-inline'", "'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/'],
+   fontSrc: ["'self'", 'https://anomic.io/semantic/', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic/dist/'],
+   imgSrc: ["'self'"],
+   objectSrc: ["'none'"],
+   formAction: ["'self'"],
+   connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'ws://anomic.io', 'https://anomic.io', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus' ],
+   frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
+   upgradeInsecureRequests: true,
+   workerSrc: false,
+ },
+ browserSniff: false
+}));
 
 const uuidv4 = require('uuid/v4')
 
