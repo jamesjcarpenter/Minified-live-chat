@@ -141,8 +141,30 @@
     border: 22px outset rgba(41,161,164,0.62);
     border-radius: 21px 21px 9px 9px;
   }
+  
+  #btnplacement{
+    position:absolute;
+    top:0;
+    margin:0 auto;
+    left:3.5vw;
+    width:100%;
+    height:100%;
+  }
   #publish {
-    margin-left:4vw;
+    position:relative;
+    min-width: 0.5vmin;
+    min-height:0.5vmin;
+    max-width:6.7vmax;
+    max-height:8.5vmax;
+    
+  }
+  
+  #mediasettings{
+    position:relative;
+    min-width: 0.5vmin;
+    min-height:0.5vmin;
+    max-width:6.7vmax;
+    max-height:8.5vmax;
   }
   
   #messagedata{
