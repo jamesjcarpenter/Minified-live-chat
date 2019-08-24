@@ -116,8 +116,8 @@ app.use(helmet.featurePolicy({
     gyroscope: ["'none'"],
     magnetometer: ["'none'"],
     usb: ["'none'"],
-    camera: ["'https://www.anomic.io/'", "'https://anomic.io/:*', "'https://www.anomic.io:*'", "anomic.io:*'"],
-    microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*', "'https://www.anomic.io:*'", "anomic.io:*'"],
+    camera: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
+    microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
   }
 }))
 app.use(helmet.noCache())
