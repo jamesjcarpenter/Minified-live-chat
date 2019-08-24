@@ -283,14 +283,14 @@
 <div id="initMsg"></div>
 <div id="chatForm"></div>
   <!-- Scripts -->
-  <script>  var socket = io.connect('anomic.io/');
+  <!-- <script>  var socket = io.connect('anomic.io/');
 
     // on connection to server, ask for user's name with an anonymous callback
 //  
 
 
   // listener, whenever the server emits 'updatechat', this updates the chat
-</script>
+</script> -->
 <!-- <script>
 /* jshint globalstrict:true */
 /* global DOMPurify */  'use strict';
@@ -306,6 +306,7 @@
   var clean = DOMPurify.sanitize(dirty);
   document.getElementById('sanitized').innerHTML = clean;
 </script> -->
+  <script src="js/io.js"></script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
   <script src="https://www.webrtc-experiment.com/Canvas-Designer/canvas-designer-widget.js"></script>
   <script id="chat-content-template" type="text/x-handlebars-template"></script>
