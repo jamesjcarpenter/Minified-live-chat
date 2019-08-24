@@ -124,19 +124,19 @@ app.use(helmet.noCache())
 // configure passport
 
 
-// Sets "Referrer-Policy: same-origin".
-app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
-
-// Sets "Referrer-Policy: unsafe-url".
-app.use(helmet.referrerPolicy({ policy: 'unsafe-url' }))
-
-// Sets "Referrer-Policy: no-referrer,unsafe-url"
-app.use(helmet.referrerPolicy({
-  policy: ['no-referrer', 'unsafe-url']
-}))
-
-// Sets "Referrer-Policy: no-referrer".
-app.use(helmet.referrerPolicy())
+// // Sets "Referrer-Policy: same-origin".
+// app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
+// 
+// // Sets "Referrer-Policy: unsafe-url".
+// app.use(helmet.referrerPolicy({ policy: 'unsafe-url' }))
+// 
+// // Sets "Referrer-Policy: no-referrer,unsafe-url"
+// app.use(helmet.referrerPolicy({
+//   policy: ['no-referrer', 'unsafe-url']
+// }))
+// 
+// // Sets "Referrer-Policy: no-referrer".
+// app.use(helmet.referrerPolicy())
 
 
 
