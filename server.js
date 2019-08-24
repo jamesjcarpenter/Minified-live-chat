@@ -59,6 +59,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(helmet())
+require("./libs/style");
 
 app.use((req, res, next) => {
   // nonce should be base64 encoded
