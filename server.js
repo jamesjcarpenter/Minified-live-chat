@@ -11,7 +11,6 @@ ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
-pingTimeout: 60000,
 },app);
 server.listen(443);
 
@@ -65,81 +64,81 @@ app.use(function(req, res, next) {
   next();
 });
 
-// app.use(helmet.contentSecurityPolicy({
-//  directives: {
-//    defaultSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, 'https://anomic.io/:', 'https://anomic.io/janus', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus', 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8088/janus'],
-//    scriptSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, '/socket.io/socket.io.js', 'https://anomic.io/semantic', 'https://anomic.io/handlebars', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'https://anomic.io/simplewebrtc', 'https://anomic.io/socket.io', 'https://anomic.io/js', 'https://anomic.io/jquery/dist/jquery.js', 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
-//    styleSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, 'https://www.anomic.io/js/*', 'https://anomic.io/js/*', 'https://anomic.io/js', 'https://anomic.io/scripts', 'https://cdnjs.cloudflare.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/', 'https://unpkg.com', ],
-//    fontSrc: ["'self'", 'https://anomic.io/scripts', 'https://cdnjs.cloudflare.com/', 'https://www.cdnjs.cloudflare.com/', 'https://code.jquery.com/', 'https://www.code.jquery.com/', 'https://anomic.io/*', 'https://anomic.io/semantic/', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic/dist/'],
-//    imgSrc: ["'self'"],
-//    objectSrc: ["'none'"],
-//    formAction: ["'self'"],
-//    connectSrc: ["'self'", 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8089/*', 'https://www.anomic.io:80', 'https://www.anomic.io:443', 'https://www.anomic.io:8088/janus', 'https://www.anomic.io:*', 'https://www.anomic.io/*', 'https://anomic.io:*', 'wss://anomic.io:*', 'https://anomic.io', 'https://anomic.io:*/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus' ],
-//    frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
-//    upgradeInsecureRequests: true,
-//    workerSrc: false,
-//  },
-//  browserSniff: false
-// }));
+app.use(helmet.contentSecurityPolicy({
+ directives: {
+   defaultSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, 'https://anomic.io/:', 'https://anomic.io/janus', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus', 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8088/janus'],
+   scriptSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, '/socket.io/socket.io.js', 'https://anomic.io/semantic', 'https://anomic.io/handlebars', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'https://anomic.io/simplewebrtc', 'https://anomic.io/socket.io', 'https://anomic.io/js', 'https://anomic.io/jquery/dist/jquery.js', 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
+   styleSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, 'https://www.anomic.io/js/*', 'https://anomic.io/js/*', 'https://anomic.io/js', 'https://anomic.io/scripts', 'https://cdnjs.cloudflare.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/', 'https://unpkg.com', ],
+   fontSrc: ["'self'", 'https://anomic.io/scripts', 'https://cdnjs.cloudflare.com/', 'https://www.cdnjs.cloudflare.com/', 'https://code.jquery.com/', 'https://www.code.jquery.com/', 'https://anomic.io/*', 'https://anomic.io/semantic/', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic/dist/'],
+   imgSrc: ["'self'"],
+   objectSrc: ["'none'"],
+   formAction: ["'self'"],
+   connectSrc: ["'self'", 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8089/*', 'https://www.anomic.io:80', 'https://www.anomic.io:443', 'https://www.anomic.io:8088/janus', 'https://www.anomic.io:*', 'https://www.anomic.io/*', 'https://anomic.io:*', 'wss://anomic.io:*', 'https://anomic.io', 'https://anomic.io:*/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus' ],
+   frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
+   upgradeInsecureRequests: true,
+   workerSrc: false,
+ },
+ browserSniff: false
+}));
+
+
+// app.use(function (req, res, next) {
+//   res.locals.nonce = uuidv4()
+//   next()
+// })
 // 
-// 
-// // app.use(function (req, res, next) {
-// //   res.locals.nonce = uuidv4()
-// //   next()
-// // })
-// // 
-// // app.use(csp({
-// //   directives: {
-// //     scriptSrc: [
-// //       "'self'",
-// //       (req, res) => `'nonce-${res.locals.nonce}'`  // 'nonce-614d9122-d5b0-4760-aecf-3a5d17cf0ac9'
-// //     ]
-// //   }
-// // }))
-// // 
-// // app.use(function (req, res) {
-// //   res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
-// // })
-// // 
-// 
-// app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
-// 
-// app.use(helmet.permittedCrossDomainPolicies())
-// app.use(helmet.expectCt())
-// // app.use(helmet.featurePolicy({
-// //   features: {
-// //     fullscreen: ["'none'"],
-// //     payment: ["'none'"],
-// //     syncXhr: ["'none'"],
-// //     accelerometer: ["'none'"],
-// //     geolocation: ["'none'"],
-// //     gyroscope: ["'none'"],
-// //     magnetometer: ["'none'"],
-// //     usb: ["'none'"],
-// //     camera: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'", "'anomic.io:*'"],
-// //     microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
-// //   }
-// // }))
-// app.use(helmet.noCache())
-// //TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
-// // configure passport
-// 
-// 
-// // Sets "Referrer-Policy: same-origin".
-// app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
-// 
-// // Sets "Referrer-Policy: unsafe-url".
-// app.use(helmet.referrerPolicy({ policy: 'unsafe-url' }))
-// 
-// // Sets "Referrer-Policy: no-referrer,unsafe-url"
-// app.use(helmet.referrerPolicy({
-//   policy: ['no-referrer', 'unsafe-url']
+// app.use(csp({
+//   directives: {
+//     scriptSrc: [
+//       "'self'",
+//       (req, res) => `'nonce-${res.locals.nonce}'`  // 'nonce-614d9122-d5b0-4760-aecf-3a5d17cf0ac9'
+//     ]
+//   }
 // }))
 // 
-// // Sets "Referrer-Policy: no-referrer".
-// app.use(helmet.referrerPolicy())
+// app.use(function (req, res) {
+//   res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
+// })
 // 
-// 
+
+app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
+
+app.use(helmet.permittedCrossDomainPolicies())
+app.use(helmet.expectCt())
+app.use(helmet.featurePolicy({
+  features: {
+    fullscreen: ["'none'"],
+    payment: ["'none'"],
+    syncXhr: ["'none'"],
+    accelerometer: ["'none'"],
+    geolocation: ["'none'"],
+    gyroscope: ["'none'"],
+    magnetometer: ["'none'"],
+    usb: ["'none'"],
+    camera: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'", "'anomic.io:*'"],
+    microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
+  }
+}))
+app.use(helmet.noCache())
+//TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
+// configure passport
+
+
+// Sets "Referrer-Policy: same-origin".
+app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
+
+// Sets "Referrer-Policy: unsafe-url".
+app.use(helmet.referrerPolicy({ policy: 'unsafe-url' }))
+
+// Sets "Referrer-Policy: no-referrer,unsafe-url"
+app.use(helmet.referrerPolicy({
+  policy: ['no-referrer', 'unsafe-url']
+}))
+
+// Sets "Referrer-Policy: no-referrer".
+app.use(helmet.referrerPolicy())
+
+
 
 
 const TWO_HOURS = 1000 * 60 * 60 * 2
