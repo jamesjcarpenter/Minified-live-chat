@@ -31,6 +31,7 @@ var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
 const Chat = require("./models/chat");
 const User = require("./models/user");
+const style = require('styleloader');
 const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
@@ -59,7 +60,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(helmet())
-require('./libs/style');
+require("./libs/style");
 
 app.use((req, res, next) => {
   // nonce should be base64 encoded
