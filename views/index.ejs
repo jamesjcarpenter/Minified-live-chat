@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src: 'https://anomic.io/room'; style-src 'self'; connect-src wss:">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <script src="/socket.io/socket.io.js"></script>
@@ -130,7 +131,6 @@
 			</div>
       
 <div class="ui button" id="start"></div>
-  <div class="ui container">
 			<div class="container hide" id="videos">
 				<div class="row">
 					<div class="col-md-4">

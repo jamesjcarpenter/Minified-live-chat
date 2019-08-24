@@ -139,7 +139,6 @@ const IN_PROD = NODE_ENV === 'production'
 const cons = require('consolidate');
 //express session start options:
 // secure = HTTPs secure. needs to be on before deployment.
-app.set('trust proxy', 1)
 app.use(session({
   name: SESS_NAME,
   resave: false,
@@ -151,7 +150,6 @@ app.use(session({
     sameSite: true,
     secure: true,
     domain: '.anomic.io',
-    proxy: true,
   }
 }))
 

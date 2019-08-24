@@ -15,7 +15,7 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 // var name = sanitize(req.params.name);
 // var chat = sanitize(req.session.chat);
 
-router.use('*', function (req, res, next) {
+router.get('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
    console.log('ok');
    console.log(req.isAuthenticated());
@@ -41,12 +41,12 @@ router.get('/profile', function(req, res) {
       res.render('profile.handlebars');
 });
 
-router.get('/admin', csrfProtection, function(req, res) {
+router.get('/admin', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('admin.ejs', { csrfToken: req.csrfToken(), name: req.params.name, chat: req.session.chat, username: req.user });
+   res.render('admin.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/dashboard', function(req, res) {
