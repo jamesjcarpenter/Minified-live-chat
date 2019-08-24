@@ -105,20 +105,20 @@ app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
 app.use(helmet.permittedCrossDomainPolicies())
 app.use(helmet.expectCt())
-// app.use(helmet.featurePolicy({
-//   features: {
-//     fullscreen: ["'none'"],
-//     payment: ["'none'"],
-//     syncXhr: ["'none'"],
-//     accelerometer: ["'none'"],
-//     geolocation: ["'none'"],
-//     gyroscope: ["'none'"],
-//     magnetometer: ["'none'"],
-//     usb: ["'none'"],
-//     camera: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'", "'anomic.io:*'"],
-//     microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
-//   }
-// }))
+app.use(helmet.featurePolicy({
+  features: {
+    fullscreen: ["'none'"],
+    payment: ["'none'"],
+    syncXhr: ["'none'"],
+    accelerometer: ["'none'"],
+    geolocation: ["'none'"],
+    gyroscope: ["'none'"],
+    magnetometer: ["'none'"],
+    usb: ["'none'"],
+    camera: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'", "'anomic.io:*'"],
+    microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
+  }
+}))
 app.use(helmet.noCache())
 //TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
 // configure passport
