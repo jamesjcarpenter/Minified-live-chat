@@ -37,7 +37,8 @@
     right:2.25vw!important; 
     margin-right:3.75vw!important; 
     position:fixed!important;
-    min-width:16vmin!important;
+    min-width:15.5vw!important;
+    max-width:16vw!important;
   }
   
   #draggable {
@@ -52,7 +53,7 @@
     width:100%!important;
     overflow-y:hidden!important;
     overflow-x:hidden!important;
-    min-width:27.5vmin!important;
+    min-width:21.5vw!important;
   }
   
   #conversation {
@@ -60,7 +61,8 @@
   width:100%!important;
   height:76vh!important;
   padding:20px!important;
-  min-width:27.5vmin!important;
+  max-width:100%!important;
+  max-height:100%!important;  
   }
   
   #inputfocus {
