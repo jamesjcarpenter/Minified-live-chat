@@ -69,24 +69,24 @@ app.use(helmet.contentSecurityPolicy({
 
 const uuidv4 = require('uuid/v4')
 
-// app.use(function (req, res, next) {
-//   res.locals.nonce = uuidv4()
-//   next()
-// })
-// 
-// app.use(csp({
-//   directives: {
-//     scriptSrc: [
-//       "'self'",
-//       (req, res) => `'nonce-${res.locals.nonce}'`  // 'nonce-614d9122-d5b0-4760-aecf-3a5d17cf0ac9'
-//     ]
-//   }
-// }))
-// 
-// app.use(function (req, res) {
-//   res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
-// })
-// 
+app.use(function (req, res, next) {
+  res.locals.nonce = uuidv4()
+  next()
+})
+
+app.use(csp({
+  directives: {
+    scriptSrc: [
+      "'self'",
+      (req, res) => `'nonce-${res.locals.nonce}'`  // 'nonce-614d9122-d5b0-4760-aecf-3a5d17cf0ac9'
+    ]
+  }
+}))
+
+app.use(function (req, res) {
+  res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
+})
+
 
 app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
