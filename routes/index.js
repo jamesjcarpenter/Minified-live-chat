@@ -32,7 +32,7 @@ router.get('*', function (req, res, next) {
 
 
 router.get('/', function(req, res) {
-  res.render('home.handlebars', { nonce: res.locals.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  res.render('home.handlebars', { nonce: nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
@@ -42,7 +42,7 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('index.ejs', { nonce: res.locals.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
+   res.render('index.ejs', { nonce: nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/profile', function(req, res) {
@@ -54,15 +54,15 @@ router.get('/admin', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('admin.ejs', { nonce: res.locals.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
+   res.render('admin.ejs', { nonce: nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/dashboard', function(req, res) {
-      res.render('dashboard.handlebars', { nonce: res.locals.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
+      res.render('dashboard.handlebars', { nonce: nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/home', function(req, res) {
-      res.render('home.handlebars', { nonce: res.locals.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
+      res.render('home.handlebars', { nonce: nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.post('/logout', (req, res) => {
