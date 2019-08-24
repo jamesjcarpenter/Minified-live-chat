@@ -55,7 +55,7 @@ app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ["'self'", 'https://anomic.io/:'],
    scriptSrc: ["'self'", 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/', 'sha256-2A099D8B9285E1EB254FD81A4AEC8BEBDADB072E7E9CA7813D6B17CC6A270585' ],
-   styleSrc: ["'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', '2A099D8B9285E1EB254FD81A4AEC8BEBDADB072E7E9CA7813D6B17CC6A270585'],
+   styleSrc: ["'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'sha256-2A099D8B9285E1EB254FD81A4AEC8BEBDADB072E7E9CA7813D6B17CC6A270585'],
    fontSrc: ["'self'", 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/'],
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
