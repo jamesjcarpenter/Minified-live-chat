@@ -459,6 +459,8 @@ function unpublishOwnFeed() {
 	$('#unpublish').attr('disabled', true).unbind('click');
 	var unpublish = { "request": "unpublish" };
 	sfutest.send({"message": unpublish});
+	$('#videolocal').parent().parent().block();
+	$('#videolocal').hide();
 }
 
 function newRemoteFeed(id, display, audio, video) {
