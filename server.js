@@ -60,12 +60,13 @@ app.use(function(req, res, next) {
 
 app.use(helmet())
 
+var nonce = '889E71475788825283B6AF7338FCA9FD60A804DC2C5DAF41D884EBEAA29C817C';
 
 app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ["'self'", 'https://anomic.io/:', 'https://anomic.io/janus', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus'],
    scriptSrc: ["'self'", 'https://anomic.io/semantic', 'https://anomic.io/handlebars', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'https://anomic.io/simplewebrtc', 'https://anomic.io/socket.io', 'https://anomic.io/js', 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
-   styleSrc: ["'unsafe-inline'", "'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/', 'https://unpkg.com', ],
+   styleSrc: ["'self'", 'sha256-889E71475788825283B6AF7338FCA9FD60A804DC2C5DAF41D884EBEAA29C817C', 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic', 'https://anomic.io/semantic/dist/', 'https://unpkg.com', ],
    fontSrc: ["'self'", 'https://anomic.io/*', 'https://anomic.io/semantic/', 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/', 'https://anomic.io/semantic/dist/'],
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],

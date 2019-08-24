@@ -160,30 +160,7 @@
   <script src="semantic/dist/components/transition.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-  $(document)
-    .ready(function() {
-
-      // fix menu when passed
-      $('.masthead')
-        .visibility({
-          once: false,
-          onBottomPassed: function() {
-            $('.fixed.menu').transition('fade in');
-          },
-          onBottomPassedReverse: function() {
-            $('.fixed.menu').transition('fade out');
-          }
-        })
-      ;
-
-      // create sidebar and attach to menu open
-      $('.ui.sidebar')
-        .sidebar('attach events', '.toc.item')
-      ;
-
-    })
-  ;
+  <script src="js/fadeinout.js">
   </script>
 </head>
 <body>
@@ -303,12 +280,6 @@
   </div> 
   </div>
 </div>
-
-<script>
-$("#texttween").TextTweener({
-  duration: "6500"
-});
-</script>  
 
 {{{body}}} 
 
@@ -618,21 +589,7 @@ live chats
 </div>
 </div>
 </div>
-<script>
-AOS.init();
-</script>
-<script>$('.ui.inverted.header')
-  .transition('scale', '1900ms')
-;
-</script>
-<script>
-$('.ui.mini.inverted.basic.modal')
-.modal({  
-  blurring: true,
-})
-$('.ui.mini.inverted.basic.modal')
-.modal('attach events', '.ui.huge.animated.primary.button', 'show');
-</script>
+<script src="js/modal.js"></script>
 <script src="js/usercheck.js"></script>
 <script src="js/room.js"></script>
 <script src="scripts/handlebars/dist/handlebars.min.js "></script>
