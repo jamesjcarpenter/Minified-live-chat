@@ -204,17 +204,11 @@
     width: 80%;
   }
   
-  #btnplacement{
+  #publish {
     display:block;
-    position:relative;
     top:0;
     margin:0 auto;
-    left:7.5vw;
-    width:100%;
-    height:100%;
-  }
-  #publish {
-    display:inline-block;
+    left:7.5em;
     width:100%;
     height:100%;
     
@@ -222,6 +216,9 @@
   
   #mediasettings{
     display:inline-block;
+    top:0;
+    margin:0 auto;
+    left:8.85em;
     width:100%;
     height:100%;
   }
