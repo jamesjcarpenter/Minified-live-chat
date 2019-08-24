@@ -54,13 +54,13 @@ app.use(helmet())
 app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ['https://anomic.io/:'],
-   scriptSrc: ["'unsafe-inline'", 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
-   styleSrc: ["'unsafe-inline'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/'],
+   scriptSrc: ["'self'", 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/'],
+   styleSrc: ["'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/'],
    fontSrc: ["'self'", 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/'],
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
    formAction: ["'self'"],
-   connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'https://anomic.io', 'ws://', 'http://', 'https://'],
+   connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'https://anomic.io'],
    frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
    upgradeInsecureRequests: true,
    workerSrc: false,
