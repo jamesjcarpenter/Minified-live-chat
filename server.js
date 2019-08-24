@@ -54,8 +54,8 @@ app.use(helmet())
 app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ["'self'", 'https://anomic.io/:'],
-   scriptSrc: ["'self'", 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/', 'sha256-LHNh9xw1VeZTANwMt4DeW/YM2X358wyOgpJN8RDGF1U=', '7fb896e0-a4d4-462a-8b2f-fdaf0185a15f' ],
-   styleSrc: ["'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', '7fb896e0-a4d4-462a-8b2f-fdaf0185a15f'],
+   scriptSrc: ["'self'", 'https://code.jquery.com/', 'https://maxcdn.bootstrapcdn.com/', 'https://cdnjs.cloudflare.com/', 'https://toert.github.io', 'https://www.webrtc-experiment.com/', 'https://unpkg.com/', 'nonce-7fb896e0-a4d4-462a-8b2f-fdaf0185a15f' ],
+   styleSrc: ["'self'", 'https://maxcdn.bootstrapcdn.com/', 'https://toert.github.io/', 'https://fonts.googleapis.com/', 'nonce-7fb896e0-a4d4-462a-8b2f-fdaf0185a15f'],
    fontSrc: ["'self'", 'https://fonts.gstatic.com', 'https://maxcdn.bootstrapcdn.com/', 'https://fonts.googleapis.com/'],
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
