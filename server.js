@@ -61,8 +61,9 @@ app.use(function(req, res, next) {
 app.use(helmet())
 
 const crypto = require('crypto');
-router.use(function(req, res, next) {
+app.use(function(req, res, next) {
   let nonce = crypto.randomBytes(16).toString('base64');
+  next();
 });
 
 app.use(helmet.contentSecurityPolicy({
