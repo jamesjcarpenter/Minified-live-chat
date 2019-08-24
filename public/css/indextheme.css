@@ -31,55 +31,54 @@
   }
   
   #chatrail {
-    margin:0 auto;
-    margin-top:5.5em;
-    margin-bottom:0em;
-    right:2.25vw; 
-    margin-right:3.75vw; 
-    position:fixed;
-    min-width:15.5vw;
-    max-width:16vw;
+    margin:0 auto!important;
+    margin-top:5.5em!important;
+    margin-bottom:0em!important;
+    right:2.25vw!important; 
+    margin-right:3.75vw!important; 
+    position:fixed!important;
+    min-width:15.5vw!important;
+    max-width:16vw!important;
   }
   
   #draggable {
-    position:relative;
-    overflow-y:visible; 
-    max-height:100%;
-    width:100%;
+    position:relative!important;
+    overflow-y:visible!important; 
+    max-height:100%!important;
+    width:100%!important;
   }
   
   #chatbox {
-    position:relative;
-    width:100%;
-    overflow-y:hidden;
-    overflow-x:hidden;
-    min-width:21.5vw;
+    position:relative!important;
+    width:100%!important;
+    overflow-y:hidden!important;
+    overflow-x:hidden!important;
+    min-width:21.5vw!important;
   }
   
   #conversation {
-  position:relative;
-  width:100%;
-  height:76vh;
-  padding:20px;
-  max-width:100%;
-  max-height:100%;  
+  position:relative!important;
+  width:100%!important;
+  height:76vh!important;
+  padding:20px!important;
+  max-width:100%!important;
+  max-height:100%!important;  
   }
   
   #inputfocus {
-    position:relative;
-    min-height:3.3vh;
-    width:100%;
-    min-width:20.5vw;
+    position:relative!important;
+    min-height:3.3vh!important;
+    width:100%!important;
+    min-width:20.5vw!important;
   }
   
   #data {
-  position:relative;
-  width:100%;
-  height:4.5vh;
-  min-height:100%;
-  max-height:100%;  
+  position:relative!important;
+  width:100%!important;
+  height:4.5vh!important;
+  min-height:100%!important;
+  max-height:100%!important;  
   }
-  
   
     #chatbox {  
       display:block!important;
