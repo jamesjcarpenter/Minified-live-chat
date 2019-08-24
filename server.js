@@ -106,20 +106,20 @@ app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
 app.use(helmet.permittedCrossDomainPolicies())
 app.use(helmet.expectCt())
-app.use(helmet.featurePolicy({
-  features: {
-    fullscreen: ["'none'"],
-    payment: ["'none'"],
-    syncXhr: ["'none'"],
-    accelerometer: ["'none'"],
-    geolocation: ["'none'"],
-    gyroscope: ["'none'"],
-    magnetometer: ["'none'"],
-    usb: ["'none'"],
-    camera: ["'self'", 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8089/*', 'https://www.anomic.io:80', 'https://www.anomic.io:443', 'https://www.anomic.io:8088/janus', 'https://www.anomic.io:*', 'https://www.anomic.io/*', 'https://anomic.io:*', 'wss://anomic.io:*', 'https://anomic.io', 'https://anomic.io:*/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus'],
-    microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
-  }
-}))
+// app.use(helmet.featurePolicy({
+//   features: {
+//     fullscreen: ["'none'"],
+//     payment: ["'none'"],
+//     syncXhr: ["'none'"],
+//     accelerometer: ["'none'"],
+//     geolocation: ["'none'"],
+//     gyroscope: ["'none'"],
+//     magnetometer: ["'none'"],
+//     usb: ["'none'"],
+//     camera: ["'self'", 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8089/*', 'https://www.anomic.io:80', 'https://www.anomic.io:443', 'https://www.anomic.io:8088/janus', 'https://www.anomic.io:*', 'https://www.anomic.io/*', 'https://anomic.io:*', 'wss://anomic.io:*', 'https://anomic.io', 'https://anomic.io:*/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus'],
+//     microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
+//   }
+// }))
 app.use(helmet.noCache())
 //TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
 // configure passport
