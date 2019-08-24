@@ -101,10 +101,10 @@ app.use(helmet.contentSecurityPolicy({
 //   res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
 // })
 // 
-
-app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
-
-app.use(helmet.permittedCrossDomainPolicies())
+// 
+// app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
+// 
+// app.use(helmet.permittedCrossDomainPolicies())
 // app.use(helmet.expectCt())
 // app.use(helmet.featurePolicy({
 //   features: {
@@ -120,26 +120,26 @@ app.use(helmet.permittedCrossDomainPolicies())
 //     microphone: ["'https://www.anomic.io/'", "'https://anomic.io/:*'", "'https://www.anomic.io:*'", "'anomic.io:*'"],
 //   }
 // }))
-app.use(helmet.noCache())
-//TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
-// configure passport
-
-
-// Sets "Referrer-Policy: same-origin".
-app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
-
-// Sets "Referrer-Policy: unsafe-url".
-app.use(helmet.referrerPolicy({ policy: 'unsafe-url' }))
-
-// Sets "Referrer-Policy: no-referrer,unsafe-url"
-app.use(helmet.referrerPolicy({
-  policy: ['no-referrer', 'unsafe-url']
-}))
-
-// Sets "Referrer-Policy: no-referrer".
-app.use(helmet.referrerPolicy())
-
-
+// app.use(helmet.noCache())
+// //TO DO: ADD RATE LIMITER TO PROTECT LOGINS AND DDOS
+// // configure passport
+// 
+// 
+// // Sets "Referrer-Policy: same-origin".
+// app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
+// 
+// // Sets "Referrer-Policy: unsafe-url".
+// app.use(helmet.referrerPolicy({ policy: 'unsafe-url' }))
+// 
+// // Sets "Referrer-Policy: no-referrer,unsafe-url"
+// app.use(helmet.referrerPolicy({
+//   policy: ['no-referrer', 'unsafe-url']
+// }))
+// 
+// // Sets "Referrer-Policy: no-referrer".
+// app.use(helmet.referrerPolicy())
+// 
+// 
 
 
 const TWO_HOURS = 1000 * 60 * 60 * 2
