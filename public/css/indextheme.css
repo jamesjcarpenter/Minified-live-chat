@@ -153,6 +153,7 @@
     min-height:8.31vmin;
     max-width:7.5vmax;
     max-height:11.88vmax;
+    padding:3px;
   }
   
   #mediasettings{
@@ -166,6 +167,7 @@
     min-height:8.31vmin;
     max-width:7.5vmax;
     max-height:11.88vmax;
+    padding:3px;
   }
   
   #messagedata{
