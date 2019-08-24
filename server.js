@@ -60,7 +60,7 @@ app.use(helmet.contentSecurityPolicy({
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
    formAction: ["'self'"],
-   connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'ws://anomic.io', 'https://anomic.io', 'https://anomic.io/janus', 'https://anomic.io/videoroom'],
+   connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'ws://anomic.io', 'https://anomic.io', 'https://anomic.io/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom' ],
    frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
    upgradeInsecureRequests: true,
    workerSrc: false,
