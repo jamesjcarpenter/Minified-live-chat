@@ -17,7 +17,7 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 
 //add nonce
 const crypto = require('crypto');
-app.use(function(req, res, next) {
+router.use(function(req, res, next) {
   let nonce = crypto.randomBytes(16).toString('base64');
 });
 //end nonce
