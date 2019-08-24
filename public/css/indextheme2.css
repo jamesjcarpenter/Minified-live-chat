@@ -206,7 +206,7 @@
   
   #btnplacement{
     display:block;
-    position:absolute;
+    position:relative;
     top:0;
     margin:0 auto;
     left:7.5vw;
@@ -215,7 +215,6 @@
   }
   #publish {
     display:inline-block;
-    position:relative;
     width:100%;
     height:100%;
     
@@ -223,7 +222,6 @@
   
   #mediasettings{
     display:inline-block;
-    position:relative;
     width:100%;
     height:100%;
   }
