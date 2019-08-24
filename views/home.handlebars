@@ -155,12 +155,12 @@
         display: none !important;
     }
   </style>
-  <script src="semantic/dist/semantic.min.js"></script>
-  <script src="semantic/dist/components/visibility.js"></script>
-  <script src="semantic/dist/components/sidebar.js"></script>
-  <script src="semantic/dist/components/transition.js"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="semantic/dist/semantic.min.js"content="{{ styleNonce }}"></script>
+  <script src="semantic/dist/components/visibility.js"content="{{ styleNonce }}"></script>
+  <script src="semantic/dist/components/sidebar.js"content="{{ styleNonce }}"></script>
+  <script src="semantic/dist/components/transition.js"content="{{ styleNonce }}"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"content="{{ styleNonce }}">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"content="{{ styleNonce }}"></script>
   <script>
   $(document)
     .ready(function() {
@@ -305,7 +305,7 @@
   </div>
 </div>
 
-<script>
+<script content="{{ styleNonce }}">
 $("#texttween").TextTweener({
   duration: "6500"
 });
@@ -619,14 +619,14 @@ live chats
 </div>
 </div>
 </div>
-<script>
+<script content="{{ styleNonce }}">
 AOS.init();
 </script>
-<script>$('.ui.inverted.header')
+<script content="{{ styleNonce }}">$('.ui.inverted.header')
   .transition('scale', '1900ms')
 ;
 </script>
-<script>
+<script content="{{ styleNonce }}">
 $('.ui.mini.inverted.basic.modal')
 .modal({  
   blurring: true,
@@ -634,9 +634,9 @@ $('.ui.mini.inverted.basic.modal')
 $('.ui.mini.inverted.basic.modal')
 .modal('attach events', '.ui.huge.animated.primary.button', 'show');
 </script>
-<script src="js/usercheck.js"></script>
-<script src="js/room.js"></script>
-<script src="scripts/handlebars/dist/handlebars.min.js "></script>
+<script src="js/usercheck.js"content="{{ styleNonce }}"></script>
+<script src="js/room.js"content="{{ styleNonce }}"></script>
+<script src="scripts/handlebars/dist/handlebars.min.js "content="{{ styleNonce }}"></script>
 </body>
 
 </html>
