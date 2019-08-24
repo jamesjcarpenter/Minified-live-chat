@@ -61,10 +61,6 @@ app.use(function(req, res, next) {
 app.use(helmet())
 
 
-//add nonce
-const crypto = require('crypto');
-let nonce = crypto.randomBytes(16).toString('base64');
-//end nonce
 
 app.use(helmet.contentSecurityPolicy({
  directives: {

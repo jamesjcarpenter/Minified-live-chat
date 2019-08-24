@@ -15,6 +15,14 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 // var name = sanitize(req.params.name);
 // var chat = sanitize(req.session.chat);
 
+//add nonce
+const crypto = require('crypto');
+app.use(function(req, res, next) {
+  let nonce = crypto.randomBytes(16).toString('base64');
+});
+//end nonce
+
+
 router.get('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
    console.log('ok');
@@ -24,7 +32,7 @@ router.get('*', function (req, res, next) {
 
 
 router.get('/', function(req, res) {
-  res.render('home.handlebars', { name: req.params.name, chat: req.session.chat, username: req.user });
+  res.render('home.handlebars', { nonce: req.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
@@ -34,7 +42,7 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('index.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
+   res.render('index.ejs', { nonce: req.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/profile', function(req, res) {
@@ -46,15 +54,15 @@ router.get('/admin', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('admin.ejs', { name: req.params.name, chat: req.session.chat, username: req.user });
+   res.render('admin.ejs', { nonce: req.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/dashboard', function(req, res) {
-      res.render('dashboard.handlebars', { name: req.params.name, chat: req.session.chat, username: req.user });
+      res.render('dashboard.handlebars', { nonce: req.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/home', function(req, res) {
-      res.render('home.handlebars', { name: req.params.name, chat: req.session.chat, username: req.user });
+      res.render('home.handlebars', { nonce: req.nonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.post('/logout', (req, res) => {
