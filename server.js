@@ -60,7 +60,7 @@ app.use(helmet.contentSecurityPolicy({
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
    formAction: ["'self'"],
-   connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'https://anomic.io', 'ws://' 'http://', 'https://'],
+   connectSrc: ["'self'", 'https://anomic.io:*', 'wss://anomic.io', 'https://anomic.io', 'ws://', 'http://', 'https://'],
    frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
    upgradeInsecureRequests: true,
    workerSrc: false,
