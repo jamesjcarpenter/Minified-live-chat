@@ -141,155 +141,74 @@
 			</div>
       
 <div class="ui button" id="start"></div>
-			<div class="container hide" id="videos">
-        
-      </div>
-<div class="ui container">
-  <div class="ui stackable grid">
-      <div class="ui icon buttons">
-        <button id="broadcast-btn" class="large ui inverted green button">Broadcast&nbsp; &nbsp; <i class="camera icon"></i></button>
-      </div>
-      <div class="ui icon buttons">
-      <button class="large ui teal secondary button">Media Settings&nbsp; &nbsp; <i class="cogs icon"></i></button> 
-      </div>
-    </div>
-                
-        <% user %>
-            <!-- Remote Cameras -->
-            <h3 class="ui center aligned header"></h3>
-            <div class="ui small jiggle images">
-            <div id="remote-videos" class="five column doubling ui stackable grid">
-              <div id="remote-videos" class="ui stackable grid">
-              <div class="four wide column">
-                <div class="ui segment">
-                <div class="ui rounded medium placeholder">
-      <div class="rectangular medium image"></div>
-    </div>
-  </div>
-    </div>
-              <div class="four wide column">
-                <div class="ui segment">
-                <div class="ui rounded medium placeholder">
-      <div class="rectangular image"></div>
-    </div>
-  </div>
-</div>
-  
-<div class="four wide column">
-  <div class="ui segment">
-  <div class="ui rounded medium placeholder">
-<div class="rectangular image"></div>
-</div>
-</div>
-</div>
 
-
-<div class="four wide column">
-<div class="ui segment">
-<div class="ui rounded medium placeholder">
-<div class="rectangular image"></div>
-</div>
-</div>
-</div>
+<h3 class="ui center aligned header"></h3>
+  <div class="ui small jiggle images">
+			<div class="container hide" id="videos"class="five column doubling ui stackable grid">
+        <div class="panel-body" id="videolocal"></div>
+          <div class="ui stackable grid">
+            <div class="four wide column">
+              <div class="ui segment">
+                <div class="ui rounded medium placeholder">
+                  <div class="rectangular medium image"></div>
+                </div>
+              </div>
             </div>
-          
-            <div id="remote-videos" class="ui stackable grid">
-              <div class="four wide column">
-                <div class="ui segment">
-                <div class="ui rounded medium placeholder">
-      <div class="rectangular image"></div>
-    </div>
-  </div>
-</div>
-    
-              <div class="four wide column">
-                <div class="ui segment">
-                <div class="ui rounded medium placeholder">
-      <div class="rectangular medium image"></div>
-    </div>
-  </div>
-</div>
 
-  <div class="four wide column">
-    <div class="ui segment">
-    <div class="ui rounded medium placeholder">
-<div class="rectangular medium image"></div>
-</div>
-</div>
-</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									<div class="btn-group btn-group-xs pull-right">
-										<div class="btn-group btn-group-xs">
-											<button id="bitrateset" autocomplete="off" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-												Bandwidth<span class="caret"></span>
-											</button>
-											<ul id="bitrate" class="dropdown-menu" role="menu">
-												<li><a href="#" id="0">No limit</a></li>
-												<li><a href="#" id="128">Cap to 128kbit</a></li>
-												<li><a href="#" id="256">Cap to 256kbit</a></li>
-												<li><a href="#" id="512">Cap to 512kbit</a></li>
-												<li><a href="#" id="1024">Cap to 1mbit</a></li>
-												<li><a href="#" id="1500">Cap to 1.5mbit</a></li>
-												<li><a href="#" id="2000">Cap to 2mbit</a></li>
-											</ul>
-										</div>
-									</div>
-								</h3>
+								
+                
+            <div class="four wide column">
+              <div class="ui segment">
+              <div class="ui rounded medium placeholder">
+                <h3 class="panel-title"><span class="label label-info" id="remote1"></span></h3>
+                <div class="panel-body relative" id="videoremote1"></div>
 							</div>
-							<div class="panel-body" id="videolocal"></div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info" id="remote1"></span></h3>
-							</div>
-							<div class="panel-body relative" id="videoremote1"></div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info" id="remote2"></span></h3>
-							</div>
-							<div class="panel-body relative" id="videoremote2"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info" id="remote3"></span></h3>
-							</div>
-							<div class="panel-body relative" id="videoremote3"></div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info" id="remote4"></span></h3>
-							</div>
-							<div class="panel-body relative" id="videoremote4"></div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title"><span class="label label-info" id="remote5"></span></h3>
-							</div>
-							<div class="panel-body relative" id="videoremote5"></div>
-						</div>
-					</div>
-				</div>
+          
+          
+          <div class="four wide column">
+            <div class="ui segment">
+            <div class="ui rounded medium placeholder">
+              <h3 class="panel-title"><span class="label label-info" id="remote2"></span></h3>
+              <div class="panel-body relative" id="videoremote2"></div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        
+        <div class="four wide column">
+          <div class="ui segment">
+          <div class="ui rounded medium placeholder">
+            <h3 class="panel-title"><span class="label label-info" id="remote3"></span></h3>
+            <div class="panel-body relative" id="videoremote3"></div>
+          </div>
+        </div>
+        </div>
+        
+        
+        <div class="four wide column">
+          <div class="ui segment">
+          <div class="ui rounded medium placeholder">
+            <h3 class="panel-title"><span class="label label-info" id="remote4"></span></h3>
+            <div class="panel-body relative" id="videoremote4"></div>
+          </div>
+        </div>
+      </div>
+          
+          
+        <div class="four wide column">
+          <div class="ui segment">
+            <div class="ui rounded medium placeholder">
+              <h3 class="panel-title"><span class="label label-info" id="remote5"></span></h3>
+            <div class="panel-body relative" id="videoremote5"></div>
+          </div>
+        </div>
+        </div>
 			</div>
 		</div>
-	</div>
-</div>
 	<div class="footer">
 	</div>
 
