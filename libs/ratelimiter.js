@@ -10,7 +10,7 @@ const rateLimiter = new RateLimiterRedis({
   redis: redisClient,
   keyPrefix: 'middleware',
   points: 10, // 60 requests
-  //duration: 3, // per 1 second by IP
+  duration:1.5,
   execEvenly:true,
 });
 
