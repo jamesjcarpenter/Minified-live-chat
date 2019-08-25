@@ -184,8 +184,6 @@ const {RateLimiterRedis} = require('rate-limiter-flexible');
 const { RateLimiterMemory } = require('rate-limiter-flexible');
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
-app.use(rateLimiterRedisMiddleware);
-
 
 const rateLimiter = new RateLimiterMemory(
   {
