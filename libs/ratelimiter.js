@@ -11,7 +11,7 @@ const rateLimiter = new RateLimiterRedis({
   keyPrefix: 'middleware',
   points: 15,
    duration: 1,
-   inmemoryBlockOnConsumed: 10,
+   inmemoryBlockOnConsumed: 20,
    inmemoryBlockDuration: 30,
 });
 
