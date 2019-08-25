@@ -203,7 +203,7 @@
     
   }
   #videos {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%;
     right:2.5vw;
     height: auto;
@@ -211,7 +211,7 @@
   
   
   #videolocal {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%; 
     max-height:100%;
     position:relative;
@@ -223,44 +223,44 @@
        font-size: 100%;
        font: inherit;
        vertical-align: baseline;
-       display:block!important; 
+    display:inline-block!important; 
        width:100%;
        height:auto;
 
   }
   #remotevideo1 {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%;
     height:auto;
     position:relative;
   }
   #remotevideo2 {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%;
     height:auto;
     position:relative;
   }
   
   #remotevideo3 {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%;
     height:auto;
     position:relative;
   }
   #remotevideo4 {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%;
     height:auto;
     position:relative;
   }
   #remotevideo5 {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%;
     height:auto;
     position:relative;
   }
   #remotevideo6 {
-    display:block!important; 
+    display:inline-block!important; 
     width:100%;
     height:auto;
     position:relative;
