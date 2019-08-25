@@ -9,17 +9,13 @@ const redisClient = redis.createClient({
 const rateLimiter = new RateLimiterRedis({
   redis: redisClient,
   keyPrefix: 'middleware',
-  points: 300, // Number of points
-  duration: 60, // Per 60 seconds,
-  blockDuration: 120, // Block duration in store
-  inmemoryBlockOnConsumed: 301, // If userId or IP consume >300 points per minute
-  inmemoryBlockDuration: 120, //
+  points: 5,
+   duration: 1,
+   inmemoryBlockOnConsumed: 10,
+   inmemoryBlockDuration: 30,
 });
 
 const rateLimiterMiddleware = (req, res, next) => {
-  const key = req.userId ? req.userId : req.ip;
-  const pointsToConsume = req.userId ? 1 : 30;
-  rateLimiterRedis.consume(key, pointsToConsume)
   rateLimiter.consume(req.ip)
     .then(() => {
       next();
