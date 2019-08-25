@@ -192,7 +192,7 @@ const redisClient = redis.createClient({
 const rateLimiter = new RateLimiterMemory(
   {
     storeClient: redisClient,
-    points: 7, // Number of points
+    points: 3, // Number of points
     duration: 1, // Per 60 seconds,
     blockDuration: 120, // Block duration in store
     inmemoryBlockOnConsumed: 301, // If userId or IP consume >300 points per minute
