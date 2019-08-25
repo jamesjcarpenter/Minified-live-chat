@@ -9,19 +9,17 @@ const redisClient = redis.createClient({
 const rateLimiter = new RateLimiterRedis({
   redis: redisClient,
   keyPrefix: 'middleware',
-  points: 40,
-   duration: 1,
-   inmemoryBlockOnConsumed: 50,
-   inmemoryBlockDuration: 30,
+  points: 40, // 60 requests
+  duration:1,
 });
 
 const rateLimiterMiddleware = (req, res, next) => {
   rateLimiter.consume(req.ip)
     .then(() => {
-      next();
+      res.status(200).json({}).end();
     })
     .catch(() => {
-      res.status(429).send('Too Many Requests');
+      res.status(429).send('Too Many Requests').end();
     });
 };
 
