@@ -16,7 +16,7 @@ const rateLimiter = new RateLimiterRedis({
 const rateLimiterMiddleware = (req, res, next) => {
   rateLimiter.consume(req.ip)
     .then(() => {
-      res.status(200).json({}).end();
+      next();
     })
     .catch(() => {
       res.status(429).send('Too Many Requests').end();
