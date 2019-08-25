@@ -204,40 +204,37 @@
   }
   
   #videolocal {
-    width:100%;
-    height:100%;
-    min-width: 0.5vmin;
-    min-height:0.5vmin;
-    max-width:62.6vmax;
-    max-height:64.4vmax;
+    margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
   }
   #myvideo {
-      position:relative;
-      width:100%;
-      height:100%;
-      min-width: 0.5vmin;
-      min-height:0.5vmin;
-      max-width:62.6vmax;
-      max-height:64.4vmax;
+    margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
 
   }
   #remotevideo1 {
-    position:relative;
-    width:100%;
-    height:100%;
-    min-width: 0.5vmin;
-    min-height:0.5vmin;
-    max-width:62.6vmax;
-    max-height:64.4vmax;
+    margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
   }
   #remotevideo2 {
-    position:relative;
-    width:100%;
-    height:100%;
-    min-width: 0.5vmin;
-    min-height:0.5vmin;
-    max-width:62.6vmax;
-    max-height:64.4vmax;
+    margin: 0;
+       padding: 0;
+       border: 0;
+       font-size: 100%;
+       font: inherit;
+       vertical-align: baseline;
   }
   
   #remotevideo3 {
