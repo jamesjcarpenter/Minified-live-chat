@@ -184,7 +184,9 @@ const {RateLimiterRedis} = require('rate-limiter-flexible');
 const { RateLimiterMemory } = require('rate-limiter-flexible');
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
-
+const redisClient = redis.createClient({
+  enable_offline_queue: false,
+});
 const rateLimiter = new RateLimiterMemory(
   {
     storeClient: redisClient,
