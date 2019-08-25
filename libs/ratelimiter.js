@@ -11,12 +11,10 @@ const rateLimiter = new RateLimiterRedis({
   keyPrefix: 'middleware',
   points: 40, // 60 requests
   duration:1,
-  inmemoryBlockOnConsumed: 50,
-  inmemoryBlockDuration: 30,
 });
 
 const rateLimiterMiddleware = (req, res, next) => {
-  rateLimiter.consume((Math.floor(Math.random() * 5).toString()))
+  rateLimiter.consume(req.ip)
     .then(() => {
       res.status(200).json({}).end();
     })
