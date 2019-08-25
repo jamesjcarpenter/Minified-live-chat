@@ -290,7 +290,7 @@ $(document).ready(function() {
 									$('#videojoin').hide();
 									$('#videos').removeClass('hide').show();
 									if($('#myvideo').length === 0) {
-										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
+										$('#videolocal').append('<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-mic-level="0"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="12" r="3"><video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/></svg></circle>');
 										// Add a 'mute' button
 										$('#videolocal').append('<button class="ui mini compact icon button" id="mute" style="position: absolute; bottom: -40px; left: 118px; margin: 15px;"><i class="volume up icon"></i></button>');
 										$('#mute').click(toggleMute);
@@ -575,8 +575,8 @@ function newRemoteFeed(id, display, audio, video) {
 				if($('#remotevideo'+remoteFeed.rfindex).length === 0) {
 					addButtons = true;
 					// No remote video yet
-					$('#videoremote'+remoteFeed.rfindex).append('<video class="rounded centered" id="waitingvideo' + remoteFeed.rfindex + '" width=320 height=240 />');
-					$('#videoremote'+remoteFeed.rfindex).append('<video class="rounded centered relative hide" id="remotevideo' + remoteFeed.rfindex + '" width="100%" height="100%" autoplay playsinline/>');
+					$('#videoremote'+remoteFeed.rfindex).append('<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-mic-level="0"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="12" r="3"><video class="rounded centered" id="waitingvideo' + remoteFeed.rfindex + '"</circle></svg>');
+					$('#videoremote'+remoteFeed.rfindex).append('<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-mic-level="0"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="12" r="3"><video class="rounded centered relative hide" id="remotevideo' + remoteFeed.rfindex + '" </circle></svg>" autoplay playsinline/>');
 				//	$('#videoremote'+remoteFeed.rfindex).append(
 				//		'<span class="label label-primary hide" id="curres'+remoteFeed.rfindex+'" style="position: absolute; bottom: 0px; left: 0px; margin: 15px;"></span>' +
 				//		'<span class="label label-info hide" id="curbitrate'+remoteFeed.rfindex+'" style="position: absolute; bottom: 0px; right: 0px; margin: 15px;"></span>');
