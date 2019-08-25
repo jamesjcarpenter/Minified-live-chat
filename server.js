@@ -184,39 +184,20 @@ const {RateLimiterRedis} = require('rate-limiter-flexible');
 const { RateLimiterMemory } = require('rate-limiter-flexible');
 const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
+app.use(rateLimiterRedisMiddleware);
+
 const redisClient = redis.createClient({
   enable_offline_queue: false,
 });
-
-const rateLimiterMemory = new RateLimiterMemory({
-  points: 60, // 300 / 5 if there are 5 processes at all
-  duration: 60,
-});
-
-const rateLimiterRedis = new RateLimiterRedis({
-  storeClient: redisClient,
-  points: 300, // Number of points
-  duration: 60, // Per 60 seconds,
-  inmemoryBlockOnConsumed: 301, // If userId or IP consume >=301 points per minute
-  inmemoryBlockDuration: 60, // Block it for a minute in memory, so no requests go to Redis
-  insuranceLimiter: rateLimiterMemory,
-});
-
-// req.userId should be set by someAuthMiddleware. It is up to you, how to do that
-app.use(someAuthMiddleware);
-
-const rateLimiterMiddleware = (req, res, next) => {
-   // req.userId should be set
-   const key = req.userId ? req.userId : req.ip;
-   const pointsToConsume = req.userId ? 1 : 30;
-   rateLimiterRedis.consume(key, pointsToConsume)
-      .then(() => {
-          next();
-      })
-      .catch(_ => {
-          res.status(429).send('Too Many Requests');
-      });
-   };
+const rateLimiter = new RateLimiterMemory(
+  {
+    storeClient: redisClient,
+    points: 300, // Number of points
+    duration: 60, // Per 60 seconds,
+    blockDuration: 120, // Block duration in store
+    inmemoryBlockOnConsumed: 301, // If userId or IP consume >300 points per minute
+    inmemoryBlockDuration: 120, // Block it for two minutes in memory, so no requests go to Redis
+  });
 
 io.on('connection', (socket) => {
   socket.on('bcast', async (data) => {
