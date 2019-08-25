@@ -208,6 +208,7 @@ io.on('connection', (socket) => {
     } catch(rejRes) {
       // no available points to consume
       // emit error or warning message
+      res.status(429).send('Too Many Requests').end();
       socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
     }
   });
