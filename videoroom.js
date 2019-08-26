@@ -56,7 +56,7 @@ var myroom = 1234;	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
-var room = r9k;
+var room = "r9k";
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
 
