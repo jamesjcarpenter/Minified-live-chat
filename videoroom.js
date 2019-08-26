@@ -298,7 +298,7 @@ $(document).ready(function() {
 										$('#videolocal').append('<button class="ui mini compact icon button" id="unpublish" style="position: absolute; bottom: -40px; right: 118px; margin: 15px;"><i class="times circle icon"></button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
-									$('#publisher').removeClass('hide').html(myusername).show();
+									$('#publisher').removeClass('hide').html(username).show();
 									$('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";

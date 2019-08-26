@@ -32,7 +32,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
-  socket.on('connect', function(){
+  socket.on('connect', function(username){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
     socket.emit('adduser',
     $('.ui.modal')
@@ -44,7 +44,7 @@ var socket = io.connect('anomic.io/');
         return false;
       },
       onApprove : function() {
-        $('#usercam').append('<h6></h6>').text(user.username);
+        $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
         window.close();
       }
     
