@@ -51,7 +51,11 @@
   }
   
   #attachmenu {
-    width:70%;
+    position:relative;
+    height:auto;
+    width:auto;
+    min-width:5%;
+    max-width:20%
   }
   
   #chatrail {
