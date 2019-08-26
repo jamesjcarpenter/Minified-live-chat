@@ -69,7 +69,7 @@ function roomRand()
     var uv = "1234567890abcdefghijklmnopqrstuvwxyz";
     for (var i = 0; i < 6; i++)
     {
-        window.location = "https://anomic.io/" + "room?name=" + "";
+        room += uv.charAt(Math.floor(Math.random() * 33));
     }
     
     return room;
@@ -124,8 +124,8 @@ $(document).ready(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
-										var room = roomRand();
-										window.location = "https://anomic.io/" + "room?name=" + room;
+										var room = window.location;
+										window.location = "https://anomic.io/" + "room?name=" + decodeURIComponent(window.originalUrl);
 										var newRoom = { "request": "create", "room": "https://anomic.io/" + "room?name=" + room, "ptype": "publisher", "display": socket.username };
 										sfutest.send({"message": newRoom});;
 								},
