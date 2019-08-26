@@ -266,7 +266,7 @@
     margin:0 auto;
     margin-bottom:0;
     color:white;
-    position:relative;
+  position:absolute;
   }
   #useravatar{
     top:17px;
@@ -275,6 +275,7 @@
     height:3.5vh;
     width:auto;
     padding:2vw;
+      position:absolute;
 
   }
     .aspectwrapper {

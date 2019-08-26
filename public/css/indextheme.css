@@ -229,7 +229,7 @@
     margin:0 auto;
     margin-bottom:0;
     color:#181818;
-    position:relative;
+  position:absolute;
   }
   #useravatar{
     top:17px;
@@ -237,7 +237,7 @@
     margin:0 auto;
     height:3.5vh;
     width:auto;
-    padding:2vw;
+    position:absolute;
 
   }
     .aspectwrapper {
