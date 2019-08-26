@@ -1,9 +1,9 @@
 window.addEventListener('load', () => {
   
   // showing multiple
-$('.demo.sidebar')
+$('#attachmenu')
   .sidebar('overlay')
-  .sidebar('hover')
+  .sidebar('hover', show)
 ;
   
   
