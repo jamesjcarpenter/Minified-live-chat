@@ -125,7 +125,7 @@ $(document).ready(function() {
 											console.log("new instant room = " + "https://anomic.io/" + room);
 											window.location = "https://anomic.io/" + "room?name=" + room;
 											var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
-											document.getElementById("#start").onclick = sfutest.send({"message": newRoom});;
+											sfutest.send({"message": newRoom});;
 											janus.destroy();
 										});
 								},
