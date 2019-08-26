@@ -44,7 +44,7 @@ var username = socket.username;
         return false;
       },
       onApprove : function() {
-        $('#usercam').append(username);
+        $('#conversation').append(username);
         window.close();
       }
     
