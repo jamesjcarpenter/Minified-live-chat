@@ -103,7 +103,7 @@ $(document).ready(function() {
 												e.preventDefault();
 													var len = $('#roomEl').val().length;
 													if (len < 10 && len > 1) {
-														  var roomNew = $("#roomForm [name]");
+														  var roomNew = document.getElementById('roomEl').value
 															var newRoom = { "request": "create", "room": roomNew, "ptype": "publisher", "permanent": true, "display": socket.username };
 															document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 													}
