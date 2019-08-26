@@ -34,6 +34,14 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
+router.get('/room/*', function(req, res) {
+  req.user = req.isAuthenticated,
+  username = req.user.name;
+  res.locals.query = req.query;
+   res.locals.url   = req.originalUrl;
+   res.render('index.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
 router.get('/room', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
