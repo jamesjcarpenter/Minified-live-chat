@@ -758,7 +758,11 @@ function addSimulcastButtons(feed, temporal) {
 			feeds[index].send({message: { request: "configure", temporal: 2 }});
 		});
 }
+
+document.addEventListener('DOMContentLoaded', function () {
 var buttonCreate = document.getElementById('#newroombtn');
+}
+
 buttonCreate.addEventListener('click', function() {
 var room = document.getElementById('a').value;
 var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
