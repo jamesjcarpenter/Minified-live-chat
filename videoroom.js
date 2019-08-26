@@ -299,6 +299,7 @@ $(document).ready(function() {
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
+									$('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
@@ -394,7 +395,7 @@ function registerUsername() {
 			return;
 		}
 		var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
-		myusername = socket.username;
+		myusername = username;
 		sfutest.send({"message": register});
 	}
 }
