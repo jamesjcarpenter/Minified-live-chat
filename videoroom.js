@@ -66,18 +66,6 @@ const params = (new URL(location.href)).searchParams
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
-const roomConfig = new JanusRoomConfig({
-  id: 1,
-  codec: 'vp8',
-  record: true,
-  videoOrientExt: false,
-  bitrate: 128000,
-  firSeconds: common.janus.firSeconds,
-  publishers: 12,
-  recordDirectory: common.janus.recordDirectory + '1/' // roomId
-})
-
-
 $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
@@ -111,7 +99,7 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									var newRoom = { "request": "create", "room": 5544, "ptype": "publisher", "permanent": true, "display": socket.username };
+									var newRoom = { "request": "create", "room": 7777, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("#newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
