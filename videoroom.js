@@ -112,7 +112,7 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									var newRoom = { "request": "create", "room": 5544, "ptype": "publisher", "permanent": true, "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+									document.getElementById("#newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
