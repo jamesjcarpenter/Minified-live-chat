@@ -56,7 +56,7 @@ var socket = io.connect('anomic.io/');
 
   // on load of page
 socket.on('connect', function(data, username) {
-      $('#videolocal').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"><h6></h6>').text(username));
+      $('#videolocal').append($('<h6></h6>').text(username));
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();
