@@ -233,7 +233,6 @@
     margin:0 auto;
     margin-bottom:0;
     color:#181818;
-    position:relative;
   }
   #useravatar{
     word-wrap: break-word;
@@ -244,9 +243,8 @@
     bottom:0;
     margin:0 auto;
     height:3.5vh;
-    padding-right:1.5vw;
+    padding-left:1.5vw;
     width:auto;
-    position:relative;
 
   }
     .aspectwrapper {
