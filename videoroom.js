@@ -116,10 +116,10 @@ $(document).ready(function() {
 									var newRoom = { "request": "create", "room": 1234, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									
-									var joinNow = { "request": "join", "room": 6666, "ptype": "publisher", "permanent": true, "display": socket.username };
+									var joinNow = { "request": "join", "room": 6666, "ptype": "subscriber", "permanent": true, "display": socket.username };
 									document.getElementById("joinnowbtn").onclick = sfutest.send({"message": joinNow});;
 									
-									var joinAnother = { "request": "join", "room": 5678, "ptype": "publisher", "permanent": true, "display": socket.username };
+									var joinAnother = { "request": "join", "room": 5678, "ptype": "subscriber", "permanent": true, "display": socket.username };
 									document.getElementById("joinroombtn").onclick = sfutest.send({"message": joinAnother});;
 								
 									$('#start').removeAttr('disabled').html("Stop")
