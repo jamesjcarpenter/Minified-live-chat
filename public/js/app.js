@@ -1,11 +1,5 @@
 window.addEventListener('load', () => {
   
-  // showing multiple
-$('#attachmenu')
-  .sidebar('overlay')
-  .sidebar('hover', show)
-;
-  
   
   var socket = io.connect('https://anomic.io/443');
   

@@ -50,6 +50,10 @@
       min-height:70vmin;
   }
   
+  #attachmenu {
+    width:70%;
+  }
+  
   #chatrail {
     margin:0 auto!important;
     margin-top:5.5em!important;
