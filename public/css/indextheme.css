@@ -226,7 +226,6 @@
 
   }
   #videolocal {
-    display:inline-block!important; 
     width:75%; 
     max-height:100%;
     position:relative;
@@ -235,7 +234,6 @@
     border: 0;
   }
   #remotevideo1 {
-display:inline-block!important; 
     width:75%;
     max-height:100%;
     position:relative;
@@ -244,7 +242,6 @@ display:inline-block!important;
     border: 0;
   }
   #remotevideo2 {
-display:inline-block!important; 
     width:75%;
     max-height:100%;
     position:relative;
@@ -254,7 +251,6 @@ display:inline-block!important;
   }
   
   #remotevideo3 {
-display:inline-block!important; 
     width:75%;
     max-height:100%;
     position:relative;
@@ -263,7 +259,6 @@ display:inline-block!important;
     border: 0;
   }
   #remotevideo4 {
-display:inline-block!important; 
     width:75%;
     max-height:100%;
     position:relative;
@@ -272,7 +267,6 @@ display:inline-block!important;
     border: 0;
   }
   #remotevideo5 {
-display:inline-block!important; 
     width:75%;
     max-height:100%;
     position:relative;
@@ -281,7 +275,6 @@ display:inline-block!important;
     border: 0;
   }
   #remotevideo6 {
-display:inline-block!important; 
     width:75%;
     max-height:100%;
     position:relative;
