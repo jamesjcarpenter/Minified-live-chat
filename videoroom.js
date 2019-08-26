@@ -113,8 +113,6 @@ $(document).ready(function() {
 										.click(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
-											var newRoom = { "request": "create", "room": rooma, "ptype": "publisher", "display": socket.username };
-											document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 										});
 								},
 								error: function(error) {
@@ -176,6 +174,7 @@ $(document).ready(function() {
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
 											mystream = null;
+											document.getElementById("newroombtn").onclick = var newRoom = { "request": "create", "room": rooma, "ptype": "publisher", "display": socket.username }.sfutest.send({"message": newRoom});;
 												//$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 												$('#publish').click(function() { publishOwnFeed(true); });
 												$("#videolocal").parent().parent().unblock();
