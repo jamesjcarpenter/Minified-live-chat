@@ -114,7 +114,7 @@ $(document).ready(function() {
 									var room = document.getElementById('a').value;
 									var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": newRoom});;
-								}
+								});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
