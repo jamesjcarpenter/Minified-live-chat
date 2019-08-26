@@ -90,7 +90,7 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			const janus = new Janus(janusConfig, console)
+			const janus = new Janus(
 				{
 					server: server,
 					success: function() {
