@@ -128,7 +128,6 @@ $(document).ready(function() {
 										console.log("new instant room = " + "https://anomic.io/" + room);
 										window.location = "https://anomic.io/" + "room?name=" + room;
 										var newRoom = { "request": "create", "room": roomRand(), "ptype": "publisher", "display": socket.username };
-										sfutest.send({"message": newRoom});;
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
