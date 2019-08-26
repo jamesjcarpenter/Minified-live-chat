@@ -225,6 +225,9 @@
   #username{
     position:justify;
     width: 80%;
+    left:10px;
+    top:2px;
+    bottom:0;
     padding-left:1.56vw;
     bottom:0.30vw;
     padding-right:1.21vw;
