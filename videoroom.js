@@ -123,6 +123,11 @@ $(document).ready(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
+										var room = roomRand();
+										console.log("new instant room = " + "https://anomic.io/" + room);
+										window.location = "https://anomic.io/" + "room?name=" + room;
+										var newRoom = { "request": "create", "room": "room", "ptype": "publisher", "display": socket.username };
+										sfutest.send({"message": newRoom});;
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
@@ -530,11 +535,6 @@ function newRemoteFeed(id, display, audio, video) {
 							if(feeds[i] === undefined || feeds[i] === null) {
 								feeds[i] = remoteFeed;
 								remoteFeed.rfindex = i;
-								var room = roomRand();
-								console.log("new instant room = " + "https://anomic.io/" + room);
-								window.location = "https://anomic.io/" + "room?name=" + room;
-								var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
-								sfutest.send({"message": newRoom});;
 								break;
 							}
 						}
