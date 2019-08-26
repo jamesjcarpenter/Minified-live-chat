@@ -111,7 +111,7 @@ $(document).ready(function() {
 										  
 										  document.getElementById("outputName").innerText = createdRoom;
 										}
-										if (sfutest.send({"message": newRoom});){
+										while (newRoomCreate()){
 											window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
 										}
 									}
