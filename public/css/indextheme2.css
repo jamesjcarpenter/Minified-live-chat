@@ -64,9 +64,10 @@
     
     
     #date {
-      color:white;
-      overflow-x:hidden;
-      overflow-y:hidden;
+      color:#484848;
+      position:fixed;
+      margin:0 auto;
+      text-align:right;
     }
     #usercam {
       text-align:center;
