@@ -43,8 +43,8 @@ var socket = io.connect('anomic.io/');
         window.alert('Wait not yet!');
         return false;
       },
-      onApprove : function('adduser') {
-        $('#usercam').append(username);
+      onApprove : function() {
+        $('#usercam').append(socket.username);
         window.close();
       }
     
