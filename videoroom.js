@@ -99,7 +99,7 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									
 									
-									var newRoom = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
+									var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
 									document.getElementById("newroombtn").onclick = newRoom;
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
