@@ -260,10 +260,11 @@
     background-color:	#383838!important;
   }
   #username{
-    padding-left:15px;
-    padding-right:20px;
+    padding-left:5vmin;
+    padding-right:5vmin;
     margin:0 auto;
     margin-bottom:0;
+    margin-left:1.2em;
     color:white;
     position:relative;
   }
