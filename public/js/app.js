@@ -1,5 +1,11 @@
 window.addEventListener('load', () => {
   
+  // showing multiple
+$('.demo.sidebar')
+  .sidebar('overlay')
+  .sidebar('hover')
+;
+  
   
   var socket = io.connect('https://anomic.io/443');
   
