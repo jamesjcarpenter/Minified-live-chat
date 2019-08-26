@@ -44,7 +44,7 @@
 //
 
 
-window.addEventListener('load', () => {
+
   
   
   var socket = io.connect('https://anomic.io/443');
