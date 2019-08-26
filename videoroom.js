@@ -401,6 +401,8 @@ function registerUsername() {
 
 function publishOwnFeed(useAudio) {
 	// Publish our stream
+	socket.username = username;
+	 $('#usercam').empty().append($('<span class="ui text small gray"></span>').text(username));
 	$('#publish').attr('disabled', false).unbind('click');
 	$('#unpublish').attr('disabled', false).unbind('click');
 	$('#unpublish').click(unpublishOwnFeed);
