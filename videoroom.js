@@ -759,7 +759,7 @@ function addSimulcastButtons(feed, temporal) {
 		});
 }
 $(document).ready(function() {
-$(document).on('click', 'div[id^="#newroombtn"]', function() {
+$(document).on('click', 'div[id^="newroombtn"]', function() {
 var room = document.getElementById('a').value;
 var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
 sfutest.send({"message": newRoom});;
