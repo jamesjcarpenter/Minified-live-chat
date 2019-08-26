@@ -761,14 +761,15 @@ function addSimulcastButtons(feed, temporal) {
 
 document.addEventListener('DOMContentLoaded', function () {
 var buttonCreate = document.getElementById('#newroombtn');
+})
 
+document.addEventListener('DOMContentLoaded', function () {
 buttonCreate.addEventListener('click', function() {
 var room = document.getElementById('a').value;
 var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
 sfutest.send({"message": newRoom});;
 });
 })
-
 function updateSimulcastButtons(feed, substream, temporal) {
 	// Check the substream
 	var index = feed;
