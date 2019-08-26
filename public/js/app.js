@@ -72,14 +72,14 @@ socket.on('connect', function(data) {
       if(e.which == 13) {
         $(this).blur();
         $('#datasend').focus().click();
-        $('#videolocal').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
       }
     });
   });
-  socket.on('updateroomusers', function(roomusers) {
+  socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
   $.each(roomusers, function (key, value) {
   $('#roomusers').append('+value+');
+  $('#videolocal').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
   });
   });
   
