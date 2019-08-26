@@ -69,13 +69,19 @@ document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
+const roomConfig = new JanusRoomConfig({
+  id: 1,
+  codec: 'vp8',
+  record: true,
+  videoOrientExt: false,
+  bitrate: 128000,
+  firSeconds: common.janus.firSeconds,
+  publishers: 12,
+  recordDirectory: common.janus.recordDirectory + '1/' // roomId
+})
+
+
 $(document).ready(function() {
-	if (params.get('janusRoomId') && params.get('janusRoomPrivateMemberId') && params.get('janusRoomMemberId')) {
-	  document.getElementById('janusRoomId').value = params.get('janusRoomId')
-	  document.getElementById('janusRoomPrivateMemberId').value = params.get('janusRoomPrivateMemberId')
-	  document.getElementById('janusRoomMemberId').value = params.get('janusRoomMemberId')
-	 	Janus.init()
-	}
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
@@ -87,7 +93,7 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			janus = new Janus(
+			const janus = new Janus(janusConfig, console)
 				{
 					server: server,
 					success: function() {
