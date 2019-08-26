@@ -103,9 +103,13 @@ $(document).ready(function() {
 									
 									window.addEventListener('DOMContentLoaded', (event) => {
 									submit.onclick = function(){
-										var createdRoom = document.getElementById("name").value;
-										
-										document.getElementById("outputName").innerText = createdRoom;
+										if(createdRoom == null) {
+											var createdRoom = document.getElementById("name").value;
+											return;
+										} else {
+										var createdRoom = document.getElementById("name").value + document.getElementById("outputName").innerText;
+									}
+									document.getElementById("outputName").innerText = createdRoom;
 										window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
 										}
 									})
