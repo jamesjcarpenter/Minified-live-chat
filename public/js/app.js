@@ -31,8 +31,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
 
-var username = JSON.stringify(username);
-
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
@@ -46,7 +44,7 @@ var username = JSON.stringify(username);
         return false;
       },
       onApprove : function() {
-            $('#username').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(JSON.parse(username));
+            $('#username').append(username));
         window.close();
       }
     
