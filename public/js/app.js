@@ -44,7 +44,8 @@ var socket = io.connect('anomic.io/');
         return false;
       },
       onApprove : function() {
-        
+        $('#okinvert').attr('disabled', true).unbind('click');
+        var username = $('#username').val();
         window.close();
       }
     

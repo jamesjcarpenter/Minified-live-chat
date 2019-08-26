@@ -97,8 +97,6 @@ $(document).ready(function() {
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
-									myusername = username;
-									username = $('#username').val();
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
