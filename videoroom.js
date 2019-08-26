@@ -101,19 +101,19 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									
-									window.addEventListener('DOMContentLoaded', (event) => {
-									submit.onclick = function(){
-										if(createdRoom == null) {
-											var createdRoom = document.getElementById("name").value;
-											return;
-										} else {
-										var createdRoom = document.getElementById("name").value + document.getElementById("outputName").innerText;
-									}
-									document.getElementById("outputName").innerText = createdRoom;
-										window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
-										}
-									})
-									var newRoom = { "request": "create", "room": createdRoom, "ptype": "publisher", "permanent": true, "display": socket.username };
+									// window.addEventListener('DOMContentLoaded', (event) => {
+									// submit.onclick = function(){
+									// 	if(createdRoom == null) {
+									// 		var createdRoom = document.getElementById("name").value;
+									// 		return;
+									// 	} else {
+									// 	var createdRoom = document.getElementById("name").value + document.getElementById("outputName").innerText;
+									// }
+									// document.getElementById("outputName").innerText = createdRoom;
+									// 	window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
+									// 	}
+									// })
+									var newRoom = { "request": "create", "room": 1010, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 								
 									$('#start').removeAttr('disabled').html("Stop")
