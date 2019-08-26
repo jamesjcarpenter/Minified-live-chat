@@ -118,24 +118,6 @@ socket.on('connect', function(data) {
       }
     });
   });
-  socket.on('updateroomusers', function(roomusers, username) {
-  $("#roomusers").empty();
-  $.each(roomusers, function (key, value) {
-  $('#roomusers').append('+value+');
-  });
-  });
-  
-  socket.on('updaterooms', function(rooms, current_room) {
-      $('#rooms').empty();
-      $.each(rooms, function(key, value) {
-        if(value == current_room){
-          $('#rooms').append('<div>' + value + '</div>');
-        }
-        else {
-          $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
-        }
-      });
-    });
 
 var server = null;
 if(window.location.protocol === 'http:')
