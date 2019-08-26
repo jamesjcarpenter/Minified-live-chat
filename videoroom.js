@@ -113,8 +113,14 @@ $(document).ready(function() {
 									// 	window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
 									// 	}
 									// })
-									var newRoom = { "request": "create", "room": 1010, "ptype": "publisher", "permanent": true, "display": socket.username };
+									var newRoom = { "request": "create", "room": 1234, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+									
+									var joinNow = { "request": "join", "room": 6666, "ptype": "publisher", "permanent": true, "display": socket.username };
+									document.getElementById("joinnowbtn").onclick = sfutest.send({"message": joinNow});;
+									
+									var joinAnother = { "request": "join", "room": 5678, "ptype": "publisher", "permanent": true, "display": socket.username };
+									document.getElementById("joinroombtn").onclick = sfutest.send({"message": joinAnother});;
 								
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
