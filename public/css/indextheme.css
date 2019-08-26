@@ -207,81 +207,13 @@
     vertical-align: baseline;
     margin:0 auto;
     left:11.5em;
-    width:100%;
+    width:75%; 
+    max-height:100%;
     vertical-align: baseline;
     height:auto;
   }
   
   
-  #myvideo {
-    margin: 0;
-       padding: 0;
-       border: 0;
-       font-size: 100%;
-       font: inherit;
-       vertical-align: baseline;
-       display:block!important; 
-       width:75%;
-       height:auto;
-
-  }
-  #videolocal {
-    width:75%; 
-    max-height:100%;
-    position:relative;
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-  }
-  #remotevideo1 {
-    width:75%;
-    max-height:100%;
-    position:relative;
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-  }
-  #remotevideo2 {
-    width:75%;
-    max-height:100%;
-    position:relative;
-      margin: 0 auto;
-      padding: 0;
-      border: 0;
-  }
-  
-  #remotevideo3 {
-    width:75%;
-    max-height:100%;
-    position:relative;
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-  }
-  #remotevideo4 {
-    width:75%;
-    max-height:100%;
-    position:relative;
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-  }
-  #remotevideo5 {
-    width:75%;
-    max-height:100%;
-    position:relative;
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-  }
-  #remotevideo6 {
-    width:75%;
-    max-height:100%;
-    position:relative;
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-  }
   
   #username{
     padding-left:15px;
