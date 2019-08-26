@@ -56,7 +56,6 @@ var myroom = 1234;	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
-var rooma = r9k;
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
 
@@ -66,6 +65,18 @@ const params = (new URL(location.href)).searchParams
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
+
+const roomConfig = new JanusRoomConfig({
+  id: 1,
+  codec: 'vp8',
+  record: true,
+  videoOrientExt: false,
+  bitrate: 128000,
+  firSeconds: common.janus.firSeconds,
+  publishers: 12,
+  recordDirectory: common.janus.recordDirectory + '1/' // roomId
+})
+
 
 $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
@@ -79,18 +90,9 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			const janus = new Janus(
+			const janus = new Janus(janusConfig, console)
 				{
 					server: server,
-					id: 1,
-					codec: 'vp8',
-					record: true,
-					videoOrientExt: false,
-					bitrate: 128000,
-					firSeconds: 10,
-					publishers: 20,
-					recordDirectory: '/config/' + '1/', // roomId
-					permanent:true,
 					success: function() {
 						// Attach to video room test plugin
 						janus.attach(
@@ -109,6 +111,8 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
+									var newRoom = { "request": "create", "room": 5544, "ptype": "publisher", "permanent": true, "display": socket.username };
+									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -174,7 +178,6 @@ $(document).ready(function() {
 											mypvtid = msg["private_id"];
 											Janus.log("Successfully joined room " + msg["room"] + " with ID " + myid);
 											mystream = null;
-											document.getElementById("newroombtn").onclick = var newRoom = { "request": "create", "room": rooma, "ptype": "publisher", "display": socket.username }.sfutest.send({"message": newRoom});;
 												//$('#videolocal').html('<button id="publish" class="ui button green">CAM UP</button>');
 												$('#publish').click(function() { publishOwnFeed(true); });
 												$("#videolocal").parent().parent().unblock();
