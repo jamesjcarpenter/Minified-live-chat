@@ -63,6 +63,18 @@ var feeds = [];
 var bitrateTimer = [];
 const params = (new URL(location.href)).searchParams
 
+function roomRand()
+{
+    var room = "";
+    var uv = "1234567890abcdefghijklmnopqrstuvwxyz";
+    for (var i = 0; i < 6; i++)
+    {
+        room += uv.charAt(Math.floor(Math.random() * 33));
+    }
+    
+    return room;
+}
+
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
@@ -106,15 +118,18 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
-									sfutest.send({"message": register});
-									var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
+											var room = roomRand();
+											console.log("new instant room = " + "https://anomic.io/" + room);
+											window.location = "https://anomic.io/" + "room/" + room;
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
+										var register = { "request": "join", "room": room, "ptype": "publisher", "display": socket.username };
+										sfutest.send({"message": register});
+										var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
+										document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
