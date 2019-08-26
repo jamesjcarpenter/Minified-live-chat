@@ -96,7 +96,8 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
+									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
+									var myusername = username;
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
@@ -298,8 +299,7 @@ $(document).ready(function() {
 										$('#videolocal').append('<button class="ui mini compact icon button" id="unpublish" style="position: absolute; bottom: -40px; right: 118px; margin: 15px;"><i class="times circle icon"></button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
-									$('#publisher').removeClass('hide').html(username).show();
-									$('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
+									$('#publisher').removeClass('hide').html(myusername).show();
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
