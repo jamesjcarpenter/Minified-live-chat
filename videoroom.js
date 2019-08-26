@@ -64,6 +64,7 @@ var bitrateTimer = [];
 document.getElementById("newroombtn").onclick = newRoom();
 
 function newRoom(){
+	{
 			"request" : create,
 			"room" : 12222,
 			"permanent" : true,
@@ -74,6 +75,7 @@ function newRoom(){
 			//, whether the room should appear in a list request>,
 			//"allowed" : [ array of string tokens users can use to join this room, optional],
 		}
+	};
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
