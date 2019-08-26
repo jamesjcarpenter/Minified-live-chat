@@ -100,18 +100,15 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									var newRoom = { "request": "create", "room": createdRoom, "ptype": "publisher", "permanent": true, "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
-									
 									submit.onclick = function(){
 										var createdRoom = document.getElementById("name").value;
 										
 										document.getElementById("outputName").innerText = createdRoom;
-										newRoomCreate()
-									}
-									function newRoomCreate() {
-											window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
+										window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
 										}
+									var newRoom = { "request": "create", "room": createdRoom, "ptype": "publisher", "permanent": true, "display": socket.username };
+									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+								
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
