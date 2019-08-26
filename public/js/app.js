@@ -79,7 +79,6 @@ socket.on('connect', function(data) {
   $("#roomusers").empty();
   $.each(roomusers, function (key, value) {
   $('#roomusers').append('+value+');
-  $('#videolocal').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
   });
   });
   
