@@ -100,7 +100,7 @@ $(document).ready(function() {
 									
 									
 									var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
-									document.getElementById("newroombtn").onclick = newRoom;
+									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
