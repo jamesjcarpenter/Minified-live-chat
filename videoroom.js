@@ -72,9 +72,10 @@ const roomConfig = new JanusRoomConfig({
   record: true,
   videoOrientExt: false,
   bitrate: 128000,
-  firSeconds: common.janus.firSeconds,
-  publishers: 12,
-  recordDirectory: common.janus.recordDirectory + '1/' // roomId
+ 	firSeconds: 10,
+  publishers: 20,
+	recordDirectory: '/config/' + '1/', // roomId
+	permanent:true,
 })
 
 
@@ -90,7 +91,7 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			const janus = new Janus(janusConfig, console)
+			const janus = new Janus(janusConfig, console(
 				{
 					server: server,
 					success: function() {
