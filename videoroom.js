@@ -761,7 +761,7 @@ function addSimulcastButtons(feed, temporal) {
 
 document.addEventListener('DOMContentLoaded', function () {
 var buttonCreate = document.getElementById('#newroombtn');
-}
+})
 
 buttonCreate.addEventListener('click', function() {
 var room = document.getElementById('a').value;
