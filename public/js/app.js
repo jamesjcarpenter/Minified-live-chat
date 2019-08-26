@@ -8,10 +8,8 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
-
-$.ajax({
-  
     document.getElementById("newroombtn").onclick = newRoom();
+$.ajax({
     function newRoom (){
       "request" : create,
       "room" : 12222,
