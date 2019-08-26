@@ -116,7 +116,7 @@ $(document).ready(function() {
 									var newRoom = { "request": "create", "room": 11111, "description" : "room description 11111", "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									
-									var joinNow = {  "request": "join", "room": 11111, "description" : "room description 33333", "display": socket.username };
+									var joinNow = {  "request": "create", "room": 33333, "description" : "room description 33333", "display": socket.username };
 									document.getElementById("joinnowbtn").onclick = sfutest.send({"message": joinNow});;
 									
 									var joinAnother = {  "request": "create", "room": 777777, "description" : "room description 777777", "display": socket.username };
