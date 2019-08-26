@@ -93,6 +93,16 @@ $(document).ready(function() {
 			const janus = new Janus(
 				{
 					server: server,
+					id: 1,
+					codec: 'vp8',
+					room: roomRand(),
+					record: true,
+					videoOrientExt: false,
+					bitrate: 128000,
+					firSeconds: 10,
+					publishers: 20,
+					recordDirectory: '/config/' + '1/', // roomId
+					permanent:true,
 					success: function() {
 						// Attach to video room test plugin
 						janus.attach(
@@ -114,10 +124,8 @@ $(document).ready(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
-										var room = roomRand();
-										console.log("new instant room = " + "https://anomic.io/" + room);
-										window.location = "https://anomic.io/" + "room?name=" + room;
 										var newRoom = { "request": "create", "room": roomRand(), "ptype": "publisher", "display": socket.username };
+										sfutest.send({"message": newRoom});;
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
