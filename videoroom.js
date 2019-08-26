@@ -108,6 +108,8 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
+									var newRoom = { "request": "create", "room": r9k, "ptype": "publisher", "display": socket.username };
+									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -177,17 +179,6 @@ $(document).ready(function() {
 												$('#publish').click(function() { publishOwnFeed(true); });
 												$("#videolocal").parent().parent().unblock();
 												$('#bitrate').parent().parent().addClass('hide');
-												function validation(){
-														var room = document.getElementById("a").value;
-														if( name ===''){
-															alert("Please fill all fields...!!!!!!");
-															return false;
-														}else{
-															var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
-															document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
-															return true;
-														}
-													}
 												$('#bitrate a').unbind('click');
 											// Any new feed to attach to?
 											if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
