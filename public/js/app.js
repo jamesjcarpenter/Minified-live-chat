@@ -44,14 +44,14 @@ var socket = io.connect('anomic.io/');
         return false;
       },
       onApprove : function() {
-            $('#username').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(JSON.stringify(body.username)));
+            $('#username').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(JSON.stringify(username)));
         window.close();
       }
     
     }).modal('show'));
 	});
   // create our webrtc connection
-  socket.on('updatechat', function (username, data) {
+  socket.on('updatechat', function (data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
