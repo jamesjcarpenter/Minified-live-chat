@@ -56,6 +56,7 @@ var myroom = 1234;	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
+
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
 
@@ -99,8 +100,21 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									var newRoom = { "request": "create", "room": 7777, "ptype": "publisher", "permanent": true, "display": socket.username };
+									var newRoom = { "request": "create", "room": createdRoom, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+									
+									var submit = document.getElementById("submit");
+									
+									function newRoomCreate() {
+										submit.onclick = function(){
+											var createdRoom = document.getElementById("name").value;
+										  
+										  document.getElementById("outputName").innerText = createdRoom;
+										}
+										if (sfutest.send({"message": newRoom});){
+											window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
+										}
+									}
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
