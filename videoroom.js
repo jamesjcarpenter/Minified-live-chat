@@ -102,19 +102,16 @@ $(document).ready(function() {
 									sfutest.send({"message": register});
 									var newRoom = { "request": "create", "room": createdRoom, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
-									newRoomCreate();
 									
+									submit.onclick = function(){
+										var createdRoom = document.getElementById("name").value;
+										
+										document.getElementById("outputName").innerText = createdRoom;
+										newRoomCreate()
+									}
 									function newRoomCreate() {
-										var submit = document.getElementById("submit");
-										submit.onclick = function(){
-											var createdRoom = document.getElementById("name").value;
-										  
-										  document.getElementById("outputName").innerText = createdRoom;
-										}
-										while (newRoomCreate()){
 											window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
 										}
-									}
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
