@@ -41,11 +41,7 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
-    
-    if(document.getElementById("#myvideo") !== null)
-{
-      $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-}
+    $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"><div id="messagedata"><p></p></div></div>').text(data));
