@@ -102,10 +102,10 @@ $(document).ready(function() {
 									sfutest.send({"message": register});
 									var newRoom = { "request": "create", "room": createdRoom, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
-									
-									var submit = document.getElementById("submit");
+									newRoomCreate();
 									
 									function newRoomCreate() {
+										var submit = document.getElementById("submit");
 										submit.onclick = function(){
 											var createdRoom = document.getElementById("name").value;
 										  
