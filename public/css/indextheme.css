@@ -206,7 +206,7 @@
   #videos {
     vertical-align: baseline;
     margin:0 auto;
-    left:10em;
+    left:11.5em;
     width:100%;
     vertical-align: baseline;
     height:auto;
@@ -230,18 +230,28 @@
     width:75%; 
     max-height:100%;
     position:relative;
+    position:relative;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
   }
   #remotevideo1 {
     display:inline-block!important; 
     width:75%;
     height:auto;
     position:relative;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
   }
   #remotevideo2 {
     display:inline-block!important; 
     width:75%;
     height:auto;
     position:relative;
+      margin: 0 auto;
+      padding: 0;
+      border: 0;
   }
   
   #remotevideo3 {
@@ -249,24 +259,40 @@
     width:75%;
     height:auto;
     position:relative;
+    position:relative;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
   }
   #remotevideo4 {
     display:inline-block!important; 
     width:75%;
     height:auto;
     position:relative;
+    position:relative;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
   }
   #remotevideo5 {
       display:inline-block!important; 
     width:75%;
     height:auto;
     position:relative;
+    position:relative;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
   }
   #remotevideo6 {
     display:inline-block!important; 
     width:75%;
     height:auto;
     position:relative;
+    position:relative;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
   }
   
   #username{
