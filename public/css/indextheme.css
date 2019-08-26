@@ -37,6 +37,10 @@
     min-height:70vmin;
   }
   
+  #usercam {
+    text-align:center;
+    position:relative;
+  }
   #videos{
       display:block;
       position:fixed;
