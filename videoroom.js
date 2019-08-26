@@ -80,7 +80,7 @@ $(document).ready(function() {
 			// Create session
 			const janus = new Janus(
 				{
-					server: 'server',
+					server: server,
 					id: 1,
 					codec: 'vp8',
 					record: true,
