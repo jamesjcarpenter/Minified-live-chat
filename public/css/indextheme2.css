@@ -116,6 +116,10 @@
       height:auto;
     }
     
+    
+    #videolocal.panel-body {
+      background-color: #303030!important;
+    }
     #servermessage {
       background-color:	#4545cc!important;
       color:white;
