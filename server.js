@@ -293,6 +293,20 @@ app.post('/api/images', parser.single("image"), (req, res) => {
     .catch(err => console.log(err));
 });
 
+app.post('/newroom' (req, res) => {
+    {
+        "request" : create,
+        "room" : 12222,
+        "permanent" : true,
+        //"description" : "<pretty name of the room, optional>",
+        //"secret" : "<password required to edit/destroy the room, optional>",
+        //"pin" : "<password required to join the room, optional>",
+        "is_private" : true
+        //, whether the room should appear in a list request>,
+        //"allowed" : [ array of string tokens users can use to join this room, optional],
+      }
+});
+
 
 app.use(function(req, res, next) {
   res.locals.user = req.user || null;
