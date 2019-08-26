@@ -109,7 +109,7 @@ $(document).ready(function() {
 					//
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-								function document.getElementById("newroombtn").onclick(){
+								function roomCreate(){
 									var room = document.getElementById('a').value;
 									var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": newRoom});;
