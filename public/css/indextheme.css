@@ -206,7 +206,8 @@
   #videos {
     vertical-align: baseline;
     margin:0 auto;
-    left:11.5em;
+    left:15em;
+    top:5em;
     width:60%; 
     max-height:100%;
     vertical-align: baseline;
