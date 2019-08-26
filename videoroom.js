@@ -106,9 +106,20 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-					////
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
+									
+									function validation(){
+											var room = document.getElementById("room").value;
+											if( name ===''){
+												alert("Please fill all fields...!!!!!!");
+												return false;
+											}else{
+												var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
+												document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+												return true;
+											}
+										}
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -758,13 +769,6 @@ function addSimulcastButtons(feed, temporal) {
 			feeds[index].send({message: { request: "configure", temporal: 2 }});
 		});
 }
-$(document).ready(function() {
-$(document).on('click', 'div[id^="newroombtn"]', function() {
-var room = document.getElementById('a').value;
-var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
-sfutest.send({"message": newRoom});;
-});
-});
 
 function updateSimulcastButtons(feed, substream, temporal) {
 	// Check the substream
