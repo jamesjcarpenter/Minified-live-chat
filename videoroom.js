@@ -66,19 +66,6 @@ const params = (new URL(location.href)).searchParams
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
-const roomConfig = new JanusRoomConfig({
-  id: 1,
-  codec: 'vp8',
-  record: true,
-  videoOrientExt: false,
-  bitrate: 128000,
- 	firSeconds: 10,
-  publishers: 20,
-	recordDirectory: '/config/' + '1/', // roomId
-	permanent:true,
-})
-
-
 $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
@@ -91,9 +78,18 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			const janus = new Janus(janusConfig, console(
+			const janus = new Janus(
 				{
-					server: server,
+					server: 'server',
+					id: 1,
+					codec: 'vp8',
+					record: true,
+					videoOrientExt: false,
+					bitrate: 128000,
+					firSeconds: 10,
+					publishers: 20,
+					recordDirectory: '/config/' + '1/', // roomId
+					permanent:true,
 					success: function() {
 						// Attach to video room test plugin
 						janus.attach(
