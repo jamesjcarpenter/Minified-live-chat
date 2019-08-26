@@ -292,6 +292,7 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
+										$('#usercam').html(username);
 										$('#videolocal').append('<button class="ui mini compact icon button" id="mute" style="position: absolute; bottom: -40px; left: 118px; margin: 15px;"><i class="volume up icon"></i></button>');
 										$('#mute').click(toggleMute);
 										// Add an 'unpublish' button
@@ -299,7 +300,6 @@ $(document).ready(function() {
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
-									$('#usercam').html(username);
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
