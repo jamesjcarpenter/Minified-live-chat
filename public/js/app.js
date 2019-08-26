@@ -44,7 +44,7 @@ var socket = io.connect('anomic.io/');
         return false;
       },
       onApprove : function() {
-          var username = $('#username', this).text(),
+          var username = $('#username', this).text()
         window.close();
       }
     
