@@ -25,6 +25,7 @@
     color:#484848;
     position:relative;
     margin-left:4.5em;
+    overflow-y:hidden;
   }
   #servermessage {
     background-color: #1bc298;
@@ -236,6 +237,7 @@
     margin:0 auto;
     height:3.5vh;
     width:auto;
+    padding:2vw;
 
   }
     .aspectwrapper {

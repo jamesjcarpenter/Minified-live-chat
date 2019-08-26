@@ -64,9 +64,10 @@
     
     
     #date {
-      color:#484848;
+    color:#484848;
     margin-left:4.5em;
-        position:relative;
+    position:relative;
+    overflow-y:hidden;
     }
     #usercam {
       text-align:center;
@@ -260,11 +261,10 @@
     background-color:	#383838!important;
   }
   #username{
-    padding-left:1vmin;
-    padding-right:1vmin;
+    padding-left:2vmin;
+    padding-right:2vmin;
     margin:0 auto;
     margin-bottom:0;
-    margin-left:1.2em;
     color:white;
     position:relative;
   }
@@ -274,6 +274,7 @@
     margin:0 auto;
     height:3.5vh;
     width:auto;
+    padding:2vw;
 
   }
     .aspectwrapper {
