@@ -98,7 +98,7 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-									var register = { "request": "join", "room": myroom, "display": socket.username };
+									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									
 									// window.addEventListener('DOMContentLoaded', (event) => {
@@ -113,17 +113,14 @@ $(document).ready(function() {
 									// 	window.location.replace("https://anomic.io" + "/" + "room?name=" + createdRoom);
 									// 	}
 									// })
-									var newRoom = { "request": "create", "room": 11111, "description" : "room description 11111", "display": socket.username };
+									var newRoom = { "request": "create", "room": 11111, "ptype": "publisher", "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									
-									var joinNow = {  "request": "create", "room": 33333, "description" : "room description 33333", "display": socket.username };
+									var joinNow = { "request": "join", "room": 6666, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("joinnowbtn").onclick = sfutest.send({"message": joinNow});;
 									
-									var joinAnother = {  "request": "create", "room": 777777, "description" : "room description 777777", "display": socket.username };
+									var joinAnother = { "request": "join", "room": 5678, "ptype": "publisher", "permanent": true, "display": socket.username };
 									document.getElementById("joinroombtn").onclick = sfutest.send({"message": joinAnother});;
-								
-								
-								
 								
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
