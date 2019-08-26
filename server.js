@@ -293,8 +293,8 @@ app.post('/api/images', parser.single("image"), (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.post('/newroom' (req, res) => {
-    {
+app.post('/newroom', (req, res) => {
+
         "request" : create,
         "room" : 12222,
         "permanent" : true,
@@ -305,7 +305,7 @@ app.post('/newroom' (req, res) => {
         //, whether the room should appear in a list request>,
         //"allowed" : [ array of string tokens users can use to join this room, optional],
       }
-});
+  });
 
 
 app.use(function(req, res, next) {
