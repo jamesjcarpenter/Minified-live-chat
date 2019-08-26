@@ -97,6 +97,12 @@ $(document).ready(function() {
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
+									
+									document.getElementById("newroombtn").onclick = newRoom();
+								  
+								  function newRoom(){ 
+										"request": "join", "room": 4342, "ptype": "publisher", "display": socket.username
+									 };
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {

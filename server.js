@@ -294,8 +294,6 @@ app.post('/api/images', parser.single("image"), (req, res) => {
 });
 
 
-
-
 app.use(function(req, res, next) {
   res.locals.user = req.user || null;
     if(req.user == null){
