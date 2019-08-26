@@ -44,11 +44,11 @@ var socket = io.connect('anomic.io/');
         return false;
       },
       onApprove : function() {
+      socket.emit(username);
         window.close();
       }
     
     }).modal('show'));
-    socket.emit(username);
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
