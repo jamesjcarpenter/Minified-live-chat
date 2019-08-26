@@ -30,7 +30,8 @@ function fixedEncodeURIComponent(str) {
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
-usernames = {};
+var usernames = {};
+var socket.username = username;
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
@@ -43,8 +44,8 @@ usernames = {};
         window.alert('Wait not yet!');
         return false;
       },
-      onApprove : function('adduser', 'username') {
-            $('#username').append(socket.username);
+      onApprove : function() {
+            $('#username').append(username);
         window.close();
       }
     
