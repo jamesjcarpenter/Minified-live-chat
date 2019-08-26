@@ -34,7 +34,7 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 router.get('/room/' + '*', function(req, res) {
-  res.redirect('/room' + '/' + '*');
+  res.redirect('/room' + '/' + req.params.originalUrl);
 });
 
 
