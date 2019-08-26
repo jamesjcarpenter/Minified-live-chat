@@ -97,10 +97,20 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
+					
+					$(document).ready(function(){
+									$('#roomForm').on('submit', function(e){
+												e.preventDefault();
+													var len = $('#roomEl').val().length;
+													if (len < 10 && len > 1) {
+														  var roomNew = $("#roomForm [name]");
+															var newRoom = { "request": "create", "room": roomNew, "ptype": "publisher", "permanent": true, "display": socket.username };
+															document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+													}
+												});
+											});
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									var newRoom = { "request": "create", "room": 7777, "ptype": "publisher", "permanent": true, "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
