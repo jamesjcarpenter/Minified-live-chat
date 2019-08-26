@@ -61,11 +61,21 @@ var mypvtid = null;
 
 var feeds = [];
 var bitrateTimer = [];
+const params = (new URL(location.href)).searchParams
+
+var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "permanent": "true", " "display": socket.username };
+document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
 $(document).ready(function() {
+	if (params.get('janusRoomId') && params.get('janusRoomPrivateMemberId') && params.get('janusRoomMemberId')) {
+	  document.getElementById('janusRoomId').value = params.get('janusRoomId')
+	  document.getElementById('janusRoomPrivateMemberId').value = params.get('janusRoomPrivateMemberId')
+	  document.getElementById('janusRoomMemberId').value = params.get('janusRoomMemberId')
+	 	Janus.init()
+	}
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
@@ -97,10 +107,6 @@ $(document).ready(function() {
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
-									
-									
-									var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
