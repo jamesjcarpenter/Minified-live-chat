@@ -41,7 +41,6 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
-    JSON.stringify(socket.username);
     
     
 
