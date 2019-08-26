@@ -9,6 +9,20 @@ $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
+$.ajax({
+  
+    document.getElementById("newroombtn").onclick = newRoom();
+    
+      "request" : create,
+      "room" : 12222,
+      "permanent" : true,
+      //"description" : "<pretty name of the room, optional>",
+      //"secret" : "<password required to edit/destroy the room, optional>",
+      //"pin" : "<password required to join the room, optional>",
+      "is_private" : true
+      //, whether the room should appear in a list request>,
+      //"allowed" : [ array of string tokens users can use to join this room, optional],
+});
 
 $("#data").focus();
 
