@@ -65,6 +65,8 @@
     
     #date {
       color:white;
+      overflow-x:hidden;
+      overflow-y:hidden;
     }
     #usercam {
       text-align:center;
@@ -263,13 +265,14 @@
     margin:0 auto;
     margin-bottom:0;
     color:white;
+    position:fixed;
   }
   #useravatar{
     top:17px;
     bottom:0;
     margin:0 auto;
     height:3.5vh;
-    width:1.75vw;
+    width:100%;
 
   }
     .aspectwrapper {
