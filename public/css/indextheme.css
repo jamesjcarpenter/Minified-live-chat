@@ -223,6 +223,10 @@
   
   
   #username{
+    word-wrap: break-word;
+    position:justify;
+    font-size: 13px;
+    width: 80%;
     padding-left:1.56vw;
     bottom:0.30vw;
     padding-right:1.21vw;
@@ -232,6 +236,10 @@
     position:relative;
   }
   #useravatar{
+    word-wrap: break-word;
+    position:justify;
+    font-size: 13px;
+    width: 80%;
     top:17px;
     bottom:0;
     margin:0 auto;
