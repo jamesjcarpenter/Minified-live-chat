@@ -290,6 +290,8 @@ $(document).ready(function() {
 									$('#videojoin').hide();
 									$('#videos').removeClass('hide').show();
 									if($('#myvideo').length === 0) {
+										$('#publisher').removeClass('hide').html(myusername).show();
+										$('#usercam').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
 										$('#videolocal').append('<button class="ui mini compact icon button" id="mute" style="position: absolute; bottom: -40px; left: 118px; margin: 15px;"><i class="volume up icon"></i></button>');
@@ -299,7 +301,6 @@ $(document).ready(function() {
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
-									$('#usercam').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
