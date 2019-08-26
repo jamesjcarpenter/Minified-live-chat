@@ -109,9 +109,11 @@ $(document).ready(function() {
 					//
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
+									document.getElementById("newroombtn").onclick(){
 									var room = document.getElementById('a').value;
 									var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+									sfutest.send({"message": newRoom});;
+								}
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
