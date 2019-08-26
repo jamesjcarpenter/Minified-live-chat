@@ -120,12 +120,12 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
-											var room = roomRand();
-											console.log("new instant room = " + "https://anomic.io/" + room);
-											window.location = "https://anomic.io/" + "room/" + room;
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
+										var room = roomRand();
+										console.log("new instant room = " + "https://anomic.io/" + room);
+										window.location = "https://anomic.io/" + "room/" + room;
 										var register = { "request": "join", "room": room, "ptype": "publisher", "display": socket.username };
 										sfutest.send({"message": register});
 										var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
