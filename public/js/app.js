@@ -44,7 +44,7 @@ var socket = io.connect('anomic.io/');
         return false;
       },
       onApprove : function() {
-        $('#usercam').append(socket.username);
+        $('#conversation').append(socket.username);
         window.close();
       }
     
