@@ -34,14 +34,13 @@ var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', prompt("Enter username.").then($('#usercam').empty().append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><h6></h6>').text(username)));
+		socket.emit('adduser', prompt("Enter username."));
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
-    
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"><h6></h6></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"><div id="messagedata"><p></p></div></div>').text(data));
@@ -56,7 +55,8 @@ var socket = io.connect('anomic.io/');
 //$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
-socket.on('connect', function(data) {
+socket.on('connect', function(username, data) {
+  $('#usercam').empty().append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><h6></h6>').text(username));
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();
