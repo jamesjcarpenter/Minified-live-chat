@@ -23,7 +23,7 @@
 
   #date {
     color:#484848;
-    position:fixed;
+    position:relative;
     margin-left:4.5em;
   }
   #servermessage {
@@ -228,7 +228,7 @@
     margin:0 auto;
     margin-bottom:0;
     color:#181818;
-    position:fixed;
+    position:relative;
   }
   #useravatar{
     top:17px;

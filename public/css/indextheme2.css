@@ -65,8 +65,8 @@
     
     #date {
       color:#484848;
-      position:fixed;
     margin-left:4.5em;
+        position:relative;
     }
     #usercam {
       text-align:center;
@@ -265,7 +265,7 @@
     margin:0 auto;
     margin-bottom:0;
     color:white;
-    position:fixed;
+    position:relative;
   }
   #useravatar{
     top:17px;
