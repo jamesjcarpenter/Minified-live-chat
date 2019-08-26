@@ -113,9 +113,9 @@ $(document).ready(function() {
 										.click(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
+											var newRoom = { "request": "create", "room": rooma, "ptype": "publisher", "display": socket.username };
+											document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 										});
-										var newRoom = { "request": "create", "room": rooma, "ptype": "publisher", "display": socket.username };
-										document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
