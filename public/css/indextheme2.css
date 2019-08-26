@@ -261,12 +261,12 @@
     background-color:	#383838!important;
   }
   #username{
-    padding-left:2vmin;
-    padding-right:2vmin;
+    padding-left:1.56vw;
+    bottom:0.30vw;
+    padding-right:1.21vw;
     margin:0 auto;
     margin-bottom:0;
     color:white;
-  position:absolute;
   }
   #useravatar{
     top:17px;
@@ -274,8 +274,6 @@
     margin:0 auto;
     height:3.5vh;
     width:auto;
-    padding:2vw;
-      position:absolute;
 
   }
     .aspectwrapper {
