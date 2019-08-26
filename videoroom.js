@@ -108,7 +108,7 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									var newRoom = { "request": "create", "room": r9k, "ptype": "publisher", "display": socket.username };
+									var newRoom = { "request": "create", "room": "r9k", "ptype": "publisher", "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
