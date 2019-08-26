@@ -299,7 +299,6 @@ $(document).ready(function() {
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
-									$('#usercam').html(socket.username);
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
@@ -395,7 +394,7 @@ function registerUsername() {
 			return;
 		}
 		var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": username };
-		myusername = username;
+		myusername = socket.username;
 		sfutest.send({"message": register});
 	}
 }
