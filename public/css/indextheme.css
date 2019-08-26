@@ -229,6 +229,7 @@
     margin:0 auto;
     margin-bottom:0;
     color:#181818;
+    position:absolute;
   }
   #useravatar{
     top:17px;
