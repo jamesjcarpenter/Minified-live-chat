@@ -299,7 +299,7 @@ $(document).ready(function() {
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
-									$('#usercam').append($('<span class="ui medium text"><img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img></span>').text(myusername));
+									$('#usercam').append($('<span class="ui medium text"><img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img></span>').text(username));
 									Janus.attachMediaStream($('#myvideo').get(0), stream);
 									$("#myvideo").get(0).muted = "muted";
 									if(sfutest.webrtcStuff.pc.iceConnectionState !== "completed" &&
