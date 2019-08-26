@@ -109,8 +109,9 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom}).then({"message": register});
-									
+									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
+									var newRoomJoin = { "request": "join", "room": 13212, "ptype": "publisher", "display": socket.username };
+									sfutest.send({"message": newRoomJoin});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
