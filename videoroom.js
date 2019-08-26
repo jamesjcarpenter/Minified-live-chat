@@ -109,14 +109,13 @@ $(document).ready(function() {
 					//
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
+									window.onload=function(){
 									var buttonCreate = document.getElementById('#newroombtn');
-								window.onload=function(){
 								buttonCreate.addEventListener('click', function() {
 									var room = document.getElementById('a').value;
 									var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": newRoom});;
 								});
-							}
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
