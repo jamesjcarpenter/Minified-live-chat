@@ -97,10 +97,6 @@ $(document).ready(function() {
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
-									
-									
-									var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
-									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
@@ -360,6 +356,9 @@ $(document).ready(function() {
 		});
 	}});
 });
+
+var newRoom = { "request": "create", "room": 13212, "ptype": "publisher", "display": socket.username };
+document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
