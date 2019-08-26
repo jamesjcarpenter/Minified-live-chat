@@ -56,6 +56,7 @@ var myroom = 1234;	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
+var room = r9k;
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
 
@@ -108,7 +109,6 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									var room = r9k;
 									var newRoom = { "request": "create", "room": room, "ptype": "publisher", "display": socket.username };
 									document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
