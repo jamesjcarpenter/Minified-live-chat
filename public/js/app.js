@@ -32,7 +32,9 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
-  socket.on('adduser', function(){
+  socket.on('connect', function(){
+		// call the server-side function 'adduser' and send one parameter (value of prompt)
+    socket.emit('adduser',
     $('.ui.modal')
     .modal({  
       blurring: true,
@@ -46,8 +48,8 @@ var socket = io.connect('anomic.io/');
       }
     
     }).modal('show'));
-    socket.emit('adduser');
-  });	// call the server-side function 'adduser' and send one parameter (value of prompt)
+    socket.emit(username);
+	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
@@ -57,7 +59,7 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"><div id="messagedata"><p></p></div></div>').text(data));
     
-    socket.emit('adduser
+    
     
   });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
