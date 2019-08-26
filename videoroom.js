@@ -61,7 +61,6 @@ var mypvtid = null;
 
 var feeds = [];
 var bitrateTimer = [];
-const params = (new URL(location.href)).searchParams
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
@@ -78,7 +77,7 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			const janus = new Janus(
+			janus = new Janus(
 				{
 					server: server,
 					success: function() {
@@ -99,8 +98,6 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									// var newRoom = { "request": "create", "room": 7777, "ptype": "publisher", "permanent": true, "display": socket.username };
-									// document.getElementById("newroombtn").onclick = sfutest.send({"message": newRoom});;
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
