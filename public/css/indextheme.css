@@ -223,9 +223,7 @@
   
   
   #username{
-    word-wrap: break-word;
     position:justify;
-    font-size: 13px;
     width: 80%;
     padding-left:1.56vw;
     bottom:0.30vw;
