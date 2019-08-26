@@ -24,8 +24,9 @@
   #date {
     color:#484848;
     position:fixed;
+    position:fixed;
     margin:0 auto;
-    left:15em;
+    left:3.5em;
   }
   #servermessage {
     background-color: #1bc298;
