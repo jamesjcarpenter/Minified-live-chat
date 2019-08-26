@@ -30,7 +30,8 @@ function fixedEncodeURIComponent(str) {
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
-
+usernames = {};
+socket.username = username;
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
