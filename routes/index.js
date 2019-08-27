@@ -89,8 +89,7 @@ router.post('/newroom', function(req, res, next) {
       if (err) throw err;
 
       console.log('Room created!');
-      res.writeHead(201, {"Location" : this.name1});
-               res.end();
+      res.render('index.ejs' { room: this.room.name1; });
     });
 
 });
