@@ -352,10 +352,8 @@ var room = require("./models/roomschema");
 var usernames = {};
 
 // rooms which are currently available in chat
-
- var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
  
- console.log(fullUrl);
+ console.log(res.locals.url);
 
 io.sockets.on('connection', function (socket) {
 
