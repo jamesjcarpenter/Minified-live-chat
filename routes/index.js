@@ -85,14 +85,13 @@ router.post('/newroom', function(req, res, next) {
     console.log(newRoom);
     // save the user
     newRoom.save(function(err) {
+      if (err) throw err;
       console.log('Room created!');
-      console.log(req.room.name);
-      console.log(req.room.name1);
-      console.log(req.room.name2);
+      console.log(req.room);
       console.log(req.session.chat);
       
       res.redirect('/room?name=' + '' + req.body.name1);
-      res.render('index.ejs', { room: req.room.name, chat: req.session.chat });
+      res.render('index.ejs', { room: req.body.name1, chat: req.session.chat });
     });
 
 });
