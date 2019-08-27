@@ -89,12 +89,10 @@ router.post('/newroom', function(req, res, next) {
       if (err) throw err;
 
       console.log('Room created!');
-      res.writeHead(400, {"Content-Type" : application/json"});
-                res.write(''+this.name1);
-                res.end();
-            }
+      res.writeHead(201, {"Location" : this.name1});
+               res.end();
     });
-    });
+
 });
 
 
