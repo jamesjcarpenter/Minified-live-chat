@@ -7,7 +7,7 @@ var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
 var RoomSchema = require("../models/roomschema");
-let io = app.get("io");
+let io = router.get("io");
 
 const shortid = require("shortid");
 const today = Date.now();
