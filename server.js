@@ -353,6 +353,13 @@ var usernames = {};
 
 // rooms which are currently available in chat
 
+var url = window.location.href;
+
+console.log(url);
+function getImageDirectoryByFullURL(url){
+    return url.substr(url.lastIndexOf("=")+1);
+}
+console.log(url.substr(url.lastIndexOf("=")+1));
 
 
 io.sockets.on('connection', function (socket) {
@@ -360,7 +367,7 @@ io.sockets.on('connection', function (socket) {
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
-		socket.username = username;
+		socket.username = url.substr(url.lastIndexOf("=")+1);
 		// store the room name in the socket session for this client
 		socket.room = 'room1';
 		// add the client's username to the global list

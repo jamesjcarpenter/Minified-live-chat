@@ -9,14 +9,6 @@ $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
-var url = window.location.href;
-
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
-}
-console.log(url.substr(url.lastIndexOf("=")+1));
-
 
 $("#data").focus();
 
