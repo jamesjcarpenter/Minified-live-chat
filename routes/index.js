@@ -6,8 +6,6 @@ const session = require('express-session')
 var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
-var RoomSchema = require("../models/roomschema");
-
 const shortid = require("shortid");
 const today = Date.now();
 const id = shortid.generate();
