@@ -3,8 +3,6 @@ window.addEventListener('load', () => {
   
   var socket = io.connect('https://anomic.io/443');
   
-  
-  
   // Chat platform
   // Local Video
 $('#start').click();
@@ -31,18 +29,13 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
-var socket = io.connect('anomic.io/room?name=');
+var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    let room = window.location.pathname.slice(6);   // remove leading /chat/
-    let pos = room.indexOf('/');
-    if (pos !== -1) {
-        room = room.slice(0, pos);
-    }
-    socket.join(room);
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
+	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
