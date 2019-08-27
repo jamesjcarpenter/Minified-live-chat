@@ -356,8 +356,9 @@ app.use(function(req, res, next) {
    res.locals.url = {
        query : req.query,
        url   : req.originalUrl
+      console.log(JSON.stringify(url))
+      console.log(req.originalUrl)
    }
-   console.log(JSON.stringify(url))
    next();
 });
 
