@@ -30,7 +30,7 @@ var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
 const Chat = require("./models/chat");
 const User = require("./models/user");
-const Room = require("./models/roomschema");
+const Room = require("./models/roomschema", routes);
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
@@ -346,8 +346,8 @@ require("./libs/chat.js").sockets(https);
 
 
 var usernames = {};
-var rooms = require("./models/roomschema");
-var room = require("./models/roomschema");
+var rooms = require("./models/roomschema", routes);
+var room = require("./models/roomschema", routes);
 // usernames which are currently connected to the chat
 var usernames = {};
 
