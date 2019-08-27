@@ -91,7 +91,7 @@ router.post('/newroom', function(req, res, next) {
       console.log(req.session.chat);
       
       res.redirect('/room?name=' + '' + req.body.name1);
-      res.render('index.ejs', { room: req.body.name1, chat: req.session.chat });
+      res.render('index.ejs', { room: newRoom, chat: req.session.chat });
     });
 
 });
