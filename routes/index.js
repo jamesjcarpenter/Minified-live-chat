@@ -48,7 +48,7 @@ router.get('/room', function(req, res, next) {
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
   req.room.name;
-   if ( typeof room !== 'undefined' && room )
+   if ( typeof room.name !== 'undefined' && room.name )
    {
      req.room.name;
      next()
@@ -98,6 +98,7 @@ router.post('/newroom', function(req, res, next) {
       if (err) throw err;
       console.log('Room created!');
       res.redirect('/room?name=' + '' + req.body.name1);
+      req.body.name1 = req.room.name;
       res.render('index.ejs', { room: req.room.name, chat: req.session.chat });
     });
 
