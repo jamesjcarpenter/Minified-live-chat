@@ -358,14 +358,6 @@ var usernames = {};
 
 io.sockets.on('connection', function (socket) {
   
-  socket.on("joinRoom", function(room) {
-        // only allow certain characters in room names
-        // to prevent messing with socket.io internal rooms
-        if (!(/[^\w.]/.test(room))) {
-            socket.join(room);
-        }
-      });
-  
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -374,6 +366,7 @@ io.sockets.on('connection', function (socket) {
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
+		socket.join(room);
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'Connected');
 		// echo to room 1 that a person has connected to their room
