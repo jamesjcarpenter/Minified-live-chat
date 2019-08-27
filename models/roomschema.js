@@ -8,8 +8,9 @@ const RoomSchema = new mongoose.Schema({
    name2: { type: String, default: "",},
    members: [],
    lastActive: { type: Date, default: Date.now },
-   createdOn: { type: Date, default: Date.now }
-}, {_id: false});
+   createdOn: { type: Date, default: Date.now },
+   _id: false
+});
 var Room = module.exports = mongoose.model('Room', RoomSchema);
 
 var room2 = new Room({ name1: 'real9k', name2: 'real9k', members: [], lastActive: '', createdOn: '8/27/2019' });
