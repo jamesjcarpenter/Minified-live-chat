@@ -28,11 +28,6 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 //end nonce
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
-room.findOne({ name1: name1 }, function (err, room) {
-  if (err) return handleError(err);
-  // Prints "Space Ghost is a talk show host".
-  console.log('%s here', room.name1);
-});
 
 router.get('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
@@ -94,6 +89,10 @@ router.post('/newroom', function(req, res, next) {
       if (err) throw err;
 
       console.log('Room created!');
+      res.writeHead(400, {"Content-Type" : application/json"});
+                res.write(''+this.name1);
+                res.end();
+            }
     });
 
 });
