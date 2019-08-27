@@ -2,15 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express')
 const session = require('express-session')
 
-var Schema = mongoose.Schema,
-    ObjectId = Schema.ObjectId;
 const RoomSchema = new mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    index: true,
-    required: true,
-    auto: true,
-  },
+   _id:false,
   name1: { type: String, default: "", },
    name2: { type: String, default: "",},
    members: [],
