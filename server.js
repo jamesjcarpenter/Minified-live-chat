@@ -16,8 +16,7 @@ server.listen(443);
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
-socket.emit("join",location.pathname);
-socket.emit("chat message",{room:location.pathname, message:<val>});
+
 //... 
 //..
 var { check, validationResult } = require('express-validator');
@@ -358,25 +357,10 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-  
-    var chat = io
-    .of('/chat')
-    .on('connection', function (socket) {
-      socket.emit('a message', {
-          that: 'only'
-        , '/chat': 'will get'
-      });
-      chat.emit('a message', {
-          everyone: 'in'
-        , '/chat': 'will get'
-      });
-    });
-
-  
-  var news = io
-    .of('/news')
-    .on('connection', function (socket) {
-      socket.emit('item', { news: 'item' });
+  socket.on('join', function (room) {
+        //May be do some authorization
+        socket.join(room);
+        console.log(socket.id, "joined", room);
     });
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
@@ -386,7 +370,6 @@ io.sockets.on('connection', function (socket) {
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join(room);
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'Connected');
 		// echo to room 1 that a person has connected to their room
@@ -403,7 +386,11 @@ io.sockets.on('connection', function (socket) {
   
 	socket.on('switchRoom', function(newroom){
 		// leave the current room (stored in session)
-		socket.leave(socket.room);
+    socket.on('leave', function (room) {
+            //May be do some authorization
+            socket.leave(room);
+            console.log(socket.id, "left", room);
+        });
 		// join new room, received as function parameter
 		socket.join(newroom);
 //		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);

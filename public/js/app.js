@@ -3,6 +3,9 @@ window.addEventListener('load', () => {
   
   var socket = io.connect('https://anomic.io/443');
   
+  socket.emit("join",location.pathname);
+  socket.emit("chat message",{room:location.pathname, message:<val>});
+  
   // Chat platform
   // Local Video
 $('#start').click();
