@@ -28,7 +28,14 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 //add nonce
 
 //end nonce
+var room = mongoose.model('Room', RoomSchema);
 
+// find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
+room.findOne({ name1: name1 }, function (err, room) {
+  if (err) return handleError(err);
+  // Prints "Space Ghost is a talk show host".
+  console.log('%s here', room.name1);
+});
 
 router.get('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
