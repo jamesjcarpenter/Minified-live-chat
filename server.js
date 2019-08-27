@@ -344,6 +344,7 @@ require("./libs/chat.js").sockets(https);
 
 
 
+
 var usernames = {};
 var rooms = require("./models/roomschema");
 var room = require("./models/roomschema");
@@ -353,7 +354,18 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-
+  socket.on("set-room", function(room) {
+        //leaving room.
+        socket.leave(socket.room);
+        //getting room data.
+        eventEmitter.emit("get-room-data", room);
+        //setting room and join.
+        setRoom = function(roomId) {
+          socket.room = roomId;
+          console.log("roomId : " + socket.room);
+          socket.join(socket.room);
+          ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+        })
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
