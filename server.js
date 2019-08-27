@@ -388,15 +388,15 @@ app.use(express.static('/semantic'));
 app.use(express.static('/libs/'));
 
 // global variables
-
-app.use(function(req, res, next) {
-   res.locals.url = {
-       query : req.query,
-       url   : req.originalUrl
-   }
-
-   next();
-});
+// 
+// app.use(function(req, res, next) {
+//    res.locals.url = {
+//        query : req.query,
+//        url   : req.originalUrl
+//    }
+// 
+//    next();
+// });
  
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
