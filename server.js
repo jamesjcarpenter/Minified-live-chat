@@ -354,7 +354,39 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
+  
+  var rooms = io
+    .of(newRoom + '')
+    .on('connection', function (socket) {
+      socket.emit('a message', {
+          that: 'only'
+        , newRoom + '' : 'will get'
+      });
+      chat.emit('a message', {
+          everyone: 'in'
+        , newRoom + '' : 'will get'
+      });
+    });
+  
+    var chat = io
+    .of('/chat')
+    .on('connection', function (socket) {
+      socket.emit('a message', {
+          that: 'only'
+        , '/chat': 'will get'
+      });
+      chat.emit('a message', {
+          everyone: 'in'
+        , '/chat': 'will get'
+      });
+    });
 
+  
+  var news = io
+    .of('/news')
+    .on('connection', function (socket) {
+      socket.emit('item', { news: 'item' });
+    });
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
