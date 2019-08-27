@@ -6,7 +6,6 @@ const session = require('express-session')
 var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
-var Room = require("../models/roomschema");
 var RoomSchema = require("../models/roomschema");
 
 var rooms = require("../models/roomschema");
@@ -73,7 +72,7 @@ router.get('/home', function(req, res) {
 router.post('/newroom', function(req, res, next) {
     
     //User is the model created in app.js of this project
-    var newRoom = roomModel({
+    var newRoom = new Room({
       name1: req.body.name,
       name2: req.body.name,
       createdOn: today,
