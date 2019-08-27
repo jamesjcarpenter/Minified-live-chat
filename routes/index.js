@@ -47,7 +47,7 @@ router.get('/room', function(req, res, next) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   room.name = req.room.name;
+  req.room.name;
    if ( typeof room !== 'undefined' && room )
    {
      req.room.name;
@@ -96,7 +96,7 @@ router.post('/newroom', function(req, res, next) {
     // save the user
     newRoom.save(function(err) {
       if (err) throw err;
-      req.body.name1 = req.room.name;
+      req.body.name1 = room.name;
       console.log('Room created!');
       res.redirect('/room?name=' + '' + req.body.name1);
       res.render('index.ejs', { room: req.room.name, chat: req.session.chat });
