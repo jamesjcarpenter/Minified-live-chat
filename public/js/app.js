@@ -43,9 +43,9 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
+    socket.join(room);
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
-    socket.join(room);
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
