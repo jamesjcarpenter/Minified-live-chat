@@ -353,7 +353,7 @@ var usernames = {};
 
 // rooms which are currently available in chat
 
-
+console.log(JSON.stringify(url))
 
 io.sockets.on('connection', function (socket) {
 
@@ -422,7 +422,7 @@ app.use(function(req, res, next) {
        query : req.query,
        url   : req.originalUrl
    }
-   console.log(url);
+
    next();
 });
  
