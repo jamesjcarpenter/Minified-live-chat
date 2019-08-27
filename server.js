@@ -354,25 +354,13 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-  socket.on("set-room", function(room) {
-        //leaving room.
-        socket.leave(socket.room);
-        //getting room data.
-        eventEmitter.emit("get-room-data", room);
-        //setting room and join.
-        setRoom = function(roomId) {
-          socket.room = roomId;
-          console.log("roomId : " + socket.room);
-          socket.join(socket.room);
-          ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
-        };
-      });
+
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
+		socket.room = room.name1;
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
