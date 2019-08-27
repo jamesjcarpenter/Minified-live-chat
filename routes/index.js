@@ -9,7 +9,6 @@ var sanitize = require('mongo-sanitize');
 var RoomSchema = require("../models/roomschema");
 
 const today = Date.now();
-const id = shortid.generate();
 
 var rooms = require("../models/roomschema");
 var room = require("../models/roomschema");
