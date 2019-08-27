@@ -81,12 +81,12 @@ router.post('/newroom', function(req, res, next) {
     },{collection:'rooms'});
     
     
-    console.log(newUser);
+    console.log(newRoom);
     // save the user
-    newUser.save(function(err) {
+    newRoom.save(function(err) {
       if (err) throw err;
 
-      console.log('User created!');
+      console.log('Room created!');
     });
 
 });
