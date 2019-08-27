@@ -11,7 +11,7 @@ var RoomSchema = require("../models/roomschema");
 var rooms = require("../models/roomschema");
 var room = require("../models/roomschema");
 
-const Room = mongoose.model('Room', RoomSchema)
+const Room = require("../models/roomschema");
 var csrfProtection = csrf({ cookie: true });
 var parseForm = bodyParser.urlencoded({ extended: false });
 
