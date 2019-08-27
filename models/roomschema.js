@@ -3,13 +3,13 @@ const express = require('express')
 const session = require('express-session')
 
 const RoomSchema = new mongoose.Schema({
+  _id: false,
   roomId: { type: String, default: ""},
   name1: { type: String, default: "", },
    name2: { type: String, default: "",},
    members: [],
    lastActive: { type: Date, default: Date.now },
    createdOn: { type: Date, default: Date.now },
-   _id: false
 });
 var Room = module.exports = mongoose.model('Room', RoomSchema);
 
