@@ -16,7 +16,8 @@ server.listen(443);
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
-
+socket.emit("join",location.pathname);
+socket.emit("chat message",{room:location.pathname, message:<val>});
 //... 
 //..
 var { check, validationResult } = require('express-validator');
@@ -342,7 +343,10 @@ app.use((err, req, res, next) => {
 //chat
 require("./libs/chat.js").sockets(https);
 
-
+app.get(/(^\/[a-zA-Z0-9\-]+$)/, function (req, res) {
+    //Matches anything with alphabets,numbers and hyphen without trailing slash
+    res.redirect('/room')
+});
 
 
 var usernames = {};
@@ -356,15 +360,15 @@ var usernames = {};
 io.sockets.on('connection', function (socket) {
   
     var chat = io
-    .of('/room?name=chat')
+    .of('/chat')
     .on('connection', function (socket) {
       socket.emit('a message', {
           that: 'only'
-        , '/room?name=chat': 'will get'
+        , '/chat': 'will get'
       });
       chat.emit('a message', {
           everyone: 'in'
-        , '/room?name=chat': 'will get'
+        , '/chat': 'will get'
       });
     });
 
@@ -379,13 +383,12 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join('room1');
+		socket.join(room);
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to room1');
+		socket.emit('serverupdatechat', 'Connected');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
