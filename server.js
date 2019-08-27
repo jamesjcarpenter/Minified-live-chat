@@ -352,7 +352,14 @@ var room = require("./models/roomschema");
 var usernames = {};
 
 // rooms which are currently available in chat
+app.use(function(req, res, next) {
+   res.locals.url = {
+       query : req.query,
+       url   : req.originalUrl
+   }
 
+   next();
+});
 console.log(JSON.stringify(url))
 
 io.sockets.on('connection', function (socket) {
@@ -417,14 +424,7 @@ app.use(express.static('/libs/'));
 
 // global variables
 
-app.use(function(req, res, next) {
-   res.locals.url = {
-       query : req.query,
-       url   : req.originalUrl
-   }
 
-   next();
-});
  
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
