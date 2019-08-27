@@ -7,11 +7,12 @@ var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
 var Room = require("../models/roomschema");
-var roomSchema = require("../models/roomschema");
+var RoomSchema = require("../models/roomschema");
 
 var rooms = require("../models/roomschema");
 var room = require("../models/roomschema");
-var roomModel = mongoose.model('Room', roomSchema);
+
+const Room = mongoose.model('Room', RoomSchema)
 var csrfProtection = csrf({ cookie: true });
 var parseForm = bodyParser.urlencoded({ extended: false });
 

@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 const express = require('express')
 const session = require('express-session')
 
-const roomSchema = new mongoose.Schema({
+const RoomSchema = new mongoose.Schema({
   name1: { type: String, default: "", },
    name2: { type: String, default: "",},
    members: [],
    lastActive: { type: Date, default: Date.now },
    createdOn: { type: Date, default: Date.now }
 });
-var Room = module.exports = mongoose.model('Room', roomSchema);
+var Room = module.exports = mongoose.model('Room', RoomSchema);
 
 var room2 = new Room({ name1: 'real9k', name2: 'real9k', members: [], lastActive: '', createdOn: '8/27/2019' });
 
