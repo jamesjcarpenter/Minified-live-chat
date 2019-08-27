@@ -1,20 +1,17 @@
 window.addEventListener('load', () => {
   
-  var url = window.location.href;
+  
   var socket = io.connect('https://anomic.io/443');
-  function getImageDirectoryByFullURL(url){
-      url = url.split('='); //url = ["serverName","app",...,"bb65efd50ade4b3591dcf7f4c693042b"]
-      url = url.pop();      //url = "bb65efd50ade4b3591dcf7f4c693042b"
-      return url;           //return "bb65efd50ade4b3591dcf7f4c693042b"
-  }
-  console.log(getImageDirectoryByFullURL());
+  
   // Chat platform
   // Local Video
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
+var url = window.location.href;
 
+console.log(url);
 $("#data").focus();
 
 document.getElementById('themechanger').onclick = function () { 
