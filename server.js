@@ -422,16 +422,12 @@ app.use(function(req, res, next) {
        query : req.query,
        url   : req.originalUrl
    }
-
+   console.log(url);
    next();
 });
  
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
-  res.locals.query = req.query;
-   res.locals.url   = req.originalUrl;
-   console.log(res.locals.url)
-   console.log(req.originalUrl);
   next()
 });
 //search user (for username/profile pics/db info)
