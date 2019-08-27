@@ -63,3 +63,4 @@ router.post('/newroom', function(req, res, next) {
   //      newRoom.save(callback);
 //}
 //
+module.exports = router;
