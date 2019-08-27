@@ -10,6 +10,7 @@ $('#start').hide();
 $('#bitrateset').hide();
 
 
+
 $("#data").focus();
 
 document.getElementById('themechanger').onclick = function () { 
