@@ -7,6 +7,7 @@ var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
 var RoomSchema = require("../models/roomschema");
+let io = app.get("io");
 
 const shortid = require("shortid");
 const today = Date.now();
@@ -44,7 +45,8 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
-router.get('/room', function(req, res) {
+router.get('/room' + '/' + '*', function(req, res) {
+  socket.room = req.params.originalUrl;
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
@@ -72,27 +74,27 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.post('/newroom', function(req, res, next) {
-    
-    //User is the model created in app.js of this project
-    var newRoom = new Room({
-      name1: req.body.name1,
-      name2: req.body.name1,
-      members: [],
-      createdOn: today,
-      updatedOn: today    
-    },{collection:'rooms'});
-    
-    
-    console.log(newRoom);
-    // save the user
-    newRoom.save(function(err) {
-      if (err) throw err;
-
-      console.log('Room created!');
-    });
-
-});
+// router.post('/newroom', function(req, res, next) {
+// 
+//     //User is the model created in app.js of this project
+//     var newRoom = new Room({
+//       name1: req.body.name1,
+//       name2: req.body.name1,
+//       members: [],
+//       createdOn: today,
+//       updatedOn: today    
+//     },{collection:'rooms'});
+// 
+// 
+//     console.log(newRoom);
+//     // save the user
+//     newRoom.save(function(err) {
+//       if (err) throw err;
+// 
+//       console.log('Room created!');
+//     });
+// 
+// });
 
 
 
