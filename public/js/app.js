@@ -36,15 +36,11 @@ var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     let room = window.location.pathname.slice(6);   // remove leading /chat/
-      let pos = room.indexOf('/');
-      if (pos !== -1) {
-          room = room.slice(0, pos);
-      }
-      socket.emit("joinRoom", room);
-  });
-  
-    
-    
+    let pos = room.indexOf('/');
+    if (pos !== -1) {
+        room = room.slice(0, pos);
+    }
+    socket.emit("joinRoom", room);
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
@@ -195,7 +191,7 @@ socket.on('connect', function(data) {
 //      updateChatMessages();
 //   }
 //  });
-});
+
   // Room Submit Button Handler
 
   $('.jiggle .placeholder')
