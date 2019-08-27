@@ -323,9 +323,8 @@ var usernames = {};
 
 // rooms which are currently available in chat
 app.use(function(req, res, next){
-  console.dir(req.originalUrl) // '/admin/new'
-   console.dir(req.baseUrl) // '/admin'
-   console.dir(req.path) // '/new'
+console.dir(req.query.q)
+console.dir(req.query.order)
 });
 
 io.sockets.on('connection', function (socket) {
