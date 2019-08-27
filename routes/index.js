@@ -98,7 +98,7 @@ router.post('/newroom', function(req, res, next) {
       if (err) throw err;
       console.log('Room created!');
       res.redirect('/room?name=' + '' + req.body.name1);
-      req.body.name1 = req.room.name;
+      req.body.name1 = room.name;
       res.render('index.ejs', { room: req.room.name, chat: req.session.chat });
     });
 
