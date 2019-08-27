@@ -7,7 +7,7 @@ var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
 var RoomSchema = require("../models/roomschema");
-let io = router.get("io");
+let io = app.get("io");
 
 const shortid = require("shortid");
 const today = Date.now();
@@ -46,7 +46,6 @@ router.get('/', function(req, res) {
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 router.get('/room' + '/' + '*', function(req, res) {
-  socket.room = req.params.originalUrl;
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
