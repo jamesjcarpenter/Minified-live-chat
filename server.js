@@ -355,7 +355,7 @@ var usernames = {};
 
  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
  
- console.log(var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;)
+ console.log(fullUrl);
 
 io.sockets.on('connection', function (socket) {
 
