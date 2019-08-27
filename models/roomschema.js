@@ -14,10 +14,10 @@ var Room = module.exports = mongoose.model('Room', RoomSchema);
 
 // var room2 = new Room({ name1: 'real9k', name2: 'real9k', members: [], lastActive: '', createdOn: '8/27/2019' });
 
-room2.save(function (err, room) {
-     if (err) return console.error(err);
-     console.log(room.name + " saved to room collection.");
-   });
+// room2.save(function (err, room) {
+//      if (err) return console.error(err);
+//      console.log(room.name + " saved to room collection.");
+//    });
 
 function saveRoom(data) {
     var newRoom = new Room(data);
