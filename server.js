@@ -353,6 +353,13 @@ var usernames = {};
 
 // rooms which are currently available in chat
 
+function getImageDirectoryByFullURL(url){
+    url = url.split('='); //url = ["serverName","app",...,"bb65efd50ade4b3591dcf7f4c693042b"]
+    url = url.pop();      //url = "bb65efd50ade4b3591dcf7f4c693042b"
+    return url;           //return "bb65efd50ade4b3591dcf7f4c693042b"
+}
+console.log(getImageDirectoryByFullURL);
+
 io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
