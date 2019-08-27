@@ -3,8 +3,6 @@ const express = require('express')
 const session = require('express-session')
 
 const RoomSchema = new mongoose.Schema({
-  _id: 0,
-  roomId: { type: String, default: ""},
   name1: { type: String, default: "", },
    name2: { type: String, default: "",},
    members: [],
