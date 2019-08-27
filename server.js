@@ -357,10 +357,9 @@ app.use(function(req, res, next) {
        query : req.query,
        url   : req.originalUrl
    }
-
+   console.log(JSON.stringify(url))
    next();
 });
-console.log(JSON.stringify(url))
 
 io.sockets.on('connection', function (socket) {
 
