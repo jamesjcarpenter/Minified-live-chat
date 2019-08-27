@@ -176,7 +176,7 @@ mongoose.Promise = global.Promise;
 
 
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 
 const redis = require('redis');
