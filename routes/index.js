@@ -77,8 +77,8 @@ router.post('/newroom', function(req, res, next) {
     //User is the model created in app.js of this project
     var newRoom = new Room({
       roomId: id,
-      name1: req.body.name,
-      name2: req.body.name,
+      name1: req.body.name1,
+      name2: req.body.name1,
       createdOn: today,
       updatedOn: today    
     },{collection:'rooms'});
