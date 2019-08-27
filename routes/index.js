@@ -78,6 +78,7 @@ router.post('/newroom', function(req, res, next) {
     var newRoom = new Room({
       name1: req.body.name1,
       name2: req.body.name1,
+      members: [],
       createdOn: today,
       updatedOn: today    
     },{collection:'rooms'});
