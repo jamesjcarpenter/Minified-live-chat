@@ -67,7 +67,7 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.post('#', function(req, res, next) {
+router.post('/newroom', function(req, res, next) {
     
     //User is the model created in app.js of this project
     var newRoom = roomModel({
