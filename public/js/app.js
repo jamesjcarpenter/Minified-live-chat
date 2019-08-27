@@ -45,6 +45,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
+    socket.join(room);
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
