@@ -9,7 +9,7 @@ var Room = require("../models/roomschema");
 
 var rooms = require("../models/roomschema");
 var room = require("../models/roomschema");
-
+var roomModel = mongoose.model('Room', RoomSchema);
 var csrfProtection = csrf({ cookie: true });
 var parseForm = bodyParser.urlencoded({ extended: false });
 
@@ -77,7 +77,6 @@ router.post('/newroom', function(req, res, next) {
       updatedOn: today    
     },{collection:'rooms'});
     
-    var roomModel = mongoose.model('Room', RoomSchema);
     
     console.log(newUser);
     // save the user
