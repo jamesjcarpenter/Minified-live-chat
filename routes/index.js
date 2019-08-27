@@ -70,10 +70,7 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.post('/newroom', function(req, res, next) {
-    res.redirect('/room?name=' + '' + req.body.name1);
-      res.render('index.ejs', { room: newRoom, chat: req.session.chat });
-    });
+
 
 
 router.post('/logout', (req, res) => {
