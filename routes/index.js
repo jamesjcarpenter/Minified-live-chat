@@ -39,7 +39,8 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('index.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  roomModel.find({},function(err,roomModel){
+   res.render('index.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user, name1: req.room.name, name2: req.room.name, });
 });
 
 router.get('/profile', function(req, res) {
@@ -61,6 +62,31 @@ router.get('/dashboard', function(req, res) {
 router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
+
+router.post('#', function(req, res, next) {
+    
+    //User is the model created in app.js of this project
+    var newRoom = roomModel({
+      name1: req.body.name,
+      name2: req.body.name,
+      createdOn: today,
+      updatedOn: today    
+    },{collection:'rooms'});
+    
+    var roomModel = mongoose.model('Room', RoomSchema);
+    
+    console.log(newUser);
+    // save the user
+    newUser.save(function(err) {
+      if (err) throw err;
+
+      console.log('User created!');
+    });
+
+});
+
+
+
 
 router.post('/logout', (req, res) => {
   req.session.destroy(err => {
