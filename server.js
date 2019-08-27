@@ -347,11 +347,11 @@ require("./libs/chat.js").sockets(https);
 
 var usernames = {};
 var rooms = require("./models/roomschema");
+var room = require("./models/roomschema");
 // usernames which are currently connected to the chat
 var usernames = {};
 
 // rooms which are currently available in chat
-var rooms = ['room1','room2','room3'];
 
 io.sockets.on('connection', function (socket) {
 
