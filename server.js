@@ -352,7 +352,7 @@ var room = require("./models/roomschema");
 var usernames = {};
 
 // rooms which are currently available in chat
-
+var url = require('url')
 app.use(function(req, res, next){
   var urlParts = url.parse(req.url, true, true);
   var pathname = urlParts.pathname;
