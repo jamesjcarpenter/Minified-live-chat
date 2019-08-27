@@ -10,7 +10,7 @@ var RoomSchema = require("../models/roomschema");
 
 const shortid = require("shortid");
 const today = Date.now();
-const newid = shortid.generate();
+const id = shortid.generate();
 
 var rooms = require("../models/roomschema");
 var room = require("../models/roomschema");
@@ -76,8 +76,7 @@ router.post('/newroom', function(req, res, next) {
     
     //User is the model created in app.js of this project
     var newRoom = new Room({
-      id: id,
-      roomId: newid,
+      roomId: id,
       name1: req.body.name1,
       name2: req.body.name1,
       createdOn: today,
