@@ -353,10 +353,12 @@ var usernames = {};
 
 // rooms which are currently available in chat
 var url = require('url');
-var requrl = url.format({
+var requrl = url.format;
+function funTion(req, res, next) {
     protocol: req.protocol,
     host: req.get('host'),
     pathname: req.originalUrl,
+    next()
 });
 
 
