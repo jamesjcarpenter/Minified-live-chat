@@ -329,7 +329,6 @@ app.use(function(req, res, next){
    console.dir(req.subdomains)
    console.dir(req.xhr)
    console.dir(req.stale)
-   req.protocol == ‘https’;
 });
 
 io.sockets.on('connection', function (socket) {
