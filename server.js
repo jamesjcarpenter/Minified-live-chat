@@ -365,7 +365,7 @@ io.sockets.on('connection', function (socket) {
           console.log("roomId : " + socket.room);
           socket.join(socket.room);
           ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
-        })
+        };
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
