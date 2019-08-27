@@ -30,7 +30,7 @@ var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
 const Chat = require("./models/chat");
 const User = require("./models/user");
-const Room = require("./models/roomschema", routes);
+const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
@@ -346,8 +346,8 @@ require("./libs/chat.js").sockets(https);
 
 
 var usernames = {};
-var rooms = require("./models/roomschema", routes);
-var room = require("./models/roomschema", routes);
+var rooms = require("./models/roomschema");
+var room = require("./models/roomschema");
 // usernames which are currently connected to the chat
 var usernames = {};
 
@@ -360,13 +360,13 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-
+		socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join(newRoom);
+		socket.join('room1');
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to' + '' + newRoom);
+		socket.emit('serverupdatechat', 'Connected to room1');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
