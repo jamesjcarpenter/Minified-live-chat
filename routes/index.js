@@ -94,7 +94,7 @@ router.post('/newroom', function(req, res, next) {
                 res.end();
             }
     });
-
+    });
 });
 
 
