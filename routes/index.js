@@ -42,12 +42,21 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
-router.get('/room', function(req, res) {
+router.get('/room', function(req, res, next) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
    room = req.room.name;
+   if ( typeof room !== 'undefined' && room )
+   {
+     req.room.name;
+     next()
+   }
+   else
+   {
+    res.redirect('home.handlebars');
+   }
    res.render('index.ejs', { room: req.room.name, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
