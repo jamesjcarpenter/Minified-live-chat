@@ -180,38 +180,8 @@ app.use(express.urlencoded({ extended: false }));
 
 
 const redis = require('redis');
-const {RateLimiterRedis} = require('rate-limiter-flexible');
-const { RateLimiterMemory } = require('rate-limiter-flexible');
-const rateLimiterRedisMiddleware = require('./libs/ratelimiter');
 
-app.use(rateLimiterRedisMiddleware);
 
-const redisClient = redis.createClient({
-  enable_offline_queue: false,
-});
-const rateLimiter = new RateLimiterMemory(
-  {
-    storeClient: redisClient,
-    points: 80, // Number of points
-    duration: 1, // Per 60 seconds,
-    blockDuration: 120, // Block duration in store
-    inmemoryBlockOnConsumed: 90, // If userId or IP consume >300 points per minute
-    inmemoryBlockDuration: 120, // Block it for two minutes in memory, so no requests go to Redis
-  });
-
-io.on('connection', (socket) => {
-  socket.on('bcast', async (data) => {
-    try {
-      await rateLimiter.consume(socket.handshake.address); // consume 1 point per event from IP
-      socket.emit('news', { 'data': data });
-      socket.broadcast.emit('news', { 'data': data });
-    } catch(rejRes) {
-      // no available points to consume
-      // emit error or warning message
-      socket.emit('blocked', { 'retry-ms': rejRes.msBeforeNext });
-    }
-  });
-});
 
 const SocketAntiSpam  = require('socket-anti-spam');
 
@@ -352,14 +322,8 @@ var room = require("./models/roomschema");
 var usernames = {};
 
 // rooms which are currently available in chat
-var url = require('url')
 app.use(function(req, res, next){
-  var urlParts = url.parse(req.url, true, true);
-  var pathname = urlParts.pathname;
-  var urlurl = pathname.slice(1);
-  console.log(urlurl)
-  console.log(urlParts)
-  console.log(pathname)
+  console.dir(req.originalUrl)
 });
 
 io.sockets.on('connection', function (socket) {
