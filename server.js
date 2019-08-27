@@ -17,7 +17,6 @@ server.listen(443);
 //make sure you keep this order
 var io = require('socket.io').listen(server);
 
-app.get('/room/:id', routes.room);
 //... 
 //..
 var { check, validationResult } = require('express-validator');

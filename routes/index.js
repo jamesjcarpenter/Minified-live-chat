@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
 var RoomSchema = require("../models/roomschema");
 
-
 const shortid = require("shortid");
 const today = Date.now();
 const id = shortid.generate();
@@ -29,11 +28,7 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 //add nonce
 
 //end nonce
-exports.room = function(req, res){
-    var id = req.params.id;
-    console.log('ID in dashboard: %s', id);
 
-}
 
 router.get('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
@@ -77,27 +72,27 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-// router.post('/newroom', function(req, res, next) {
-// 
-//     //User is the model created in app.js of this project
-//     var newRoom = new Room({
-//       name1: req.body.name1,
-//       name2: req.body.name1,
-//       members: [],
-//       createdOn: today,
-//       updatedOn: today    
-//     },{collection:'rooms'});
-// 
-// 
-//     console.log(newRoom);
-//     // save the user
-//     newRoom.save(function(err) {
-//       if (err) throw err;
-// 
-//       console.log('Room created!');
-//     });
-// 
-// });
+router.post('/newroom', function(req, res, next) {
+    
+    //User is the model created in app.js of this project
+    var newRoom = new Room({
+      name1: req.body.name1,
+      name2: req.body.name1,
+      members: [],
+      createdOn: today,
+      updatedOn: today    
+    },{collection:'rooms'});
+    
+    
+    console.log(newRoom);
+    // save the user
+    newRoom.save(function(err) {
+      if (err) throw err;
+
+      console.log('Room created!');
+    });
+
+});
 
 
 
