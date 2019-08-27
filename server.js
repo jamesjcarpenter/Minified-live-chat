@@ -176,7 +176,7 @@ mongoose.Promise = global.Promise;
 
 
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 
 const redis = require('redis');
@@ -313,6 +313,10 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 
 
+app.use(function(req, res, next) {
+console.dir(req.query.m)
+});
+
 
 
 var usernames = {};
@@ -322,10 +326,6 @@ var room = require("./models/roomschema");
 var usernames = {};
 
 // rooms which are currently available in chat
-app.use(function(req, res, next){
-console.dir(req.query.q)
-console.dir(req.query.order)
-});
 
 io.sockets.on('connection', function (socket) {
 

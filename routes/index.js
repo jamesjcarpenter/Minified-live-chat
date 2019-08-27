@@ -15,7 +15,7 @@ var room = require("../models/roomschema");
 
 const Room = require("../models/roomschema");
 var csrfProtection = csrf({ cookie: true });
-var parseForm = bodyParser.urlencoded({ extended: false });
+var parseForm = bodyParser.urlencoded({ extended: true });
 var url = require('url')
 
 // var username = sanitize(req.user.name);
