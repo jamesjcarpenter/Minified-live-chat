@@ -17,17 +17,7 @@ server.listen(443);
 //make sure you keep this order
 var io = require('socket.io').listen(server);
 
-module.exports = function (io) {
-
-    // all of this router's configurations
-
-    router.get('/room', function (req, res, next) {
-        io.to('someroom').emit('news', 'news');
-    });
-
-    return router;
-
-}
+app.get('/room/:id', routes.room);
 //... 
 //..
 var { check, validationResult } = require('express-validator');

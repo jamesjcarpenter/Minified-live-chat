@@ -29,7 +29,11 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 //add nonce
 
 //end nonce
+exports.room = function(req, res){
+    var id = req.params.id;
+    console.log('ID in dashboard: %s', id);
 
+}
 
 router.get('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
