@@ -355,19 +355,6 @@ var usernames = {};
 
 io.sockets.on('connection', function (socket) {
   
-  var rooms = io
-    .of(newRoom + '')
-    .on('connection', function (socket) {
-      socket.emit('a message', {
-          that: 'only'
-        , newRoom + '' : 'will get'
-      });
-      chat.emit('a message', {
-          everyone: 'in'
-        , newRoom + '' : 'will get'
-      });
-    });
-  
     var chat = io
     .of('/chat')
     .on('connection', function (socket) {
