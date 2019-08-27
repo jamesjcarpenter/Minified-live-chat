@@ -326,9 +326,6 @@ app.use(function(req, res, next){
   console.dir(req.originalUrl) // '/admin/new'
    console.dir(req.baseUrl) // '/admin'
    console.dir(req.path) // '/new'
-   console.dir(req.subdomains)
-   console.dir(req.xhr)
-   console.dir(req.stale)
 });
 
 io.sockets.on('connection', function (socket) {
