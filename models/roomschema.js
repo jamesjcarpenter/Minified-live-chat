@@ -13,7 +13,7 @@ const RoomSchema = new mongoose.Schema({
 });
 var Room = module.exports = mongoose.model('Room', RoomSchema);
 
-var room2 = new Room({ name1: 'real9k', name2: 'real9k', members: [], lastActive: '', createdOn: '8/27/2019' });
+// var room2 = new Room({ name1: 'real9k', name2: 'real9k', members: [], lastActive: '', createdOn: '8/27/2019' });
 
 room2.save(function (err, room) {
      if (err) return console.error(err);
