@@ -356,15 +356,15 @@ var usernames = {};
 io.sockets.on('connection', function (socket) {
   
     var chat = io
-    .of('/chat')
+    .of('/room?name=chat')
     .on('connection', function (socket) {
       socket.emit('a message', {
           that: 'only'
-        , '/chat': 'will get'
+        , '/room?name=chat': 'will get'
       });
       chat.emit('a message', {
           everyone: 'in'
-        , '/chat': 'will get'
+        , '/room?name=chat': 'will get'
       });
     });
 
