@@ -357,11 +357,15 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-  socket.on('join', function (room) {
-        //May be do some authorization
-        socket.join(room);
-        console.log(socket.id, "joined", room);
-    });
+  
+  socket.on("joinRoom", function(room) {
+        // only allow certain characters in room names
+        // to prevent messing with socket.io internal rooms
+        if (!(/[^\w.]/.test(room))) {
+            socket.join(room);
+        }
+      });
+  
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -386,11 +390,7 @@ io.sockets.on('connection', function (socket) {
   
 	socket.on('switchRoom', function(newroom){
 		// leave the current room (stored in session)
-    socket.on('leave', function (room) {
-            //May be do some authorization
-            socket.leave(room);
-            console.log(socket.id, "left", room);
-        });
+		socket.leave(socket.room);
 		// join new room, received as function parameter
 		socket.join(newroom);
 //		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);

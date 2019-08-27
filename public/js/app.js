@@ -3,8 +3,7 @@ window.addEventListener('load', () => {
   
   var socket = io.connect('https://anomic.io/443');
   
-  socket.emit("join",location.pathname);
-  socket.emit("chat message",{room:location.pathname, message:<val>});
+  
   
   // Chat platform
   // Local Video
@@ -36,6 +35,15 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
+    let room = window.location.pathname.slice(6);   // remove leading /chat/
+      let pos = room.indexOf('/');
+      if (pos !== -1) {
+          room = room.slice(0, pos);
+      }
+      socket.emit("joinRoom", room);
+  });
+    
+    
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
