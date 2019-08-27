@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
 var RoomSchema = require("../models/roomschema");
 
+
 const shortid = require("shortid");
 const today = Date.now();
 const id = shortid.generate();
@@ -44,7 +45,7 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
-router.get('/room?name=' + '', function(req, res) {
+router.get('/room', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
