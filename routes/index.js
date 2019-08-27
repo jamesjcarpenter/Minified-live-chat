@@ -29,10 +29,10 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 
-router.get('*', function (req, res, next) {
+router.use('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
    console.log('ok');
-   console.log(req.isAuthenticated());
+   req.room.name;
   next()
  });
 
@@ -87,14 +87,13 @@ router.post('/newroom', function(req, res, next) {
     // save the user
     newRoom.save(function(err) {
       if (err) throw err;
-
+      req.body.name1 = req.room.name;
       console.log('Room created!');
       res.redirect('/room?name=' + '' + req.body.name1);
-      res.render('index.ejs', { room: req.body.name1, chat: req.session.chat });
+      res.render('index.ejs', { room: req.room.name, chat: req.session.chat });
     });
 
 });
-
 
 
 
