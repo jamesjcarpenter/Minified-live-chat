@@ -85,7 +85,6 @@ router.post('/newroom', function(req, res, next) {
     console.log(newRoom);
     // save the user
     newRoom.save(function(err) {
-      if (err) throw err;
       console.log('Room created!');
       console.log(req.room.name);
       console.log(req.room.name1);
