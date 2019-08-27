@@ -357,6 +357,7 @@ app.use(function(req, res, next){
   var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
   console.log(originalUrl)
   console.log(fullUrl)
+  next()
 });
 
 io.sockets.on('connection', function (socket) {
