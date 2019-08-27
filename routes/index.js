@@ -47,7 +47,7 @@ router.get('/room', function(req, res, next) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   room = req.room.name;
+   room.name = req.room.name;
    if ( typeof room !== 'undefined' && room )
    {
      req.room.name;
