@@ -352,8 +352,8 @@ var room = require("./models/roomschema");
 var usernames = {};
 
 // rooms which are currently available in chat
- 
- console.log(res.locals.url);
+
+
 
 io.sockets.on('connection', function (socket) {
 
@@ -428,6 +428,10 @@ app.use(function(req, res, next) {
  
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
+  res.locals.query = req.query;
+   res.locals.url   = req.originalUrl;
+   console.log(res.locals.url)
+   console.log(req.originalUrl);
   next()
 });
 //search user (for username/profile pics/db info)
