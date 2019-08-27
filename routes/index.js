@@ -26,7 +26,6 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 //add nonce
 
 //end nonce
-var room = mongoose.model('Room', RoomSchema);
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 Room.findOne({ name1: name1 }, function (err, room) {
