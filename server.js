@@ -314,7 +314,7 @@ require("./libs/chat.js").sockets(https);
 
 
 app.use(function(req, res, next) {
-console.dir(req.query.m)
+console.dir(req.query.e)
 });
 
 
