@@ -7,6 +7,7 @@ var csrf = require('csurf');
 var bodyParser = require('body-parser');
 var sanitize = require('mongo-sanitize');
 var Room = require("../models/roomschema");
+var RoomSchema = require("../models/roomschema");
 
 var rooms = require("../models/roomschema");
 var room = require("../models/roomschema");
