@@ -32,6 +32,8 @@ var parseForm = bodyParser.urlencoded({ extended: false });
 router.use('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
    console.log('ok');
+   res.locals.query = req.query;
+    res.locals.url   = req.originalUrl;
   next()
  });
 
