@@ -9,6 +9,16 @@ $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
+var url = window.location.href;
+
+console.log(url);
+function getImageDirectoryByFullURL(url){
+    return url.substr(url.lastIndexOf("=")+1);
+}
+console.log(url.substr(url.lastIndexOf("=")+1));
+
+
+var room = url.substr(url.lastIndexOf("=")+1);
 
 
 $("#data").focus();
@@ -30,7 +40,6 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
-var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
