@@ -124,6 +124,5 @@ router.post('/logout', (req, res) => {
 //  JanusAdminConfig,
 //  JanusRoomConfig
 //}
-});
 
 module.exports = router;
