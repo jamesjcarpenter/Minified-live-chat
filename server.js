@@ -323,7 +323,13 @@ var usernames = {};
 
 // rooms which are currently available in chat
 app.use(function(req, res, next){
-  console.dir(req.query)
+  console.dir(req.originalUrl) // '/admin/new'
+   console.dir(req.baseUrl) // '/admin'
+   console.dir(req.path) // '/new'
+   console.dir(req.subdomains)
+   console.dir(req.xhr)
+   console.dir(req.stale)
+   req.protocol == ‘https’;
 });
 
 io.sockets.on('connection', function (socket) {
