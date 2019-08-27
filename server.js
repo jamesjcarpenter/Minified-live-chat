@@ -21,7 +21,7 @@ module.exports = function (io) {
 
     // all of this router's configurations
 
-    router.use('/room?name=' + '*', function (req, res, next) {
+    router.use('/room?name=' + '', function (req, res, next) {
         io.to('someroom').emit('news', 'news');
     });
 
