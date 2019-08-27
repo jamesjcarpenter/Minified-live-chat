@@ -1,4 +1,5 @@
 var express = require('express');
+const mongoose = require('mongoose');
 var router = express.Router();
 var path = require('path');
 const session = require('express-session')
