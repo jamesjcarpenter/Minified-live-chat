@@ -42,22 +42,12 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
-router.get('/room', function(req, res, next) {
+router.get('/room', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-  req.room.name;
-   if ( typeof room.name !== 'undefined' && room.name )
-   {
-     req.room.name;
-     next()
-   }
-   else
-   {
-    res.redirect('home.handlebars');
-   }
-   res.render('index.ejs', { room: req.room.name, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
+   res.render('index.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
 router.get('/profile', function(req, res) {
@@ -96,9 +86,10 @@ router.post('/newroom', function(req, res, next) {
     // save the user
     newRoom.save(function(err) {
       if (err) throw err;
+      req.body.name1 = req.room.name;
       console.log('Room created!');
+      console.log(req.room.name);
       res.redirect('/room?name=' + '' + req.body.name1);
-      req.body.name1 = room.name;
       res.render('index.ejs', { room: req.room.name, chat: req.session.chat });
     });
 
