@@ -42,6 +42,7 @@ var socket = io.connect('anomic.io/');
       }
       socket.emit("joinRoom", room);
   });
+  
     
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
@@ -194,7 +195,7 @@ socket.on('connect', function(data) {
 //      updateChatMessages();
 //   }
 //  });
-
+});
   // Room Submit Button Handler
 
   $('.jiggle .placeholder')
