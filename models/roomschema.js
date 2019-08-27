@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const express = require('express')
-const router = express.Router();
 const session = require('express-session')
 
 const RoomSchema = new mongoose.Schema({
@@ -27,32 +26,6 @@ function saveRoom(data) {
     })
 }
 
-router.post('/newroom', function(req, res, next) {
-    
-    //User is the model created in app.js of this project
-    var newRoom = new Room({
-      name1: req.body.name1,
-      name2: req.body.name1,
-      members: [],
-      createdOn: today,
-      updatedOn: today    
-    });
-    
-    
-    console.log(newRoom);
-    // save the user
-    newRoom.save(function(err) {
-      if (err) throw err;
-      console.log('Room created!');
-      console.log(req.room);
-      console.log(req.session.chat);
-      
-      res.redirect('/room?name=' + '' + req.body.name1);
-      res.render('index.ejs', { room: newRoom, chat: req.session.chat });
-    });
-
-});
-
 //module.exports.getRoomByRoomName = function(roomname, callback){
 //  var query = {roomname: roomname};
 //  Room.findOne(query, callback);
@@ -63,4 +36,3 @@ router.post('/newroom', function(req, res, next) {
   //      newRoom.save(callback);
 //}
 //
-module.exports = router;
