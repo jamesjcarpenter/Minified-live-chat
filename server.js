@@ -313,24 +313,24 @@ require("./libs/chat.js").sockets(https);
 
 
 var usernames = {};
-var rooms = require("./models/roomschema");
+var rooms = [];
 // usernames which are currently connected to the chat
 var usernames = {};
 
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-
+  socket.on('create', function(room) {
+     socket.join(room);
+   });
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join('room1');
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'Connected to room1');
 		// echo to room 1 that a person has connected to their room
