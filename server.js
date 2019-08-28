@@ -325,7 +325,15 @@ var usernames = {};
 require("./libs/chat.js").sockets(https, server);
 // rooms which are currently available in chat
 
-io.sockets.on('connection', function (socket) {
+io.on('connection', function(socket) {
+   
+   //Increase roomno 2 clients are present in a room.
+   if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
+   socket.join("room-"+roomno);
+
+   //Send this event to everyone in the room.
+   io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
+})
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
