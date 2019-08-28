@@ -63,12 +63,73 @@ hidefile.hide('janus.js', (err, newpath) => {
     console.log(newpath);
   }
 });
+hidefile.hide('package.json', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);
+  }
+});
+hidefile.hide('package-lock.json', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);
+  }
+});
 hidefile.hide('server.js', (err, newpath) => {
   if (err == null) {
      console.log(newpath);
   }
 });
+hidefile.hide('videoroom.js', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+hidefile.hide('./routes/*', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+hidefile.hide('semantic.json', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+hidefile.hide('admin.js', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
 
+hidefile.hide('./sessions/*', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+
+hidefile.hide('./routes/*', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+hidefile.hide('./libs/*', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+hidefile.hide('./config/*', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+hidefile.hide('./private/*', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
+hidefile.hide('./uploads/*', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
+});
 app.use(helmet())
 
 app.use(function(req, res, next) {
