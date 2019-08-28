@@ -35,7 +35,7 @@ const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const db = require('../config/keys').MongoURI;
+const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
@@ -44,23 +44,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
-app.use('/scripts', express.static(`${__dirname}/node_modules/`));
-app.use('/private', express.static(path.join(__dirname, 'private')));
 
-
-app.use(express.static('/semantic'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-app.use(express.static('/libs/'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-app.use(express.static(__dirname + '/public'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-app.use(express.static(__dirname + '/'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
 
 var corsOptions = {
   origin: 'https://anomic.io',
@@ -74,34 +58,14 @@ app.use(function(req, res, next) {
   next();
 });
 
-hidefile.hide('janus.js', (err, newpath) => {
+hidefile.hide('janus.js', (err, next) => {
   if (err == null) {
-    console.log(newpath);
+    next();
   }
 });
-hidefile.hide('package.json', (err, newpath) => {
+hidefile.hide('package.json', (err, next) => {
   if (err == null) {
-    console.log(newpath);
-  }
-});
-hidefile.hide('package-lock.json', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);
-  }
-});
-hidefile.hide('server.js', (err, newpath) => {
-  if (err == null) {
-     console.log(newpath);
-  }
-});
-hidefile.hide('semantic.json', (err, newpath) => {
-  if (err == null) {
-     console.log(newpath);
-  }
-});
-hidefile.hide('admin.js', (err, newpath) => {
-  if (err == null) {
-     console.log(newpath);
+    next();
   }
 });
 
@@ -247,6 +211,23 @@ socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
 
+app.use('/scripts', express.static(`${__dirname}/node_modules/`));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+app.use(express.static('/semantic'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+app.use(express.static('/libs/'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+app.use(express.static(__dirname + '/public'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+app.use(express.static(__dirname + '/'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
 
 
 
@@ -277,7 +258,11 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/room', routes, users);
 
-
+hidefile.hide('server.js', (err, newpath) => {
+  if (err == null) {
+    next();
+  }
+});
 const multer = require("multer");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
