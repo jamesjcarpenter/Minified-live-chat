@@ -63,7 +63,7 @@ app.use(function(req, res, next) {
   res.locals.styleNonce = Buffer.from(uuidv4()).toString('base64')
   next();
 });
-//
+
 app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, 'https://anomic.io/:', 'https://anomic.io/janus', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus', 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8088/janus'],
@@ -177,7 +177,7 @@ mongoose.Promise = global.Promise;
 
 
 app.use(express.urlencoded({ extended: false }));
-
+require('./routes')(app);
 
 
 const SocketAntiSpam  = require('socket-anti-spam');
@@ -209,7 +209,7 @@ app.use(function(req, res, next) {
     next();
 });
 var routes = require('./routes/index.js');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 var user = require('./models/user');
 
 var engines = require('consolidate');
