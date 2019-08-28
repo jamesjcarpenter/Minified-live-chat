@@ -232,7 +232,7 @@ socketAntiSpam.event.on('ban', data => {
 socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
-app.all(/private/*)
+app.all(/private/*);
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 app.use('/private', express.static(path.join(__dirname, 'private')));
 
