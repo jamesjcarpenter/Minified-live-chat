@@ -2,7 +2,6 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express');
 var app = express();
-app.all('/private/*')
 const hostname = 'anomic.io';
 const port = 443;
 const hidefile = require('hidefile');
@@ -89,8 +88,6 @@ hidefile.hide('admin.js', (err, newpath) => {
      console.log(newpath);
   }
 });
-
-
 
 app.use(helmet())
 
@@ -233,6 +230,7 @@ socketAntiSpam.event.on('ban', data => {
 socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
+
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 app.use('/private', express.static(path.join(__dirname, 'private')));
 
@@ -242,9 +240,6 @@ app.use('/private', express.static(path.join(__dirname, 'private')));
 
 
 app.use(express.static('/libs/'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-app.use(express.static('/config/'));
 app.use('/private', express.static(path.join(__dirname, 'private')));
 
 app.use(express.static(__dirname + '/public'));
