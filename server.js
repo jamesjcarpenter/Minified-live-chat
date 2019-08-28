@@ -322,7 +322,11 @@ var usernames = {};
 io.sockets.on('connection', function (socket) {
   socket.on('create', function(room) {
      socket.join(room);
+     console.log(socket.join(room));
+     console.log(socket.room);
+     console.log(socket.rooms);
    });
+   console.log(socket.join(room));
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -332,7 +336,7 @@ io.sockets.on('connection', function (socket) {
 		usernames[username] = username;
 		// send client to room 1
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to' + room);
+		socket.emit('serverupdatechat', 'Connected to' + socket.room);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, room);
@@ -356,7 +360,7 @@ io.sockets.on('connection', function (socket) {
 		// update socket session room title
 		socket.room = newroom;
 //		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
-		socket.emit('updaterooms', rooms, newroom);
+		socket.emit('updaterooms', socket.rooms, newroom);
 	});
 
 	// when the user disconnects.. perform this
