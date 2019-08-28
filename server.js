@@ -63,11 +63,6 @@ hidefile.hide('janus.js', (err, newpath) => {
     console.log(newpath);
   }
 });
-hidefile.hide('package.json', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);
-  }
-});
 hidefile.hide('server.js', (err, newpath) => {
   if (err == null) {
      console.log(newpath);
