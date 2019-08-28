@@ -4,6 +4,9 @@ var express = require('express');
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
+const events = require("events");
+const _ = require("lodash");
+const eventEmitter = new events.EventEmitter();
 var server = https.createServer({
 url: '/janus',
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
@@ -331,6 +334,12 @@ io.sockets.on('connection', function (socket) {
 		usernames[username] = username;
 		// send client to room 1
 		socket.join('room1');
+    
+    socket.on("typing", function() {
+      socket
+        .to(socket.room)
+        .broadcast.emit("typing", socket.username + " : is typing...");
+    });
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'Connected to room1');
 		// echo to room 1 that a person has connected to their room
@@ -341,10 +350,139 @@ io.sockets.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+      //emits event to save chat to database.
+      eventEmitter.emit("save-chat", {
+        msgFrom: socket.username,
+        msgTo: data.msgTo,
+        msg: data.msg,
+        room: socket.room,
+        date: data.date
+      });
+      //emits event to send chat msg to all clients.
+      ioChat.to(socket.room).emit("updatechat", {
+        msgFrom: socket.username,
+        msg: data.msg,
+        date: data.date
+      });
+    });
 	});
   
-  
+  eventEmitter.on("save-chat", function(data) {
+    // var today = Date.now();
+
+    var newChat = new chatModel({
+      msgFrom: data.msgFrom,
+      msgTo: data.msgTo,
+      msg: data.msg,
+      room: data.room,
+      createdOn: data.date
+    });
+
+    newChat.save(function(err, result) {
+      if (err) {
+        console.log("Error : " + err);
+      } else if (result == undefined || result == null || result == "") {
+        console.log("Chat Is Not Saved.");
+      } else {
+        console.log("Chat Saved.");
+        //console.log(result);
+      }
+    });
+  }); //end of saving chat.
+
+  //reading chat from database.
+  eventEmitter.on("read-chat", function(data) {
+    chatModel
+      .find({})
+      .where("room")
+      .equals(data.room)
+      .sort("-createdOn")
+      .skip(data.msgCount)
+      .lean()
+      .limit(5)
+      .exec(function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          //calling function which emits event to client to show chats.
+          oldChats(result, data.username, data.room);
+        }
+      });
+  }); //end of reading chat from database.
+
+  //listening for get-all-users event. creating list of all users.
+  eventEmitter.on("get-all-users", function() {
+    userModel
+      .find({})
+      .select("username")
+      .exec(function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          //console.log(result);
+          for (var i = 0; i < result.length; i++) {
+            userStack[result[i].username] = "Offline";
+          }
+          //console.log("stack "+Object.keys(userStack));
+          sendUserStack();
+        }
+      });
+  }); //end of get-all-users event.
+
+  //listening get-room-data event.
+  eventEmitter.on("get-room-data", function(room) {
+    roomModel.find(
+      {
+        $or: [
+          {
+            name1: room.name1
+          },
+          {
+            name1: room.name2
+          },
+          {
+            name2: room.name1
+          },
+          {
+            name2: room.name2
+          }
+        ]
+      },
+      function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          if (result == "" || result == undefined || result == null) {
+            var today = Date.now();
+
+            newRoom = new roomModel({
+              name1: room.name1,
+              name2: room.name2,
+              lastActive: today,
+              createdOn: today
+            });
+
+            newRoom.save(function(err, newResult) {
+              if (err) {
+                console.log("Error : " + err);
+              } else if (
+                newResult == "" ||
+                newResult == undefined ||
+                newResult == null
+              ) {
+                console.log("Some Error Occured During Room Creation.");
+              } else {
+                setRoom(newResult._id); //calling setRoom function.
+              }
+            }); //end of saving room.
+          } else {
+            var jresult = JSON.parse(JSON.stringify(result));
+            setRoom(jresult[0]._id); //calling setRoom function.
+          }
+        } //end of else.
+      }
+    ); //end of find room.
+  }); 
 	socket.on('switchRoom', function(newroom){
 		// leave the current room (stored in session)
 		socket.leave(socket.room);
