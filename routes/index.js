@@ -43,32 +43,31 @@ router.use(function (req, res, next) {
     } else {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
-    }
+    });
     if (req.originalUrl === '/room' {
       return next();
     } else {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
-    }
+  });
     if (req.originalUrl === '/register' {
       return next();
     } else {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
-    }
+});
     if (req.originalUrl === '/profile' {
       return next();
     } else {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
-    }
+});
     if (req.originalUrl === '/dashboard' {
       return next();
     } else {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
-    })
-  })
+});
 });
 
 router.get('/', function(req, res) {
