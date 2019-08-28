@@ -203,7 +203,10 @@ socket.on('connect', function(data) {
       }
   
     }); // end of scroll event.
-  
+    socket.on('connectToRoom',function(data) {
+           document.body.innerHTML = '';
+           document.write(data);
+        });
     //listening old-chats event.
     socket.on('old-chats',function(data){
   

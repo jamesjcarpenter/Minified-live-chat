@@ -339,12 +339,9 @@ io.on('connection', function(socket) {
 		socket.username = username;
     console.log(rooms.name1);
 		// store the room name in the socket session for this client
-		socket.room = rooms.name1;
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join('room1');
-    
     socket.on("typing", function() {
       socket
         .to(socket.room)
