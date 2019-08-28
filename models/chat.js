@@ -24,4 +24,3 @@ app.post('/message', function(req, res, next) {
   });
   console.log(newChat);
 });
-module.exports = router;
