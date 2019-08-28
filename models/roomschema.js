@@ -27,7 +27,7 @@ function saveRoom(data) {
     })
 }
 
-router.post('/newroom', function(req, res, next) {
+app.post('/newroom', function(req, res, next) {
     
     //User is the model created in app.js of this project
     var newRoom = new Room({
