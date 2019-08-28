@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const express = require('express')
-const router = express.Router();
 const session = require('express-session')
 
 const RoomSchema = new mongoose.Schema({
@@ -47,7 +46,7 @@ router.post('/newroom', function(req, res, next) {
       console.log(req.room);
       console.log(req.session.chat);
       
-      res.redirect('/room?name=' + '' + req.body.name1);
+      res.redirect('/room' + '?name=' + '' + req.body.name1);
       res.render('index.ejs', { room: newRoom, chat: req.session.chat });
     });
 
@@ -63,4 +62,3 @@ router.post('/newroom', function(req, res, next) {
   //      newRoom.save(callback);
 //}
 //
-module.exports = router;
