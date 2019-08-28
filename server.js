@@ -43,9 +43,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
-var routes = require('./routes/index.js');
-var users = require('./routes/users');
-var user = require('./models/user');
+
 
 var corsOptions = {
   origin: 'https://anomic.io',
@@ -205,11 +203,16 @@ socketAntiSpam.event.on('kick', data => {
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/routes'));
+app.use(express.static(__dirname + '/config'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
     next();
 });
+var routes = require('./routes/index.js');
+var users = require('./routes/users');
+var user = require('./models/user');
 
 var engines = require('consolidate');
 
