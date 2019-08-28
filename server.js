@@ -310,6 +310,10 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https, server);
 
 
+const events = require("events");
+const _ = require("lodash");
+const eventEmitter = new events.EventEmitter();
+
 const ioChat = io.of("/room");
 const userStack = {};
 let oldChats, sendUserStack, setRoom;
