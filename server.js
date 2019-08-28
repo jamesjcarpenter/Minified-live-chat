@@ -16,7 +16,6 @@ server.listen(443);
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
-require("./libs/chat.js").sockets(server);
 
 //... 
 //..
@@ -308,7 +307,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-
+require("./libs/chat.js").sockets(https, server).listen(443)
 
 
 
