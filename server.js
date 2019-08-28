@@ -349,7 +349,7 @@ app.post('/newroom', function(req, res, next) {
     var room = newRoom.name1;
 });
 // rooms which are currently available in chat
-require('url').parse('/room?name=*', {parseQueryString: true}).query
+var roomname = require('url').parse('/room?name=*', {parseQueryString: true}).query
 io.sockets.on('connection', function (socket) {
 
 
@@ -358,17 +358,17 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = room;
+		socket.room =roomname;
     
 		// add the client's username to the global list
-		usernames[username] = username;
+		usernames[username] = roomname;
 		// send client to room 1
-		socket.join(room);
+		socket.join(roomname);
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to' + room);
+		socket.emit('serverupdatechat', 'Connected to' + roomname);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, room);
+		socket.emit('updaterooms', rooms, roomname);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
