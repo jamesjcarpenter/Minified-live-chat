@@ -313,8 +313,8 @@ require("./libs/chat.js").sockets(https);
 
 
 var usernames = {};
-let rooms = db.collection('rooms');
-let chat = db.collection('chat');
+var rooms = require("./models/roomschema");
+var chat = require("./models/chat");
 // usernames which are currently connected to the chat
 var usernames = {};
 
