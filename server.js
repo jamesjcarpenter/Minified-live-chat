@@ -324,7 +324,7 @@ var rooms = require("./models/roomschema");
 var usernames = {};
 require("./libs/chat.js").sockets(https, server);
 // rooms which are currently available in chat
-
+var roomno = 1;
 io.on('connection', function(socket) {
    
    //Increase roomno 2 clients are present in a room.
