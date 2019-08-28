@@ -321,7 +321,7 @@ var usernames = {};
 
 io.sockets.on('connection', function (socket) {
   socket.on('create', function(room) {
-     socket.join(room);
+     socket.join(socket.room);
      console.log(socket.room);
      console.log(socket.room);
    });
