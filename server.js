@@ -272,19 +272,19 @@ const parser = multer({ storage: storage });
 //     });
     
     
-    console.log(newRoom.name1);
-    // save the user
-    newRoom.save(function(err) {
-      if (err) throw err;
-      console.log('Room created!');
-      console.log(req.room);
-      console.log(req.session.chat);
-      
-      res.redirect('/room?name=' + '' + req.body.name1);
-      res.render('index.ejs', { room: newRoom, chat: req.session.chat });
-    });
-
-});
+//     console.log(newRoom.name1);
+//     // save the user
+//     newRoom.save(function(err) {
+//       if (err) throw err;
+//       console.log('Room created!');
+//       console.log(req.room);
+//       console.log(req.session.chat);
+// 
+//       res.redirect('/room?name=' + '' + req.body.name1);
+//       res.render('index.ejs', { room: newRoom, chat: req.session.chat });
+//     });
+// 
+// });
 
 app.post('/api/images', parser.single("image"), (req, res) => {
   console.log(req.file) // to see what is returned to you
