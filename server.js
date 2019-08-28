@@ -346,8 +346,7 @@ io.sockets.on('connection', function (socket) {
       console.log("roomId : " + socket.room);
       socket.join(socket.room);
       ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
-    };
-  }); //end of set-room event.
+    }; //end of set-room event.
 
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'Connected to room1');
