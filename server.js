@@ -4,7 +4,6 @@ var express = require('express');
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
-const hidefile = require('hidefile');
 var server = https.createServer({
 url: '/janus',
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
@@ -57,8 +56,6 @@ app.use(function(req, res, next) {
   var username = req.user.name;
   next();
 });
-
-
 
 app.use(helmet())
 
@@ -202,26 +199,11 @@ socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
 
-app.use('/scripts', express.static(`${__dirname}/node_modules/`));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-app.use(express.static('/semantic'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-app.use(express.static('/libs/'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
+app.all('/private/*');
 
 app.use(express.static(__dirname + '/public'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
 app.use(express.static(__dirname + '/'));
 app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -391,23 +373,14 @@ io.sockets.on('connection', function (socket) {
 		socket.leave(socket.room);
 	});
 });
-hidefile.hide('janus.js', (err, next) => {
-  if (err == null) {
-    next();
-  }
-});
-hidefile.hide('package.json', (err, next) => {
-  if (err == null) {
-    next();
-  }
-});
-hidefile.hide('server.js', (err, newpath) => {
-  if (err == null) {
-    next();
-  }
-});
+
 
 // Provide access to node_modules folder
+app.use('/scripts', express.static(`${__dirname}/node_modules/`));
+
+app.use(express.static('/semantic'));
+
+app.use(express.static('/libs/'));
 
 // global variables
 
