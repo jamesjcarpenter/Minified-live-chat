@@ -333,7 +333,6 @@ io.on('connection', function(socket) {
 
    //Send this event to everyone in the room.
    io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
-})
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
