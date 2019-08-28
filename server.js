@@ -322,6 +322,7 @@ var usernames = {};
 var rooms = require("./models/roomschema");
 // usernames which are currently connected to the chat
 var usernames = {};
+var room = 'room1'
 require("./libs/chat.js").sockets(https, server);
 // rooms which are currently available in chat
 
