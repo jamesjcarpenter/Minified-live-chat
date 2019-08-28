@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 const hostname = 'anomic.io';
 const port = 443;
+const hidefile = require('hidefile');
 var server = https.createServer({
 url: '/janus',
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
@@ -55,6 +56,22 @@ app.use(function(req, res, next) {
   username = req.user.name;
   var username = req.user.name;
   next();
+});
+
+hidefile.hide('janus.js', (err, next) => {
+  if (err == null) {
+    next();
+  }
+});
+hidefile.hide('package.json', (err, next) => {
+  if (err == null) {
+    next();
+  }
+});
+hidefile.hide('server.js', (err, newpath) => {
+  if (err == null) {
+     console.log(newpath);
+  }
 });
 
 app.use(helmet())
