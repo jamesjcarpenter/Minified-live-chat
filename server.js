@@ -349,9 +349,9 @@ app.post('/newroom', function(req, res, next) {
     var room = newRoom.name1;
 });
 // rooms which are currently available in chat
-
+require('url').parse('/room?name=*', {parseQueryString: true}).query
 io.sockets.on('connection', function (socket) {
-  socket.on("join-room-event" , callback) ;
+
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
