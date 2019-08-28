@@ -244,6 +244,9 @@ app.use('/private', express.static(path.join(__dirname, 'private')));
 app.use(express.static('/libs/'));
 app.use('/private', express.static(path.join(__dirname, 'private')));
 
+app.use(express.static('/config/'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
 app.use(express.static(__dirname + '/public'));
 app.use('/private', express.static(path.join(__dirname, 'private')));
 
