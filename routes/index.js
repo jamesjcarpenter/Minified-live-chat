@@ -67,6 +67,8 @@ router.use(function (req, res, next) {
     } else {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
+    })
+  })
 });
 
 router.get('/', function(req, res) {
