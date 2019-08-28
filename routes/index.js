@@ -30,11 +30,11 @@ var url = require('url')
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 
-router.use('*', function (req, res, next) {
-  res.locals.login = req.isAuthenticated();
-   console.log('ok');
-  next()
- });
+// router.use('*', function (req, res, next) {
+//   res.locals.login = req.isAuthenticated();
+//    console.log('ok');
+//   next()
+//  });
 
 
 router.get('/', function(req, res) {
