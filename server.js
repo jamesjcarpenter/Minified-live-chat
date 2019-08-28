@@ -16,7 +16,19 @@ server.listen(443);
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
+const events = require("events");
+const _ = require("lodash");
+const eventEmitter = new events.EventEmitter();
 
+const ioChat = io.of("/room");
+const userStack = {};
+let oldChats, sendUserStack, setRoom;
+
+var usernames = {};
+var rooms = require("./models/roomschema");
+// usernames which are currently connected to the chat
+var usernames = {};
+require("./libs/chat.js").sockets(https, server);
 //... 
 //..
 var { check, validationResult } = require('express-validator');
@@ -309,24 +321,9 @@ app.use((err, req, res, next) => {
 //chat
 
 
-
-const events = require("events");
-const _ = require("lodash");
-const eventEmitter = new events.EventEmitter();
-
-const ioChat = io.of("/room");
-const userStack = {};
-let oldChats, sendUserStack, setRoom;
-
-var usernames = {};
-var rooms = require("./models/roomschema");
-// usernames which are currently connected to the chat
-var usernames = {};
-
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-require("./libs/chat.js").sockets(https, server);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
