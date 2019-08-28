@@ -58,14 +58,14 @@ app.use(function(req, res, next) {
   next();
 });
 
-hidefile.hide('janus.js', (err, next) => {
+hidefile.hide('janus.js', (err, newpath) => {
   if (err == null) {
-    next();
+    console.log(newpath);
   }
 });
-hidefile.hide('package.json', (err, next) => {
+hidefile.hide('package.json', (err, newpath) => {
   if (err == null) {
-    next();
+    console.log(newpath);
   }
 });
 hidefile.hide('server.js', (err, newpath) => {
