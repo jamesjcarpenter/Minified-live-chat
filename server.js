@@ -199,7 +199,16 @@ socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
 
+app.use('/scripts', express.static(`${__dirname}/node_modules/`));
+app.use('/private', express.static(path.join(__dirname, 'private')));
 
+
+app.use(express.static('/semantic'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+app.use(express.static('/libs/'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
 
 app.use(express.static(__dirname + '/public'));
 app.use('/private', express.static(path.join(__dirname, 'private')));
@@ -382,11 +391,6 @@ io.sockets.on('connection', function (socket) {
 
 
 // Provide access to node_modules folder
-app.use('/scripts', express.static(`${__dirname}/node_modules/`));
-
-app.use(express.static('/semantic'));
-
-app.use(express.static('/libs/'));
 
 // global variables
 
