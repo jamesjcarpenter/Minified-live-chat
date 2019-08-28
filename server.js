@@ -321,9 +321,9 @@ var usernames = {};
 
 io.sockets.on('connection', function (socket) {
   socket.on('create', function(room) {
-     socket.join(socket.room);
+     socket.join(room);
      console.log(socket.room);
-     console.log(socket.rooms);
+     console.log(socket.room);
    });
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
@@ -337,7 +337,7 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('serverupdatechat', 'Connected to' + socket.room);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, room);
+		socket.emit('updaterooms', rooms, socket.room);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
