@@ -63,7 +63,7 @@ app.use(function(req, res, next) {
   res.locals.styleNonce = Buffer.from(uuidv4()).toString('base64')
   next();
 });
-
+//
 app.use(helmet.contentSecurityPolicy({
  directives: {
    defaultSrc: ["'self'", (req, res) => `'nonce-${res.locals.styleNonce}'`, 'https://anomic.io/:', 'https://anomic.io/janus', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus', 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8088/janus'],
