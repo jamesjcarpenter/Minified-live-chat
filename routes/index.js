@@ -71,8 +71,50 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
+router.get('/package.json', function(req, res) {
+      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
+router.get('/public', function(req, res) {
+  res.status(404)        // HTTP status 404: NotFound
+  .send('Not found');
+});
+
+router.get('/node_modules', function(req, res) {
+  res.status(404)        // HTTP status 404: NotFound
+  .send('Not found');
+});
+
+router.get('/ws/v1/cluster/apps/new-application', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
 
 
+router.get('/src', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
+
+router.get('/npm', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
+
+router.get('/sessions', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
+
+router.get('/config', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
+
+// router.get('/server', function(req, res) {
+//       res.status(404)        // HTTP status 404: NotFound
+//       .send('Not found');
+// });
 
 
 router.post('/logout', (req, res) => {
