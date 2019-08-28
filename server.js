@@ -329,7 +329,7 @@ io.sockets.on('connection', function (socket) {
 require("./libs/chat.js").sockets(https, server);
 
 
-if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
+if(io.nsps['/'].adapter.rooms["room-"+room] && io.nsps['/'].adapter.rooms["room-"+room].length > 1) room++;
 socket.join("room-"+room);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
