@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   
   
-  var socket = io.connect('167.71.115.76');
+  var socket = io.connect('anomic.io/room');
   
   // Chat platform
   // Local Video
