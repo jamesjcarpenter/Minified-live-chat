@@ -16,7 +16,12 @@ server.listen(443);
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
-
+app.configure(function() {
+  app.use(app.router);
+  app.use(express.logger('dev')); 
+  app.use('/public',express.static(__dirname + '/public'));
+  app.use('/private',express.static(__dirname + '/private'));
+});
 //... 
 //..
 var { check, validationResult } = require('express-validator');

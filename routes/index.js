@@ -1,5 +1,4 @@
 var express = require('express');
-var app = express();
 const mongoose = require('mongoose');
 var router = express.Router();
 var path = require('path');
@@ -37,13 +36,6 @@ var url = require('url')
 //   next()
 //  });
 
-
-router.configure(function() {
-  router.use(app.router);
-  router.use(express.logger('dev')); 
-  router.use('/public',express.static(__dirname + '/public'));
-  router.use('/private',express.static(__dirname + '/private'));
-});
 
 router.get('/', function(req, res) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
