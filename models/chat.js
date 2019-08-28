@@ -11,3 +11,16 @@ const ChatSchema = new mongoose.Schema({
 });
 
 var Chat = module.exports = mongoose.model('Chat', ChatSchema);
+
+
+router.post('/message', function(req, res, next) {
+  var newChat = new Chat({
+    msgFrom: req.body.messagesend,
+    msgTo: req.body.messageto,
+    msg: req.body.data,
+    room: req.body.room,
+    createdOn: today,
+    
+    console.log(newChat);
+  });
+});
