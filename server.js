@@ -73,7 +73,7 @@ app.use(helmet.contentSecurityPolicy({
    imgSrc: ["'self'"],
    objectSrc: ["'none'"],
    formAction: ["'self'"],
-   connectSrc: ["'self'", 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8089/*', 'https://www.anomic.io:80', 'https://www.anomic.io:443', 'https://www.anomic.io:8088/janus', 'https://www.anomic.io:*', 'https://www.anomic.io/socket.io', 'https://www.anomic.io/*', 'https://anomic.io:*', 'wss://anomic.io:*', 'https://anomic.io', 'https://anomic.io:*/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus' ],
+   connectSrc: ["'self'", 'https://www.anomic.io:8089/janus', 'https://www.anomic.io:8089/*', 'https://www.anomic.io:80', 'https://www.anomic.io:443', 'https://www.anomic.io:8088/janus', 'https://www.anomic.io:*', 'https://www.anomic.io/*', 'https://anomic.io:*', 'wss://anomic.io:*', 'https://anomic.io', 'https://anomic.io:*/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus' ],
    frameSrc: ["'self'", 'https://www.webrtc-experiment.com/'],
    upgradeInsecureRequests: true,
    workerSrc: false,
@@ -307,31 +307,20 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
+require("./libs/chat.js").sockets(https);
 
 
 
-const events = require("events");
-const _ = require("lodash");
-const eventEmitter = new events.EventEmitter();
-
-const ioChat = io.of("/room");
-const userStack = {};
-let oldChats, sendUserStack, setRoom;
 
 var usernames = {};
 var rooms = require("./models/roomschema");
 // usernames which are currently connected to the chat
 var usernames = {};
-var room = 'room1'
-require("./libs/chat.js").sockets(https, server);
+
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-require("./libs/chat.js").sockets(https, server);
 
-
-if(io.nsps['/'].adapter.rooms["room-"+room] && io.nsps['/'].adapter.rooms["room-"+room].length > 1) room++;
-socket.join("room-"+room);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -342,27 +331,6 @@ socket.join("room-"+room);
 		usernames[username] = username;
 		// send client to room 1
 		socket.join('room1');
-    
-    socket.on("typing", function() {
-      socket
-        .to(socket.room)
-        .broadcast.emit("typing", socket.username + " : is typing...");
-    });
-    socket.on("set-room", function(room) {
-      //leaving room.
-      socket.leave(socket.room);
-      //getting room data.
-      eventEmitter.emit("get-room-data", room);
-      //setting room and join.
-      setRoom = function(roomId) {
-        socket.room = roomId;
-        console.log("roomId : " + socket.room);
-        socket.join(socket.room);
-        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
-      };
-    }); //end of set-room event.
-
-
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'Connected to room1');
 		// echo to room 1 that a person has connected to their room
@@ -374,22 +342,6 @@ socket.join("room-"+room);
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
-    socket.on("chat-msg", function(data) {
-      //emits event to save chat to database.
-      eventEmitter.emit("save-chat", {
-        msgFrom: socket.username,
-        msgTo: data.msgTo,
-        msg: data.msg,
-        room: socket.room,
-        date: data.date
-      });
-      //emits event to send chat msg to all clients.
-      ioChat.to(socket.room).emit("chat-msg", {
-        msgFrom: socket.username,
-        msg: data.msg,
-        date: data.date
-      });
-    });
 	});
   
   
