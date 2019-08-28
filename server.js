@@ -332,14 +332,14 @@ io.sockets.on('connection', function (socket) {
 		usernames[username] = username;
 		// send client to room 1
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to room1');
+		socket.emit('serverupdatechat', 'Connected to' + room);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
+		socket.emit('updaterooms', rooms, room);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
-	socket.on('sendchat', function (data) {
+	socket.on('sendchat', function (data, room) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
 	});
