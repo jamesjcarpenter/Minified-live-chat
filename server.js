@@ -307,7 +307,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-require("./libs/chat.js").sockets(https, server).listen(443)
+require("./libs/chat.js").sockets(https, server).listen(80)
 
 
 
