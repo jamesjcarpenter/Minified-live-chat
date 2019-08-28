@@ -30,11 +30,11 @@ var url = require('url')
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 
-// router.use('*', function (req, res, next) {
-//   res.locals.login = req.isAuthenticated();
-//    console.log('ok');
-//   next()
-//  });
+router.use('*', function (req, res, next) {
+  res.locals.login = req.isAuthenticated();
+   console.log('ok');
+  next()
+ });
 
 
 router.get('/', function(req, res) {
@@ -53,6 +53,22 @@ router.get('/room', function(req, res) {
 
 router.get('/profile', function(req, res) {
       res.render('profile.handlebars');
+});
+
+router.get('/admin', function(req, res) {
+  req.user = req.isAuthenticated,
+  username = req.user.name;
+  res.locals.query = req.query;
+   res.locals.url   = req.originalUrl;
+   res.render('admin.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
+router.get('/dashboard', function(req, res) {
+      res.render('dashboard.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
+router.get('/home', function(req, res) {
+      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.post('/newroom', function(req, res, next) {
@@ -79,33 +95,6 @@ router.post('/newroom', function(req, res, next) {
       res.render('index.ejs', { room: newRoom, chat: req.session.chat });
     });
 
-});
-
-router.get('/admin', function(req, res) {
-  req.user = req.isAuthenticated,
-  username = req.user.name;
-  res.locals.query = req.query;
-   res.locals.url   = req.originalUrl;
-   res.render('admin.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
-});
-
-router.get('/dashboard', function(req, res) {
-      res.render('dashboard.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
-});
-
-router.get('/home', function(req, res) {
-      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
-});
-
-router.post('/message', function(req, res, next) {
-  var newChat = new Chat({
-    msgFrom: req.body.messagesend,
-    msgTo: req.body.messageto,
-    msg: req.body.data,
-    room: req.body.room,
-    createdOn: today,
-  });
-  console.log(newChat);
 });
 
 
