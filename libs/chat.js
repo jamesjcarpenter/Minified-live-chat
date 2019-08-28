@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 const events = require("events");
 const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
+const db = require('./config/keys').MongoURI;
+mongoose.connect(db, { useNewUrlParser: true })
+.then(() => console.log('Socket connected..'))
+.catch(err => console.log(err));
 
 //adding db models
 require("../models/user.js");
@@ -19,7 +23,7 @@ module.exports.sockets = function(https) {
   io = socketio.listen(https);
 
   //setting chat route
-  const ioChat = io.of("/room");
+  const ioChat = io.of("/room?name=:room");
   const userStack = {};
   let oldChats, sendUserStack, setRoom;
   const userSocket = {};
