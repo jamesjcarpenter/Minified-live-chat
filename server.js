@@ -349,62 +349,7 @@ app.post('/newroom', function(req, res, next) {
     var room = newRoom.name1;
 });
 // rooms which are currently available in chat
-var url = require('url')
-  , ev = new events.EventEmitter()
-  var url = require('url')
-  , ev = new events.EventEmitter()
-
-// <ns name>: <ns regexp>
-var routes = {
-  // /user/:id
-  'user': '^\\/user\\/(\\d+)$',
-
-  // /:something/:id
-  'default': '^\\/(\\\w+)\\/(\\d+)$'
-};
-
-// global entry point for new connections
-io.sockets.on('connection', function (socket) {
-  // extract namespace from connected url query param 'ns'
-  var ns = url.parse(socket.handshake.url, true).query.ns;
-  console.log('connected ns: '+ns)
-
-  //
-  for (var k in routes) {
-    var routeName = k;
-    var routeRegexp = new RegExp(routes[k]);
-
-    // if connected ns matched with route regexp
-    if (ns.match(routeRegexp)) {
-      console.log('matched: '+routeName)
-
-      // create new namespace (or use previously created)
-      io.of(ns).on('connection', function (socket) {
-        // fire event when socket connecting
-        ev.emit('socket.connection route.'+routeName, socket);
-
-        // @todo: add more if needed
-        // on('message') -> ev.emit(...)
-      });
-
-      break;
-    }
-  }
-
-  // when nothing matched
-  // ...
-});
-
-// event when socket connected in 'user' namespace
-ev.on('socket.connection route.user', function () {
-  console.log('route[user] connecting..');
-});
-
-// event when socket connected in 'default' namespace
-ev.on('socket.connection route.default', function () {
-  console.log('route[default] connecting..');
-});
-  
+var roomname = require('url').parse('/room?name=*', {parseQueryString: true}).query
 io.sockets.on('connection', function (socket) {
 
 
@@ -413,17 +358,17 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
+		socket.room = ;
     
 		// add the client's username to the global list
-		usernames[username] = 'room1';
+		usernames[username] = roomname;
 		// send client to room 1
-		socket.join('room1');
+		socket.join(roomname);
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to room1');
+		socket.emit('serverupdatechat', 'Connected to' + roomname);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, room);
+		socket.emit('updaterooms', rooms, roomname);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
