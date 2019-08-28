@@ -36,6 +36,39 @@ var url = require('url')
 //   next()
 //  });
 
+router.use(function (req, res, next) {
+
+    if (req.originalUrl === '/login') {
+    return next();
+    } else {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+    }
+    if (req.originalUrl === '/room' {
+      return next();
+    } else {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+    }
+    if (req.originalUrl === '/register' {
+      return next();
+    } else {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+    }
+    if (req.originalUrl === '/profile' {
+      return next();
+    } else {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+    }
+    if (req.originalUrl === '/dashboard' {
+      return next();
+    } else {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+    }
+});
 
 router.get('/', function(req, res) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
@@ -71,134 +104,7 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.get('/package.json', function(req, res) {
-      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
-});
 
-router.get('/public/*', function(req, res) {
-  res.status(404)        // HTTP status 404: NotFound
-  .send('Not found');
-});
-
-router.get('/node_modules/*', function(req, res) {
-  res.status(404)        // HTTP status 404: NotFound
-  .send('Not found');
-});
-
-router.get('node_modules/*', function(req, res) {
-  res.status(404)        // HTTP status 404: NotFound
-  .send('Not found');
-});
-router.get('node_modules', function(req, res) {
-  res.status(404)        // HTTP status 404: NotFound
-  .send('Not found');
-});
-
-router.get('/ws/v1/cluster/apps/new-application', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-
-router.get('/src/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/npm/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/sessions/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/config/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/server/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-router.get('/server.js', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('server.js', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('janus.js', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('.js', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/semantic', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/routes', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/routes/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/models/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/plugins/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-router.get('/certs/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/views/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/videoroom/*', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-router.get('/package-lock.json', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-router.get('package.json', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-router.get('package-lock.json', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
-
-router.get('/packagelock.json', function(req, res) {
-      res.status(404)        // HTTP status 404: NotFound
-      .send('Not found');
-});
 
 
 
