@@ -80,7 +80,7 @@ app.post('/message', function(req, res, next) {
     room: req.body.room,
     createdOn: today,
     
-    console.log(newChat);
+
   });
 });
 
