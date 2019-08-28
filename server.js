@@ -353,6 +353,8 @@ app.post('/message', function(req, res, next) {
     msg: req.body.data,
     room: req.body.room,
     createdOn: today,
+    
+    console.log(newChat);
   });
 });
 
