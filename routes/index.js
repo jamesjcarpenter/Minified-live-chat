@@ -85,6 +85,15 @@ router.get('/node_modules/*', function(req, res) {
   .send('Not found');
 });
 
+router.get('node_modules/*', function(req, res) {
+  res.status(404)        // HTTP status 404: NotFound
+  .send('Not found');
+});
+router.get('node_modules', function(req, res) {
+  res.status(404)        // HTTP status 404: NotFound
+  .send('Not found');
+});
+
 router.get('/ws/v1/cluster/apps/new-application', function(req, res) {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
@@ -120,7 +129,12 @@ router.get('/server.js', function(req, res) {
       .send('Not found');
 });
 
-router.get('/janus.js', function(req, res) {
+router.get('server.js', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
+
+router.get('janus.js', function(req, res) {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
 });
@@ -172,6 +186,15 @@ router.get('/package-lock.json', function(req, res) {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
 });
+router.get('package.json', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
+router.get('package-lock.json', function(req, res) {
+      res.status(404)        // HTTP status 404: NotFound
+      .send('Not found');
+});
+
 router.get('/packagelock.json', function(req, res) {
       res.status(404)        // HTTP status 404: NotFound
       .send('Not found');
