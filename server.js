@@ -2,14 +2,15 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express');
 var app = express();
+app.all('/private/*')
 const hostname = 'anomic.io';
 const port = 443;
 const hidefile = require('hidefile');
 var server = https.createServer({
 url: '/janus',
-cert: fs.readFileSync('config/ssli/anomic_io.crt'),
-ca: fs.readFileSync('config/ssli/anomic_io.ca-bundle'),
-key: fs.readFileSync('config/ssli/private.key'),
+cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
+ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
+key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
 },app);
@@ -35,7 +36,7 @@ const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const db = require('/config/keys').MongoURI;
+const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
@@ -232,7 +233,6 @@ socketAntiSpam.event.on('ban', data => {
 socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
-app.all('/private/*')
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 app.use('/private', express.static(path.join(__dirname, 'private')));
 
