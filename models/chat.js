@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require('express')
+var app = express();
 const session = require('express-session')
 
 const ChatSchema = new mongoose.Schema({
