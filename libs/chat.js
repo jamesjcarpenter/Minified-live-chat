@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const events = require("events");
 const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
-const db = require('./config/keys').MongoURI;
+const db = require('../config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('Socket connected..'))
 .catch(err => console.log(err));
