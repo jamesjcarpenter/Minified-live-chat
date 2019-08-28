@@ -35,7 +35,7 @@ const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const db = require('config/keys').MongoURI;
+const db = require('/config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
