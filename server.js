@@ -43,7 +43,9 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
-
+var routes = require('./routes/index.js');
+var users = require('./routes/users');
+var user = require('./models/user');
 
 var corsOptions = {
   origin: 'https://anomic.io',
@@ -208,9 +210,6 @@ app.use(function(req, res, next) {
     exports.token = req.user;
     next();
 });
-var routes = require('./routes/index.js');
-var users = require('./routes/users');
-var user = require('./models/user');
 
 var engines = require('consolidate');
 
