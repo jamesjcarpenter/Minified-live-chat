@@ -202,7 +202,14 @@ socketAntiSpam.event.on('kick', data => {
 
 
 app.use(express.static(__dirname + '/public'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
 app.use(express.static(__dirname + '/'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
