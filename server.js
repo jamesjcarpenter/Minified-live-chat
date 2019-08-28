@@ -349,9 +349,9 @@ app.post('/newroom', function(req, res, next) {
     var room = newRoom.name1;
 });
 // rooms which are currently available in chat
-var url = require('url');
+var url = require('url')
   , ev = new events.EventEmitter()
-  var url = require('url');
+  var url = require('url')
   , ev = new events.EventEmitter()
 
 // <ns name>: <ns regexp>
