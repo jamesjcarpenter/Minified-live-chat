@@ -72,7 +72,7 @@ router.get('/home', function(req, res) {
 });
 
 
-app.post('/message', function(req, res, next) {
+router.post('/message', function(req, res, next) {
   var newChat = new Chat({
     msgFrom: req.body.messagesend,
     msgTo: req.body.messageto,
