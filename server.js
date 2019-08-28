@@ -324,24 +324,24 @@ var rooms = require("./models/roomschema");
 var usernames = {};
 require("./libs/chat.js").sockets(https, server);
 // rooms which are currently available in chat
-var roomno = 1;
-io.on('connection', function(socket) {
-   
-   //Increase roomno 2 clients are present in a room.
-   if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
-   socket.join("room-"+roomno);
 
-   //Send this event to everyone in the room.
-   io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
+io.sockets.on('connection', function (socket) {
+require("./libs/chat.js").sockets(https, server);
+
+
+if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
+socket.join("room-"+room);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
-    console.log(rooms.name1);
 		// store the room name in the socket session for this client
+		socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
+		socket.join('room1');
+    
     socket.on("typing", function() {
       socket
         .to(socket.room)
