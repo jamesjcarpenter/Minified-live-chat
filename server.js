@@ -351,6 +351,7 @@ app.post('/newroom', function(req, res, next) {
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
+  socket.on("join-room-event" , callback) ;
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
