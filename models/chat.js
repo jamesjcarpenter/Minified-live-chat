@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const express = require('express')
-var app = express();
 const session = require('express-session')
 
 const ChatSchema = new mongoose.Schema({
@@ -12,15 +11,3 @@ const ChatSchema = new mongoose.Schema({
 });
 
 var Chat = module.exports = mongoose.model('Chat', ChatSchema);
-
-
-app.post('/message', function(req, res, next) {
-  var newChat = new Chat({
-    msgFrom: req.body.messagesend,
-    msgTo: req.body.messageto,
-    msg: req.body.data,
-    room: req.body.room,
-    createdOn: today,
-  });
-  console.log(newChat);
-});

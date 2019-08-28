@@ -30,11 +30,11 @@ var url = require('url')
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 
-// router.use('*', function (req, res, next) {
-//   res.locals.login = req.isAuthenticated();
-//    console.log('ok');
-//   next()
-//  });
+router.use('*', function (req, res, next) {
+  res.locals.login = req.isAuthenticated();
+   console.log('ok');
+  next()
+ });
 
 
 router.get('/', function(req, res) {
@@ -72,6 +72,43 @@ router.get('/home', function(req, res) {
 });
 
 
+app.post('/message', function(req, res, next) {
+  var newChat = new Chat({
+    msgFrom: req.body.messagesend,
+    msgTo: req.body.messageto,
+    msg: req.body.data,
+    room: req.body.room,
+    createdOn: today,
+    
+    console.log(newChat);
+  });
+});
+
+router.post('/newroom', function(req, res, next) {
+    
+    //User is the model created in app.js of this project
+    var newRoom = new Room({
+      name1: req.body.name1,
+      name2: req.body.name1,
+      members: [],
+      createdOn: today,
+      updatedOn: today    
+    });
+    
+    
+    console.log(newRoom.name1);
+    // save the user
+    newRoom.save(function(err) {
+      if (err) throw err;
+      console.log('Room created!');
+      console.log(req.room);
+      console.log(req.session.chat);
+      
+      res.redirect('/room?name=' + '' + req.body.name1);
+      res.render('index.ejs', { room: newRoom, chat: req.session.chat });
+    });
+
+});
 
 
 
