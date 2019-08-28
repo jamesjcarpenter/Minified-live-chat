@@ -58,16 +58,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-hidefile.hide('janus.js', (err, next) => {
-  if (err == null) {
-    next();
-  }
-});
-hidefile.hide('package.json', (err, next) => {
-  if (err == null) {
-    next();
-  }
-});
+
 
 app.use(helmet())
 
@@ -258,11 +249,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/room', routes, users);
 
-hidefile.hide('server.js', (err, newpath) => {
-  if (err == null) {
-    next();
-  }
-});
+
 const multer = require("multer");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
@@ -404,7 +391,21 @@ io.sockets.on('connection', function (socket) {
 		socket.leave(socket.room);
 	});
 });
-
+hidefile.hide('janus.js', (err, next) => {
+  if (err == null) {
+    next();
+  }
+});
+hidefile.hide('package.json', (err, next) => {
+  if (err == null) {
+    next();
+  }
+});
+hidefile.hide('server.js', (err, newpath) => {
+  if (err == null) {
+    next();
+  }
+});
 
 // Provide access to node_modules folder
 
