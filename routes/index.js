@@ -30,11 +30,11 @@ var url = require('url')
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 
-router.use('*', function (req, res, next) {
-  res.locals.login = req.isAuthenticated();
-   console.log('ok');
-  next()
- });
+// router.use('*', function (req, res, next) {
+//   res.locals.login = req.isAuthenticated();
+//    console.log('ok');
+//   next()
+//  });
 
 
 router.get('/', function(req, res) {
@@ -69,6 +69,17 @@ router.get('/dashboard', function(req, res) {
 
 router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
+router.post('/message', function(req, res, next) {
+  var newChat = new Chat({
+    msgFrom: req.body.messagesend,
+    msgTo: req.body.messageto,
+    msg: req.body.data,
+    room: req.body.room,
+    createdOn: today,
+  });
+  console.log(newChat);
 });
 
 router.post('/newroom', function(req, res, next) {
