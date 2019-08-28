@@ -307,7 +307,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-require("./libs/chat.js").sockets(https, server);
+
 
 
 const events = require("events");
@@ -326,7 +326,7 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-
+require("./libs/chat.js").sockets(https, server);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -368,7 +368,7 @@ io.sockets.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		// io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
     socket.on("chat-msg", function(data) {
       //emits event to save chat to database.
       eventEmitter.emit("save-chat", {
