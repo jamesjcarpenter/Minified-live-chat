@@ -322,6 +322,31 @@ var room = require("./models/roomschema");
 // usernames which are currently connected to the chat
 var usernames = {};
 
+app.post('/newroom', function(req, res, next) {
+    
+    //User is the model created in app.js of this project
+    var newRoom = new Room({
+      name1: req.body.name1,
+      name2: req.body.name1,
+      members: [],
+      createdOn: today,
+      updatedOn: today    
+    });
+    
+    
+    console.log(newRoom.name1);
+    // save the user
+    newRoom.save(function(err) {
+      if (err) throw err;
+      console.log('Room created!');
+      console.log(req.room);
+      console.log(req.session.chat);
+      
+      res.redirect('/room?name=' + '' + req.body.name1);
+      res.render('index.ejs', { room: newRoom, chat: req.session.chat });
+    });
+
+});
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
@@ -331,17 +356,17 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = newRoom.name1;
+		socket.room = newRoom;
     
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join(Room.newRoom.name1);
+		socket.join(newRoom);
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to room1');
+		socket.emit('serverupdatechat', 'Connected to' + newRoom);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
+		socket.emit('updaterooms', rooms, newRoom);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
