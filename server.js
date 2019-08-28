@@ -368,8 +368,10 @@ io.sockets.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
-		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
-    socket.on("sendchat", function(data) {
+		// io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+  
+  
+    socket.on("chat-msg", function(data) {
       //emits event to save chat to database.
       eventEmitter.emit("save-chat", {
         msgFrom: socket.username,
@@ -379,13 +381,12 @@ io.sockets.on('connection', function (socket) {
         date: data.date
       });
       //emits event to send chat msg to all clients.
-      ioChat.to(socket.room).emit("sendchat", {
+      ioChat.to(socket.room).emit("chat-msg", {
         msgFrom: socket.username,
         msg: data.msg,
         date: data.date
       });
     });
-	});
   
   
 	socket.on('switchRoom', function(newroom){
