@@ -362,12 +362,12 @@ io.sockets.on('connection', function (socket) {
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join(newRoom);
+		socket.join(room.newRoom);
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to' + newRoom);
+		socket.emit('serverupdatechat', 'Connected to' + room.newRoom);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, newRoom);
+		socket.emit('updaterooms', rooms, room.newRoom);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
