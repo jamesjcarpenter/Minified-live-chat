@@ -9,6 +9,7 @@ var sanitize = require('mongo-sanitize');
 const shortid = require("shortid");
 const today = Date.now();
 const id = shortid.generate();
+var cors = require('cors');
 
 var rooms = require("../models/roomschema");
 var room = require("../models/roomschema");
@@ -37,13 +38,18 @@ var url = require('url')
 //  });
 
 
+
+
+
 router.get('/', function(req, res) {
+  res.sendStatus(200);
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 router.get('/room', function(req, res) {
+  res.sendStatus(200);
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
@@ -52,10 +58,12 @@ router.get('/room', function(req, res) {
 });
 
 router.get('/profile', function(req, res) {
+      res.sendStatus(200);
       res.render('profile.handlebars');
 });
 
 router.get('/admin', function(req, res) {
+  res.sendStatus(200);
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
@@ -64,10 +72,12 @@ router.get('/admin', function(req, res) {
 });
 
 router.get('/dashboard', function(req, res) {
+      res.sendStatus(200);
       res.render('dashboard.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/home', function(req, res) {
+      res.sendStatus(200);
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 

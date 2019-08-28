@@ -101,7 +101,11 @@ app.use(helmet.contentSecurityPolicy({
 // })
 // 
 
+
+
 app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
+
+
 
 app.use(helmet.permittedCrossDomainPolicies())
 app.use(helmet.expectCt())
@@ -199,11 +203,20 @@ socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
 
-app.all('/private/*');
+var options = {
+  dotfiles: 'ignore',
+  etag: false,
+  extensions: ['htm', 'html'],
+  index: false,
+  maxAge: '1d',
+  redirect: true,
+  setHeaders: function (res, path, stat) {
+    res.set('x-timestamp', Date.now())
+  }
+}
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', options));
 app.use(express.static(__dirname + '/'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
