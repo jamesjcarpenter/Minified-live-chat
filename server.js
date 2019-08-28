@@ -18,6 +18,24 @@ server.listen(443);
 //make sure you keep this order
 var io = require('socket.io').listen(server);
 
+
+app.use('/scripts', express.static(`${__dirname}/node_modules/`));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+app.use(express.static('/semantic'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+app.use(express.static('/libs/'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+app.use(express.static(__dirname + '/public'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
+
+
+app.use(express.static(__dirname + '/'));
+app.use('/private', express.static(path.join(__dirname, 'private')));
 //... 
 //..
 var { check, validationResult } = require('express-validator');
@@ -231,23 +249,6 @@ socketAntiSpam.event.on('kick', data => {
   console.log('You have been kicked due to spam, please refresh');
 })
 
-app.use('/scripts', express.static(`${__dirname}/node_modules/`));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-app.use(express.static('/semantic'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-app.use(express.static('/libs/'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-app.use(express.static(__dirname + '/public'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
-
-
-app.use(express.static(__dirname + '/'));
-app.use('/private', express.static(path.join(__dirname, 'private')));
 
 
 
