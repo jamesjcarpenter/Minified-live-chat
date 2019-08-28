@@ -322,6 +322,7 @@ var room = require("./models/roomschema");
 // usernames which are currently connected to the chat
 var usernames = {};
 
+const today = Date.now();
 app.post('/newroom', function(req, res, next) {
     
     //User is the model created in app.js of this project
