@@ -65,7 +65,7 @@ var socket = io.connect('anomic.io/');
 
 $('#datasend').submit(function(){
     socket.emit('sendchat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
-    $(data).val("");
+    $('#message').val("");
     return false;
   }); //end of sending message.
 
