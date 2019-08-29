@@ -81,7 +81,7 @@ var socket = io.connect('anomic.io/');
 
   }); // end of listening old-chats event.
   // create our webrtc connection
-  socket.on('sendchat', function (username, data) {
+  socket.on('updatechat', function (username, data) {
     
      var chatDate = moment(data.date).format("MMMM Do YYYY, hh:mm:ss a");
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
@@ -102,7 +102,7 @@ var socket = io.connect('anomic.io/');
 //$('#publisher').append('<h4>' + username + '</h4>');
 
 $('#datasend').submit(function(){
-    socket.emit('sendchat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
+    socket.emit('updatechat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
     $('#data').val();
     $('#data').val('');
     return false;
