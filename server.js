@@ -46,7 +46,7 @@ const uuidv4 = require('uuid/v4')
 
 
 var corsOptions = {
-  origin: 'https://anomic.io',
+  origin: 'https://anomic.io:8089',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
