@@ -29,9 +29,9 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 var FileStore = require('session-file-store')(session);
 const path = require('path')
+const hidefile = require('hidefile');
 var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
-const hidefile = require('hidefile');
 const Chat = require("./models/chat");
 const User = require("./models/user");
 const Room = require("./models/roomschema");
@@ -47,33 +47,23 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
-hidefile.isHidden('server.jst', (err, result) => {
+hidefile.hide('server.js', (err, newpath) => {
   if (err == null) {
     console.log(newpath);  //-> 'path/to/.file.ext'
   }
 });
 
-hidefile.isHidden('janus.js', (err, result) => {
+hidefile.hide('janus.js', (err, newpath) => {
   if (err == null) {
     console.log(newpath);  //-> 'path/to/.file.ext'
   }
 });
-hidefile.isHidden('config/keys.js', (err, result) => {
+hidefile.hide('config/keys.js', (err, newpath) => {
   if (err == null) {
     console.log(newpath);  //-> 'path/to/.file.ext'
   }
 });
-hidefile.isHidden('routes/users.js', (err, result) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
-hidefile.isHidden('routes/index.js', (err, result) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
-hidefile.isHidden('/sessions/', (err, result) => {
+hidefile.hide('routes/users.js', (err, newpath) => {
   if (err == null) {
     console.log(newpath);  //-> 'path/to/.file.ext'
   }
