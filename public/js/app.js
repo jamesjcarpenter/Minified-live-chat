@@ -37,42 +37,27 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
+var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    
-    if(toUser == "Group"){
-      var currentRoom = "Group-Group";
-      var reverseRoom = "Group-Group";
-    }
-    else{
-      var currentRoom = username+"-"+toUser;
-      var reverseRoom = toUser+"-"+username;
-    }
-
-    //event to set room and join.
-    socket.emit('set-room',{name1:currentRoom,name2:reverseRoom});
-
-  }); //end of on button click event.
-
-  //event for setting roomId.
-  socket.on('set-room',function(room){
-    //empty messages.
-    $('#conversation').empty();
-    $('#typing').text("");
-    msgCount = 0;
-    noChat = 0;
-    oldInitDone = 0;
-    //assigning room id to roomId variable. which helps in one-to-one and group chat.
-    roomId = room;
-    console.log("roomId : "+roomId);
-    //event to get chat history on button click or as room is set.
-    socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
-
-  });
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
+  
+  socket.on("set-room", function(room) {
+    //leaving room.
+    socket.leave(socket.room);
+    //getting room data.
+    eventEmitter.emit("get-room-data", room);
+    //setting room and join.
+    setRoom = function(roomId) {
+      socket.room = roomId;
+      console.log("roomId : " + socket.room);
+      socket.join(socket.room);
+      ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+    };
+  });
   
   
   socket.on('updatechat',function(data){
