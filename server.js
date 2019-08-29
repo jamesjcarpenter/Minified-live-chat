@@ -105,7 +105,7 @@ app.use(helmet.contentSecurityPolicy({
 // })
 // 
 
-hidefile.reveal('config/keys.js', (err, newpath) => {
+hidefile.reveal('/config/keys.js', (err, newpath) => {
   if (err == null) {
     console.log(newpath);  //-> 'path/to/file.ext'
   }
