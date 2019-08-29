@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
-var roomId;//variable for setting room.
+  var roomId;//variable for setting room.
 var url = window.location.href;
 
 console.log(url);
@@ -41,22 +41,9 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-		//// call the server-side function 'adduser' and send one parameter (value of prompt)
+		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
-  
-  socket.on("set-room", function(room) {
-    //leaving room.
-    socket.leave(socket.room);
-    //getting room data.
-    eventEmitter.emit("get-room-data", room);
-    //setting room and join.
-    setRoom = function(roomId) {
-      socket.room = roomId;
-      console.log("roomId : " + socket.room);
-      socket.join(socket.room);
-      ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
-  });
   
   
   socket.on('updatechat',function(data){
@@ -89,7 +76,8 @@ var socket = io.connect('anomic.io/');
       //setting scrollbar position while first 5 chats loads.
       if(msgCount <= 5){
         $('#scrl2').scrollTop($('#scrl2').prop("scrollHeight"));
-      }//end of outer if.
+      }
+    }//end of outer if.
 
   }); // end of listening old-chats event.
   // create our webrtc connection
