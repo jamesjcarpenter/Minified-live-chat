@@ -1,8 +1,9 @@
 window.addEventListener('load', () => {
   
-  
-  var socket = io.connect("https://" + window.location.hostname + ":443/janus");
-  
+  if(window.location.protocol === 'http:')
+    var socket = io.connect("http://" + window.location.hostname + ":443/janus");
+  else
+  	var socket = io.connect("https://" + window.location.hostname + ":443/janus");  
   // Chat platform
   // Local Video
 $('#start').click();
