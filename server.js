@@ -3,7 +3,7 @@ var https = require('https');
 var express = require('express');
 var app = express();
 const hostname = 'anomic.io';
-const port = 8089;
+const port = 80;
 var server = https.createServer({
 url: '/janus',
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
@@ -12,7 +12,7 @@ key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
 },app);
-server.listen(8089);
+server.listen(80);
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
