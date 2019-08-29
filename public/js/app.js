@@ -41,11 +41,93 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
+    
+    
+    $('#conversation').empty();
+    msgCount = 0;
+    noChat = 0;
+    oldInitDone = 0;
+
+    //assigning friends name to whom messages will send,(in case of group its value is Group).
+    toUser = $(this).text();
+
+    //showing and hiding relevant information.
+    $('#conversation').text(toUser);
+    $('#servermessage').hide();
+    $('#chatbox').show(); //showing chat form.
+    $('#datasend').hide(); //hiding send button to prevent sending of empty messages.
+
+    //assigning two names for room. which helps in one-to-one and also group chat.
+    if(toUser == "Group"){
+      var currentRoom = "Group-Group";
+      var reverseRoom = "Group-Group";
+    }
+    else{
+      var currentRoom = username+"-"+toUser;
+      var reverseRoom = toUser+"-"+username;
+    }
+
+    //event to set room and join.
+    socket.emit('set-room',{name1:currentRoom,name2:reverseRoom});
+
+  }); //end of on button click event.
+
+  //event for setting roomId.
+  socket.on('set-room',function(room){
+    //empty messages.
+    $('#conversation').empty();
+    $('#typing').text("");
+    msgCount = 0;
+    noChat = 0;
+    oldInitDone = 0;
+    //assigning room id to roomId variable. which helps in one-to-one and group chat.
+    roomId = room;
+    console.log("roomId : "+roomId);
+    //event to get chat history on button click or as room is set.
+    socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
+
+  }); //end of set-room event.
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
+  
+  
+  socket.on('updatechat',function(data){
+
+    if(data.room == roomId){
+      oldInitDone = 1; //setting value to implies that old-chats first event is done.
+      if(data.result.length != 0){
+        $('#noChat').hide(); //hiding no more chats message.
+        for (var i = 0;i < data.result.length;i++) {
+          //styling of chat message.
+          var chatDate = moment(data.result[i].createdOn).format("MMMM Do YYYY, hh:mm:ss a");
+          var txt1 = $('<span></span>').text(data.result[i].msgFrom+" : ").css({});
+          var txt2 = $('<span></span>').text(chatDate).css({"float":"right","color":"#a6a6a6","font-size":"16px"});
+          var txt3 = $('<p></p>').append(txt1,txt2);
+          var txt4 = $('<p></p>').text(data.result[i].msg).css({"color":"#000000"});
+          //showing chat in chat box.
+          $('#messages').prepend($('<li>').append(txt3,txt4));
+          msgCount++;
+
+        }//end of for.
+        console.log(msgCount);
+      }
+      else {
+        $('#noChat').show(); //displaying no more chats message.
+        noChat = 1; //to prevent unnecessary scroll event.
+      }
+      //hiding loading bar.
+      $('#loading').hide();
+
+      //setting scrollbar position while first 5 chats loads.
+      if(msgCount <= 5){
+        $('#scrl2').scrollTop($('#scrl2').prop("scrollHeight"));
+      }
+    }//end of outer if.
+
+  }); // end of listening old-chats event.
   // create our webrtc connection
-  socket.on('updatechat', function (username, data) {
+  socket.on('sendchat', function (username, data) {
     
      var chatDate = moment(data.date).format("MMMM Do YYYY, hh:mm:ss a");
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
