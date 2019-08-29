@@ -9,6 +9,11 @@ var sanitize = require('mongo-sanitize');
 const shortid = require("shortid");
 const today = Date.now();
 const id = shortid.generate();
+
+var rooms = require("../models/roomschema");
+var room = require("../models/roomschema");
+
+const Room = require("../models/roomschema");
 var csrfProtection = csrf({ cookie: true });
 var parseForm = bodyParser.urlencoded({ extended: false });
 var url = require('url')
