@@ -248,17 +248,6 @@ allowedFormats: ["jpg", "png"],
 transformation: [{ width: 500, height: 500, crop: "limit" }]
 });
 const parser = multer({ storage: storage });
-app.post('/message', function(req, res, next) {
-  var newChat = new Chat({
-    msgFrom: req.body.messagesend,
-    msgTo: req.body.messageto,
-    msg: req.body.data,
-    room: req.body.room,
-    createdOn: today,
-    
-
-  });
-});
 
 const today = Date.now();
 
@@ -382,6 +371,15 @@ io.sockets.on('connection', function (socket) {
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+    var newChat = new Chat({
+      msgFrom: req.body.messagesend,
+      msgTo: req.body.messageto,
+      msg: req.body.data,
+      room: req.body.room,
+      createdOn: today,
+      
+
+    });
 	});
   
   
