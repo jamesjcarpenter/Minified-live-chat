@@ -12,17 +12,7 @@ $ (function(){
   //passing data on connection.
   socket.on('connect',function(){
     socket.emit('set-user-data',username);
-    // setTimeout(function() { alert(username+" logged In"); }, 500);
-
-    socket.on('broadcast',function(data){
-    document.getElementById("hell0").innerHTML += '<li>'+ data.description +'</li>';
-    // $('#hell0').append($('<li>').append($(data.description).append($('<li>');
-    $('#hell0').scrollTop($('#hell0')[0].scrollHeight);
-
-});
-
-  });//end of connect event.
-
+    // setTimeout(function() { alert(username+" logged In"); }, 500)
 
 
   //receiving onlineStack.
@@ -55,12 +45,10 @@ $ (function(){
   }); //end of receiving onlineStack event.
 
 
-  //on button click function.
-  $(document).on("click","#ubtn",function(){
+  //on button click function
 
     //empty messages.
-    $('#messages').empty();
-    $('#typing').text("");
+    $('#conversation').empty();
     msgCount = 0;
     noChat = 0;
     oldInitDone = 0;
@@ -69,10 +57,10 @@ $ (function(){
     toUser = $(this).text();
 
     //showing and hiding relevant information.
-    $('#frndName').text(toUser);
-    $('#initMsg').hide();
-    $('#chatForm').show(); //showing chat form.
-    $('#sendBtn').hide(); //hiding send button to prevent sending of empty messages.
+    $('#conversation').text(toUser);
+    $('#servermessage').hide();
+    $('#chatbox').show(); //showing chat form.
+    $('#datasend').hide(); //hiding send button to prevent sending of empty messages.
 
     //assigning two names for room. which helps in one-to-one and also group chat.
     if(toUser == "Group"){
@@ -92,7 +80,7 @@ $ (function(){
   //event for setting roomId.
   socket.on('set-room',function(room){
     //empty messages.
-    $('#messages').empty();
+    $('#conversation').empty();
     $('#typing').text("");
     msgCount = 0;
     noChat = 0;
@@ -106,9 +94,9 @@ $ (function(){
   }); //end of set-room event.
 
   //on scroll load more old-chats.
-  $('#scrl2').scroll(function(){
+  $('#scrollable').scroll(function(){
 
-    if($('#scrl2').scrollTop() == 0 && noChat == 0 && oldInitDone == 1){
+    if($('#scrollable').scrollTop() == 0 && noChat == 0 && oldInitDone == 1){
       $('#loading').show();
       socket.emit('old-chats',{room:roomId,username:username,msgCount:msgCount});
     }
@@ -125,8 +113,8 @@ $ (function(){
         for (var i = 0;i < data.result.length;i++) {
           //styling of chat message.
           var chatDate = moment(data.result[i].createdOn).format("MMMM Do YYYY, hh:mm:ss a");
-          var txt1 = $('<span></span>').text(data.result[i].msgFrom+" : ").css({"color":"#006080"});
-          var txt2 = $('<span></span>').text(chatDate).css({"float":"right","color":"#a6a6a6","font-size":"16px"});
+          var txt1 = $('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><h6></h6></tag>').text(data.result[i].msgFrom+" : ").css({});
+          var txt2 = $('<span id="date" class="ui small text"></span>').text(chatDate).css({"float":"right","color":"#a6a6a6","font-size":"16px"});
           var txt3 = $('<p></p>').append(txt1,txt2);
           var txt4 = $('<p></p>').text(data.result[i].msg).css({"color":"#000000"});
           //showing chat in chat box.
@@ -152,8 +140,8 @@ $ (function(){
   }); // end of listening old-chats event.
 
   // keyup handler.
-  $('#myMsg').keyup(function(){
-    if($('#myMsg').val()){
+  $('#datasend'').keyup(function(){
+    if($('#datasend').val()){
       $('#sendBtn').show(); //showing send button.
       socket.emit('typing');
     }
@@ -176,9 +164,9 @@ $ (function(){
   }); //end of typing event.
 
   //sending message.
-  $('form').submit(function(){
-    socket.emit('chat-msg',{msg:$('#myMsg').val(),msgTo:toUser,date:Date.now()});
-    $('#myMsg').val("");
+  $('#datasend').submit(function(){
+    socket.emit('chat-msg',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
+    $('#message').val("");
     $('#sendBtn').hide();
     return false;
   }); //end of sending message.
@@ -187,12 +175,12 @@ $ (function(){
   socket.on('chat-msg',function(data){
     //styling of chat message.
     var chatDate = moment(data.date).format("MMMM Do YYYY, hh:mm:ss a");
-    var txt1 = $('<span></span>').text(data.msgFrom+" : ").css({"color":"#006080"});
-    var txt2 = $('<span></span>').text(chatDate).css({"float":"right","color":"#a6a6a6","font-size":"16px"});
+    var txt1 = $('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><h6></h6></tag>').text(data.msgFrom+" : ").css({"color":"#006080"});
+    var txt2 = $('<span id="date" class="ui small text"></span>').text(chatDate).css({"float":"right","color":"#a6a6a6","font-size":"16px"});
     var txt3 = $('<p></p>').append(txt1,txt2);
     var txt4 = $('<p></p>').text(data.msg).css({"color":"#000000"});
     //showing chat in chat box.
-    $('#messages').append($('<li>').append(txt3,txt4));
+    $('#message').append($('<li>').append(txt3,txt4));
       msgCount++;
       console.log(msgCount);
       $('#typing').text("");
