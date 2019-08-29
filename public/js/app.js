@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   
   
-  var socket = io.connect("https://" + window.location.hostname + ":8089/janus");
+  var socket = io.connect("https://" + window.location.hostname + ":443/socket.io");
   
   // Chat platform
   // Local Video
