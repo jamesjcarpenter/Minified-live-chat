@@ -38,7 +38,8 @@ const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const db = mongoose.connect(MongoURI: 'mongodb+srv://admincaf:hqAj2qDGF99ZIBH0@cluster0-gnhxi.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+const db = require('./config/keys').MongoURI;
+mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
 
@@ -233,7 +234,6 @@ var sessionstorage = require('sessionstorage');
 app.use('/', routes);
 app.use('/users', users);
 app.use('/room', routes, users);
-
 hidefile.hide('server.js', (err, newpath) => {
   if (err == null) {
     console.log(newpath);  //-> 'path/to/.file.ext'
@@ -241,11 +241,6 @@ hidefile.hide('server.js', (err, newpath) => {
 });
 
 hidefile.hide('janus.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
-hidefile.hide('config/keys.js', (err, newpath) => {
   if (err == null) {
     console.log(newpath);  //-> 'path/to/.file.ext'
   }
@@ -357,6 +352,13 @@ app.use((err, req, res, next) => {
       error: {},
     },
   });
+});
+
+
+hidefile.hide('config/keys.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
 });
 //chat
 require("./libs/chat.js").sockets(https);
