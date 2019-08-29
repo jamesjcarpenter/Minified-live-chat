@@ -140,7 +140,7 @@ $ (function(){
   }); // end of listening old-chats event.
 
   // keyup handler.
-  $('#datasend'').keyup(function(){
+  $('#datasend').keyup(function(){
     if($('#datasend').val()){
       $('#sendBtn').show(); //showing send button.
       socket.emit('typing');
