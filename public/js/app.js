@@ -41,52 +41,6 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    
-    
-    $('#conversation').empty();
-    msgCount = 0;
-    noChat = 0;
-    oldInitDone = 0;
-
-    //assigning friends name to whom messages will send,(in case of group its value is Group).
-    toUser = $(this).text();
-
-    //showing and hiding relevant information.
-    $('#conversation').text(toUser);
-    $('#servermessage').hide();
-    $('#chatbox').show(); //showing chat form.
-    $('#datasend').hide(); //hiding send button to prevent sending of empty messages.
-
-    //assigning two names for room. which helps in one-to-one and also group chat.
-    if(toUser == "Group"){
-      var currentRoom = "Group-Group";
-      var reverseRoom = "Group-Group";
-    }
-    else{
-      var currentRoom = username+"-"+toUser;
-      var reverseRoom = toUser+"-"+username;
-    }
-
-    //event to set room and join.
-    socket.emit('set-room',{name1:currentRoom,name2:reverseRoom});
-
-  }); //end of on button click event.
-
-  //event for setting roomId.
-  socket.on('set-room',function(room){
-    //empty messages.
-    $('#conversation').empty();
-    $('#typing').text("");
-    msgCount = 0;
-    noChat = 0;
-    oldInitDone = 0;
-    //assigning room id to roomId variable. which helps in one-to-one and group chat.
-    roomId = room;
-    console.log("roomId : "+roomId);
-    //event to get chat history on button click or as room is set.
-    socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
-
-  }); //end of set-room event.
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
