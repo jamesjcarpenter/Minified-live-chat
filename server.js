@@ -29,16 +29,15 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 var FileStore = require('session-file-store')(session);
 const path = require('path')
-const hidefile = require('hidefile');
 var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
-const db = require('./config/keys.js').MongoURI;
 const Chat = require("./models/chat");
 const User = require("./models/user");
 const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
+const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
@@ -46,7 +45,6 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 app.use(cors())
 const uuidv4 = require('uuid/v4')
-
 
 
 
@@ -234,22 +232,7 @@ var sessionstorage = require('sessionstorage');
 app.use('/', routes);
 app.use('/users', users);
 app.use('/room', routes, users);
-hidefile.hide('server.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
 
-hidefile.hide('janus.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
-hidefile.hide('routes/users.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
 
 const multer = require("multer");
 const cloudinary = require("cloudinary");
@@ -353,8 +336,6 @@ app.use((err, req, res, next) => {
     },
   });
 });
-
-
 //chat
 require("./libs/chat.js").sockets(https);
 
