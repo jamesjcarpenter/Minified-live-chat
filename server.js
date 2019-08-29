@@ -46,6 +46,38 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
+hidefile.isHidden('server.jst', (err, result) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+
+hidefile.isHidden('janus.js', (err, result) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+hidefile.isHidden('config/keys.js', (err, result) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+hidefile.isHidden('routes/users.js', (err, result) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+hidefile.isHidden('routes/index.js', (err, result) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+hidefile.isHidden('/sessions/', (err, result) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+
 
 
 var corsOptions = {

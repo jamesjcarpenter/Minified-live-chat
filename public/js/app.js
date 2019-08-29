@@ -90,8 +90,7 @@ var socket = io.connect('anomic.io/');
       //setting scrollbar position while first 5 chats loads.
       if(msgCount <= 5){
         $('#scrl2').scrollTop($('#scrl2').prop("scrollHeight"));
-      }
-    }//end of outer if.
+      }//end of outer if.
 
   }); // end of listening old-chats event.
   // create our webrtc connection
