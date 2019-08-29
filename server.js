@@ -260,6 +260,8 @@ app.post('/message', function(req, res, next) {
   });
 });
 
+const today = Date.now();
+
 app.post('/newroom', function(req, res, next) {
     
     //User is the model created in app.js of this project
