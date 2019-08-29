@@ -680,7 +680,7 @@ io.sockets.on('connection', function (socket) {
   //
 
   return io;
-};
+});
 
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
