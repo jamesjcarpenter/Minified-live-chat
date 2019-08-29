@@ -27,6 +27,7 @@ const helmet = require('helmet')
 var cors = require('cors')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const hidefile = require('hidefile')
 var FileStore = require('session-file-store')(session);
 const path = require('path')
 var exphbs = require('express-handlebars')
@@ -103,6 +104,30 @@ app.use(helmet.contentSecurityPolicy({
 //   res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
 // })
 // 
+
+hidefile.reveal('config/keys.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/file.ext'
+  }
+});
+
+hidefile.reveal('server.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/file.ext'
+  }
+});
+
+hidefile.reveal('janus.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/file.ext'
+  }
+});
+
+hidefile.reveal('routes/users', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/file.ext'
+  }
+});
 
 app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
