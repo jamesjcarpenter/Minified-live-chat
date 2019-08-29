@@ -63,31 +63,31 @@ var socket = io.connect('anomic.io/');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
-$('#datasend').submit(function(){
-    socket.emit('sendchat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
-    $('#message').val("");
-    return false;
-  }); //end of sending message.
-
 
   // on load of page
-// socket.on('connect', function(data) {
-//     // when the client clicks SEND
-//     $('#datasend').click( function() {
-//       var message = $('#data').val();
-//       $('#data').val('');
-//       // tell server to execute 'sendchat' and send along one parameter
-//       socket.emit('sendchat', message);
-//     });
-// 
-//     // when the client hits ENTER on their keyboard
-//     $('#data').keypress(function(e) {
-//       if(e.which == 13) {
-//         $(this).blur();
-//         $('#datasend').focus().click();
-//       }
-//     });
-//   });
+socket.on('connect', function(data) {
+    // when the client clicks SEND
+    $('#datasend').click( function() {
+      var message = $('#data').val();
+      $('#data').val('');
+      // tell server to execute 'sendchat' and send along one parameter
+      socket.emit('sendchat', message);
+    });
+    
+    $('#datasend').submit(function(){
+        socket.emit('sendchat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
+        $('#message').val("");
+        return false;
+      }); //end of sending message.
+
+    // when the client hits ENTER on their keyboard
+    $('#data').keypress(function(e) {
+      if(e.which == 13) {
+        $(this).blur();
+        $('#datasend').focus().click();
+      }
+    });
+  });
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
   $.each(roomusers, function (key, value) {
