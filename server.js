@@ -105,29 +105,6 @@ app.use(helmet.contentSecurityPolicy({
 // })
 // 
 
-hidefile.reveal('/config/keys.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/file.ext'
-  }
-});
-
-hidefile.reveal('server.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/file.ext'
-  }
-});
-
-hidefile.reveal('janus.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/file.ext'
-  }
-});
-
-hidefile.reveal('routes/users', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/file.ext'
-  }
-});
 
 app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
