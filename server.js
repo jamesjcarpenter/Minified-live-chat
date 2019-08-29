@@ -248,7 +248,7 @@ allowedFormats: ["jpg", "png"],
 transformation: [{ width: 500, height: 500, crop: "limit" }]
 });
 const parser = multer({ storage: storage });
-router.post('/message', function(req, res, next) {
+app.post('/message', function(req, res, next) {
   var newChat = new Chat({
     msgFrom: req.body.messagesend,
     msgTo: req.body.messageto,
@@ -260,7 +260,7 @@ router.post('/message', function(req, res, next) {
   });
 });
 
-router.post('/newroom', function(req, res, next) {
+app.post('/newroom', function(req, res, next) {
     
     //User is the model created in app.js of this project
     var newRoom = new Room({
