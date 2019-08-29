@@ -46,7 +46,6 @@ var socket = io.connect('anomic.io/');
 	});
   
     //leaving room.
-    socket.leave(socket.room);
     //getting room data.
     eventEmitter.emit("get-room-data", room);
     //setting room and join.
