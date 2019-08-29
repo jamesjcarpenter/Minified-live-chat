@@ -27,7 +27,6 @@ const helmet = require('helmet')
 var cors = require('cors')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const hidefile = require('hidefile')
 var FileStore = require('session-file-store')(session);
 const path = require('path')
 var exphbs = require('express-handlebars')
@@ -104,7 +103,6 @@ app.use(helmet.contentSecurityPolicy({
 //   res.end(`<script nonce="${res.locals.nonce}">alert(1 + 1);</script>`)
 // })
 // 
-
 
 app.use(helmet.hidePoweredBy({ setTo: 'DynamoDB (AWS)' }))
 
@@ -518,6 +516,11 @@ io.sockets.on('connection', function (socket) {
     ); //end of find room.
   }); //end of get-room-data listener.
   //end of database operations for chat feature.
+  socket.on('sendchat', function (data) {
+    // we tell the client to execute 'updatechat' with 2 parameters
+    io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+      //emits event to save chat to database.
+  });
 	socket.on('switchRoom', function(newroom){
 		// leave the current room (stored in session)
 		socket.leave(socket.room);
