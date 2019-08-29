@@ -31,6 +31,7 @@ var FileStore = require('session-file-store')(session);
 const path = require('path')
 var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
+const hidefile = require('hidefile');
 const Chat = require("./models/chat");
 const User = require("./models/user");
 const Room = require("./models/roomschema");
