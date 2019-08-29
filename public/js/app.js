@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
-  var roomId;//variable for setting room.
+var roomId;//variable for setting room.
 var url = window.location.href;
 
 console.log(url);
@@ -44,6 +44,16 @@ var socket = io.connect('anomic.io/');
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
+  
+    //leaving room.
+    socket.leave(socket.room);
+    //getting room data.
+    eventEmitter.emit("get-room-data", room);
+    //setting room and join.
+      socket.room = roomId;
+      console.log("roomId : " + socket.room);
+      socket.join(socket.room);
+      ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
   
   
   socket.on('updatechat',function(data){
