@@ -372,16 +372,19 @@ io.sockets.on('connection', function (socket) {
 		// we tell the client to execute 'updatechat' with 2 parameters
 		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
       //emits event to save chat to database.
-eventEmitter.emit("save-chat", {
-    var newChat = new Chat({
-      msgFrom: req.socket.user,
-      msgTo: req.socket.room,
-      msg: req.body.data,
-      room: req.body.room,
-      createdOn: today,
-      
-
+  });
+  
+  
+  socket.on("sendchat", function(data) {
+    //emits event to save chat to database.
+    eventEmitter.emit("save-chat", {
+      msgFrom: socket.username,
+      msgTo: data.msgTo,
+      msg: data.msg,
+      room: socket.room,
+      date: data.date
     });
+    //emits event to send chat msg to all clients.
     ioChat.to(socket.room).emit("updatechat", {
       msgFrom: socket.username,
       msg: data.msg,
