@@ -355,11 +355,6 @@ app.use((err, req, res, next) => {
 });
 
 
-hidefile.hide('config/keys.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
 //chat
 require("./libs/chat.js").sockets(https);
 
