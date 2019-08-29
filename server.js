@@ -32,13 +32,13 @@ const path = require('path')
 const hidefile = require('hidefile');
 var exphbs = require('express-handlebars')
 const bcrypt = require('bcryptjs');
+const db = require('./config/keys.js').MongoURI;
 const Chat = require("./models/chat");
 const User = require("./models/user");
 const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
