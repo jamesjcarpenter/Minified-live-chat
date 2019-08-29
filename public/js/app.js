@@ -63,6 +63,12 @@ var socket = io.connect('anomic.io/');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
+$('#datasend').submit(function(){
+    socket.emit('sendchat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
+    $(data).val("");
+    return false;
+  }); //end of sending message.
+
 
   // on load of page
 socket.on('connect', function(data) {
@@ -73,12 +79,6 @@ socket.on('connect', function(data) {
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
-    
-    $('#datasend').submit(function(){
-        socket.emit('sendchat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
-        $('#message').val("");
-        return false;
-      }); //end of sending message.
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
