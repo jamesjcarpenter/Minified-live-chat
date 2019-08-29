@@ -378,15 +378,6 @@ io.sockets.on('connection', function (socket) {
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
 	});
-
-	// when the client emits 'sendchat', this listens and executes
-	socket.on('sendchat', function (data) {
-		// we tell the client to execute 'updatechat' with 2 parameters
-		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
-      //emits event to save chat to database.
-  });
-  
-  
   socket.on("sendchat", function(data) {
     //emits event to save chat to database.
     eventEmitter.emit("save-chat", {
@@ -403,6 +394,10 @@ io.sockets.on('connection', function (socket) {
       date: data.date
     });
   });
+  
+	// when the client emits 'sendchat', this listens and executes
+
+  
   
   
   eventEmitter.on("save-chat", function(data) {
@@ -521,7 +516,11 @@ io.sockets.on('connection', function (socket) {
     ); //end of find room.
   }); //end of get-room-data listener.
   //end of database operations for chat feature.
-  
+  socket.on('sendchat', function (data) {
+    // we tell the client to execute 'updatechat' with 2 parameters
+    io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+      //emits event to save chat to database.
+  });
 	socket.on('switchRoom', function(newroom){
 		// leave the current room (stored in session)
 		socket.leave(socket.room);
