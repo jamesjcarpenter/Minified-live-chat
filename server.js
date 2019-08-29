@@ -47,27 +47,6 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
-hidefile.hide('server.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
-
-hidefile.hide('janus.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
-hidefile.hide('config/keys.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
-hidefile.hide('routes/users.js', (err, newpath) => {
-  if (err == null) {
-    console.log(newpath);  //-> 'path/to/.file.ext'
-  }
-});
 
 
 
@@ -256,6 +235,27 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/room', routes, users);
 
+hidefile.hide('server.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+
+hidefile.hide('janus.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+hidefile.hide('config/keys.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
+hidefile.hide('routes/users.js', (err, newpath) => {
+  if (err == null) {
+    console.log(newpath);  //-> 'path/to/.file.ext'
+  }
+});
 
 const multer = require("multer");
 const cloudinary = require("cloudinary");
