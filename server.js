@@ -339,6 +339,9 @@ app.use((err, req, res, next) => {
 //chat
 require("./libs/chat.js").sockets(https);
 
+const userModel = mongoose.model("User");
+const chatModel = mongoose.model("Chat");
+const roomModel = mongoose.model("Room");
 
 
 
@@ -349,6 +352,12 @@ var chat = require("./models/chat");
 var usernames = {};
 
 // rooms which are currently available in chat
+const ioChat = io.of("/room?name=:room");
+const userStack = {};
+let oldChats, sendUserStack, setRoom;
+const userSocket = {};
+
+
 
 
 io.sockets.on('connection', function (socket) {
@@ -388,13 +397,36 @@ io.sockets.on('connection', function (socket) {
       date: data.date
     });
     //emits event to send chat msg to all clients.
-    ioChat.to(socket.room).emit("updatechat", {
+    ioChat.to(socket.room).emit("chat-msg", {
       msgFrom: socket.username,
       msg: data.msg,
       date: data.date
     });
   });
   
+  
+  eventEmitter.on("save-chat", function(data) {
+    // var today = Date.now();
+
+    var newChat = new chatModel({
+      msgFrom: data.msgFrom,
+      msgTo: data.msgTo,
+      msg: data.msg,
+      room: data.room,
+      createdOn: data.date
+    });
+
+    newChat.save(function(err, result) {
+      if (err) {
+        console.log("Error : " + err);
+      } else if (result == undefined || result == null || result == "") {
+        console.log("Chat Is Not Saved.");
+      } else {
+        console.log("Chat Saved.");
+        //console.log(result);
+      }
+    });
+  }); //end of saving chat.
   
 	socket.on('switchRoom', function(newroom){
 		// leave the current room (stored in session)
