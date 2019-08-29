@@ -38,8 +38,7 @@ const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
-const db = require('./config/keys.js').MongoURI;
-mongoose.connect(MongoURI: 'mongodb+srv://admincaf:hqAj2qDGF99ZIBH0@cluster0-gnhxi.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+const db = mongoose.connect(MongoURI: 'mongodb+srv://admincaf:hqAj2qDGF99ZIBH0@cluster0-gnhxi.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err));
 
