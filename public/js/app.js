@@ -56,7 +56,6 @@ var socket = io.connect('anomic.io/');
       console.log("roomId : " + socket.room);
       socket.join(socket.room);
       ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
-    };
   });
   
   
