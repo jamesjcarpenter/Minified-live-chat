@@ -63,9 +63,10 @@ var socket = io.connect('anomic.io/');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
-$('#datasend').submit(function(){
+$('#datasend').click( function() {
     socket.emit('sendchat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
-    $('#message').val("");
+    $('#data').val();
+    $('#data').val('');
     return false;
   }); //end of sending message.
 
