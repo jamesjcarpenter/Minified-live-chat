@@ -362,44 +362,121 @@ const userSocket = {};
 
 io.sockets.on('connection', function (socket) {
 
-	// when the client emits 'adduser', this listens and executes
-	socket.on('adduser', function(username){
-		// store the username in the socket session for this client
-		socket.username = username;
-		// store the room name in the socket session for this client
-		socket.room = 'room1';
-		// add the client's username to the global list
-		usernames[username] = username;
-		// send client to room 1
-		socket.join('room1');
-		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to room1');
-		// echo to room 1 that a person has connected to their room
-	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
-	});
-  socket.on("sendchat", function(data) {
-    //emits event to save chat to database.
-    eventEmitter.emit("save-chat", {
-      msgFrom: socket.username,
-      msgTo: data.msgTo,
-      msg: data.msg,
-      room: socket.room,
-      date: data.date
-    });
-    //emits event to send chat msg to all clients.
-    ioChat.to(socket.room).emit("chat-msg", {
-      msgFrom: socket.username,
-      msg: data.msg,
-      date: data.date
-    });
-  });
-  
-	// when the client emits 'sendchat', this listens and executes
+  const ioChat = io.of("/room?name=:room");
+  const userStack = {};
+  let oldChats, sendUserStack, setRoom;
+  const userSocket = {};
 
-  
-  
-  
+  //socket.io magic starts here
+  ioChat.on("connection", function(socket) {
+    console.log("socketio chat connected.");
+
+    //function to get user name
+    socket.on("set-user-data", function(username) {
+      console.log(username + "  logged In");
+
+      //storing variable.
+      socket.username = username;
+      userSocket[socket.username] = socket.id;
+
+      socket.broadcast.emit("broadcast", {
+        description: username + " Logged In"
+      });
+
+      //getting all users list
+      eventEmitter.emit("get-all-users");
+
+      //sending all users list. and setting if online or offline.
+      sendUserStack = function() {
+        for (i in userSocket) {
+          for (j in userStack) {
+            if (j == i) {
+              userStack[j] = "Online";
+            }
+          }
+        }
+        //for popping connection message.
+        ioChat.emit("onlineStack", userStack);
+      }; //end of sendUserStack function.
+    }); //end of set-user-data event.
+
+    //setting room.
+    socket.on("set-room", function(room) {
+      //leaving room.
+      socket.leave(socket.room);
+      //getting room data.
+      eventEmitter.emit("get-room-data", room);
+      //setting room and join.
+      setRoom = function(roomId) {
+        socket.room = roomId;
+        console.log("roomId : " + socket.room);
+        socket.join(socket.room);
+        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+      };
+    }); //end of set-room event.
+
+    //emits event to read old-chats-init from database.
+    socket.on("old-chats-init", function(data) {
+      eventEmitter.emit("read-chat", data);
+    });
+
+    //emits event to read old chats from database.
+    socket.on("old-chats", function(data) {
+      eventEmitter.emit("read-chat", data);
+    });
+
+    //sending old chats to client.
+    oldChats = function(result, username, room) {
+      ioChat.to(userSocket[username]).emit("old-chats", {
+        result: result,
+        room: room
+      });
+    };
+
+    //showing msg on typing.
+    socket.on("typing", function() {
+      socket
+        .to(socket.room)
+        .broadcast.emit("typing", socket.username + " : is typing...");
+    });
+
+    //for showing chats.
+    socket.on("chat-msg", function(data) {
+      //emits event to save chat to database.
+      eventEmitter.emit("save-chat", {
+        msgFrom: socket.username,
+        msgTo: data.msgTo,
+        msg: data.msg,
+        room: socket.room,
+        date: data.date
+      });
+      //emits event to send chat msg to all clients.
+      ioChat.to(socket.room).emit("chat-msg", {
+        msgFrom: socket.username,
+        msg: data.msg,
+        date: data.date
+      });
+    });
+
+    //for popping disconnection message.
+    socket.on("disconnect", function() {
+      console.log(socket.username + "  logged out");
+      socket.broadcast.emit("broadcast", {
+        description: socket.username + " Logged out"
+      });
+
+      console.log("chat disconnected.");
+
+      _.unset(userSocket, socket.username);
+      userStack[socket.username] = "Offline";
+
+      ioChat.emit("onlineStack", userStack);
+    }); //end of disconnect event.
+  }); //end of io.on(connection).
+  //end of socket.io code for chat feature.
+
+  //database operations are kept outside of socket.io code.
+  //saving chats to database.
   eventEmitter.on("save-chat", function(data) {
     // var today = Date.now();
 
@@ -422,7 +499,8 @@ io.sockets.on('connection', function (socket) {
       }
     });
   }); //end of saving chat.
-  
+
+  //reading chat from database.
   eventEmitter.on("read-chat", function(data) {
     chatModel
       .find({})
@@ -516,37 +594,93 @@ io.sockets.on('connection', function (socket) {
     ); //end of find room.
   }); //end of get-room-data listener.
   //end of database operations for chat feature.
-  socket.on('sendchat', function (data) {
-    // we tell the client to execute 'updatechat' with 2 parameters
-    io.sockets.in(socket.room).emit('updatechat', socket.username, data);
-      //emits event to save chat to database.
-  });
-	socket.on('switchRoom', function(newroom){
-		// leave the current room (stored in session)
-		socket.leave(socket.room);
-		// join new room, received as function parameter
-		socket.join(newroom);
-//		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
-		// sent message to OLD room
-//		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username+' has left this room');
-		// update socket session room title
-		socket.room = newroom;
-//		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
-		socket.emit('updaterooms', rooms, newroom);
-	});
 
-	// when the user disconnects.. perform this
-	socket.on('disconnect', function(){
-		// remove the username from global usernames list
-		delete usernames[socket.username];
-		// update list of users in chat, client-side
-		io.sockets.emit('updateusers', usernames);
-		// echo globally that this client has left
-	//	socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
-		socket.leave(socket.room);
-	});
-});
+  //
+  //
 
+  //to verify for unique username and email at signup.
+  //socket namespace for signup.
+  const ioSignup = io.of("/signup");
+
+  let checkUname, checkEmail; //declaring variables for function.
+
+  ioSignup.on("connection", function(socket) {
+    console.log("signup connected.");
+
+    //verifying unique username.
+    socket.on("checkUname", function(uname) {
+      eventEmitter.emit("findUsername", uname); //event to perform database operation.
+    }); //end of checkUname event.
+
+    //function to emit event for checkUname.
+    checkUname = function(data) {
+      ioSignup.to(socket.id).emit("checkUname", data); //data can have only 1 or 0 value.
+    }; //end of checkUsername function.
+
+    //verifying unique email.
+    socket.on("checkEmail", function(email) {
+      eventEmitter.emit("findEmail", email); //event to perform database operation.
+    }); //end of checkEmail event.
+
+    //function to emit event for checkEmail.
+    checkEmail = function(data) {
+      ioSignup.to(socket.id).emit("checkEmail", data); //data can have only 1 or 0 value.
+    }; //end of checkEmail function.
+
+    //on disconnection.
+    socket.on("disconnect", function() {
+      console.log("signup disconnected.");
+    });
+  }); //end of ioSignup connection event.
+
+  //database operations are kept outside of socket.io code.
+  //event to find and check username.
+  eventEmitter.on("findUsername", function(uname) {
+    userModel.find(
+      {
+        username: uname
+      },
+      function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          //console.log(result);
+          if (result == "") {
+            checkUname(1); //send 1 if username not found.
+          } else {
+            checkUname(0); //send 0 if username found.
+          }
+        }
+      }
+    );
+  }); //end of findUsername event.
+
+  //event to find and check username.
+  eventEmitter.on("findEmail", function(email) {
+    userModel.find(
+      {
+        email: email
+      },
+      function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          //console.log(result);
+          if (result == "") {
+            checkEmail(1); //send 1 if email not found.
+          } else {
+            checkEmail(0); //send 0 if email found.
+          }
+        }
+      }
+    );
+  }); //end of findUsername event.
+
+  //
+  //
+
+  return io;
+};
 
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));

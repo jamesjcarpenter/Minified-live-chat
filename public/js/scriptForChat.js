@@ -1,6 +1,6 @@
 $ (function(){
 
-  var socket = io.connect('anomic.io/443');
+  var socket = io('/chat');
 
   var username = $('#user').val();
   var noChat = 0; //setting 0 if all chats histroy is not loaded. 1 if all chats loaded.
@@ -28,7 +28,7 @@ $ (function(){
   //receiving onlineStack.
   socket.on('onlineStack',function(stack){
     $('#list').empty();
-    $('#list').append($('<li>').append($('<button id="ubtn" class="btn btn-danger btn-block btn-lg"></button>').text("Group").css({"font-size":"18px"})));
+    $('#list').append($('<li>').append($('<button id="ubtn" class="ui large button black"></button>').text("Group").css({"font-size":"18px"})));
     var totalOnline = 0;
     for (var user in stack){
       //setting txt1. shows users button.
