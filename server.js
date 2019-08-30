@@ -342,7 +342,7 @@ require("./libs/chat.js").sockets(https);
 
 
 
-
+console.log(db.collection.users);
 
 var usernames = {};
 var rooms = mongoose.model("Room");
@@ -353,7 +353,6 @@ var usernames = {};
 
 
 io.sockets.on('connection', function (socket) {
-  console.log(db.collection.users);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
