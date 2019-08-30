@@ -104,7 +104,9 @@ var socket = io.connect('anomic.io/');
   }); // end of listening old-chats event.
   // create our webrtc connection
   
-  let moment = Date.now();
+  const date = Date.now()
+  let moment = date;
+  
   socket.on('updatechat', function (username, data) {
     
      var chatDate = moment(data.date).format("MMMM Do YYYY, hh:mm:ss a");
