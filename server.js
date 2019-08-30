@@ -1,4 +1,4 @@
-indow.addEventListener('load', () => {
+window.addEventListener('load', () => {
   
   
   var socket = io.connect('anomic.io/443');
