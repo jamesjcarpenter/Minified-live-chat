@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
   noChat = 0;
   oldInitDone = 0;
   var toUser;
-  
+  var msg;
 toUser = $(data).text();
   // Chat platform
   // Local Video
@@ -134,8 +134,8 @@ $('#datasend').submit(function(){
 socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
-      var message = $('#data').val();
-      $('#data').val('');
+      var message = $(data).val();
+      $(data).val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message,{msg:$(data).val(),msgTo:toUser,date:Date.now()});
     });
