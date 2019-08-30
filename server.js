@@ -360,8 +360,8 @@ io.sockets.on('connection', function (socket) {
 		socket.username = username;
 		// store the room name in the socket session for this client
     setRoom = function(roomId) {
-      socket.room = roomId;
-      console.log("roomId : " + socket.room);
+      socket.room = room.name1;
+      console.log(room.name1 + socket.room);
       socket.join(socket.room);
       io.socket.to(userSocket[socket.username]).emit("set-room", socket.room);
     };
