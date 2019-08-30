@@ -353,14 +353,14 @@ var usernames = {};
 
 
 io.sockets.on('connection', function (socket) {
-
+  console.log(mongoose.model("Room"));
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
     setRoom = function(roomId) {
-      socket.room = room.name1;
+      socket.room = 
       console.log(room.name1 + socket.room);
       socket.join(socket.room);
       io.socket.to(userSocket[socket.username]).emit("set-room", socket.room);
