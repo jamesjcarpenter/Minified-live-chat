@@ -365,7 +365,7 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 
 
-const user = mongoose.model("User");
+
 
 
 
