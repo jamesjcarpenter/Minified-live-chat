@@ -55,7 +55,7 @@ var socket = io.connect('anomic.io/');
       socket.room = roomId;
       console.log("roomId : " + socket.room);
       socket.join(socket.room);
-      ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+      socket.to(userSocket[socket.username]).emit("set-room", socket.room);
     };
   });
   
@@ -115,12 +115,12 @@ var socket = io.connect('anomic.io/');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
-$('#datasend').submit(function(){
-    socket.emit('updatechat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
-    $('#data').val();
-    $('#data').val('');
-    return false;
-  }); //end of sending message.
+// $('#datasend').submit(function(){
+//     socket.emit('updatechat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
+//     $('#data').val();
+//     $('#data').val('');
+//     return false;
+//   }); //end of sending message.
 
 
   // on load of page
