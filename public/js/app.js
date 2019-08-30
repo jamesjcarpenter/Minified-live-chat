@@ -67,7 +67,7 @@ var socket = io.connect('anomic.io/');
   });
   
   
-  socket.on('updatechat',function(data){
+  socket.on('sendchat',function(data){
 
     if(data.room == roomId){
       oldInitDone = 1; //setting value to implies that old-chats first event is done.
