@@ -3,6 +3,13 @@ window.addEventListener('load', () => {
   
   var socket = io.connect('anomic.io/443');
   
+  $('#conversation').empty();
+  msgCount = 0;
+  noChat = 0;
+  oldInitDone = 0;
+  var toUser;
+  
+  toUser = $(this).text();
   // Chat platform
   // Local Video
 $('#start').click();
