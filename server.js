@@ -38,11 +38,27 @@ const Image = require("./models/profileimg");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const db = require('./config/keys').MongoURI;
-mongoose.connect(db, { useNewUrlParser: true })
-.then(() => console.log('MongoDB connected..'))
-db.collection('test').insert({"doc1":"hello"},function(err,data){
-.catch(err => console.log(err));
+mongoose.connect(db, { useNewUrlParser: true }){
+if(err)
+   {
+       console.log(err);
+   }
+   else
+   {
+       console.log("Connected to db");
 
+       db.collection('testt').insert({"doc1":"hello"},function(err,data){
+
+     if(err)
+   {
+     throw(err);
+   }
+   else
+   {
+    console.log("sucessfuly inserted");
+   }
+
+})
 
 app.use(cors())
 const uuidv4 = require('uuid/v4')
