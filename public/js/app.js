@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
   oldInitDone = 0;
   var toUser;
   var msg;
-toUser = $(data).text();
+var toUser = $(data).text();
   // Chat platform
   // Local Video
 $('#start').click();
