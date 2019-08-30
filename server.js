@@ -265,6 +265,31 @@ app.post('/newroom', function(req, res, next) {
       updatedOn: today    
     });
     
+    db.collection.Rooms.insert(
+      {
+        _id: "roomId",
+        seq: 0
+      }
+    )
+
+    function getNextSequence(name) {
+      var ret = db.counters.findAndModify(
+        {
+          query: { _id: name },
+          update: { $inc: { seq: 1 } },
+          new: true
+        }
+      );
+      return ret.seq;
+    }
+
+
+    db.collection.rooms.insert(
+      {
+        _id: getNextSequence("roomId"),
+        name: "roomName",
+      }
+    )
     
     console.log(newRoom.name1);
     // save the user
@@ -339,18 +364,17 @@ app.use((err, req, res, next) => {
 //chat
 require("./libs/chat.js").sockets(https);
 
-const userModel = mongoose.model("User");
-const chatModel = mongoose.model("Chat");
-const roomModel = mongoose.model("Room");
+
+const user = mongoose.model("User");
 
 
 
 var usernames = {};
-var rooms = require("./models/roomschema");
-var chat = require("./models/chat");
+var rooms = mongoose.model("Room");
+var chat = mongoose.model("Chat");
 // usernames which are currently connected to the chat
 var usernames = {};
-
+const room = "/" + roomId;
 // rooms which are currently available in chat
 
 
@@ -361,16 +385,16 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
+		
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join('room1');
+		socket.join(socket.room);
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'Connected to room1');
+		socket.emit('serverupdatechat', 'Connected to' + socket.room);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
+		socket.emit('updaterooms', rooms, socket.room);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
