@@ -353,7 +353,7 @@ var usernames = {};
 
 
 io.sockets.on('connection', function (socket) {
-  console.log(db.collections.rooms);
+  console.log(db.collection.rooms);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
