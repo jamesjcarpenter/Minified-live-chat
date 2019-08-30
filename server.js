@@ -342,7 +342,8 @@ require("./libs/chat.js").sockets(https);
 
 
 
-console.log(db.collection.users);
+console.log(Rooms);
+console.log(db.collection.Rooms);
 
 var usernames = {};
 var rooms = mongoose.model("Room");
