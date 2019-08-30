@@ -338,211 +338,211 @@ app.use((err, req, res, next) => {
 });
 //chat
 require("./libs/chat.js").sockets(https);
-// 
-// const userModel = mongoose.model("User");
-// const chatModel = mongoose.model("Chat");
-// const roomModel = mongoose.model("Room");
-// 
-// 
-// 
-// var usernames = {};
-// var rooms = require("./models/roomschema");
-// var chat = require("./models/chat");
-// // usernames which are currently connected to the chat
-// var usernames = {};
-// 
-// // rooms which are currently available in chat
-// const ioChat = io.of("/room?name=:room");
-// const userStack = {};
-// let oldChats, sendUserStack, setRoom;
-// const userSocket = {};
-// 
-// 
-// 
-// 
-// io.sockets.on('connection', function (socket) {
-// 
-// 	// when the client emits 'adduser', this listens and executes
-// 	socket.on('adduser', function(username){
-// 		// store the username in the socket session for this client
-// 		socket.username = username;
-// 		// store the room name in the socket session for this client
-// 		// add the client's username to the global list
-// 		usernames[username] = username;
-// 		// send client to room 1
-// 		// echo to client they've connected
-// 		// echo to room 1 that a person has connected to their room
-// 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-// 		socket.emit('updaterooms', rooms, 'room1');
-// 	});
-//   socket.on("updatechat", function(data) {
-//     //emits event to save chat to database.
-//     eventEmitter.emit("save-chat", {
-//       msgFrom: socket.username,
-//       msgTo: data.msgTo,
-//       msg: data.msg,
-//       room: socket.room,
-//       date: data.date
-//     });
-//     //emits event to send chat msg to all clients.
-//     ioChat.to(socket.room).emit("chat-msg", {
-//       msgFrom: socket.username,
-//       msg: data.msg,
-//       date: data.date
-//     });
-//   });
-// 
-// 	// when the client emits 'sendchat', this listens and executes
-// 
-// 
-// 
-// 
-//   eventEmitter.on("save-chat", function(data) {
-//     // var today = Date.now();
-// 
-//     var newChat = new chatModel({
-//       msgFrom: data.msgFrom,
-//       msgTo: data.msgTo,
-//       msg: data.msg,
-//       room: data.room,
-//       createdOn: data.date
-//     });
-// 
-//     newChat.save(function(err, result) {
-//       if (err) {
-//         console.log("Error : " + err);
-//       } else if (result == undefined || result == null || result == "") {
-//         console.log("Chat Is Not Saved.");
-//       } else {
-//         console.log("Chat Saved.");
-//         //console.log(result);
-//       }
-//     });
-//   }); //end of saving chat.
-// 
-//   eventEmitter.on("read-chat", function(data) {
-//     chatModel
-//       .find({})
-//       .where("room")
-//       .equals(data.room)
-//       .sort("-createdOn")
-//       .skip(data.msgCount)
-//       .lean()
-//       .limit(5)
-//       .exec(function(err, result) {
-//         if (err) {
-//           console.log("Error : " + err);
-//         } else {
-//           //calling function which emits event to client to show chats.
-//           oldChats(result, data.username, data.room);
-//         }
-//       });
-//   }); //end of reading chat from database.
-// 
-//   //listening for get-all-users event. creating list of all users.
-//   eventEmitter.on("get-all-users", function() {
-//     userModel
-//       .find({})
-//       .select("username")
-//       .exec(function(err, result) {
-//         if (err) {
-//           console.log("Error : " + err);
-//         } else {
-//           //console.log(result);
-//           for (var i = 0; i < result.length; i++) {
-//             userStack[result[i].username] = "Offline";
-//           }
-//           //console.log("stack "+Object.keys(userStack));
-//           sendUserStack();
-//         }
-//       });
-//   }); //end of get-all-users event.
-// 
-//   //listening get-room-data event.
-//   eventEmitter.on("get-room-data", function(room) {
-//     roomModel.find(
-//       {
-//         $or: [
-//           {
-//             name1: room.name1
-//           },
-//           {
-//             name1: room.name2
-//           },
-//           {
-//             name2: room.name1
-//           },
-//           {
-//             name2: room.name2
-//           }
-//         ]
-//       },
-//       function(err, result) {
-//         if (err) {
-//           console.log("Error : " + err);
-//         } else {
-//           if (result == "" || result == undefined || result == null) {
-//             var today = Date.now();
-// 
-//             newRoom = new roomModel({
-//               name1: room.name1,
-//               name2: room.name2,
-//               lastActive: today,
-//               createdOn: today
-//             });
-// 
-//             newRoom.save(function(err, newResult) {
-//               if (err) {
-//                 console.log("Error : " + err);
-//               } else if (
-//                 newResult == "" ||
-//                 newResult == undefined ||
-//                 newResult == null
-//               ) {
-//                 console.log("Some Error Occured During Room Creation.");
-//               } else {
-//                 setRoom(newResult._id); //calling setRoom function.
-//               }
-//             }); //end of saving room.
-//           } else {
-//             var jresult = JSON.parse(JSON.stringify(result));
-//             setRoom(jresult[0]._id); //calling setRoom function.
-//           }
-//         } //end of else.
-//       }
-//     ); //end of find room.
-//   }); //end of get-room-data listener.
-//   //end of database operations for chat feature.
-//   socket.on('sendchat', function (data) {
-//     // we tell the client to execute 'updatechat' with 2 parameters
-//     io.sockets.in(socket.room).emit('updatechat', socket.username, data);
-//       //emits event to save chat to database.
-//   });
-// 	socket.on('switchRoom', function(newroom){
-// 		// leave the current room (stored in session)
-// 		socket.leave(socket.room);
-// 		// join new room, received as function parameter
-// 		socket.join(newroom);
-// //		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
-// 		// sent message to OLD room
-// //		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username+' has left this room');
-// 		// update socket session room title
-// 		socket.room = newroom;
-// //		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
-// 		socket.emit('updaterooms', rooms, newroom);
-// 	});
-// 
-// 	// when the user disconnects.. perform this
-// 	socket.on('disconnect', function(){
-// 		// remove the username from global usernames list
-// 		delete usernames[socket.username];
-// 		// update list of users in chat, client-side
-// 		io.sockets.emit('updateusers', usernames);
-// 		// echo globally that this client has left
-// 	//	socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
-// 		socket.leave(socket.room);
-// 	});
-// });
+
+const userModel = mongoose.model("User");
+const chatModel = mongoose.model("Chat");
+const roomModel = mongoose.model("Room");
+
+
+
+var usernames = {};
+var rooms = require("./models/roomschema");
+var chat = require("./models/chat");
+// usernames which are currently connected to the chat
+var usernames = {};
+
+// rooms which are currently available in chat
+const ioChat = io.of("/room?name=:room");
+const userStack = {};
+let oldChats, sendUserStack, setRoom;
+const userSocket = {};
+
+
+
+
+io.sockets.on('connection', function (socket) {
+
+	// when the client emits 'adduser', this listens and executes
+	socket.on('adduser', function(username){
+		// store the username in the socket session for this client
+		socket.username = username;
+		// store the room name in the socket session for this client
+		// add the client's username to the global list
+		usernames[username] = username;
+		// send client to room 1
+		// echo to client they've connected
+		// echo to room 1 that a person has connected to their room
+	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
+		socket.emit('updaterooms', rooms, 'room1');
+	});
+  socket.on("updatechat", function(data) {
+    //emits event to save chat to database.
+    eventEmitter.emit("save-chat", {
+      msgFrom: socket.username,
+      msgTo: data.msgTo,
+      msg: data.msg,
+      room: socket.room,
+      date: data.date
+    });
+    //emits event to send chat msg to all clients.
+    ioChat.to(socket.room).emit("chat-msg", {
+      msgFrom: socket.username,
+      msg: data.msg,
+      date: data.date
+    });
+  });
+  
+	// when the client emits 'sendchat', this listens and executes
+
+  
+  
+  
+  eventEmitter.on("save-chat", function(data) {
+    // var today = Date.now();
+
+    var newChat = new chatModel({
+      msgFrom: data.msgFrom,
+      msgTo: data.msgTo,
+      msg: data.msg,
+      room: data.room,
+      createdOn: data.date
+    });
+
+    newChat.save(function(err, result) {
+      if (err) {
+        console.log("Error : " + err);
+      } else if (result == undefined || result == null || result == "") {
+        console.log("Chat Is Not Saved.");
+      } else {
+        console.log("Chat Saved.");
+        //console.log(result);
+      }
+    });
+  }); //end of saving chat.
+  
+  eventEmitter.on("read-chat", function(data) {
+    chatModel
+      .find({})
+      .where("room")
+      .equals(data.room)
+      .sort("-createdOn")
+      .skip(data.msgCount)
+      .lean()
+      .limit(5)
+      .exec(function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          //calling function which emits event to client to show chats.
+          oldChats(result, data.username, data.room);
+        }
+      });
+  }); //end of reading chat from database.
+
+  //listening for get-all-users event. creating list of all users.
+  eventEmitter.on("get-all-users", function() {
+    userModel
+      .find({})
+      .select("username")
+      .exec(function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          //console.log(result);
+          for (var i = 0; i < result.length; i++) {
+            userStack[result[i].username] = "Offline";
+          }
+          //console.log("stack "+Object.keys(userStack));
+          sendUserStack();
+        }
+      });
+  }); //end of get-all-users event.
+
+  //listening get-room-data event.
+  eventEmitter.on("get-room-data", function(room) {
+    roomModel.find(
+      {
+        $or: [
+          {
+            name1: room.name1
+          },
+          {
+            name1: room.name2
+          },
+          {
+            name2: room.name1
+          },
+          {
+            name2: room.name2
+          }
+        ]
+      },
+      function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          if (result == "" || result == undefined || result == null) {
+            var today = Date.now();
+
+            newRoom = new roomModel({
+              name1: room.name1,
+              name2: room.name2,
+              lastActive: today,
+              createdOn: today
+            });
+
+            newRoom.save(function(err, newResult) {
+              if (err) {
+                console.log("Error : " + err);
+              } else if (
+                newResult == "" ||
+                newResult == undefined ||
+                newResult == null
+              ) {
+                console.log("Some Error Occured During Room Creation.");
+              } else {
+                setRoom(newResult._id); //calling setRoom function.
+              }
+            }); //end of saving room.
+          } else {
+            var jresult = JSON.parse(JSON.stringify(result));
+            setRoom(jresult[0]._id); //calling setRoom function.
+          }
+        } //end of else.
+      }
+    ); //end of find room.
+  }); //end of get-room-data listener.
+  //end of database operations for chat feature.
+  socket.on('sendchat', function (data) {
+    // we tell the client to execute 'updatechat' with 2 parameters
+    io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+      //emits event to save chat to database.
+  });
+	socket.on('switchRoom', function(newroom){
+		// leave the current room (stored in session)
+		socket.leave(socket.room);
+		// join new room, received as function parameter
+		socket.join(newroom);
+//		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
+		// sent message to OLD room
+//		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username+' has left this room');
+		// update socket session room title
+		socket.room = newroom;
+//		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
+		socket.emit('updaterooms', rooms, newroom);
+	});
+
+	// when the user disconnects.. perform this
+	socket.on('disconnect', function(){
+		// remove the username from global usernames list
+		delete usernames[socket.username];
+		// update list of users in chat, client-side
+		io.sockets.emit('updateusers', usernames);
+		// echo globally that this client has left
+	//	socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+		socket.leave(socket.room);
+	});
+});
 
 
 // Provide access to node_modules folder
