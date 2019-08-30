@@ -39,27 +39,9 @@ const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
-if(err)
-   {
-       console.log(err);
-   }
-   else
-   {
-       console.log("Connected to db");
+.then(() => console.log('MongoDB connected..'))
+.catch(err => console.log(err));
 
-       db.collection('testt').insert({"doc1":"hello"},function(err,data){
-
-     if(err)
-   {
-     throw(err);
-   }
-   else
-   {
-    console.log("sucessfuly inserted");
-   }
-
-})
-});
 
 app.use(cors())
 const uuidv4 = require('uuid/v4')
@@ -359,7 +341,7 @@ require("./libs/chat.js").sockets(https);
 
 
 
-
+console.log(db.collection);
 
 
 var usernames = {};
