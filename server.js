@@ -378,7 +378,7 @@ io.sockets.on('connection', function (socket) {
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, 'room1');
 	});
-  socket.on("sendchat", function(data) {
+  socket.on("updatechat", function(data) {
     //emits event to save chat to database.
     eventEmitter.emit("save-chat", {
       msgFrom: socket.username,
