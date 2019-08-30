@@ -40,6 +40,7 @@ const mongoose = require('mongoose');
 const db = require('./config/keys').MongoURI;
 mongoose.connect(db, { useNewUrlParser: true })
 .then(() => console.log('MongoDB connected..'))
+db.collection('test').insert({"doc1":"hello"},function(err,data){
 .catch(err => console.log(err));
 
 
@@ -353,7 +354,6 @@ var usernames = {};
 
 
 io.sockets.on('connection', function (socket) {
-  console.log(mongoose.db.collection.rooms);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
