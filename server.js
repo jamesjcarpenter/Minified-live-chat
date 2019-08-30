@@ -265,31 +265,6 @@ app.post('/newroom', function(req, res, next) {
       updatedOn: today    
     });
     
-    db.collection.Rooms.insert(
-      {
-        _id: "roomId",
-        seq: 0
-      }
-    )
-
-    function getNextSequence(name) {
-      var ret = db.counters.findAndModify(
-        {
-          query: { _id: name },
-          update: { $inc: { seq: 1 } },
-          new: true
-        }
-      );
-      return ret.seq;
-    }
-
-
-    db.collection.rooms.insert(
-      {
-        _id: getNextSequence("roomId"),
-        name: "roomName",
-      }
-    )
     
     console.log(newRoom.name1);
     // save the user
@@ -365,7 +340,7 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 
 
-
+const user = mongoose.model("User");
 
 
 
@@ -374,7 +349,6 @@ var rooms = mongoose.model("Room");
 var chat = mongoose.model("Chat");
 // usernames which are currently connected to the chat
 var usernames = {};
-const room = "/" + roomId;
 // rooms which are currently available in chat
 
 
@@ -385,7 +359,12 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		
+    setRoom = function(roomId) {
+      socket.room = roomId;
+      console.log("roomId : " + socket.room);
+      socket.join(socket.room);
+      io.socket.to(userSocket[socket.username]).emit("set-room", socket.room);
+    };
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
