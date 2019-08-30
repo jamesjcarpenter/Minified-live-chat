@@ -123,7 +123,7 @@ var socket = io.connect('anomic.io/');
 //$('#publisher').append('<h4>' + username + '</h4>');
 
 $('#datasend').submit(function(){
-    socket.emit('updatechat',{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
+    socket.emit('updatechat',{msg:$(data).val(),msgTo:toUser,date:Date.now()});
     $('#data').val();
     $('#data').val('');
     return false;
@@ -137,7 +137,7 @@ socket.on('connect', function(data) {
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
-      socket.emit('sendchat', message,{msg:$('#message').val(),msgTo:toUser,date:Date.now()});
+      socket.emit('sendchat', message,{msg:$(data).val(),msgTo:toUser,date:Date.now()});
     });
 
     // when the client hits ENTER on their keyboard
