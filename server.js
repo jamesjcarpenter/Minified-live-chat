@@ -342,7 +342,6 @@ require("./libs/chat.js").sockets(https);
 
 
 
-console.log(Rooms);
 console.log(db.collection.Rooms);
 
 var usernames = {};
