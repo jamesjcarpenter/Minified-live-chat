@@ -59,6 +59,7 @@ if(err)
    }
 
 })
+});
 
 app.use(cors())
 const uuidv4 = require('uuid/v4')
