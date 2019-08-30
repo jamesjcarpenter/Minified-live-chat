@@ -340,9 +340,10 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 
 
+var collection = db.rooms;
 
+console.log(collection);
 
-console.log(db.collection.Rooms);
 
 var usernames = {};
 var rooms = mongoose.model("Room");
