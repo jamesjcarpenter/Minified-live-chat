@@ -71,11 +71,6 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.get('server.js', 'routes/index.js', 'routes/users.js', 'janus.js', 'config/keys.js', function(req, res) {
-  res.status(404)        // HTTP status 404: NotFound
- .send('Not found');
-});
-
 
 router.use(function (req, res, next) {
 
