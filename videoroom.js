@@ -52,7 +52,16 @@ var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
-var myroom = 1234;	// Demo room
+var url = window.location.href;
+
+console.log(url);
+function getImageDirectoryByFullURL(url){
+    return url.substr(url.lastIndexOf("=")+1);
+}
+console.log(url.substr(url.lastIndexOf("=")+1));
+
+
+var myroom = url.substr(url.lastIndexOf("=")+1);	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
