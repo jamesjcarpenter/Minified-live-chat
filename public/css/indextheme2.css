@@ -35,7 +35,7 @@
       width:100%!important;
       overflow-y:hidden!important;
       overflow-x:hidden!important;
-      min-width:24.5vw!important;
+      min-width:21.5vw!important;
     }
     
     #conversation {
@@ -45,7 +45,6 @@
     padding:20px!important;
     max-width:100%!important;
     max-height:100%!important;  
-    min-width:100%;
     }
     
     #inputfocus {
@@ -210,7 +209,7 @@
   }
   #inputwrapper{
     top:0vw;
-    right:0.32vw;
+    right:0vw;
     margin:0 auto;
     position:fixed;
     width:21.5vw;
