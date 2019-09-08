@@ -14,6 +14,7 @@
   <!-- Site Properties -->
   <script src="../semantic/dist/semantic.js"></script>
   <script src="../semantic/dist/components/form.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/logincss.css">
   <link rel="stylesheet" type="text/css" href="../semantic/dist/components/reset.css">
   <link rel="stylesheet" type="text/css" href="../semantic/dist/components/site.css">
 
@@ -32,69 +33,7 @@
   <link rel="stylesheet" type="text/css" href="../semantic/dist/components/message.css">
   <link rel="stylesheet" type="text/css" href="../semantic/dist/components/icon.css">
 
-  <style type="text/css">
-    body {
-      visibility:hidden !important; 
-      background-color: #DADADA;
-    }
-    body > .grid {
-      height: 100%;
-    }
-    .image {
-      margin-top: 4rem !important;
-    }
-    .column {
-      max-width: 450px;
-      height:700px!important;
-    }
-  </style>
-  <script>
-   $(document)
-     .ready(function() {
-       $('.ui.form')
-         .form({
-           fields: {
-             email: {
-               identifier  : 'email',
-               rules: [
-                 {
-                   type   : 'empty',
-                   prompt : 'Please enter your e-mail'
-                 },
-                 {
-                   type   : 'email',
-                   prompt : 'Please enter a valid e-mail'
-                 }
-               ]
-             },
-             name: {
-               identifier  : 'name',
-               rules: [
-                 {
-                   type   : 'empty',
-                   prompt : 'Please enter a valid username'
-                 }
-               ]
-             },
-             password: {
-               identifier  : 'password',
-               rules: [
-                 {
-                   type   : 'empty',
-                   prompt : 'Please enter your password'
-                 },
-                 {
-                   type   : 'length[6]',
-                   prompt : 'Your password must be at least 6 characters'
-                 }
-               ]
-             }
-           }
-         })
-       ;
-     })
-   ;
-   </script>
+
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
     <a class="active item">Home</a>
@@ -193,6 +132,7 @@
 </div>
 </div>
 <script src="../js/transin.js"></script>
+<script src="/js/registrate.js"></script>
 </body>
 
 </html>

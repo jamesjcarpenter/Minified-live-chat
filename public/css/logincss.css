@@ -1,0 +1,16 @@
+body {
+  background-color: #DADADA;
+  visibility:hidden !important; 
+}
+body > .grid {
+  height: 100%;
+}
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 450px;
+}
+.image{
+  margin-top:4rem!important;
+}
