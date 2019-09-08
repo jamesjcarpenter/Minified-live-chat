@@ -201,26 +201,26 @@ socket.on('connect', function(data) {
 
   // Room Submit Button Handler
 
-  $('.jiggle .placeholder')
-  .transition({
-    animation : 'jiggle',
-    duration  : 1300,
-  });
-  
-  $('.jiggle #local-video')
-  .transition({
-    animation : 'jiggle',
-    duration  : 1300,
-  });
-  $('.ui.checkbox')
-  .checkbox()
-;
-});
-$('.event .content .summary .date .ui #newmsg')
-.transition({
-  animation : 'fly in',
-  duration  : 1200,
-});
+//   $('.jiggle .placeholder')
+//   .transition({
+//     animation : 'jiggle',
+//     duration  : 1300,
+//   });
+// 
+//   $('.jiggle #local-video')
+//   .transition({
+//     animation : 'jiggle',
+//     duration  : 1300,
+//   });
+//   $('.ui.checkbox')
+//   .checkbox()
+// ;
+// });
+// $('.event .content .summary .date .ui #newmsg')
+// .transition({
+//   animation : 'fly in',
+//   duration  : 1200,
+// });
 
 window.onunload = function() {
     $('#start').show();
