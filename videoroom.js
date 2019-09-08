@@ -66,11 +66,6 @@ var bitrateTimer = [];
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
-document.getElementById('themechange').onclick = function () { 
-			var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
-			sfutest.send({"message": anotherroom});
-};
-
 $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
@@ -362,6 +357,11 @@ $(document).ready(function() {
 		});
 	}});
 });
+
+document.getElementById('themechange').onclick = function () { 
+			var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
+			sfutest.send({"message": anotherroom});
+};
 
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
