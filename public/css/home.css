@@ -30,9 +30,8 @@
       background-position: center !important;
       min-width:100%!important;
       background-color: #3E69C3;
-      background-image: url(http://scarbroughstudios.com/img/codepen.svg);
+      background-image: url(images/flowerseam.jpg);
       background-position: center center;
-      background-size: 500px;  
       @include animation(scrollBad 5s linear infinite);
     }
     .masthead .logo.item img {
