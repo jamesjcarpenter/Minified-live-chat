@@ -30,8 +30,8 @@ var url = require('url')
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 
-router.use('*', function (req, res, next) {
-  req.user = req.isAuthenticated();
+router.get('*', function (req, res, next) {
+  res.locals.login = req.isAuthenticated();
    console.log('ok');
   next()
  });
@@ -68,7 +68,7 @@ router.get('/dashboard', function(req, res) {
 });
 
 router.get('/home', function(req, res) {
-      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, user: req.user });
+      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 
