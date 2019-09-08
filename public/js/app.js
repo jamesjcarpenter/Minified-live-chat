@@ -30,7 +30,7 @@ document.getElementById('themechange').onclick = function () {
     $('#cpybutton').removeClass('ui teal').addClass('ui black');
 };
 
-var newroom = { "request": "create", "room": createdRoom, "ptype": "publisher", "display": socket.username };
+{ "request": "create", "room": createdRoom, "ptype": "publisher", "display": socket.username };
 sfutest.send({"message": newroom});
 
 function fixedEncodeURIComponent(str) {
