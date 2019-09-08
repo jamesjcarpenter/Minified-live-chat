@@ -87,14 +87,13 @@ router.use(function (req, res, next) {
     return next();  
   } if (req.originalUrl === '/dashboard') {
     return next();  
-  } if (req.originalUrl === '/') {
-    return next();  
   } if (req.originalUrl === '/public') {
     return next();
   } if (req.originalUrl === '/views') {
     return next();
   } else {
-    res.render('home.handlebars');      // HTTP status 404: NotFound
+    res.status(404)        // HTTP status 404: NotFound
+   .send('Not found');
   };
 });
 
