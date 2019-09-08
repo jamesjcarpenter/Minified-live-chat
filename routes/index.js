@@ -76,13 +76,13 @@ router.get('/home', function(req, res) {
 
 router.use(function (req, res, next) {
 
-    if (req.originalUrl === 'users/login') {
+    if (req.originalUrl === '/users/login') {
     return next();
   } if (req.originalUrl === '/home') {
     return next(); 
   } if (req.originalUrl === '/room') {
     return next(); 
-  } if (req.originalUrl === 'users/register') {
+  } if (req.originalUrl === '/users/register') {
     return next(); 
   } if (req.originalUrl === '/profile') {
     return next();  
