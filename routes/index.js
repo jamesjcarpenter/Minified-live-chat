@@ -73,13 +73,13 @@ router.get('/home', function(req, res) {
 
 router.use(function (req, res, next) {
 
-    if (req.originalUrl === '/login') {
+    if (req.originalUrl === 'users/login') {
     return next();
   } if (req.originalUrl === '/home') {
     return next(); 
   } if (req.originalUrl === '/room') {
     return next(); 
-  } if (req.originalUrl === '/register') {
+  } if (req.originalUrl === 'users/register') {
     return next(); 
   } if (req.originalUrl === '/profile') {
     return next();  
@@ -90,6 +90,10 @@ router.use(function (req, res, next) {
   } if (req.originalUrl === '/public') {
     return next();
   } if (req.originalUrl === '/views') {
+    return next();
+  } if (req.originalUrl === '/*.js') {
+    res.status(404)        // HTTP status 404: NotFound
+   .send('Not found')
     return next();
   } else {
     res.status(404)        // HTTP status 404: NotFound
