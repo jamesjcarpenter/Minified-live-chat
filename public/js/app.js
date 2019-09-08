@@ -14,10 +14,12 @@ var url = window.location.href;
 console.log(url);
 function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
+    var createdRoom = url.substr(url.lastIndexOf("=")+1);
+    { "request": "create", "room": createdRoom, "ptype": "publisher", "display": socket.username };
+    sfutest.send({"message": newroom});
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
-var createdRoom = url.substr(url.lastIndexOf("=")+1);
 
 $("#data").focus();
 
@@ -30,8 +32,7 @@ document.getElementById('themechange').onclick = function () {
     $('#cpybutton').removeClass('ui teal').addClass('ui black');
 };
 
-{ "request": "create", "room": createdRoom, "ptype": "publisher", "display": socket.username };
-sfutest.send({"message": newroom});
+
 
 function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
