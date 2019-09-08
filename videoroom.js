@@ -58,13 +58,13 @@ var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
-var url = window.location.href;
+var url1 = window.location.href;
 
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
+console.log(url1);
+function getImageDirectoryByFullURL(url1){
+    return url1.substr(url1.lastIndexOf("=")+1);
 }
-console.log(url.substr(url.lastIndexOf("=")+1));
+console.log(url1.substr(url1.lastIndexOf("=")+1));
 
 var feeds = [];
 var bitrateTimer = [];
