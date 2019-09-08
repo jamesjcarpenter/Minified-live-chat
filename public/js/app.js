@@ -29,7 +29,7 @@ document.getElementById('themechange').onclick = function () {
     $('#cpybutton').removeClass('ui teal').addClass('ui black');
 };
 
-$.getScript("js/videoroomtest.js", function(){
+$.getScript("js/videoroom.js", function(){
 
   var register = { "request": "join", "room": myrooms1, "ptype": "publisher", "display": socket.username };
   sfutest.send({"message": register});
