@@ -97,16 +97,8 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-									var register = { "request": "create", "room": myroom, "ptype": "publisher", "display": socket.username };
+									var register = { "request": "joinandconfigure", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									function myFunction() {
-										if (register)
-										{
-											{ "request": "create", "room": myroom, "ptype": "publisher", "display": socket.username };
-										} else {
-											return;
-										
-									};
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
