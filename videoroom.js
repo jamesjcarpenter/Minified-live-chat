@@ -51,17 +51,7 @@ else
 var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
-
-var url = window.location.href;
-
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
-}
-console.log(url.substr(url.lastIndexOf("=")+1));
-
-
-var myroom = url.substr(url.lastIndexOf("=")+1);	// Demo room
+	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
@@ -75,6 +65,16 @@ var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringV
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
 $(document).ready(function() {
+	var url = window.location.href;
+	
+	console.log(url);
+	function getImageDirectoryByFullURL(url){
+	    return url.substr(url.lastIndexOf("=")+1);
+	}
+	console.log(url.substr(url.lastIndexOf("=")+1));
+	
+	
+	var myroom = url.substr(url.lastIndexOf("=")+1);
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
