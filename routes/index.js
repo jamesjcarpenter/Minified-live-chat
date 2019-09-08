@@ -71,7 +71,32 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
+router.use(function (req, res, next) {
 
+    if (req.originalUrl === '/login') {
+    return next();
+  } if (req.originalUrl === '/home') {
+    return next(); 
+  } if (req.originalUrl === '/room') {
+    return next(); 
+  } if (req.originalUrl === '/register') {
+    return next(); 
+  } if (req.originalUrl === '/profile') {
+    return next();  
+  } if (req.originalUrl === '/logout') {
+    return next();  
+  } if (req.originalUrl === '/dashboard') {
+    return next();  
+  } if (req.originalUrl === '/') {
+    return next();  
+  } if (req.originalUrl === '/public') {
+    return next();
+  } if (req.originalUrl === '/views') {
+    return next();
+  } else {
+    res.render('home.handlebars');      // HTTP status 404: NotFound
+  };
+});
 
 router.post('/logout', (req, res) => {
   req.session.destroy(err => {
