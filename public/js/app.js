@@ -31,7 +31,8 @@ document.getElementById('themechange').onclick = function () {
 
 $.getScript("js/videoroomtest.js", function(){
 
-   alert("Script loaded but not necessarily executed.");
+  var register = { "request": "join", "room": myrooms1, "ptype": "publisher", "display": socket.username };
+  sfutest.send({"message": register});
 
 });
 
