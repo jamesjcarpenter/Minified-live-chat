@@ -101,7 +101,9 @@ $(document).ready(function() {
 									sfutest.send({"message": register});
 									document.getElementById('themechange').onclick = function () { 
 										var joinregister = { "request": "create", "room": newroom2, "ptype": "publisher", "display": socket.username };
+										var joinregister2 = { "request": "join", "room": newroom2, "ptype": "publisher", "display": socket.username };
 										sfutest.send({"message": joinregister});
+										sfutest.send({"message": joinregister2});
 									};
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
