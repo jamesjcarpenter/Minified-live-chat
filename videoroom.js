@@ -98,9 +98,11 @@ $(document).ready(function() {
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
 									function myFunction() {
+										joinRoomFunction();
+										if (room === null) {
 									var register = { "request": "create", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									joinRoomFunction();
+								};
 									};
 								
 								function joinRoomFunction() {
