@@ -97,9 +97,9 @@ $(document).ready(function() {
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
 					
-					$.getScript("./app.js", function(){
+					$.getScript("js/app.js", function(){
 					
-						var register = { "request": "publisher", "room": url.substr(url.lastIndexOf("=")+1), "ptype": "publisher", "display": socket.username };
+						var register = { "request": "join", "room": url.substr(url.lastIndexOf("=")+1), "ptype": "publisher", "display": socket.username };
 						sfutest.send({"message": register});
 					
 					});
