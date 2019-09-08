@@ -99,10 +99,14 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "create", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									function fixedJoin() {
-										"request": "join", "room": myroom, "ptype": "publisher", "display": socket.username
-									}
-								};
+									function myFunction() {
+										if (register)
+										{
+											{ "request": "create", "room": myroom, "ptype": "publisher", "display": socket.username };
+										} else {
+											return;
+										
+									};
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
