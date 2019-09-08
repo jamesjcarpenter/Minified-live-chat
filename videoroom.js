@@ -93,11 +93,6 @@ $(document).ready(function() {
 									sfutest = pluginHandle;
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
-									document.getElementById('themechange').onclick = function () { 
-												var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
-												sfutest.send({"message": anotherroom});
-												return false;
-									};
 									// Prepare the username registration
 						//			$('#videojoin').removeClass('hide').show();
 							//		$('#registernow').removeClass('hide').show();
@@ -111,6 +106,10 @@ $(document).ready(function() {
 											janus.destroy();
 										});
 								},
+								document.getElementById('themechange').onclick = function () { 
+											var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
+											sfutest.send({"message": anotherroom});
+								};
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
 									bootbox.alert("Error attaching plugin... " + error);
