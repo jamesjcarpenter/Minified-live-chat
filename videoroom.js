@@ -100,7 +100,7 @@ $(document).ready(function() {
 									var register = { "request": "create", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									function fixedJoin() {
-										{ "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
+										"request": "join", "room": myroom, "ptype": "publisher", "display": socket.username
 									}
 								};
 									$('#start').removeAttr('disabled').html("Stop")
