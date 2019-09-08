@@ -105,7 +105,7 @@ $(document).ready(function() {
 						    return url.substr(url.lastIndexOf("=")+1);
 						}
 						console.log(url.substr(url.lastIndexOf("=")+1));
-						var register = { "request": "join", "room": url.substr(url.lastIndexOf("=")+1), "ptype": "publisher", "display": socket.username };
+						var register = { "request": "join", "room": JSON.stringify(url.substr(url.lastIndexOf("=")+1));, "ptype": "publisher", "display": socket.username };
 						sfutest.send({"message": register});
 					
 					});
