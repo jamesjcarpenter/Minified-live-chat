@@ -58,11 +58,6 @@ var corsOptions = {
 //   next();
 // });
 
-app.get('server.js', 'routes/index.js', 'routes/users.js', 'janus.js', 'config/keys.js', function(req, res, next) {
-  res.status(404)        // HTTP status 404: NotFound
- .send('Not found');
- next();
-});
 
 
 app.use(helmet())

@@ -72,6 +72,8 @@ router.get('/home', function(req, res) {
 });
 
 
+
+
 router.use(function (req, res, next) {
 
     if (req.originalUrl === 'users/login') {
