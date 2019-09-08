@@ -36,7 +36,7 @@
       overflow-y:hidden!important;
       overflow-x:hidden!important;
       min-width:25vw!important;
-      left:2vw!important;
+      left:7vw!important;
     }
     
     #conversation {
@@ -47,7 +47,7 @@
     max-width:100%!important;
     max-height:100%!important;  
     min-width:25vw!important;
-    left:2vw!important;
+    left:7vw!important;
     }
     
     #inputfocus {
