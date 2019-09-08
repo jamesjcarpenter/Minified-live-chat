@@ -64,20 +64,20 @@
           <i class="sidebar icon"></i>
         </a>
         <a class="active item">home</a>
-        <a class="item">about</a>            {{{#if user}}}
+        <a class="item">about</a>            {{#if user}}
         <a href="/profile" class="item">view profile</a>
         <a class="right item">
-                        <b><h4 id="greeting">wb, {{{user.name}}}&nbsp;&nbsp;<i class="fitted small thumbs up icon"></i></h4></b>
+                        <b><h4 id="greeting">wb, {{user.name}}&nbsp;&nbsp;<i class="fitted small thumbs up icon"></i></h4></b>
                         </a>
         <div class="right item">
             <form action="/logout" method="post">
             <button name="logout" class="ui large inverted button" id="btnlogout">log out</button>
             </form>
-          {{{else}}}
+          {{else}}
           <div class="right item">
           <a href="/users/login" class="ui inverted button" id="btnlogin">log in</a>
           <a href="/users/register" class="ui inverted button"id="btnlogin">sign up</a>
-          {{{/if}}}
+          {{/if}}
         </div>
       </div>
     <div class="ui text container">
