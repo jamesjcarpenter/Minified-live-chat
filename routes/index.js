@@ -91,7 +91,7 @@ router.use(function (req, res, next) {
     return next();
   } if (req.originalUrl === '/views') {
     return next();
-  } if (req.originalUrl === '/*.js') {
+  } if (req.originalUrl === '*.js') {
     res.status(404)        // HTTP status 404: NotFound
    .send('Not found')
     return next();
