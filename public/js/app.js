@@ -29,7 +29,11 @@ document.getElementById('themechange').onclick = function () {
     $('#cpybutton').removeClass('ui teal').addClass('ui black');
 };
 
+$.getScript("js/videoroomtest.js", function(){
 
+   alert("Script loaded but not necessarily executed.");
+
+});
 
 function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
