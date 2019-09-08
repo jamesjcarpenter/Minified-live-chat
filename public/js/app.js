@@ -20,7 +20,7 @@ console.log(url.substr(url.lastIndexOf("=")+1));
 
 $("#data").focus();
 
-document.getElementById('themechanger').onclick = function () { 
+document.getElementById('themechange').onclick = function () { 
     document.getElementById('themecss').href = 'css/indextheme2.css';
     $('.ui.button').addClass('inverted');
     $('.icon').addClass('inverted');
