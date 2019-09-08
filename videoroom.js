@@ -52,8 +52,7 @@ var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
-var myroom = 1234;
-var myroom2 = 5678;	// Demo room
+var myroom = 1234;	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
@@ -65,7 +64,6 @@ var bitrateTimer = [];
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
-
 
 $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
@@ -105,10 +103,6 @@ $(document).ready(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
-										document.getElementById('themechange').onclick = function () { 
-													var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
-													sfutest.send({"message": anotherroom});
-										};
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
