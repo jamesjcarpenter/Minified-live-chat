@@ -99,7 +99,7 @@ $(document).ready(function() {
 					
 					$.getScript("./app.js", function(){
 					
-						var register = { "request": "join", "room": url.substr(url.lastIndexOf("=")+1), "ptype": "publisher", "display": socket.username };
+						var register = { "request": "publisher", "room": url.substr(url.lastIndexOf("=")+1), "ptype": "publisher", "display": socket.username };
 						sfutest.send({"message": register});
 					
 					});
