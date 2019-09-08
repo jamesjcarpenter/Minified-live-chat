@@ -237,3 +237,4 @@ designer.widgetJsURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget
 
 // <iframe> will be appended to "document.body"
 designer.appendTo(document.body.inner|| document.documentElement);
+});
