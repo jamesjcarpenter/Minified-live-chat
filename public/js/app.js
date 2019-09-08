@@ -16,7 +16,7 @@ function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
-const myrooms1 = url.substr(url.lastIndexOf("=")+1);
+
 
 $("#data").focus();
 
@@ -28,13 +28,6 @@ document.getElementById('themechange').onclick = function () {
     $('.large.ui.teal.secondary.button.inverted').removeClass('large ui teal').addClass('large ui black');
     $('#cpybutton').removeClass('ui teal').addClass('ui black');
 };
-
-$.getScript("./videoroom.js", "./janus.js", "js/scriptForChat.js", function(){
-
-  var register = { "request": "join", "room": myrooms1, "ptype": "publisher", "display": socket.username };
-  sfutest.send({"message": register});
-
-});
 
 function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
@@ -201,26 +194,26 @@ socket.on('connect', function(data) {
 
   // Room Submit Button Handler
 
-//   $('.jiggle .placeholder')
-//   .transition({
-//     animation : 'jiggle',
-//     duration  : 1300,
-//   });
-// 
-//   $('.jiggle #local-video')
-//   .transition({
-//     animation : 'jiggle',
-//     duration  : 1300,
-//   });
-//   $('.ui.checkbox')
-//   .checkbox()
-// ;
-// });
-// $('.event .content .summary .date .ui #newmsg')
-// .transition({
-//   animation : 'fly in',
-//   duration  : 1200,
-// });
+  $('.jiggle .placeholder')
+  .transition({
+    animation : 'jiggle',
+    duration  : 1300,
+  });
+  
+  $('.jiggle #local-video')
+  .transition({
+    animation : 'jiggle',
+    duration  : 1300,
+  });
+  $('.ui.checkbox')
+  .checkbox()
+;
+});
+$('.event .content .summary .date .ui #newmsg')
+.transition({
+  animation : 'fly in',
+  duration  : 1200,
+});
 
 window.onunload = function() {
     $('#start').show();
@@ -237,4 +230,3 @@ designer.widgetJsURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget
 
 // <iframe> will be appended to "document.body"
 designer.appendTo(document.body.inner|| document.documentElement);
-});
