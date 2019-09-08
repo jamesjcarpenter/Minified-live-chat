@@ -68,7 +68,7 @@ router.get('/dashboard', function(req, res) {
 });
 
 router.get('/home', function(req, res) {
-      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, user: req.user });
 });
 
 
