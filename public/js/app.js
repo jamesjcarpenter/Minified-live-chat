@@ -34,7 +34,7 @@ $("#data").focus();
         $('.ui.button').removeClass('inverted');
         $('.icon').removeClass('inverted');
         $('.ui.medium.left.pointing.label').removeClass('inverted');
-        $('.large.ui.teal.secondary.button.inverted').removeClass('large ui teal').removeClass('large ui black');
+        $('.large.ui.teal.secondary.button.inverted').addClass('large ui teal').removeClass('large ui black');
         $('#cpybutton').removeClass('ui teal').removeClass('ui black');
     };
 
