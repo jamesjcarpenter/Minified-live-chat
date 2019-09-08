@@ -53,12 +53,12 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-app.use(function(req, res, next) {
-  req.user = req.isAuthenticated,
-  username = req.user.name;
-  var username = req.user.name;
-  next();
-});
+// app.use(function(req, res, next) {
+//   req.user = req.isAuthenticated,
+//   username = req.user.name;
+//   var username = req.user.name;
+//   next();
+// });
 
 app.use(helmet())
 
