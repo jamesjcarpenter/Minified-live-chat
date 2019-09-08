@@ -58,13 +58,6 @@ var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
-var url1 = window.location.href;
-
-console.log(url1);
-function getImageDirectoryByFullURL(url1){
-    return url1.substr(url1.lastIndexOf("=")+1);
-}
-console.log(url1.substr(url1.lastIndexOf("=")+1));
 
 var feeds = [];
 var bitrateTimer = [];
@@ -103,7 +96,7 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
+									var register = { "request": "join", "room": window.location.href, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
