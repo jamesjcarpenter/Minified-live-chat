@@ -105,11 +105,11 @@ $(document).ready(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
+										document.getElementById('themechange').onclick = function () { 
+													var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
+													sfutest.send({"message": anotherroom});
+										};
 								},
-								document.getElementById('themechange').onclick = function () { 
-											var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
-											sfutest.send({"message": anotherroom});
-								};
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
 									bootbox.alert("Error attaching plugin... " + error);
