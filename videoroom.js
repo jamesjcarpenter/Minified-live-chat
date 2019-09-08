@@ -52,7 +52,8 @@ var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
-var myroom = 3012;	// Demo room
+var myroom = 1234;
+var newroom2 = 5555;	// Demo room
 var myusername = null;
 var myid = null;
 var mystream = null;
@@ -98,6 +99,10 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
+									document.getElementById('themechange').onclick = function () { 
+										var joinregister = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
+										sfutest.send({"message": joinregister});
+									};
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
