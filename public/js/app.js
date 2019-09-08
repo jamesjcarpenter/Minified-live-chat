@@ -16,7 +16,7 @@ function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
-
+const myrooms1 = url.substr(url.lastIndexOf("=")+1);
 
 $("#data").focus();
 
