@@ -52,8 +52,8 @@ var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
-var myrooms1 = 1231;
-var myroom = myrooms1;	// Demo room
+var myroom = 1234;	// Demo room
+var myrooms1;
 var myusername = null;
 var myid = null;
 var mystream = null;
@@ -97,18 +97,15 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-									function myFunction() {
-										joinRoomFunction();
-										if (room === null) {
-									var register = { "request": "publish", "room": myroom, "ptype": "publisher", "display": socket.username };
+									function startRoom(){
+									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
+									joinNow();
 								};
+									function joinNow() {
+										var jenre = { "request": "join", "room": myrooms1, "ptype": "publisher", "display": socket.username };
+										sfutest.send({"message": jenre});
 									};
-								
-								function joinRoomFunction() {
-									var joiner = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
-									sfutest.send({"message": joiner});
-								};
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
