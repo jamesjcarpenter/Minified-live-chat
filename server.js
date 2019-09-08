@@ -46,7 +46,26 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
+app.use(function (req, res, next) {
 
+    if (req.originalUrl === '/login') {
+    return next();
+  } if (req.originalUrl === '/home') {
+    return next(); 
+  } if (req.originalUrl === '/room') {
+    return next(); 
+  } if (req.originalUrl === '/register') {
+    return next(); 
+  } if (req.originalUrl === '/profile') {
+    return next();  
+  } if (req.originalUrl === '/logout') {
+    return next();  
+  } if (req.originalUrl === '/dashboard') {
+    return next();  
+  } else {
+    res.status(404)        // HTTP status 404: NotFound
+   .send('Not found');
+  });
 
 var corsOptions = {
   origin: 'https://anomic.io:8089',
