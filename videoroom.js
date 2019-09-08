@@ -98,7 +98,13 @@ $(document).ready(function() {
 					//				$('#username').focus();
 					
 					$.getScript("js/app.js", function(){
-					
+						var url = window.location.href;
+						
+						console.log(url);
+						function getImageDirectoryByFullURL(url){
+						    return url.substr(url.lastIndexOf("=")+1);
+						}
+						console.log(url.substr(url.lastIndexOf("=")+1));
 						var register = { "request": "join", "room": url.substr(url.lastIndexOf("=")+1), "ptype": "publisher", "display": socket.username };
 						sfutest.send({"message": register});
 					
