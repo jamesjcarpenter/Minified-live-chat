@@ -100,7 +100,7 @@ $(document).ready(function() {
 									function myFunction() {
 										joinRoomFunction();
 										if (room === null) {
-									var register = { "request": "create", "room": myroom, "ptype": "publisher", "display": socket.username };
+									var register = { "request": "publish", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 								};
 									};
