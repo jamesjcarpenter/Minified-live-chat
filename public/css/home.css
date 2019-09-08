@@ -4,14 +4,36 @@
     .hidden.menu {
       display: none;
     }
-
+    @import "bourbon";
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+    @include keyframes(scrollBad) {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 -320px;
+      }
+    }
+    @include keyframes(scrollGood) {
+      0% {
+        transform: translate3d(0,0,0);
+      }
+      100% {
+        transform: translate3d(0,-320px,0);
+      }
     .masthead.segment {
       min-height: 700px;
       padding: 1em 0em;
-      background-image: url(./images/keyboard.png) !important;
       background-repeat: no-repeat !important;
       background-position: center !important;
       min-width:100%!important;
+      background-color: #3E69C3;
+      background-image: url(http://scarbroughstudios.com/img/codepen.svg);
+      background-position: center center;
+      background-size: 500px;  
+      @include animation(scrollBad 5s linear infinite);
     }
     .masthead .logo.item img {
       margin-right: 1em;
