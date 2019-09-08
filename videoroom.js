@@ -96,6 +96,7 @@ $(document).ready(function() {
 									document.getElementById('themechange').onclick = function () { 
 												var anotherroom = { "request": "join", "room": myroom2, "ptype": "publisher", "display": socket.username };
 												sfutest.send({"message": anotherroom});
+												return false;
 									};
 									// Prepare the username registration
 						//			$('#videojoin').removeClass('hide').show();
