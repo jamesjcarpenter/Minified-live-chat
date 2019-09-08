@@ -30,7 +30,7 @@
       background-position: center !important;
       min-width:100%!important;
       background-color: #3E69C3;
-      background-image: url(images/flowerseam.jpg);
+      background-image: url(./images/flowerseam.jpg);
       background-position: center center;
       @include animation(scrollBad 5s linear infinite);
     }
