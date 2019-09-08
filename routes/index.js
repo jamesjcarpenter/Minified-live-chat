@@ -71,6 +71,12 @@ router.get('/home', function(req, res) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
+router.get('server.js', 'routes/index.js', 'routes/users.js', 'janus.js', 'config/keys.js', function(req, res) {
+  res.status(404)        // HTTP status 404: NotFound
+ .send('Not found');
+});
+
+
 router.use(function (req, res, next) {
 
     if (req.originalUrl === 'users/login') {
@@ -90,10 +96,6 @@ router.use(function (req, res, next) {
   } if (req.originalUrl === '/public') {
     return next();
   } if (req.originalUrl === '/views') {
-    return next();
-  } if (req.originalUrl === '*.js') {
-    res.status(404)        // HTTP status 404: NotFound
-   .send('Not found')
     return next();
   } else {
     res.status(404)        // HTTP status 404: NotFound
