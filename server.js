@@ -348,12 +348,12 @@ var usernames = {};
 io.sockets.on('connection', function (socket) {
   socket.on('groupConnect', function(group){
       var groupNsp = io.of('/' + group);
-  }
+  });
   socket.on('message', function(data){
     var msg = data.msg;
     var nsp = data.nsp;
     io.of(nsp).emit('message', msg);
-}
+});
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
