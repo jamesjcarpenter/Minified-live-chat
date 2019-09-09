@@ -60,9 +60,12 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
+var namePos = (url.substr(url.lastIndexOf("=")+1));
+var roomName = -namePos;
+
 var myroom = null;
- if(url.substr(url.lastIndexOf("=")+1) === 1234)
- 	myroom = 1234;
+ if(window.location.protocol === 'http:');
+		myroom = roomName;
 
 var myusername = null;
 var myid = null;
