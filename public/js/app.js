@@ -1,7 +1,17 @@
 window.addEventListener('load', () => {
   
   
-  var socket = io.connect('anomic.io/443');
+var socket = io.connect('anomic.io/443');
+var socketOut = io.connect('anomic.io/443');
+socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
+var nsp;
+setTimeout(function(){
+    socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
+    socket.on('message', function(msg){
+        displayMessage(msg);
+    }
+    nsp = '/' + url.substr(url.lastIndexOf("=")+1);
+}, 1500);
   
   // Chat platform
   // Local Video
