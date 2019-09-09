@@ -9,7 +9,7 @@ setTimeout(function(){
     socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
     socket.on('message', function(msg){
         displayMessage(msg);
-    }
+    });
     nsp = '/' + url.substr(url.lastIndexOf("=")+1);
 }, 1500);
   
