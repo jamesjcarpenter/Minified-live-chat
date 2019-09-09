@@ -340,7 +340,7 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 
 
-// var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
+var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 // usernames which are currently connected to the chat
 var usernames = {};
 // rooms which are currently available in chat
@@ -352,21 +352,16 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.on('joinroom', function(room) {
-        this.join(room);
-        if (typeof rooms[room] === "undefined") rooms[room] = {};
-        rooms[room].count = rooms[room].total ? rooms[room].total+1 : 1; 
-        io.to(room).emit("new user", rooms[room].count)
-    });
+		socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join('room1');
+		socket.join(room);
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
+		socket.emit('updaterooms', rooms, room);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
