@@ -360,11 +360,7 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    function myFunction(req, res, next) {
-      req.query.name = socket.room;
-      var room = req.query.name;
-    };
-		socket.room = req.query.name;
+		socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
@@ -373,7 +369,7 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, roomName);
+		socket.emit('updaterooms', rooms, 'room1');
 	});
 
 	// when the client emits 'sendchat', this listens and executes
