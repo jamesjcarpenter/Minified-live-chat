@@ -62,7 +62,7 @@ console.log(url.substr(url.lastIndexOf("=")+1));
 
 var myroom = [];
  if(window.location.protocol === 'http:');
-		myroom = JSON.stringify(url.substr(url.lastIndexOf("=")+1));
+		myroom = console.log(url.substr(url.lastIndexOf("=")+1));
 
 var myusername = null;
 var myid = null;
