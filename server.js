@@ -209,8 +209,6 @@ app.use(express.static(__dirname + '/'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
-    console.dir(req.query.name)
-    var myRoom = req.query.name;
     next();
 });
 var routes = require('./routes/index.js');
@@ -347,8 +345,6 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 var usernames = {};
 // rooms which are currently available in chat
 
-
-
 io.sockets.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
@@ -356,16 +352,21 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = myRoom;
+    socket.on('joinroom', function(room) {
+        this.join(room);
+        if (typeof rooms[room] ==== "undefined") rooms[room] = {};
+        rooms[room].count = rooms[room].total ? rooms[room].total+1 : 1; 
+        io.to(room).emit("new user", rooms[room].count)
+    });
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
 		socket.join('room1');
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'you have connected to');
+		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, myRoom);
+		socket.emit('updaterooms', rooms, 'room1');
 	});
 
 	// when the client emits 'sendchat', this listens and executes
