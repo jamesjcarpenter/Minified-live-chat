@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
   
   
+  var socket = io.connect('anomic.io/443');
   
   // Chat platform
   // Local Video
@@ -49,65 +50,65 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
-//   socket.on('connect', function(){
-// 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-// 		socket.emit('adduser', prompt("Enter username."));
-// 	});
-//   // create our webrtc connection
-//   socket.on('updatechat', function (username, data) {
-//     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
-//     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
-//     $("#data").focus();
-//     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-//     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><h6></h6></tag>').text(username));
-//     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-//     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p></p></div></div>').text(data));
-// 
-//   });
-//   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
-//   socket.on('serverupdatechat', function (server) {
-//     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
-//         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
-//         $('#conversation').append($('<div class="ui large grey label"id="servermessage"><p></p></div>').text(server));
-//           });
-// //$('#publisher').append('<h4>' + username + '</h4>');
-// 
-//   // on load of page
-// socket.on('connect', function(data) {
-//     // when the client clicks SEND
-//     $('#datasend').click( function() {
-//       var message = $('#data').val();
-//       $('#data').val('');
-//       // tell server to execute 'sendchat' and send along one parameter
-//       socket.emit('sendchat', message);
-//     });
-// 
-//     // when the client hits ENTER on their keyboard
-//     $('#data').keypress(function(e) {
-//       if(e.which == 13) {
-//         $(this).blur();
-//         $('#datasend').focus().click();
-//       }
-//     });
-//   });
-//   socket.on('updateroomusers', function(roomusers, username) {
-//   $("#roomusers").empty();
-//   $.each(roomusers, function (key, value) {
-//   $('#roomusers').append('+value+');
-//   });
-//   });
-// 
-//   socket.on('updaterooms', function(rooms, current_room) {
-//       $('#rooms').empty();
-//       $.each(rooms, function(key, value) {
-//         if(value == current_room){
-//           $('#rooms').append('<div>' + value + '</div>');
-//         }
-//         else {
-//           $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
-//         }
-//       });
-//     });
+  socket.on('connect', function(){
+		// call the server-side function 'adduser' and send one parameter (value of prompt)
+		socket.emit('adduser', prompt("Enter username."));
+	});
+  // create our webrtc connection
+  socket.on('updatechat', function (username, data) {
+    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+    $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
+    $("#data").focus();
+    // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
+    $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><h6></h6></tag>').text(username));
+    $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
+    $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p></p></div></div>').text(data));
+    
+  });
+  // listener, whenever the server emits 'updaterooms', this updates the room the client is in
+  socket.on('serverupdatechat', function (server) {
+    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+        $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
+        $('#conversation').append($('<div class="ui large grey label"id="servermessage"><p></p></div>').text(server));
+          });
+//$('#publisher').append('<h4>' + username + '</h4>');
+
+  // on load of page
+socket.on('connect', function(data) {
+    // when the client clicks SEND
+    $('#datasend').click( function() {
+      var message = $('#data').val();
+      $('#data').val('');
+      // tell server to execute 'sendchat' and send along one parameter
+      socket.emit('sendchat', message);
+    });
+
+    // when the client hits ENTER on their keyboard
+    $('#data').keypress(function(e) {
+      if(e.which == 13) {
+        $(this).blur();
+        $('#datasend').focus().click();
+      }
+    });
+  });
+  socket.on('updateroomusers', function(roomusers, username) {
+  $("#roomusers").empty();
+  $.each(roomusers, function (key, value) {
+  $('#roomusers').append('+value+');
+  });
+  });
+  
+  socket.on('updaterooms', function(rooms, current_room) {
+      $('#rooms').empty();
+      $.each(rooms, function(key, value) {
+        if(value == current_room){
+          $('#rooms').append('<div>' + value + '</div>');
+        }
+        else {
+          $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+        }
+      });
+    });
 
     // function switchRoom(room){
     //   socket.broadcast.emit('switchRoom', room);

@@ -302,7 +302,15 @@ app.use(function(req, res, next) {
 // Set public folder as root
 //helmet is good for express security
 
-
+app.use(function(req, res, next) {
+   res.locals.url = {
+       query : req.query,
+       url   : req.originalUrl
+   }
+   console.dir(req.query.name)
+   req.query.name = roomName;
+   next();
+});
 
 //set port to 3000
 const isProduction = process.env.NODE_ENV === 'production';
@@ -352,7 +360,7 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
+		socket.room = roomName;
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
@@ -361,7 +369,7 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
+		socket.emit('updaterooms', rooms, roomName);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
@@ -408,14 +416,6 @@ app.use(express.static('/libs/'));
 
 // global variables
 
-app.use(function(req, res, next) {
-   res.locals.url = {
-       query : req.query,
-       url   : req.originalUrl
-   }
-   console.dir(req.query.name)
-   next();
-});
  
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
