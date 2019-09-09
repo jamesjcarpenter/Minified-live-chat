@@ -44,8 +44,6 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
-$('#number').append($(url.substr(url.lastIndexOf("=")+1));
-
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar

@@ -60,7 +60,7 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
-var myroom = null;
+var myroom = [];
  if(window.location.protocol === 'http:');
 		myroom = url.substr(url.lastIndexOf("=")+1);
 
