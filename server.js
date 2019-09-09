@@ -64,8 +64,6 @@ app.use(helmet())
 
 app.use(function(req, res, next) {
   res.locals.styleNonce = Buffer.from(uuidv4()).toString('base64')
-  console.dir(req.query.name)
-  const room = req.query.name;
   next();
 });
 //
@@ -294,6 +292,9 @@ app.post('/api/images', parser.single("image"), (req, res) => {
 
 
 app.use(function(req, res, next) {
+  app.use(req, res, next, {
+  console.dir(req.query.name)
+  var room = req.query.name;
   res.locals.user = req.user || null;
     if(req.user == null){
       username = 'guest';
