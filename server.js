@@ -210,6 +210,7 @@ app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
     console.dir(req.query.name)
+    req.query.name = socket.room;
     next();
 });
 var routes = require('./routes/index.js');
