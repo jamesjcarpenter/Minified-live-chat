@@ -1,5 +1,11 @@
 window.addEventListener('load', () => {
+  var url = window.location.href;
   
+  console.log(url);
+  function getImageDirectoryByFullURL(url){
+      return url.substr(url.lastIndexOf("=")+1);
+  }
+  console.log(url.substr(url.lastIndexOf("=")+1));
   
 var socket = io.connect('anomic.io/443');
 var socketOut = io.connect('anomic.io/443');
@@ -18,14 +24,6 @@ setTimeout(function(){
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
-
-var url = window.location.href;
-
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
-}
-console.log(url.substr(url.lastIndexOf("=")+1));
 
 
 $("#data").focus();
