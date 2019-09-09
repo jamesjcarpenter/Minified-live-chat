@@ -48,12 +48,11 @@ function fixedEncodeURIComponent(str) {
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
-
+var room = url.substr(url.lastIndexOf("=")+1);
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    
-    io.emit('room', {room : url.substr(url.lastIndexOf("=")+1)});
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
+    socket.emit(room, url.substr(url.lastIndexOf("=")+1));
 		socket.emit('adduser', prompt("Enter username."));
 	});
   // create our webrtc connection
