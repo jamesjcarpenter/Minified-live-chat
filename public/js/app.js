@@ -7,8 +7,8 @@ window.addEventListener('load', () => {
   }
   console.log(url.substr(url.lastIndexOf("=")+1));
   
-var socketOut = io.connect('anomic.io/443');
-socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
+var socket = io.connect('anomic.io/443');
+socket.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
     socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
