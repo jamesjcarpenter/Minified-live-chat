@@ -7,15 +7,11 @@ window.addEventListener('load', () => {
   }
   console.log(url.substr(url.lastIndexOf("=")+1));
   
-var socket = io.connect('anomic.io/443');
 var socketOut = io.connect('anomic.io/443');
 socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
     socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
-    socket.on('message', function(msg){
-        displayMessage(msg);
-    });
     nsp = '/' + url.substr(url.lastIndexOf("=")+1);
 }, 1500);
   
@@ -55,8 +51,6 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
-var socket = io.connect('anomic.io/');
-var room = url.substr(url.lastIndexOf("=")+1);
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
