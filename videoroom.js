@@ -52,6 +52,8 @@ var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
+
+var url = window.location.href;
 console.log(url);
 function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
