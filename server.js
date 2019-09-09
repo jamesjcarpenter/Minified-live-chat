@@ -64,6 +64,8 @@ app.use(helmet())
 
 app.use(function(req, res, next) {
   res.locals.styleNonce = Buffer.from(uuidv4()).toString('base64')
+  console.dir(req.query.name)
+  const room = req.query.name;
   next();
 });
 //
@@ -346,14 +348,7 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-  socket.on('groupConnect', function(group){
-      var groupNsp = io.of('/' + group);
-  });
-  socket.on('message', function(data){
-    var msg = data.msg;
-    var nsp = data.nsp;
-    io.of(nsp).emit('message', msg);
-});
+
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client

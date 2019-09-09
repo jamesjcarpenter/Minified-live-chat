@@ -1,25 +1,21 @@
 window.addEventListener('load', () => {
-  var url = window.location.href;
   
-  console.log(url);
-  function getImageDirectoryByFullURL(url){
-      return url.substr(url.lastIndexOf("=")+1);
-  }
-  console.log(url.substr(url.lastIndexOf("=")+1));
   
-var socket = io.connect('anomic.io/443');
-socket.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
-var nsp;
-setTimeout(function(){
-    socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
-    nsp = '/' + url.substr(url.lastIndexOf("=")+1);
-}, 1500);
+  var socket = io.connect('anomic.io/443');
   
   // Chat platform
   // Local Video
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
+
+var url = window.location.href;
+
+console.log(url);
+function getImageDirectoryByFullURL(url){
+    return url.substr(url.lastIndexOf("=")+1);
+}
+console.log(url.substr(url.lastIndexOf("=")+1));
 
 
 $("#data").focus();
@@ -51,10 +47,11 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
+var socket = io.connect('anomic.io/');
+
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-    socket.emit(room, url.substr(url.lastIndexOf("=")+1));
 		socket.emit('adduser', prompt("Enter username."));
 	});
   // create our webrtc connection
