@@ -363,7 +363,7 @@ io.sockets.on('connection', function (socket) {
     function myFunction(req, res, next) {
       req.query.name = socket.room;
       var room = req.query.name;
-    });
+    };
 		socket.room = req.query.name;
 		// add the client's username to the global list
 		usernames[username] = username;
