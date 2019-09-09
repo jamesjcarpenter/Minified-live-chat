@@ -57,13 +57,12 @@ var url = window.location.href;
 console.log(url);
 function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
-		var roomName = url.substr(url.lastIndexOf("=")+1);
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
 var myroom = null;
- if(window.location.protocol === 'http:');
-		myroom = 1234;
+ if(url.substr(url.lastIndexOf("=")+1) === 1234)
+ 	myroom = 1234;
 
 var myusername = null;
 var myid = null;
