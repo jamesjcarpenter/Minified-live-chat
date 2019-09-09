@@ -63,7 +63,7 @@ console.log(url.substr(url.lastIndexOf("=")+1));
 
 var myroom = null;
  if(window.location.protocol === 'http:');
-		myroom = roomName;
+		myroom = 1234;
 
 var myusername = null;
 var myid = null;
