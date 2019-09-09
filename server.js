@@ -354,7 +354,7 @@ io.sockets.on('connection', function (socket) {
 		// store the room name in the socket session for this client
     socket.on('joinroom', function(room) {
         this.join(room);
-        if (typeof rooms[room] ==== "undefined") rooms[room] = {};
+        if (typeof rooms[room] === "undefined") rooms[room] = {};
         rooms[room].count = rooms[room].total ? rooms[room].total+1 : 1; 
         io.to(room).emit("new user", rooms[room].count)
     });
