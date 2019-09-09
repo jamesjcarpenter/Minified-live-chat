@@ -347,14 +347,14 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 var usernames = {};
 // rooms which are currently available in chat
 
-io.sockets.on('connection', function (socket) {
+io.sockets.on('connection', function (socket, req, res) {
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = 'room1';
+		socket.room = req.query.name;
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
