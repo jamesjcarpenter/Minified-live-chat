@@ -91,7 +91,7 @@ socket.room = roomId;
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('updatechat', message);
-    };
+    });
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
