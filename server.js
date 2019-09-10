@@ -339,11 +339,7 @@ app.use((err, req, res, next) => {
 //chat
 require("./libs/chat.js").sockets(https);
 
-app.get("/room?name=:id", (req, res, next) => {
-    const { id } = req.query.name;
-    next();
-    // Verify the id and return the clientside code
- });
+
  
  
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -352,13 +348,18 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.on('connection', function (socket) {
-
+  
+  app.get("/room?name=:id", (req, res, next) => {
+      const { id } = req.query.name;
+      next();
+      // Verify the id and return the clientside code
+   });
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.room = 'room1';
+    socket.room = { id };
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
@@ -373,7 +374,7 @@ io.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
-  		io.sockets.in(id).emit('updatechat', socket.username, data);
+  		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
   	});
 
 
