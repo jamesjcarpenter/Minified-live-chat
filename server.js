@@ -368,7 +368,12 @@ io.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.room = query;
+    socket.room = null;
+    
+    function joinRoom(req, res, next, (function) {
+      socket.room = req.query.name;
+      next();
+    });
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
