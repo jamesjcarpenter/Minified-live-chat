@@ -18,7 +18,7 @@ module.exports.sockets = function(https) {
   const io = require('socket.io').listen(server);
 
   //setting chat route
-  let io = io.of("/room?name=" + '');
+
   const userStack = {};
   let oldChats, sendUserStack, setRoom;
   const userSocket = {};
