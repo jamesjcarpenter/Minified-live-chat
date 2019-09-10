@@ -10,7 +10,6 @@ $('#start').hide();
 $('#bitrateset').hide();
 
 var url = window.location.href;
-const id = location.hash;
 
 console.log(url);
 function getImageDirectoryByFullURL(url){
@@ -58,7 +57,7 @@ var socket = io.connect('anomic.io/');
       roomId = room;
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
-      socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
+      socket.emit('connect',{room:roomId,username:username,msgCount:msgCount});
   
     }); 
     
