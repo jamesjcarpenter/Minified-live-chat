@@ -4,8 +4,7 @@ var express = require('express');
 var app = express();
 const events = require("events");
 const _ = require("lodash");
-const eventEmitter = new events.EventEmitter();
-require('events').EventEmitter.prototype._maxListeners = 100;
+const eventEmitter = new events.EventEmitter._maxListeners = 100();
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({
@@ -338,7 +337,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-require("./libs/chat.js").sockets(io);
+require("./libs/chat.js").sockets(https);
 
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];

@@ -2,23 +2,23 @@ const socketio = require("socket.io");
 const mongoose = require("mongoose");
 const events = require("events");
 const _ = require("lodash");
-const eventEmitter = new events.EventEmitter();
+const eventEmitter = new events.EventEmitter._maxListeners = 100();
 //adding db models
 require("../models/user.js");
 require("../models/chat.js");
 require("../models/roomschema.js");
-require('events').EventEmitter.prototype._maxListeners = 100;
+
 //using mongoose Schema models
 const userModel = mongoose.model("User");
 const chatModel = mongoose.model("Chat");
 const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
-module.exports.sockets = function(io) {
-  io = socketio.listen(io);
+module.exports.sockets = function(https) {
+  io = socketio.listen(https);
 
   //setting chat route
-  const ioChat = io.of("/room?name=");
+  const ioChat = io.of("/room?name=" + '');
   const userStack = {};
   let oldChats, sendUserStack, setRoom;
   const userSocket = {};
