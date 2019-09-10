@@ -356,6 +356,7 @@ io.on('connection', function (socket) {
 		usernames[username] = username;
 		// send client to room 1
   socket.on('set-room', function(roomId){
+    socket.room = roomId;
 		socket.join(roomId);
   });
 		// echo to client they've connected
