@@ -120,9 +120,9 @@ socket.on('connect', function(data) {
       });
     });
 
-    // function switchRoom(room){
-    //   socket.broadcast.emit('switchRoom', room);
-    // }
+    function switchRoom(room){
+      socket.broadcast.emit('switchRoom', room);
+    }
 
   // socket.on('onlineStack',function(stack){
   //    $('#list').empty();
