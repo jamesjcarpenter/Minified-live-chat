@@ -3,6 +3,29 @@ const mongoose = require("mongoose");
 const events = require('events').EventEmitter.prototype._maxListeners = 0;
 const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
+
+function Emitter(){
+  this.events = {};
+}
+
+Emitter.prototype.on = function(type, listener){
+  this.events[type]=this.events[type]||[];
+  this.events[type].push(listener);
+}
+
+Emitter.prototype.emit = function(type){
+  if (this.events[type]) {
+    this.events[type].forEach(function(listener){
+      listener();
+    });
+  }
+}
+// Export the Emitter class: module.exports = Emitter;
+
+// app.js
+// Import the emitter class: var Emitter = require('./emitter');
+var emitter = new Emitter();
+
 //adding db models
 require("../models/user.js");
 require("../models/chat.js");
