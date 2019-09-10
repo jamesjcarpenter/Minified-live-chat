@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
   
   
   var socket = io.connect('anomic.io/443');
-  var roomId;
+
   // Chat platform
   // Local Video
 $('#start').click();
@@ -16,6 +16,9 @@ function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
+var roomId = null;
+ if(window.location.protocol === 'http:');
+ roomId = url.substr(url.lastIndexOf("=")+1);
 
 
 $("#data").focus();
