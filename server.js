@@ -362,10 +362,10 @@ io.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.room = null;
     
     app.get('/', function (req, res, next) {
       socket.room = req.query.name;
+      console.log(socket.room);
       next();
     });
 		// add the client's username to the global list
