@@ -16,7 +16,12 @@ function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
-const roomId = url.substr(url.lastIndexOf("=")+1);
+var roomId = null;
+ if(window.location.protocol === 'https:');
+ roomId = url.substr(url.lastIndexOf("=")+1);
+ 
+ if(window.location.protocol === 'wss:');
+ roomId = url.substr(url.lastIndexOf("=")+1);
 
 $("#data").focus();
 
@@ -44,14 +49,15 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
-var socket = io.connect('anomic.io/');
+
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
-
-var socket = io.connect('anomic.io/');
   // toggle sidebar
+var socket = io.connect('anomic.io/');
+socket.room = roomId;
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
+    roomId = url.substr(url.lastIndexOf("=")+1);
     socket.emit('set-room', roomId);
     //end of set-room event.
     
@@ -86,7 +92,7 @@ var socket = io.connect('anomic.io/');
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
-      io.emit('sendchat', message);
+      socket.emit('sendchat', message);
     });
 
     // when the client hits ENTER on their keyboard
