@@ -17,9 +17,11 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 var roomId = null;
- if(window.location.protocol === 'http:');
+ if(window.location.protocol === 'https:');
  roomId = url.substr(url.lastIndexOf("=")+1);
-
+ 
+ if(window.location.protocol === 'wss:');
+ roomId = url.substr(url.lastIndexOf("=")+1);
 
 $("#data").focus();
 
