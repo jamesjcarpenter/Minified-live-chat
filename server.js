@@ -346,10 +346,7 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.sockets.on('connection', function (socket) {
-  const ioChat = io.of("/room?name=" + '');
-  const userStack = {};
-  let oldChats, sendUserStack, setRoom;
-  const userSocket = {};
+
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
@@ -362,35 +359,10 @@ io.sockets.on('connection', function (socket) {
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
       socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
-    console.dir(room)
-    console.dir(socket.room)
+    console.log(room)
+    console.log(socket.room)
     }); //end of set-room event.
 		// add the client's username to the global list
-    
-    socket.on("typing", function() {
-      socket
-        .to(socket.room)
-        .broadcast.emit("typing", socket.username + " : is typing...");
-    });
-
-    //for showing chats.
-    socket.on("chat-msg", function(data) {
-      //emits event to save chat to database.
-      eventEmitter.emit("save-chat", {
-        msgFrom: socket.username,
-        msgTo: data.msgTo,
-        msg: data.msg,
-        room: socket.room,
-        date: data.date
-      });
-      //emits event to send chat msg to all clients.
-      ioChat.to(socket.room).emit("chat-msg", {
-        msgFrom: socket.username,
-        msg: data.msg,
-        date: data.date
-      });
-    });
-    
 		usernames[username] = username;
 		// send client to room 1
 		// echo to client they've connected
@@ -400,6 +372,9 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
+  socket.on("old-chats-init", function(data) {
+    eventEmitter.emit("read-chat", data);
+  });
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
