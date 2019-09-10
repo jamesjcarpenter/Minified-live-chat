@@ -167,7 +167,7 @@ socket.on('sendchat', function(data) {
 //  roomusers[roomusers.length] = clients[i].username;
 //  }
   // broadcast to everyone in room 1 the usernames of the clients connected.
-  io.sockets.to(socket.room).emit('updateroomusers', roomusers);
+  // io.sockets.to(socket.room).emit('updateroomusers', roomusers);
   
   //index.html code
 
