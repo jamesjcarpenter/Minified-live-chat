@@ -5,6 +5,15 @@ var app = express();
 const events = require("events");
 const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
+
+var originalAddListener = EventEmitter.prototype.addListener;
+EventEmitter.prototype.addListener = function (type, listener) {
+    if (this.listenerCount(this, type) >= 10) {
+        // TODO: PLACE YOUR CODE FOR DEBUGGING HERE
+    }
+    originalAddListener.apply(this, arguments);
+}
+
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({
