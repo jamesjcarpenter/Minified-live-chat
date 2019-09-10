@@ -352,19 +352,15 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.on("set-room", function(room) {
-      //leaving room.
-      socket.leave(socket.room);
-      //getting room data.
-      eventEmitter.emit("get-room-data", room);
-      //setting room and join.
-      setRoom = function(room) {
-        socket.room = room;
-        console.log("roomId : " + socket.room);
-        socket.join(socket.room);
-        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
-      };
-    }); 
+    socket.on('set-room',function(room){
+      //empty messages.
+      //assigning room id to roomId variable. which helps in one-to-one and group chat.
+      roomId = room;
+      console.log("roomId : "+roomId);
+      //event to get chat history on button click or as room is set.
+      socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
+    
+    }); //end of set-room event.
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1

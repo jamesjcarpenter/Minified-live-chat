@@ -44,7 +44,14 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
+socket.on('set-room',function(room){
+  //empty messages.
+  roomId = url.substr(url.lastIndexOf("=")+1);
+  console.log("roomId : "+roomId);
+  //event to get chat history on button click or as room is set.
+  socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
 
+});
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
@@ -65,15 +72,6 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p></p></div></div>').text(data));
     
-  });
-  
-  socket.on('set-room',function(room){
-    //empty messages.
-    room = url.substr(url.lastIndexOf("=")+1);
-    console.log("roomId : "+room);
-    //event to get chat history on button click or as room is set.
-    socket.emit('old-chats-init',{room:room,username:username,msgCount:msgCount});
-  
   });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   socket.on('serverupdatechat', function (server) {
