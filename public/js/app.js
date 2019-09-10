@@ -10,6 +10,7 @@ $('#start').hide();
 $('#bitrateset').hide();
 
 var url = window.location.href;
+const id = location.hash;
 
 console.log(url);
 function getImageDirectoryByFullURL(url){
