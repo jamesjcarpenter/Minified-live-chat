@@ -2,7 +2,7 @@ const socketio = require("socket.io");
 const mongoose = require("mongoose");
 const events = require("events");
 const _ = require("lodash");
-const eventEmitter = new events.EventEmitter();
+const eventEmitter = new events.EventEmitter().defaultMaxListeners = 100;
 //adding db models
 require("../models/user.js");
 require("../models/chat.js");
