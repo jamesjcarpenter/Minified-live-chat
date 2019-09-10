@@ -365,6 +365,7 @@ io.on('connection', function (socket) {
     var msg = data.msg;
     var nsp = data.nsp;
     io.of(nsp).emit('updatechat', socket.username, data);
+    io.of(nsp).emit('sendchat', socket.username, data);
   });
   
   io.on("set-room", function(room) {
@@ -387,15 +388,9 @@ io.on('connection', function (socket) {
 		socket.username = username;
 		// store the room name in the socket session for this client
     
-    app.get('/', function (req, res, next) {
-      socket.room = req.query.name;
-      console.log(socket.room);
-      next();
-    });
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join(socket.room);
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
