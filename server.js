@@ -337,7 +337,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-require("./libs/chat.js").sockets(https);
+require("./libs/chat.js").sockets(server);
 
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -346,17 +346,38 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.on('connection', function (socket) {
+  io = socketio.listen(https);
+  
+  const ioChat = io.of("/room?name=" + '');
+  const userStack = {};
+  let oldChats, sendUserStack, setRoom;
+  const userSocket = {};
 
+  //socket.io magic starts here
+  ioChat.on("connection", function(socket) {
+    
+    socket.on("set-room", function(room) {
+      //leaving room.
+      socket.leave(socket.room);
+      //getting room data.
+      eventEmitter.emit("get-room-data", room);
+      //setting room and join.
+      setRoom = function(roomId) {
+        socket.room = roomId;
+        console.log("roomId : " + socket.room);
+        socket.join(socket.room);
+        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+      };
+    }); //end of set-room event.
+    console.log("socketio chat connected.");
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join(socket.room);
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
@@ -397,7 +418,7 @@ io.on('connection', function (socket) {
 		socket.leave(socket.room);
 	});
 });
-
+});
 
 
 // Provide access to node_modules folder
