@@ -6,8 +6,8 @@ const events = require("events");
 const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
 
-var originalAddListener = events.EventEmitter.prototype.addListener;
-EventEmitter.prototype.addListener = function (type, listener) {
+var originalAddListener = eventEmitter.prototype.addListener;
+eventEmitter.prototype.addListener = function (type, listener) {
     if (this.listenerCount(this, type) >= 10) {
         // TODO: PLACE YOUR CODE FOR DEBUGGING HERE
     }
