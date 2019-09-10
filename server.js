@@ -339,8 +339,9 @@ app.use((err, req, res, next) => {
 //chat
 require("./libs/chat.js").sockets(https);
 
-app.get("/room?name=:id", (req, res) => {
+app.get("/room?name=:id", (req, res, next) => {
     const { id } = req.query.name;
+    next();
     // Verify the id and return the clientside code
  });
  
