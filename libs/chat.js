@@ -15,10 +15,10 @@ const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
 module.exports.sockets = function(https) {
-var io = require('socket.io').listen(server);
+  const io = require('socket.io').listen(server);
 
   //setting chat route
-  const io = io.of("/room?name=" + '');
+  let io = io.of("/room?name=" + '');
   const userStack = {};
   let oldChats, sendUserStack, setRoom;
   const userSocket = {};
