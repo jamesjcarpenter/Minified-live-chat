@@ -362,8 +362,8 @@ io.sockets.on('connection', function (socket) {
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
       socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
-    console.log(room)
-    console.log(socket.room)
+    console.dir(room)
+    console.dir(socket.room)
     }); //end of set-room event.
 		// add the client's username to the global list
     
