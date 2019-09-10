@@ -340,13 +340,13 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 
 
-var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
-// usernames which are currently connected to the chat
-var usernames = {};
-// rooms which are currently available in chat
-
-
-
+// var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
+// // usernames which are currently connected to the chat
+// var usernames = {};
+// // rooms which are currently available in chat
+// 
+// 
+// 
 
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
