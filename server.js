@@ -46,6 +46,16 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(cors())
 const uuidv4 = require('uuid/v4')
 
+
+app.use(function(req, res, next) {
+   res.locals.url = {
+       query : req.query,
+       url   : req.originalUrl
+   }
+
+   next();
+});
+
 var corsOptions = {
   origin: 'https://anomic.io:8089',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -415,14 +425,6 @@ app.use(express.static('/libs/'));
 
 // global variables
 
-app.use(function(req, res, next) {
-   res.locals.url = {
-       query : req.query,
-       url   : req.originalUrl
-   }
-
-   next();
-});
  
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
