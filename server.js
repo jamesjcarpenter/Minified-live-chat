@@ -340,7 +340,7 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
-  isRoom: req.body.name1,
+  isRoom = req.body.name1,
   next()
 });
 
