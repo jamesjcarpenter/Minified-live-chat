@@ -354,12 +354,6 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 // usernames which are currently connected to the chat
 var usernames = {};
 // rooms which are currently available in chat
-app.use("/room", (req, res, next) => {
-    res.locals.query = req.query.name;
-   res.locals.url   = req.originalUrl;
-    next();
-    // Verify the id and return the clientside code
- });
  
 io.on('connection', function (socket) {
 
@@ -370,7 +364,7 @@ io.on('connection', function (socket) {
 		// store the room name in the socket session for this client
     socket.room = null;
     
-    function joinRoom(req, res, next, (function) {
+    function joinRoom(function(req, res, next) {
       socket.room = req.query.name;
       next();
     });
