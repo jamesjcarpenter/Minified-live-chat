@@ -1,6 +1,6 @@
 $ (function(){
 
-  var socket = io('/');
+  var socket = io('anomic.io/443');
 
   var username = $('#user').val();
   var noChat = 0; //setting 0 if all chats histroy is not loaded. 1 if all chats loaded.
@@ -11,12 +11,6 @@ $ (function(){
 
   //passing data on connection.
   socket.on('connect',function(){
-    let room = window.location.pathname.slice(6);   // remove leading /chat/
-       let pos = room.indexOf('/');
-       if (pos !== -1) {
-           room = room.slice(0, pos);
-       }
-       socket.emit("joinRoom", room);
     socket.emit('set-user-data',username);
     // setTimeout(function() { alert(username+" logged In"); }, 500)
 
