@@ -340,26 +340,19 @@ app.use((err, req, res, next) => {
 require("./libs/chat.js").sockets(https);
 
 
- 
- 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 // usernames which are currently connected to the chat
 var usernames = {};
 // rooms which are currently available in chat
 
 io.on('connection', function (socket) {
-  
-  app.get("/room", (req, res, next) => {
-      const { id } = req.query.name;
-      next();
-      // Verify the id and return the clientside code
-   });
+
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.room = req.query.name;
+    socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
