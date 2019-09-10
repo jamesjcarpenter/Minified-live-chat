@@ -352,6 +352,7 @@ io.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
+    socket.room = 'room1';
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
@@ -366,7 +367,7 @@ io.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
-  		socket.broadcast.to(socket.room).emit('updatechat', socket.username, data);
+  		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
   	});
 
 
