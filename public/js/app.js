@@ -16,7 +16,7 @@ setTimeout(function(){
     socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
     socket.on('updatechat', function(data){
         displayMessage(data);
-    }
+    });
     nsp = '/room?name=' + url.substr(url.lastIndexOf("=")+1);
 }, 1500);
 
