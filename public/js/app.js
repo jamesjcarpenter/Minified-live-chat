@@ -14,7 +14,7 @@ socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
     socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
-    socket.on('sendchat', function(username, data){
+    socket.on('updatechat', function(data){
         displayMessage(data);
     });
     nsp = '/room?name=' + url.substr(url.lastIndexOf("=")+1);
@@ -103,7 +103,7 @@ socket.on('connect', function(data) {
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
-
+socketOut.emit('message', { msg: data, nsp: nsp });
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
       if(e.which == 13) {
