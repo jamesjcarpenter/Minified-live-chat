@@ -359,13 +359,13 @@ io.on('connection', function (socket, room) {
   
   socket.on('groupConnect', function(group){
     var groupNsp = io.of('/room?name=' + group);
-  }
+  });
   
   socket.on('updatechat', function(data){
     var msg = data.msg;
     var nsp = data.nsp;
     io.of(nsp).emit('updatechat', socket.username, data);
-  }
+  });
   
   io.on("set-room", function(room) {
     //leaving room.
