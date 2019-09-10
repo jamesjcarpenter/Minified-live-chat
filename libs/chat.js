@@ -2,7 +2,6 @@ const socketio = require("socket.io");
 const mongoose = require("mongoose");
 const events = require('events').EventEmitter.prototype._maxListeners = 0;
 const _ = require("lodash");
-const eventEmitter = new events.EventEmitter();
 
 function Emitter(){
   this.events = {};

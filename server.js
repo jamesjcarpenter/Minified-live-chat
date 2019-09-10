@@ -2,32 +2,9 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express');
 var app = express();
-const events = require('events').EventEmitter.prototype._maxListeners = 0;
+const events = require("events");
 const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
-function Emitter(){
-  this.events = {};
-}
-
-Emitter.prototype.on = function(type, listener){
-  this.events[type]=this.events[type]||[];
-  this.events[type].push(listener);
-}
-
-Emitter.prototype.emit = function(type){
-  if (this.events[type]) {
-    this.events[type].forEach(function(listener){
-      listener();
-    });
-  }
-}
-// Export the Emitter class: module.exports = Emitter;
-
-// app.js
-// Import the emitter class: var Emitter = require('./emitter');
-var emitter = new Emitter();
-
-
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({
