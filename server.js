@@ -338,7 +338,11 @@ app.use((err, req, res, next) => {
 });
 //chat
 require("./libs/chat.js").sockets(https);
-
+app.use(function(req, res, next) {
+  isAuthenticated: req.isAuthenticated(),
+  isRoom: req.body.name1,
+  next()
+});
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 // usernames which are currently connected to the chat
@@ -352,16 +356,16 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-		socket.room = req.query.name;
+		socket.room = isRoom;
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join('room1');
+		socket.join(isRoom);
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, 'room1');
+		socket.emit('updaterooms', rooms, isRoom);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
@@ -417,10 +421,6 @@ app.use(function(req, res, next) {
    next();
 });
  
-app.use(function(req, res, next) {
-  isAuthenticated: req.isAuthenticated(),
-  next()
-});
 //search user (for username/profile pics/db info)
 
 
