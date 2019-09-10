@@ -155,7 +155,8 @@ socket.on('connect', function(data) {
   // create an array to hold all the usernames of the poeple in a specific room
  var roomusers = [];
   // get all the clients in ‘room1′
-  var clients = io.sockets.adapter.rooms[];
+  // var clients = io.sockets.adapter.rooms[];
+  var clients;
   clients.length;
   // loop through clients in ‘room1′ and add their usernames to the roomusers array
  for(var i = 0; i < clients.length; i++) {
