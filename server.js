@@ -4,7 +4,8 @@ var express = require('express');
 var app = express();
 const events = require("events");
 const _ = require("lodash");
-const eventEmitter = require('events').EventEmitter.prototype._maxListeners = 100;
+const eventEmitter = new events.EventEmitter();
+require('events').EventEmitter.prototype._maxListeners = 100;
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({

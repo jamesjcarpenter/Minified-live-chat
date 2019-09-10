@@ -2,12 +2,12 @@ const socketio = require("socket.io");
 const mongoose = require("mongoose");
 const events = require("events");
 const _ = require("lodash");
-const eventEmitter = require('events').EventEmitter.prototype._maxListeners = 100;
+const eventEmitter = new events.EventEmitter();
 //adding db models
 require("../models/user.js");
 require("../models/chat.js");
 require("../models/roomschema.js");
-
+require('events').EventEmitter.prototype._maxListeners = 100;
 //using mongoose Schema models
 const userModel = mongoose.model("User");
 const chatModel = mongoose.model("Chat");
