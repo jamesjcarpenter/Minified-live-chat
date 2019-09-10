@@ -349,7 +349,7 @@ var usernames = {};
 
 io.on('connection', function (socket) {
   
-  app.get("/room?name=:id", (req, res, next) => {
+  app.get("/room", (req, res, next) => {
       const { id } = req.query.name;
       next();
       // Verify the id and return the clientside code
