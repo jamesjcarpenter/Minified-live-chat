@@ -381,7 +381,7 @@ io.on('connection', function (socket) {
     };
   });
 
-
+  socketOut.emit('message', { msg: data, nsp: nsp });
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
