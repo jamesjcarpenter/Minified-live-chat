@@ -14,7 +14,7 @@ socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
     socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
-    socket.on('updatechat', function(data){
+    socket.on('sendchat', function(username, data){
         displayMessage(data);
     });
     nsp = '/room?name=' + url.substr(url.lastIndexOf("=")+1);
