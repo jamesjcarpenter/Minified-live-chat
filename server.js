@@ -359,13 +359,14 @@ io.sockets.on('connection', function (socket) {
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
       socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
-    
+    console.log(room)
+    console.log(socket.room)
     }); //end of set-room event.
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
+		socket.emit('updatechat', 'SERVER', 'you have connected to' + socket.room);
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, socket.room);
@@ -378,19 +379,6 @@ io.sockets.on('connection', function (socket) {
 	});
 
 
-	socket.on('switchRoom', function(newroom){
-		// leave the current room (stored in session)
-		socket.leave(socket.room);
-		// join new room, received as function parameter
-		socket.join(newroom);
-//		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
-		// sent message to OLD room
-//		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username+' has left this room');
-		// update socket session room title
-		socket.room = newroom;
-//		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
-		socket.emit('updaterooms', rooms, newroom);
-	});
 
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
