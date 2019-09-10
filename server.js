@@ -352,81 +352,18 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.on('set-room',function(room){
-      //empty messages.
-      //assigning room id to roomId variable. which helps in one-to-one and group chat.
-      roomId = room;
-      console.log("roomId : "+roomId);
-      //event to get chat history on button click or as room is set.
-      socket.emit('old-chats-init',{room:roomId,username:username,msgCount:msgCount});
-    console.log(room)
-    console.log(socket.room)
-    }); //end of set-room event.
+		socket.room = null;
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
+		socket.join('room1');
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'you have connected to' + socket.room);
+		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
-		socket.emit('updaterooms', rooms, socket.room);
+		socket.emit('updaterooms', rooms, 'room1');
 	});
-  eventEmitter.on("get-room-data", function(room) {
-    roomModel.find(
-      {
-        $or: [
-          {
-            name1: room.name1
-          },
-          {
-            name1: room.name2
-          },
-          {
-            name2: room.name1
-          },
-          {
-            name2: room.name2
-          }
-        ]
-      },
-      function(err, result) {
-        if (err) {
-          console.log("Error : " + err);
-        } else {
-          if (result == "" || result == undefined || result == null) {
-            var today = Date.now();
 
-            newRoom = new roomModel({
-              name1: room.name1,
-              name2: room.name2,
-              lastActive: today,
-              createdOn: today
-            });
-
-            newRoom.save(function(err, newResult) {
-              if (err) {
-                console.log("Error : " + err);
-              } else if (
-                newResult == "" ||
-                newResult == undefined ||
-                newResult == null
-              ) {
-                console.log("Some Error Occured During Room Creation.");
-              } else {
-                setRoom(newResult._id); //calling setRoom function.
-              }
-            }); //end of saving room.
-          } else {
-            var jresult = JSON.parse(JSON.stringify(result));
-            setRoom(jresult[0]._id); //calling setRoom function.
-          }
-        } //end of else.
-      }
-    ); //end of find room.
-  });
-  socket.on("old-chats-init", function(data) {
-    eventEmitter.emit("read-chat", data);
-  });
 	// when the client emits 'sendchat', this listens and executes
 	socket.on('sendchat', function (data) {
 		// we tell the client to execute 'updatechat' with 2 parameters
@@ -434,6 +371,19 @@ io.sockets.on('connection', function (socket) {
 	});
 
 
+	socket.on('switchRoom', function(newroom){
+		// leave the current room (stored in session)
+		socket.leave(socket.room);
+		// join new room, received as function parameter
+		socket.join(newroom);
+//		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
+		// sent message to OLD room
+//		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username+' has left this room');
+		// update socket session room title
+		socket.room = newroom;
+//		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
+		socket.emit('updaterooms', rooms, newroom);
+	});
 
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
