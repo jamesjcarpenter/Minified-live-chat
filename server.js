@@ -356,14 +356,11 @@ io.on('connection', function (socket) {
 		usernames[username] = username;
 		// send client to room 1
   socket.on('set-room', function(roomId){
-      const nsp = io.of(roomId);
-        nsp.on('connection', function(socket){
-        console.log('someone connected');
-      });
-    nsp.emit('hi', 'everyone!');
     socket.room = roomId;
 		socket.join(roomId);
+    socket.broadcast.to(roomId).emit('updatechat', socket.username, data);
   });
+    
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
