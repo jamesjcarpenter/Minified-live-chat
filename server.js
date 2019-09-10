@@ -368,7 +368,6 @@ app.use(function(req, res, next) {
  
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
-  isRoom: req.body.name1,
   next()
 });
 //search user (for username/profile pics/db info)
