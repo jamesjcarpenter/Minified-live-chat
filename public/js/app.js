@@ -16,9 +16,7 @@ function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
-var roomId = null;
- if(window.location.protocol === 'https:');
- roomId = url.substr(url.lastIndexOf("=")+1);
+var roomId = url.substr(url.lastIndexOf("=")+1);
  
  if(window.location.protocol === 'wss:');
  roomId = url.substr(url.lastIndexOf("=")+1);
@@ -92,7 +90,7 @@ socket.room = roomId;
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
-      socket.emit('sendchat', message);
+      socket.emit('updatechat', message);
     });
 
     // when the client hits ENTER on their keyboard
