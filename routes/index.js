@@ -37,12 +37,6 @@ var url = require('url')
 //  });
 
 
-
-router.use("/room?name=:id", (req, res, next) => {
-    const id = req.query.name;
-    next();
-    // Verify the id and return the clientside code
- });
  
 router.get('/', function(req, res) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
