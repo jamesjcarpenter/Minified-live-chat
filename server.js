@@ -355,7 +355,7 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 var usernames = {};
 // rooms which are currently available in chat
  
-io.on('connection', function (socket) {
+io.on('connection', function (socket, room) {
   
   socket.on("set-room", function(room) {
     //leaving room.
@@ -421,7 +421,7 @@ io.on('connection', function (socket) {
 		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
-		socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
+		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
     delete usernames[socket.username];
 	});
