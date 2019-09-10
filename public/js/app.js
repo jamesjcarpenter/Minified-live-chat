@@ -51,7 +51,7 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    socket.on('set-room',function(room){
+    io.on('set-room',function(room){
       //empty messages.
       var roomId = url.substr(url.lastIndexOf("=")+1);
       roomId = room;
@@ -79,7 +79,7 @@ var socket = io.connect('anomic.io/');
   socket.on('serverupdatechat', function (server, username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
-        $('#conversation').append($('<div class="ui large grey label"id="servermessage"><p></p></div>').text(server, username, data));
+        $('#conversation').append($('<div class="ui large grey label"id="servermessage"><p></p></div>').text(server));
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
