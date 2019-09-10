@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
   
   
   var socket = io.connect('anomic.io/443');
-
+  
   // Chat platform
   // Local Video
 $('#start').click();
@@ -16,10 +16,7 @@ function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
-var roomId = url.substr(url.lastIndexOf("=")+1);
- 
- if(window.location.protocol === 'wss:');
- roomId = url.substr(url.lastIndexOf("=")+1);
+
 
 $("#data").focus();
 
@@ -48,18 +45,12 @@ function fixedEncodeURIComponent(str) {
 }
 
 
-
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
-socket.room = roomId;
+
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    roomId = url.substr(url.lastIndexOf("=")+1);
-    socket.emit('set-room', roomId);
-    //end of set-room event.
-    
-  
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
@@ -83,14 +74,13 @@ socket.room = roomId;
 //$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
-  
-  $(function(){
+socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
-      socket.emit('updatechat', message);
+      socket.emit('sendchat', message);
     });
 
     // when the client hits ENTER on their keyboard
@@ -120,9 +110,9 @@ socket.room = roomId;
       });
     });
 
-  function switchRoom(room){
-     socket.broadcast.emit('switchRoom', room);
-  }
+    // function switchRoom(room){
+    //   socket.broadcast.emit('switchRoom', room);
+    // }
 
   // socket.on('onlineStack',function(stack){
   //    $('#list').empty();
@@ -162,7 +152,7 @@ socket.room = roomId;
 //  roomusers[roomusers.length] = clients[i].username;
 //  }
   // broadcast to everyone in room 1 the usernames of the clients connected.
-  // io.sockets.to(socket.room).emit('updateroomusers', roomusers);
+//  io.sockets.to('r9k').emit('updateroomusers', roomusers);
   
   //index.html code
 
