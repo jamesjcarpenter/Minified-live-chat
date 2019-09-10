@@ -346,7 +346,7 @@ var usernames = {};
 // rooms which are currently available in chat
 
 io.on('connection', function (socket) {
-  io = socketio.listen(https);
+  io = io.listen(https);
   
   const ioChat = io.of("/room?name=" + '');
   const userStack = {};
