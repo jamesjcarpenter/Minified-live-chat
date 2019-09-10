@@ -371,7 +371,59 @@ io.sockets.on('connection', function (socket) {
 	//	socket.broadcast.to('room1').emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, socket.room);
 	});
+  eventEmitter.on("get-room-data", function(room) {
+    roomModel.find(
+      {
+        $or: [
+          {
+            name1: room.name1
+          },
+          {
+            name1: room.name2
+          },
+          {
+            name2: room.name1
+          },
+          {
+            name2: room.name2
+          }
+        ]
+      },
+      function(err, result) {
+        if (err) {
+          console.log("Error : " + err);
+        } else {
+          if (result == "" || result == undefined || result == null) {
+            var today = Date.now();
 
+            newRoom = new roomModel({
+              name1: room.name1,
+              name2: room.name2,
+              lastActive: today,
+              createdOn: today
+            });
+
+            newRoom.save(function(err, newResult) {
+              if (err) {
+                console.log("Error : " + err);
+              } else if (
+                newResult == "" ||
+                newResult == undefined ||
+                newResult == null
+              ) {
+                console.log("Some Error Occured During Room Creation.");
+              } else {
+                setRoom(newResult._id); //calling setRoom function.
+              }
+            }); //end of saving room.
+          } else {
+            var jresult = JSON.parse(JSON.stringify(result));
+            setRoom(jresult[0]._id); //calling setRoom function.
+          }
+        } //end of else.
+      }
+    ); //end of find room.
+  });
   socket.on("old-chats-init", function(data) {
     eventEmitter.emit("read-chat", data);
   });
