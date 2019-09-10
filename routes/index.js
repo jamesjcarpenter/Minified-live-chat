@@ -38,8 +38,8 @@ var url = require('url')
 
 
 
-router.get("/room?name=:id", (req, res, next) => {
-    const { id } = req.query.name;
+router.use("/room?name=:id", (req, res, next) => {
+    const id = req.query.name;
     next();
     // Verify the id and return the clientside code
  });
