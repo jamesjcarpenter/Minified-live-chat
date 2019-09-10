@@ -352,10 +352,22 @@ io.sockets.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
+    socket.on("set-room", function(room) {
+      //leaving room.
+      socket.leave(socket.room);
+      //getting room data.
+      eventEmitter.emit("get-room-data", room);
+      //setting room and join.
+      setRoom = function(room) {
+        socket.room = room;
+        console.log("roomId : " + socket.room);
+        socket.join(socket.room);
+        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+      };
+    }); 
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
-		socket.join(socket.room);
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
