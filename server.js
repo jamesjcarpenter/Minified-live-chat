@@ -344,8 +344,9 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 // usernames which are currently connected to the chat
 var usernames = {};
 // rooms which are currently available in chat
-app.use("/room?name=:id", (req, res, next) => {
-    const id = req.query.name;
+app.use("/room", (req, res, next) => {
+    res.locals.query = req.query.name;
+   res.locals.url   = req.originalUrl;
     next();
     // Verify the id and return the clientside code
  });
@@ -357,7 +358,7 @@ io.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    socket.room = id;
+    socket.room = query;
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
