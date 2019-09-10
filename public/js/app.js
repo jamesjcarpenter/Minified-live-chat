@@ -103,7 +103,8 @@ socket.on('connect', function(data) {
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
-socketOut.emit('message', { msg: data, nsp: nsp });
+socketOut.emit('sendchat', { msg: data, nsp: nsp });
+socketOut.emit('updatechat', { msg: data, nsp: nsp });
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
       if(e.which == 13) {
