@@ -2,18 +2,9 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express');
 var app = express();
-const events = require("events");
+const events = require('events').EventEmitter.prototype._maxListeners = 0;
 const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
-
-var originalAddListener = eventEmitter.prototype.addListener;
-eventEmitter.prototype.addListener = function (type, listener) {
-    if (this.listenerCount(this, type) >= 10) {
-        // TODO: PLACE YOUR CODE FOR DEBUGGING HERE
-    }
-    originalAddListener.apply(this, arguments);
-}
-
 const hostname = 'anomic.io';
 const port = 443;
 var server = https.createServer({
