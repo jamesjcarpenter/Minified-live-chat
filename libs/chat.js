@@ -156,181 +156,181 @@ module.exports.sockets = function(https) {
     });
   }); //end of saving chat.
 
-  //reading chat from database.
-  eventEmitter.on("read-chat", function(data) {
-    chatModel
-      .find({})
-      .where("room")
-      .equals(data.room)
-      .sort("-createdOn")
-      .skip(data.msgCount)
-      .lean()
-      .limit(5)
-      .exec(function(err, result) {
-        if (err) {
-          console.log("Error : " + err);
-        } else {
-          //calling function which emits event to client to show chats.
-          oldChats(result, data.username, data.room);
-        }
-      });
-  }); //end of reading chat from database.
-
-  //listening for get-all-users event. creating list of all users.
-  eventEmitter.on("get-all-users", function() {
-    userModel
-      .find({})
-      .select("username")
-      .exec(function(err, result) {
-        if (err) {
-          console.log("Error : " + err);
-        } else {
-          //console.log(result);
-          for (var i = 0; i < result.length; i++) {
-            userStack[result[i].username] = "Offline";
-          }
-          //console.log("stack "+Object.keys(userStack));
-          sendUserStack();
-        }
-      });
-  }); //end of get-all-users event.
-
-  //listening get-room-data event.
-  eventEmitter.on("get-room-data", function(room) {
-    roomModel.find(
-      {
-        $or: [
-          {
-            name1: room.name1
-          },
-          {
-            name1: room.name2
-          },
-          {
-            name2: room.name1
-          },
-          {
-            name2: room.name2
-          }
-        ]
-      },
-      function(err, result) {
-        if (err) {
-          console.log("Error : " + err);
-        } else {
-          if (result == "" || result == undefined || result == null) {
-            var today = Date.now();
-
-            newRoom = new roomModel({
-              name1: room.name1,
-              name2: room.name2,
-              lastActive: today,
-              createdOn: today
-            });
-
-            newRoom.save(function(err, newResult) {
-              if (err) {
-                console.log("Error : " + err);
-              } else if (
-                newResult == "" ||
-                newResult == undefined ||
-                newResult == null
-              ) {
-                console.log("Some Error Occured During Room Creation.");
-              } else {
-                setRoom(newResult._id); //calling setRoom function.
-              }
-            }); //end of saving room.
-          } else {
-            var jresult = JSON.parse(JSON.stringify(result));
-            setRoom(jresult[0]._id); //calling setRoom function.
-          }
-        } //end of else.
-      }
-    ); //end of find room.
-  }); //end of get-room-data listener.
-  //end of database operations for chat feature.
+  // //reading chat from database.
+  // eventEmitter.on("read-chat", function(data) {
+  //   chatModel
+  //     .find({})
+  //     .where("room")
+  //     .equals(data.room)
+  //     .sort("-createdOn")
+  //     .skip(data.msgCount)
+  //     .lean()
+  //     .limit(5)
+  //     .exec(function(err, result) {
+  //       if (err) {
+  //         console.log("Error : " + err);
+  //       } else {
+  //         //calling function which emits event to client to show chats.
+  //         oldChats(result, data.username, data.room);
+  //       }
+  //     });
+  // }); //end of reading chat from database.
+  // 
+  // //listening for get-all-users event. creating list of all users.
+  // eventEmitter.on("get-all-users", function() {
+  //   userModel
+  //     .find({})
+  //     .select("username")
+  //     .exec(function(err, result) {
+  //       if (err) {
+  //         console.log("Error : " + err);
+  //       } else {
+  //         //console.log(result);
+  //         for (var i = 0; i < result.length; i++) {
+  //           userStack[result[i].username] = "Offline";
+  //         }
+  //         //console.log("stack "+Object.keys(userStack));
+  //         sendUserStack();
+  //       }
+  //     });
+  // }); //end of get-all-users event.
+  // 
+  // //listening get-room-data event.
+  // eventEmitter.on("get-room-data", function(room) {
+  //   roomModel.find(
+  //     {
+  //       $or: [
+  //         {
+  //           name1: room.name1
+  //         },
+  //         {
+  //           name1: room.name2
+  //         },
+  //         {
+  //           name2: room.name1
+  //         },
+  //         {
+  //           name2: room.name2
+  //         }
+  //       ]
+  //     },
+  //     function(err, result) {
+  //       if (err) {
+  //         console.log("Error : " + err);
+  //       } else {
+  //         if (result == "" || result == undefined || result == null) {
+  //           var today = Date.now();
+  // 
+  //           newRoom = new roomModel({
+  //             name1: room.name1,
+  //             name2: room.name2,
+  //             lastActive: today,
+  //             createdOn: today
+  //           });
+  // 
+  //           newRoom.save(function(err, newResult) {
+  //             if (err) {
+  //               console.log("Error : " + err);
+  //             } else if (
+  //               newResult == "" ||
+  //               newResult == undefined ||
+  //               newResult == null
+  //             ) {
+  //               console.log("Some Error Occured During Room Creation.");
+  //             } else {
+  //               setRoom(newResult._id); //calling setRoom function.
+  //             }
+  //           }); //end of saving room.
+  //         } else {
+  //           var jresult = JSON.parse(JSON.stringify(result));
+  //           setRoom(jresult[0]._id); //calling setRoom function.
+  //         }
+  //       } //end of else.
+  //     }
+  //   ); //end of find room.
+  // }); //end of get-room-data listener.
+  // //end of database operations for chat feature.
 
   //
   //
 
-  //to verify for unique username and email at signup.
-  //socket namespace for signup.
-  const ioSignup = io.of("/signup");
-
-  let checkUname, checkEmail; //declaring variables for function.
-
-  ioSignup.on("connection", function(socket) {
-    console.log("signup connected.");
-
-    //verifying unique username.
-    socket.on("checkUname", function(uname) {
-      eventEmitter.emit("findUsername", uname); //event to perform database operation.
-    }); //end of checkUname event.
-
-    //function to emit event for checkUname.
-    checkUname = function(data) {
-      ioSignup.to(socket.id).emit("checkUname", data); //data can have only 1 or 0 value.
-    }; //end of checkUsername function.
-
-    //verifying unique email.
-    socket.on("checkEmail", function(email) {
-      eventEmitter.emit("findEmail", email); //event to perform database operation.
-    }); //end of checkEmail event.
-
-    //function to emit event for checkEmail.
-    checkEmail = function(data) {
-      ioSignup.to(socket.id).emit("checkEmail", data); //data can have only 1 or 0 value.
-    }; //end of checkEmail function.
-
-    //on disconnection.
-    socket.on("disconnect", function() {
-      console.log("signup disconnected.");
-    });
-  }); //end of ioSignup connection event.
+  // //to verify for unique username and email at signup.
+  // //socket namespace for signup.
+  // const ioSignup = io.of("/signup");
+  // 
+  // let checkUname, checkEmail; //declaring variables for function.
+  // 
+  // ioSignup.on("connection", function(socket) {
+  //   console.log("signup connected.");
+  // 
+  //   //verifying unique username.
+  //   socket.on("checkUname", function(uname) {
+  //     eventEmitter.emit("findUsername", uname); //event to perform database operation.
+  //   }); //end of checkUname event.
+  // 
+  //   //function to emit event for checkUname.
+  //   checkUname = function(data) {
+  //     ioSignup.to(socket.id).emit("checkUname", data); //data can have only 1 or 0 value.
+  //   }; //end of checkUsername function.
+  // 
+  //   //verifying unique email.
+  //   socket.on("checkEmail", function(email) {
+  //     eventEmitter.emit("findEmail", email); //event to perform database operation.
+  //   }); //end of checkEmail event.
+  // 
+  //   //function to emit event for checkEmail.
+  //   checkEmail = function(data) {
+  //     ioSignup.to(socket.id).emit("checkEmail", data); //data can have only 1 or 0 value.
+  //   }; //end of checkEmail function.
+  // 
+  //   //on disconnection.
+  //   socket.on("disconnect", function() {
+  //     console.log("signup disconnected.");
+  //   });
+  // }); //end of ioSignup connection event.
 
   //database operations are kept outside of socket.io code.
   //event to find and check username.
-  eventEmitter.on("findUsername", function(uname) {
-    userModel.find(
-      {
-        username: uname
-      },
-      function(err, result) {
-        if (err) {
-          console.log("Error : " + err);
-        } else {
-          //console.log(result);
-          if (result == "") {
-            checkUname(1); //send 1 if username not found.
-          } else {
-            checkUname(0); //send 0 if username found.
-          }
-        }
-      }
-    );
-  }); //end of findUsername event.
+  // eventEmitter.on("findUsername", function(uname) {
+  //   userModel.find(
+  //     {
+  //       username: uname
+  //     },
+  //     function(err, result) {
+  //       if (err) {
+  //         console.log("Error : " + err);
+  //       } else {
+  //         //console.log(result);
+  //         if (result == "") {
+  //           checkUname(1); //send 1 if username not found.
+  //         } else {
+  //           checkUname(0); //send 0 if username found.
+  //         }
+  //       }
+  //     }
+  //   );
+  // }); //end of findUsername event.
 
   //event to find and check username.
-  eventEmitter.on("findEmail", function(email) {
-    userModel.find(
-      {
-        email: email
-      },
-      function(err, result) {
-        if (err) {
-          console.log("Error : " + err);
-        } else {
-          //console.log(result);
-          if (result == "") {
-            checkEmail(1); //send 1 if email not found.
-          } else {
-            checkEmail(0); //send 0 if email found.
-          }
-        }
-      }
-    );
-  }); //end of findUsername event.
+  // eventEmitter.on("findEmail", function(email) {
+  //   userModel.find(
+  //     {
+  //       email: email
+  //     },
+  //     function(err, result) {
+  //       if (err) {
+  //         console.log("Error : " + err);
+  //       } else {
+  //         //console.log(result);
+  //         if (result == "") {
+  //           checkEmail(1); //send 1 if email not found.
+  //         } else {
+  //           checkEmail(0); //send 0 if email found.
+  //         }
+  //       }
+  //     }
+  //   );
+  // }); //end of findUsername event.
 
   //
   //
