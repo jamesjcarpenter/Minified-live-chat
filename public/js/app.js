@@ -85,12 +85,14 @@ socket.room = roomId;
 //$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
+  
+  $(function(){
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
-      socket.emit('updatechat', message);
+      socket.emit('sendchat', message);
     });
 
     // when the client hits ENTER on their keyboard
