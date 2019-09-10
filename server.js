@@ -387,9 +387,9 @@ io.on('connection', function (socket, room) {
 		// send client to room 1
 		socket.join(socket.room);
 		// echo to client they've connected
-		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
+		socket.emit('serverupdatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
+		socket.broadcast.to(socket.room).emit('serverupdatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
@@ -408,10 +408,10 @@ io.on('connection', function (socket, room) {
 		socket.join(newroom);
 		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
 		// sent message to OLD room
-		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username +' has left this room');
+		socket.broadcast.to(socket.room).emit('serverupdatechat', 'SERVER', socket.username +' has left this room');
 		// update socket session room title
 		socket.room = newroom;
-		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
+		socket.broadcast.to(newroom).emit('serverupdatechat', 'SERVER', socket.username+' has joined this room');
 		socket.emit('updaterooms', rooms, newroom);
 	});
 
