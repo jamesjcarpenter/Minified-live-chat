@@ -2,7 +2,7 @@ const socketio = require("socket.io");
 const mongoose = require("mongoose");
 const events = require("events");
 const _ = require("lodash");
-const eventEmitter = new events.EventEmitter().process.setMaxListeners(100);
+const eventEmitter = new events.EventEmitter();
 //adding db models
 require("../models/user.js");
 require("../models/chat.js");
@@ -14,8 +14,8 @@ const chatModel = mongoose.model("Chat");
 const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
-module.exports.sockets = function(https) {
-  io = socketio.listen(https);
+module.exports.sockets = function(https, server) {
+  io = socketio.listen(https, server);
 
   //setting chat route
   const ioChat = io.of("/room?name=" + '');
