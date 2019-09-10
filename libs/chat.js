@@ -28,33 +28,33 @@ module.exports.sockets = function(https) {
     console.log("socketio chat connected.");
 
     //function to get user name
-    socket.on("set-user-data", function(username) {
-      console.log(username + "  logged In");
-
-      //storing variable.
-      socket.username = username;
-      userSocket[socket.username] = socket.id;
-
-      socket.broadcast.emit("broadcast", {
-        description: username + " Logged In"
-      });
+    // socket.on("set-user-data", function(username) {
+    //   console.log(username + "  logged In");
+    // 
+    //   //storing variable.
+    //   socket.username = username;
+    //   userSocket[socket.username] = socket.id;
+    // 
+    //   socket.broadcast.emit("broadcast", {
+    //     description: username + " Logged In"
+    //   });
 
       //getting all users list
-      eventEmitter.emit("get-all-users");
+      // eventEmitter.emit("get-all-users");
 
       //sending all users list. and setting if online or offline.
-      sendUserStack = function() {
-        for (i in userSocket) {
-          for (j in userStack) {
-            if (j == i) {
-              userStack[j] = "Online";
-            }
-          }
-        }
-        //for popping connection message.
-        ioChat.emit("onlineStack", userStack);
-      }; //end of sendUserStack function.
-    }); //end of set-user-data event.
+      // sendUserStack = function() {
+    //     for (i in userSocket) {
+    //       for (j in userStack) {
+    //         if (j == i) {
+    //           userStack[j] = "Online";
+    //         }
+    //       }
+    //     }
+    //     //for popping connection message.
+    //     ioChat.emit("onlineStack", userStack);
+    //   }; //end of sendUserStack function.
+    // }); //end of set-user-data event.
 
     //setting room.
     socket.on("set-room", function(room) {
@@ -90,11 +90,11 @@ module.exports.sockets = function(https) {
     };
 
     //showing msg on typing.
-    socket.on("typing", function() {
-      socket
-        .to(socket.room)
-        .broadcast.emit("typing", socket.username + " : is typing...");
-    });
+    // socket.on("typing", function() {
+    //   socket
+    //     .to(socket.room)
+    //     .broadcast.emit("typing", socket.username + " : is typing...");
+    // });
 
     //for showing chats.
     socket.on("chat-msg", function(data) {
