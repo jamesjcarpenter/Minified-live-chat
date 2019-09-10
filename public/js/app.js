@@ -50,8 +50,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    let room = roomId;
-    let socket.room = roomId;
     socket.emit('set-room', roomId);
     //end of set-room event.
     
