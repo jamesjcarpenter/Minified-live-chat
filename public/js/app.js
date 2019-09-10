@@ -52,7 +52,7 @@ function fixedEncodeURIComponent(str) {
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
-
+socket.room = roomId;
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     socket.emit('set-room',{name1:currentRoom,name2:reverseRoom});
@@ -89,7 +89,7 @@ var socket = io.connect('anomic.io/');
 //$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
-socket.on('connect', function(data) {
+socket.on('sendchat', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val();
@@ -125,9 +125,9 @@ socket.on('connect', function(data) {
       });
     });
 
-    // function switchRoom(room){
-    //   socket.broadcast.emit('switchRoom', room);
-    // }
+  function switchRoom(room){
+     socket.broadcast.emit('switchRoom', room);
+  }
 
   // socket.on('onlineStack',function(stack){
   //    $('#list').empty();
@@ -167,7 +167,7 @@ socket.on('connect', function(data) {
 //  roomusers[roomusers.length] = clients[i].username;
 //  }
   // broadcast to everyone in room 1 the usernames of the clients connected.
-//  io.sockets.to('r9k').emit('updateroomusers', roomusers);
+  io.sockets.to(socket.room).emit('updateroomusers', roomusers);
   
   //index.html code
 
