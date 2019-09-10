@@ -15,7 +15,7 @@ const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
 module.exports.sockets = function(https) {
-  io = socketio.listen(https);
+var io = require('socket.io').listen(server);
 
   //setting chat route
   const io = io.of("/room?name=" + '');
