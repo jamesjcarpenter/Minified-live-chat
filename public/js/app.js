@@ -51,12 +51,6 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    
-    var socket = io('/');
-    socket.emit('joinroom', window.location.pathname);
-    socket.on("new user", function(data) {
-    console.log("New user. Total users: ", data);
-    });
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
