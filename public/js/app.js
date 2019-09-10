@@ -44,9 +44,11 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
-
+var socket = io.connect('anomic.io/');
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
+
+var socket = io.connect('anomic.io/');
   // toggle sidebar
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
