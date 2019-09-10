@@ -364,7 +364,7 @@ io.on('connection', function (socket) {
 		// store the room name in the socket session for this client
     socket.room = null;
     
-    function joinRoom(function(req, res, next) {
+    app.get('/', function (req, res, next) {
       socket.room = req.query.name;
       next();
     });
