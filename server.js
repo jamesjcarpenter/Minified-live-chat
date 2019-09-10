@@ -356,6 +356,20 @@ var usernames = {};
 // rooms which are currently available in chat
  
 io.on('connection', function (socket) {
+  
+  socket.on("set-room", function(room) {
+    //leaving room.
+    socket.leave(socket.room);
+    //getting room data.
+    //setting room and join.
+    setRoom = function(roomId) {
+      socket.room = roomId;
+      console.log("roomId : " + socket.room);
+      socket.join(socket.room);
+      ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+    };
+  });
+
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
