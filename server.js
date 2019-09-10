@@ -345,7 +345,7 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 var usernames = {};
 // rooms which are currently available in chat
 
-io.sockets.on('connection', function (socket) {
+io.on('connection', function (socket) {
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
@@ -366,7 +366,7 @@ io.sockets.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
-  		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+  		socket.broadcast.to(socket.room).emit('updatechat', socket.username, data);
   	});
 
 
