@@ -18,13 +18,13 @@ module.exports.sockets = function(https) {
   io = socketio.listen(https);
 
   //setting chat route
-  const ioChat = io.of("/room?name=" + '');
+  const io = io.of("/room?name=" + '');
   const userStack = {};
   let oldChats, sendUserStack, setRoom;
   const userSocket = {};
 
   //socket.io magic starts here
-  ioChat.on("connection", function(socket) {
+  io.on("connection", function(socket) {
     console.log("socketio chat connected.");
 
     //function to get user name
