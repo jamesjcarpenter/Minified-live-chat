@@ -68,16 +68,24 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  socket.on('getusers', function (usernames) {
-    for(key in usernames) {
-    if(usernames.hasOwnProperty(key)) {
-        var value = usernames[key];
-        //do something with value;
-      }
-    }
-   $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
+  // socket.on('getusers', function (usernames) {
+  //   for(key in usernames) {
+  //   if(usernames.hasOwnProperty(key)) {
+  //       var value = usernames[key];
+  //       //do something with value;
+  //     }
+  //   }
+  //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
+  // 
+  // });
   
-  });
+  socket.on('updateusers', function(data) {
+		$('#userlist').empty();
+		$.each(data, function(key, value) {
+			$('#userlist').append('<div>' + key + '</div>');
+		});
+	});
+  
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
