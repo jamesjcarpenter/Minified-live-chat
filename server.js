@@ -362,7 +362,7 @@ io.on('connection', function (socket) {
 
   router.get('/room?name=:id', function(req, res, next)
     {
-        req.query.name : res.locals.room;
+        req.query.name = res.locals.room;
         var id = res.locals.room;
         socket.join(id);
     });
