@@ -68,7 +68,7 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  socket.on('connect', function (username) {
+  socket.on('connect', function (usernames) {
    $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(usernames));
   
   });
