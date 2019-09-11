@@ -348,14 +348,13 @@ app.use((err, req, res, next) => {
 });
 //chat
 // require("./libs/chat.js").sockets(https);
-
+var window = require('window-or-global');
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 // usernames which are currently connected to the chat
 var usernames = {};
 var url = window.location;
 // rooms which are currently available in chat
-var window = require('window-or-global');
 io.on('connection', function (socket) {
     //leaving room.
     socket.room = {};
