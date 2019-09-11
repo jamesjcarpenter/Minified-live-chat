@@ -49,14 +49,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
-  socket.on('connect', function(){
+  socket.on('connect', function({room:roomId,username:socket.username}){
       //empty messages.
       socket.room = {};
       var roomId = url.substr(url.lastIndexOf("=")+1);
       socket.room = roomId;
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
-      socket.emit('set-room',{room:roomId,username:socket.username});
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));

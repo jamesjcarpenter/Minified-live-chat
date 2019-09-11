@@ -358,6 +358,7 @@ var usernames = {};
 io.on('connection', function (socket) {
     //leaving room.
     socket.room = {};
+    var roomId;
     socket.room = roomId;
     socket.join(socket.room);
     console.log("roomId : "+roomId);
