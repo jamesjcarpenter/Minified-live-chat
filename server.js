@@ -361,9 +361,9 @@ io.on('connection', function (socket) {
 
 socket.room = {};
   const roomName = (req, res, next) => {
-    if (socket.room) {
-    req.query.name;
+    req.query;
     socket.room = req.query;
+    if (socket.room) {
     console.log(socket.room);
     next();
     };
