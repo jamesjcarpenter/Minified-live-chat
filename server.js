@@ -359,24 +359,18 @@ var usernames = {};
 
 
 io.on('connection', function (socket) {
-  
-  socket.on("join", function(room) {
-    //leaving room.
-    socket.leave(socket.room);
-    //getting room data.
-    //setting room and join.
-    setRoom = function(roomId) {
-      socket.room = roomId;
-      console.log("roomId : " + socket.room);
-      socket.join(room);
-      ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
-    };
+  const nsp = io.of('/room?name=' + '');
+  nsp.on('connection', function(socket){
+    console.log('someone connected');
   });
-  
-  
-
+  nsp.emit('hi', 'everyone!');
     // let setRoom;
     // const ioChat = io.of("/room" + "");
+    socket.on('join', function(room) {
+      socket.join(room);
+      console.log(socket.join(room))
+      console.log(room);
+    });
     
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
@@ -384,7 +378,19 @@ io.on('connection', function (socket) {
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
-
+    
+    socket.on("set-room", function(room) {
+      //leaving room.
+      socket.leave(socket.room);
+      //getting room data.
+      //setting room and join.
+      setRoom = function(roomId) {
+        socket.room = roomId;
+        console.log("roomId : " + socket.room);
+        // socket.join(socket.room);
+        ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
+      };
+    });
   
 	  // when the client emits 'adduser', this listens and executes
 		// send client to room 1
@@ -421,11 +427,11 @@ io.on('connection', function (socket) {
 	socket.on('disconnect', function(){
 		// remove the username from global usernames list
 		// update list of users in chat, client-side
-    delete usernames[socket.username];
 		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
+    delete usernames[socket.username];
 	});
 });
 
