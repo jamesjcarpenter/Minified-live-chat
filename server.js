@@ -19,7 +19,7 @@ server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
-var io = require('socket.io').listen(port);
+var io = require('socket.io').listen(80);
 
 //... 
 //..
