@@ -348,19 +348,15 @@ app.use((err, req, res, next) => {
 });
 //chat
 // require("./libs/chat.js").sockets(https);
-var window = require('window-or-global');
+
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 // usernames which are currently connected to the chat
 var usernames = {};
-var url = window.location;
 // rooms which are currently available in chat
+ 
 io.on('connection', function (socket) {
     //leaving room.
-    socket.room = {};
-    var roomId = url.substr(url.lastIndexOf("=")+1);
-    socket.room = roomId;
-    console.log("roomId : "+roomId);
 
 
 	// when the client emits 'adduser', this listens and executes
@@ -376,6 +372,7 @@ io.on('connection', function (socket) {
     });
 		// add the client's username to the global list
 		usernames[username] = username;
+    socket.join(socket.room);
 		// send client to room 1
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
