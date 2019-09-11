@@ -382,6 +382,8 @@ io.sockets.on('connection', function (socket) {
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     console.log(clients); 
+    console.log(rooms);
+    console.log(socket.usernames);
     socket.emit('clientlist', clients);
   });
     
