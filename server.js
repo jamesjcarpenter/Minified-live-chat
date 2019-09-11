@@ -388,6 +388,7 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms);
     console.log(socket.usernames);
     socket.emit('clientlist', clients);
+    socket.emit('getusers', usernames);
   });
     
     socket.on("set-room", function(room) {
