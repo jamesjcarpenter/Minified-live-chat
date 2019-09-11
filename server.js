@@ -359,14 +359,15 @@ var usernames = {};
 
 
 io.sockets.on('connection', function (socket) {
-  const nsp = io.of('/room?name=' + '');
+  const nsp = io.sockets.of('/room?name=' + '');
+  const nsps = nsp;
   nsp.on('connection', function(socket){
     console.log('someone connected');
   });
   nsp.emit('hi', 'everyone!');
     // let setRoom;
     // const ioChat = io.of("/room" + "");
-    socket.on('join', function(room) {
+    io.socket.on('join', function(room) {
       socket.join(room);
       console.log(socket.join(room))
       console.log(room);
@@ -406,7 +407,7 @@ io.sockets.on('connection', function (socket) {
 	// when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
-  		io.in(socket.room).emit('updatechat', socket.username, data);
+  		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
   	});
 
 
