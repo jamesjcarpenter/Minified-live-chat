@@ -376,9 +376,7 @@ io.sockets.on('connection', function (socket) {
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
-    console.log(usernames[username] = username);
     console.log(usernames);
-    console.log(username);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
