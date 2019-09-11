@@ -15,11 +15,11 @@ key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
 },app);
-// server.listen(443);
+server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
-var io = require('socket.io').listen(port);
+var io = require('socket.io').listen(server);
 
 //... 
 //..
@@ -386,8 +386,8 @@ io.on('connection', function (socket) {
       //setting room and join.
       setRoom = function(roomId) {
         socket.room = roomId;
-        console.log("roomId : " + socket.room);
-        socket.join(socket.room);
+        console.log("roomId : " + data.room);
+        // socket.join(socket.room);
         ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
       };
     });
@@ -399,14 +399,14 @@ io.on('connection', function (socket) {
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
+		socket.broadcast.to(data.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
-  		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
+  		io.sockets.in(data.room).emit('updatechat', socket.username, data);
   	});
 
 
