@@ -9,11 +9,11 @@ window.addEventListener('load', () => {
   console.log(url.substr(url.lastIndexOf("=")+1));
   
 
-  var socketOut = io.connect('anomic.io/443');
+  var socketOut = io.connect('anomic.io/room?name=');
 socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
-    socket = io.connect('anomic.io/443' + 'room?name=' + url.substr(url.lastIndexOf("=")+1));
+    socket = io.connect('anomic.io/' + 'room?name=' + url.substr(url.lastIndexOf("=")+1));
     socket.on('updatechat', function(data){
         socket.emit('sendchat', message);
     });
@@ -58,7 +58,7 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
-var socket = io.connect('anomic.io/');
+// var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
