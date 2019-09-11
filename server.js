@@ -353,11 +353,16 @@ app.use((err, req, res, next) => {
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 // usernames which are currently connected to the chat
 var usernames = {};
+
+app.get('/room?name=', function(req, res) {
+    var id = req.query.name;
+});
+
 // rooms which are currently available in chat
 var window = require('window-or-global');
 io.on('connection', function (socket) {
     //leaving room.
-    var url = window.location.href;
+    var url = id;
     socket.room = {};
     var roomId = url.substr(url.lastIndexOf("=")+1);
     socket.room = roomId;
