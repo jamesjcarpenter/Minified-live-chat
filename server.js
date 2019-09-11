@@ -361,7 +361,7 @@ io.on('connection', function (socket) {
       socket.room = req.query.name;
       console.log(socket.room);
       next();
-    });
+    };
     
     console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
