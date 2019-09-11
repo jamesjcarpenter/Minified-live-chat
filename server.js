@@ -364,14 +364,14 @@ io.on('connection', function (socket) {
     };
     
     app.use((req, res, next) => {
-      const { socket.room } = res.locals
+      const { roomId } = res.locals
       if (socket.room) {
         res.locals.room = req.query.name;
     }
     next()
   })
     
-    socket.join(socket.room);
+    socket.join(roomId);
 
 
 	// when the client emits 'adduser', this listens and executes
