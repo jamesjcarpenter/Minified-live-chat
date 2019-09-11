@@ -359,15 +359,15 @@ var usernames = {};
 
 
 io.on('connection', function (socket) {
-  socket.on('adduser', function(username){
-  // store the username in the socket session for this client
-  socket.username = username;
-  // store the room name in the socket session for this client
-  // add the client's username to the global list
-  usernames[username] = username;
+  
     let setRoom;
     const ioChat = io.of("/room" + "");
-    userSocket[socket.username] = socket.id;
+    socket.on('adduser', function(username){
+    // store the username in the socket session for this client
+    socket.username = username;
+    // store the room name in the socket session for this client
+    // add the client's username to the global list
+    usernames[username] = username;
     
     socket.on("set-room", function(room) {
       //leaving room.
@@ -378,7 +378,7 @@ io.on('connection', function (socket) {
         socket.room = roomId;
         console.log("roomId : " + socket.room);
         socket.join(socket.room);
-        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+        ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
       };
     });
 
