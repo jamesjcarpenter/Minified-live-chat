@@ -69,6 +69,12 @@ var socket = io.connect('anomic.io/');
   // });
   
   socket.on('getusers', function (usernames) {
+    for(key in usernames) {
+    if(usernames.hasOwnProperty(key)) {
+        var value = usernames[key];
+        //do something with value;
+      }
+    }
    $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
   
   });
