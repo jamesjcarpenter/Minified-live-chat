@@ -361,19 +361,18 @@ var usernames = {};
 io.on('connection', function (socket) {
   
     let setRoom;
-    const ioChat = io.of("/room");
+    const ioChat = io.of("/room" + "");
     
     socket.on("set-room", function(room) {
       //leaving room.
       socket.leave(socket.room);
       //getting room data.
-      eventEmitter.emit("get-room-data", room);
       //setting room and join.
       setRoom = function(roomId) {
         socket.room = roomId;
         console.log("roomId : " + socket.room);
         socket.join(socket.room);
-        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+        ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
       };
     });
 
@@ -402,19 +401,19 @@ io.on('connection', function (socket) {
 
 
 
-	socket.on('switchRoom', function(newroom){
-		// leave the current room (stored in session)
-		socket.leave(socket.room);
-		// join new room, received as function parameter
-		socket.join(newroom);
-		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
-		// sent message to OLD room
-		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username +' has left this room');
-		// update socket session room title
-		socket.room = newroom;
-		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
-		socket.emit('updaterooms', rooms, newroom);
-	});
+	// socket.on('switchRoom', function(newroom){
+	// 	// leave the current room (stored in session)
+	// 	socket.leave(socket.room);
+	// 	// join new room, received as function parameter
+	// 	socket.join(newroom);
+	// 	socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
+	// 	// sent message to OLD room
+	// 	socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username +' has left this room');
+	// 	// update socket session room title
+	// 	socket.room = newroom;
+	// 	socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
+	// 	socket.emit('updaterooms', rooms, newroom);
+	// });
 
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
