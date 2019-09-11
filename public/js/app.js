@@ -51,15 +51,12 @@ var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    socket.on('connect',function(room){
       //empty messages.
       var roomId = url.substr(url.lastIndexOf("=")+1);
       roomId = room;
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
       socket.emit('set-room',{room:roomId,username:username});
-  
-    }); 
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
