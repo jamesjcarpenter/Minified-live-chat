@@ -62,7 +62,7 @@ var socket = io.connect('anomic.io/');
 		socket.emit('adduser', prompt("Enter username."));
 	});
   
-  socket.on('addname', function (username, data) {
+  socket.on('addname', function (username) {
    $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
     
   });
