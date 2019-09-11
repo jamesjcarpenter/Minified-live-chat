@@ -358,12 +358,12 @@ var usernames = {};
 io.on('connection', function (socket) {
     //leaving room.
     const roomName = (req, res, next) => {
+      req.query.name;
       socket.room = req.query.name;
       console.log(socket.room);
       next();
     };
     
-    console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
     socket.emit('set-room',{room:roomId,username:socket.username});
 
