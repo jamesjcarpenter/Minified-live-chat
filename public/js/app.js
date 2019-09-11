@@ -48,11 +48,12 @@ function fixedEncodeURIComponent(str) {
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
-const roomId = url.substr(url.lastIndexOf("=")+1);
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
       //empty messages.
-      let roomId = socket.room;
+      socket.room = {};
+      const roomId = url.substr(url.lastIndexOf("=")+1);
+      roomId = socket.room;
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
       socket.emit('set-room',{room:roomId,username:socket.username});
