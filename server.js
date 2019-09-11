@@ -359,18 +359,11 @@ io.on('connection', function (socket) {
 
     const roomName = (req, res, next) => {
       req.query.name;
-      //get last string of URL
-      if (socket.join) {
       socket.room = req.query.name;
       console.log(socket.room);
       next();
-    } else {
-      next()
-    }
-  };
+    };
     app.use(roomName);
-    
-    socket.join(socket.room);
     //event to get chat history on button click or as room is set.
 
 
