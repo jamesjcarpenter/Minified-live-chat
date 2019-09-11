@@ -9,11 +9,11 @@ window.addEventListener('load', () => {
   console.log(url.substr(url.lastIndexOf("=")+1));
   
 
-  var socket = io.connect('anomic.io/');
+  var socket = io.connect('anomic.io/443');
 socket.emit('set-room', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
-    socket = io.connect('anomic.io/' + 'room?name=' + url.substr(url.lastIndexOf("=")+1));
+    socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
     socket.on('updatechat', function(data){
         socket.emit('sendchat', message);
     });
