@@ -380,7 +380,7 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
-    socket.emit('addname', socket.username);
+    socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     socket.on("set-room", function(room) {
       //leaving room.
