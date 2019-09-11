@@ -359,16 +359,28 @@ var usernames = {};
 
 
 io.on('connection', function (socket) {
-  const middleware = (req, res, next) => {
-      console.log(req.room);
-      socket.join(req.room);
-    next();
-  };
-
-  app.use(middleware);
   
-	// when the client emits 'adduser', this listens and executes
-	socket.on('adduser', function(username){
+    let setRoom;
+    const ioChat = io.of("/room");
+    
+    socket.on("set-room", function(room) {
+      //leaving room.
+      socket.leave(socket.room);
+      //getting room data.
+      eventEmitter.emit("get-room-data", room);
+      //setting room and join.
+      setRoom = function(roomId) {
+        socket.room = roomId;
+        console.log("roomId : " + socket.room);
+        socket.join(socket.room);
+        ioChat.to(userSocket[socket.username]).emit("set-room", socket.room);
+      };
+    });
+
+    socket.join(socket.room);
+  
+	  // when the client emits 'adduser', this listens and executes
+	  socket.on('adduser', function(username){
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
