@@ -364,6 +364,8 @@ io.on('connection', function (socket) {
       next();
     };
     app.use(roomName);
+    
+    socket.join(socket.room);
     //event to get chat history on button click or as room is set.
 
 
