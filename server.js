@@ -364,6 +364,8 @@ io.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.join(room);
+      console.log(socket.join(room))
+      console.log(room);
     });
     
     socket.on('adduser', function(username){
