@@ -362,13 +362,14 @@ io.on('connection', function (socket) {
   const roomName = (req, res, next) => {
     if (socket.room) {
     req.query.name;
-    socket.room = req.query.name;
+    socket.room = req.query;
     console.log(socket.room);
     next();
     };
   };
   app.use(roomName);
   console.log(roomName());
+  console.log(socket.room);
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
