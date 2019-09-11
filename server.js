@@ -356,7 +356,7 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 var usernames = {};
 // rooms which are currently available in chat
 
-
+var clients = [];
 
 io.sockets.on('connection', function (socket) {
     // let setRoom;
@@ -368,12 +368,17 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
     
+
+
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
+    console.log(usernames[username] = username);
+    console.log(usernames);
+    console.log(username);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
