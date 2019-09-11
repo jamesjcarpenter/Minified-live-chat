@@ -61,6 +61,11 @@ var socket = io.connect('anomic.io/');
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
 	});
+  
+  socket.on('addname', function (username, data) {
+   $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
+    
+  });
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
