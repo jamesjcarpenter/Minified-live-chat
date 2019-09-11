@@ -360,15 +360,14 @@ var usernames = {};
 
 io.on('connection', function (socket) {
 
+  socket.room = {};
   router.use('/room', function(req, res, next)
     {
-        req.query.name = res.locals.room;
-        var id = res.locals.room;
-        socket.join(id);
-        console.log(id);
+        socket.room = req.query.name;
         next()
     });
 
+    socket.join(socket.room);
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
