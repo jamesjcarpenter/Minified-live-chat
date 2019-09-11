@@ -360,7 +360,6 @@ var usernames = {};
 
 io.sockets.on('connection', function (socket) {
   const nsp = io.of('/room?name=' + '');
-  const nsps = nsp;
   nsp.on('connection', function(socket){
     console.log('someone connected');
   });
@@ -368,6 +367,7 @@ io.sockets.on('connection', function (socket) {
     // let setRoom;
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
+      room = socket.room;
       socket.join(room);
       console.log(socket.join(room))
       console.log(room);
