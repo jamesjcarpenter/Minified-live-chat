@@ -119,6 +119,9 @@
       height:auto;
     }
     
+    #userlist {
+      color:white;
+    }
     
     #videolocal.panel-body {
       background-color: #303030!important;
