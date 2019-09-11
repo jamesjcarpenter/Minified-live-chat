@@ -357,6 +357,7 @@ var usernames = {};
  
 io.on('connection', function (socket) {
     //leaving room.
+    var url = window.location.href;
     socket.room = {};
     var roomId = url.substr(url.lastIndexOf("=")+1);
     socket.room = roomId;
