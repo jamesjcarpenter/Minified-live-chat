@@ -357,7 +357,7 @@ var usernames = {};
  
 io.on('connection', function (socket) {
 
-    function roomName = (req, res, next) => {
+    function roomName() = (req, res, next) => {
       req.query.name;
       //get last string of URL
       if (socket.join) {
