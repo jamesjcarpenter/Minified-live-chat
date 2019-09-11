@@ -356,18 +356,15 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 var usernames = {};
 // rooms which are currently available in chat
 
-
+const middleware = (req, res, next) => {
+    console.log(req.params.id);
+    next();
+};
 
 io.on('connection', function (socket) {
 
   socket.room = {};
-  router.use('/room', function(req, res, next)
-    {
-        socket.room = req.query.name;
-        next()
-    });
-
-    socket.join(socket.room);
+  
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
 		// store the username in the socket session for this client
