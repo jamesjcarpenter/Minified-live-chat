@@ -53,7 +53,7 @@ var socket = io.connect('anomic.io/');
   socket.on('connect', function(){
       //empty messages.
       var roomId = url.substr(url.lastIndexOf("=")+1);
-      roomId = room;
+      roomId = socket.room;
       console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
       socket.emit('set-room',{room:roomId,username:username});
