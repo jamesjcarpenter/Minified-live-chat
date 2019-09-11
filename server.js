@@ -366,8 +366,6 @@ io.on('connection', function (socket) {
       next()
     }
   }
-    
-    socket.room = roomName;
     socket.join(socket.room);
 
 
