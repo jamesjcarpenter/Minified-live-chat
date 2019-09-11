@@ -400,7 +400,7 @@ io.sockets.on('connection', function (socket) {
 		// echo to client they've connected
 		socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to(socket.room).emit('serverupdatechat', socket.username + '' + 'joined the room');
+		socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
