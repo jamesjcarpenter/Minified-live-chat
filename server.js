@@ -367,7 +367,8 @@ io.on('connection', function (socket) {
     
     socket.join(socket.room);
     //event to get chat history on button click or as room is set.
-
+    console.log(socket.room);
+    console.log(roomName);
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
