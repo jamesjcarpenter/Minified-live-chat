@@ -354,9 +354,6 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 // usernames which are currently connected to the chat
 var usernames = {};
 
-app.get('/room?name=', function(req, res) {
-    var id = req.query.name;
-});
 
 // rooms which are currently available in chat
 var window = require('window-or-global');
