@@ -405,12 +405,12 @@ io.on('connection', function (socket) {
 	});
 
 	// when the client emits 'sendchat', this listens and executes
-  socket.on('sendchat', function (data) {
+  socket.on('updatechat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
   		// io.sockets.in(socket.room).emit('updatechat', socket.username, data);
       var keys = Object.keys(socket.rooms);
       for (var i = 0; i < keys.length; i++) {
-       io.to(socket.rooms[keys[i]]).emit('updatechat', socket.username, data);
+       io.to(socket.rooms[keys[i]]).emit('sendchat', socket.username, data);
       }
   	});
 
