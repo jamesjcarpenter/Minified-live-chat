@@ -366,10 +366,10 @@ io.on('connection', function (socket) {
     //getting room data.
     //setting room and join.
     setRoom = function(roomId) {
-      room = roomId;
-      console.log("roomId : " + room);
+      socket.room = roomId;
+      console.log("roomId : " + socket.room);
       socket.join(room);
-      ioChat.to(usernames[socket.username]).emit("join", socket.room);
+      ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
     };
   });
   
@@ -391,14 +391,14 @@ io.on('connection', function (socket) {
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.emit(room).emit('updatechat', 'SERVER', username + ' has connected to this room');
+		socket.to(socket.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
-  		io.in(room).emit('updatechat', socket.username, data);
+  		io.in(socket.room).emit('updatechat', socket.username, data);
   	});
 
 
