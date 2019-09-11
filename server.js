@@ -357,7 +357,7 @@ var usernames = {};
  
 io.on('connection', function (socket) {
   
-  socket.on("set-room", function(room) {
+  io.on("connection", function(room) {
     //leaving room.
     socket.leave(socket.room);
     //getting room data.
