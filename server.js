@@ -355,10 +355,12 @@ var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', 
 var usernames = {};
 // rooms which are currently available in chat
 const roomName = (req, res, next) => {
+  if (socket.room) {
   req.query.name;
   socket.room = req.query.name;
   console.log(socket.room);
   next();
+  };
 };
 app.use(roomName);
 
