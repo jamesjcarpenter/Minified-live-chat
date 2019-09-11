@@ -365,9 +365,11 @@ io.on('connection', function (socket) {
     
     app.use((req, res, next) => {
       const { roomId } = res.locals
+      if (socket.room) {
         res.locals.room = req.query.name;
-        socket.join(roomId);
-        next()
+        socket.join(res.locals.room);
+    }
+    next()
   })
     
 
