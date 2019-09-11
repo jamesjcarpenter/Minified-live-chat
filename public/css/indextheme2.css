@@ -121,7 +121,8 @@
     
     #userlist {
       color:white;
-      left:400px;
+      text-align:center;
+      position:relative;
     }
     
     #videolocal.panel-body {
