@@ -360,8 +360,12 @@ var usernames = {};
 
 io.on('connection', function (socket) {
   
-    let setRoom;
-    const ioChat = io.of("/room" + "");
+    // let setRoom;
+    // const ioChat = io.of("/room" + "");
+    socket.on('join', function(room) {
+      socket.join(room);
+    });
+    
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
