@@ -45,7 +45,6 @@ router.get('/', function(req, res) {
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 router.get('/room', function(req, res) {
-  var id = req.query.name;
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
