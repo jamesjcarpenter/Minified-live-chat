@@ -367,7 +367,7 @@ io.sockets.on('connection', function (socket) {
     // let setRoom;
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
-      room = socket.room;
+      socket.room = room;
       socket.join(room);
       console.log(socket.join(room))
       console.log(room);
