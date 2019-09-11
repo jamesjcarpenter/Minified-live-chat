@@ -347,7 +347,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
- require("./libs/chat.js").sockets(https);
+// require("./libs/chat.js").sockets(https);
 
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -357,18 +357,7 @@ var usernames = {};
  
 io.on('connection', function (socket) {
   
-  socket.on('groupConnect', function(group){
-    var groupNsp = io.of('/room?name=' + group);
-  });
-  
-  socket.on('updatechat', function(data){
-    var msg = data.msg;
-    var nsp = data.nsp;
-    io.of(nsp).emit('updatechat', socket.username, data);
-    io.of(nsp).emit('sendchat', socket.username, data);
-  });
-  
-  io.on("set-room", function(room) {
+  socket.on("set-room", function(room) {
     //leaving room.
     socket.leave(socket.room);
     //getting room data.
@@ -388,13 +377,19 @@ io.on('connection', function (socket) {
 		socket.username = username;
 		// store the room name in the socket session for this client
     
+    app.get('/', function (req, res, next) {
+      socket.room = req.query.name;
+      console.log(socket.room);
+      next();
+    });
 		// add the client's username to the global list
 		usernames[username] = username;
 		// send client to room 1
+		socket.join(socket.room);
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'SERVER', 'you have connected to room1');
+		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
 		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to(socket.room).emit('serverupdatechat', 'SERVER', username + ' has connected to this room');
+		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', username + ' has connected to this room');
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
@@ -413,10 +408,10 @@ io.on('connection', function (socket) {
 		socket.join(newroom);
 		socket.emit('updatechat', 'SERVER', 'you have connected to '+ newroom);
 		// sent message to OLD room
-		socket.broadcast.to(socket.room).emit('serverupdatechat', 'SERVER', socket.username +' has left this room');
+		socket.broadcast.to(socket.room).emit('updatechat', 'SERVER', socket.username +' has left this room');
 		// update socket session room title
 		socket.room = newroom;
-		socket.broadcast.to(newroom).emit('serverupdatechat', 'SERVER', socket.username+' has joined this room');
+		socket.broadcast.to(newroom).emit('updatechat', 'SERVER', socket.username+' has joined this room');
 		socket.emit('updaterooms', rooms, newroom);
 	});
 

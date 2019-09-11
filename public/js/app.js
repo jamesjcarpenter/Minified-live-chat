@@ -9,8 +9,8 @@ window.addEventListener('load', () => {
   console.log(url.substr(url.lastIndexOf("=")+1));
   
 
-  var socketOut = io.connect('anomic.io/room?name=');
-socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
+  var socket = io.connect('anomic.io/');
+socket.emit('set-room', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
     socket = io.connect('anomic.io/' + 'room?name=' + url.substr(url.lastIndexOf("=")+1));
