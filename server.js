@@ -360,19 +360,11 @@ io.on('connection', function (socket) {
     const roomName = (req, res, next) => {
       socket.room = req.query.name;
       console.log(socket.room);
+      socket.join(socket.room);
       next();
     };
     
-    app.use((req, res, next) => {
-      const { roomId } = res.locals
-      if (socket.room) {
-        res.locals.room = req.query.name;
-        socket.join(res.locals.room);
-        console.log(res.locals.room);
-        console.log(socket.room);
-    }
-    next()
-  })
+    roomName();
     
 
 
