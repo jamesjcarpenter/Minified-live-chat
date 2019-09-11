@@ -357,9 +357,15 @@ var usernames = {};
 // rooms which are currently available in chat
 
 
-io.on('connection', function (socket) {
 
-  socket.join(room);
+io.on('connection', function (socket) {
+  const middleware = (req, res, next) => {
+      console.log(req.room);
+      socket.join(req.room);
+    next();
+  };
+
+  app.use(middleware);
   
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
