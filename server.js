@@ -365,7 +365,6 @@ io.on('connection', function (socket) {
     };
     
     //event to get chat history on button click or as room is set.
-    socket.emit('set-room',{room:roomId,username:socket.username});
 
 
 	// when the client emits 'adduser', this listens and executes
