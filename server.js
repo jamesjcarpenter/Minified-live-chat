@@ -358,12 +358,9 @@ var usernames = {};
 io.on('connection', function (socket) {
     //leaving room.
     socket.room = {};
-    var roomId;
+    var roomId = url.substr(url.lastIndexOf("=")+1);
     socket.room = roomId;
-    socket.join(socket.room);
     console.log("roomId : "+roomId);
-    //event to get chat history on button click or as room is set.
-    socket.emit('set-room',{room:roomId,username:socket.username});
 
 
 	// when the client emits 'adduser', this listens and executes
