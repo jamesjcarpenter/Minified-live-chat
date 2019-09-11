@@ -365,7 +365,7 @@ io.on('connection', function (socket) {
     };
     app.use(roomName);
     
-  console.log(roomName());
+  console.log(app.use(roomName));
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
