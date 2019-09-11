@@ -358,10 +358,14 @@ var usernames = {};
 io.on('connection', function (socket) {
     //leaving room.
     const roomName = (req, res, next) => {
+      if (socket.join) {
       socket.room = req.query.name;
       console.log(socket.room);
       next();
-    });
+    } else {
+      next()
+    }
+  }
     
     socket.room = roomName;
     socket.join(socket.room);
