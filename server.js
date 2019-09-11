@@ -360,6 +360,7 @@ io.on('connection', function (socket) {
     socket.room = {};
     var roomId;
     socket.room = roomId;
+    socket.join(socket.room);
     console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
     socket.emit('set-room',{room:roomId,username:socket.username});
