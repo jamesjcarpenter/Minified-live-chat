@@ -1,32 +1,21 @@
 window.addEventListener('load', () => {
-
-  var url = window.location.href;
   
-  console.log(url);
-  function getImageDirectoryByFullURL(url){
-      return url.substr(url.lastIndexOf("=")+1);
-  }
-  console.log(url.substr(url.lastIndexOf("=")+1));
   
-
   var socket = io.connect('anomic.io/443');
-socket.emit('set-room', url.substr(url.lastIndexOf("=")+1));
-var nsp;
-setTimeout(function(){
-    socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
-    socket.on('updatechat', function(data){
-        socket.emit('sendchat', message);
-    });
-    nsp = '/room?name=' + url.substr(url.lastIndexOf("=")+1);
-}, 1500);
-
-
+  
   // Chat platform
   // Local Video
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
 
+var url = window.location.href;
+
+console.log(url);
+function getImageDirectoryByFullURL(url){
+    return url.substr(url.lastIndexOf("=")+1);
+}
+console.log(url.substr(url.lastIndexOf("=")+1));
 
 
 $("#data").focus();
@@ -58,7 +47,7 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
-// var socket = io.connect('anomic.io/');
+var socket = io.connect('anomic.io/');
 
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
@@ -103,8 +92,7 @@ socket.on('connect', function(data) {
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
-socketOut.emit('sendchat', { msg: data, nsp: nsp });
-socketOut.emit('updatechat', { msg: data, nsp: nsp });
+
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
       if(e.which == 13) {
@@ -165,17 +153,17 @@ socketOut.emit('updatechat', { msg: data, nsp: nsp });
   //  }); //end of receiving onlineStack event.
 
   // create an array to hold all the usernames of the poeple in a specific room
- // var roomusers = [];
- //  // get all the clients in ‘room1′
- //  // var clients = io.sockets.adapter.rooms[];
- //  var clients;
- //  // clients.length;
- //  // loop through clients in ‘room1′ and add their usernames to the roomusers array
- // for(var i = 0; i < clients.length; i++) {
- //  roomusers[roomusers.length] = clients[i].username;
- //  }
- //  // broadcast to everyone in room 1 the usernames of the clients connected.
- //  io.sockets.to(socket.room).emit('updateroomusers', roomusers);
+ var roomusers = [];
+  // get all the clients in ‘room1′
+  // var clients = io.sockets.adapter.rooms[];
+  var clients;
+  // clients.length;
+  // loop through clients in ‘room1′ and add their usernames to the roomusers array
+ for(var i = 0; i < clients.length; i++) {
+  roomusers[roomusers.length] = clients[i].username;
+  }
+  // broadcast to everyone in room 1 the usernames of the clients connected.
+  io.sockets.to(socket.room).emit('updateroomusers', roomusers);
   
   //index.html code
 
