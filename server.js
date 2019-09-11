@@ -357,6 +357,14 @@ var usernames = {};
  
 io.on('connection', function (socket) {
     //leaving room.
+    const roomName = (req, res, next) => {
+      socket.room = req.query.name;
+      console.log(socket.room);
+      next();
+    });
+    
+    socket.room = roomName;
+    socket.join(socket.room);
 
 
 	// when the client emits 'adduser', this listens and executes
@@ -364,15 +372,8 @@ io.on('connection', function (socket) {
 		// store the username in the socket session for this client
 		socket.username = username;
 		// store the room name in the socket session for this client
-    
-    app.get('/', function (req, res, next) {
-      socket.room = req.query.name;
-      console.log(socket.room);
-      next();
-    });
 		// add the client's username to the global list
 		usernames[username] = username;
-    socket.join(socket.roomId);
 		// send client to room 1
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
