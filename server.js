@@ -387,7 +387,7 @@ io.sockets.on('connection', function (socket) {
     // console.log(clients); 
     // console.log(rooms);
     socket.emit('clientlist', clients);
-    socket.broadcast.to(socket.room).emit('getusers', usernames, username);
+    socket.broadcast.to(socket.room).emit('getusers', '' + usernames);
   });
     
     socket.on("set-room", function(room) {
