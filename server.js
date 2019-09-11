@@ -15,11 +15,11 @@ key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
 },app);
-server.listen(443);
+// server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
-var io = require('socket.io').listen(80);
+var io = require('socket.io').listen(port);
 
 //... 
 //..
