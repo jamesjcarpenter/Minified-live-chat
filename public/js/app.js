@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   
   
-  var socket = io.connect('anomic.io/443');
+  // var socket = io.connect('anomic.io/443');
   
   // Chat platform
   // Local Video
@@ -47,7 +47,7 @@ function fixedEncodeURIComponent(str) {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
-// var socket = io.connect('anomic.io/');
+var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
       //empty messages.
