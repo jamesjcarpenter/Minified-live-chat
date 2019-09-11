@@ -428,6 +428,7 @@ io.sockets.on('connection', function (socket) {
 
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
+    socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'left the room');
 		// remove the username from global usernames list
 		// update list of users in chat, client-side
 		io.sockets.emit('updateusers', usernames);
