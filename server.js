@@ -357,7 +357,7 @@ var usernames = {};
  
 io.on('connection', function (socket) {
 
-    function roomName() = (req, res, next) => {
+    const roomName = (req, res, next) => {
       req.query.name;
       //get last string of URL
       if (socket.join) {
@@ -368,7 +368,8 @@ io.on('connection', function (socket) {
       next()
     }
   };
-    roomName();
+    app.use(roomName);
+    
     socket.join(socket.room);
     //event to get chat history on button click or as room is set.
 
