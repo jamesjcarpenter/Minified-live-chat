@@ -86,7 +86,6 @@ var socket = io.connect('anomic.io/');
       
 		});
 	});
-  $('#userlist').append('<h5 class = "list-group-item-heading">Connected users</h5>');
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
