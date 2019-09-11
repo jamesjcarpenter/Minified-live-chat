@@ -54,7 +54,7 @@ var socket = io.connect('anomic.io/');
       socket.room = {};
       var roomId = url.substr(url.lastIndexOf("=")+1);
       socket.room = roomId;
-      console.log("roomId : "+roomId);
+      // console.log("roomId : "+roomId);
       //event to get chat history on button click or as room is set.
        socket.emit('join', roomId);
     
@@ -62,10 +62,10 @@ var socket = io.connect('anomic.io/');
 		socket.emit('adduser', prompt("Enter username."));
 	});
   
-  socket.on('addname', function (username) {
-   $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
-    
-  });
+  // socket.on('addname', function (username) {
+  //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
+  // 
+  // });
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
@@ -77,6 +77,8 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
     
   });
+  
+
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   socket.on('serverupdatechat', function (server, username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');

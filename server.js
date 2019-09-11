@@ -359,18 +359,13 @@ var usernames = {};
 
 
 io.sockets.on('connection', function (socket) {
-  const nsp = io.of('/room?name=' + '');
-  nsp.on('connection', function(socket){
-    console.log('someone connected');
-  });
-  nsp.emit('hi', 'everyone!');
     // let setRoom;
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
-      console.log(socket.join(room))
-      console.log(room);
+      // console.log(socket.join(room))
+      // console.log(room);
     });
     
     socket.on('adduser', function(username){
@@ -380,7 +375,15 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
-    socket.broadcast.to(socket.room).emit('addname', socket.username);
+    // socket.broadcast.to(socket.room).emit('addname', socket.username);
+    
+    io.of('/').in(socket.room).clients((error, clients) => {
+    if (error) throw error;
+  
+    // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
+    console.log(clients); 
+    socket.emit('clientlist', clients);
+  });
     
     socket.on("set-room", function(room) {
       //leaving room.
