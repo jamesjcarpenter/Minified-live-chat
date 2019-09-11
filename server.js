@@ -363,7 +363,12 @@ io.on('connection', function (socket) {
       next();
     };
     
-    socket.join(socket.room);
+    app.use((req, res, next) => {
+      const { roomId } = req.query.name;
+      next()
+    })
+    
+    socket.join(roomId);
 
 
 	// when the client emits 'adduser', this listens and executes
