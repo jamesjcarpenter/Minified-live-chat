@@ -358,7 +358,7 @@ var usernames = {};
 
 
 
-io.on('connection', function (socket) {
+io.sockets.on('connection', function (socket) {
   const nsp = io.of('/room?name=' + '');
   nsp.on('connection', function(socket){
     console.log('someone connected');
