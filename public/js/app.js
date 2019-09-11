@@ -83,7 +83,6 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
 		$.each(data, function(key, value) {
       keys = keys.filter(n => (n===null) ? false : true).join(', ');
-      socket.usernames = keys;
 			$('#userlist').append('<div>' + key + '</div>');
       
 		});
