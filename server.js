@@ -357,15 +357,13 @@ var usernames = {};
  
 io.on('connection', function (socket) {
     //leaving room.
-    socket.leave(socket.room);
+      socket.leave(socket.room);
     //getting room data.
-    //setting room and join.
-    setRoom = function(roomId) {
+    //setting room and join
       socket.room = roomId;
       console.log("roomId : " + socket.room);
       socket.join(socket.room);
       socket.to(userSocket[socket.username]).emit("set-room", socket.room);
-    };
 
 
 	// when the client emits 'adduser', this listens and executes
