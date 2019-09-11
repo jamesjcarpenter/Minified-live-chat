@@ -359,6 +359,7 @@ var usernames = {};
 
 io.on('connection', function (socket) {
 
+socket.room = {};
   const roomName = (req, res, next) => {
     if (socket.room) {
     req.query.name;
