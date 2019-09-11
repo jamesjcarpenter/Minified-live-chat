@@ -368,6 +368,8 @@ io.on('connection', function (socket) {
       if (socket.room) {
         res.locals.room = req.query.name;
         socket.join(res.locals.room);
+        console.log(res.locals.room);
+        console.log(socket.room);
     }
     next()
   })
