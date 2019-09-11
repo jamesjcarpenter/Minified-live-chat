@@ -360,12 +360,13 @@ var usernames = {};
 
 io.on('connection', function (socket) {
 
-  router.get('/room', function(req, res, next)
+  router.use('/room', function(req, res, next)
     {
         req.query.name = res.locals.room;
         var id = res.locals.room;
         socket.join(id);
         console.log(id);
+        next()
     });
 
 	// when the client emits 'adduser', this listens and executes
