@@ -16,6 +16,7 @@ requestCert: false,
 rejectUnauthorized: false,
 },app);
 server.listen(443);
+var router = express.Router();
 
 //make sure you keep this order
 var io = require('socket.io').listen(server);
@@ -359,18 +360,12 @@ var usernames = {};
 
 io.on('connection', function (socket) {
 
-socket.room = {};
-  const roomName = (req, res, next) => {
-    req.query;
-    socket.room = req.query;
-    if (socket.room) {
-    console.log(socket.room);
-    next();
-    };
-  };
-  app.use(roomName);
-  console.log(roomName());
-  console.log(socket.room);
+  router.get('/room?name=:id', function(req, res, next)
+    {
+        req.query.name : res.locals.room;
+        var id = res.locals.room;
+        socket.join(id);
+    });
 
 	// when the client emits 'adduser', this listens and executes
 	socket.on('adduser', function(username){
