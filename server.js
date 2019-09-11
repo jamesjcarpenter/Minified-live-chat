@@ -356,8 +356,6 @@ var usernames = {};
 // rooms which are currently available in chat
  
 io.on('connection', function (socket) {
-  
-  io.on("connection", function(room) {
     //leaving room.
     socket.leave(socket.room);
     //getting room data.
@@ -368,7 +366,6 @@ io.on('connection', function (socket) {
       socket.join(socket.room);
       socket.to(userSocket[socket.username]).emit("set-room", socket.room);
     };
-  });
 
 
 	// when the client emits 'adduser', this listens and executes
