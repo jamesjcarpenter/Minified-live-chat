@@ -69,7 +69,7 @@ var socket = io.connect('anomic.io/');
   // });
   
   socket.on('connect', function (usernames) {
-   $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(usernames));
+   $('#userlist').append($('<span class="ui text small"id="camusername"></span>').text(usernames));
   
   });
   // create our webrtc connection
