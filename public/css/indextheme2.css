@@ -224,9 +224,10 @@
     margin:0 auto;
     margin-left:45px;
     bottom:5px;
-    background-color:	#3D3D3D!important;
+    background-color:	#4545cc!important;
     color:white;
     word-wrap: break-word;
+    opacity:0.8;
     position:justify;
     font-size: 13px;
     width: 80%;
