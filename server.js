@@ -357,7 +357,7 @@ var usernames = {};
 // rooms which are currently available in chat
 
 
-
+exports.bind = function(socket) {
 io.sockets.on('connection', function (socket) {
   const nsp = io.of('/room?name=' + '');
   nsp.on('connection', function(socket){
@@ -408,7 +408,7 @@ io.sockets.on('connection', function (socket) {
   		// we tell the client to execute 'updatechat' with 2 parameters
   		io.sockets.in(socket.room).emit('updatechat', socket.username, data);
   	});
-
+}
 
 
 	// socket.on('switchRoom', function(newroom){
