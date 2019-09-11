@@ -13,9 +13,9 @@ window.addEventListener('load', () => {
 socketOut.emit('groupConnect', url.substr(url.lastIndexOf("=")+1));
 var nsp;
 setTimeout(function(){
-    socket = io.connect('anomic.io/443' + url.substr(url.lastIndexOf("=")+1));
+    socket = io.connect('anomic.io/443' + 'room?name=' + url.substr(url.lastIndexOf("=")+1));
     socket.on('updatechat', function(data){
-        displayMessage(data);
+        socket.emit('sendchat', message);
     });
     nsp = '/room?name=' + url.substr(url.lastIndexOf("=")+1);
 }, 1500);
