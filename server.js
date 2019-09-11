@@ -372,7 +372,7 @@ io.on('connection', function (socket) {
     });
 		// add the client's username to the global list
 		usernames[username] = username;
-    socket.join(socket.room);
+    socket.join(socket.roomId);
 		// send client to room 1
 		// echo to client they've connected
 		socket.emit('updatechat', 'SERVER', 'you have connected to room1');
