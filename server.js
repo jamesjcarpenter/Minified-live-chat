@@ -357,8 +357,7 @@ var usernames = {};
 var window = require('window-or-global');
 io.on('connection', function (socket) {
     //leaving room.
-    var href = query.name;
-    var url = window.location.href;
+    var url = window.location;
     socket.room = {};
     var roomId = url.substr(url.lastIndexOf("=")+1);
     socket.room = roomId;
