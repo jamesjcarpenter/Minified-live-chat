@@ -144,9 +144,6 @@ socket.on('connect', function(data) {
       $('#datasend').show(); //showing send button.
       socket.emit('typing');
     }
-    else{
-      $('#datasend').hide(); //hiding send button to prevent sending empty messages.
-    }
   });
   
   socket.on('typing',function(){
