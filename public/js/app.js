@@ -117,8 +117,8 @@ var socket = io.connect('anomic.io/');
 socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
-      var message = $('#data').trim();
-      $('#data').val('');
+      var message = $('#data').val().trim();
+      $('#data').val('').trim();
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
@@ -128,7 +128,6 @@ socket.on('connect', function(data) {
       if(e.which == 13) {
         $(this).blur();
         $('#datasend').focus().click();
-        var message = ('#data').trim();
       }
     });
   });
