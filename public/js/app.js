@@ -4,10 +4,10 @@ window.addEventListener('load', () => {
   $("form").on("submit", function(e) {
     e.preventDefault();
     var request = gapi.client.youtube.search.list({
-      part: "snippet",
-      type: "video",
-      q: encodeURIComponent($("#search").val()).replace(/%/g, "+"),
-      maxResults: 5,
+      q: 'q',
+        part: 'id, snippet',
+        type: 'video',
+        order: 'date',
       order: "viewCount",
     });
     //executre
