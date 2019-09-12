@@ -12,22 +12,22 @@ $(function() {
             order: "viewCount",
        }); 
        function youtube_image($id) {
-    $resolution = array (
-        'maxresdefault',
-        'sddefault',
-        'mqdefault',
-        'hqdefault',
-        'default'
-    );
+            $resolution = array (
+                  'maxresdefault',
+                  'sddefault',
+                  'mqdefault',
+                  'hqdefault',
+                  'default'
+              );
 
-    for ($x = 0; $x < sizeof($resolution); $x++) {
-        $url = '//img.youtube.com/vi/' . $id . '/' . $resolution[$x] . '.jpg';
-        if (get_headers($url)[0] == 'HTTP/1.0 200 OK') {
-            break;
-        }
-    }
-    return $url;
-}
+          for ($x = 0; $x < sizeof($resolution); $x++) {
+              $url = '//img.youtube.com/vi/' . $id . '/' . $resolution[$x] . '.jpg';
+              if (get_headers($url)[0] == 'HTTP/1.0 200 OK') {
+                  break;
+              }
+          };
+        };
+        return $url;
        // execute the request
        request.execute(function(response) {
           var results = response.result;
