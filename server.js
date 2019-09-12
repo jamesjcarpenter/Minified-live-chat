@@ -89,7 +89,7 @@ app.use(helmet.contentSecurityPolicy({
    objectSrc: ["'none'"],
    formAction: ["'self'"],
    connectSrc: ["'self'", 'https://www.youtube.com', 'https://google.com', 'https://youtube.com', 'https://www.google.com', 'https://www.anomic.io:8089/janus', 'https://www.anomic.io/socket.io', 'https://anomic.io/images', 'https://www.anomic.io/images', 'https://anomic.io/socket.io/', 'https://www.anomic.io/socket.io/', 'https://www.anomic.io:8089/socket.io', 'https://anomic.io/socket.io/', 'https://www.anomic.io/socket.io/',  'https://www.anomic.io/images/', 'https://www.anomic.io:8089/*', 'https://www.anomic.io:80', 'https://www.anomic.io:443', 'https://www.anomic.io:8088/janus', 'https://www.anomic.io:*', 'https://www.anomic.io/*', 'https://anomic.io:*', 'wss://anomic.io:*', 'https://anomic.io', 'https://anomic.io:*/janus', 'https://anomic.io/videoroom', 'http://anomic.io/janus', 'http://anomic.io/videoroom', 'https://anomic.io:8089/janus', 'https://anomic.io:8088/janus', 'wss://www.anomic.io:8089/janus', 'ws://www.anomic.io:8089/janus' ],
-   frameSrc: ["'self'", 'https://www.webrtc-experiment.com/', 'https://content.googleapis.com/', 'https://www.content.googleapis.com/'],
+   frameSrc: ["'self'", 'https://www.webrtc-experiment.com/', 'https://www.youtube.com/', 'https://content.googleapis.com/', 'https://www.content.googleapis.com/'],
    upgradeInsecureRequests: true,
    workerSrc: false,
  },
