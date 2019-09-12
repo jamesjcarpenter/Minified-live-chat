@@ -77,7 +77,7 @@ var controller = null;
     $_("#takeControl").onclick = function(ev) {
       conn.send("control "+$_("#name").value);
     };
-  };
+  });
   function iAmControlling() {
   return $_("#controller").innerHTML == $_("#name").value;
 }
