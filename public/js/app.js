@@ -8,7 +8,8 @@ window.addEventListener('load', () => {
 $('#start').click();
 $('#start').hide();
 $('#bitrateset').hide();
-
+$('#start2').click();
+$('#start2').hide();
 var url = window.location.href;
 
 console.log(url);

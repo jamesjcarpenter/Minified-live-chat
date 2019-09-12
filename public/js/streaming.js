@@ -88,7 +88,7 @@ $(document).ready(function() {
 									// Setup streaming session
 									$('#update-streams').click(updateStreamsList);
 									updateStreamsList();
-									$('#start').removeAttr('disabled').html("Stop")
+									$('#start2').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
 											clearInterval(bitrateTimer);
