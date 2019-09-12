@@ -102,6 +102,8 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
         $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
+        $("#roomname").empty();
+        $("#roomname").append('<span class="ui medium text" id="roomname"></span>' + '' + url.substr(url.lastIndexOf("=")+1));
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
@@ -113,8 +115,6 @@ socket.on('connect', function(data) {
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
-      $("#roomname").empty();
-      $("#roomname").append('<span class="ui medium text" id="roomname"></span>' + '' + url.substr(url.lastIndexOf("=")+1));
     });
 
     // when the client hits ENTER on their keyboard
