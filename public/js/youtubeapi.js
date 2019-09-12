@@ -8,7 +8,7 @@ $(function() {
             part: "snippet",
             type: "video",
             q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
-            maxResults: 20,
+            maxResults: 10,
             order: "viewCount",
        }); 
        
@@ -20,13 +20,7 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
             });
-              document.getElementById("#youtubeplayer").addEventListener("click", function(){
-                  $('.ui.longer.modal').modal('hide');
-                  var $iframe = $('#youtubeplayer');
-                  $iframe.ready(function() {
-                  $iframe.contents().find("body").append(item.id.videoId);
-                });
-          })
+          });
           resetVideoHeight();
        });
     });
@@ -43,4 +37,3 @@ function init() {
     gapi.client.load("youtube", "v3", function() {
     });
   }
-});
