@@ -19,7 +19,7 @@ $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
 
 $('#youtubeopen').click( function() {
-  $('.ui.longer.modal').modal('show');
+  $('.ui.modal').modal('show');
 });
 
 
