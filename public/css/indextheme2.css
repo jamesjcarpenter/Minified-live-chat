@@ -43,6 +43,9 @@
     #typing {
       color:white;
       z-index:9999;
+      display:inline-block;
+      position:relative;
+      padding:10px;
     }
     #draggable {
       position:relative!important;
