@@ -117,7 +117,7 @@ var socket = io.connect('anomic.io/');
 socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
-      var message = $('#data').val();
+      var message = $('#data').val().trim();
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
@@ -133,7 +133,7 @@ socket.on('connect', function(data) {
   });
   
   $('#PMbutton').click(function() {
-    $('#conversation').append('<div class="ui right attached internal rail" id="chatrail"><div id="draggable"><div id="chatbox"class="ui divider"><div id="conversation"></div></div></div><div class="ui input focus" id="inputfocus" maxlength="128"><input autofocus id="data"class="content"name="data" autocomplete="off"/>');
+    
     
     // socket.emit('private-message', message);
 });
