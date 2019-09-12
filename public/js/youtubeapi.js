@@ -1,5 +1,3 @@
-window.addEventListener('load', () => {
-
 init();
 
 $(window).on("resize", resetVideoHeight);
@@ -35,4 +33,3 @@ function init() {
     });
   });
 }
-});
