@@ -68,7 +68,7 @@
     #conversation {
     position:relative!important;
     width:100%!important;
-    height:76vh!important;
+    height:77vh!important;
     padding:20px!important;
     max-width:100%!important;
     max-height:100%!important;  
@@ -455,7 +455,7 @@ div.no-video-container {
 
 #scrollable{
     float: left;
-    min-height: 70vh;
+    min-height: 77vh;
     width: 100%;
     overflow-y: auto;
     min-width:21.5vw;
@@ -464,7 +464,7 @@ div.no-video-container {
     background-color: 	#383838!important;
 }
 #scroller{
-  min-height: 70vh;
+  min-height: 77vh;
   width: 100%;
   overflow-y: auto;
   min-width:21.5vw;
