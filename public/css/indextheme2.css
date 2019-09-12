@@ -29,7 +29,7 @@
       z-index:9999;
     }
     
-    #roomname {
+    /* #roomname {
       text-align:left;
       z-index:9999;
       left:8.75em;
@@ -38,14 +38,14 @@
       font-size:16px;
       top:0.25em;
       background-color:#303030!important;
-    }
+    } */
     
     #typing {
         text-align:justify;
         color:white;
         position:absolute;
         z-index:9999;
-        right:9.5rem;
+        right:10rem;
         bottom:5.5rem;
         margin: 0 auto;
     }
