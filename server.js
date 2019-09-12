@@ -410,7 +410,7 @@ io.sockets.on('connection', function (socket) {
     });
     
     socket.on("typing", function() {
-      socket.to(socket.room).broadcast.emit("typing", socket.username + " : is typing...");
+      socket.to(socket.room).broadcast.emit("typing", socket.username + "  is typing...");
     });
 	  // when the client emits 'adduser', this listens and executes
 		// send client to room 1

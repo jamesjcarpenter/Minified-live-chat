@@ -93,7 +93,7 @@ module.exports.sockets = function(https) {
     socket.on("typing", function() {
       socket
         .to(socket.room)
-        .broadcast.emit("typing", socket.username + " : is typing...");
+        .broadcast.emit("typing", socket.username + "is typing..");
     });
 
     //for showing chats.
