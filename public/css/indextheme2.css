@@ -154,7 +154,7 @@
       color:white;
       text-align:left;
       position:fixed;
-      left:0em;
+      left:-0.1em;
       top:17.5em;
       z-index:9999;
     }
