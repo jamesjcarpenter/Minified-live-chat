@@ -114,7 +114,7 @@ socket.on('connect', function(data) {
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
       $("#roomname").empty();
-      $("#roomname").append('<span class="ui medium text" id="roomname"></span>' + url.substr(url.lastIndexOf("=")+1));
+      $("#roomname").append('<span class="ui medium text" id="roomname"></span>' + '' + url.substr(url.lastIndexOf("=")+1));
     });
 
     // when the client hits ENTER on their keyboard
