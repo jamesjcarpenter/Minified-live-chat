@@ -41,12 +41,13 @@
     }
     
     #typing {
-      text-align:center;
+      text-align:justify;
         color:white;
-        position:relative;
+        position:absolute;
         z-index:9999;
         right:0;
         bottom:0;
+        margin: 0 auto;
     }
     #draggable {
       position:relative!important;
