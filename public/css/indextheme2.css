@@ -50,6 +50,9 @@
         bottom:3.75rem;
         margin: 0 auto;
         font-size:12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
     #draggable {
       position:relative!important;
