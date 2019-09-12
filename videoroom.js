@@ -97,8 +97,12 @@ $(document).ready(function() {
 						// Attach to video room test plugin
 						janus.attach(
 							{
-								plugin: "janus.plugin.videoroom",
 								plugin: "janus.plugin.streaming",
+								opaqueId: opaqueId,
+							}),
+							{(
+								
+								plugin: "janus.plugin.videoroom",
 								opaqueId: opaqueId,
 								success: function(pluginHandle) {
 									$('#details').remove();
