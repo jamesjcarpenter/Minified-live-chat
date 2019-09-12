@@ -10,8 +10,24 @@ $(function() {
             q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
             maxResults: 3,
             order: "viewCount",
-            publishedAfter: "2015-01-01T00:00:00Z"
        }); 
+       function youtube_image($id) {
+    $resolution = array (
+        'maxresdefault',
+        'sddefault',
+        'mqdefault',
+        'hqdefault',
+        'default'
+    );
+
+    for ($x = 0; $x < sizeof($resolution); $x++) {
+        $url = '//img.youtube.com/vi/' . $id . '/' . $resolution[$x] . '.jpg';
+        if (get_headers($url)[0] == 'HTTP/1.0 200 OK') {
+            break;
+        }
+    }
+    return $url;
+}
        // execute the request
        request.execute(function(response) {
           var results = response.result;
