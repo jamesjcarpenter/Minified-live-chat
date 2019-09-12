@@ -45,8 +45,8 @@
         color:white;
         position:absolute;
         z-index:9999;
-        right:10rem;
-        bottom:5.5rem;
+        right:12rem;
+        bottom:4.6rem;
         margin: 0 auto;
     }
     #draggable {
