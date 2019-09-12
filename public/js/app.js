@@ -139,7 +139,7 @@ socket.on('connect', function(data) {
   });
   });
   
-  $('#data').keyup(function(){
+  $('#datasend').keyup(function(){
     if($('#data').val()){
       $('#datasend').show(); //showing send button.
       socket.emit('typing');
