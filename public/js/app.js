@@ -63,27 +63,6 @@ var socket = io.connect('anomic.io/');
 		socket.emit('adduser', prompt("Enter username."));
 	});
   
-  var arrayImg = new Array();
-  arrayImg[0] = "avatar1.png";
-  arrayImg[1] = "avatar2.png";
-  arrayImg[2] = "avatar3.png";
-  arrayImg[3] = "avatar4.png";
-  arrayImg[4] = "avatar5.png";
-  arrayImg[5] = "avatar6.png";
-  arrayImg[6] = "avatar7.png";
-  
-  
-  getRandomImage(arrayImg, "");
-  
-  function getRandomImage(imgAr, path) {
-      path = path || 'avatars/'; // default path here
-      var num = Math.floor( Math.random() * imgAr.length );
-      var img = imgAr[ num ];
-      var imgStr = '<img class="ui avatar image" id="user avatar" src="' + path + img + '" alt = "">';
-      $('useravatar').empty();
-      $('#useravatar').append(imgStr);
-  }
-  
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
   // 
@@ -109,6 +88,27 @@ var socket = io.connect('anomic.io/');
 	});
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
+    var arrayImg = new Array();
+    arrayImg[0] = "avatar1.png";
+    arrayImg[1] = "avatar2.png";
+    arrayImg[2] = "avatar3.png";
+    arrayImg[3] = "avatar4.png";
+    arrayImg[4] = "avatar5.png";
+    arrayImg[5] = "avatar6.png";
+    arrayImg[6] = "avatar7.png";
+    
+    
+    getRandomImage(arrayImg, "");
+    
+    function getRandomImage(imgAr, path) {
+        path = path || 'avatars/'; // default path here
+        var num = Math.floor( Math.random() * imgAr.length );
+        var img = imgAr[ num ];
+        var imgStr = '<img class="ui avatar image" id="user avatar" src="' + path + img + '" alt = "">';
+        $('useravatar').empty();
+        $('#useravatar').append(imgStr);
+    }
+    
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
