@@ -103,11 +103,6 @@
     position:relative;
     overflow-y:hidden;
     }
-    #usercam {
-      text-align:center;
-      position:relative;
-      color:white;
-    }
     #videos{
         display:block;
         position:fixed;
