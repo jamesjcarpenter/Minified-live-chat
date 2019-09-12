@@ -48,9 +48,6 @@
     
     #typing {
       text-align:center;
-      position:fixed;
-      bottom:2em;
-      right:3.5em;
     }
     #chatbox {
       position:relative!important;
