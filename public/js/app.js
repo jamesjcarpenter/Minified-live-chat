@@ -1,5 +1,12 @@
 window.addEventListener('load', () => {
   
+  function init() {
+    gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
+    var q = $('#search').val();
+    gapi.client.load("youtube", "v3", function() {
+      //yt api is ready
+    });
+  }
   
   $("form").on("submit", function(e) {
     e.preventDefault();
@@ -29,12 +36,6 @@ window.addEventListener('load', () => {
     $(".video").css("height", $("#results").width() * 9/16);
   }
   // var socket = io.connect('anomic.io/443');
-  function init() {
-    gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
-    gapi.client.load("youtube", "v3", function() {
-      //yt api is ready
-    });
-  }
   // Chat platform
   // Local Video
 $('#start').click();
