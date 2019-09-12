@@ -97,34 +97,34 @@ $(document).ready(function() {
 						// Attach to video room test plugin
 						janus.attach(
 							{
+								plugin: "janus.plugin.streaming",
+								opaqueId: opaqueId,
+								success: function(pluginHandle) {
+									$('#details').remove();
+									streaming = pluginHandle;
+									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
+									// Setup streaming session
+									$('#update-streams').click(updateStreamsList);
+									updateStreamsList();
+									$('#start').removeAttr('disabled').html("Stop")
+										.click(function() {
+											$(this).attr('disabled', true);
+											clearInterval(bitrateTimer);
+											janus.destroy();
+											$('#streamslist').attr('disabled', true);
+											$('#watch').attr('disabled', true).unbind('click');
+											$('#start').attr('disabled', true).html("Bye").unbind('click');
+										});
+								},
+						janus.attach(
+							{
 								plugin: "janus.plugin.videoroom",
 								opaqueId: opaqueId,
 								success: function(pluginHandle) {
 									$('#details').remove();
 									sfutest = pluginHandle;
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
-									Janus.log("  -- This is a publisher/manager"),
-									janus.attach(
-										{
-											plugin: "janus.plugin.streaming",
-											opaqueId: opaqueId,
-											success: function(pluginHandle) {
-												$('#details').remove();
-												streaming = pluginHandle;
-												Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
-												// Setup streaming session
-												$('#update-streams').click(updateStreamsList);
-												updateStreamsList();
-												$('#start').removeAttr('disabled').html("Stop")
-													.click(function() {
-														$(this).attr('disabled', true);
-														clearInterval(bitrateTimer);
-														janus.destroy();
-														$('#streamslist').attr('disabled', true);
-														$('#watch').attr('disabled', true).unbind('click');
-														$('#start').attr('disabled', true).html("Bye").unbind('click');
-													});
-											},
+									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 						//			$('#videojoin').removeClass('hide').show();
 							//		$('#registernow').removeClass('hide').show();
@@ -137,7 +137,6 @@ $(document).ready(function() {
 											$(this).attr('disabled', true);
 											janus.destroy();
 										});
-										
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
