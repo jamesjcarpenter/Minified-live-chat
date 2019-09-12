@@ -47,8 +47,9 @@
       text-align:right;
       position:relative;
       padding:10px;
-      margin-right:1.5em;
+      margin-right:6.5em;
       margin-bottom:5em;
+      bottom:0;
     }
     #draggable {
       position:relative!important;
