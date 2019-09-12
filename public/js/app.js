@@ -115,6 +115,7 @@ socket.on('connect', function(data) {
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
+      $('#typing').text("");
     });
 
     // when the client hits ENTER on their keyboard
@@ -148,6 +149,18 @@ socket.on('connect', function(data) {
       $('#datasend').hide(); //hiding send button to prevent sending empty messages.
     }
   });
+  
+  socket.on('typing',function(message){
+    var setTime;
+    //clearing previous setTimeout function.
+    clearTimeout(setTime);
+    //showing typing message.
+    $('#typing').text(message);
+    //showing typing message only for few seconds.
+    setTime = setTimeout(function(){
+      $('#typing').text("");
+    },3500);
+  }); 
   
   socket.on('updaterooms', function(rooms, current_room) {
       $('#rooms').empty();
