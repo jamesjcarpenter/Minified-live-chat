@@ -10,12 +10,12 @@ window.addEventListener('load', () => {
   
   $("form").on("submit", function(e) {
     e.preventDefault();
-    var request = gapi.client.youtube.search.list({
+    request = gapi.client.youtube.search.list({
       q: 'q',
         part: 'id, snippet',
         type: 'video',
         order: 'date',
-      order: "viewCount",
+        order: "viewCount",
     });
     //executre
     request.execute(function(response) {
