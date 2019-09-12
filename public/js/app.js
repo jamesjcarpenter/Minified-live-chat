@@ -3,7 +3,7 @@ window.addEventListener('load', () => {
   
   $("form").on("submit", function(e) {
     e.preventDefault();
-    var request - gapi.client.youtube.search.list({
+    var request = gapi.client.youtube.search.list({
       part: "snippet",
       type: "video",
       q: encodeURIComponent($("#search").val()).replace(/%/g, "+"),
