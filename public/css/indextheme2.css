@@ -8,6 +8,7 @@
       background-color: 			#2e2e2e!important;
       color:white;
       outline:none !important;
+      min-height:5.5vh;
     }
     .ui.divider {
       background-color: 		#383838!important;
