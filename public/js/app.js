@@ -141,7 +141,11 @@ socket.on('connect', function(data) {
   
   $('#data').keyup(function(){
     if($('#data').val()){
+      $('#datasend').show(); //showing send button.
       socket.emit('typing');
+    }
+    else{
+      $('#datasend').hide(); //hiding send button to prevent sending empty messages.
     }
   });
   
@@ -150,10 +154,11 @@ socket.on('connect', function(data) {
     //clearing previous setTimeout function.
     clearTimeout(setTime);
     //showing typing message.
-      $("#conversation").append('<span class="ui medium text"id="typing">' + '</span>');
+      $("#typing").append('<span class="ui medium text"id="typing">' + '</span>');
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
-    },2500);
+      $("#typing").empty();
+    },3500);
   }); 
   
   socket.on('updaterooms', function(rooms, current_room) {
