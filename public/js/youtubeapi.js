@@ -24,8 +24,8 @@ $(function() {
                   var $iframe = $('#iframe');
                   $iframe.ready(function() {
                   $iframe.contents().find("body").append(item.id.videoId);
-                });
-          });
+                }
+          })
           resetVideoHeight();
        });
     });
