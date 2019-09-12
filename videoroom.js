@@ -74,7 +74,6 @@ var mypvtid = null;
 var streaming;
 var feeds = [];
 var bitrateTimer = [];
-var videoroom;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
@@ -91,12 +90,12 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			videoroom = new Janus(
+			janus = new Janus(
 				{
 					server: server,
 					success: function() {
 						// Attach to video room test plugin
-						videoroom.attach(
+						janus.attach(
 							{
 								plugin: "janus.plugin.videoroom",
 								opaqueId: opaqueId,
@@ -105,8 +104,6 @@ $(document).ready(function() {
 									sfutest = pluginHandle;
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
-									
-									
 									streaming = new Janus({
           						server: "https://" + window.location.hostname + ":8089/janus";
           						success:function(){
