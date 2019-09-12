@@ -117,7 +117,7 @@ $(document).ready(function() {
 											janus.destroy();
 										});
 								},
-								streamEx = new Janus({
+								streamEx : new Janus({
 				 						server: server,
 								 success:function(){
 									 		streamEx.attach({
