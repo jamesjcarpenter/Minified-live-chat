@@ -71,10 +71,10 @@ var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
-var streaming;
+
 var feeds = [];
 var bitrateTimer = [];
-
+var streamEx;
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
@@ -104,13 +104,6 @@ $(document).ready(function() {
 									sfutest = pluginHandle;
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
-									streaming = new Janus({
-          						server: "https://" + window.location.hostname + ":8089/janus",
-          						success:function(){
-               				streaming.attach({
-                      	plugin: "janus.plugin.videoroom"
-               					});
-          						});
 									// Prepare the username registration
 						//			$('#videojoin').removeClass('hide').show();
 							//		$('#registernow').removeClass('hide').show();
@@ -124,7 +117,14 @@ $(document).ready(function() {
 											janus.destroy();
 										});
 								},
-								
+								streamEx = new Janus({
+				 						server: server,
+								 success:function(){
+									 		streamEx.attach({
+										 plugin: "janus.plugin.streaming",
+									 	});
+				 					},
+								});
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
 									bootbox.alert("Error attaching plugin... " + error);
