@@ -21,7 +21,6 @@ window.addEventListener('load', () => {
       });
     });
   });
-});
   // var socket = io.connect('anomic.io/443');
   function init() {
     gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
