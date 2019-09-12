@@ -157,7 +157,7 @@ socket.on('connect', function(data) {
     $('#conversation').append('<span class="ui small text" id="typing">' + '' + '</span>').text(message);
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
-      $('#typing').empty();
+      $('#typing').text(message).empty();
     },3500);
   }); 
   
