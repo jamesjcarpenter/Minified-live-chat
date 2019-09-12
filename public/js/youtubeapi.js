@@ -37,4 +37,4 @@ function init() {
     //yt api is ready
     });
   }
-};
+});
