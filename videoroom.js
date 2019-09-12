@@ -117,6 +117,27 @@ $(document).ready(function() {
 											janus.destroy();
 										});
 								},
+								janus.attach(
+									{
+										plugin: "janus.plugin.streaming",
+										opaqueId: opaqueId,
+										success: function(pluginHandle) {
+											$('#details').remove();
+											streaming = pluginHandle;
+											Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
+											// Setup streaming session
+											$('#update-streams').click(updateStreamsList);
+											updateStreamsList();
+											$('#start').removeAttr('disabled').html("Stop")
+												.click(function() {
+													$(this).attr('disabled', true);
+													clearInterval(bitrateTimer);
+													janus.destroy();
+													$('#streamslist').attr('disabled', true);
+													$('#watch').attr('disabled', true).unbind('click');
+													$('#start').attr('disabled', true).html("Bye").unbind('click');
+												});
+										},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
 									bootbox.alert("Error attaching plugin... " + error);

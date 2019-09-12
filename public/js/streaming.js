@@ -72,7 +72,7 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			janus = (
+			janus = new Janus(
 				{
 					server: server,
 					success: function() {
