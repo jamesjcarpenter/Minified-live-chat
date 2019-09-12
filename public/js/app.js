@@ -1,7 +1,8 @@
 window.addEventListener('load', () => {
   
+  var apiKey = "AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM";
+  
   function init() {
-    var apiKey = "AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM";
     var q = $('#search').val();
     gapi.client.load("youtube", "v3", function() {
       isLoad = true;
