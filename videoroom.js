@@ -44,9 +44,9 @@
 //
 var server = null;
 if(window.location.protocol === 'http:')
-	server = "http://" + window.location.hostname + ":8088/janus";
+	server = "ws://" + window.location.hostname + ":8088/janus";
 else
-	server = "https://" + window.location.hostname + ":8089/janus";
+	server = "wss://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var sfutest = null;
@@ -95,27 +95,6 @@ $(document).ready(function() {
 					server: server,
 					success: function() {
 						// Attach to video room test plugin
-						janus.attach(
-							{
-								plugin: "janus.plugin.streaming",
-								opaqueId: opaqueId,
-								success: function(pluginHandle) {
-									$('#details').remove();
-									streaming = pluginHandle;
-									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
-									// Setup streaming session
-									$('#update-streams').click(updateStreamsList);
-									updateStreamsList();
-									$('#start').removeAttr('disabled').html("Stop")
-										.click(function() {
-											$(this).attr('disabled', true);
-											clearInterval(bitrateTimer);
-											janus.destroy();
-											$('#streamslist').attr('disabled', true);
-											$('#watch').attr('disabled', true).unbind('click');
-											$('#start').attr('disabled', true).html("Bye").unbind('click');
-										});
-								},
 						janus.attach(
 							{
 								plugin: "janus.plugin.videoroom",
