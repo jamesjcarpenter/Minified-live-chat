@@ -34,6 +34,7 @@
       z-index:9999;
       left:10em;
       position:absolute;
+      color:white;
     }
     #draggable {
       position:relative!important;
