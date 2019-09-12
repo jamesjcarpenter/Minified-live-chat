@@ -48,6 +48,7 @@ if(window.location.protocol === 'http:')
 else
 	server = "https://" + window.location.hostname + ":8089/janus";
 
+
 var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
 
@@ -71,7 +72,7 @@ $(document).ready(function() {
 				return;
 			}
 			// Create session
-			janus = Janus(
+			janus = new Janus(
 				{
 					server: server,
 					success: function() {
