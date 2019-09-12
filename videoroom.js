@@ -119,8 +119,8 @@ $(document).ready(function() {
 								},
 								streamEx : new Janus({
 				 						server: server,
-								 success:function(){
-									 		streamEx.attach({
+								 	success:function(){
+									 	janus.attach({
 										 plugin: "janus.plugin.streaming",
 									 	});
 				 					},
