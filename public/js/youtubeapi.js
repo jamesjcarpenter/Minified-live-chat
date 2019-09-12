@@ -25,7 +25,7 @@ $(function() {
                   var $iframe = $('#youtubeplayer');
                   $iframe.ready(function() {
                   $iframe.contents().find("body").append(item.id.videoId);
-                }
+                });
           })
           resetVideoHeight();
        });
