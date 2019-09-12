@@ -39,17 +39,6 @@
       top:0.25em;
       background-color:#303030!important;
     }
-    
-    #typing {
-      display:inline-block;
-      color:white;
-      z-index:9999;
-      position:fixed;
-      margin-right:3.5em;
-      text-align: center;
-      margin-bottom:7.5em;
-      margin:0 auto;
-    }
     #draggable {
       position:relative!important;
       overflow-y:visible!important; 
