@@ -35,11 +35,8 @@
       left:8.75em;
       position:fixed;
       color:white;
-      font-size:16px;
+      font-size:5vw;
       top:0.25em;
-      min-width:2.25vw;
-      max-width:3.5vw;
-      height:auto;
       background-color:#303030!important;
     }
     #draggable {
