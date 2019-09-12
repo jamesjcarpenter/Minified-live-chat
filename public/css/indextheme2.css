@@ -165,7 +165,8 @@
       display:block!important;
     text-align:left;  
     margin:0 auto;  
-    margin-bottom:0px;  
+    margin-bottom:0px; 
+    padding-bottom:10px; 
     padding:10px;
     height:auto;  
     background-color: 		#383838!important;
@@ -195,7 +196,7 @@
       padding:20px;
       padding-top:10px;
       padding-right:30px;
-      padding-bottom:5px;
+      padding-bottom:15px;
       width:100%;
       margin-left:auto;
       margin-right:auto;
