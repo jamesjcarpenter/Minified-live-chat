@@ -1,7 +1,5 @@
 window.addEventListener('load', () => {
 
-init();
-
 
 $("form").on("submit", function(e) {
   e.preventDefault();
