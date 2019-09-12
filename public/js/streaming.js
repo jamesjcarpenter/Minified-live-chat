@@ -44,9 +44,9 @@
 //
 var server = null;
 if(window.location.protocol === 'http:')
-	server = "ws://" + window.location.hostname + ":8088/janus";
+	server = "http://" + window.location.hostname + ":8088/janus";
 else
-	server = "wss://" + window.location.hostname + ":8089/janus";
+	server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var streaming = null;
@@ -64,19 +64,7 @@ $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
-		$('#start').one('click', function() {
-			$(this).attr('disabled', true).unbind('click');
-			// Make sure the browser supports WebRTC
-			if(!Janus.isWebrtcSupported()) {
-				bootbox.alert("No WebRTC support... ");
-				return;
-			}
 			// Create session
-			janus = new Janus(
-				{
-					server: server,
-					success: function() {
-						// Attach to streaming plugin
 						janus.attach(
 							{
 								plugin: "janus.plugin.streaming",
