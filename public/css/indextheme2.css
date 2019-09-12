@@ -7,7 +7,6 @@
     #data.content {
       background-color: 			#2e2e2e!important;color:white;
       outline:none !important;
-      padding-top:10px;
     }
     .ui.divider {
       background-color: 		#383838!important;
@@ -37,6 +36,7 @@
       overflow-y:hidden!important;
       overflow-x:hidden!important;
       min-width:21.5vw!important;
+      padding:20px;
     }
     
     #conversation {
@@ -199,7 +199,7 @@
       width:100%;
       margin-left:auto;
       margin-right:auto;
-      margin-bottom:15px;
+      margin-bottom:0px;
       min-width:200px;
       display:inline-grid;
       background-color: 		#383838!important;
@@ -424,7 +424,7 @@ div.no-video-container {
     width: 100%;
     overflow-y: auto;
     min-width:21.5vw;
-    padding:40px;
+    margin-bottom:25px;
     overflow-x:hidden;
     background-color: 	#3d3d3d!important;
 }
