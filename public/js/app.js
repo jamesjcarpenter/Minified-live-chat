@@ -23,6 +23,7 @@ $('#youtubeopen').click( function() {
   .modal({
     observeChanges: true
   });
+});
 
 // $('#link')
 //   .on('click', function(e) {
