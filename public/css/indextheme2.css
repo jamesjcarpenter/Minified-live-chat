@@ -160,6 +160,22 @@
       overflow:auto;
     }
     
+    #scrollingheight {
+          float: left;
+          min-height: 5vh;
+          max-width:4vw;
+          width: 100%;
+          overflow-y: auto;
+          overflow-x:hidden;
+          background-color: 	#383838!important;
+      }
+      #scroller{
+        min-height: 5vh;
+        max-width:4vw;
+        width: 100%;
+        overflow-y: auto;
+      }
+    
     #videolocal.panel-body {
       background-color: #303030!important;
     }
