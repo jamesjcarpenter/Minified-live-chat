@@ -177,8 +177,8 @@
         align-items:center;
         z-index:9999;
         left:30.50em;
-        width:auto;
-        min-height:60vh;
+        width:25vw;
+        min-height:80vh;
       }
       
       #youtubeopen{
