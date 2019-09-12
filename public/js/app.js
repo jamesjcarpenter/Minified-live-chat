@@ -118,7 +118,7 @@ socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val().trim();
-      message.val('');
+      $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
