@@ -23,6 +23,11 @@
       max-width:16vw!important;
     }
     
+    #cpybutton {
+      position:absolute;
+      z-index:1000;
+    }
+    
     #draggable {
       position:relative!important;
       overflow-y:visible!important; 
