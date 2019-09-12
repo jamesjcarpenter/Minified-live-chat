@@ -21,14 +21,6 @@ console.log(url.substr(url.lastIndexOf("=")+1));
 $("#data").focus();
 
 
-window.onload = function(){ 
-document.querySelector("#cpybtn").onclick = function() {
-  // Select the content
-  document.querySelector("#copyinput").select();
-  // Copy to the clipboard
-  document.execCommand('copy');
-};
-};
     document.getElementById('themecss').href = 'css/indextheme2.css';
     $('.ui.button').addClass('inverted');
     $('.icon').addClass('inverted');
