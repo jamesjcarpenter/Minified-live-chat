@@ -113,6 +113,8 @@ socket.on('connect', function(data) {
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
+      $("#roomname").empty();
+      $("#roomname").append('<span class="ui medium text" id="roomname"></span>' + url.substr(url.lastIndexOf("=")+1));
     });
 
     // when the client hits ENTER on their keyboard
@@ -135,11 +137,6 @@ socket.on('connect', function(data) {
   $.each(roomusers, function (key, value) {
   $('#roomusers').append('+value+');
   });
-  });
-  
-  socket.on('join', function(data) {
-    $("#roomname").empty();
-    $("#roomname").append('<span class="ui medium text" id="roomname"></span>' + url.substr(url.lastIndexOf("=")+1));
   });
   
   socket.on('updaterooms', function(rooms, current_room) {
