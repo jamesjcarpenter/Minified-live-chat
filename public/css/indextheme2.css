@@ -122,10 +122,10 @@
     #userlist {
       color:white;
       text-align:left;
-      position:absolute;
+      position:fixed;
       left:25px;
       top:150px;
-      z-index:1;
+      z-index:9999;
     }
     
     #videolocal.panel-body {
