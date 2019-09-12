@@ -36,7 +36,6 @@ $('#link')
   var content = modal.find('.content');
   $.get("/page", function(data) {
     content.append($('.column', data));
-    modal.({observeChanges: true})
       .modal('refresh')
       .modal('show');
   });
