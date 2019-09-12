@@ -169,6 +169,11 @@
           overflow-x:hidden;
           background-color: 	#383838!important;
       }
+      
+      #youtubeopen{
+        text-align:center;
+        margin: 0 auto;
+      }
       #scroller{
         min-height: 9vh;
         max-width:2.5vw;
