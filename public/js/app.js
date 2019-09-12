@@ -20,7 +20,7 @@ console.log(url.substr(url.lastIndexOf("=")+1));
  $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
 
-document.querySelector("#copybtn").onclick = function() {
+document.querySelector("#cpybtn").onclick = function() {
   // Select the content
   document.querySelector("#copyinput").select();
   // Copy to the clipboard
