@@ -1,3 +1,5 @@
+window.addEventListener('load', () => {
+
 init();
 
 
@@ -33,5 +35,6 @@ function init() {
   gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
   gapi.client.load("youtube", "v3", function() {
     //yt api is ready
-  });
-}
+    });
+  }
+};
