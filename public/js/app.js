@@ -115,7 +115,6 @@ socket.on('connect', function(data) {
       $('#data').val('');
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
-      $('#typing').text("");
     });
 
     // when the client hits ENTER on their keyboard
@@ -158,7 +157,6 @@ socket.on('connect', function(data) {
     $('#typing').text(message);
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
-      $('#typing').text("");
     },3500);
   }); 
   
