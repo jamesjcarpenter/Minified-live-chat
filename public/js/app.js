@@ -17,8 +17,9 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
- $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
+$('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
+
 
 
     document.getElementById('themecss').href = 'css/indextheme2.css';
@@ -62,6 +63,25 @@ var socket = io.connect('anomic.io/');
 		socket.emit('adduser', prompt("Enter username."));
 	});
   
+  var arrayImg = new Array();
+  arrayImg[0] = "avatar1.png";
+  arrayImg[1] = "avatar2.png";
+  arrayImg[2] = "avatar3.png";
+  arrayImg[3] = "avatar4.png";
+  arrayImg[4] = "avatar5.png";
+  arrayImg[5] = "avatar6.png";
+  arrayImg[6] = "avatar7.png";
+  
+  
+  getRandomImage(arrayImg, "");
+  
+  function getRandomImage(imgAr, path) {
+      path = path || 'avatars/'; // default path here
+      var num = Math.floor( Math.random() * imgAr.length );
+      var img = imgAr[ num ];
+      var imgStr = '<img class="ui avatar image" id="user avatar" src="' + path + img + '" alt = "">';
+      document.write(imgStr); document.close();
+  }
   
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
@@ -81,9 +101,9 @@ var socket = io.connect('anomic.io/');
   
   socket.on('updateusers', function(data) {
 		$('#userlist').empty();
-    $('#userlist').append('<h6 class="list-group-item-heading">' + 'Users in room' + '&nbsp;#' + '' + socket.room + '</h6>');
+    $('#userlist').append('<h5 class="list-group-item-heading">' + 'Users in room' + '&nbsp;#' + '' + socket.room + '</h5>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="circle icon green"></i><span class="ui small blue text">PM</span></div>');
+			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="mini circle icon green"></i><span class="ui small blue text">PM</span></div>');
 		});
 	});
   // create our webrtc connection
