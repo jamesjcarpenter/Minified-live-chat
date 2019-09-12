@@ -44,9 +44,9 @@
 //
 var server = null;
 if(window.location.protocol === 'http:')
-	server = "ws://" + window.location.hostname + ":8088/janus";
+	server = "http://" + window.location.hostname + ":8088/janus";
 else
-	server = "wss://" + window.location.hostname + ":8089/janus";
+	server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var sfutest = null;
