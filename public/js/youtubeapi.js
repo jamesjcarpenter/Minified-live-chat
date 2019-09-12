@@ -20,6 +20,11 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
             });
+            $(item.id.videoId).click(function){
+                  var $iframe = $('#iframe');
+                  $iframe.ready(function() {
+                  $iframe.contents().find("body").append(item.id.videoId);
+                });
           });
           resetVideoHeight();
        });
