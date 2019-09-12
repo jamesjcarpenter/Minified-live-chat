@@ -81,7 +81,7 @@ var socket = io.connect('anomic.io/');
   
   socket.on('updateusers', function(data) {
 		$('#userlist').empty();
-    $('#userlist').append('<h5 class="list-group-item-heading">' + 'Connected users' + '</h5>');
+    $('#userlist').append('<h6 class="list-group-item-heading">' + 'Connected users' + '</h6>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="circle icon green"></i></div>');
 		});
