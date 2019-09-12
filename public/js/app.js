@@ -80,7 +80,8 @@ var socket = io.connect('anomic.io/');
       var num = Math.floor( Math.random() * imgAr.length );
       var img = imgAr[ num ];
       var imgStr = '<img class="ui avatar image" id="user avatar" src="' + path + img + '" alt = "">';
-      document.write(imgStr);
+      $('useravatar').empty();
+      $('#useravatar').append(imgStr);
   }
   
   // socket.on('addname', function (username) {
