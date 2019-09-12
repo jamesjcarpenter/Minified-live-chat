@@ -19,7 +19,29 @@ $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
 
 $('#youtubeopen').click( function() {
-  $('.ui.modal').modal('show');
+  $('.ui.long.modal').modal('show');
+  $('.ui.long.modal')
+  .modal({
+    observeChanges: true
+  })
+;
+
+$('#link')
+  .on('click', function(e) {
+    e.preventDefault();
+
+    var modal = $('#modal');
+
+    var content = modal.find('.content');
+    $.get("/page", function(data) {
+      content.append($('.column', data));
+      modal.({observeChanges: true})
+        .modal('refresh')
+        .modal('show')
+      ;
+    });
+  })
+;
 });
 
 
