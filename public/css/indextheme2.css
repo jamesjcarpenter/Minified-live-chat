@@ -37,6 +37,7 @@
       color:white;
       font-size:16px;
       top:0em;
+      background-color:#303030;
     }
     #draggable {
       position:relative!important;
