@@ -1,4 +1,4 @@
-@media (min-width:600px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
     body { visibility:hidden !important; width:100%; background-color: 	#303030!important; color:white;
     }
     #attachmenu { background-color: 		#383838!important;
@@ -43,7 +43,7 @@
     position:relative!important;
     width:100%!important;
     height:76vh!important;
-    padding:20px!important;
+    padding:30px!important;
     max-width:100%!important;
     max-height:100%!important;  
     }
@@ -424,7 +424,6 @@ div.no-video-container {
     width: 100%;
     overflow-y: auto;
     min-width:21.5vw;
-    margin-bottom:25px;
     overflow-x:hidden;
     background-color: 	#3d3d3d!important;
 }
