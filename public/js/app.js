@@ -18,6 +18,9 @@ console.log(url.substr(url.lastIndexOf("=")+1));
 $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
 
+$('#youtubeopen').click( function() {
+  $('.ui.longer.modal').modal('show');
+});
 
 
     document.getElementById('themecss').href = 'css/indextheme2.css';
