@@ -127,6 +127,7 @@ socket.on('connect', function(data) {
   });
   
   $('#connecteduser').click(function() {
+    $('.dropdown-toggle').dropdown()
     socket.emit('private-message', message);
 });
   
