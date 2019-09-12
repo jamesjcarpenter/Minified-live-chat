@@ -70,6 +70,7 @@ var myusername = null;
 var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
+//
 var mypvtid = null;
 
 var feeds = [];
