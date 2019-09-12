@@ -28,14 +28,14 @@ $("#data").focus();
     $('#cpybutton').removeClass('ui teal').addClass('ui black');
     
     
-    document.getElementById('themechange').onclick = function () { 
-        document.getElementById('themecss').href = 'css/indextheme.css';
-        $('.ui.button').removeClass('inverted');
-        $('.icon').removeClass('inverted');
-        $('.ui.medium.left.pointing.label').removeClass('inverted');
-        $('.large.ui.teal.secondary.button.inverted').addClass('large ui teal').removeClass('large ui black');
-        $('#cpybutton').removeClass('ui teal').removeClass('ui black');
-    };
+    // document.getElementById('themechange').onclick = function () { 
+    //     document.getElementById('themecss').href = 'css/indextheme.css';
+    //     $('.ui.button').removeClass('inverted');
+    //     $('.icon').removeClass('inverted');
+    //     $('.ui.medium.left.pointing.label').removeClass('inverted');
+    //     $('.large.ui.teal.secondary.button.inverted').addClass('large ui teal').removeClass('large ui black');
+    //     $('#cpybutton').removeClass('ui teal').removeClass('ui black');
+    // };
 
 function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
