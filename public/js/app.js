@@ -20,9 +20,6 @@ $("#data").focus();
 
 $('#youtubeopen').click( function() {
   $('.ui.long.modal').modal('show');
-  .modal({
-    observeChanges: true
-  });
 });
 
 // $('#link')
