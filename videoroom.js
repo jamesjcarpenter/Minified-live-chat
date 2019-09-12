@@ -102,7 +102,7 @@ $(document).ready(function() {
 								success: function(pluginHandle) {
 									$('#details').remove();
 									sfutest = pluginHandle;
-									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
+									Janus.log("Plugin attached! (" + sfutest.getPlugin(), streaming.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
 						//			$('#videojoin').removeClass('hide').show();
