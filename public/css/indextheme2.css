@@ -47,8 +47,10 @@
     }
     
     #typing {
-      margin-bottom:2.5em;
       text-align:center;
+      position:fixed;
+      bottom:2em;
+      right:3.5em;
     }
     #chatbox {
       position:relative!important;
