@@ -154,10 +154,10 @@ socket.on('connect', function(data) {
     //clearing previous setTimeout function.
     clearTimeout(setTime);
     //showing typing message.
-    $('#conversation').append('<span class="ui small text"id="typing"' + '' + '</span></div>').text(message);
+    $('#typing').append('<span class="ui small text" id="typing">' + '' + '</span>').text(message);
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
-      $('#typing').remove();
+      $('#typing').empty();
     },3500);
   }); 
   
