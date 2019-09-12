@@ -93,31 +93,9 @@ var socket = io.connect('anomic.io/');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#conversation').append($('<img id="useravatar" class="ui avatar image" src=""></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+    $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-    
-    var arrayImg = new Array();
-    arrayImg[0] = "avatar1.png";
-    arrayImg[1] = "avatar2.png";
-    arrayImg[2] = "avatar3.png";
-    arrayImg[3] = "avatar4.png";
-    arrayImg[4] = "avatar5.png";
-    arrayImg[5] = "avatar6.png";
-    arrayImg[6] = "avatar7.png";
-    
-    
-    getRandomImage(arrayImg, "");
-    
-    function getRandomImage(imgAr, path) {
-        path = path || 'avatars/'; // default path here
-        var num = Math.floor( Math.random() * imgAr.length );
-        var img = imgAr[ num ];
-        var imgStr = '<img class="ui avatar image" id="user avatar" src="' + path + img + '" alt = "">';
-        $('useravatar').empty();
-        $('#useravatar').append(imgStr);
-    }
-    
   });
   
 
