@@ -32,9 +32,10 @@
     #roomname {
       text-align:left;
       z-index:9999;
-      left:10em;
+      left:13.5em;
       position:absolute;
       color:white;
+      font-size:16px;
     }
     #draggable {
       position:relative!important;
