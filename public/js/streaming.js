@@ -266,7 +266,6 @@ $(document).ready(function() {
 				});
 		});
 	}});
-});
 
 function updateStreamsList() {
 	$('#update-streams').unbind('click').addClass('fa-spin');
