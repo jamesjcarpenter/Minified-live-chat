@@ -41,11 +41,12 @@
     }
     
     #typing {
+      display:inline-block;
       color:white;
       z-index:9999;
       position:relative;
       padding:10px;
-      margin-right:6.5em;
+      margin-right:3.5em;
       margin-bottom:7.5em;
       margin:0 auto;
     }
