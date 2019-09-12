@@ -37,6 +37,9 @@
       color:white;
       font-size:16px;
       top:0.25em;
+      min-width:2.25vw;
+      max-width:3.5vw;
+      height:auto;
       background-color:#303030!important;
     }
     #draggable {
