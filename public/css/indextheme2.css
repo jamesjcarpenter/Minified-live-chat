@@ -23,6 +23,12 @@
       max-width:16vw!important;
     }
     
+    #cpybutton {
+      position:fixed;
+      margin-left:5em;
+      z-index:9999;
+    }
+    
     
     #draggable {
       position:relative!important;
