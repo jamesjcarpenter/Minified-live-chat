@@ -25,7 +25,10 @@
     
     #cpybutton {
       position:fixed;
-      margin-left:20em;
+      margin-left:23em;
+      background-color: #000000;
+      height:5.5vh;
+      width:auto;
       z-index:9999;
     }
     
