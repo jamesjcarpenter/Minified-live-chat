@@ -16,7 +16,7 @@
       margin:0 auto!important;
       margin-top:5.5em!important;
       margin-bottom:0em!important;
-      right:2.25vw!important; 
+      right:4.25vw!important; 
       margin-right:5.75vw!important; 
       position:fixed!important;
       min-width:15.5vw!important;
@@ -36,7 +36,6 @@
       overflow-y:hidden!important;
       overflow-x:hidden!important;
       min-width:26.85vw!important;
-      margin-right:5.5vw;
     }
     
     #conversation {
