@@ -1,11 +1,10 @@
 window.onload = function(){ 
   
-var copybutton;  
-document.getElementById('#cpybtn') = copybutton;
-copybutton = document.querySelector("#cpybtn").onclick = function() {
+var copyText = document.getElementById("#copyinput");
+document.getElementById('#cpybtn').onclick = function() {
   // Select the content
-  document.querySelector("#copyinput").select();
-  // Copy to the clipboard
-  document.execCommand('copy');
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
   };
 };
