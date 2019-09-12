@@ -240,9 +240,9 @@
     background-color:	#404040!important;
     color:white;
     word-wrap: break-word;
-    opacity:0.92;
     position:justify;
-    font-size: 13px;
+    font-size: 11px;
+    line-height:34%;
     width: 80%;
     height:auto;
   }
