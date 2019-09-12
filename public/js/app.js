@@ -149,16 +149,16 @@ socket.on('connect', function(data) {
     }
   });
   
-  socket.on('typing',function(msg){
+  socket.on('typing',function(){
     var setTime;
     //clearing previous setTimeout function.
     clearTimeout(setTime);
     //showing typing message.
-    $('#typing').text(msg);
+      $("#typing").append('<span class="ui medium text"id="typing">' + '</span>');
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
-      $('#typing').text("");
-    },3500);
+      $("#typing").empty();
+    },2500);
   }); 
   
   socket.on('updaterooms', function(rooms, current_room) {
