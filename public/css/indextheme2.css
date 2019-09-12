@@ -25,7 +25,8 @@
     
     #cpybutton {
       position:fixed;
-      margin-left:23em;
+      margin-left:21.5em;
+      margin-bottom:0.5em;
       background-color: #000000;
       height:4.5vh;
       width:auto;
