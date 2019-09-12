@@ -1,20 +1,20 @@
 window.addEventListener('load', () => {
   
   function init() {
-    gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
+    var apiKey = "AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM";
     var q = $('#search').val();
     gapi.client.load("youtube", "v3", function() {
-      //yt api is ready
+      isLoad = true;
     });
   }
   
   $("form").on("submit", function(e) {
     e.preventDefault();
+    gapi.client.setApiKey(apiKey);
     request = gapi.client.youtube.search.list({
-      q: 'q',
+        q: 'q',
         part: 'id, snippet',
         type: 'video',
-        order: 'date',
         order: "viewCount",
     });
     //executre
