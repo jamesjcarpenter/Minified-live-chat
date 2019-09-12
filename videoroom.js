@@ -98,11 +98,12 @@ $(document).ready(function() {
 						// Attach to video room test plugin
 						janus.attach(
 							{
-								plugin: "janus.plugin.videoroom",
+								plugin: "janus.plugin.videoroom", "janus.plugin.streaming",
 								opaqueId: opaqueId,
 								success: function(pluginHandle) {
 									$('#details').remove();
-									sfutest = pluginHandle;
+									sfutest, streaming = pluginHandle;
+									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
