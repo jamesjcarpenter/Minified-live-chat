@@ -460,8 +460,7 @@ div.no-video-container {
     overflow-y: auto;
     min-width:21.5vw;
     overflow-x:hidden;
-    margin-bottom:2.3em;
-    padding-bottom:2.3em;
+    padding-bottom:3.3em;
     background-color: 	#383838!important;
 }
 #scroller{
