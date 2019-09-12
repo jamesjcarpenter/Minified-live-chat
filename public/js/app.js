@@ -103,7 +103,7 @@ var socket = io.connect('anomic.io/');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
         $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#roomname").empty();
-        $("#roomname").append('<span class="ui medium text" id="roomname"><div class="ui grey label"id="roomname">Room #'+ '' + url.substr(url.lastIndexOf("=")+1) + '</span></div>');
+        $("#roomname").append('<span class="ui medium text" id="roomname"><div class="ui grey label"id="roomname">Room #'+ '' + url.substr(url.lastIndexOf("=")+1) + '' + '<br>' + username + '</span></div>');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
