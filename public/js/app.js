@@ -127,7 +127,7 @@ socket.on('connect', function(data) {
   });
   
   $('#PMbutton').click(function() {
-    $('#conversation').append('<div class="ui right attached internal rail" id="chatrail"><div id="draggable"><div id="chatbox"class="ui divider"><div id="typing"><div id="conversation"></div></div></div><div class="ui input focus" id="inputfocus" maxlength="128"><input autofocus id="data"class="content"name="data" autocomplete="off"/>');
+    $('#conversation').append('<div class="ui right attached internal rail" id="chatrail"><div id="draggable"><div id="chatbox"class="ui divider"><div id="conversation"></div></div></div><div class="ui input focus" id="inputfocus" maxlength="128"><input autofocus id="data"class="content"name="data" autocomplete="off"/>');
     
     // socket.emit('private-message', message);
 });
@@ -149,12 +149,12 @@ socket.on('connect', function(data) {
     }
   });
   
-  socket.on('typing',function(message){
+  socket.on('typing',function(msg){
     var setTime;
     //clearing previous setTimeout function.
     clearTimeout(setTime);
     //showing typing message.
-    $('#typing').text(message);
+    $('#typing').text(msg);
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
       $('#typing').text("");
