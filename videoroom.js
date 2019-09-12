@@ -104,7 +104,7 @@ $(document).ready(function() {
 									sfutest = pluginHandle;
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
-									streaming = new Janus({
+									janus.attach({
           						server: "https://" + window.location.hostname + ":8089/janus";
           						success:function(){
                				streaming.attach({
