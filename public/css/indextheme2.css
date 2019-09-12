@@ -39,6 +39,15 @@
       top:0.25em;
       background-color:#303030!important;
     }
+    
+    #typing {
+      text-align:center;
+        color:white;
+        position:relative;
+        z-index:9999;
+        right:0;
+        bottom:0;
+    }
     #draggable {
       position:relative!important;
       overflow-y:visible!important; 
@@ -46,11 +55,6 @@
       width:100%!important;
     }
     
-    #typing {
-      text-align:center;
-      color:white;
-      position:fixed;
-    }
     #chatbox {
       position:relative!important;
       width:100%!important;
