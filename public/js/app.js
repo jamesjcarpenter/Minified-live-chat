@@ -13,13 +13,21 @@ window.addEventListener('load', () => {
     //executre
     request.execute(function(response) {
       var results = response.result;
+      $("#results").html("");
       $.each(results.item, function(index, item) {
-        $.get("tpl/item.html", function(data) {
+        $.get("layout.handlebars", function(data) {
           $("#results").append(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]);
         });
       });
+      resetVideoHeight();
     });
   });
+  
+  $(window).on("resize", resetVideoHeight);
+  
+  function resetVideoHeight() {
+    $(".video").css("height", $("#results").width() * 9/16);
+  }
   // var socket = io.connect('anomic.io/443');
   function init() {
     gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
