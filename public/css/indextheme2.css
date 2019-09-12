@@ -169,6 +169,11 @@
           overflow-x:hidden;
           background-color: 	#383838!important;
       }
+      #youtubemodal {
+        overflow-y:scroll;
+        overflow-x:hidden;
+        text-align:center;
+      }
       
       #youtubeopen{
         text-align:center;
