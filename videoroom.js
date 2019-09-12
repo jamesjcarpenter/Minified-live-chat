@@ -137,7 +137,7 @@ $(document).ready(function() {
 															$('#start').attr('disabled', true).html("Bye").unbind('click');
 														});
 												},
-								},
+								}),
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
 									bootbox.alert("Error attaching plugin... " + error);
