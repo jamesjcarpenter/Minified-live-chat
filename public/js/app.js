@@ -82,6 +82,7 @@ var socket = io.connect('anomic.io/');
     $('#userlist').append('<h6 class="list-group-item-heading">' + 'Users in room' + '&nbsp;#' + '' + socket.room + '</h6>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><span class="ui small blue text">PM</span></div>');
+      $("#roomname").append('' + key);
 		});
 	});
   // create our webrtc connection
@@ -103,7 +104,7 @@ var socket = io.connect('anomic.io/');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
         $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#roomname").empty();
-        $("#roomname").append('<span class="ui medium text" id="roomname"><div class="ui grey label"id="roomname">Room #'+ '' + url.substr(url.lastIndexOf("=")+1) + '' + '<br>' + socket.username + '</span></div>');
+        $("#roomname").append('<span class="ui medium text" id="roomname"><div class="ui grey label"id="roomname">Room #'+ '' + url.substr(url.lastIndexOf("=")+1) + '</span></div>');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
