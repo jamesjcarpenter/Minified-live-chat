@@ -1,4 +1,4 @@
-init();
+
 
 $(window).on("resize", resetVideoHeight);
 
