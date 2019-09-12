@@ -403,6 +403,10 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.join(socket.room);
+    
+    socket.on('private-message', function(data) {
+      io.to(`${socketId}`).emit('updatechat', socket.username, data);
+    });
   
 	  // when the client emits 'adduser', this listens and executes
 		// send client to room 1
