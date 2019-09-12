@@ -4,4 +4,5 @@ document.querySelector("#cpybtn").onclick = function() {
   document.querySelector("#copyinput").select();
   // Copy to the clipboard
   document.execCommand('copy');
+  };
 };
