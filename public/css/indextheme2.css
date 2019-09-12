@@ -33,6 +33,7 @@
       text-align:left;
       z-index:9999;
       left:10em;
+      position:absolute;
     }
     #draggable {
       position:relative!important;
