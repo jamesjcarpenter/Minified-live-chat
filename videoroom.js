@@ -74,7 +74,7 @@ var mypvtid = null;
 
 var feeds = [];
 var bitrateTimer = [];
-var streamEx = "janus.plugin.streaming"
+
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
@@ -117,14 +117,6 @@ $(document).ready(function() {
 											janus.destroy();
 										});
 								},
-								streamEx : new Janus({
-				 						server: server,
-								 		success:function(){
-									 		streamEx.attach({
-										 plugin: "janus.plugin.videoroom",
-									 	});
-				 					},
-								}),
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
 									bootbox.alert("Error attaching plugin... " + error);
