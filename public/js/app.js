@@ -17,7 +17,7 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
-
+ $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
 
 
