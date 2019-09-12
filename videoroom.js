@@ -70,7 +70,6 @@ var myusername = null;
 var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
-//
 var mypvtid = null;
 
 var feeds = [];
@@ -99,12 +98,10 @@ $(document).ready(function() {
 						janus.attach(
 							{
 								plugin: "janus.plugin.videoroom",
-								plugin: "janus.plugin.streaming",
 								opaqueId: opaqueId,
 								success: function(pluginHandle) {
 									$('#details').remove();
-									sfutest, streaming = pluginHandle;
-									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
+									sfutest = pluginHandle;
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
 									// Prepare the username registration
