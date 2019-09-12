@@ -163,10 +163,9 @@
     #scrollingheight {
           float: left;
           min-height: 9vh;
-          max-width:2.75vw;
+          max-width:1.5vw;
           width: 100%;
           overflow-y: auto;
-          overflow-x:hidden;
           background-color: 	#383838!important;
       }
       #scroller{
