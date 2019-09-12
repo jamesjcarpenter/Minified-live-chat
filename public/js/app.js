@@ -149,14 +149,15 @@ socket.on('connect', function(data) {
     }
   });
   
-  socket.on('typing',function(msg){
+  socket.on('typing',function(message){
     var setTime;
     //clearing previous setTimeout function.
     clearTimeout(setTime);
     //showing typing message.
-    $('#typing').text(msg);
+    $('#typing').text(message);
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
+      $('#typing').text("");
     },3500);
   }); 
   
