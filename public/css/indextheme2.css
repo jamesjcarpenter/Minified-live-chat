@@ -165,6 +165,7 @@
           min-height: 9vh;
           max-width:1.5vw;
           width: 100%;
+          word-wrap: break-word;
           overflow-y: auto;
           background-color: 	#383838!important;
       }
