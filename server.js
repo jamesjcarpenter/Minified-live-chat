@@ -14,7 +14,7 @@ ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
 key: fs.readFileSync('./config/ssli/private.key'),
 requestCert: false,
 rejectUnauthorized: false,
-set pingTimeout: 60000,
+pingTimeout: 60000,
 },app);
 server.listen(443);
 var router = express.Router();
