@@ -81,7 +81,7 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     $('#userlist').append('<h6 class="list-group-item-heading">' + 'Users in room' + '&nbsp;#' + '' + socket.room + '</h6>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser"><div id="scrollingheight">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><span class="ui medium blue text">PM</span></div></div>');
+			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><span class="ui medium blue text">PM</span></div>');
 		});
 	});
   // create our webrtc connection
