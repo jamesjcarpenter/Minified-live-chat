@@ -43,8 +43,6 @@
     #typing {
       color:white;
       z-index:9999;
-      display:block;
-      text-align:right;
       position:relative;
       padding:10px;
       margin-right:6.5em;
