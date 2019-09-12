@@ -137,6 +137,11 @@ socket.on('connect', function(data) {
   });
   });
   
+  socket.on('join', function(data) {
+    $("#roomname").empty();
+    $("#roomname").append('<span class="ui medium text" id="roomname"></span>' + url.substr(url.lastIndexOf("=")+1));
+  });
+  
   socket.on('updaterooms', function(rooms, current_room) {
       $('#rooms').empty();
       $.each(rooms, function(key, value) {

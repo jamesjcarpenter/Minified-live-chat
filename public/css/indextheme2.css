@@ -5,7 +5,8 @@
     }
     html { padding-top:1px; overflow-y: hidden; overflow-x: hidden; color:white;}
     #data.content {
-      background-color: 			#2e2e2e!important;color:white;
+      background-color: 			#2e2e2e!important;
+      color:white;
       outline:none !important;
     }
     .ui.divider {
@@ -28,7 +29,11 @@
       z-index:9999;
     }
     
-    
+    #roomname {
+      text-align:left;
+      z-index:9999;
+      left:10em;
+    }
     #draggable {
       position:relative!important;
       overflow-y:visible!important; 
