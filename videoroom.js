@@ -110,7 +110,7 @@ $(document).ready(function() {
                				streaming.attach({
                       	plugin: "janus.plugin.videoroom"
                					});
-          						},
+          						};
 									// Prepare the username registration
 						//			$('#videojoin').removeClass('hide').show();
 							//		$('#registernow').removeClass('hide').show();
