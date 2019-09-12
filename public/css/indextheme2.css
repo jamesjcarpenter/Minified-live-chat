@@ -45,7 +45,7 @@
         display:block;
         text-align:justify;
         color:white;
-        position:relative;
+        position:absolute;
         z-index:9999;
         right:2.5vw;
         bottom:3.5vw;
