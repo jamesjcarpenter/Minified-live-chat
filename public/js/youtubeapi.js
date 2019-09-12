@@ -1,4 +1,4 @@
-
+window.addEventListener('load', () => {
 
 init();
 
@@ -37,3 +37,4 @@ function init() {
     //yt api is ready
   });
 }
+});
