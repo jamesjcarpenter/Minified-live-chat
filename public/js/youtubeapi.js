@@ -10,7 +10,7 @@ function init() {
   gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
   gapi.client.load("youtube", "v3", function() {
     //yt api is ready
-    $("form").on("submit", function(e) {
+    $("youtube").on("submit", function(e) {
       e.preventDefault();
       var request = gapi.client.youtube.search.list({
         part: "snippet",
