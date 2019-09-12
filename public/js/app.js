@@ -139,7 +139,7 @@ socket.on('connect', function(data) {
   });
   });
   
-  $('#datasend').keyup(function(){
+  $('#data').keyup(function(){
     if($('#data').val()){
       $('#datasend').show(); //showing send button.
       socket.emit('typing');
@@ -154,7 +154,7 @@ socket.on('connect', function(data) {
     //clearing previous setTimeout function.
     clearTimeout(setTime);
     //showing typing message.
-      $("#typing").append('<span class="ui medium text"id="typing">' + '</span>');
+      $("#conversation").append('<span class="ui medium text"id="typing">' + '</span>');
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
       $("#typing").empty();
