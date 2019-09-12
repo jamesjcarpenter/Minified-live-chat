@@ -74,7 +74,7 @@ var mypvtid = null;
 
 var feeds = [];
 var bitrateTimer = [];
-var streamEx;
+var streamEx = "janus.plugin.streaming"
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
@@ -119,9 +119,9 @@ $(document).ready(function() {
 								},
 								streamEx : new Janus({
 				 						server: server,
-								 	success:function(){
-									 	janus.attach({
-										 plugin: "janus.plugin.streaming",
+								 		success:function(){
+									 		streamEx.attach({
+										 plugin: "janus.plugin.videoroom",
 									 	});
 				 					},
 								}),
