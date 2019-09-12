@@ -11,23 +11,7 @@ $(function() {
             maxResults: 3,
             order: "viewCount",
        }); 
-       function youtube_image($id) {
-            $resolution = array (
-                  'maxresdefault',
-                  'sddefault',
-                  'mqdefault',
-                  'hqdefault',
-                  'default'
-              );
-
-          for ($x = 0; $x < sizeof($resolution); $x++) {
-              $url = '//img.youtube.com/vi/' . $id . '/' . $resolution[$x] . '.jpg';
-              if (get_headers($url)[0] == 'HTTP/1.0 200 OK') {
-                  break;
-              }
-          };
-        };
-        return $url;
+       
        // execute the request
        request.execute(function(response) {
           var results = response.result;
@@ -47,6 +31,25 @@ $(function() {
 function resetVideoHeight() {
     $(".video").css("height", $("#results").width() * 9/16);
 }
+
+function youtube_image($id) {
+    $resolution = array (
+        'maxresdefault',
+        'sddefault',
+        'mqdefault',
+        'hqdefault',
+        'default'
+    );
+
+    for ($x = 0; $x < sizeof($resolution); $x++) {
+        $url = '//img.youtube.com/vi/' . $id . '/' . $resolution[$x] . '.jpg';
+        if (get_headers($url)[0] == 'HTTP/1.0 200 OK') {
+            break;
+        }
+    }
+    return $url;
+}
+
 
 function init() {
     gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
