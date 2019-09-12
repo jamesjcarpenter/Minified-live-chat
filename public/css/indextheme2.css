@@ -77,7 +77,8 @@
       position:relative!important;
       min-height:5.3vh!important;
       width:100%!important;
-      min-width:22.95vw!important;
+      min-width:23.10vw!important;
+      bottom:1.2em;
     }
     
     #data {
