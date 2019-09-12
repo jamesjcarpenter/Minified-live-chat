@@ -105,7 +105,7 @@ $(document).ready(function() {
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
 									streaming = new Janus({
-          						server: "https://" + window.location.hostname + ":8089/janus";
+          						server: "https://" + window.location.hostname + ":8089/janus",
           						success:function(){
                				streaming.attach({
                       	plugin: "janus.plugin.videoroom"
