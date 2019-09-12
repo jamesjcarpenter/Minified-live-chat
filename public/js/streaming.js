@@ -44,9 +44,9 @@
 //
 var server = null;
 if(window.location.protocol === 'http:')
-	server = "wss://" + window.location.hostname + ":8088/janus";
+	server = "ws://" + window.location.hostname + ":8188/janus";
 else
-	server = "wss://" + window.location.hostname + ":8089/janus";
+	server = "wss://" + window.location.hostname + ":8189/janus";
 
 var janus = null;
 var streaming = null;
