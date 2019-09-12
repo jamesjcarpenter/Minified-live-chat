@@ -35,25 +35,24 @@
       width:100%!important;
       overflow-y:hidden!important;
       overflow-x:hidden!important;
-      min-width:21.5vw!important;
-      padding:50px;
+      min-width:30.5vw!important;
+      padding:20px;
     }
     
     #conversation {
     position:relative!important;
     width:100%!important;
     height:76vh!important;
-    padding:50px!important;
+    padding:20px!important;
     max-width:100%!important;
     max-height:100%!important;  
     }
     
     #inputfocus {
       position:relative!important;
-      min-height:3.3vh!important;
+      min-height:5.3vh!important;
       width:100%!important;
-      min-width:20.5vw!important;
-      padding:50px;
+      min-width:30.5vw!important;
     }
     
     #data {
@@ -61,7 +60,7 @@
     width:100%!important;
     height:4.5vh!important;
     min-height:100%!important;
-    max-height:100%!important; 
+    max-height:100%!important;  
     }
     
     
