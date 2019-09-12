@@ -1,22 +1,14 @@
 window.addEventListener('load', () => {
   
-  var apiKey = "AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM";
-  
-  function init() {
-    var q = $('#search').val();
-    gapi.client.load("youtube", "v3", function() {
-      isLoad = true;
-    });
-  }
   
   $("form").on("submit", function(e) {
     e.preventDefault();
-    gapi.client.setApiKey(apiKey);
-    request = gapi.client.youtube.search.list({
-        q: 'q',
-        part: 'id, snippet',
-        type: 'video',
-        order: "viewCount",
+    var request = gapi.client.youtube.search.list({
+      part: "snippet",
+      type: "video",
+      q: encodeURIComponent($("#search").val()).replace(/%/g, "+"),
+      maxResults: 5,
+      order: "viewCount",
     });
     //executre
     request.execute(function(response) {
@@ -37,6 +29,12 @@ window.addEventListener('load', () => {
     $(".video").css("height", $("#results").width() * 9/16);
   }
   // var socket = io.connect('anomic.io/443');
+  function init() {
+    gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
+    gapi.client.load("youtube", "v3", function() {
+      //yt api is ready
+    });
+  }
   // Chat platform
   // Local Video
 $('#start').click();
