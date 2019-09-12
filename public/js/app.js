@@ -15,9 +15,8 @@ window.addEventListener('load', () => {
       var results = response.result;
       $.each(results.item, function(index, item) {
         $.get("tpl/item.html", function(data) {
-          $("#results").append(data);
+          $("#results").append(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]);
         });
-          // $("#results").append(item.id.videoId+" "+item.snippet.title+"<br>");
       });
     });
   });
