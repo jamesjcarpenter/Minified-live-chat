@@ -68,7 +68,7 @@ var myroom = null;
 
 var myusername = null;
 
-$('#username').val() = myusername;
+var myusername = $('#username').val()
 var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
