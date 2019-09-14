@@ -19,23 +19,17 @@ $(function() {
           $.each(results.items, function(index, item) {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-                
-                
-                $('.video.w100').click( function() {
-                    $('.video.w100').each(function(){
-                    this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
-                  });
-                });
-                
             });
           });
           resetVideoHeight();
        });
     });
-    function stopVideo() {
-            player.stopVideo();
-          }
+
     $(window).on("resize", resetVideoHeight);
+});
+
+$('#youtubeplayer').click( function() {
+  $(".video").css("height", $("#results").hide());
 });
 
 function resetVideoHeight() {
