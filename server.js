@@ -369,7 +369,7 @@ io.sockets.on('connection', function (socket) {
         exports.token = req.user;
         req.user.name = socket.username;
         next();
-    });
+    };
 
   
     
