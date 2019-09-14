@@ -232,6 +232,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/', express.static(path.join(__dirname, 'libs')))
 app.use('/', express.static(path.join(__dirname, 'semantic')))
 app.use('/', express.static(path.join(__dirname, 'node_modules')))
+app.use('/', express.static(path.join(__dirname, 'js')))
 
 
 path.resolve('/', '/public/');
