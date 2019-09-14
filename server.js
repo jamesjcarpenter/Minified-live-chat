@@ -407,7 +407,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
-    socket.id = socket.username;
+    socket.id = username;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
