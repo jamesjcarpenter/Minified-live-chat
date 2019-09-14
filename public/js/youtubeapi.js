@@ -21,8 +21,10 @@ $(function() {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 
                 
-                $('#youtubeplayer').click( function() {
-                  player.stopVideo();
+                $('.video.w100').click( function() {
+                    $('.video.w100').each(function(){
+                    this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
+                  });
                 });
                 
             });
