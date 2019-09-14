@@ -25,9 +25,8 @@ $(function() {
                   $('#youtubevideo').click( function() {
                     function appendingLayout(){
                       $("#vidNow").html("<iframe name='youtubeplayer' id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
-                    };
-                    function changeSrc() {
-                        document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>?theme=light&amp;autohide=2&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;disablekb=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fanomic.io&amp;iv_load_policy=3&amp;autoplay=1&amp;loop=0&amp;fs=0&amp;playsinline=1&amp;modestbranding=1&amp;playerapiid=ytplayer&amp;widgetid=1";
+                      
+                      document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>?theme=light&amp;autohide=2&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;disablekb=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fanomic.io&amp;iv_load_policy=3&amp;autoplay=1&amp;loop=0&amp;fs=0&amp;playsinline=1&amp;modestbranding=1&amp;playerapiid=ytplayer&amp;widgetid=1";
                     };
                     function appendingIndex() {
                       $('#youtubeplayer').appendTo('#vidWtch');
