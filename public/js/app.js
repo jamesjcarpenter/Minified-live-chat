@@ -24,7 +24,7 @@ $('#youtubeopen').click( function() {
 
 $('#youtubeplayer').click( function() {
   $('.ui.longer.modal').modal('hide').css({"display": 'none'});
-  $("#youtubeplaywrap").css({"display": 'none'});
+  $("#youtubeplaywrap").hide().css({"display": 'none'});
 });
 
 
