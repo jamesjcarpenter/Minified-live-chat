@@ -119,6 +119,7 @@ var socket = io.connect('anomic.io/');
              $('#messages').show();
              $('#messagingthem').hide().remove();
              $('#goback').hide().remove();
+             $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
            });
        });
      });
