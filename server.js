@@ -244,9 +244,9 @@ app.use(function(req, res, next) {
       req.user === username;
       next();
 });
-var routes = require('./routes/index.js');
-var users = require('./routes/users');
-var user = require('./models/user');
+var routes = require('/routes/index.js');
+var users = require('/routes/users');
+var user = require('/models/user');
 
 var engines = require('consolidate');
 
