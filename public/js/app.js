@@ -49,6 +49,15 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
+function ytVids()
+{ 
+   document.getElementById('youtubeplayer').onclick = function()
+   {
+       $('youtubeplayer').remove();
+   }
+}
+
+
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
