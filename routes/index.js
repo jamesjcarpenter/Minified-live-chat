@@ -34,11 +34,14 @@ router.use(logger())
 router.get('*', function (req, res, next) {
   res.locals.login = req.isAuthenticated();
    console.log('ok');
-   console.dir(req.ip)
-   console.dir(req.ips)
-   console.dir(req.method)
+   // console.dir(req.ip)
+   // console.dir(req.ips)
+   // console.dir(req.method)
    console.dir(req.path)
    console.dir(req.route)
+   
+   console.log(__dirname);
+   console.log(path.dirname(__filename));
   next()
  });
 
