@@ -20,28 +20,28 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
-                document.getElementById("#youtubeplayer").style.visibility="hidden";
+                
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                     $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>";
-                    document.getElementById("#youtubeplayer").style.visibility="visible";
+                    $('#youtubeplayer').show();
                      });
                 });
             });
           });
-          // resetVideoHeight();
+          resetVideoHeight();
        });
     });
 
-    // $(window).on("resize", resetVideoHeight);
+    $(window).on("resize", resetVideoHeight);
 });
 
 
-// function resetVideoHeight() {
-//     $(".video").css("height", $("#results").width() * 9/16);
-// }
+function resetVideoHeight() {
+    $(".video").css("height", $("#results").width() * 9/16);
+}
 
 function init() {
     gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
