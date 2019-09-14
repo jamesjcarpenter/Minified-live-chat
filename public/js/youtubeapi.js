@@ -23,9 +23,9 @@ $(function() {
                 
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
+                    $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>";
-                    $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').show();
                      });
                 });
