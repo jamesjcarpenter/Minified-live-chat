@@ -395,7 +395,6 @@ console.log(socket.id);
     // add the client's username to the global list
     usernames[username] = username;
     
-    socket.emit('updateinfo', username);
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     io.of('/').in(socket.room).clients((error, clients) => {
@@ -422,7 +421,7 @@ console.log(socket.id);
     });
 
     socket.join(socket.room);
-    
+    socket.emit('updateinfo', data, username);
     socket.on('private-message', function(data) {
       io.to(socket.id).emit('updateprivchat', socket.username, data);
     });
