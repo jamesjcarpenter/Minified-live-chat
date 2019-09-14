@@ -17,14 +17,14 @@ $(function() {
           var results = response.result;
           $("#results").html("");
           $.each(results.items, function(index, item) {
-            $.get("views/index.ejs", function(data) {
+            $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
                 $.get("views/index.ejs", function(data) {
-                  $("#vidWtch").html("<iframe name='youtubeplayer' id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+                  $("#vidNow").html("<iframe name='youtubeplayer' id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
                   
                   $('#youtubevideo').click( function() {
-                    // $('#youtubeplayer').appendTo('#vidWtch');
+                    $('#youtubeplayer').appendTo('#vidWtch');
                     $('.ui.longer.modal')
                     .modal('hide');
                     $("#youtubeplayer")[0].src += "&autoplay=1";
