@@ -90,7 +90,7 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser">' + '<div id="thisKey">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+			$('#userlist').append('<div id="connecteduser">' + '<div id="thisKey">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button pm"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
       
       
       function addBack(){
@@ -102,14 +102,14 @@ var socket = io.connect('anomic.io/');
       
       $(document).ready(function(){ 
         
-       $('#PMbutton')[1].click(function() {
+       $('.ui.mini.button.pm').click(function() {
          // $("#PMbutton").unbind();
          addBack();
          $('#messages').hide();
          $('#messagingthem').show();
          $('#goback').show();
          $('#PMbutton').hide();
-         
+         var toMessage = $('#thisKey');
          
          $('#datasend').click( function() {
            var message = $('#data').val().trim();
@@ -118,7 +118,6 @@ var socket = io.connect('anomic.io/');
         if(e.which == 13) {
             $(this).blur();
             $('#datasend').focus().click();
-            var toMessage = $('#thisKey');
            socket.emit('private-message', message, toMessage);
          };
        });
