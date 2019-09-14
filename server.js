@@ -395,7 +395,6 @@ console.log(socket.id);
     // add the client's username to the global list
     usernames[username] = username;
     
-    
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     io.of('/').in(socket.room).clients((error, clients) => {
@@ -408,6 +407,7 @@ console.log(socket.id);
     socket.emit('getusers',  '' + usernames);
   });
     
+    socket.emit('user', username);
     socket.on("set-room", function(room) {
       //leaving room.
       socket.leave(socket.room);

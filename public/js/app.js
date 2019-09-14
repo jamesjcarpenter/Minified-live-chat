@@ -67,6 +67,10 @@ var socket = io.connect('anomic.io/');
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
+      socket('user', function(username, data){
+        $('#connectnow').empty();
+        $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+      }
 	});
   
   
@@ -168,11 +172,7 @@ var socket = io.connect('anomic.io/');
 //$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
-socket.on('connect', function(data, username) {
-  $.each(data, function(key, value) {
-    $('#connectnow').empty();
-    $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(key));
-  });
+socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val().trim();
