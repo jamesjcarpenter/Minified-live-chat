@@ -235,9 +235,9 @@ app.use('/', express.static(path.join(__dirname, 'node_modules')))
 app.use('/', express.static(path.join(__dirname, 'js')))
 
 
-path.resolve('/', '/public/');
-path.resolve('/', '/libs/');
-path.resolve('/', '/semantic/');
+path.resolve('/', 'public/');
+path.resolve('/', 'libs/');
+path.resolve('/', 'semantic/');
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
