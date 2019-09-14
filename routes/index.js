@@ -72,7 +72,7 @@ router.get('config/key.js', function(req, res, options) {
 
 
 
-router.get('./room', function(req, res, options) {
+router.get('/room', function(req, res, options) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;

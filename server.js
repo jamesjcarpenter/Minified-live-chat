@@ -227,10 +227,8 @@ var options = {
   }
 }
 
-app.use(express.static(__dirname + './public', options));
-app.use('/', express.static(path.join(__dirname, './public')))
-app.use('/', express.static('semantic'))
-app.use('/', express.static('node_modules'))
+app.use(express.static(__dirname + '/public', options));
+app.use(express.static(__dirname + '/', options));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
