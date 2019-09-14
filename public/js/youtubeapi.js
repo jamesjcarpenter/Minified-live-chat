@@ -22,8 +22,6 @@ $(function() {
                 console.log(item.id.videoId)
               
                 $('#vidNow').append("<iframe id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
-                
-                  document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                     
