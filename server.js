@@ -216,19 +216,8 @@ app.use(express.urlencoded({ extended: false }));
 
 var username;
 
-var options = {
-  dotfiles: 'ignore',
-  etag: false,
-  index: false,
-  maxAge: '1d',
-  redirect: true,
-  setHeaders: function (res, path, stat) {
-    res.set('x-timestamp', Date.now())
-  }
-}
-
-app.use(express.static(__dirname + '/public', options));
-app.use(express.static(__dirname + '/', options));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -321,7 +310,21 @@ app.post('/api/images', parser.single("image"), (req, res) => {
     .catch(err => console.log(err));
 });
 
+app.get('./server.js', function(req, res) {
+ res.sendStatus(400);
+});
 
+app.get('./routes/index.js', function(req, res) {
+ res.sendStatus(400);
+});
+
+app.get('./janus.js', function(req, res) {
+ res.sendStatus(400);
+});
+
+app.get('./config/keys.js', function(req, res) {
+ res.sendStatus(400);
+});
 
 app.use(function(req, res, next) {
   res.locals.user = req.user || null;
@@ -491,11 +494,11 @@ console.log(socket.id);
 
 
 // Provide access to node_modules folder
-app.use('/scripts', express.static(`${__dirname}/node_modules/`, options));
+app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 
-app.use(express.static('/semantic', options));
+app.use(express.static('/semantic'));
 
-app.use(express.static('/libs/', options));
+app.use(express.static('/libs/'));
 
 // global variables
 
