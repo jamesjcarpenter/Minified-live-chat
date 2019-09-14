@@ -25,23 +25,22 @@ $(function() {
                   $('#youtubevideo').click( function() {
                     $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').appendTo('#vidWtch');
-                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>";
-                    $('#youtubeplayer').show();
+                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&autoplay=1";
                      });
                 });
             });
           });
-          resetVideoHeight();
+          // resetVideoHeight();
        });
     });
 
-    $(window).on("resize", resetVideoHeight);
+    // $(window).on("resize", resetVideoHeight);
 });
 
 
-function resetVideoHeight() {
-    $(".video").css("height", $("#results").width() * 9/16);
-}
+// function resetVideoHeight() {
+//     $(".video").css("height", $("#results").width() * 9/16);
+// }
 
 function init() {
     gapi.client.setApiKey("AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM");
