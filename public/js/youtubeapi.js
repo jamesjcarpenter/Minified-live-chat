@@ -19,12 +19,6 @@ $(function() {
           $.each(results.items, function(index, item) {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-              
-                $.get("views/index.ejs", function(data) {
-                $('#youtubevideo').click( function() {
-                     $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
-                     });
-                });
             });
           });
           resetVideoHeight();
@@ -34,9 +28,15 @@ $(function() {
     $(window).on("resize", resetVideoHeight);
 });
 
-$('#youtubeplayer').click( function() {
-  $(".video").css("height", $("#results").hide());
+
+$.get("views/index.ejs", function(data) {
+$('#youtubevideo').click( function() {
+    $("#results").html("");
+     $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+     $("#vidWtch").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
+     });
 });
+
 
 function resetVideoHeight() {
     $(".video").css("height", $("#results").width() * 9/16);
