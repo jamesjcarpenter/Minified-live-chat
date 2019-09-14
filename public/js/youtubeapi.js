@@ -19,9 +19,10 @@ $(function() {
           $.each(results.items, function(index, item) {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-                console.log(items)
+                console.log(item)
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
+                    console.log(data)
                      $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
                      });
                 });
