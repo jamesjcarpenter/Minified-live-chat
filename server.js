@@ -398,6 +398,8 @@ io.sockets.on('connection', function (socket) {
 
         client.on('disconnect', function() {
           clients.splice(clients.indexOf(client), 1);
+          
+          console.log(Object.keys.client);
   });
 });
 
@@ -421,7 +423,6 @@ io.sockets.on('connection', function (socket) {
     // console.log(rooms);
     socket.emit('clientlist', clients);
     socket.emit('getusers',  '' + usernames);
-        console.log(getItem(usernames[username]));
   });
     // console.log(socket.emit('getusers',  '' + usernames));
     socket.on("set-room", function(room) {
