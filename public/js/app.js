@@ -148,7 +148,7 @@ var socket = io.connect('anomic.io/');
     $('#privatemessages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     $('#privatemessages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#privatemessages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-  }
+  });
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
