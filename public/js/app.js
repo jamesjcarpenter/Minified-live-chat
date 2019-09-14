@@ -122,6 +122,7 @@ var socket = io.connect('anomic.io/');
          };
        });
       });
+    });
          
         
          $('#PMbutton').click(function() {
