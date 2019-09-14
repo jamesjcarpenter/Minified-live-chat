@@ -140,13 +140,6 @@ socket.on('connect', function(data) {
       }
     });
   });
-$(function () { 
-  $('#PMbutton').click(function() {
-    $('#message').hide();
-    $('#messagedata').hide();
-    // socket.emit('private-message', message);
-  });
-});
   
   
   
@@ -314,7 +307,13 @@ window.onunload = function() {
 
 
 var designer = new CanvasDesigner();
-
+$(document).ready(function(){  
+ $('#PMbutton').click(function() {
+   $('#message').hide();
+   $('#messagedata').hide();
+   // socket.emit('private-message', message);
+ });
+});
 // both links are mandatory
 // widget.html will internally use widget.js
 designer.widgetHtmlURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.html'; // you can place this file anywhere
