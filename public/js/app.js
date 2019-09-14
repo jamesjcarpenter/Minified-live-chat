@@ -15,20 +15,10 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
-function roomRand()
-{
-    var ro = "";
-    var uv = "1234567890abcdefghijklmnopqrstuvwxyz";
-    for (var i = 0; i < 6; i++)
-    {
-        ro += uv.charAt(Math.floor(Math.random() * 33));
-    }
-    
-    return ro;
-    $('#roomNam').html(url.substr(url.lastIndexOf("=")+1));
-    $('#roomNum').html(ro);
-}
 
+
+$('#roomNam').html(url.substr(url.lastIndexOf("=")+1));
+$('#roomNum').html(Math.floor(Math.random() * 33));
 
 $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
