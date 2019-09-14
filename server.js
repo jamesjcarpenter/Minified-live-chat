@@ -413,7 +413,6 @@ io.sockets.on('connection', function (socket) {
     usernames[username] = username;
     console.log(usernames)
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
-    console.log(getItem(usernames));
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
   
@@ -422,6 +421,7 @@ io.sockets.on('connection', function (socket) {
     // console.log(rooms);
     socket.emit('clientlist', clients);
     socket.emit('getusers',  '' + usernames);
+        console.log(getItem(clients));
   });
     // console.log(socket.emit('getusers',  '' + usernames));
     socket.on("set-room", function(room) {
