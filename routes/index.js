@@ -55,6 +55,8 @@ var options = {
  
 router.get('/', function(req, res, options) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  console.log(__dirname);
+  console.log(path.dirname(__filename));
 });
 
 router.get('server.js', function(req, res, options) {
@@ -67,15 +69,17 @@ router.get('config/key.js', function(req, res, options) {
 
 
 
-router.get('../room', function(req, res, options) {
+router.get('/room', function(req, res, options) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
+   console.log(__dirname);
+   console.log(path.dirname(__filename));
    res.locals.url   = req.originalUrl;
    res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
-router.get('../profile', function(req, res, options) {
+router.get('/profile', function(req, res, options) {
       res.render('profile.handlebars');
 });
 
