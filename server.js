@@ -217,7 +217,6 @@ app.use(express.urlencoded({ extended: false }));
 var username;
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -483,7 +482,6 @@ app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 
 app.use(express.static('/semantic'));
 
-app.use(express.static('/libs/'));
 
 // global variables
 
