@@ -97,6 +97,15 @@ var socket = io.connect('anomic.io/');
       if (key === undefined) {
         key === 'guest'
       }
+      
+      $(document).ready(function(){  
+       $('#PMbutton').click(function() {
+         $('#message').hide();
+         $('#messagedata').hide();
+         // socket.emit('private-message', message);
+       });
+     });
+      
 		});
 	});
   // create our webrtc connection
@@ -141,13 +150,6 @@ socket.on('connect', function(data) {
     });
   });
   
-  $(document).ready(function(){  
-   $('#PMbutton').click(function() {
-     $('#message').hide();
-     $('#messagedata').hide();
-     // socket.emit('private-message', message);
-   });
- });
   
   
   socket.on('updateroomusers', function(roomusers, username) {
