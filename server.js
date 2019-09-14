@@ -447,7 +447,8 @@ io.sockets.on('connection', function (socket) {
 
     socket.join(socket.room);
     console.log(`${socket.id}`);
-    socket.on('private-message', function(data, message) {
+    socket.on('private-message', function(data, message, userId) {
+      
       const userId = sessionsMap[message.userId];
       const messageData = message.data;
       socket.broadcast.to(userId).emit('my message', messageData);

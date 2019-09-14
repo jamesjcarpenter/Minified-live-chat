@@ -118,6 +118,9 @@ var socket = io.connect('anomic.io/');
          $('#messagingthem').show();
          $('#goback').show();
          $('#PMbutton').hide();
+
+         $( "#userlist").find(userId).text();
+         socket.emit('private-message', userId);
          
         $('#data').keypress(function(e) {
         if(e.which == 13) {
