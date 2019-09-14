@@ -214,7 +214,7 @@ app.use(express.urlencoded({ extended: false }));
 //   console.log('You have been kicked due to spam, please refresh');
 // })
 
-
+var username;
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
@@ -228,8 +228,8 @@ app.use(function(req, res, next) {
       req.user === 'guest'
       
       if (req.user)
-      var io.socket.username = req.user
-    next();
+      req.user === username;
+      next();
 });
 var routes = require('./routes/index.js');
 var users = require('./routes/users');
