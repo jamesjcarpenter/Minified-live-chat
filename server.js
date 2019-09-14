@@ -421,7 +421,7 @@ io.sockets.on('connection', function (socket) {
     // console.log(rooms);
     socket.emit('clientlist', clients);
     socket.emit('getusers',  '' + usernames);
-        console.log(getItem(clients));
+        console.log(getItem(usernames[username]));
   });
     // console.log(socket.emit('getusers',  '' + usernames));
     socket.on("set-room", function(room) {
