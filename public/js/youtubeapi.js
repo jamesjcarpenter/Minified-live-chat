@@ -22,11 +22,8 @@ $(function() {
                 
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
-                    $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
-                    $('#youtubeplayer').appendTo('#vidNow');
+                    $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&?autoplay=1?rel=0";
-                    document.getElementById("#youtubeplayer").style.width="360";
-                    document.getElementById("#youtubeplayer").style.height="640";
                      });
                 });
             });
