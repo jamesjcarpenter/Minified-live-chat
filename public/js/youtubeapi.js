@@ -3,8 +3,6 @@ $('#youtubeplayer').hide();
 $(function() {
     $("form").on("submit", function(e) {
        e.preventDefault();
-       $('#youtubeplayer').appendTo('#vidNow');
-         document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
        // prepare the request
        var request = gapi.client.youtube.search.list({
             part: "snippet",
@@ -35,6 +33,8 @@ $(function() {
             });
           });
           // resetVideoHeight();
+          $('#youtubeplayer').appendTo('#vidNow');
+            document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
        });
     });
 
