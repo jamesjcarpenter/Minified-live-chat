@@ -95,6 +95,10 @@ var socket = io.connect('anomic.io/');
         }
     });
   });
+  socket.on("checksession", function(data) {
+      console.info("checksession event received. Check the console");
+      console.info("sessiondata after checksession event is ", data);
+    })
       
       
       function addBack(){
