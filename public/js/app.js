@@ -110,12 +110,13 @@ var socket = io.connect('anomic.io/');
          $('#goback').show();
          $('#PMbutton').hide();
          
-         //    $('#data').keypress(function(e) {
+        $('#data').keypress(function(e) {
         if(e.which == 13) {
             $(this).blur();
             $('#datasend').focus().click();
            socket.emit('private-message', message);
-         });
+         };
+       });
          
          
           $('#goback').show();
