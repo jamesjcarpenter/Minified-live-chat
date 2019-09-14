@@ -1,6 +1,7 @@
 var express = require('express');
 const mongoose = require('mongoose');
 var router = express.Router();
+var logger = require('morgan')
 var path = require('path');
 const session = require('express-session')
 var csrf = require('csurf');
@@ -27,14 +28,19 @@ var url = require('url')
 //add nonce
 
 //end nonce
-
+router.use(logger())
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 
-// router.get('*', function (req, res, next) {
-//   res.locals.login = req.isAuthenticated();
-//    console.log('ok');
-//   next()
-//  });
+router.get('*', function (req, res, next) {
+  res.locals.login = req.isAuthenticated();
+   console.log('ok');
+   console.dir(req.ip)
+   console.dir(req.ips)
+   console.dir(req.method)
+   console.dir(req.path)
+   console.dir(req.route)
+  next()
+ });
 
 var options = {
   dotfiles: 'ignore',
@@ -51,6 +57,12 @@ router.get('/', function(req, res, options) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
+router.get('server.js', function(req, res, options) {
+  res.status(404).end();
+});
+router.get('config/keys.js', function(req, res, options) {
+  res.status(404).end();
+});
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 
