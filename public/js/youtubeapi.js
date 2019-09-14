@@ -17,7 +17,7 @@ $(function() {
           var results = response.result;
           $("#results").html("");
           $.each(results.items, function(index, item) {
-            $.get("views/layout.handlebars", function(data) {
+            $.get("./views/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 $('#youtubevideo').click( function() {
                   $("#frndName").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
