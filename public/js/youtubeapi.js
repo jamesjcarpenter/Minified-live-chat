@@ -63,13 +63,13 @@ $(function() {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
                 
-                $.get("views/index.ejs", function(data) {
-                  $('#youtubevideo').click( function() {
-                    $('#youtubeplayer').appendTo('#vidWtch');
-                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&?autoplay=1?rel=0";
-                    $('#youtubeplayer').show();
-                     });
-                });
+                // $.get("views/index.ejs", function(data) {
+                //   $('#youtubevideo').click( function() {
+                //     $('#youtubeplayer').appendTo('#vidWtch');
+                //     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&?autoplay=1?rel=0";
+                //     $('#youtubeplayer').show();
+                //      });
+                // });
             });
           });
           resetVideoHeight();
