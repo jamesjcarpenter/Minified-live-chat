@@ -367,10 +367,8 @@ io.sockets.on('connection', function (socket) {
     app.use(function(req, res, next) {
         res.locals.user = req.user; // This is the important line
         exports.token = req.user;
-        if(req.user) {
-          socket.user = res.locals.user;
+        req.user.name = socket.username;
         next();
-      };
     });
 
   
