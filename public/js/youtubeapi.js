@@ -20,10 +20,13 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
+              
+                $('#vidNow').html("<iframe id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+                
+                  document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
-                    $('#youtubeplayer').appendTo('#vidNow');
-                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
+                    
                     $('.ui.longer.modal')
                     .modal('hide');
                     $("#youtubeplayer")[0].src += "&autoplay=1";
