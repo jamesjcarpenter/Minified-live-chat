@@ -113,10 +113,13 @@ var socket = io.connect('anomic.io/');
          $('#messages').hide();
          $('#messagingthem').show();
          $('#goback').show();
+         $('#PMbutton').hide();
+         
          //
           $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
+             $('#PMbutton').show();
              $('#messagingthem').hide().remove();
              $('#goback').hide().remove();
              $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
