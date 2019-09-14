@@ -30,7 +30,9 @@ $(function() {
           resetVideoHeight();
        });
     });
-
+    function stopVideo() {
+            player.stopVideo();
+          }
     $(window).on("resize", resetVideoHeight);
 });
 
