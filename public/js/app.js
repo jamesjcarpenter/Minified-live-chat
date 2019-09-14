@@ -23,7 +23,9 @@ $('#youtubeopen').click( function() {
 });
 
 
-  
+$('#vidNow').html("<iframe id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+
+  document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
 
 
     document.getElementById('themecss').href = 'css/indextheme2.css';

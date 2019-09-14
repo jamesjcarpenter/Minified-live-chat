@@ -1,10 +1,6 @@
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 $('#youtubeplayer').hide();
 $(function() {
-  $('#vidNow').html("<iframe id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
-  
-    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
-  
     $("form").on("submit", function(e) {
        e.preventDefault();
        // prepare the request
