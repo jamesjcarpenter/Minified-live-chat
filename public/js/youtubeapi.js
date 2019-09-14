@@ -20,13 +20,11 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
-                
+                $('#youtubeplayer').appendTo('#vidNow');
                 $.get("views/index.ejs", function(data) {
-                  $('#youtubeplayer').appendTo('#vidNow');
                   $('#youtubeplayer').appendTo('#vidWtch');
+                  document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
                   $('#youtubevideo').click( function() {
-                    
-                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
                     $('.ui.longer.modal')
                     .modal('hide');
                     $("#youtubeplayer")[0].src += "&autoplay=1";
