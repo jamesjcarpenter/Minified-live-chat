@@ -3,7 +3,6 @@ $('#youtubeplayer').hide();
 $(function() {
     $("form").on("submit", function(e) {
        e.preventDefault();
-       document.getElementById("#youtubeplayer").style.visibility="hidden";
        // prepare the request
        var request = gapi.client.youtube.search.list({
             part: "snippet",
@@ -16,6 +15,7 @@ $(function() {
        // execute the request
        request.execute(function(response) {
           var results = response.result;
+          document.getElementById("#youtubeplayer").style.visibility="hidden";
           $("#results").html("");
           $.each(results.items, function(index, item) {
             $.get("views/layouts/layout.handlebars", function(data) {
