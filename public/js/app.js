@@ -92,7 +92,7 @@ var socket = io.connect('anomic.io/');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<div id="connecteduser">' + '<div id="keyUse">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
         $('#PMbutton').click(function() {
-        socket.user.messageTo = $('#keyUse').val('');
+        socket.user.messageTo = $('#keyUse').val().data();
         });
       
       
