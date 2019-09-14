@@ -105,6 +105,7 @@ var socket = io.connect('anomic.io/');
          $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
          $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
          //
+          $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
              $('#messagingthem').hide();
