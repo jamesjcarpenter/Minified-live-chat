@@ -439,9 +439,9 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.join(socket.room);
-    
+    console.log(`${socketId}`);
     socket.on('private-message', function(data) {
-      io.to(usernames[messageTo]).emit('updatechat', socket.username, data);
+      io.to(`${socketId}`).emit(data, socket.username);
     });
     
     socket.on("typing", function() {
