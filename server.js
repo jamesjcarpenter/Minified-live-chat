@@ -253,12 +253,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/room', routes, users);
 
-app.get('/', function (req, res, next) {
-  fs.readFile('server.js', function (err, data) {
-    res.status(404).send("Sorry can't find that!")
-    next();
-    });
-  });
 
 const multer = require("multer");
 const cloudinary = require("cloudinary");
