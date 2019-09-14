@@ -50,7 +50,7 @@ router.get('/room', function(req, res) {
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
    var videoid;
-   res.render('index.ejs', { videoid: item.id.videoId, error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
+   res.render('index.ejs', { videoid: videoId, error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
 router.get('/profile', function(req, res) {
