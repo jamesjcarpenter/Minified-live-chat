@@ -228,7 +228,7 @@ var options = {
 }
 
 app.use(express.static(__dirname + '/public', options));
-app.use('/', express.static(path.join(__dirname, './public')))
+app.use('./', express.static(path.join(__dirname, '/public')))
 
 
 path.resolve('/', '/public/');
