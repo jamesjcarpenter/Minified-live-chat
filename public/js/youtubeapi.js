@@ -20,9 +20,9 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 
-                   document.getElementById('#results').onclick = function()
+                   document.getElementById('#youtubeplayer').onclick = function()
                    {
-                      $('#chatbox').click();
+                       $('.ui.longer.modal').modal('hide');
                    }
                 
             });
