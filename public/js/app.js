@@ -49,13 +49,6 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
-function ytVids()
-{ 
-   document.getElementById('#youtubeplayer').onclick = function()
-   {
-       $('#youtubeplaywrap').hide();
-   }
-}
 
 
 

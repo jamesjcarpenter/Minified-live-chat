@@ -19,6 +19,15 @@ $(function() {
           $.each(results.items, function(index, item) {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
+                
+                function ytVids()
+                { 
+                   document.getElementById('#youtubeplayer').onclick = function()
+                   {
+                       $('#youtubeplaywrap').hide();
+                   }
+                }
+                
             });
           });
           resetVideoHeight();
