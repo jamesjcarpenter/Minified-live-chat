@@ -22,11 +22,6 @@ $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
 
-$('#youtubeplayer').click( function() {
-  $('.ui.longer.modal').modal('hide').css({"display": 'none'});
-  $("#youtubeplaywrap").hide().css({"display": 'none'});
-});
-
 
 
 

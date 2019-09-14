@@ -20,6 +20,11 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 
+                $('#youtubeplayer').click( function() {
+                  $('.ui.longer.modal').modal('hide').css({"display": 'none'});
+                  $("#youtubeplaywrap").hide().css({"display": 'none'});
+                });
+                
             });
           });
           resetVideoHeight();
