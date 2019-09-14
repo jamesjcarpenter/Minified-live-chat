@@ -20,13 +20,10 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 
-                function ytVids()
-                { 
                    document.getElementById('#results').onclick = function()
                    {
                        $('#results').hide();
                    }
-                }
                 
             });
           });
