@@ -67,7 +67,7 @@ router.get('config/keys.js', function(req, res, options) {
 
 
 
-router.get('/room', function(req, res, options) {
+router.get('room', function(req, res, options) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
@@ -75,11 +75,11 @@ router.get('/room', function(req, res, options) {
    res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
-router.get('/profile', function(req, res, options) {
+router.get('profile', function(req, res, options) {
       res.render('profile.handlebars');
 });
 
-router.get('/admin', function(req, res, options) {
+router.get('admin', function(req, res, options) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
