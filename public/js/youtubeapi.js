@@ -3,6 +3,8 @@ $('#youtubeplayer').hide();
 $(function() {
     $("form").on("submit", function(e) {
        e.preventDefault();
+       $('#youtubeplayer').appendTo('#vidNow');
+         document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
        // prepare the request
        var request = gapi.client.youtube.search.list({
             part: "snippet",
@@ -20,8 +22,6 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
-                $('#youtubeplayer').appendTo('#vidNow');
-                  document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                     
