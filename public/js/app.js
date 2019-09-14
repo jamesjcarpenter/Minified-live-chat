@@ -104,13 +104,7 @@ var socket = io.connect('anomic.io/');
          $('#messages').hide();
          $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
          $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
-         $('#data').keypress(function(e) {
-           if(e.which == 13) {
-             $(this).blur();
-             $('#datasend').focus().click();
-             socket.emit('private-message', message);
-           }
-         });
+         socket.emit('private-message', message);
          //
           $('#goback').click(function() {
              $('#messages').show();
