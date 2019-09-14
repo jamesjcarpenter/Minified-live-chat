@@ -335,6 +335,10 @@
 <img id="youtubevideo" alt="img" width="190" height="140" src="https://img.youtube.com/vi/<%= videoid %>/hqdefault.jpg" target="youtubeplayer">
 <div id="vidNow"></div>
 
+<% if (typeof error ='object' && error) 
+{ %> <li><%= error %></li>
+
+ <% } %>
 
 </div>
 <div id="vidWtch"></div>
