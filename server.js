@@ -32,7 +32,7 @@ session = require("express-session")({
     sameSite: true,
     secure: true,
     domain: '.anomic.io',
-  }),
+  })
 var sharedsession = require("express-socket.io-session");
 
 //... 
