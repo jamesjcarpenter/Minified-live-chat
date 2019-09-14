@@ -384,6 +384,13 @@ var clients = [];
 var users = {};
 
 io.sockets.on('connection', function (socket) {
+  
+  socket.emit('askForUserId');
+
+  socket.on('userIdReceived', (userId) => {
+    sessionsMap[userId] = socket.id;
+  });
+
     // let setRoom;
     
     // const ioChat = io.of("/room" + "");
@@ -440,8 +447,10 @@ io.sockets.on('connection', function (socket) {
 
     socket.join(socket.room);
     console.log(`${socket.id}`);
-    socket.on('private-message', function(data) {
-      io.to(`${this.socket.id}`).emit(data, socket.username);
+    socket.on('private-message', function(data, message) {
+      const receiverId = sessionsMap[message.receiverId];
+      const messageData = message.data;
+      socket.broadcast.to(receiverId).emit('my message', messageData);
     });
     
     socket.on("typing", function() {
