@@ -365,6 +365,9 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
+        if(isAuthenticated) {
+          req.user = socket.id;
+        }
       // console.log(socket.join(room))
       // console.log(room);
     });
