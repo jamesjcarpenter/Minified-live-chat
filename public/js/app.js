@@ -107,8 +107,8 @@ var socket = io.connect('anomic.io/');
          // socket.emit('private-message', message);
           $('#goback').click(function() {
              $('#messages').show();
-             $('messagingthem').hide();
-             $('goback').hide();
+             $('#messagingthem').hide();
+             $('#goback').hide();
            });
        });
      });
