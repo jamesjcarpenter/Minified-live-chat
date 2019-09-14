@@ -98,6 +98,10 @@ var socket = io.connect('anomic.io/');
       $('#messagingthem').hide();
       $('#goback').hide();
     };
+      socket.on('updateinfo', function(username, data) {
+            $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp>' + username + '</samp></span></tag>').text(username));
+      });
+      
       
       $(document).ready(function(){ 
         
@@ -189,7 +193,6 @@ socket.on('connect', function(data) {
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
-        $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp>' + username + '</samp></span></tag>').text(username));
   $.each(roomusers, function (key, value) {
   $('#roomusers').append('+value+');
   });
