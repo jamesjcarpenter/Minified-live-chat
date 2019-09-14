@@ -67,11 +67,6 @@ var socket = io.connect('anomic.io/');
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
 		socket.emit('adduser', prompt("Enter username."));
-      if socket.username === null {
-        socket.username === 'guest'
-      } else {
-        socket.username === username
-      }
 	});
   
   // socket.on('addname', function (username) {
