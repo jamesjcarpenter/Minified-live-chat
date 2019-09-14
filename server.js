@@ -216,7 +216,7 @@ app.use(express.urlencoded({ extended: false }));
 
 var username;
 
-app.use(express.static(__dirname + './public'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + './'));
 
 app.use(express.static(__dirname + './js'));
