@@ -135,15 +135,15 @@ var socket = io.connect('anomic.io/');
 		});
 	});
   
-  socket.on('updateprivchat', function (username, data) {
-    $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
-    $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
-    $("#data").focus();
-    // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#privatemessages').append($('<img id="privuseravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="privusername"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
-    $('#privatemessages').append($('<span class="ui small text" id="privdate"name="date"></span>').text(JSON.parse(date)));
-    $('#privatemessages').append($('<div class="ui left pointing label"id="privmessage"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-  });
+  // socket.on('updateprivchat', function (username, data) {
+  //   $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+  //   $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
+  //   $("#data").focus();
+  //   // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
+  //   $('#privatemessages').append($('<img id="privuseravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="privusername"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+  //   $('#privatemessages').append($('<span class="ui small text" id="privdate"name="date"></span>').text(JSON.parse(date)));
+  //   $('#privatemessages').append($('<div class="ui left pointing label"id="privmessage"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
+  // });
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
