@@ -20,7 +20,7 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 $('#youtubevideo').click( function() {
-                  $("#frndName").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
+                     $(".div").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/{{videoid}}' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
                 });
             });
           });
