@@ -20,14 +20,14 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
-              
+                $('#youtubeplayer').appendTo('#vidNow');
                 
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                     
+                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
                     $('.ui.longer.modal')
                     .modal('hide');
-                    $('#vidWtch').append("<iframe id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
                     $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>?theme=light&amp;autohide=2&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;disablekb=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fanomic.io&amp;iv_load_policy=3&amp;autoplay=1&amp;loop=0&amp;fs=0&amp;playsinline=1&amp;modestbranding=1&amp;playerapiid=ytplayer&amp;widgetid=1";
