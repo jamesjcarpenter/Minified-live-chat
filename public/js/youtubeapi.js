@@ -23,6 +23,7 @@ $(function() {
                 
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
+                    document.getElementById("#youtubemodal").style.visibility="hidden";
                     $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&autoplay=1";
@@ -36,7 +37,6 @@ $(function() {
 
     // $(window).on("resize", resetVideoHeight);
 });
-
 
 // function resetVideoHeight() {
 //     $(".video").css("height", $("#results").width() * 9/16);
