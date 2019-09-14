@@ -377,7 +377,10 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
 
-console.log(socket.id);
+    io.of('/').in(socket.room).clients((error, clients) => {
+          if (error) throw error;
+          console.log(clients); // => [Anw2LatarvGVVXEIAAAD] 
+    });
 
 
     socket.on('adduser', function(username){
