@@ -20,11 +20,14 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 
-                $("#youtubeplayer").addClass("hidden");
-                
-                $('.ytp.cued.thumbnail.overlay.image').click( function() {
-                  $("#youtubeplayer").contents().find("#player").addClass("hidden");
-                });
+                var myName;
+                  var myTemplate = $('#myTempId').html();
+                  var compiled = Handlebars.compile(myTemplate);
+  
+                  $('#youtubebutton').click(function(){
+                    url = $('urlId').val();
+                    $("#results").append(tplawesome(data, [{"vidurl": url}]));
+                  });
                 
             });
           });
