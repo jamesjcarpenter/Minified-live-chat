@@ -214,7 +214,7 @@ app.use(express.urlencoded({ extended: false }));
 //   console.log('You have been kicked due to spam, please refresh');
 // })
 
-
+var username;
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
