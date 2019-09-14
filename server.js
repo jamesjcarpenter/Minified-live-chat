@@ -367,18 +367,10 @@ io.sockets.on('connection', function (socket) {
     app.use(function(req, res, next) {
         res.locals.user = req.user; // This is the important line
         exports.token = req.user;
-        socket.on('adduser', function(username){
-          if(req.user) {
-            socket.user = res.locals.user;
-          } else {
-        // store the username in the socket session for this client
-        socket.username = username;
-        // store the room name in the socket session for this client
-        // add the client's username to the global list
-        usernames[username] = username;
-          }
-        });
+        if(req.user) {
+          socket.user = res.locals.user;
         next();
+      });
     });
 
   
