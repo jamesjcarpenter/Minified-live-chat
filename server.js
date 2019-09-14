@@ -407,7 +407,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
-    var username = socket.id;
+    // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
@@ -454,7 +454,7 @@ io.sockets.on('connection', function (socket) {
 		// echo to room 1 that a person has connected to their room
 		socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
     socket.emit('updateusers', usernames, socket.id);
-    console.log(usernames);
+    // console.log(usernames);
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
