@@ -242,7 +242,7 @@ app.use(function(req, res, next) {
       req.user === username;
       next();
 });
-var routes = require('./routes/index.js');
+var routes = require('./routes/index.js', options);
 var users = require('./routes/users');
 var user = require('./models/user');
 
