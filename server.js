@@ -228,7 +228,7 @@ app.use(function(req, res, next) {
       req.user === 'guest'
       
       if (req.user)
-      let io.socket.username = req.user
+      var io.socket.username = req.user
     next();
 });
 var routes = require('./routes/index.js');
