@@ -22,7 +22,6 @@ $(function() {
                 console.log(item)
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
-                    console.log(data)
                      $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
                      });
                 });
