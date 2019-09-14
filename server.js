@@ -386,11 +386,11 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
-    if socket.username === null {
+    if (socket.username === null) {
       socket.username === 'guest'
     }
     
-    if socket.username === undefined {
+    if (socket.username === undefined) {
       socket.username === 'guest'
     }
     
