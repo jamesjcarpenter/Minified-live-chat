@@ -14,7 +14,7 @@ var tag = document.createElement('script');
      player = new YT.Player('player', {
        height: '390',
        width: '640',
-       videoId: videoId,
+       videoId: {{videoId}},
        events: {
          'onReady': onPlayerReady,
          'onStateChange': onPlayerStateChange
