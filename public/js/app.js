@@ -103,20 +103,23 @@ var socket = io.connect('anomic.io/');
         $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
         $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
       });
+    });
         
+        $(document).ready(function(){  
             $('#PMbutton').click(function() {
             // $("#PMbutton").unbind();
             $('#messages').hide();
             socket.emit('private-message', message);
+        });
+      });
         
-        
+        $(document).ready(function(){  
           $('#goback').click(function() {
              $('#messages').show();
              $('#messagingthem').hide();
              $('#goback').hide();
            });
        });
-     });
         // socket.emit('private-message', message);
       
 		});
