@@ -1,4 +1,5 @@
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
+document.getElementById("#youtubeplayer").style.display = "none";
 $(function() {
     $("form").on("submit", function(e) {
        e.preventDefault();
@@ -19,7 +20,7 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
-                document.getElementById("#youtubeplayer").style.display = "none";
+                
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                     $("#youtubeplayer")[0].src += "&autoplay=1";
