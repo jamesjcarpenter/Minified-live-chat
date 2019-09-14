@@ -120,7 +120,7 @@ var socket = io.connect('anomic.io/');
             $('#datasend').focus().click();
            socket.emit('private-message', message);
          };
-        };
+       });
        });
          
          
