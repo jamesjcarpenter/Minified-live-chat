@@ -57,7 +57,7 @@ router.get('/', function(req, res, options) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.get('server.js', function(req, res, options) {
+router.get('/server.js', function(req, res, options) {
   res.status(404).end();
 });
 router.get('config/keys.js', function(req, res, options) {
