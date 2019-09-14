@@ -363,13 +363,6 @@ io.sockets.on('connection', function (socket) {
       // console.log(socket.join(room))
       // console.log(room);
     });
-    
-    app.use(function(req, res, next) {
-        res.locals.user = req.user; // This is the important line
-        exports.token = req.user;
-        req.user.name = socket.username;
-        next();
-    };
 
   
     
@@ -453,7 +446,12 @@ io.sockets.on('connection', function (socket) {
 	});
 });
 
-
+app.use(function(req, res, next) {
+    res.locals.user = req.user; // This is the important line
+    exports.token = req.user;
+    req.user.name = socket.username;
+    next();
+});
 
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
