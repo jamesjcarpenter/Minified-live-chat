@@ -64,8 +64,7 @@ var namePos = Math.abs(url.substr(url.lastIndexOf("=")+1));
 
 var myroom = null;
  if(window.location.protocol === 'http:');
- 	nameOz = $('#roomNum').val();
-		myroom = nameOz;
+		myroom = namePos;
 
 var myusername = null;
 var myid = null;
