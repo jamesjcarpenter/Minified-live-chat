@@ -67,6 +67,8 @@ var myroom = null;
 		myroom = namePos;
 
 var myusername = null;
+
+$('#username').val() = myusername;
 var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
@@ -109,7 +111,7 @@ $(document).ready(function() {
 							//		$('#registernow').removeClass('hide').show();
 							//		$('#register').click(registerUsername);
 					//				$('#username').focus();
-									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
+									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": myusername };
 									sfutest.send({"message": register});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
