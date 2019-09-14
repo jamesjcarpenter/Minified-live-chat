@@ -135,6 +135,7 @@ var socket = io.connect('anomic.io/');
              $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
            });
        });
+     });
         // socket.emit('private-message', message);
       
 		});
