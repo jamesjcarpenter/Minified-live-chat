@@ -384,7 +384,6 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-console.log(clients);
 console.log(socket.clients);
 
 
