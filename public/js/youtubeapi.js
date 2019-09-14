@@ -22,8 +22,7 @@ $(function() {
               
                 $.get("views/index.ejs", function(data) {
                 $('#youtubevideo').click( function() {
-                  document.getElementById['#youtubeplayer'].src = "//www.youtube.com/embed/" + item.id.videoId;
-                  $("#youtubeplayer")[0].src += "&autoplay=1";
+                  $("#youtubeplayer")[0].src += item.id.videoId;
                     ev.preventDefault();
                      });
                 });
