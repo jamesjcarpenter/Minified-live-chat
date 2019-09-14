@@ -310,21 +310,6 @@ app.post('/api/images', parser.single("image"), (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.get('/server.js', function(req, res) {
- res.sendStatus(400);
-});
-
-app.get('/routes/index.js', function(req, res) {
- res.sendStatus(400);
-});
-
-app.get('/janus.js', function(req, res) {
- res.sendStatus(400);
-});
-
-app.get('/config/keys.js', function(req, res) {
- res.sendStatus(400);
-});
 
 app.use(function(req, res, next) {
   res.locals.user = req.user || null;

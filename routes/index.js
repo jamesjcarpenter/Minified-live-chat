@@ -44,6 +44,22 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
+router.get('/server.js', function(req, res) {
+ res.sendStatus(400);
+});
+
+router.get('/routes/index.js', function(req, res) {
+ res.sendStatus(400);
+});
+
+router.get('/janus.js', function(req, res) {
+ res.sendStatus(400);
+});
+
+router.get('/config/keys.js', function(req, res) {
+ res.sendStatus(400);
+});
+
 router.get('/room', function(req, res) {
   req.user = req.isAuthenticated,
   username = req.user.name;
