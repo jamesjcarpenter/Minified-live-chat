@@ -441,7 +441,7 @@ io.sockets.on('connection', function (socket) {
     socket.join(socket.room);
     console.log(`${socket.id}`);
     socket.on('private-message', function(data) {
-      io.to(`${socket.id}`).emit(data, socket.username);
+      io.to(`${this.socket.id}`).emit(data, socket.username);
     });
     
     socket.on("typing", function() {
