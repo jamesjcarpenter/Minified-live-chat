@@ -103,6 +103,7 @@ var socket = io.connect('anomic.io/');
          $('#messages').hide();
          $('#conversation').append('<span class="ui small white text">Messaging' + key + '</span>')
          $('#conversation').append('<div class="ui mini button">go back</div>');
+         $("#PMbutton").unbind();
          // socket.emit('private-message', message);
        });
      });
