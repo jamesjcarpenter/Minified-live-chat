@@ -376,12 +376,12 @@ app.use((err, req, res, next) => {
 var sharedsession = require("express-socket.io-session");
 app.use(session);
 
-io.use(sharedsession(session, {
-    autoSave:true
+io.sockets.use(sharedsession(session, {
+    resave: true
 }));
 
-io.of('/').use(sharedsession(session, {
-    autoSave: true
+io.sockets.of('/').use(sharedsession(session, {
+    resave: true
 }));
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
