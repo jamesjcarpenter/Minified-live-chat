@@ -134,12 +134,7 @@ var socket = io.connect('anomic.io/');
              $('#goback').hide().remove();
              $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
            });
-       });
-     });
         // socket.emit('private-message', message);
-      
-		});
-	});
   
   socket.on('updateprivchat', function (username, data) {
     $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
