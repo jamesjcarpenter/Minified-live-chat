@@ -108,15 +108,15 @@ var socket = io.connect('anomic.io/');
          $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
          
          $('#messages').hide();
+          $('#goback').show();
+       });
          
          //
-          $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
              $('#messagingthem').hide().empty().remove();
              $('#goback').hide().empty().remove();
            });
-       });
      });
         // socket.emit('private-message', message);
       
