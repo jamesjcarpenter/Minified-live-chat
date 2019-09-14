@@ -98,12 +98,17 @@ var socket = io.connect('anomic.io/');
         key === 'guest'
       }
       
-      $(document).ready(function(){  
+      $(document).ready(function(){ 
+        $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
+        $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
+        $('#messagingthem').hide();
+        $('#goback').hide();
+        
        $('#PMbutton').click(function() {
          // $("#PMbutton").unbind();
          $('#messages').hide();
-         $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
-         $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
+         $('#messagingthem').show();
+         $('#goback').show();
          //
           $('#goback').show();
           $('#goback').click(function() {
