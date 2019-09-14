@@ -85,20 +85,14 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  var clients = [];
   socket.on('updateusers', function(data) {
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
       
-      io.sockets.on('connect', function(client) {
-    clients.push(client); 
-
-    client.on('disconnect', function() {
-        clients.splice(clients.indexOf(client), 1);
-    });
-  });    
+      
+      
       function addBack(){
       $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
       $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
