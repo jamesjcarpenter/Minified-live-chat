@@ -121,7 +121,7 @@ var socket = io.connect('anomic.io/');
            var privatemessage = $('#data').val().trim();
            $('#data').val('');
            // tell server to execute 'sendchat' and send along one parameter
-           socket.emit('privatechat', message);
+           socket.emit('private-message', message);
          });
          
          
@@ -141,13 +141,13 @@ var socket = io.connect('anomic.io/');
 	});
   
   socket.on('updateprivchat', function (username, data) {
-    $('#messages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+    $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
     $("#data").focus();
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#privatemessages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
-    $('#privatemessages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#privatemessages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
+    $('#privatemessages').append($('<img id="privuseravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="privusername"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+    $('#privatemessages').append($('<span class="ui small text" id="privdate"name="date"></span>').text(JSON.parse(date)));
+    $('#privatemessages').append($('<div class="ui left pointing label"id="privmessage"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
   });
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
