@@ -22,8 +22,9 @@ $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
 
-$('.iframe').click( function() {
-  $('.ui.longer.modal').modal('hide');
+$('#youtubeplayer').click( function() {
+  $('.ui.longer.modal').modal('hide').css({"display": 'none'});
+  $("#youtubeplaywrap").css({"display": 'none'});
 });
 
 
