@@ -448,9 +448,9 @@ io.sockets.on('connection', function (socket) {
     socket.join(socket.room);
     console.log(`${socket.id}`);
     socket.on('private-message', function(data, message) {
-      const receiverId = sessionsMap[message.receiverId];
+      const userId = sessionsMap[message.userId];
       const messageData = message.data;
-      socket.broadcast.to(receiverId).emit('my message', messageData);
+      socket.broadcast.to(userId).emit('my message', messageData);
     });
     
     socket.on("typing", function() {
