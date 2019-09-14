@@ -1,5 +1,5 @@
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
-document.getElementById("youtubeplayer").style.display = "none";
+$('#youtubeplayer').hide();
 $(function() {
     $("form").on("submit", function(e) {
        e.preventDefault();
@@ -25,9 +25,7 @@ $(function() {
                   $('#youtubevideo').click( function() {
                     $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').appendTo('#vidWtch');
-                    document.getElementById("#youtubeplayer").style.display = "block";
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>";
-                    $('#youtubeplayer').show();
                      });
                 });
             });
