@@ -377,7 +377,7 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
 
-    io.of('/').in(socket.room).clients((error, socket.clients) => {
+    io.of('/').in(socket.room).clients((error, clients) => {
           if (error) throw error;
           console.log(socket.clients); // => [Anw2LatarvGVVXEIAAAD] 
     });
