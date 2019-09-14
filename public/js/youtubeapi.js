@@ -23,11 +23,6 @@ $(function() {
                 var myName;
                   var myTemplate = $('#myTempId').html();
                   var compiled = Handlebars.compile(myTemplate);
-  
-                  $('#youtubebutton').click(function(){
-                    url = $('urlId').val();
-                    $("#results").append(tplawesome(data, [{"vidurl": url}]));
-                  });
                 
             });
           });
@@ -47,3 +42,8 @@ function init() {
     gapi.client.load("youtube", "v3", function() {
     });
   }
+
+  $('#youtubebutton').click(function(){
+    url = $('urlId').val();
+    $("#results").append(tplawesome(data, [{"vidurl": url}]));
+  });
