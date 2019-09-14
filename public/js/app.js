@@ -188,9 +188,9 @@ socket.on('connect', function(data) {
   
   
   socket.on('updateroomusers', function(roomusers, username) {
-  $("#userlist").empty();
+  $("#roomusers").empty();
   $.each(roomusers, function (key, value) {
-  $('#userlist').append('+value+');
+  $('#roomusers').append('+value+');
   });
   });
   
