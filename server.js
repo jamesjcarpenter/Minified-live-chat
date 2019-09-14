@@ -380,7 +380,7 @@ io.sockets.use(sharedsession(session, {
     resave: true
 }));
 
-io.sockets.of('/').use(sharedsession(session, {
+io.of('/').use(sharedsession(session, {
     resave: true
 }));
 
