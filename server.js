@@ -401,7 +401,6 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-console.log(Object.keys());
 
 
 
@@ -424,7 +423,7 @@ console.log(Object.keys());
     socket.emit('clientlist', clients);
     socket.emit('getusers',  '' + usernames);
   });
-    
+    console.log(socket.emit('getusers',  '' + usernames));
     socket.on("set-room", function(room) {
       //leaving room.
       socket.leave(socket.room);
