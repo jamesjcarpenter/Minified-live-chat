@@ -451,7 +451,7 @@ io.sockets.on('connection', function (socket) {
       
       const userId = sessionsMap[message.userId];
       const messageData = message.data;
-      `${socketId}` = userId;
+       userId = `${socketId}`
       io.to(`${socketId}`).emit('my message', messageData);
     });
     
