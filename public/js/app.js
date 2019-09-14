@@ -100,7 +100,6 @@ var socket = io.connect('anomic.io/');
       
       
       $(document).ready(function(){  
-        var clickables = $('.clickable');
        $('#PMbutton').click(function() {
          $("#PMbutton").unbind();
          $('#messages').hide();
@@ -111,7 +110,7 @@ var socket = io.connect('anomic.io/');
              $('#messages').show();
              $('messagingthem').hide();
              $('goback').hide();
-             $("#PMbutton").addClass( 'clickable' );
+             $("#PMbutton").bind();
            });
        });
      });
