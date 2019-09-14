@@ -398,8 +398,6 @@ io.sockets.on('connection', function (socket) {
 
         client.on('disconnect', function() {
           clients.splice(clients.indexOf(client), 1);
-          
-          console.log(Object.keys.client);
   });
 });
 
@@ -415,6 +413,7 @@ io.sockets.on('connection', function (socket) {
     usernames[username] = username;
     console.log(usernames)
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
+    
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
   

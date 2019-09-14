@@ -57,7 +57,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    $('#connectnow').html('' + Object.keys.client);
+    $('#connectnow').html('' + socket.username);
       //empty messages.
       socket.room = {};
       var roomId = url.substr(url.lastIndexOf("=")+1);
