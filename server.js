@@ -260,7 +260,7 @@ app.set('view engine', 'ejs');
 'use strict';
 var sessionstorage = require('sessionstorage');
 
-app.use('/', routes, options);
+app.use('/', routes + options);
 app.use('/users', users);
 app.use('/room', routes, users);
 
