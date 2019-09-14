@@ -229,9 +229,19 @@ socket.on('connect', function(data) {
       });
     });
 
-    function switchRoom(room){
-      socket.broadcast.emit('switchRoom', room);
-    }
+    socket.on('disconnect', function(){
+    		// remove the username from global usernames list
+    		delete usernames[socket.username];
+    		// update list of users in chat, client-side
+    		io.sockets.emit('updateusers', usernames);
+    		// echo globally that this client has left
+    		socket.broadcast.emit('serverupdatechat', '' + socket.username + ' has disconnected');
+    		socket.leave(socket.room);
+    	});
+
+    // function switchRoom(room){
+    //   socket.broadcast.emit('switchRoom', room);
+    // }
 
   // socket.on('onlineStack',function(stack){
   //    $('#list').empty();
