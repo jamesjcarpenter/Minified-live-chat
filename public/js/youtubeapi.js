@@ -24,6 +24,8 @@ $(function() {
                   $('#youtubevideo').click( function() {
                     $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&?autoplay=1?rel=0";
+                    document.getElementById("#youtubeplayer").style.width="360";
+                    document.getElementById("#youtubeplayer").style.height="640";
                      });
                 });
             });
