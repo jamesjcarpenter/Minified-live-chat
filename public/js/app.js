@@ -110,12 +110,10 @@ var socket = io.connect('anomic.io/');
          $('#goback').show();
          $('#PMbutton').hide();
          
-         //
-         
-         $('#datasend').click( function() {
-           var privatemessage = $('#data').val().trim();
-           $('#data').val('');
-           // tell server to execute 'sendchat' and send along one parameter
+         //    $('#data').keypress(function(e) {
+        if(e.which == 13) {
+            $(this).blur();
+            $('#datasend').focus().click();
            socket.emit('private-message', message);
          });
          
