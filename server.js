@@ -483,9 +483,9 @@ console.log(socket.id);
 // Provide access to node_modules folder
 app.use('./scripts', express.static(`${__dirname}/node_modules/`));
 
-app.use(express.static('/semantic'));
+app.use('/', express.static(path.join(__dirname, '/semantic')))
 
-app.use(express.static('/libs/'));
+app.use('/', express.static(path.join(__dirname, '/libs')))
 
 // global variables
 
