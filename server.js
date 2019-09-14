@@ -412,7 +412,7 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
-    
+    console.log(usernames[socket.id])
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     io.of('/').in(socket.room).clients((error, clients) => {
@@ -441,7 +441,7 @@ io.sockets.on('connection', function (socket) {
     socket.join(socket.room);
     
     socket.on('private-message', function(data) {
-      io.to(usernames[socket.username]).emit('updateprivchat', socket.username, data);
+      io.to(usernames[socket.id]).emit('updateprivchat', socket.username, data);
     });
     
     socket.on("typing", function() {
