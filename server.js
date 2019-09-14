@@ -451,7 +451,8 @@ io.sockets.on('connection', function (socket) {
       
       const userId = sessionsMap[message.userId];
       const messageData = message.data;
-      socket.broadcast.to(userId).emit('my message', messageData);
+      `${socketId}` = userId;
+      io.to(`${socketId}`).emit('my message', messageData);
     });
     
     socket.on("typing", function() {
