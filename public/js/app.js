@@ -69,6 +69,7 @@ var socket = io.connect('anomic.io/');
 		socket.emit('adduser', prompt("Enter username."));
 	});
   
+  
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
   // 
@@ -90,8 +91,6 @@ var socket = io.connect('anomic.io/');
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
-      $('#connecteduser').empty();
-      $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(key));
       
       
       function addBack(){
@@ -169,7 +168,9 @@ var socket = io.connect('anomic.io/');
 //$('#publisher').append('<h4>' + username + '</h4>');
 
   // on load of page
-socket.on('connect', function(data) {
+socket.on('connect', function(data, username) {
+    $('#connectnow').empty();
+    $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val().trim();
