@@ -73,7 +73,8 @@ var socket = io.connect('anomic.io/');
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
   // 
   // });
-
+  
+  console.log(Object.keys.usernames);
   // socket.on('getusers', function (usernames) {
   //   for(key in usernames) {
   //   if(usernames.hasOwnProperty(key)) {
@@ -89,16 +90,8 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').push('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
-        for(var i = 0; i < socket.usernames.length; i++) { 
-        $('#userlist').push(socket.usernames[i].id); 
-        }
-    });
-  });
-  socket.on("checksession", function(data) {
-      console.info("checksession event received. Check the console");
-      console.info("sessiondata after checksession event is ", data);
-    })
+			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+      
       
       
       function addBack(){
@@ -125,11 +118,8 @@ var socket = io.connect('anomic.io/');
            socket.emit('private-message', message);
          };
        });
-      });
-    });
          
-        
-         $('#PMbutton').click(function() {
+         
           $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
@@ -138,8 +128,12 @@ var socket = io.connect('anomic.io/');
              $('#goback').hide().remove();
              $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
            });
-         });
+       });
+     });
         // socket.emit('private-message', message);
+      
+		});
+	});
   
   socket.on('updateprivchat', function (username, data) {
     $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
@@ -194,12 +188,12 @@ socket.on('connect', function(data) {
   
   
   
-  // socket.on('updateroomusers', function(roomusers, username) {
-  // $("#roomusers").empty();
-  // $.each(roomusers, function (key, value) {
-  // $('#roomusers').append('+value+');
-  // });
-  // });
+  socket.on('updateroomusers', function(roomusers, username) {
+  $("#roomusers").empty();
+  $.each(roomusers, function (key, value) {
+  $('#roomusers').append('+value+');
+  });
+  });
   
   $('#data').keyup(function(){
     if($('#data').val()){
@@ -220,7 +214,7 @@ socket.on('connect', function(data) {
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
       $('#typing').empty();
-    },4500);
+    },3500);
   }); 
   
   socket.on('updaterooms', function(rooms, current_room) {
