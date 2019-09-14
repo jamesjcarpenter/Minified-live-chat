@@ -73,8 +73,7 @@ var socket = io.connect('anomic.io/');
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
   // 
   // });
-  
-  console.log(Object.keys.usernames);
+
   // socket.on('getusers', function (usernames) {
   //   for(key in usernames) {
   //   if(usernames.hasOwnProperty(key)) {
@@ -90,7 +89,12 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser">' + '<div id="thisKey">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button pm"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+			$('#userlist').push('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+        for(var i = 0; i < socket_list.length; i++) { 
+        $('#userlist').push(socket_list[i].id); 
+        }
+    });
+  });
       
       
       function addBack(){
@@ -102,28 +106,24 @@ var socket = io.connect('anomic.io/');
       
       $(document).ready(function(){ 
         
-       $('.ui.mini.button.pm').click(function() {
+       $('#PMbutton').click(function() {
          // $("#PMbutton").unbind();
          addBack();
          $('#messages').hide();
          $('#messagingthem').show();
          $('#goback').show();
          $('#PMbutton').hide();
-         var toMessage = $('#thisKey');
          
-         $('#datasend').click( function() {
-           var message = $('#data').val().trim();
-           $('#data').val('');
         $('#data').keypress(function(e) {
         if(e.which == 13) {
             $(this).blur();
             $('#datasend').focus().click();
-           socket.emit('private-message', message, toMessage);
-         };
-       });
+           socket.emit('private-message', message);
+         });
        });
          
-         
+        
+         $('#PMbutton').click(function() {
           $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
@@ -132,12 +132,8 @@ var socket = io.connect('anomic.io/');
              $('#goback').hide().remove();
              $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
            });
-       });
-     });
+         });
         // socket.emit('private-message', message);
-      
-		});
-	});
   
   socket.on('updateprivchat', function (username, data) {
     $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
@@ -151,13 +147,13 @@ var socket = io.connect('anomic.io/');
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
-    $('#conversation,#messages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+    $('#messages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
     $("#data").focus();
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#conversation,#messages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
-    $('#conversation,#messages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#conversation,#messages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
+    $('#messages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+    $('#messages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
+    $('#messages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
   });
   
 
@@ -165,7 +161,7 @@ var socket = io.connect('anomic.io/');
   socket.on('serverupdatechat', function (server, username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
-        $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
+        $('#messages').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#roomname").empty();
         $("#roomname").append('<span class="ui medium text" id="roomname"><div class="ui grey label"id="roomname">Room #'+ '' + url.substr(url.lastIndexOf("=")+1) + '</span></div>');
           });
@@ -192,12 +188,12 @@ socket.on('connect', function(data) {
   
   
   
-  socket.on('updateroomusers', function(roomusers, username) {
-  $("#roomusers").empty();
-  $.each(roomusers, function (key, value) {
-  $('#roomusers').append('+value+');
-  });
-  });
+  // socket.on('updateroomusers', function(roomusers, username) {
+  // $("#roomusers").empty();
+  // $.each(roomusers, function (key, value) {
+  // $('#roomusers').append('+value+');
+  // });
+  // });
   
   $('#data').keyup(function(){
     if($('#data').val()){
@@ -218,7 +214,7 @@ socket.on('connect', function(data) {
     //showing typing message only for few seconds.
     setTime = setTimeout(function(){
       $('#typing').empty();
-    },3500);
+    },4500);
   }); 
   
   socket.on('updaterooms', function(rooms, current_room) {
@@ -239,8 +235,8 @@ socket.on('connect', function(data) {
     		io.sockets.emit('updateusers', usernames);
     		// echo globally that this client has left
     		socket.broadcast.emit('serverupdatechat', '' + socket.username + ' has disconnected');
-        delete usernames[socket.username];
     		socket.leave(socket.room);
+        delete socket.usernames[socket.username];
     	});
 
     // function switchRoom(room){
