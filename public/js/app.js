@@ -22,6 +22,10 @@ $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
 
+$('#results').click( function() {
+  $('.ui.longer.modal').modal('hide');
+});
+
 
 
 
