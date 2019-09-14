@@ -140,11 +140,12 @@ socket.on('connect', function(data) {
       }
     });
   });
-  
+ $(document).ready(function(){  
   $('#PMbutton').click(function() {
     $('#message').hide();
     $('#messagedata').hide();
     // socket.emit('private-message', message);
+});
 });
   
   socket.on('updateroomusers', function(roomusers, username) {
