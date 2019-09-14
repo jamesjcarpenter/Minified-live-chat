@@ -86,10 +86,11 @@ var socket = io.connect('anomic.io/');
   // });
   
   socket.on('updateusers', function(data) {
+    var clients = findClientsSocket(roomId);
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser">' + key + keys + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
       
       
       function addBack(){
