@@ -15,13 +15,12 @@ $(function() {
        // execute the request
        request.execute(function(response) {
           var results = response.result;
-          document.getElementById("#youtubeplayer").style.visibility="hidden";
           $("#results").html("");
           $.each(results.items, function(index, item) {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
-                
+                document.getElementById("#youtubeplayer").style.visibility="hidden";
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                     $("#youtubeplayer")[0].src += "&autoplay=1";
