@@ -53,7 +53,7 @@ function ytVids()
 { 
    document.getElementById('youtubeplayer').onclick = function()
    {
-       $('#player').remove();
+       $('#youtubeplaywrap').hide();
    }
 }
 
