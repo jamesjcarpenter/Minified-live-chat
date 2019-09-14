@@ -100,8 +100,7 @@ var socket = io.connect('anomic.io/');
       
       $(document).ready(function(){  
        $('#PMbutton').click(function() {
-         $('#message').hide();
-         $('#messagedata').hide();
+         $('#messages').hide();
          // socket.emit('private-message', message);
        });
      });
