@@ -230,7 +230,7 @@ socket.on('connect', function(data) {
 
     socket.on('disconnect', function(){
     		// remove the username from global usernames list
-    		delete usernames[socket.username];
+    		delete socket.usernames[socket.username];
     		// update list of users in chat, client-side
     		io.sockets.emit('updateusers', usernames);
     		// echo globally that this client has left
