@@ -384,7 +384,9 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-console.log(client.id);
+console.log(clients);
+console.log(socket.clients);
+
 
 
     socket.on('adduser', function(username){
