@@ -53,7 +53,7 @@ function ytVids()
 { 
    document.getElementById('youtubeplayer').onclick = function()
    {
-       $('#youtubeplayer').remove();
+       $('.ytp-cued-thumbnail-overlay-image').remove();
    }
 }
 
