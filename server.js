@@ -16,10 +16,7 @@ requestCert: false,
 rejectUnauthorized: false,
 pingTimeout: 60000,
 },app);
-server.listen(443);
-var router = express.Router();
-
-//make sure you keep this order
+server.listen(443),
 var io = require('socket.io').listen(server),
 session = require("express-session")({
   name: SESS_NAME,
@@ -32,8 +29,13 @@ session = require("express-session")({
     sameSite: true,
     secure: true,
     domain: '.anomic.io',
-  })
+  }),
 var sharedsession = require("express-socket.io-session");
+
+var router = express.Router();
+
+//make sure you keep this order
+
 
 //... 
 //..
