@@ -215,11 +215,9 @@ app.use(express.urlencoded({ extended: false }));
 // })
 
 var username;
-app.use('/', express.static(path.join(__dirname, '/public')))
 
-app.use('/', express.static(path.join(__dirname, '/public/*')))
-
-
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -311,6 +309,7 @@ app.post('/api/images', parser.single("image"), (req, res) => {
     .then(newImage => res.json(newImage), res.redirect('/profile'))
     .catch(err => console.log(err));
 });
+
 
 
 app.use(function(req, res, next) {
@@ -483,9 +482,9 @@ console.log(socket.id);
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
 
-app.use('/', express.static(path.join(__dirname, '/semantic/*')))
+app.use(express.static('/semantic'));
 
-app.use('./scripts', express.static(`${__dirname}/libs/`));
+app.use(express.static('/libs/'));
 
 // global variables
 
