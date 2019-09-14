@@ -23,7 +23,7 @@ $(function() {
                 
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
-                    data.render('<%= videoid %>', {videoid: item.id.videoId});
+                   html = ejs.render('<%= videoid %>', {videoid: item.id.videoId});
                      $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
                      });
                 });
