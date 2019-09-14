@@ -1,4 +1,5 @@
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
+$('#youtubeplayer').hide();
 $(function() {
     $("form").on("submit", function(e) {
        e.preventDefault();
@@ -24,6 +25,7 @@ $(function() {
                   $('#youtubevideo').click( function() {
                     $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&?autoplay=1?rel=0";
+                    $('#youtubeplayer').show();
                      });
                 });
             });
