@@ -169,8 +169,10 @@ var socket = io.connect('anomic.io/');
 
   // on load of page
 socket.on('connect', function(data, username) {
+  $.each(data, function(key, value) {
     $('#connectnow').empty();
-    $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(socket.username));
+    $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(key));
+  });
     // when the client clicks SEND
     $('#datasend').click( function() {
       var message = $('#data').val().trim();
