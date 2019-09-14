@@ -370,7 +370,7 @@ io.sockets.on('connection', function (socket) {
         if(req.user) {
           socket.user = res.locals.user;
         next();
-      });
+      };
     });
 
   
