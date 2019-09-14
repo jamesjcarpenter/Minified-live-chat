@@ -22,8 +22,7 @@ $(function() {
               
                 $.get("views/index.ejs", function(data) {
                 $('#youtubevideo').click( function() {
-                     $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/{{videoid}}' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
-                     $("#youtubeplayer").attr('src', $("#youtubeplayer", parent).attr('src') + '?autoplay=1')
+                     $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/{{videoid}}?autoplay=1' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
                      });
                 });
             });
