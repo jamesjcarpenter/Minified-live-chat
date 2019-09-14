@@ -91,8 +91,6 @@ var socket = io.connect('anomic.io/');
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
-    });
-  });
       
       
       function addBack(){
@@ -113,18 +111,14 @@ var socket = io.connect('anomic.io/');
          $('#PMbutton').hide();
          
          //
-         $('#data').keypress(function(e) {
-           if(e.which == 13) {
-             $(this).blur();
-             $('#datasend').focus().click();
+         
          $('#datasend').click( function() {
            var privatemessage = $('#data').val().trim();
            $('#data').val('');
            // tell server to execute 'sendchat' and send along one parameter
            socket.emit('private-message', message);
          });
-       };
-     });
+         
          
           $('#goback').show();
           $('#goback').click(function() {
@@ -134,9 +128,12 @@ var socket = io.connect('anomic.io/');
              $('#goback').hide().remove();
              $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
            });
-           });
-           });
+       });
+     });
         // socket.emit('private-message', message);
+      
+		});
+	});
   
   socket.on('updateprivchat', function (username, data) {
     $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
