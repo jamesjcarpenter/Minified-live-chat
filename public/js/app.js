@@ -99,7 +99,7 @@ var socket = io.connect('anomic.io/');
       $('#goback').hide();
     };
       socket.on('updateinfo', function(username, data) {
-            $('#connectnow').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp>' + username + '</samp></span></tag>').text(username));
+            $('#connectok').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp>' + username + '</samp></span></tag>').text(username));
       });
       
       
