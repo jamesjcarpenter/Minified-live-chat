@@ -242,7 +242,7 @@ app.use(function(req, res, next) {
       req.user === username;
       next();
 });
-var routes = require('./routes/index.js', options);
+var routes = require('./routes/index.js');
 var users = require('./routes/users');
 var user = require('./models/user');
 
@@ -260,7 +260,7 @@ app.set('view engine', 'ejs');
 'use strict';
 var sessionstorage = require('sessionstorage');
 
-app.use('/', routes + options);
+app.use('/', routes);
 app.use('/users', users);
 app.use('/room', routes, users);
 

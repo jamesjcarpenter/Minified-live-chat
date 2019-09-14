@@ -36,8 +36,18 @@ var url = require('url')
 //   next()
 //  });
 
+var options = {
+  dotfiles: 'ignore',
+  etag: false,
+  index: false,
+  maxAge: '1d',
+  redirect: true,
+  setHeaders: function (res, path, stat) {
+    res.set('x-timestamp', Date.now())
+  }
+}
  
-router.get('/', function(req, res) {
+router.get('/', function(req, res, options) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
@@ -45,7 +55,7 @@ router.get('/', function(req, res) {
 
 
 
-router.get('/room', function(req, res) {
+router.get('/room', function(req, res, options) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
@@ -53,11 +63,11 @@ router.get('/room', function(req, res) {
    res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
-router.get('/profile', function(req, res) {
+router.get('/profile', function(req, res, options) {
       res.render('profile.handlebars');
 });
 
-router.get('/admin', function(req, res) {
+router.get('/admin', function(req, res, options) {
   req.user = req.isAuthenticated,
   username = req.user.name;
   res.locals.query = req.query;
@@ -65,11 +75,11 @@ router.get('/admin', function(req, res) {
    res.render('admin.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.get('/dashboard', function(req, res) {
+router.get('/dashboard', function(req, res, options) {
       res.render('dashboard.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
-router.get('/home', function(req, res) {
+router.get('/home', function(req, res, options) {
       res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
@@ -106,7 +116,7 @@ router.get('/home', function(req, res) {
 //   };
 // });
 
-router.post('/logout', (req, res) => {
+router.post('/logout', (req, res, options) => {
   req.session.destroy(err => {
     if (err){
     res.redirect('/login')
