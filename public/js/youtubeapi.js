@@ -20,6 +20,7 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 
+                $("#youtubeplayer").contents().find("#player").addClass("hidden");
                 
                 $('#youtubeplayer').click( function() {
                   $("#youtubeplayer").contents().find("#player").addClass("hidden");
