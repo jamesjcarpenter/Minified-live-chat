@@ -123,6 +123,7 @@ var socket = io.connect('anomic.io/');
         if(e.which == 13) {
             $(this).blur();
             $('#datasend').focus().click();
+            var message = $('#data').val().trim();
            socket.emit('private-message', message);
          };
        });
