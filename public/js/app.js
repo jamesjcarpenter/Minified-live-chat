@@ -102,7 +102,7 @@ var socket = io.connect('anomic.io/');
       
       $(document).ready(function(){ 
         
-       $('#PMbutton')[0].click(function() {
+       $('#PMbutton')[1].click(function() {
          // $("#PMbutton").unbind();
          addBack();
          $('#messages').hide();
