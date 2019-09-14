@@ -59,7 +59,7 @@ var socket = io.connect('anomic.io/');
   socket.on('connect', function(){
       //empty messages.
       socket.on('askForUserId', () => {
-        io.emit(socket.id);
+        socket.emit(socket.id);
       });
 
       socket.on('private-message', (data, message) => {
