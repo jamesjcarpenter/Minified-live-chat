@@ -376,11 +376,15 @@ io.sockets.on('connection', function (socket) {
       // console.log(socket.join(room))
       // console.log(room);
     });
+    io.sockets.on('connect', function(client) {
+        clients.push(client); 
 
-    io.of('/').in(socket.room).clients((error, clients) => {
-          if (error) throw error;
-          console.log(socket.clients); // => [Anw2LatarvGVVXEIAAAD] 
-    });
+        client.on('disconnect', function() {
+          clients.splice(clients.indexOf(client), 1);
+  });
+});
+
+console.log(client.id);
 
 
     socket.on('adduser', function(username){
