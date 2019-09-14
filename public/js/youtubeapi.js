@@ -22,7 +22,7 @@ $(function() {
                 
                 $("#youtubeplayer").contents().find("#player").addClass("hidden");
                 
-                $('#youtubeplayer').click( function() {
+                $('.ytp.cued.thumbnail.overlay.image').click( function() {
                   $("#youtubeplayer").contents().find("#player").addClass("hidden");
                 });
                 
