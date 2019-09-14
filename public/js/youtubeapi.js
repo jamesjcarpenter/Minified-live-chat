@@ -22,12 +22,11 @@ $(function() {
                 
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
-                      var youtubeplay = "<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>";
-                    $("#vidWtch").html(youtubeplay);
-                    $(youtubeplay).appendTo('#vidNow');
-                    $(youtubeplay).src="https://www.youtube.com/embed/<%= videoid %>&?autoplay=1?rel=0";
-                    $(youtubeplay).style.width="360";
-                    $(youtubeplay).style.height="640";
+                    $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+                    $('#youtubeplayer').appendTo('#vidNow');
+                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>&?autoplay=1?rel=0";
+                    document.getElementById("#youtubeplayer").style.width="360";
+                    document.getElementById("#youtubeplayer").style.height="640";
                      });
                 });
             });
