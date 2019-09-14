@@ -141,7 +141,7 @@ socket.on('connect', function(data) {
     });
   });
   
-  $('PMbutton').click(function() {
+  $('#PMbutton').click(function() {
     $('#message').hide();
     $('#messagedata').hide();
     // socket.emit('private-message', message);
