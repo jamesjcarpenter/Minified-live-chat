@@ -22,7 +22,9 @@ $(function() {
               
                 $.get("views/index.ejs", function(data) {
                 $('#youtubevideo').click( function() {
-                     $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+                  document.getElementById['#youtubeplayer'].src = "//www.youtube.com/embed/" + item.id.videoId;
+                  $("#youtubeplayer")[0].src += "&autoplay=1";
+                    ev.preventDefault();
                      });
                 });
             });
