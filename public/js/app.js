@@ -15,6 +15,9 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("=")+1));
 
+$('#roomNam').html(url.substr(url.lastIndexOf("=")+1));
+$('#roomNum').html(Math.random());
+
 $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
 
