@@ -413,7 +413,7 @@ io.sockets.on('connection', function (socket) {
     usernames[username] = username;
     console.log(usernames)
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
-    
+    console.log(getItem(usernames));
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
   

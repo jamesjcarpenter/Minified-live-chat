@@ -92,8 +92,7 @@ module.exports.sockets = function(https) {
     //showing msg on typing.
     socket.on("typing", function() {
       socket
-        .to(socket.room)
-        .broadcast.emit("typing", socket.username + "is typing..");
+        .to(socket.room).broadcast.emit("typing", socket.username + "is typing..");
     });
 
     //for showing chats.
