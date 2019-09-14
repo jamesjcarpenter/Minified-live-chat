@@ -441,7 +441,7 @@ io.sockets.on('connection', function (socket) {
     socket.join(socket.room);
     
     socket.on('private-message', function(data) {
-      io.to(usernames[socket.id]).emit('updateprivchat', socket.username, data);
+      io.to(usernames[messageTo]).emit('updatechat', socket.username, data);
     });
     
     socket.on("typing", function() {

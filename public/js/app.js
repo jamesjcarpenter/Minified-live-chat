@@ -90,8 +90,10 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser">' + key + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
-      
+			$('#userlist').append('<div id="connecteduser">' + '<div id="keyUse">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+        $('#PMbutton').click(function() {
+          $('#keyUse').val('') = socket.user.messageTo;
+        });
       
       
       function addBack(){
@@ -115,7 +117,7 @@ var socket = io.connect('anomic.io/');
         if(e.which == 13) {
             $(this).blur();
             $('#datasend').focus().click();
-           socket.emit('private-message', message);
+           socket.emit('private-message', message, messageTo);
          };
        });
          
@@ -135,33 +137,24 @@ var socket = io.connect('anomic.io/');
 		});
 	});
   
-  socket.on('updateprivchat', function (username, data) {
-    $('#privatemessages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
-    $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
-    $("#data").focus();
-    // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#privatemessages').append($('<img id="privuseravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="privusername"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
-    $('#privatemessages').append($('<span class="ui small text" id="privdate"name="date"></span>').text(JSON.parse(date)));
-    $('#privatemessages').append($('<div class="ui left pointing label"id="privmessage"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-  });
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
-    $('#conversation, #messages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
     $("#data").focus();
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#conversation, #messages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
-    $('#conversation, #messages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#conversation, #messages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
+    $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+    $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
+    $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
   });
   
 
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   socket.on('serverupdatechat', function (server, username, data) {
-    $('#conversation, #messages').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
+    $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
-        $('#messages').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
+        $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#roomname").empty();
         $("#roomname").append('<span class="ui medium text" id="roomname"><div class="ui grey label"id="roomname">Room #'+ '' + url.substr(url.lastIndexOf("=")+1) + '</span></div>');
           });
