@@ -216,8 +216,19 @@ app.use(express.urlencoded({ extended: false }));
 
 var username;
 
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/'));
+var options = {
+  dotfiles: 'ignore',
+  etag: false,
+  index: false,
+  maxAge: '1d',
+  redirect: true,
+  setHeaders: function (res, path, stat) {
+    res.set('x-timestamp', Date.now())
+  }
+}
+
+app.use(express.static(__dirname + '/public', options));
+app.use(express.static(__dirname + '/', options));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -480,11 +491,11 @@ console.log(socket.id);
 
 
 // Provide access to node_modules folder
-app.use('/scripts', express.static(`${__dirname}/node_modules/`));
+app.use('/scripts', express.static(`${__dirname}/node_modules/`, options));
 
-app.use(express.static('/semantic'));
+app.use(express.static('/semantic', options));
 
-app.use(express.static('/libs/'));
+app.use(express.static('/libs/', options));
 
 // global variables
 

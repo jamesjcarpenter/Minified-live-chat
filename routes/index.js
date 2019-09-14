@@ -35,12 +35,6 @@ var url = require('url')
 //    console.log('ok');
 //   next()
 //  });
-router.use('*', function (req, res, next) {
-  fs.readFile('server.js', function (err, data) {
-    res.status(404).send("Sorry can't find that!")
-    next();
-    });
-  });
 
  
 router.get('/', function(req, res) {
