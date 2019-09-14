@@ -23,6 +23,7 @@ $(function() {
                 
                 $.get("views/index.ejs", function(data) {
                   $('#youtubeplayer').appendTo('#vidNow');
+                  $('#youtubeplayer').appendTo('#vidWtch');
                   $('#youtubevideo').click( function() {
                     
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
