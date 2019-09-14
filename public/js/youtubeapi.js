@@ -21,6 +21,8 @@ $(function() {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
                 $.get("views/index.ejs", function(data) {
+                  $("vidNow").html("<iframe name='youtubeplayer' id='youtubeplayer' class='video w100' width='640' height='360' src='https://www.youtube.com/embed/{{videoid}}?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+                  
                   $('#youtubevideo').click( function() {
                     $('#youtubeplayer').appendTo('#vidWtch');
                     $('.ui.longer.modal')
