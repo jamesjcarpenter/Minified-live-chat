@@ -218,11 +218,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
-app.use(function(req, res, next) {
-    res.locals.user = req.user; // This is the important line
-    exports.token = req.user;
-    next();
-});
 var routes = require('./routes/index.js');
 var users = require('./routes/users');
 var user = require('./models/user');
@@ -365,21 +360,27 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
-        if(isAuthenticated) {
-          req.user = socket.id;
-        }
       // console.log(socket.join(room))
       // console.log(room);
     });
     
+    app.use(function(req, res, next) {
+        res.locals.user = req.user; // This is the important line
+        exports.token = req.user;
+        socket.on('adduser', function(username){
+          if(req.user) {
+            socket.user = res.locals.user;
+          } else {
+        // store the username in the socket session for this client
+        socket.username = username;
+        // store the room name in the socket session for this client
+        // add the client's username to the global list
+        usernames[username] = username;
+        });
+        next();
+    });
 
-
-    socket.on('adduser', function(username){
-    // store the username in the socket session for this client
-    socket.username = username;
-    // store the room name in the socket session for this client
-    // add the client's username to the global list
-    usernames[username] = username;
+  
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
