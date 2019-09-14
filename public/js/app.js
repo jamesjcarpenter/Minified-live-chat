@@ -22,7 +22,7 @@ $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
 
-$('#results').click( function() {
+$('#youtubeplayer').click( function() {
   $('.ui.longer.modal').modal('hide');
 });
 
