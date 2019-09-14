@@ -114,7 +114,7 @@ var socket = io.connect('anomic.io/');
         if(e.which == 13) {
             $(this).blur();
             $('#datasend').focus().click();
-           socket.emit('private-message', message);
+           socket.emit('private-message', data);
          };
        });
          
