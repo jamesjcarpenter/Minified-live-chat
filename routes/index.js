@@ -49,7 +49,7 @@ router.get('/room', function(req, res) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('./views/index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
+   res.render('views/index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
 router.get('/profile', function(req, res) {
