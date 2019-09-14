@@ -24,7 +24,7 @@ $(function() {
                 { 
                    document.getElementById('#results').onclick = function()
                    {
-                       $('#youtubeplaywrap').hide();
+                       $('#results').hide();
                    }
                 }
                 
