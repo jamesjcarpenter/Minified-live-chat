@@ -58,7 +58,7 @@ var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
       //empty messages.
-      io.on('askForUserId', () => {
+      socket.on('askForUserId', () => {
         io.emit(userId);
       });
 
