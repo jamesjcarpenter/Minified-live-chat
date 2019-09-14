@@ -218,6 +218,12 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/'));
+app.use(function(req, res, next) {
+    res.locals.user = req.user; // This is the important line
+    exports.token = req.user;
+    req.user.name = socket.username;
+    next();
+});
 var routes = require('./routes/index.js');
 var users = require('./routes/users');
 var user = require('./models/user');
@@ -363,8 +369,15 @@ io.sockets.on('connection', function (socket) {
       // console.log(socket.join(room))
       // console.log(room);
     });
+    
 
-  
+
+    socket.on('adduser', function(username){
+    // store the username in the socket session for this client
+    socket.username = username;
+    // store the room name in the socket session for this client
+    // add the client's username to the global list
+    usernames[username] = username;
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
@@ -446,12 +459,7 @@ io.sockets.on('connection', function (socket) {
 	});
 });
 
-app.use(function(req, res, next) {
-    res.locals.user = req.user; // This is the important line
-    exports.token = req.user;
-    req.user.name = socket.username;
-    next();
-});
+
 
 // Provide access to node_modules folder
 app.use('/scripts', express.static(`${__dirname}/node_modules/`));
