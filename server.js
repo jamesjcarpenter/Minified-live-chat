@@ -378,6 +378,7 @@ io.sockets.on('connection', function (socket) {
         usernames[username] = username;
         });
         next();
+        });
     });
 
   
