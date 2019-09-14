@@ -395,7 +395,7 @@ console.log(socket.id);
     // add the client's username to the global list
     usernames[username] = username;
     
-    socket.emit('updateinfo', username, data);
+    
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     io.of('/').in(socket.room).clients((error, clients) => {
