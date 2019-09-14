@@ -74,7 +74,7 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  console.log(Object.keys.client);
+  console.log(Object.keys.usernames);
   // socket.on('getusers', function (usernames) {
   //   for(key in usernames) {
   //   if(usernames.hasOwnProperty(key)) {
