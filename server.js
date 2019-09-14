@@ -376,13 +376,6 @@ io.sockets.on('connection', function (socket) {
       // console.log(socket.join(room))
       // console.log(room);
     });
-    io.sockets.on('connect', function(client) {
-        clients.push(client); 
-
-        client.on('disconnect', function() {
-          clients.splice(clients.indexOf(client), 1);
-  });
-});
 
 console.log(socket.id);
 
