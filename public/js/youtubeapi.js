@@ -23,7 +23,6 @@ $(function() {
                 $.get("views/index.ejs", function(data) {
                 $('#youtubevideo').click( function() {
                   $("#youtubeplayer")[0].src += item.id.videoId;
-                    ev.preventDefault();
                      });
                 });
             });
