@@ -16,26 +16,11 @@ requestCert: false,
 rejectUnauthorized: false,
 pingTimeout: 60000,
 },app);
-server.listen(443),
-var io = require('socket.io').listen(server),
-session = require("express-session")({
-  name: SESS_NAME,
-  resave: false,
-  saveUninitialized: true,
-  secret: SESS_SECRET,
-  cookie: {
-    maxAge: SESS_LIFETIME,
-    httpOnly: true,
-    sameSite: true,
-    secure: true,
-    domain: '.anomic.io',
-  }),
-var sharedsession = require("express-socket.io-session");
-
+server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
-
+var io = require('socket.io').listen(server);
 
 //... 
 //..
@@ -43,6 +28,7 @@ var { check, validationResult } = require('express-validator');
 const helmet = require('helmet')
 var cors = require('cors')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 var FileStore = require('session-file-store')(session);
 const path = require('path')
 var exphbs = require('express-handlebars')
@@ -181,7 +167,19 @@ const IN_PROD = NODE_ENV === 'production'
 const cons = require('consolidate');
 //express session start options:
 // secure = HTTPs secure. needs to be on before deployment.
-
+app.use(session({
+  name: SESS_NAME,
+  resave: false,
+  saveUninitialized: true,
+  secret: SESS_SECRET,
+  cookie: {
+    maxAge: SESS_LIFETIME,
+    httpOnly: true,
+    sameSite: true,
+    secure: true,
+    domain: '.anomic.io',
+  }
+}))
 
 
 var passport = require('passport');
@@ -375,14 +373,11 @@ app.use((err, req, res, next) => {
 });
 //chat
 // require("./libs/chat.js").sockets(https);
+var sharedsession = require("express-socket.io-session");
 app.use(session);
 
 io.use(sharedsession(session, {
     autoSave:true
-}));
-
-io.of('/').use(sharedsession(session, {
-    autoSave: true
 }));
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -426,7 +421,8 @@ io.sockets.on('connection', function (socket) {
     socket.handshake.session.save();
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
-    
+    console.log(socket.handshake.session.save())
+    console.log(socket.handshake.session)
     
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
