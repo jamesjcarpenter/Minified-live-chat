@@ -101,8 +101,8 @@ var socket = io.connect('anomic.io/');
       $(document).ready(function(){  
        $('#PMbutton').click(function() {
          $('#messages').hide();
-         $('#conversation').append('<i class="ui envelope icon"></i>' + '<i class="ui angle double left icon"></i>')
          $('#conversation').append('<span class="ui small white text">Messaging' + key + '</span>')
+         $('#conversation').append('<div class="ui button"><i class="ui icon arrow"></i></div>');
          // socket.emit('private-message', message);
        });
      });
