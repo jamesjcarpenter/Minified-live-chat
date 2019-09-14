@@ -221,7 +221,11 @@ app.use(express.static(__dirname + '/'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
-    req.user.name = io.socket.username;
+      if (req.user === undefined)
+      req.user === 'guest'
+    } else {
+      req.user = io.socket.username;
+    }
     next();
 });
 var routes = require('./routes/index.js');
