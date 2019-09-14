@@ -44,20 +44,16 @@ router.get('/', function(req, res) {
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
-router.get('/server.js', function(req, res) {
- res.sendStatus(400);
-});
+router.use(function (req, res, next) {
 
-router.get('/routes/index.js', function(req, res) {
- res.sendStatus(400);
-});
-
-router.get('/janus.js', function(req, res) {
- res.sendStatus(400);
-});
-
-router.get('/config/keys.js', function(req, res) {
- res.sendStatus(400);
+    if (req.originalUrl === '/server.js') {
+    res.status(404)        // HTTP status 404: NotFound
+   .send('Not found');
+ } if (req.originalUrl === '/janus.js') {
+  res.status(404)        // HTTP status 404: NotFound
+ .send('Not found');
+  };
+  next();
 });
 
 router.get('/room', function(req, res) {
