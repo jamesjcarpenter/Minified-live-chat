@@ -20,11 +20,10 @@ $(function() {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
                 console.log(item.id.videoId)
-                
+                  document.getElementById("#youtubeplayer").src="";
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                     
-                    document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/{{videoid}}?rel=0";
                     $('.ui.longer.modal')
                     .modal('hide');
                     $("#youtubeplayer")[0].src += "&autoplay=1";
