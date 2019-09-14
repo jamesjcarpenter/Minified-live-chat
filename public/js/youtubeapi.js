@@ -27,6 +27,7 @@ $(function() {
                       
                         var videoid = item.id.videoId;
                         $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
+                      });
                      });
                 });
             });
