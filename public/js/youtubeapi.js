@@ -19,15 +19,12 @@ $(function() {
           $.each(results.items, function(index, item) {
             $.get("views/layouts/layout.handlebars", function(data) {
                 $("#results").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
-              
-              $.each(results.items, function(index, item) {
+                console.log(item.id.videoId)
                 $.get("views/index.ejs", function(data) {
                   $('#youtubevideo').click( function() {
                      $("#vidWtch").html("<iframe id='youtubeplayer' class='video w100' width='170' height='140' src='//www.youtube.com/embed/<%= videoid %>?rel=0' frameborder='0' allowscriptaccess='always' allowfullscreen></iframe>");
-                     $("#vidWtch").append(data, [{"videoid":item.id.videoId}]);
                      });
                 });
-              });
             });
           });
           resetVideoHeight();
