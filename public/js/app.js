@@ -121,6 +121,7 @@ var socket = io.connect('anomic.io/');
            socket.emit('private-message', message);
          };
        });
+      });
          
         
          $('#PMbutton').click(function() {
