@@ -102,7 +102,7 @@ var socket = io.connect('anomic.io/');
       
       $(document).ready(function(){ 
         
-       $('#PMbutton').click(function() {
+       $('#PMbutton')[0].click(function() {
          // $("#PMbutton").unbind();
          addBack();
          $('#messages').hide();
@@ -118,7 +118,7 @@ var socket = io.connect('anomic.io/');
         if(e.which == 13) {
             $(this).blur();
             $('#datasend').focus().click();
-            var toMessage = $('#thisKey')[0];
+            var toMessage = $('#thisKey');
            socket.emit('private-message', message, toMessage);
          };
        });
