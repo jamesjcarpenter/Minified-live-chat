@@ -46,7 +46,7 @@ router.get('/', function(req, res) {
 
 router.use(function (req, res, next) {
 
-    if (req.originalUrl === '/server.js') {
+    if (req.originalUrl === 'server.js') {
     res.status(404)        // HTTP status 404: NotFound
    .send('Not found');
  } if (req.originalUrl === '/janus.js') {
