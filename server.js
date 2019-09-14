@@ -452,7 +452,7 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
 		// echo to room 1 that a person has connected to their room
 		socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
-    socket.emit('updateusers', usernames, socket.id, socket.usernames = socket_list);
+    socket.emit('updateusers', usernames, socket.id);
     // console.log(usernames);
 		socket.emit('updaterooms', rooms, socket.room);
 	});
