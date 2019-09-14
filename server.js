@@ -386,7 +386,7 @@ var users = {};
 io.sockets.on('connection', function (socket) {
     // let setRoom;
     socket.on('new user', function(data, callback){
-      if (data in users) != -1){
+      if (data in users){
         callback(false);
       } else {
         callback(true);
