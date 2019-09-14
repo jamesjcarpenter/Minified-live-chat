@@ -373,12 +373,7 @@ app.use((err, req, res, next) => {
 });
 //chat
 // require("./libs/chat.js").sockets(https);
-var sharedsession = require("express-socket.io-session");
-app.use(session);
 
-io.use(sharedsession(session, {
-    autoSave:true
-}));
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
 // usernames which are currently connected to the chat
@@ -412,17 +407,12 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
-    
+    // var username = socket.id;
+    // store the room name in the socket session for this client
+    // add the client's username to the global list
     usernames[username] = username;
-    
     console.log(usernames)
-    socket.handshake.session.username = username;
-    
-    socket.handshake.session.save();
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
-    
-    console.log(socket.handshake.session.save())
-    console.log(socket.handshake.session)
     
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
@@ -490,20 +480,8 @@ io.sockets.on('connection', function (socket) {
 	// 	socket.emit('updaterooms', rooms, newroom);
 	// });
 
-  socket.on('checksession', function() {
-  		debug('Received checksession message');
-  
-  		debug('socket.handshake session data is %j.', socket.handshake.session);
-  
-  		socket.emit('checksession', socket.handshake.session);
-  	});
-
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
-    if (socket.handshake.session.userdata) {
-           delete socket.handshake.session.userdata;
-           socket.handshake.session.save();
-         };
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'left the room');
 		// remove the username from global usernames list
 		// update list of users in chat, client-side
