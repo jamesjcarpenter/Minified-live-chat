@@ -100,7 +100,7 @@ var socket = io.connect('anomic.io/');
       
       $(document).ready(function(){  
        $('#PMbutton').click(function() {
-         $("#PMbutton").off();
+         // $("#PMbutton").unbind();
          $('#messages').hide();
          $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
          $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
@@ -109,7 +109,6 @@ var socket = io.connect('anomic.io/');
              $('#messages').show();
              $('messagingthem').hide();
              $('goback').hide();
-             $("#PMbutton").on();
            });
        });
      });
