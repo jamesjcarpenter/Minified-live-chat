@@ -381,9 +381,11 @@ var usernames = {};
 // rooms which are currently available in chat
 
 var clients = [];
+var users = {};
 
 io.sockets.on('connection', function (socket) {
     // let setRoom;
+    
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
@@ -392,25 +394,25 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
     io.sockets.on('connect', function(client) {
-        clients.push(client); 
+        clients.push(Object.keys.client); 
 
         client.on('disconnect', function() {
           clients.splice(clients.indexOf(client), 1);
   });
 });
 
-console.log(socket.id);
 
 
 
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
+    // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
     
-    
+    console.log(usernames)
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     io.of('/').in(socket.room).clients((error, clients) => {
@@ -422,7 +424,7 @@ console.log(socket.id);
     socket.emit('clientlist', clients);
     socket.emit('getusers',  '' + usernames);
   });
-    
+    // console.log(socket.emit('getusers',  '' + usernames));
     socket.on("set-room", function(room) {
       //leaving room.
       socket.leave(socket.room);
@@ -439,7 +441,7 @@ console.log(socket.id);
     socket.join(socket.room);
     
     socket.on('private-message', function(data) {
-      io.to(socket.id).emit('updateprivchat', socket.username, data);
+      io.to(usernames[socket.id]).emit('updateprivchat', socket.username, data);
     });
     
     socket.on("typing", function() {
@@ -452,7 +454,7 @@ console.log(socket.id);
 		// echo to room 1 that a person has connected to their room
 		socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
     socket.emit('updateusers', usernames, socket.id);
-    console.log(usernames);
+    // console.log(usernames);
 		socket.emit('updaterooms', rooms, socket.room);
 	});
 
@@ -460,6 +462,7 @@ console.log(socket.id);
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
   		io.in(socket.room).emit('updatechat', socket.username, data);
+          console.log(usernames)
   	});
 
 
