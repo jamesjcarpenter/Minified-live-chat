@@ -111,14 +111,18 @@ var socket = io.connect('anomic.io/');
          $('#PMbutton').hide();
          
          //
-         
+         $('#data').keypress(function(e) {
+           if(e.which == 13) {
+             $(this).blur();
+             $('#datasend').focus().click();
          $('#datasend').click( function() {
            var privatemessage = $('#data').val().trim();
            $('#data').val('');
            // tell server to execute 'sendchat' and send along one parameter
            socket.emit('private-message', message);
          });
-         
+       };
+     });
          
           $('#goback').show();
           $('#goback').click(function() {
