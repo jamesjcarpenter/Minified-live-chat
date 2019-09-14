@@ -401,7 +401,7 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-console.log(client.socket.id);
+console.log(clients.socket.id);
 
 
 
