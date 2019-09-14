@@ -22,7 +22,7 @@ $(function() {
                 
                 function ytVids()
                 { 
-                   document.getElementById('#youtubeplayer').onclick = function()
+                   document.getElementById('#results').onclick = function()
                    {
                        $('#youtubeplaywrap').hide();
                    }
