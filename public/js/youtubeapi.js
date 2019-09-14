@@ -22,7 +22,7 @@ $(function() {
                 
                    document.getElementById('#results').onclick = function()
                    {
-                       $('#results').hide();
+                      $('#chatbox').click();
                    }
                 
             });
