@@ -47,13 +47,15 @@ router.get('/', function(req, res) {
 router.use(function (req, res, next) {
 
     if (req.originalUrl === 'server.js') {
-    res.status(404)        // HTTP status 404: NotFound
-   .send('Not found');
- } if (req.originalUrl === '/janus.js') {
-  res.status(404)        // HTTP status 404: NotFound
- .send('Not found');
+      res.status(404) 
+      .send('Not found');
+    } if (req.originalUrl === '/server.js') {
+      res.status(404)
+      .send('Not found'); 
+      return next();
+    } else {       // HTTP status 404: NotFound
+      next();
   };
-  next();
 });
 
 router.get('/room', function(req, res) {
