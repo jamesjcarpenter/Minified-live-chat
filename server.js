@@ -481,11 +481,11 @@ console.log(socket.id);
 
 
 // Provide access to node_modules folder
-app.use('./scripts', express.static(`${__dirname}/node_modules/`));
+app.use('/', express.static(`${__dirname}/node_modules/`));
 
-app.use('./scripts', express.static(`${__dirname}/semantic/`));
+app.use('/', express.static(`${__dirname}/semantic/`));
 
-app.use('./scripts', express.static(`${__dirname}/libs/`));
+app.use('/', express.static(`${__dirname}/libs/`));
 
 // global variables
 
