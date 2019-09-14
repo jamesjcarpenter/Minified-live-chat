@@ -25,10 +25,10 @@ function roomRand()
     }
     
     return ro;
+    $('#roomNam').html(url.substr(url.lastIndexOf("=")+1));
+    $('#roomNum').html(ro);
 }
 
-$('#roomNam').html(url.substr(url.lastIndexOf("=")+1));
-$('#roomNum').html(ro);
 
 $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
