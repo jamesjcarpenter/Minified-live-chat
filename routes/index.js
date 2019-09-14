@@ -97,6 +97,8 @@ router.use(function (req, res, next) {
     return next();
   } if (req.originalUrl === '/newroom') {
     return next();
+  } if (req.originalUrl === '/') {
+    return next();
   } else {
     res.status(404)        // HTTP status 404: NotFound
    .send('Not found');
