@@ -223,9 +223,12 @@ app.use(function(req, res, next) {
     exports.token = req.user;
       if (req.user === undefined)
       req.user === 'guest'
-    } else {
+      
+      if (req.user === null)
+      req.user === 'guest'
+      
+      if (req.user)
       req.user = io.socket.username;
-    }
     next();
 });
 var routes = require('./routes/index.js');
