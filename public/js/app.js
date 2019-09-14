@@ -113,8 +113,8 @@ var socket = io.connect('anomic.io/');
           $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
-             $('#messagingthem').hide().empty();
-             $('#goback').hide().empty();
+             $('#messagingthem').remove();
+             $('#goback').remove();
            });
        });
      });
