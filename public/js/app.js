@@ -123,7 +123,7 @@ var socket = io.connect('anomic.io/');
        });
        });
          
-  $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>') 
+         
           $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
@@ -151,13 +151,13 @@ var socket = io.connect('anomic.io/');
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
-    $('#messages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+    $('#conversation,#messages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
     $("#data").focus();
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#messages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
-    $('#messages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#messages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
+    $('#conversation,#messages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+    $('#conversation,#messages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
+    $('#conversation,#messages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
   });
   
 
@@ -165,7 +165,7 @@ var socket = io.connect('anomic.io/');
   socket.on('serverupdatechat', function (server, username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
-        $('#messages').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
+        $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#roomname").empty();
         $("#roomname").append('<span class="ui medium text" id="roomname"><div class="ui grey label"id="roomname">Room #'+ '' + url.substr(url.lastIndexOf("=")+1) + '</span></div>');
           });
