@@ -116,6 +116,15 @@ var socket = io.connect('anomic.io/');
          $('#PMbutton').hide();
          
          //
+         
+         $('#datasend').click( function() {
+           var privatemessage = $('#data').val().trim();
+           $('#data').val('');
+           // tell server to execute 'sendchat' and send along one parameter
+           socket.emit('privatechat', message);
+         });
+         
+         
           $('#goback').show();
           $('#goback').click(function() {
              $('#messages').show();
@@ -130,6 +139,16 @@ var socket = io.connect('anomic.io/');
       
 		});
 	});
+  
+  socket.on('updateprivchat', function (username, data) {
+    $('#messages').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+    $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 100);
+    $("#data").focus();
+    // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
+    $('#privatemessages').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
+    $('#privatemessages').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
+    $('#privatemessages').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
+  }
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
