@@ -25,7 +25,7 @@ $(function() {
                   $('#youtubevideo').click( function() {
                     $('#youtubeplayer').appendTo('#vidWtch');
                     document.getElementById("#youtubeplayer").src="https://www.youtube.com/embed/<%= videoid %>";
-                    $("#youtube")[0].src += "&autoplay=1";
+                    $("#youtubeplayer")[0].src += "&autoplay=1";
                     $('#youtubeplayer').show();
                      });
                 });
