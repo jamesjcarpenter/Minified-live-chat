@@ -385,21 +385,7 @@ var users = {};
 
 io.sockets.on('connection', function (socket) {
     // let setRoom;
-    socket.on('new user', function(data, callback){
-      if (data in users){
-        callback(false);
-      } else {
-        callback(true);
-        socket.nickname = data;
-        users[socket.nickname] = socket;
-        // nicknames.push(socket.nickname);
-        updateNicknames();
-      }
-    });
     
-    function updateNicknames(){
-      io.sockets.emit('usernames', Object.keys(users));
-    }
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
@@ -408,7 +394,7 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
     io.sockets.on('connect', function(client) {
-        clients.push(client); 
+        clients.push(Object.keys.client); 
 
         client.on('disconnect', function() {
           clients.splice(clients.indexOf(client), 1);
