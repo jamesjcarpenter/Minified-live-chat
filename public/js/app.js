@@ -190,9 +190,7 @@ socket.on('connect', function(data) {
         if (pattern.test(message)) {
           $('data').append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
           return true
-          }
-          return true; //good user input
-        });
+          };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
