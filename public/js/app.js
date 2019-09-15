@@ -159,10 +159,12 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
     
     $(function() {
-    var text = $("#message").html();
-    text = text.replace(':)', '&#9786;').prepend('<img id="smile" src="images/images/smile.png" />')
-    $("#message").html(text);
-    });
+    var text = $('#data').val();
+    if text = ':)'{
+      $('#conversation').append($('<img id="smile" class="smile" src="images/images/smile.png">'))
+    };
+      
+});
   });
   
 
