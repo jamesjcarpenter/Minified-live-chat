@@ -183,10 +183,10 @@ socket.on('connect', function(data) {
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       var str = '';
       if (re.test(message)) {
-        var message = $('#data').val().trim();
-        $('#data').val('');
         $('#message').each(function(){
-            $(this).wrapInner('<a name="' + $(this).appendTo('#conversation') + '" />');
+        var message = $('#data').val().trim();
+        $(this).wrapInner('<a name="' + $(this).appendTo('#conversation') + '" />');
+        $('#data').val('');
         });
       };
       
