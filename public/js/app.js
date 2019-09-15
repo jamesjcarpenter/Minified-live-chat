@@ -185,11 +185,12 @@ socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
       
-      var emote = $('#message').replaceWith('<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>');
+      var emote = $('#data').val().replaceWith('<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>');
       var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
       var str = '';
       if (re.test(message)) {
         message = str.replace(emote, str);
+        $('#data').empty();
       };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
