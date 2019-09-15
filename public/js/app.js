@@ -187,9 +187,9 @@ socket.on('connect', function(data) {
       
       var emote = $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
         var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-        var str = '' + emote;
+        var str = '';
         if (re.test(message)) {
-          message = str.replace(re);
+          message = str.replace(re, emote);
         };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
