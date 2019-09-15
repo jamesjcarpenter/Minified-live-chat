@@ -150,6 +150,10 @@ var socket = io.connect('anomic.io/');
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
+      $("#message").each(function(){
+          $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+        });
+
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
     $("#data").focus();
@@ -179,15 +183,14 @@ socket.on('connect', function(data) {
       
       
       // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
-      var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
-      if (re.test(message)) {
-              $("#message").each(function(){
-                $(this).html( $(this).html().replace(/((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/, '<a href="$1">$1</a> ') );
-              });
-      };
-      
-    //   $("#message").each(function(){
-    //     $(this).html( $(this).html().replace(/((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/, '<a href="$1">$1</a> ') );
+    //   var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
+    //   var str = '' + msgUrl;
+    //   if (re.test(message)) {
+    //     message = str.replace(re)
+    //   };
+    // 
+    //   $("#autlink").each(function(){
+    //     $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
     // });
 
       
