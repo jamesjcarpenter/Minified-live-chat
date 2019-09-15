@@ -182,7 +182,7 @@ socket.on('connect', function(data) {
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       var str = '';
       if (re.test(data, message)) {
-       message = message.replace(re, '<a>' + '<a href="' + message + '"' + '>' + '</a>' + '</a>');
+       message = str.replace(re);
       };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
