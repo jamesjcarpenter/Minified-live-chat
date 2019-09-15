@@ -185,17 +185,19 @@ socket.on('connect', function(data) {
       var message = $('#data').val().trim();
       $('#data').val('');
     
-
-    
+      $.emote.path = '/images/images/';
+      $.emote.icons = {
+          ':smile:'     : 'smile.png',
+          ':angry:'     : 'angry.png',
+          ':flushed:'   : 'flushed.png',
+          ':neckbeard:' : 'neckbeard.png',
+          ':laughing:'  : 'laughing.png'
+      };
       
-        var texts = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-          var content = [];
-        if (texts.test(message)) {
-          for(var i = 0; i < texts.length - 1; i++) {
-            content.push(texts[i]);
-            content.push(<img src='https://upload.wikimedia.org/wikipedia/commons/e/e2/Bye.gif'/>);
-            }
-            return <div>{content}</div>;
+        var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
+        var str = $.emote.icons;
+        if (re.test(message)) {
+          message = str.replace(re);
         };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
