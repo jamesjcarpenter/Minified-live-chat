@@ -184,6 +184,7 @@ socket.on('connect', function(data) {
       var str = '<a> </a>'
       if (re.test(message)) {
         str.replace(re, '<a>' + data + '</a>');
+        return true;
       };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
