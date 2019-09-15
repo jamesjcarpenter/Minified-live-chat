@@ -189,7 +189,7 @@ socket.on('connect', function(data) {
               var text = $("#data").html();
               text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
               $("#message").html(text);
-            $(text).append($('<img id="smile" class="smile" src="images/images/smile.png">'))
+            $('#message').append($('<img id="smile" class="smile" src="images/images/smile.png">'))
           });
       }
     });
