@@ -188,8 +188,17 @@ socket.on('connect', function(data) {
       }
     });
   });
+  $('#conversation').emojiarea()
+  $('#data').emojiarea()
   
-  
+  $.emojiarea.path = '/images/images/';
+  $.emojiarea.icons = {
+      ':smile:'     : 'smile.png',
+      ':angry:'     : 'angry.png',
+      ':flushed:'   : 'flushed.png',
+      ':neckbeard:' : 'neckbeard.png',
+      ':laughing:'  : 'laughing.png'
+  };
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
