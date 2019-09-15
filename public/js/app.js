@@ -189,6 +189,7 @@ socket.on('connect', function(data) {
               var text = $("#data").html();
                 text = text.replace(':)', '&#9786;').replace('<i class="smile outline icon"></i>');
                   $("#message").html(text);
+            $('#message').append($('<i class="smile outline icon"></i>'))
     });
       }
     });
