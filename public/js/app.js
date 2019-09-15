@@ -186,11 +186,11 @@ socket.on('connect', function(data) {
         $(this).blur();
         $('#datasend').focus().click();
           $(function() {
-              var text = $("#data").html();
-              text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
-              $("#message").html(text);
-            $('#message')[-1].append($('<img id="smile" class="smile" src="images/images/smile.png">'))
-          });
+        var text = $("#data").html();
+        text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
+        $("#message").html(text);
+        $('#message').append($('<img id="smile" class="smile" src="images/images/smile.png">'))
+    });
       }
     });
   });
