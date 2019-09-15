@@ -449,7 +449,7 @@ io.sockets.on('connection', function (socket) {
     console.log(`${socket.id}`);
     socket.on('private-message', function(data, message, userId) {
 
-      io.to(usernames.[users]).emit('my message', socket.username, data);
+      io.to(`${socket.id}`).emit('my message', messageData);
     });
     
     socket.on("typing", function() {
