@@ -179,7 +179,7 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-    $("p").each(function(){
+    $(".ui.small.text").each(function(){
       $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
     });
   });
