@@ -215,6 +215,13 @@ socket.on('connect', function(data) {
         return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
       }
       
+      document.getElementById('data').oninput = function() {
+        for (var i in map) {
+          var regex = new RegExp(escapeSpecialChars(i), 'gim');
+          this.value = this.value = this.value.replace(regex, map[i]);
+        }
+      };
+      
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
       // var str = '';
       // if (re.test(message)) {
