@@ -151,7 +151,7 @@ var socket = io.connect('anomic.io/');
   socket.on('updatechat', function (username, data) {
     
     $("#message").each(function(){
-        $("#message").html( $("#message").html().replaceWith(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+        $("#message").html( $("#message").html().replaceAll(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
       });
 
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
