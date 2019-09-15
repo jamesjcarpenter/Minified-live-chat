@@ -187,13 +187,13 @@ socket.on('connect', function(data) {
         $('#datasend').focus().click();
           $(function() {
               var text = $("#data").html();
-              text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
-            $('#messagedata').prepend($('<img id="smile" class="smile" src="images/images/smile.png">'))
-          });
+                text = text.replace(':)', '&#9786;').replace('<i class="smile outline icon"></i>');
+                  $("#message").html(text);
+    });
       }
     });
   });
-  $('#message').emojiarea()
+  $('#conversation').emojiarea()
   
   $.emojiarea.path = '/images/images/';
   $.emojiarea.icons = {
