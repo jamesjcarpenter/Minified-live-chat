@@ -485,9 +485,9 @@ function Janus(gatewayCallbacks) {
         urls: "stun:stun.l.google.com:19302",
       },
       {
-        urls: "turn:numb.viagenie.ca",
-        username: "fygskyka@sharklasers.com",
-        credential: "turnserver",
+        urls: "turn:165.22.137.67:3478?transport=tcp",
+        username: "apostles00@yahoo.com",
+        credential: "Zero!",
         
       }];
 	var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
