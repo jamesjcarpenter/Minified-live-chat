@@ -69,7 +69,7 @@
   font-size: 1.5em;
   width: 100%;
   padding: 0.25em;
-  background: #78CB5B;
+  background: #2196F3;
   border: none;
   border-radius: 500rem;
   color: #FFFFFF;
@@ -129,7 +129,7 @@
   margin: 0;
   font-size: 1em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.87);
+  color: #212121;
 }
 
 /* Summary Image */
@@ -169,7 +169,7 @@
   display: inline-block;
   float: none;
   font-weight: normal;
-  font-size: 0.84615385em;
+  font-size: 0.85714286em;
   font-style: normal;
   margin: 0 0 0 0.5em;
   padding: 0;
@@ -184,7 +184,7 @@
   margin: 0.5em 0 0;
   background: none;
   padding: 0;
-  color: rgba(0, 0, 0, 0.87);
+  color: #212121;
 }
 
 /* Images */
@@ -200,7 +200,7 @@
   border-left: none;
   font-size: 1em;
   max-width: 500px;
-  line-height: 1.4285em;
+  line-height: 1.33;
 }
 
 /*--------------
@@ -209,12 +209,12 @@
 
 .ui.feed > .event > .content .meta {
   display: inline-block;
-  font-size: 0.84615385em;
+  font-size: 0.85714286em;
   margin: 1em 0em 0em;
   background: #FFFFFF -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #FFFFFF -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #FFFFFF linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  border: 1px solid #DDDDDD;
+  border: 1px solid #D4D4D5;
   border-radius: 0.25em;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -275,13 +275,13 @@
 *******************************/
 
 .ui.small.feed {
-  font-size: 0.92307692rem;
+  font-size: 0.92857143rem;
 }
 .ui.feed {
   font-size: 1rem;
 }
 .ui.large.feed {
-  font-size: 1.15384615rem;
+  font-size: 1.14285714rem;
 }
 
 /*------------------
@@ -289,7 +289,7 @@
 -------------------*/
 
 .ui.inverted.feed > .event {
-  background: #333333;
+  background: #1B1C1D;
 }
 .ui.inverted.feed > .event > .content .date,
 .ui.inverted.feed > .event > .content .meta .like {
