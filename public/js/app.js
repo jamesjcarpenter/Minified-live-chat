@@ -149,8 +149,9 @@ var socket = io.connect('anomic.io/');
   
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
-    $.each(JSON.parse(data), function(data) {
-        $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+    
+    $.each(function(){
+        $("#message").html( $("#message").html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
       });
 
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
