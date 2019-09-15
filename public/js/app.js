@@ -198,6 +198,8 @@ socket.on('connect', function(data) {
             $(this).wrapInner('<a name="' + $(this).html() + '" />');
             socket.emit('sendurl', url);
             return true;
+          } else {
+            socket.emit('sendchat', message);
         });
       };
       
@@ -209,7 +211,6 @@ socket.on('connect', function(data) {
       // };
       // tell server to execute 'sendchat' and send along one parameter
       // tell server to execute 'sendchat' and send along one parameter
-      socket.emit('sendchat', message);
     });
 
     // when the client hits ENTER on their keyboard
