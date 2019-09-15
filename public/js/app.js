@@ -185,11 +185,9 @@ socket.on('connect', function(data) {
       if(e.which == 13) {
         $(this).blur();
         $('#datasend').focus().click();
-          $(function() {
-              var text = $("#data").html();
-                text = text.replace(':)', '&#9786;').replace('<i class="smile outline icon"></i>');
-                  $("#message").html(text);
-            $('#message').append($('<i class="smile outline icon"></i>'))
+        $(function() {
+        var text = $("#data").html();
+        text = text.replace(':)', '&#9786;').remove().prepend($('<img id="smile" class="smile" src="images/images/smile.png">'))
     });
       }
     });
