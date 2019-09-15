@@ -511,7 +511,8 @@ div.no-video-container {
   position:relative;
   width:30px;
   height:30px;
-  right:3vw;
+  right:6vw;
+  top:2vw;
 }
 
 pre {
