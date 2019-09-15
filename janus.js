@@ -480,9 +480,9 @@ function Janus(gatewayCallbacks) {
 	var iceServers = gatewayCallbacks.iceServers;
 	if(iceServers === undefined || iceServers === null)
 		iceServers = [{
-        urls: "turn:numb.viagenie.ca",
-        username: "fygskyka@sharklasers.com",
-        credential: "turnserver"
+        urls: "turn:165.22.137.67:3478?transport=tcp",
+        username: "apostles00@yahoo.com",
+        credential: "Zero!"
       }];
 	var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
 	var bundlePolicy = gatewayCallbacks.bundlePolicy;
