@@ -506,6 +506,14 @@ div.no-video-container {
   min-width:21.5vw;
 }
 
+#smileImg {
+  margin:0 auto;
+  position:relative;
+  width:30px;
+  height:30px;
+  
+}
+
 pre {
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
@@ -523,13 +531,6 @@ pre {
 		color: #FFD700;
 	}
   
-  #smileImg {
-    margin:0 auto;
-    position:relative;
-    width:30px;
-    height:30px;
-    
-  }
   
   .emoji-wysiwyg-editor {
 	border: 1px solid #d0d0d0;
