@@ -197,31 +197,7 @@ socket.on('connect', function(data) {
       socket.emit('sendchat', message);
     });
 
-    $(document).ready(function(e) {
-    
-      $('#text-custom-trigger').emojiPicker({
-        width: '300px',
-        height: '200px',
-        button: false
-      });
-    
-      $('#input-default').emojiPicker();
-    
-      $('#input-custom-size').emojiPicker({
-        width: '300px',
-        height: '200px'
-      });
-    
-      $('#input-left-position').emojiPicker({
-        position: 'left'
-      });
-    
-      $('#trigger').click(function(e) {
-        e.preventDefault();
-        $('#text-custom-trigger').emojiPicker('toggle');
-      });
-    
-    });
+
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
@@ -231,16 +207,16 @@ socket.on('connect', function(data) {
       }
     });
   });
-  // $('#conversation').emojiarea()
-  // 
-  // $.emojiarea.path = '/images/images/';
-  // $.emojiarea.icons = {
-  //     ':smile:'     : 'smile.png',
-  //     ':angry:'     : 'angry.png',
-  //     ':flushed:'   : 'flushed.png',
-  //     ':neckbeard:' : 'neckbeard.png',
-  //     ':laughing:'  : 'laughing.png'
-  // };
+  $('#conversation').emojiarea()
+  
+  $.emojiarea.path = '/images/images/';
+  $.emojiarea.icons = {
+      ':smile:'     : 'smile.png',
+      ':angry:'     : 'angry.png',
+      ':flushed:'   : 'flushed.png',
+      ':neckbeard:' : 'neckbeard.png',
+      ':laughing:'  : 'laughing.png'
+  };
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
