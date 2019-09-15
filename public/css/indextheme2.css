@@ -315,6 +315,24 @@
     height:auto;
   }
   
+  #emojimsg{
+    padding-top:12.5px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:13px;
+    margin:0 auto;
+    margin-left:45px;
+    bottom:5px;
+    background-color:	#404040!important;
+    color:white;
+    word-wrap: break-word;
+    position:justify;
+    font-size: 12px;
+    line-height:195%;
+    width: 80%;
+    height:auto;
+  }
+  
   #publish {
     position:relative;
     display:block;
