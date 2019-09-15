@@ -184,13 +184,18 @@ socket.on('connect', function(data) {
     $('#datasend').click( function() {
       var message = $('#data').val().trim();
       $('#data').val('');
+    
+
+    
       
-      var emote = $("#message").append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
-      
-        var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-        var str = emote;
-        if (re.test(message)) {
-          message = str.replace(re, 'oranges');
+        var texts = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
+          var content = [];
+        if (texts.test(message)) {
+          for(var i = 0; i < texts.length - 1; i++) {
+            content.push(texts[i]);
+            content.push(<img src='https://upload.wikimedia.org/wikipedia/commons/e/e2/Bye.gif'/>);
+            }
+            return <div>{content}</div>;
         };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
