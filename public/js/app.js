@@ -177,13 +177,17 @@ socket.on('connect', function(data) {
       var message = $('#data').val().trim();
       $('#data').val('');
       
-      
+      $("#message").each(function(){
+        $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+      });
+
       // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
-      var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
-      var str = 'Apples are round, and apples are juicy.';
-      if (re.test(message)) {
-        message = str.replace(re)
-      };
+      // var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
+      // var str = '' + msgUrl;
+      // var msgUrl = "<a h
+      // if (re.test(message)) {
+      //   message = str.replace(re)
+      // };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
       // var str = '';
