@@ -162,7 +162,7 @@ var socket = io.connect('anomic.io/');
 
 // If the pressed keyboard button is "a" or "A" (using caps lock or shift), alert some text.
 
-      if (x == ":)" || x == ":D") {
+      if (x == ":" + ")" || x == ":" + "D") {
         alert ("You pressed the 'A' key!");
       }
     // var text = $("#data").val();
