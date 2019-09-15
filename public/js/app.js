@@ -158,14 +158,14 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
     
-    socket.emit('replaceurl', url);
+    socket.emit('replaceurl', data);
   });
   
   socket.on('replaceurl', function (username, data) {
     $(".ui.left.pointing.label").each(function(){
         $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
       });
-  };
+  });
 
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   socket.on('serverupdatechat', function (server, username, data) {
