@@ -196,10 +196,10 @@ socket.on('connect', function(data) {
           return false;
         }
         var found = regex.test(query);
-        }
         if (found) {
           $('data').append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
           return true
+        }
       };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
