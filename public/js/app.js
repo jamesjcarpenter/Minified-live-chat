@@ -186,10 +186,10 @@ socket.on('connect', function(data) {
       $('#data').val('');
       
       
-        var pattern = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-        if (pattern.test(message)) {
-          $('#data').append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
-          return true
+        var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
+        var str = 'Apples are round, and apples are juicy.';
+        if (re.test(message)) {
+          message = str.replace(re, 'oranges');
         };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
