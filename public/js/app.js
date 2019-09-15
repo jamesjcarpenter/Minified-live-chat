@@ -160,8 +160,7 @@ var socket = io.connect('anomic.io/');
     
     $(function() {
     var text = $("#message").html();
-    text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
-    $("#message").html(text);
+    text = text.replace(':)', '&#9786;').prepend('<img id="smile" src="images/images/smile.png" />')
     });
   });
   
