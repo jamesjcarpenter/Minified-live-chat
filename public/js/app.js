@@ -183,7 +183,7 @@ socket.on('connect', function(data) {
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       var str = '';
       if (re.test(message)) {
-        $.each(message, function(message){
+        $.each(data, function(message){
             $(message).wrapInner('<a name="' + $(this).append('#message') + '" />');
             $('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').prependTo($('#conversation').text(data));
         });
