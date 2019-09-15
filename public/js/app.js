@@ -100,10 +100,16 @@ var socket = io.connect('anomic.io/');
   socket.on('updateusers', function(data) {
     
 		$('#userlist').empty();
-    $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + socket.id + '</span></div>');
+    $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser">' + '<div id="keyUse"name="<%=' + socket.id  + '%>">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
-      
+			$('#userlist').append('<div id="connecteduser"name="' + socket.username + '">' + '<div id="keyUse"name="<%=' + socket.id  + '%>">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+    
+      function addBack(){
+      $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
+      $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
+      $('#messagingthem').hide();
+      $('#goback').hide();
+    };
       $(document).ready(function(){ 
         
        $('#PMbutton').click(function() {
@@ -139,13 +145,6 @@ var socket = io.connect('anomic.io/');
 		});
 	});
   
-  
-  function addBack(){
-  $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
-  $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
-  $('#messagingthem').hide();
-  $('#goback').hide();
-};
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
