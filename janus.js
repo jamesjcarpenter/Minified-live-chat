@@ -479,11 +479,17 @@ function Janus(gatewayCallbacks) {
 	}
 	var iceServers = gatewayCallbacks.iceServers;
 	if(iceServers === undefined || iceServers === null)
-		iceServers = [{urls: "stun:stun.l.google.com:19302",
-                  urls: "turn:numb.viagenie.ca",
-                  username: "fygskyka@sharklasers.com",
-                  credential: "turnserver"
-      }}];
+		iceServers = [
+      {
+        
+        urls: "stun:stun.l.google.com:19302",
+      },
+      {
+        urls: "turn:numb.viagenie.ca",
+        username: "fygskyka@sharklasers.com",
+        credential: "turnserver",
+        
+      }];
 	var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
 	var bundlePolicy = gatewayCallbacks.bundlePolicy;
 	// Whether IPv6 candidates should be gathered
