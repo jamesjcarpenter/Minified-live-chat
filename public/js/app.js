@@ -185,7 +185,7 @@ socket.on('connect', function(data) {
       if (re.test(message)) {
         $('#message').each(function(){
         $(this).wrapInner('<a name="' + $(this).trim().appendTo('#conversation') + '" />');
-        $('#data').val('');
+        $('#message').val('');
         });
       };
       
