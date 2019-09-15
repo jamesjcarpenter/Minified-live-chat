@@ -534,6 +534,16 @@ div.no-video-container {
   text-align:center;
 }
 
+#joyImg {
+  margin:0 auto;
+  position:relative;
+  width:30px;
+  height:30px;
+  right:0vw;
+  top:0vw;
+  text-align:center;
+}
+
 pre {
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
