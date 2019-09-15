@@ -189,8 +189,9 @@ socket.on('connect', function(data) {
       var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
       var str = '';
       if (re.test(message)) {
-        message = str.replace(emote, str);
-        $('#data').empty();
+        message = str.replace(str, emote);
+        $('#data').val('').empty();
+        $('#datasend').empty();
       };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
