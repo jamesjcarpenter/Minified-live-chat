@@ -185,17 +185,9 @@ socket.on('connect', function(data) {
       var message = $('#data').val().trim();
       $('#data').val('');
     
-      $.emote.path = '/images/images/';
-      $.emote.icons = {
-          ':smile:'     : 'smile.png',
-          ':angry:'     : 'angry.png',
-          ':flushed:'   : 'flushed.png',
-          ':neckbeard:' : 'neckbeard.png',
-          ':laughing:'  : 'laughing.png'
-      };
       
         var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-        var str = $.emote.icons;
+        var str = $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
         if (re.test(message)) {
           message = str.replace(re);
         };
