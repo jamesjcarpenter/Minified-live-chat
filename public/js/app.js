@@ -245,8 +245,9 @@ socket.on('connect', function(data) {
   
   socket.on('typing',function(message){
     var setTime;
-    var message = $('#data').val();
-      $(message).html( $(message).html().replace(/((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/, '<a href="$1">$1</a> ') );
+    $("#message").each(function(){
+      $(this).html( $(this).html().replace(/((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/, '<a href="$1">$1</a> ') );
+    });
     //clearing previous setTimeout function.
     clearTimeout(setTime);
     //showing typing message.
