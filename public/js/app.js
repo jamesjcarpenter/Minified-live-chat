@@ -156,18 +156,7 @@ var socket = io.connect('anomic.io/');
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-  });
-  
-  socket.on('sendurl', function (username, data) {
-    
-    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
-    $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
-    $("#data").focus();
-    // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
-    $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#conversation').append($('<div class="ui left pointing label"id="urlmessage"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
+    $('#conversation').appendChild($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
   });
   
 
@@ -194,9 +183,8 @@ socket.on('connect', function(data) {
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       var str = '';
       if (re.test(message)) {
-        $('#urlmessage').each(function(){
+        $('#message').each(function(){
             $(this).wrapInner('<a name="' + $(this).html() + '" />');
-            socket.emit('sendurl', url);
         });
       };
       
@@ -208,7 +196,7 @@ socket.on('connect', function(data) {
       // };
       // tell server to execute 'sendchat' and send along one parameter
       // tell server to execute 'sendchat' and send along one parameter
-
+      socket.emit('sendchat', message);
     });
 
     // when the client hits ENTER on their keyboard
