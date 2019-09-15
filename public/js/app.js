@@ -157,14 +157,6 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-    
-    // $(function() {
-    // var text = $("#data").html();
-    // text = text.replace(':D', '&#9786;').replace('&lt;3', '&#9829;');
-    // $("#data").html(text);
-    //   $("#message").replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
-    // });
-    // 
   });
   
 
@@ -180,19 +172,19 @@ var socket = io.connect('anomic.io/');
 
   // on load of page
 socket.on('connect', function(data) {
-    var message = $('#data').val().trim();
-    $('#data').val('');
     // when the client clicks SEND
     $('#datasend').click( function() {
+      var message = $('#data').val().trim();
+      $('#data').val('');
       
       // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
       
-      // var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
-      // var str = '<a href="' + message + '"' + '>' + '</a>';
-      // if (re.test(message)) {
-      //   message = str;
-      //   socket.emit('sendchat', message);
-      // };
+      var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
+      var str = '<a href="' + message + '"' + '>' + '</a>';
+      if (re.test(message)) {
+        message = str;
+        socket.emit('sendchat', message);
+      };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
       // var str = '';
@@ -201,10 +193,9 @@ socket.on('connect', function(data) {
       //   socket.emit('sendchat', message);
       // };
       // tell server to execute 'sendchat' and send along one parameter
+      // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
-
-
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
@@ -214,16 +205,8 @@ socket.on('connect', function(data) {
       }
     });
   });
-  // $('#conversation').emojiarea()
   
-  // $.emojiarea.path = '/images/images/';
-  // $.emojiarea.icons = {
-  //     ':smile:'     : 'smile.png',
-  //     ':angry:'     : 'angry.png',
-  //     ':flushed:'   : 'flushed.png',
-  //     ':neckbeard:' : 'neckbeard.png',
-  //     ':laughing:'  : 'laughing.png'
-  // };
+  
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
@@ -269,7 +252,7 @@ socket.on('connect', function(data) {
     socket.on('disconnect', function(){
     		// remove the username from global usernames list
     		// update list of users in chat, client-side
-    		socket.emit('updateusers', usernames);
+    		io.sockets.emit('updateusers', usernames);
     		// echo globally that this client has left
     		socket.broadcast.emit('serverupdatechat', '' + socket.username + ' has disconnected');
     		socket.leave(socket.room);
