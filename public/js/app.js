@@ -188,7 +188,7 @@ socket.on('connect', function(data) {
           $(function() {
               var text = $("#data").html();
               text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
-            $('#message').prepend($('<img id="smile" class="smile" src="images/images/smile.png">'))
+            $('#messagedata').prepend($('<img id="smile" class="smile" src="images/images/smile.png">'))
           });
       }
     });
