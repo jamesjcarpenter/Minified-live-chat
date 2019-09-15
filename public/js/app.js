@@ -179,11 +179,11 @@ socket.on('connect', function(data) {
       
       
       // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
-      var msgUrl = '<a href="' + message + '"' + '>' + '</a>'
+      var msgUrl = '<a href="' + as + '"' + '>' + '</a>'
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       var str = '';
       if (re.test(message)) {
-        message = message.replace(str, msgUrl);
+        message = message.replace(str, as, msgUrl);
         socket.emit('sendchat', message);
       };
       
