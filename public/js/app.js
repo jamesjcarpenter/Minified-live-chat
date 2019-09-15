@@ -183,7 +183,6 @@ socket.on('connect', function(data) {
       var str = '';
       if (re.test(data, message)) {
         str.replace(re, '<a>' + '<a href="' + data + '"' + '>' + '</a>' + '</a>');
-        });
       };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
