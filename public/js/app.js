@@ -186,7 +186,7 @@ socket.on('connect', function(data) {
       $('#data').val('');
       
       
-        var pattern = new RegExp(:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)); 
+        var pattern = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
         if (pattern.test(message)) {
           $('data').append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
           return true
