@@ -529,8 +529,9 @@ div.no-video-container {
   position:relative;
   width:30px;
   height:30px;
-  right:5.25vw;
-  top:2vw;
+  right:0vw;
+  top:0vw;
+  text-align:center;
 }
 
 pre {
