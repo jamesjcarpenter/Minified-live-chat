@@ -23,7 +23,9 @@ $('#youtubeopen').click( function() {
 });
 
 
-  
+$(".ui.left.pointing.label").each(function(){
+    $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+  });
 
 
     document.getElementById('themecss').href = 'css/indextheme2.css';
@@ -150,9 +152,7 @@ var socket = io.connect('anomic.io/');
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
-    $(".ui.left.pointing.label").each(function(){
-        $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
-      });
+
 
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
