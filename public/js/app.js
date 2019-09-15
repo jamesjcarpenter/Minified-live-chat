@@ -183,7 +183,9 @@ socket.on('connect', function(data) {
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       var str = '';
       if (re.test(message)) {
-        message.split(" ").map(messagePart => URL_REGEX.test(messagePart) ? <a href={messagePart}>{messagePart}</a> : messagePart)
+        $(data).each(function(){
+          $(this).wrapInner('<a href="' + $(this).html() + '" />');
+          });​
       };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
