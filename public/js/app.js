@@ -158,15 +158,6 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
     
-      var message = data;
-    
-      var emote = $('#message').replaceWith('<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>');
-      var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-      var str = '';
-      if (re.test(message)) {
-        message = str.replace(emote, str);
-      };
-    
     // $(function() {
     // var text = $("#data").html();
     // text = text.replace(':D', '&#9786;').replace('&lt;3', '&#9829;');
@@ -193,6 +184,13 @@ socket.on('connect', function(data) {
     $('#data').val('');
     // when the client clicks SEND
     $('#datasend').click( function() {
+      
+      var emote = $('#message').replaceWith('<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>');
+      var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
+      var str = '';
+      if (re.test(message)) {
+        message = str.replace(emote, str);
+      };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
