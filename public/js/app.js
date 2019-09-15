@@ -192,7 +192,7 @@ socket.on('connect', function(data) {
           return true
           }
           return true; //good user input
-        }
+        });
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
     });
