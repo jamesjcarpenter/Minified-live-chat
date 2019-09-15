@@ -187,7 +187,7 @@ socket.on('connect', function(data) {
       
       
         var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-        var str = $(message).replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
+        var str = $("#message").replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
         if (re.test(message)) {
           message = str.replace(re, 'oranges');
         };
