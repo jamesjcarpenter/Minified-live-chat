@@ -179,9 +179,9 @@ socket.on('connect', function(data) {
       
       
       // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
-      // var msgUrl = $('#messagedata').replaceWith('<a>' + '<a href="' + message + '"' + '>' + '</a>' + '</a>');
+      var msgUrl = $('#messagedata').replaceWith('<a>' + '<a href="' + message + '"' + '>' + '</a>' + '</a>');
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
-      var str = 'https://www.youtube.com/watch?v=bLHL75H_VEM'
+      var str = '<a>' + '<a href="' + data + '"' + '>' + '</a>' + '</a>'
       if (re.test(message)) {
         str.replace(re, message);
       };
