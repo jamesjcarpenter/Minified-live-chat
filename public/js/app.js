@@ -200,9 +200,9 @@ socket.on('connect', function(data) {
             return true;
           } else {
             socket.emit('sendchat', message);
-        });
       };
-      
+    };
+  };
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
       // var str = '';
       // if (re.test(message)) {
@@ -211,7 +211,6 @@ socket.on('connect', function(data) {
       // };
       // tell server to execute 'sendchat' and send along one parameter
       // tell server to execute 'sendchat' and send along one parameter
-    });
 
     // when the client hits ENTER on their keyboard
     $('#data').keypress(function(e) {
