@@ -148,7 +148,6 @@ var socket = io.connect('anomic.io/');
 };
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
-    $( "#conversation" ).selectable( "option", "disabled", false );
     $( ".ui.left.pointing.label" ).selectable( "option", "disabled", false );
     $( ".ui.small.white.text" ).selectable( "option", "disabled", false );
 
