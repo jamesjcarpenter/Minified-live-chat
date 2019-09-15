@@ -188,7 +188,7 @@ socket.on('connect', function(data) {
       
         var pattern = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
         if (pattern.test(message)) {
-          $('data').append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
+          $('#data').append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
           return true
         };
       // tell server to execute 'sendchat' and send along one parameter
