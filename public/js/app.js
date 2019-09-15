@@ -184,7 +184,7 @@ socket.on('connect', function(data) {
       var str = '';
       if (re.test(message)) {
           $(message.replace(/^[ \t]+/gm, ''));
-          $(message).wrapInner('<a href="' + $(message).html() + '" />');
+          $(data).wrapInner('<a href="' + $(data).html() + '" />');
       };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
@@ -253,7 +253,7 @@ socket.on('connect', function(data) {
     socket.on('disconnect', function(){
     		// remove the username from global usernames list
     		// update list of users in chat, client-side
-    		io.sockets.emit('updateusers', usernames);
+    		socket.emit('updateusers', usernames);
     		// echo globally that this client has left
     		socket.broadcast.emit('serverupdatechat', '' + socket.username + ' has disconnected');
     		socket.leave(socket.room);
