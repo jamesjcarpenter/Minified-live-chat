@@ -185,16 +185,42 @@ socket.on('connect', function(data) {
     // when the client clicks SEND
     $('#datasend').click( function() {
       
-      document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
+      // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
       
-      var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-      var str = '';
-      if (re.test(message)) {
-        message = str.replace(emote, str);
-        socket.emit('sendchat', message);
-      };
+      // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
+      // var str = '';
+      // if (re.test(message)) {
+      //   message = str.replace(emote, str);
+      //   socket.emit('sendchat', message);
+      // };
       // tell server to execute 'sendchat' and send along one parameter
       socket.emit('sendchat', message);
+    });
+
+    $(document).ready(function(e) {
+    
+      $('#text-custom-trigger').emojiPicker({
+        width: '300px',
+        height: '200px',
+        button: false
+      });
+    
+      $('#input-default').emojiPicker();
+    
+      $('#input-custom-size').emojiPicker({
+        width: '300px',
+        height: '200px'
+      });
+    
+      $('#input-left-position').emojiPicker({
+        position: 'left'
+      });
+    
+      $('#trigger').click(function(e) {
+        e.preventDefault();
+        $('#text-custom-trigger').emojiPicker('toggle');
+      });
+    
     });
 
     // when the client hits ENTER on their keyboard
@@ -205,16 +231,16 @@ socket.on('connect', function(data) {
       }
     });
   });
-  $('#conversation').emojiarea()
-  
-  $.emojiarea.path = '/images/images/';
-  $.emojiarea.icons = {
-      ':smile:'     : 'smile.png',
-      ':angry:'     : 'angry.png',
-      ':flushed:'   : 'flushed.png',
-      ':neckbeard:' : 'neckbeard.png',
-      ':laughing:'  : 'laughing.png'
-  };
+  // $('#conversation').emojiarea()
+  // 
+  // $.emojiarea.path = '/images/images/';
+  // $.emojiarea.icons = {
+  //     ':smile:'     : 'smile.png',
+  //     ':angry:'     : 'angry.png',
+  //     ':flushed:'   : 'flushed.png',
+  //     ':neckbeard:' : 'neckbeard.png',
+  //     ':laughing:'  : 'laughing.png'
+  // };
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
