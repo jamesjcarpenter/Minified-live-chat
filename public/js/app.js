@@ -184,10 +184,10 @@ socket.on('connect', function(data) {
     $('#datasend').click( function() {
       var message = $('#data').val().trim();
       $('#data').val('');
-      var emote = $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
       
+      var emote = $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
         var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-        var str = emote;
+        var str = '' + emote;
         if (re.test(message)) {
           message = str.replace(re);
         };
