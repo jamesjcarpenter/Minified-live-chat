@@ -557,6 +557,10 @@ pre {
 	animation: pulsating 1s infinite;
 }
 
+ a { 
+   color: #FF0000; 
+ }
+
 
 #emojiPickerWrap {
 margin: 10px 0 0 0;

@@ -159,10 +159,14 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
     $("#message").each(function(){
       $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+      $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
     });
   });
   
-
+  function getEmojiChars(text) {
+  
+  console.log(text.match(/\ud83c[\udf00-\udfff]|\ud83d[\udc00-\ude4f]|\ud83d[\ude80-\udeff]/g))  ;
+  }
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   socket.on('serverupdatechat', function (server, username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
