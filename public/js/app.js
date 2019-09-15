@@ -164,7 +164,7 @@ var socket = io.connect('anomic.io/');
       var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
       var str = '';
       if (re.test(message)) {
-        message = str.replace(re, emote);
+        message = str.replace(emote, str);
       };
     
     // $(function() {
@@ -189,6 +189,8 @@ var socket = io.connect('anomic.io/');
 
   // on load of page
 socket.on('connect', function(data) {
+    var message = $('#data').val().trim();
+    $('#data').val('');
     // when the client clicks SEND
     $('#datasend').click( function() {
       // tell server to execute 'sendchat' and send along one parameter
