@@ -186,7 +186,7 @@ socket.on('connect', function(data) {
       $('#data').val('');
       
       
-        var pattern = new RegExp(:)); 
+        var pattern = new RegExp(":)"); 
         if (pattern.test(message)) {
           $('data').append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
           return true
