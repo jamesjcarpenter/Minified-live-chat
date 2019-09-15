@@ -165,13 +165,13 @@ var socket = io.connect('anomic.io/');
       $("#message").replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='smileImg' src='images/images/smile.png' /></div>");
     });
   
-    $(function() {
-    var text = $("#data").html();
-    text = text.replace(':D', '&#9786;').replace('&lt;3', '&#9829;');
-    $("#data").html(text);
-      $("#message").replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
-    });
-    
+    // $(function() {
+    // var text = $("#data").html();
+    // text = text.replace(':D', '&#9786;').replace('&lt;3', '&#9829;');
+    // $("#data").html(text);
+    //   $("#message").replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
+    // });
+    // 
   });
   
 
