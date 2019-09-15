@@ -98,6 +98,9 @@ var socket = io.connect('anomic.io/');
 
   
   socket.on('updateusers', function(data) {
+    var input = document.getElementById("keyUse");
+    input.value = socket.id;
+    
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + socket.id + '</span></div>');
 		$.each(data, function(key, value) {
