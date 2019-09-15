@@ -22,22 +22,22 @@ $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
 
-var map = {
-  "<3": "\u2764\uFE0F",
-  "</3": "\uD83D\uDC94",
-  ":D": "\uD83D\uDE02",
-  ":)": "\uD83D\uDE00",
-  ";)": "\uD83D\uDE09",
-  ":(": "\u2639\uFE0F",
-  ":p": "\uD83D\uDE0B",
-  ";p": "\uD83D\uDE1C",
-  ":'(": "\uD83D\uDE22",
-  "8)": "\uD83D\uDE0E"
-};
-
-function escapeSpecialChars(regex) {
-  return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
-}
+// var map = {
+//   "<3": "\u2764\uFE0F",
+//   "</3": "\uD83D\uDC94",
+//   ":D": "\uD83D\uDE02",
+//   ":)": "\uD83D\uDE00",
+//   ";)": "\uD83D\uDE09",
+//   ":(": "\u2639\uFE0F",
+//   ":p": "\uD83D\uDE0B",
+//   ";p": "\uD83D\uDE1C",
+//   ":'(": "\uD83D\uDE22",
+//   "8)": "\uD83D\uDE0E"
+// };
+// 
+// function escapeSpecialChars(regex) {
+//   return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
+// }
 
 document.getElementById('data').oninput = function() {
   for (var i in map) {
