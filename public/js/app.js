@@ -183,8 +183,7 @@ socket.on('connect', function(data) {
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       var str = '';
       if (re.test(message)) {
-          $(data.replace(/^[ \t]+/gm, ''));
-          $(data).wrapInner('<a href="' + $(data).html() + '" />');
+          $(this).wrapInner('<a href="' + $(this).html() + '" />');
       };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
@@ -253,7 +252,7 @@ socket.on('connect', function(data) {
     socket.on('disconnect', function(){
     		// remove the username from global usernames list
     		// update list of users in chat, client-side
-    		socket.emit('updateusers', usernames);
+    		socket.emit('updateusers', socket.usernames);
     		// echo globally that this client has left
     		socket.broadcast.emit('serverupdatechat', '' + socket.username + ' has disconnected');
     		socket.leave(socket.room);
