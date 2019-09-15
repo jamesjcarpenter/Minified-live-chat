@@ -480,7 +480,7 @@ function Janus(gatewayCallbacks) {
 	var iceServers = gatewayCallbacks.iceServers;
 	if(iceServers === undefined || iceServers === null)
 		iceServers = [{
-        urls: "turn:165.22.137.67:3478?transport=udp",
+        urls: "turn:165.22.137.67:3478?transport=tcp",
         username: "apostles00@yahoo.com",
         credential: "Zero!"
       }];
