@@ -159,9 +159,8 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
     
     $(function() {
-    var text = $("#data").val();
-    text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
-    $(text).replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='smileImg' src='images/images/smile.png' /></div>");
+    var text = $("#data").html();
+    text = text.replace(':)', '&#9786;').replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='smileImg' src='images/images/smile.png' /></div>");
     });
   
     // $(function() {
