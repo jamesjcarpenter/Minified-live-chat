@@ -185,9 +185,10 @@ socket.on('connect', function(data) {
       var message = $('#data').val().trim();
       $('#data').val('');
       
+      var emote = $("#message").append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
       
         var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
-        var str = $("#message").append("<div class='ui left pointing label'id='emojimsg'><img id='joyImg' src='images/images/joy.png' /></div>");
+        var str = emote;
         if (re.test(message)) {
           message = str.replace(re, 'oranges');
         };
