@@ -193,7 +193,7 @@ socket.on('connect', function(data) {
       }
     });
   });
-  $('#conversation').emojiarea()
+  $('#data').emojiarea()
   
   $.emojiarea.path = '/images/images/';
   $.emojiarea.icons = {
