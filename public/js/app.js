@@ -197,6 +197,7 @@ socket.on('connect', function(data) {
         $('#urlmessage').each(function(){
             $(this).wrapInner('<a name="' + $(this).html() + '" />');
             socket.emit('sendurl', url);
+            return true;
         });
       };
       
