@@ -523,6 +523,14 @@ pre {
 		color: #FFD700;
 	}
   
+  #smileImg {
+    margin:0 auto;
+    position:relative;
+    width:30px;
+    height:30px;
+    
+  }
+  
   .emoji-wysiwyg-editor {
 	border: 1px solid #d0d0d0;
 	overflow: auto;
