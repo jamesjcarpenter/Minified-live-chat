@@ -158,15 +158,17 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
     
-    
     var x = event.key;
 
 // If the pressed keyboard button is "a" or "A" (using caps lock or shift), alert some text.
 
       if (x == ":)" || x == ":D") {
-        var text = $("#data").html();
-        text = text.replace(':)', '&#9786;').replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='smileImg' src='images/images/smile.png' /></div>");
+        var text = $("#data").val();
+        text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
+        $("#data").html(text);
+          $("#message").replaceWith("<div class='ui left pointing label'id='emojimsg'><img id='smileImg' src='images/images/smile.png' /></div>");
       }
+
   
     // $(function() {
     // var text = $("#data").html();
