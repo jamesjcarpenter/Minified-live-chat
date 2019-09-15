@@ -448,11 +448,8 @@ io.sockets.on('connection', function (socket) {
     socket.join(socket.room);
     console.log(`${socket.id}`);
     socket.on('private-message', function(data, message, userId) {
-      
-      const userId = sessionsMap[message.userId];
-      const messageData = message.data;
-       userId = `${socketId}`
-      io.to(`${socketId}`).emit('my message', messageData);
+
+      io.to(usernames.[users]).emit('my message', socket.username, data);
     });
     
     socket.on("typing", function() {
