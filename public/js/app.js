@@ -22,29 +22,29 @@ $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
 
-// var map = {
-//   "<3": "\u2764\uFE0F",
-//   "</3": "\uD83D\uDC94",
-//   ":D": "\uD83D\uDE02",
-//   ":)": "\uD83D\uDE00",
-//   ";)": "\uD83D\uDE09",
-//   ":(": "\u2639\uFE0F",
-//   ":p": "\uD83D\uDE0B",
-//   ";p": "\uD83D\uDE1C",
-//   ":'(": "\uD83D\uDE22",
-//   "8)": "\uD83D\uDE0E"
-// };
-// 
-// function escapeSpecialChars(regex) {
-//   return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
-// }
-// 
-// document.getElementById('data').oninput = function() {
-//   for (var i in map) {
-//     var regex = new RegExp(escapeSpecialChars(i), 'gim');
-//     this.value = this.value = this.value.replace(regex, map[i]);
-//   }
-// };
+var map = {
+  "<3": "\u2764\uFE0F",
+  "</3": "\uD83D\uDC94",
+  ":D": "\uD83D\uDE02",
+  ":)": "\uD83D\uDE00",
+  ";)": "\uD83D\uDE09",
+  ":(": "\u2639\uFE0F",
+  ":p": "\uD83D\uDE0B",
+  ";p": "\uD83D\uDE1C",
+  ":'(": "\uD83D\uDE22",
+  "8)": "\uD83D\uDE0E"
+};
+
+function escapeSpecialChars(regex) {
+  return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
+}
+
+document.getElementById('data').oninput = function() {
+  for (var i in map) {
+    var regex = new RegExp(escapeSpecialChars(i), 'gim');
+    this.value = this.value = this.value.replace(regex, map[i]);
+  }
+};
   
 
 
@@ -180,7 +180,7 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
     $("#message").each(function(){
-      $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+      $(this).html( $(this).html().replace(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/, '<a href="$1">$1</a> ') );
     });
   });
   
