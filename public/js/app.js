@@ -95,6 +95,8 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
+
+  
   socket.on('updateusers', function(data) {
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
@@ -102,25 +104,17 @@ var socket = io.connect('anomic.io/');
 			$('#userlist').append('<div id="connecteduser">' + '<div id="keyUse">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
       
       
-      function addBack(){
-      $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
-      $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
-      $('#messagingthem').hide();
-      $('#goback').hide();
-    };
-      
       $(document).ready(function(){ 
         
        $('#PMbutton').click(function() {
          // $("#PMbutton").unbind();
          addBack();
-         $('#messages').hide();
+         $('.ui.left.pointing.label').hide();
          $('#messagingthem').show();
-         $('#goback').show();
          $('#PMbutton').hide();
 
          $( "#userlist").find(userId).text();
-         socket.emit('private-message', userId);
+          socket.emit('private-message', userId);
          
         $('#data').keypress(function(e) {
         if(e.which == 13) {
@@ -131,13 +125,11 @@ var socket = io.connect('anomic.io/');
          };
        });
          
-         
-          $('#goback').show();
           $('#goback').click(function() {
-             $('#messages').show();
+             $('.ui.left.pointing.label').show();
              $('#PMbutton').show();
-             $('#messagingthem').hide().remove();
-             $('#goback').hide().remove();
+             $('#messagingthem').hide();
+             $('#goback').hide();
              $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
            });
        });
@@ -147,6 +139,13 @@ var socket = io.connect('anomic.io/');
 		});
 	});
   
+  
+  function addBack(){
+  $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
+  $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
+  $('#messagingthem').hide();
+  $('#goback').hide();
+};
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     
