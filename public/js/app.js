@@ -184,8 +184,8 @@ socket.on('connect', function(data) {
       var str = '';
       if (re.test(message)) {
         $(data).each(function(){
-          $(this).wrapInner('<a href="' + $(this).html() + '" />');
-        });​
+          $(this).wrapInner('<a href="' + $(this).html() + '" />'));
+          };​
       };
       
       // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
