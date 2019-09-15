@@ -183,7 +183,7 @@ socket.on('connect', function(data) {
       var msgUrl = '<a href="' + str + '"' + '>' + '</a>'
       var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
       if (re.test(message)) {
-        message = re.replace(str, msgUrl);
+        message = str.replace(re, msgUrl);
         socket.emit('sendchat', message);
       };
       
