@@ -573,6 +573,14 @@ width: 400px;
 height: 200px;
 }
 
+.unselectable p{
+ -moz-user-select: text;
+ -khtml-user-select: text;
+ -webkit-user-select: text;
+ -ms-user-select: text;
+ user-select: text;
+}
+
 .emoji-wysiwyg-editor {
 border: 1px solid #d0d0d0;
 overflow: auto;
