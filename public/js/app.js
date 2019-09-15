@@ -157,13 +157,6 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p><span class="ui small text"></span></p></div></div>').text(data));
-    
-    $(function() {
-    var text = $("#data").html();
-    text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
-    $("#message").html(text);
-    $('#message').append($('<img id="smile" class="smile" src="images/images/smile.png">'))
-});
   });
   
 
@@ -192,6 +185,11 @@ socket.on('connect', function(data) {
       if(e.which == 13) {
         $(this).blur();
         $('#datasend').focus().click();
+          $(function() {
+              var text = $("#data").html();
+              text = text.replace(':)', '&#9786;').replace('&lt;3', '&#9829;');
+            $(text).append($('<img id="smile" class="smile" src="images/images/smile.png">'))
+          });
       }
     });
   });
