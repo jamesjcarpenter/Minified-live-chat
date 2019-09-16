@@ -490,7 +490,6 @@ var simulcastStarted = false;
 				});
 		});
 	}});
-});
 
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
