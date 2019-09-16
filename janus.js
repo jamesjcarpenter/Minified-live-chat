@@ -1734,13 +1734,13 @@ function Janus(gatewayCallbacks) {
 		}
 		// If we still need to create a PeerConnection, let's do that
 		if(!config.pc) {
-			var pc_config = {"iceServers": iceServers, "iceTransportPolicy": iceTransportPolicy, "bundlePolicy": bundlePolicy};
+			var pc_config = {"iceServers": iceServers, "iceTransportPolicy": 'relay', "bundlePolicy": 'max-bundle'};
 			if(Janus.webRTCAdapter.browserDetails.browser === "chrome") {
 				// For Chrome versions before 72, we force a plan-b semantic, and unified-plan otherwise
 				pc_config["sdpSemantics"] = (Janus.webRTCAdapter.browserDetails.version < 72) ? "plan-b" : "unified-plan";
 			}
 			var pc_constraints = {
-				"optional": [{"DtlsSrtpKeyAgreement": true}]
+				"optional": [{"DtlsSrtpKeyAgreement": false}]
 			};
 			if(ipv6Support === true) {
 				pc_constraints.optional.push({"googIPv6":true});
