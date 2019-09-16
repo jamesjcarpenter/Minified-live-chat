@@ -298,7 +298,6 @@ var simulcastStarted = false;
 													updateSimulcastButtons(substream, temporal);
 												}
 											}
-										}
 									} else {
 										// FIXME Error?
 										var error = msg["error"];
