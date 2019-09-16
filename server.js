@@ -410,6 +410,9 @@ io.sockets.on('connection', function (socket) {
     socket.username = username;
     var id = socket.id;
     
+    
+    
+    
     ids[id] = id;
     // var username = socket.id;
     // store the room name in the socket session for this client
@@ -418,6 +421,14 @@ io.sockets.on('connection', function (socket) {
     
 
     console.log(usernames)
+    
+    socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
+    // echo to room 1 that a person has connected to their room
+    socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
+    socket.emit('updateusers', usernames, socket.id);
+    // console.log(usernames);
+    socket.emit('updaterooms', rooms, socket.room);
+    
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     socket.on('connect', function(client) {
@@ -466,12 +477,6 @@ io.sockets.on('connection', function (socket) {
 	  // when the client emits 'adduser', this listens and executes
 		// send client to room 1
 		// echo to client they've connected
-		socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
-		// echo to room 1 that a person has connected to their room
-		socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
-    socket.emit('updateusers', usernames, socket.id);
-    // console.log(usernames);
-		socket.emit('updaterooms', rooms, socket.room);
 	});
 
 	// when the client emits 'sendchat', this listens and executes
@@ -506,11 +511,11 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'left the room');
 		// remove the username from global usernames list
 		// update list of users in chat, client-side
-		io.sockets.emit('updateusers', usernames);
 		// echo globally that this client has left
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
     delete usernames[socket.username];
+ 	  io.sockets.emit('updateusers', usernames);
 	});
 });
 
