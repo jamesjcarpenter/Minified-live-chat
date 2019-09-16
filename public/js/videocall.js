@@ -99,7 +99,6 @@ var simulcastStarted = false;
                   var myusername = $('#keyUse').attr('name');
                   var register = { "request": "register", "username": myusername };
                   videocall.send({"message": register});
-                  registerUsername();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -518,7 +517,7 @@ function checkEnter(field, event) {
 
 function registerUsername() {
 	// Try a registration
-	var register = { "request": "register", "username": $('#keyUse').attr('name') };
+	var register = { "request": "register", "username": myusername };
 }
 
 function doCall() {
@@ -529,20 +528,17 @@ function doCall() {
 	if(username === "") {
 		bootbox.alert("Insert a username to call (e.g., pluto)");
 		$('#peer').removeAttr('disabled');
-		$('#call').removeAttr('disabled').click(doCall2);
+		$('#call').removeAttr('disabled').click(doCall);
 		return;
 	}
 	if(/[^a-zA-Z0-9]/.test(username)) {
 		bootbox.alert('Input is not alphanumeric');
 		$('#peer').removeAttr('disabled').val("");
-		$('#call').removeAttr('disabled').click(doCall2);
+		$('#call').removeAttr('disabled').click(doCall);
 		return;
 	}
-}
-
-
-function doCall2(){
-  videocall.createOffer(
+	// Call this user
+	videocall.createOffer(
 		{
 			// By default, it's sendrecv for audio and video...
 			media: { data: true },	// ... let's negotiate data channels as well
@@ -553,7 +549,7 @@ function doCall2(){
 			success: function(jsep) {
 				Janus.debug("Got SDP!");
 				Janus.debug(jsep);
-				var body = { "request": "call", "username": $('#peer').val() };
+				var body = { "request": "call", "username": myusername };
 				videocall.send({"message": body, "jsep": jsep});
 			},
 			error: function(error) {
@@ -561,8 +557,8 @@ function doCall2(){
 				bootbox.alert("WebRTC error... " + error);
 			}
 		});
-  };
-  
+}
+
 function doHangup() {
 	// Hangup a call
 	$('#call').attr('disabled', true).unbind('click');
