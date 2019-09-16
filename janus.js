@@ -485,7 +485,7 @@ function Janus(gatewayCallbacks) {
       //   urls: "stun:stun.l.google.com:19302",
       // },
       {
-        urls: "turn:165.22.137.67:443?transport=udp",
+        urls: "turn:165.22.137.67:443",
         username: "apostles00@yahoo.com",
         credential: "Zero!",
         
