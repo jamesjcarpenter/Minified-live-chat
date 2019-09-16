@@ -112,11 +112,12 @@ var socket = io.connect('anomic.io/');
     };
       $(document).ready(function(){ 
         
-        
+      $(".ui.mini.button.pm").each(function(){
+        var userToPM = $(this).attr('id');
+        console.log(userToPM);
        $('.ui.mini.button.pm').click(function() {
          // $("#PMbutton").unbind();
          addBack();
-         var userToPM = $(this).attr('id');
          console.log(userToPM);
          return false; 
          $('.ui.left.pointing.label').hide();
@@ -134,6 +135,7 @@ var socket = io.connect('anomic.io/');
            socket.emit('private-message', message);
          };
        });
+     };
          
           $('#goback').click(function() {
              $('.ui.left.pointing.label').show();
