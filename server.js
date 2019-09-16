@@ -408,14 +408,16 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
+    socket.id = id;
     
+    ids[id] = id;
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
     
-    console.log(usernames[username])
-    
+    console.log(ids[id])
+    console.log(ids)
     console.log(usernames)
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
