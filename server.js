@@ -447,7 +447,7 @@ io.sockets.on('connection', function (socket) {
     
     socket.join(socket.room);
     console.log(`${socket.id}`);
-    socket.on('private-message', function(data, message, userId) {
+    socket.on('private-message', function(data, message, userToPM) {
       io.to(`${userToPM}`).emit('updatechat', data, socket.username);
       console.log('private message event triggered');
     });
