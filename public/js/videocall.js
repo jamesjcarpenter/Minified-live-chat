@@ -98,7 +98,6 @@ var simulcastStarted = false;
 									// $('#username').focus();
                   
                   registerUsername();
-                  startUp();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -149,17 +148,7 @@ var simulcastStarted = false;
 											}
 										} else if(result["event"] !== undefined && result["event"] !== null) {
 											var event = result["event"];
-                      startUp();
-										    function startUp() {
-												myusername = $('#keyUse').attr('name')
-												Janus.log("Successfully registered as " + myusername + "!");
-												// Get a list of available peers, just for fun
-												videocall.send({"message": { "request": "list" }});
-												// TODO Enable buttons to call now
-												$('#phone').removeClass('hide').show();
-												$('#call').unbind('click').click(doCall);
-												$('#peer').focus();
-											} if(event === 'calling') {
+											} else if(event === 'calling') {
 												Janus.log("Waiting for the peer to answer...");
 												// TODO Any ringtone?
 												bootbox.alert("Waiting for the peer to answer...");
@@ -522,6 +511,17 @@ function registerUsername() {
 }
 
 function doCall() {
+  myusername = $('#keyUse').attr('name')
+  Janus.log("Successfully registered as " + myusername + "!");
+  $('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
+  // Get a list of available peers, just for fun
+  videocall.send({"message": { "request": "list" }});
+  // TODO Enable buttons to call now
+  $('#phone').removeClass('hide').show();
+  $('#call').unbind('click').click(doCall);
+  $('#peer').focus();
+  
+  
 	// Call someone
 	$('#peer').attr('disabled', true);
 	$('#call').attr('disabled', true).unbind('click');
