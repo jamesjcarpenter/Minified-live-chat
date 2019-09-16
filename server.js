@@ -416,8 +416,7 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
-    console.log(ids[id])
-    console.log(ids)
+
     console.log(usernames)
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
@@ -480,6 +479,7 @@ console.log
   		// we tell the client to execute 'updatechat' with 2 parameters
   		io.in(socket.room).emit('updatechat', socket.username, data);
           console.log(usernames)
+            console.log(ids)
   	});
     
     socket.on('sendurl', function (data) {
