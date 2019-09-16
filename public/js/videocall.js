@@ -54,18 +54,18 @@ var videocall = null;
 var opaqueId = "videocalltest-"+ Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
 
-if(iceServers === undefined || iceServers === null)
-	iceServers = [
-		{
-		
-			urls: "stun:stun.l.google.com:19302",
-		},
-		{
-			urls: "turn:165.22.137.67:80",
-			username: "apostles00@yahoo.com",
-			credential: "Zero!",
-			
-		}];
+// if(iceServers === undefined || iceServers === null)
+// 	iceServers = [
+// 		{
+// 
+// 			urls: "stun:stun.l.google.com:19302",
+// 		},
+// 		{
+// 			urls: "turn:165.22.137.67:80",
+// 			username: "apostles00@yahoo.com",
+// 			credential: "Zero!",
+// 
+// 		}];
     
 var bitrateTimer = null;
 var spinner = null;
