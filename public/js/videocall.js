@@ -91,13 +91,24 @@ var simulcastStarted = false;
 									videocall = pluginHandle;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
 									// Prepare the username registration
-									// $('#videocall').removeClass('hide').show();
+									$('#videocall').removeClass('hide').show();
 									// $('#login').removeClass('hide').show();
 									// $('#registernow').removeClass('hide').show();
 									// $('#register').click(registerUsername);
-									// $('#username').focus();
+									$('#username').focus();
                   
                   registerUsername();
+                  myusername = $('#keyUse').attr('name')
+                  Janus.log("Successfully registered as " + myusername + "!");
+                  $('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
+                  // Get a list of available peers, just for fun
+                  videocall.send({"message": { "request": "list" }});
+                  // TODO Enable buttons to call now
+                  $('#phone').removeClass('hide').show();
+                  $('#call').unbind('click').click(doCall);
+                  $('#peer').focus();
+                  
+                  
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -148,6 +159,8 @@ var simulcastStarted = false;
 											}
 										} else if(result["event"] !== undefined && result["event"] !== null) {
 											var event = result["event"];
+											if(event === 'registered') {
+												$('#peer').focus();
 											} else if(event === 'calling') {
 												Janus.log("Waiting for the peer to answer...");
 												// TODO Any ringtone?
@@ -511,17 +524,6 @@ function registerUsername() {
 }
 
 function doCall() {
-  myusername = $('#keyUse').attr('name')
-  Janus.log("Successfully registered as " + myusername + "!");
-  $('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
-  // Get a list of available peers, just for fun
-  videocall.send({"message": { "request": "list" }});
-  // TODO Enable buttons to call now
-  $('#phone').removeClass('hide').show();
-  $('#call').unbind('click').click(doCall);
-  $('#peer').focus();
-  
-  
 	// Call someone
 	$('#peer').attr('disabled', true);
 	$('#call').attr('disabled', true).unbind('click');
