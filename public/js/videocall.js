@@ -533,20 +533,11 @@ function registerUsername() {
 	// Try a registration
 	var register = { "request": "register", "username": $('#keyUse').attr('name') };
 	videocall.send({"message": register});
-}
+};
 
 function doCall() {
-	// Call someone
 	// Call this user
-	videocall.createOffer(
-		{
-			// By default, it's sendrecv for audio and video...
-			media: { data: true },	// ... let's negotiate data channels as well
-			// If you want to test simulcasting (Chrome and Firefox only), then
-			// pass a ?simulcast=true when opening this demo page: it will turn
-			// the following 'simulcast' property to pass to janus.js to true
-			simulcast: doSimulcast,
-			success: function(jsep) {
+	videocall.createOffer({ media: { data: true }, simulcast: doSimulcast, success: function(jsep) {
 				Janus.debug("Got SDP!");
 				Janus.debug(jsep);
 				var body = { "request": "call", "username": $('#peer').val() };
@@ -555,9 +546,9 @@ function doCall() {
 			error: function(error) {
 				Janus.error("WebRTC error...", error);
 				bootbox.alert("WebRTC error... " + error);
-			}
+			},
 		});
-}
+};
 
 function doHangup() {
 	// Hangup a call
