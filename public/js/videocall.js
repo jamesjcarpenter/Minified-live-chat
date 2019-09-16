@@ -98,6 +98,7 @@ var simulcastStarted = false;
 									// $('#username').focus();
                   
                   registerUsername();
+                  startUp();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -152,7 +153,6 @@ var simulcastStarted = false;
 										    function startUp() {
 												myusername = $('#keyUse').attr('name')
 												Janus.log("Successfully registered as " + myusername + "!");
-												$('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
 												// Get a list of available peers, just for fun
 												videocall.send({"message": { "request": "list" }});
 												// TODO Enable buttons to call now
