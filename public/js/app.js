@@ -193,6 +193,12 @@ var socket = io.connect('anomic.io/');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
+socket.on('updateprivchat', function (username, data, userToPM) {
+      $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
+      $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
+      $('#conversation').append($('<div class="ui small grey label"id="privmessage"><span class="ui small text"></span></div>').text(data));
+        });
+
   // on load of page
 socket.on('connect', function(data) {
     // when the client clicks SEND

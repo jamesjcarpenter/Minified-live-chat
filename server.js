@@ -448,7 +448,7 @@ io.sockets.on('connection', function (socket) {
     socket.join(socket.room);
     console.log(`${socket.id}`);
     socket.on('private-message', function(data, message, userToPM) {
-      io.to(userToPM).emit('updatechat', data, socket.username);
+      io.to(userToPM).emit('updateprivchat', data, socket.username);
       console.log('private message event triggered');
     });
     
@@ -472,7 +472,7 @@ io.sockets.on('connection', function (socket) {
   		io.in(socket.room).emit('updatechat', socket.username, data);
           console.log(usernames)
   	});
-
+    
     socket.on('sendurl', function (data) {
     		// we tell the client to execute 'updatechat' with 2 parameters
     		io.in(socket.room).emit('updateurl', socket.username, data);
