@@ -1,3 +1,7 @@
+// var myusername = $('#keyUse').attr('name');
+// var register = { "request": "register", "username": myusername };
+// videocall.send({"message": register});
+
 // We make use of this 'server' variable to provide the address of the
 // REST Janus API. By default, in this example we assume that Janus is
 // co-located with the web server hosting the HTML pages but listening
@@ -42,7 +46,6 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-$(document).ready(function() {
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -60,12 +63,13 @@ var audioenabled = false;
 var videoenabled = false;
 
 var myusername = null;
-var myusername = $('#keyUse').attr('name')
 var yourusername = null;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 var simulcastStarted = false;
+
+$(document).ready(function() {
 	// Initialize the library (console debug enabled)
 	Janus.init({debug: true, callback: function() {
 		// Use a button to start the demo
@@ -91,15 +95,10 @@ var simulcastStarted = false;
 									videocall = pluginHandle;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
 									// Prepare the username registration
-                  var myusername = $('#keyUse').attr('name');
-                  var register = { "request": "register", "username": myusername };
-                  var eecall = { "request" : "call", "username" : 'CAF' }
-                  videocall.send({"message": eecall});
-                  videocall.send({"message": register});
 									$('#videocall').removeClass('hide').show();
-									// $('#login').removeClass('hide').show();
-									// $('#registernow').removeClass('hide').show();
-									// $('#register').click(registerUsername);
+									$('#login').removeClass('hide').show();
+									$('#registernow').removeClass('hide').show();
+									$('#register').click(registerUsername);
 									$('#username').focus();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
@@ -159,6 +158,7 @@ var simulcastStarted = false;
 												videocall.send({"message": { "request": "list" }});
 												// TODO Enable buttons to call now
 												$('#phone').removeClass('hide').show();
+												$('#call').unbind('click').click(doCall);
 												$('#peer').focus();
 											} else if(event === 'calling') {
 												Janus.log("Waiting for the peer to answer...");
@@ -265,6 +265,7 @@ var simulcastStarted = false;
 												$('#peer').removeAttr('disabled').val('');
 												$('#call').removeAttr('disabled').html('Call')
 													.removeClass("btn-danger").addClass("btn-success")
+													.unbind('click').click(doCall);
 												$('#toggleaudio').attr('disabled', true);
 												$('#togglevideo').attr('disabled', true);
 												$('#bitrate').attr('disabled', true);
@@ -302,6 +303,7 @@ var simulcastStarted = false;
 										$('#peer').removeAttr('disabled').val('');
 										$('#call').removeAttr('disabled').html('Call')
 											.removeClass("btn-danger").addClass("btn-success")
+											.unbind('click').click(doCall);
 										$('#toggleaudio').attr('disabled', true);
 										$('#togglevideo').attr('disabled', true);
 										$('#bitrate').attr('disabled', true);
@@ -481,6 +483,7 @@ var simulcastStarted = false;
 									$('#peer').removeAttr('disabled').val('');
 									$('#call').removeAttr('disabled').html('Call')
 										.removeClass("btn-danger").addClass("btn-success")
+										.unbind('click').click(doCall);
 								}
 							});
 					},
@@ -500,9 +503,38 @@ var simulcastStarted = false;
 
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-		if(field.id == 'peer') {
+	if(theCode == 13) {
+		if(field.id == 'username')
+			registerUsername();
+		else if(field.id == 'peer')
 			doCall();
+		else if(field.id == 'datasend')
+			sendData();
+		return false;
+	} else {
+		return true;
 	}
+}
+
+function registerUsername() {
+	// Try a registration
+	$('#username').attr('disabled', true);
+	$('#register').attr('disabled', true).unbind('click');
+	var username = $('#username').val();
+	if(username === "") {
+		bootbox.alert("Insert a username to register (e.g., pippo)");
+		$('#username').removeAttr('disabled');
+		$('#register').removeAttr('disabled').click(registerUsername);
+		return;
+	}
+	if(/[^a-zA-Z0-9]/.test(username)) {
+		bootbox.alert('Input is not alphanumeric');
+		$('#username').removeAttr('disabled').val("");
+		$('#register').removeAttr('disabled').click(registerUsername);
+		return;
+	}
+	var register = { "request": "register", "username": username };
+	videocall.send({"message": register});
 }
 
 function doCall() {
