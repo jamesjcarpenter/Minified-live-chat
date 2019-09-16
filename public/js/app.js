@@ -285,7 +285,6 @@ socket.on('connect', function(data) {
         $('#datasend').focus().click();
       }
     });
-  });
   
   
   
