@@ -554,7 +554,7 @@ function doCall() {
 		return;
 	}
 	// Call this user
-	videocall.createOffer(
+	 function videocall.createOffer()(
 		{
 			// By default, it's sendrecv for audio and video...
 			media: { data: true },	// ... let's negotiate data channels as well
