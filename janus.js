@@ -478,6 +478,11 @@ function Janus(gatewayCallbacks) {
 		}
 	}
 	var iceServers = gatewayCallbacks.iceServers;
+  var pc_config = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
+                        {"url":"turn:apostles00@yahoo.com@165.22.137.67:443", 
+                                          "credential":"Zero!"}]};
+        pc_new = new webkitRTCPeerConnection(pc_config);
+  
 	if(iceServers === undefined || iceServers === null)
 		iceServers = [
       // {
@@ -485,7 +490,7 @@ function Janus(gatewayCallbacks) {
       //   urls: "stun:stun.l.google.com:19302",
       // },
       {
-        urls: "turn:165.22.137.67:443?transport=udp",
+        urls: "turn:165.22.137.67:443?transport=tcp",
         username: "apostles00@yahoo.com",
         credential: "Zero!",
         
