@@ -478,11 +478,6 @@ function Janus(gatewayCallbacks) {
 		}
 	}
 	var iceServers = gatewayCallbacks.iceServers;
-  var pc_config = {"iceServers": [{"url": "stun:stun.l.google.com:19302"},
-                        {"url":"turn:apostles00@yahoo.com@165.22.137.67:443", 
-                                          "credential":"Zero!"}]};
-        pc_new = new webkitRTCPeerConnection(pc_config);
-  
 	if(iceServers === undefined || iceServers === null)
 		iceServers = [
       // {
@@ -495,6 +490,8 @@ function Janus(gatewayCallbacks) {
         credential: "Zero!",
         
       }];
+      pc_new = new webkitRTCPeerConnection(iceServers);
+
 	var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
 	var bundlePolicy = gatewayCallbacks.bundlePolicy;
 	// Whether IPv6 candidates should be gathered
