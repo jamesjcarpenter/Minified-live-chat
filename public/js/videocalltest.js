@@ -503,6 +503,8 @@ var simulcastStarted = false;
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 	if(theCode == 13) {
+		if(field.id == 'username')
+      return false;
 		else if(field.id == 'peer')
 			doCall();
 		else if(field.id == 'datasend')
