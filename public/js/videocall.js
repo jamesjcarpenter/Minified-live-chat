@@ -59,7 +59,7 @@ var spinner = null;
 var audioenabled = false;
 var videoenabled = false;
 
-var myusername = null;
+var myusername = abc;
 var yourusername = null;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
