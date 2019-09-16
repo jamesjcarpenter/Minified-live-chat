@@ -414,6 +414,8 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
+    console.log(usernames[username] = username)
+    
     console.log(usernames)
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     

@@ -128,18 +128,18 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									
-									var go =	{
-        "request" : "rtp_forward",
-        "room" : myroom,
-        "publisher_id" : opaqueId,
-        "host" : "anomic.io",
-        "audio_port" : fwd,
-        "video_port" : fwd,
-        "video_port_2" : fwd,
-        "video_port_3" : fwd,
-        "data_port" : fwd,
-					}
-					sfutest.send({"message": go});
+				// 					var go =	{
+        // "request" : "rtp_forward",
+        // "room" : myroom,
+        // "publisher_id" : opaqueId,
+        // "host" : "anomic.io",
+        // "audio_port" : fwd,
+        // "video_port" : fwd,
+        // "video_port_2" : fwd,
+        // "video_port_3" : fwd,
+        // "data_port" : fwd,
+				// 	}
+				// 	sfutest.send({"message": go});
 					var ju = {"request" : "listforwarders",  "room" : myroom }
 									sfutest.send({"message": ju});
 									$('#start').removeAttr('disabled').html("Stop")
