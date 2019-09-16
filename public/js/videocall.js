@@ -59,7 +59,7 @@ var spinner = null;
 var audioenabled = false;
 var videoenabled = false;
 
-var myusername = null;
+var myusername = $('#keyUse').attr('name');
 var yourusername = null;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
@@ -96,7 +96,7 @@ var simulcastStarted = false;
 									// $('#registernow').removeClass('hide').show();
 									// $('#register').click(registerUsername);
 									// $('#username').focus();
-                  var register = { "request": "register", "username": $('#keyUse').attr('name') };
+                  var register = { "request": "register", "username": myusername };
                   videocall.send({"message": register});
                   videocall.send({"message": registered});
                   registerUsername();
