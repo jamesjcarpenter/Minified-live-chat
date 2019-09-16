@@ -483,10 +483,6 @@ io.sockets.on('connection', function (socket) {
           console.log(usernames)
   	});
     
-    socket.on('sendurl', function (data) {
-    		// we tell the client to execute 'updatechat' with 2 parameters
-    		io.in(socket.room).emit('updateurl', socket.username, data);
-    	});
 
 	// socket.on('switchRoom', function(newroom){
 	// 	// leave the current room (stored in session)
