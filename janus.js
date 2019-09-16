@@ -1740,7 +1740,7 @@ function Janus(gatewayCallbacks) {
 				pc_config["sdpSemantics"] = (Janus.webRTCAdapter.browserDetails.version < 72) ? "plan-b" : "unified-plan";
 			}
 			var pc_constraints = {
-				"optional": [{"DtlsSrtpKeyAgreement": false}]
+				"optional": [{"DtlsSrtpKeyAgreement": true}]
 			};
 			if(ipv6Support === true) {
 				pc_constraints.optional.push({"googIPv6":true});
