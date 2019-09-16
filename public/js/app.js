@@ -193,11 +193,11 @@ var socket = io.connect('anomic.io/');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
-socket.on('updateprivchat', function (username, data, userToPM) {
-      $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
-      $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
-      $('#conversation').append($('<div class="ui small grey label"id="privmessage"><span class="ui small text"></span></div>').text(data));
-        });
+// socket.on('updateprivchat', function (username, data, userToPM) {
+//       $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
+//       $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
+//       $('#conversation').append($('<div class="ui small grey label"id="privmessage"><span class="ui small text"></span></div>').text(data));
+//         });
 
   // on load of page
 socket.on('connect', function(data) {
@@ -205,7 +205,30 @@ socket.on('connect', function(data) {
     $('#datasend').click( function() {
       var message = $('#data').val().trim();
       $('#data').val('');
-      
+      if(message.substr(0,3) === '/w '){
+        message = message.substr(3);
+        var ind = message.indexOf(' ');
+        if(ind !== -1){
+          var name = msg.substring(0, ind);
+          var message = message.substring(ind + 1);
+          if(name in users){
+            users[name].emit('private-message', {message: message, name: socket.username});
+          console.log('whisper');
+        }else{
+          callback('Enter valid user');
+          }
+        } else {
+          callback('Error enter msg');
+        }
+      } else{
+        socket.emit('private-message', {message: message, username: socket.username});
+      };
+    });
+          
+      socket.on('private-message', function(data){
+          $('#conversation').append($('<div class="ui small grey label"id="privmessage"><span class="ui small text"></span></div>').text(data));
+          $('#conversation').append($('<span class="ui small white text"><span class="ui small text"></span></span>').text(username));
+        });
       
       // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
     //   var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 

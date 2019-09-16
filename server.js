@@ -447,10 +447,10 @@ io.sockets.on('connection', function (socket) {
     
     socket.join(socket.room);
     console.log(`${socket.id}`);
-    socket.on('private-message', function(data, message, userToPM) {
-      io.to(userToPM).emit('updateprivchat', data, socket.username);
-      console.log('private message event triggered');
-    });
+    // socket.on('private-message', function(data, message, userToPM) {
+    //   io.to(userToPM).emit('updateprivchat', data, socket.username);
+    //   console.log('private message event triggered');
+    // });
     
     socket.on("typing", function() {
       socket.to(socket.room).broadcast.emit("typing", socket.username + "  is typing...");
