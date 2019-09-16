@@ -521,6 +521,7 @@ function registerUsername() {
 }
 
 function doCall() {
+  var doCall = this.doCall()...
 	// Call someone
 	$('#peer').attr('disabled', true);
 	$('#call').attr('disabled', true).unbind('click');
@@ -550,6 +551,7 @@ function doCall() {
 				Janus.debug("Got SDP!");
 				Janus.debug(jsep);
 				var body = { "request": "call", "username": myusername };
+				videocall.send({"message": body, "jsep": jsep});
 			},
 			error: function(error) {
 				Janus.error("WebRTC error...", error);
