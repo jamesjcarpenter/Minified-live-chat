@@ -515,27 +515,6 @@ function checkEnter(field, event) {
 	}
 }
 
-function registerUsername() {
-	// Try a registration
-	$('#username').attr('disabled', true);
-	$('#register').attr('disabled', true).unbind('click');
-	var username = $('#username').val();
-	if(username === "") {
-		bootbox.alert("Insert a username to register (e.g., pippo)");
-		$('#username').removeAttr('disabled');
-		$('#register').removeAttr('disabled').click(registerUsername);
-		return;
-	}
-	if(/[^a-zA-Z0-9]/.test(username)) {
-		bootbox.alert('Input is not alphanumeric');
-		$('#username').removeAttr('disabled').val("");
-		$('#register').removeAttr('disabled').click(registerUsername);
-		return;
-	}
-	var register = { "request": "register", "username": username };
-	videocall.send({"message": register});
-}
-
 function doCall() {
 	// Call someone
 	$('#peer').attr('disabled', true);
