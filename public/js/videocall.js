@@ -159,7 +159,7 @@ var simulcastStarted = false;
 												$('#phone').removeClass('hide').show();
 												$('#call').unbind('click').click(doCall);
 												$('#peer').focus();
-											} else if(event === 'calling') {
+											} if(event === 'calling') {
 												Janus.log("Waiting for the peer to answer...");
 												// TODO Any ringtone?
 												bootbox.alert("Waiting for the peer to answer...");
