@@ -92,6 +92,7 @@ var simulcastStarted = false;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
 									// Prepare the username registration
                   var myusername = $('#keyUse').attr('name');
+                  $('#call').click(doCall);
                   var register = { "request": "register", "username": myusername };
                   videocall.send({"message": register});
 									$('#videocall').removeClass('hide').show();
@@ -157,7 +158,6 @@ var simulcastStarted = false;
 												videocall.send({"message": { "request": "list" }});
 												// TODO Enable buttons to call now
 												$('#phone').removeClass('hide').show();
-												$('#call').unbind('click').click(doCall);
 												$('#peer').focus();
 											} else if(event === 'calling') {
 												Janus.log("Waiting for the peer to answer...");
@@ -264,7 +264,6 @@ var simulcastStarted = false;
 												$('#peer').removeAttr('disabled').val('');
 												$('#call').removeAttr('disabled').html('Call')
 													.removeClass("btn-danger").addClass("btn-success")
-													.unbind('click').click(doCall);
 												$('#toggleaudio').attr('disabled', true);
 												$('#togglevideo').attr('disabled', true);
 												$('#bitrate').attr('disabled', true);
@@ -302,7 +301,6 @@ var simulcastStarted = false;
 										$('#peer').removeAttr('disabled').val('');
 										$('#call').removeAttr('disabled').html('Call')
 											.removeClass("btn-danger").addClass("btn-success")
-											.unbind('click').click(doCall);
 										$('#toggleaudio').attr('disabled', true);
 										$('#togglevideo').attr('disabled', true);
 										$('#bitrate').attr('disabled', true);
@@ -482,7 +480,6 @@ var simulcastStarted = false;
 									$('#peer').removeAttr('disabled').val('');
 									$('#call').removeAttr('disabled').html('Call')
 										.removeClass("btn-danger").addClass("btn-success")
-										.unbind('click').click(doCall);
 								}
 							});
 					},
@@ -500,41 +497,17 @@ var simulcastStarted = false;
 	}});
 });
 
-// function checkEnter(field, event) {
-// 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-// 	if(theCode == 13) {
-// 		if(field.id == 'username')
-// 			doCall();
-// 		else if(field.id == 'peer')
-// 			doCall();
-// 		else if(field.id == 'datasend')
-// 			sendData();
-// 		return false;
-// 	} else {
-// 		return true;
-// 	}
-// }
+function checkEnter(field, event) {
+	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+		if(field.id == 'peer') {
+			doCall();
+	}
+}
 
 function doCall() {
 	// Call someone
-	$('#peer').attr('disabled', true);
-	$('#call').attr('disabled', true).unbind('click');
-	var username = $('#peer').val();
-	if(username === "") {
-		bootbox.alert("Insert a username to call (e.g., pluto)");
-		$('#peer').removeAttr('disabled');
-		$('#call').removeAttr('disabled').click(doCall);
-		return;
-	}
-	if(/[^a-zA-Z0-9]/.test(username)) {
-		bootbox.alert('Input is not alphanumeric');
-		$('#peer').removeAttr('disabled').val("");
-		$('#call').removeAttr('disabled').click(doCall);
-		return;
-	}
 	// Call this user
-	videocall.createOffer(
-		{
+	videocall.createOffer({
 			// By default, it's sendrecv for audio and video...
 			media: { data: true },	// ... let's negotiate data channels as well
 			// If you want to test simulcasting (Chrome and Firefox only), then
@@ -550,9 +523,9 @@ function doCall() {
 			error: function(error) {
 				Janus.error("WebRTC error...", error);
 				bootbox.alert("WebRTC error... " + error);
-			}
+			},
 		});
-}
+};
 
 function doHangup() {
 	// Hangup a call
