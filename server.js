@@ -383,6 +383,7 @@ const sessionsMap = {};
 var clients = [];
 var users = {};
 
+var ids = [];
 io.sockets.on('connection', function (socket) {
   
   socket.emit('askForUserId');
@@ -423,6 +424,8 @@ io.sockets.on('connection', function (socket) {
           ids.splice(ids.indexOf(socket.id + socket.username), 1);
   });
 });
+
+console.log
     
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
