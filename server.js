@@ -428,17 +428,17 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-console.log
-    
-    io.of('/').in(socket.room).clients((error, clients) => {
-    if (error) throw error;
+// console.log
+// 
+//     io.of('/').in(socket.room).clients((error, clients) => {
+//     if (error) throw error;
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     // console.log(clients); 
     // console.log(rooms);
     // socket.emit('clientlist', clients);
     // socket.emit('getusers',  '' + usernames);
-  });
+  // });
     // console.log(socket.emit('getusers',  '' + usernames));
     // socket.on("set-room", function(room) {
     //   //leaving room.
@@ -453,8 +453,8 @@ console.log
     //   };
     // });
     
-    socket.join(socket.room);
-    console.log(`${socket.id}`);
+    // socket.join(socket.room);
+    // console.log(`${socket.id}`);
     // socket.on('private-message', function(data, message, userToPM) {
     //   io.to(userToPM).emit('updateprivchat', data, socket.username);
     //   console.log('private message event triggered');
