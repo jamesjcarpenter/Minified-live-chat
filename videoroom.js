@@ -127,8 +127,22 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									
-									var publish = { "request": "publish", "data" : true };
-									sfutest.send({"message": publish});
+									{
+        "request" : "rtp_forward",
+        "room" : myroom,
+        "publisher_id" : opaqueId,
+        "host" : "turn:165.22.137.67:443",
+        "audio_port" : 3011,
+        "video_port" : 3044,
+        "video_port_2" : 3055,
+        "video_port_3" : 4044,
+        "data_port" : 3112,
+}
+
+{
+        "request" : "listforwarders",
+        "room" : myroom,
+}
 									
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
