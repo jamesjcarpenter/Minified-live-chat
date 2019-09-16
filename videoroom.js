@@ -131,7 +131,7 @@ $(document).ready(function() {
         "request" : "rtp_forward",
         "room" : myroom,
         "publisher_id" : opaqueId,
-        "host" : "turn:165.22.137.67:80",
+        "host" : "anomic.io",
         "audio_port" : 3011,
         "video_port" : 3044,
         "video_port_2" : 3055,
