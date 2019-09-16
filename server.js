@@ -428,30 +428,30 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-console.log
+// console.log
     
-    io.of('/').in(socket.room).clients((error, clients) => {
-    if (error) throw error;
-  
-    // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
-    // console.log(clients); 
-    // console.log(rooms);
-    socket.emit('clientlist', clients);
-    socket.emit('getusers',  '' + usernames);
+    // io.of('/').in(socket.room).clients((error, clients) => {
+    // if (error) throw error;
+    // 
+    // // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
+    // // console.log(clients); 
+    // // console.log(rooms);
+    // socket.emit('clientlist', clients);
+    // socket.emit('getusers',  '' + usernames);
   });
     // console.log(socket.emit('getusers',  '' + usernames));
-    socket.on("set-room", function(room) {
-      //leaving room.
-      socket.leave(socket.room);
-      //getting room data.
-      //setting room and join.
-      setRoom = function(roomId) {
-        socket.room = roomId;
-        console.log("roomId : " + socket.room);
-        socket.join(socket.room);
-        ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
-      };
-    });
+    // socket.on("set-room", function(room) {
+    //   //leaving room.
+    //   socket.leave(socket.room);
+    //   //getting room data.
+    //   //setting room and join.
+    //   setRoom = function(roomId) {
+    //     socket.room = roomId;
+    //     console.log("roomId : " + socket.room);
+    //     socket.join(socket.room);
+    //     ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
+    //   };
+    // });
     
     socket.join(socket.room);
     console.log(`${socket.id}`);
@@ -482,10 +482,10 @@ console.log
             console.log(ids)
   	});
     
-    socket.on('sendurl', function (data) {
-    		// we tell the client to execute 'updatechat' with 2 parameters
-    		io.in(socket.room).emit('updateurl', socket.username, data);
-    	});
+    // socket.on('sendurl', function (data) {
+    // 		// we tell the client to execute 'updatechat' with 2 parameters
+    // 		io.in(socket.room).emit('updateurl', socket.username, data);
+    // 	});
 
 	// socket.on('switchRoom', function(newroom){
 	// 	// leave the current room (stored in session)
