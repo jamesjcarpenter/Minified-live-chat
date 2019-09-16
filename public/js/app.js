@@ -99,22 +99,24 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser"name="' + socket.username + '">' + '<div id="keyUse"name="' + socket.id  + '">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div name="send1" class="ui mini button pm" id="' + socket.id + '"><span class="ui medium blue text">PM</span></div></div>');
+			$('#userlist').append('<div id="connecteduser"name="' + socket.username + '">' + '<div id="keyUse"name="' + socket.id  + '">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div name="' + socket.id + '" class="ui mini button pm"><span class="ui medium blue text">PM</span></div></div>');
       console.log($('.ui.mini.button.pm').attr('name'))
+      
+      $('.ui.mini.button.pm').click(function() {
+        // $("#PMbutton").unbind();
+        $(".ui.mini.button.pm").each(function(){
+          var userToPM;
+          userToPM = $('.ui.mini.button.pm').attr('name')
+          console.log(userToPM);
+          socket.emit('private-message', message);
+          });
+        });
+          socket.on('msgStart', function() {
+              console.log(userToPM);
+            });
     });
   });
   
-  $('.ui.mini.button.pm').click(function() {
-    // $("#PMbutton").unbind();
-    $(".ui.mini.button.pm").each(function(){
-      var userToPM;
-      console.log(userToPM);
-      socket.emit('msgStart', message);
-      });
-    });
-      socket.on('msgStart', function() {
-          console.log(userToPM);
-        });
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
     //   $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
