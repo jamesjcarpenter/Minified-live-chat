@@ -53,20 +53,6 @@ var janus = null;
 var videocall = null;
 var opaqueId = "videocalltest-"+ Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
-
-// if(iceServers === undefined || iceServers === null)
-// 	iceServers = [
-// 		{
-// 
-// 			urls: "stun:stun.l.google.com:19302",
-// 		},
-// 		{
-// 			urls: "turn:165.22.137.67:80",
-// 			username: "apostles00@yahoo.com",
-// 			credential: "Zero!",
-// 
-// 		}];
-    
 var bitrateTimer = null;
 var spinner = null;
 
@@ -112,18 +98,6 @@ var simulcastStarted = false;
 									// $('#username').focus();
                   
                   registerUsername();
-                  
-                  myusername = $('#keyUse').attr('name')
-                  Janus.log("Successfully registered as " + myusername + "!");
-                  $('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
-                  // Get a list of available peers, just for fun
-                  videocall.send({"message": { "request": "list" }});
-                  // TODO Enable buttons to call now
-                  $('#phone').removeClass('hide').show();
-                  $('#call').unbind('click').click(doCall);
-                  $('#peer').focus();
-                  
-                  
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -173,7 +147,17 @@ var simulcastStarted = false;
 												Janus.debug("  >> [" + list[mp] + "]");
 											}
 										} else if(result["event"] !== undefined && result["event"] !== null) {
-											  var event = result["event"];
+											var event = result["event"];
+											if(event === null) {
+												myusername = $('#keyUse').attr('name')
+												Janus.log("Successfully registered as " + myusername + "!");
+												$('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
+												// Get a list of available peers, just for fun
+												videocall.send({"message": { "request": "list" }});
+												// TODO Enable buttons to call now
+												$('#phone').removeClass('hide').show();
+												$('#call').unbind('click').click(doCall);
+												$('#peer').focus();
 											} else if(event === 'calling') {
 												Janus.log("Waiting for the peer to answer...");
 												// TODO Any ringtone?
@@ -298,6 +282,7 @@ var simulcastStarted = false;
 													updateSimulcastButtons(substream, temporal);
 												}
 											}
+										}
 									} else {
 										// FIXME Error?
 										var error = msg["error"];
@@ -305,7 +290,7 @@ var simulcastStarted = false;
 										if(error.indexOf("already taken") > 0) {
 											// FIXME Use status codes...
 											$('#username').removeAttr('disabled').val("");
-											// $('#register').removeAttr('disabled').unbind('click').click(registerUsername);
+											$('#register').removeAttr('disabled').unbind('click').click(registerUsername);
 										}
 										// TODO Reset status
 										videocall.hangup();
