@@ -521,11 +521,7 @@ function registerUsername() {
 	var register = { "request": "register", "username": $('#keyUse').attr('name') };
 }
 
-function doCall(){
-  doStartCall();
-};
-
-function doStartCall() {
+function doCall() {
 	// Call someone
 	$('#peer').attr('disabled', true);
 	$('#call').attr('disabled', true).unbind('click');
@@ -533,17 +529,20 @@ function doStartCall() {
 	if(username === "") {
 		bootbox.alert("Insert a username to call (e.g., pluto)");
 		$('#peer').removeAttr('disabled');
-		$('#call').removeAttr('disabled').click(doCall);
+		$('#call').removeAttr('disabled').click(doCall2);
 		return;
 	}
 	if(/[^a-zA-Z0-9]/.test(username)) {
 		bootbox.alert('Input is not alphanumeric');
 		$('#peer').removeAttr('disabled').val("");
-		$('#call').removeAttr('disabled').click(doCall);
+		$('#call').removeAttr('disabled').click(doCall2);
 		return;
 	}
-	// Call this user
-	videocall.createOffer(
+}
+
+
+function doCall2(){
+  videocall.createOffer(
 		{
 			// By default, it's sendrecv for audio and video...
 			media: { data: true },	// ... let's negotiate data channels as well
@@ -562,8 +561,8 @@ function doStartCall() {
 				bootbox.alert("WebRTC error... " + error);
 			}
 		});
-}
-
+  };
+  
 function doHangup() {
 	// Hangup a call
 	$('#call').attr('disabled', true).unbind('click');
