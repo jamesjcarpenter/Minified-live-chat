@@ -565,6 +565,9 @@ pre {
   margin-top:3vh;
   width:150px;
   height:50px;
+  display:block;
+  position:absolute;
+  z-index:9999;
 }
 #emojiPickerWrap {
 margin: 10px 0 0 0;
