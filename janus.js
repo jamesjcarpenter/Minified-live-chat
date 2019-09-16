@@ -480,12 +480,12 @@ function Janus(gatewayCallbacks) {
 	var iceServers = gatewayCallbacks.iceServers;
 	if(iceServers === undefined || iceServers === null)
 		iceServers = [
-      // {
-      // 
-      //   urls: "stun:stun.l.google.com:19302",
-      // },
       {
-        urls: "turn:165.22.137.67", "stun:stun.l.google.com:19302",
+      
+        urls: "stun:stun.l.google.com:19302",
+      },
+      {
+        urls: "turn:165.22.137.67",
         username: "apostles00@yahoo.com",
         credential: "Zero!",
         
