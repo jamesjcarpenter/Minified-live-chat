@@ -428,14 +428,14 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-// console.log
+console.log
     
-    // io.of('/').in(socket.room).clients((error, clients) => {
-    // if (error) throw error;
-    // 
-    // // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
-    // // console.log(clients); 
-    // // console.log(rooms);
+    io.of('/').in(socket.room).clients((error, clients) => {
+    if (error) throw error;
+  
+    // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
+    // console.log(clients); 
+    // console.log(rooms);
     // socket.emit('clientlist', clients);
     // socket.emit('getusers',  '' + usernames);
   });
@@ -512,6 +512,7 @@ io.sockets.on('connection', function (socket) {
 		socket.leave(socket.room);
     delete usernames[socket.username];
 	});
+});
 
 
 
