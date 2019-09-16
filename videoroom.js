@@ -62,7 +62,7 @@ if(iceServers === undefined || iceServers === null)
 			urls: "stun:stun.l.google.com:19302",
 		},
 		{
-			urls: "turn:165.22.137.67:443",
+			urls: "turn:165.22.137.67:80",
 			username: "apostles00@yahoo.com",
 			credential: "Zero!",
 			
