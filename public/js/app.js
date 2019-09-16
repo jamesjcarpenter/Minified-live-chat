@@ -223,7 +223,8 @@ socket.on('connect', function(data) {
       } else{
         socket.emit('private-message', {message: message, username: socket.username});
       };
-    });
+    };
+  });
           
       socket.on('private-message', function(data){
           $('#conversation').append($('<div class="ui small grey label"id="privmessage"><span class="ui small text"></span></div>').text(data));
