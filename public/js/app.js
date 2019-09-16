@@ -223,7 +223,7 @@ socket.on('connect', function(data) {
       } else{
         socket.emit('private-message', {message: message, username: socket.username});
       };
-    };
+    });
   });
           
       socket.on('private-message', function(data){
