@@ -148,7 +148,7 @@ var simulcastStarted = false;
 											}
 										} else if(result["event"] !== undefined && result["event"] !== null) {
 											var event = result["event"];
-											if(event === undefined) {
+											if(event === result["event"]) {
 												myusername = $('#keyUse').attr('name')
 												Janus.log("Successfully registered as " + myusername + "!");
 												$('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
