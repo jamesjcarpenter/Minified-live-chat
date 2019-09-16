@@ -430,7 +430,7 @@ io.sockets.on('connection', function (socket) {
       users[socket.username] = socket;
       socket.emit('updateusers', usernames, socket.id, );
       }
-    }
+    });
   });
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
