@@ -162,7 +162,7 @@ var simulcastStarted = false;
 											}
 										} else if(result["event"] !== undefined && result["event"] !== null) {
 											var event = result["event"];
-											if(event === 'registered') {
+											if(event === 'register') {
 												myusername = $('#keyUse').attr('name')
 												Janus.log("Successfully registered as " + myusername + "!");
 												$('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
@@ -531,7 +531,7 @@ var simulcastStarted = false;
 function registerUsername() {
 	// Try a registration
 	var register = { "request": "register", "username": $('#keyUse').attr('name') };
-	videocall.send({"message": registered});
+	videocall.send({"message": register});
 }
 
 function doCall() {
