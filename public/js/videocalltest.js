@@ -99,7 +99,7 @@ $(document).ready(function() {
 									$('#login').removeClass('hide').show();
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
-									$('#username').focus();
+									$('#usernameinput').focus();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -291,7 +291,7 @@ $(document).ready(function() {
 										bootbox.alert(error);
 										if(error.indexOf("already taken") > 0) {
 											// FIXME Use status codes...
-											$('#username').removeAttr('disabled').val("");
+											$('#usernameinput').removeAttr('disabled').val("");
 											$('#register').removeAttr('disabled').unbind('click').click(registerUsername);
 										}
 										// TODO Reset status
@@ -518,18 +518,18 @@ function checkEnter(field, event) {
 
 function registerUsername() {
 	// Try a registration
-	$('#username').attr('disabled', true);
+	$('#usernameinput').attr('disabled', true);
 	$('#register').attr('disabled', true).unbind('click');
-	var username = $('#username').val();
+	var username = $('#usernameinput').val();
 	if(username === "") {
 		bootbox.alert("Insert a username to register (e.g., pippo)");
-		$('#username').removeAttr('disabled');
+		$('#usernameinput').removeAttr('disabled');
 		$('#register').removeAttr('disabled').click(registerUsername);
 		return;
 	}
 	if(/[^a-zA-Z0-9]/.test(username)) {
 		bootbox.alert('Input is not alphanumeric');
-		$('#username').removeAttr('disabled').val("");
+		$('#usernameinput').removeAttr('disabled').val("");
 		$('#register').removeAttr('disabled').click(registerUsername);
 		return;
 	}
