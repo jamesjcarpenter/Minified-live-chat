@@ -91,11 +91,13 @@ var simulcastStarted = false;
 									videocall = pluginHandle;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
 									// Prepare the username registration
-									$('#videocall').removeClass('hide').show();
-									$('#login').removeClass('hide').show();
-									$('#registernow').removeClass('hide').show();
-									$('#register').click(registerUsername);
-									$('#username').focus();
+									// $('#videocall').removeClass('hide').show();
+									// $('#login').removeClass('hide').show();
+									// $('#registernow').removeClass('hide').show();
+									// $('#register').click(registerUsername);
+									// $('#username').focus();
+                  
+                  registerUsername();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -147,7 +149,7 @@ var simulcastStarted = false;
 										} else if(result["event"] !== undefined && result["event"] !== null) {
 											var event = result["event"];
 											if(event === 'registered') {
-												myusername = $('#connecteduser').attr('name')
+												myusername = $('#keyUse').attr('name')
 												Janus.log("Successfully registered as " + myusername + "!");
 												$('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
 												// Get a list of available peers, just for fun
@@ -514,7 +516,7 @@ function checkEnter(field, event) {
 
 function registerUsername() {
 	// Try a registration
-	var register = { "request": "register", "username": $('#connecteduser').attr('name') };
+	var register = { "request": "register", "username": $('#keyUse').attr('name') };
 	videocall.send({"message": register});
 }
 
