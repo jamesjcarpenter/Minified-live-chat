@@ -421,7 +421,7 @@ io.sockets.on('connection', function (socket) {
     usernames[username] = username;
     
     console.log(socket.emit('updateusers', usernames, socket.id))
-    
+  io.on('new user', function(data, callback){  
     if (data in users){
       callback(false);
     }else{
@@ -429,6 +429,7 @@ io.sockets.on('connection', function (socket) {
       socket.username = data;
       users[socket.username] = socket;
       socket.emit('updateusers', usernames, socket.id, );
+      }
     }
   });
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
