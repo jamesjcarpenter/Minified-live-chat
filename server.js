@@ -390,9 +390,8 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('userIdReceived', (userId) => {
     sessionsMap[userId] = socket.id;
+    console.log(sessionsMap[userId])
   });
-
-console.log(sessionsMap[userId])
     // let setRoom;
     
     // const ioChat = io.of("/room" + "");
