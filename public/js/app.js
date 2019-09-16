@@ -107,7 +107,7 @@ var socket = io.connect('anomic.io/');
     // $("#PMbutton").unbind();
     $(".ui.mini.button.pm").each(function(){
       var userToPM;
-      $(this).attr('id') = userToPM;
+      userToPm = $('.ui.mini.button.pm').prop('id')
       console.log(userToPM);
       socket.emit('msgStart', message);
       });
