@@ -272,7 +272,7 @@ var simulcastStarted = false;
 												$('#bitrate').attr('disabled', true);
 												$('#curbitrate').hide();
 												$('#curres').hide();
-											} else if(event === "simulcast") {
+											} if(event === "simulcast") {
 												// Is simulcast in place?
 												var substream = result["substream"];
 												var temporal = result["temporal"];
