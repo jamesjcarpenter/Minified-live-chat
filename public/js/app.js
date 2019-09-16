@@ -93,17 +93,17 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  socket.on('msgStart', function() {
+  $('.ui.mini.button.pm').click(function() {
+    // $("#PMbutton").unbind();
     $(".ui.mini.button.pm").each(function(){
       var userToPM = $('#PMbutton').attr('id');
+    console.log(userToPM);
+    socket.emit('msgStart', message);
+    });
+  });
+  socket.on('msgStart', function() {
       console.log(userToPM);
-     $('.ui.mini.button.pm').click(function() {
-       // $("#PMbutton").unbind();
-       addBack();
-       console.log(userToPM);
-       socket.emit('private-message', message);
-  });  
-});
+   });
   socket.on('updateusers', function(data) {
     
 		$('#userlist').empty();
@@ -437,4 +437,3 @@ designer.widgetJsURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget
 // <iframe> will be appended to "document.body"
 designer.appendTo(document.body.inner|| document.documentElement);
 });
-    });
