@@ -444,7 +444,7 @@ io.sockets.on('connection', function (socket) {
         ioChat.to(usernames[socket.username]).emit("set-room", socket.room);
       };
     });
-
+    
     socket.join(socket.room);
     console.log(`${socket.id}`);
     socket.on('private-message', function(data, message, userId) {
