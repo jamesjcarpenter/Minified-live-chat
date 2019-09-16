@@ -102,7 +102,7 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     $('#userlist').append('<div class="list-group-item-heading"><span class="ui text">' + 'USERS' + '&nbsp;#' + '' + socket.room + '</span></div>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<div id="connecteduser"name="' + socket.username + '">' + '<div id="keyUse"name="<%=' + socket.id  + '%>">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button"id="PMbutton"><span class="ui medium blue text">PM</span></div></div>');
+			$('#userlist').append('<div id="connecteduser"name="' + socket.username + '">' + '<div id="keyUse"name="' + socket.id  + '">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button pm" id="' + socket.id + '"><span class="ui medium blue text">PM</span></div></div>');
     
       function addBack(){
       $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
@@ -112,9 +112,12 @@ var socket = io.connect('anomic.io/');
     };
       $(document).ready(function(){ 
         
-       $('#PMbutton').click(function() {
+        
+       $('.ui.mini.button.pm').click(function() {
          // $("#PMbutton").unbind();
          addBack();
+         var userToPM = $(this).attr('id');
+         return false; 
          $('.ui.left.pointing.label').hide();
          $('#messagingthem').show();
          $('#PMbutton').hide();

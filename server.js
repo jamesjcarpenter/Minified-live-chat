@@ -448,8 +448,8 @@ io.sockets.on('connection', function (socket) {
     socket.join(socket.room);
     console.log(`${socket.id}`);
     socket.on('private-message', function(data, message, userId) {
-
-      io.to(`${socket.id}`).emit('my message', messageData);
+      io.to(`${userToPM}`).emit('updatechat', data, socket.username);
+      console.log('private message event triggered');
     });
     
     socket.on("typing", function() {
