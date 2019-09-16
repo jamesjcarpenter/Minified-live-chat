@@ -286,7 +286,7 @@ var simulcastStarted = false;
 												}
 											}
 										}
-									} else {
+									} else  if{
 										// FIXME Error?
 										var error = msg["error"];
 										bootbox.alert(error);
