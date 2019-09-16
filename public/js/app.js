@@ -117,6 +117,7 @@ var socket = io.connect('anomic.io/');
          // $("#PMbutton").unbind();
          addBack();
          var userToPM = $(this).attr('id');
+         console.log(userToPM);
          return false; 
          $('.ui.left.pointing.label').hide();
          $('#messagingthem').show();
