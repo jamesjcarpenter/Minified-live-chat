@@ -86,6 +86,7 @@ var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
 var mypvtid = null;
+var fwd = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 
 var feeds = [];
 var bitrateTimer = [];
@@ -132,11 +133,11 @@ $(document).ready(function() {
         "room" : myroom,
         "publisher_id" : opaqueId,
         "host" : "anomic.io",
-        "audio_port" : 3011,
-        "video_port" : 3044,
-        "video_port_2" : 3055,
-        "video_port_3" : 4044,
-        "data_port" : 3112,
+        "audio_port" : fwd,
+        "video_port" : fwd,
+        "video_port_2" : fwd,
+        "video_port_3" : fwd,
+        "data_port" : fwd,
 					}
 					sfutest.send({"message": go});
 					var ju = {"request" : "listforwarders",  "room" : myroom }
