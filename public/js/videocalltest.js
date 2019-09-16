@@ -504,7 +504,7 @@ function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 	if(theCode == 13) {
 		if(field.id == 'username')
-      return true;
+			doCall();
 		else if(field.id == 'peer')
 			doCall();
 		else if(field.id == 'datasend')
@@ -554,7 +554,7 @@ function doCall() {
 		return;
 	}
 	// Call this user
-	 function videocall.createOffer()(
+	videocall.createOffer(
 		{
 			// By default, it's sendrecv for audio and video...
 			media: { data: true },	// ... let's negotiate data channels as well
