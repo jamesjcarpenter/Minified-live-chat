@@ -500,25 +500,25 @@ var simulcastStarted = false;
 	}});
 });
 
-// function checkEnter(field, event) {
-// 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-// 	if(theCode == 13) {
-// 		if(field.id == 'username')
-// 			registerUsername();
-// 		else if(field.id == 'peer')
-// 			doCall();
-// 		else if(field.id == 'datasend')
-// 			sendData();
-// 		return false;
-// 	} else {
-// 		return true;
-// 	}
-// }
+function checkEnter(field, event) {
+	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+	if(theCode == 13) {
+		if(field.id == 'username')
+			registerUsername();
+		else if(field.id == 'peer')
+			doCall();
+		else if(field.id == 'datasend')
+			sendData();
+		return false;
+	} else {
+		return true;
+	}
+}
 
-// function registerUsername() {
-// 	// Try a registration
-// 	var register = { "request": "register", "username": myusername };
-// }
+function registerUsername() {
+	// Try a registration
+	var register = { "request": "register", "username": myusername };
+}
 
 function doCall() {
 	// Call someone
