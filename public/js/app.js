@@ -93,17 +93,7 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  $('.ui.mini.button.pm').click(function() {
-    // $("#PMbutton").unbind();
-    $(".ui.mini.button.pm").each(function(){
-      var userToPM = $('#PMbutton').attr('id');
-    console.log(userToPM);
-    socket.emit('msgStart', message);
-    });
-  });
-  socket.on('msgStart', function() {
-      console.log(userToPM);
-   });
+
   socket.on('updateusers', function(data) {
     
 		$('#userlist').empty();
@@ -112,6 +102,18 @@ var socket = io.connect('anomic.io/');
 			$('#userlist').append('<div id="connecteduser"name="' + socket.username + '">' + '<div id="keyUse"name="' + socket.id  + '">' + key + '</div>' + '&nbsp;&nbsp;' + '<i class="small circle icon green"></i><div class="ui mini button pm" id="' + socket.id + '"><span class="ui medium blue text">PM</span></div></div>');
     });
   });
+  
+  $('.ui.mini.button.pm').click(function() {
+    // $("#PMbutton").unbind();
+    $(".ui.mini.button.pm").each(function(){
+      var userToPM = $('.ui.mini.button.pm').attr('id');
+      console.log(userToPM);
+      socket.emit('msgStart', message);
+      });
+    });
+      socket.on('msgStart', function() {
+          console.log(userToPM);
+        });
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
     //   $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
