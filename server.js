@@ -383,7 +383,7 @@ const sessionsMap = {};
 var clients = [];
 var users = {};
 
-var ids = [];
+var ids = {};
 io.sockets.on('connection', function (socket) {
   
   socket.emit('askForUserId');
