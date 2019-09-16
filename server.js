@@ -421,10 +421,10 @@ io.sockets.on('connection', function (socket) {
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     socket.on('connect', function(client) {
-        ids.push(socket.id + socket.username); 
+        ids.splice(ids.indexOf(socket.id), 1);
 
         socket.on('disconnect', function() {
-          ids.splice(ids.indexOf(socket.id + socket.username), 1);
+          ids.splice(ids.indexOf(socket.id), 1);
   });
 });
 
