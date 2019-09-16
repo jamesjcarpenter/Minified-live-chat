@@ -515,7 +515,7 @@ io.sockets.on('connection', function (socket) {
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
     delete usernames[socket.username];
- 	  socket.to(socket.room).broadcast.emit('updateusers', usernames);
+ 	  io.in(socket.room).emit('updateusers', usernames);
 	});
 });
 
