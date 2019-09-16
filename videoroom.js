@@ -127,7 +127,7 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									
-									{
+									var go =	{
         "request" : "rtp_forward",
         "room" : myroom,
         "publisher_id" : opaqueId,
@@ -137,13 +137,10 @@ $(document).ready(function() {
         "video_port_2" : 3055,
         "video_port_3" : 4044,
         "data_port" : 3112,
-}
-
-{
-        "request" : "listforwarders",
-        "room" : myroom,
-}
-									
+					}
+					sfutest.send({"message": go});
+					var ju = {"request" : "listforwarders",  "room" : myroom }
+									sfutest.send({"message": ju});
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
