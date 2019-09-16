@@ -52,6 +52,12 @@ var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
+function Janus(gatewayCallbacks) {
+	if(Janus.initDone === undefined) {
+		gatewayCallbacks.error("Library not initialized");
+		return {};
+	}
+};
 var servers = null, serversIndex = 0;
 
 var server = gatewayCallbacks.server;
