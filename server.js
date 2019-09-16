@@ -425,9 +425,9 @@ io.sockets.on('connection', function (socket) {
     socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
-    socket.emit('updateusers', usernames, socket.id);
+    socket.to(socket.room).broadcast.emit('updateusers', usernames, socket.id);
     // console.log(usernames);
-    socket.emit('updaterooms', rooms, socket.room);
+    socket.to(socket.room).broadcast.emit('updaterooms', rooms, socket.room);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
@@ -515,7 +515,7 @@ io.sockets.on('connection', function (socket) {
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
     delete usernames[socket.username];
- 	  io.sockets.emit('updateusers', usernames);
+ 	  socket.to(socket.room).broadcast.emit('updateusers', usernames);
 	});
 });
 
