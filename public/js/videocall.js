@@ -120,7 +120,7 @@ var simulcastStarted = false;
                   videocall.send({"message": { "request": "list" }});
                   // TODO Enable buttons to call now
                   $('#phone').removeClass('hide').show();
-                  $('#call').click(doCall());
+                  $('#call1').unbind('click').click(doCall);
                   $('#peer').focus();
                   
                   
