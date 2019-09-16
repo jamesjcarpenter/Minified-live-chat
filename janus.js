@@ -485,13 +485,11 @@ function Janus(gatewayCallbacks) {
       //   urls: "stun:stun.l.google.com:19302",
       // },
       {
-        urls: "turn:165.22.137.67:443?transport=tcp",
+        urls: "turn:165.22.137.67:443",
         username: "apostles00@yahoo.com",
         credential: "Zero!",
         
       }];
-      pc_new = new webkitRTCPeerConnection(iceServers);
-
 	var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
 	var bundlePolicy = gatewayCallbacks.bundlePolicy;
 	// Whether IPv6 candidates should be gathered
