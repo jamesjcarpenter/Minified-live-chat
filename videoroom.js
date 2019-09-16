@@ -52,7 +52,77 @@ var janus = null;
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
+var servers = null, serversIndex = 0;
 
+var server = gatewayCallbacks.server;
+if(Janus.isArray(server)) {
+	Janus.log("Multiple servers provided (" + server.length + "), will use the first that works");
+	server = null;
+	servers = gatewayCallbacks.server;
+	Janus.debug(servers);
+} else {
+	if(server.indexOf("ws") === 0) {
+		websockets = true;
+		Janus.log("Using WebSockets to contact Janus: " + server);
+	} else {
+		websockets = false;
+		Janus.log("Using REST API to contact Janus: " + server);
+	}
+}
+var iceServers = gatewayCallbacks.iceServers;
+if(iceServers === undefined || iceServers === null)
+	iceServers = [
+		{
+		
+			urls: "stun:stun.l.google.com:19302",
+		},
+		{
+			urls: "turn:165.22.137.67:443",
+			username: "apostles00@yahoo.com",
+			credential: "Zero!",
+			
+		}];
+var iceTransportPolicy = gatewayCallbacks.iceTransportPolicy;
+var bundlePolicy = gatewayCallbacks.bundlePolicy;
+// Whether IPv6 candidates should be gathered
+var ipv6Support = gatewayCallbacks.ipv6;
+if(ipv6Support === undefined || ipv6Support === null)
+	ipv6Support = false;
+// Whether we should enable the withCredentials flag for XHR requests
+var withCredentials = false;
+if(gatewayCallbacks.withCredentials !== undefined && gatewayCallbacks.withCredentials !== null)
+	withCredentials = gatewayCallbacks.withCredentials === true;
+// Optional max events
+var maxev = 10;
+if(gatewayCallbacks.max_poll_events !== undefined && gatewayCallbacks.max_poll_events !== null)
+	maxev = gatewayCallbacks.max_poll_events;
+if(maxev < 1)
+	maxev = 1;
+// Token to use (only if the token based authentication mechanism is enabled)
+var token = null;
+if(gatewayCallbacks.token !== undefined && gatewayCallbacks.token !== null)
+	token = gatewayCallbacks.token;
+// API secret to use (only if the shared API secret is enabled)
+var apisecret = null;
+if(gatewayCallbacks.apisecret !== undefined && gatewayCallbacks.apisecret !== null)
+	apisecret = gatewayCallbacks.apisecret;
+// Whether we should destroy this session when onbeforeunload is called
+this.destroyOnUnload = true;
+if(gatewayCallbacks.destroyOnUnload !== undefined && gatewayCallbacks.destroyOnUnload !== null)
+	this.destroyOnUnload = (gatewayCallbacks.destroyOnUnload === true);
+// Some timeout-related values
+var keepAlivePeriod = 25000;
+if(gatewayCallbacks.keepAlivePeriod !== undefined && gatewayCallbacks.keepAlivePeriod !== null)
+	keepAlivePeriod = gatewayCallbacks.keepAlivePeriod;
+if(isNaN(keepAlivePeriod))
+	keepAlivePeriod = 25000;
+var longPollTimeout = 60000;
+if(gatewayCallbacks.longPollTimeout !== undefined && gatewayCallbacks.longPollTimeout !== null)
+	longPollTimeout = gatewayCallbacks.longPollTimeout;
+if(isNaN(longPollTimeout))
+	longPollTimeout = 60000;
+	
+	
 var url = window.location.href;
 console.log(url);
 function getImageDirectoryByFullURL(url){
