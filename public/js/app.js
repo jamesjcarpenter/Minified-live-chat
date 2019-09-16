@@ -108,7 +108,7 @@ var socket = io.connect('anomic.io/');
           var userToPM;
           userToPM = $('.ui.mini.button.pm').attr('name')
           console.log(userToPM);
-          socket.emit('private-message', userToPM);
+          socket.emit('private-message', data, message, userToPM);
           });
         });
           socket.on('msgStart', function() {
