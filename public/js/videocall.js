@@ -550,7 +550,6 @@ function doCall() {
 				Janus.debug("Got SDP!");
 				Janus.debug(jsep);
 				var body = { "request": "call", "username": myusername };
-				videocall.send({"message": body, "jsep": jsep});
 			},
 			error: function(error) {
 				Janus.error("WebRTC error...", error);
