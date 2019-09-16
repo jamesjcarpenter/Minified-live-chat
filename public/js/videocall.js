@@ -304,7 +304,7 @@ var simulcastStarted = false;
 										if(error.indexOf("already taken") > 0) {
 											// FIXME Use status codes...
 											$('#username').removeAttr('disabled').val("");
-											$('#register').removeAttr('disabled').unbind('click').click(registerUsername);
+											// $('#register').removeAttr('disabled').unbind('click').click(registerUsername);
 										}
 										// TODO Reset status
 										videocall.hangup();
@@ -513,25 +513,25 @@ var simulcastStarted = false;
 	}});
 });
 
-function checkEnter(field, event) {
-	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-	if(theCode == 13) {
-		if(field.id == 'username')
-			registerUsername();
-		else if(field.id == 'peer')
-			doCall();
-		else if(field.id == 'datasend')
-			sendData();
-		return false;
-	} else {
-		return true;
-	}
-}
+// function checkEnter(field, event) {
+// 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+// 	if(theCode == 13) {
+// 		if(field.id == 'username')
+// 			registerUsername();
+// 		else if(field.id == 'peer')
+// 			doCall();
+// 		else if(field.id == 'datasend')
+// 			sendData();
+// 		return false;
+// 	} else {
+// 		return true;
+// 	}
+// }
 
 function registerUsername() {
 	// Try a registration
 	var register = { "request": "register", "username": $('#keyUse').attr('name') };
-	videocall.send({"message": register});
+	videocall.send({"message": registered});
 }
 
 function doCall() {
