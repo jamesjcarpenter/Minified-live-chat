@@ -521,7 +521,11 @@ function registerUsername() {
 	var register = { "request": "register", "username": $('#keyUse').attr('name') };
 }
 
-function doCall() {
+function doCall(){
+  doStartCall();
+};
+
+function doStartCall() {
 	// Call someone
 	$('#peer').attr('disabled', true);
 	$('#call').attr('disabled', true).unbind('click');
