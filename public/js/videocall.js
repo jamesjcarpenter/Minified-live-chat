@@ -42,6 +42,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
+$(document).ready(function() {
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "ws://" + window.location.hostname + ":8088/janus";
@@ -71,6 +72,10 @@ var simulcastStarted = false;
 		$('#start').one('click', function() {
 			// $(this).attr('disabled', false).unbind('click');
 			// Make sure the browser supports WebRTC
+			if(!Janus.isWebrtcSupported()) {
+				bootbox.alert("No WebRTC support... ");
+				return;
+			}
 			// Create session
 			janus = new Janus(
 				{
@@ -490,6 +495,7 @@ var simulcastStarted = false;
 				});
 		});
 	}});
+});
 
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
