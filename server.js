@@ -512,7 +512,6 @@ io.sockets.on('connection', function (socket) {
 		socket.leave(socket.room);
     delete usernames[socket.username];
 	});
-});
 
 
 
