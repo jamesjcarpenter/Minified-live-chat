@@ -102,8 +102,8 @@ var socket = io.connect('anomic.io/');
        addBack();
        console.log(userToPM);
        socket.emit('private-message', message);
-  });
-  
+  });  
+});
   socket.on('updateusers', function(data) {
     
 		$('#userlist').empty();
