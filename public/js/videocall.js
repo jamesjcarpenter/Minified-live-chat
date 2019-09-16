@@ -521,7 +521,7 @@ function registerUsername() {
 }
 
 function doCall() {
-  var doCall = this.doCall()...
+  var doCall = this.doCall()
 	// Call someone
 	$('#peer').attr('disabled', true);
 	$('#call').attr('disabled', true).unbind('click');
