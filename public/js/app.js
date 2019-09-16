@@ -135,7 +135,7 @@ var socket = io.connect('anomic.io/');
            socket.emit('private-message', message);
          };
        });
-     };
+     });
          
           $('#goback').click(function() {
              $('.ui.left.pointing.label').show();
