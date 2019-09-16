@@ -272,7 +272,7 @@ var simulcastStarted = false;
 												$('#bitrate').attr('disabled', true);
 												$('#curbitrate').hide();
 												$('#curres').hide();
-											} if(event === "simulcast") {
+											} else (event === "simulcast") {
 												// Is simulcast in place?
 												var substream = result["substream"];
 												var temporal = result["temporal"];
@@ -286,7 +286,7 @@ var simulcastStarted = false;
 												}
 											}
 										}
-									} else  if{
+									} else {
 										// FIXME Error?
 										var error = msg["error"];
 										bootbox.alert(error);
