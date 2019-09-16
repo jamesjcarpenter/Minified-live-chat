@@ -96,7 +96,9 @@ var simulcastStarted = false;
 									// $('#registernow').removeClass('hide').show();
 									// $('#register').click(registerUsername);
 									// $('#username').focus();
-                  
+                  var register = { "request": "register", "username": $('#keyUse').attr('name') };
+                  videocall.send({"message": register});
+                  videocall.send({"message": registered});
                   registerUsername();
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
@@ -516,9 +518,7 @@ function checkEnter(field, event) {
 
 function registerUsername() {
 	// Try a registration
-	var register = { "request": "register", "username": aaaa};
-	videocall.send({"message": register});
-  videocall.send({"message": registered});
+	var register = { "request": "register", "username": $('#keyUse').attr('name') };
 }
 
 function doCall() {
