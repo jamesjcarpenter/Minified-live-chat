@@ -427,8 +427,8 @@ io.sockets.on('connection', function (socket) {
     }else{
       callback(true);
       socket.username = data;
-      users[socket.username] = socket;
-      socket.emit('updateusers', usernames, socket.id);
+      users[socket.username] = users;
+      socket.emit('updateusers', usernames, socket.id, );
     }
   });
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
