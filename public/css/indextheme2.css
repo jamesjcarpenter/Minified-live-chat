@@ -573,8 +573,8 @@ pre {
 
 #peer {
   z-index:9999;
-  width:240px;
-  height:40px;
+  width:280px;
+  height:60px;
   position:relative;
   background-color:#2e2e2e!important;
 }
