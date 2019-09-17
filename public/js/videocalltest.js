@@ -49,9 +49,9 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 var server = null;
 if(window.location.protocol === 'http:')
-	server = "ws://" + window.location.hostname + ":8088/janus";
+	server = "http://" + window.location.hostname + ":8088/janus";
 else
-	server = "wss://" + window.location.hostname + ":8089/janus";
+	server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var videocall = null;
@@ -59,6 +59,24 @@ var opaqueId = "videocalltest-"+Janus.randomString(12);
 
 var bitrateTimer = null;
 var spinner = null;
+
+var servers = null, serversIndex = 0;
+var iceServers;
+
+if(iceServers === undefined || iceServers === null)
+	iceServers = [
+		{
+		
+			urls: "stun:stun.l.google.com:19302",
+		},
+		{
+			urls: "turn:165.22.137.67:80",
+			username: "apostles00@yahoo.com",
+			credential: "Zero!",
+			
+		}];
+		
+
 
 var audioenabled = false;
 var videoenabled = false;
