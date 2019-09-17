@@ -561,23 +561,25 @@ pre {
    color: #00FFFF!important; 
  }
 
- #callwrapper {
-    text-align:center;
-    bottom:0px;
-    left:50%;
-    right:40%;
- }
 #peer {
+  text-align:center;
+  position:fixed;
   z-index:9999;
   width:280px;
   height:60px;
   margin:0 auto;
+  bottom:0px;
+  left:40%;
 }
 #call {
+    text-align:center;
+  position:fixed;
   width:130px;
   height:60px;
   z-index:9999;
   margin:0 auto;
+  bottom:0px;
+  left:50%;
 }
 
 .input-group-addon {
