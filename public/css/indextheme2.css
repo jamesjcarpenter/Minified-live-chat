@@ -353,11 +353,11 @@
     position:fixed;
     display:block;
     margin:0 auto;
-    left:41%;
+    /* left:41%;
     top:7.5%;
     width:70%;
     min-width:6.75vmin;
-    min-height:6.31vmin;
+    min-height:6.31vmin; */
   }
   #secreticon {
     text-align:center;
