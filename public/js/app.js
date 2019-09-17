@@ -93,7 +93,7 @@ var socket = io.connect('anomic.io/');
       
         }).modal('show'));
       });
-      socket.username = $('#addusername').val();
+      // socket.username = $('#addusername').val();
     };
     //   socket.emit('adduser',
     //   $('.ui.mini.basic.modal.start')
