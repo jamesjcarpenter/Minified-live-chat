@@ -95,15 +95,16 @@ var simulcastStarted = false;
 									videocall = pluginHandle;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
 									// Prepare the username registratio
-                  
-                  myusername = $('#connecteduser').attr('name');
+                  setTimeout( function(){
+                    myusername = $('#connecteduser').attr('name');
+                    var register = { "request": "register", "username": myusername };
+                    videocall.send({"message": register});
+                  }, 5500); // delay 500 ms
 									$('#videocall').removeClass('hide').show();
 									$('#login').removeClass('hide').show();
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#usernameinput').focus();
-                  var register = { "request": "register", "username": myusername };
-                  videocall.send({"message": register});
                   $( "#usernameinput" ).keypress(function() {
                     return checkEnter(this, event);
                   });
