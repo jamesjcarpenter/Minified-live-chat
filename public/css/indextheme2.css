@@ -573,12 +573,12 @@ pre {
 #peer {
   text-align:center;
   z-index:9999;
-  width:180px;
+  width:250px;
   height:60px;
   position:fixed;
   bottom:0px;
   left:50%;
-  right:25%;
+  right:40%;
 }
 #call {
   text-align:center;
