@@ -72,7 +72,6 @@ var simulcastStarted = false;
 	// Initialize the library (console debug enabled)
 	Janus.init({debug: true, callback: function() {
 		// Use a button to start the demo
-    $(document).ready(function() {
 		$('#start').one('click', function() {
 			$(this).attr('disabled', true).unbind('click');
 			// Make sure the browser supports WebRTC
@@ -726,4 +725,3 @@ function updateSimulcastButtons(substream, temporal) {
 		$('#tl-1').removeClass('btn-primary btn-success').addClass('btn-primary');
 		$('#tl-0').removeClass('btn-primary btn-success').addClass('btn-primary');
 	}
-}
