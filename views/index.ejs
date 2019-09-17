@@ -369,6 +369,13 @@
 							</div>
 							<div class="panel-body" id="videoleft"></div>
 						</div>
+            <div class="col-md-6 container hide" id="login">
+							<div class="input-group margin-bottom-sm">
+								<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+								<input class="form-control" type="text" placeholder="Choose a username" autocomplete="off" id="username" onkeypress="return checkEnter(this, event);"></input>
+							</div>
+							<button class="btn btn-success margin-bottom-sm" autocomplete="off" id="register">Register</button> <span class="hide label label-info" id="youok"></span>
+						</div>
 						<div class="input-group margin-bottom-sm">
 							<!-- <span class="input-group-addon"> -->
               <i class="fa fa-cloud-upload fa-fw"></i></span>
@@ -380,6 +387,11 @@
 							<div class="panel-heading">
 							<span class="ui text">Remote Stream</span> <span class="label label-info hide" id="callee"></span> <span class="label label-primary hide" id="curres"></span> <span class="label label-info hide" id="curbitrate"></span>
 							</div>
+              <div class="input-group margin-bottom-sm">
+  <span class="input-group-addon"><i class="fa fa-cloud-upload fa-fw"></i></span>
+  <input class="form-control" type="text" placeholder="Write a DataChannel message to your peer" autocomplete="off" id="datasend" onkeypress="return checkEnter(this, event);" disabled></input>
+</div>
+</div>
 							<div class="panel-body" id="videoright"></div>
 						</div>
 						<div class="input-group margin-bottom-sm">
