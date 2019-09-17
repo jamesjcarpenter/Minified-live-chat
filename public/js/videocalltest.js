@@ -558,8 +558,6 @@ function doCall() {
 		bootbox.alert('Input is not alphanumeric');
 		$('#peer').removeAttr('disabled').val("");
 		$('#call').removeAttr('disabled').click(doCall);
-		return;
-	} else {
 	// Call this user
 	videocall.createOffer(
 		{
