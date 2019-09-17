@@ -1,4 +1,4 @@
-$(document).ready(function() {
+window.addEventListener('load', () => {
   
   // Chat platform
   // Local Video
@@ -55,23 +55,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    socket.emit('adduser',
-    $('.ui.mini.basic.modal.start')
-    .modal({  
-      blurring: true,
-      closable  : false,
-      onDeny    : function(){
-        window.alert('Wait not yet!');
-        return false;
-      },
-      onApprove : function() {
-        socket.username = $('#addusername').val();
-        window.close();
-      }
-    
-    
-    }).modal('show'));
-  });
       //empty messages.
       socket.on('askForUserId', () => {
         socket.emit(socket.id);
@@ -90,6 +73,26 @@ var socket = io.connect('anomic.io/');
        socket.emit('join', roomId);
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
+		socket.emit('adduser', bootbox.prompt("Enter username."));
+    //   socket.emit('adduser',
+    //   $('.ui.mini.basic.modal.start')
+    //   .modal({  
+    //     blurring: true,
+    //     closable  : false,
+    //     onDeny    : function(){
+    //       window.alert('Wait not yet!');
+    //       return false;
+    //     },
+    //     onApprove : function() {
+    //       socket.username = $('#addusername').val();
+    //       window.close();
+    //     }
+    // 
+    // 
+    //   }).modal('show'));
+    // });
+	});
+  
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
   // 
