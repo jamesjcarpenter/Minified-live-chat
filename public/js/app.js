@@ -18,6 +18,8 @@ console.log(url.substr(url.lastIndexOf("=")+1));
 $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
 
+$(.input-group-addon).remove();
+
 $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
