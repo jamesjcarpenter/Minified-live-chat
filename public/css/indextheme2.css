@@ -568,8 +568,7 @@ pre {
   position:fixed;
   bottom:3.5%;
   left:30%;
-  width:5vmin;
-  height:10vmin;
+  width:auto;
 }
 
 #mail {
