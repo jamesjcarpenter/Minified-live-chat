@@ -60,7 +60,7 @@ var opaqueId = "videocalltest-"+Janus.randomString(12);
 var bitrateTimer = null;
 var spinner = null;
 
-$( "#usernameinput" ).keypress(function() {
+$( "usernameinput" ).keypress(function() {
   return checkEnter(this, event);
 });
 var audioenabled = false;
