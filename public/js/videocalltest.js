@@ -47,11 +47,7 @@
 // the whole session.
 //
 
-var server = null;
-if(window.location.protocol === 'http:')
-	server = "http://" + window.location.hostname + ":8088/janus";
-else
-	server = "https://" + window.location.hostname + ":8089/janus";
+
 
 var janus = null;
 var videocall = null;
@@ -73,6 +69,11 @@ var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringV
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 var simulcastStarted = false;
 window.addEventListener('DOMContentLoaded', (event) => {
+  var server = null;
+  if(window.location.protocol === 'http:')
+  	server = "http://" + window.location.hostname + ":8088/janus";
+  else
+  	server = "https://" + window.location.hostname + ":8089/janus";
 	// Initialize the library (console debug enabled)
 	Janus.init({debug: true, callback: function() {
 		// Use a button to start the demo
