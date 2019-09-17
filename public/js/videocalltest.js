@@ -64,6 +64,7 @@ var audioenabled = false;
 var videoenabled = false;
 
 var myusername = null;
+my username = $('#connecteduser').attr('name');
 var yourusername = null;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
@@ -100,7 +101,6 @@ var simulcastStarted = false;
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#usernameinput').focus();
-                  var myusername = $('#connecteduser').attr('name');
                   var register = { "request": "register", "username": myusername };
                   videocall.send({"message": register});
                   $( "#usernameinput" ).keypress(function() {
