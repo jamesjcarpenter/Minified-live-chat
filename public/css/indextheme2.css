@@ -280,6 +280,12 @@
     right:8.25em;
   }
   
+  #imagelabel{
+    padding:2px;
+    color:white;
+  }
+  
+  
   #youtubeapi {
     display:block;
     text-align:center;
