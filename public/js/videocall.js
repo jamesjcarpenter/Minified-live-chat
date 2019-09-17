@@ -531,9 +531,13 @@ function registerUsername() {
 		return;
 	}
 	var register = { "request": "register", "username": username };
-	videocall.send({"message": register});
+	sendMsg();
 }
 
+function sendMsg(){
+  var register = { "request": "register", "username": username };
+  videocall.send({"message": register});  
+};
 function doCall() {
 	// Call someone
 	$('#peer').attr('disabled', true);
