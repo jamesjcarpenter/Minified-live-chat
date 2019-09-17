@@ -530,14 +530,15 @@ function registerUsername() {
 		$('#register').removeAttr('disabled').click(registerUsername);
 		return;
 	}
-	var register = { "request": "register", "username": username };
-	sendMsg();
+  function sendMsg(){
+    $('#register').click( function() {
+      	var register = { "request": "register", "username": username };
+        videocall.send({"message": register});  
+    });
+  };
 }
 
-function sendMsg(){
-  var register = { "request": "register", "username": username };
-  videocall.send({"message": register});  
-};
+
 function doCall() {
 	// Call someone
 	$('#peer').attr('disabled', true);
