@@ -351,8 +351,8 @@
   #btnwrapping {
     position:fixed;
     display:block;
-    margin-left:auto;
-    margin-right:auto;
+    margin:0 auto;
+    left:41%;
     top:7.5%;
     width:70%;
     min-width:6.75vmin;
@@ -360,6 +360,7 @@
   }
   #secreticon {
     text-align:center;
+    margin-right:1em;
   }
   .label{
     background-color:	#383838!important;
