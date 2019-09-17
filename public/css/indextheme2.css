@@ -184,7 +184,7 @@
       #youtubeopen{
         text-align:center;
         margin: 0 auto;
-        padding:10px;
+        padding:-2px;
       }
       #scroller{
         min-height: 9vh;
