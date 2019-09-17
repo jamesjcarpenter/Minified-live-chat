@@ -26,7 +26,7 @@ $('#youtubeopen').click( function() {
 
 
 
-      $('#logo').append($('<img src="avatars/anomiclogo.png" />').text());
+      $('#logo').append($('<img src="images/robotsleep.png" />').text());
 
 
     document.getElementById('themecss').href = 'css/indextheme2.css';
