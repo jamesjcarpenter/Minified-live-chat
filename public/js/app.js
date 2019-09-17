@@ -120,9 +120,6 @@ var socket = io.connect('anomic.io/');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
       console.log($('.ui.mini.button.pm').attr('name'))
-      var d = document.createElement('div');
-      d.id = 'sockettest';
-      d.innerHTML = 'id' + '' + socket.id + '' + socket.username;
       
       $('.ui.mini.button.pm').click(function() {
         // $("#PMbutton").unbind();
@@ -196,6 +193,9 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
     replaceUrl();
+    var d = document.createElement('div');
+    d.id = 'sockettest';
+    d.innerHTML = 'id' + '' + socket.id + '' + socket.username;
   });
   
   function replaceUrl() {
