@@ -561,10 +561,15 @@ pre {
    color: #00FFFF!important; 
  }
 
+#peer {
+  margin-top:17.5vh;
+  position:absolute;
+  z-index:9999;
+}
 #call {
-  margin-top:3vh;
-  width:150px;
-  height:50px;
+  margin-top:17.5vh;
+  width:100px;
+  height:30px;
   display:block;
   position:absolute;
   z-index:9999;
