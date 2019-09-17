@@ -356,8 +356,8 @@
     right:50%;
     top:7.5%;
     width:70%;
-    min-width:6.75vmin;
-    min-height:6.31vmin;
+    /* min-width:6.75vmin;
+    min-height:6.31vmin; */
   }
   
   .label{
