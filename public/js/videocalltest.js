@@ -578,7 +578,8 @@ function doCall() {
 				bootbox.alert("WebRTC error... " + error);
 			}
 		});
-}
+  };
+};
 
 function doHangup() {
 	// Hangup a call
