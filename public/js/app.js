@@ -55,6 +55,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
+    		socket.emit('adduser', prompt("Enter username."));
       //empty messages.
       socket.on('askForUserId', () => {
         socket.emit(socket.id);
@@ -73,7 +74,6 @@ var socket = io.connect('anomic.io/');
        socket.emit('join', roomId);
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', prompt("Enter username."));
     //   socket.emit('adduser',
     //   $('.ui.mini.basic.modal.start')
     //   .modal({  
