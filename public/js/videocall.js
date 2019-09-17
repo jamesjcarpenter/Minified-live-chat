@@ -42,7 +42,6 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-window.addEventListener('DOMContentLoaded', (event) => {
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -66,7 +65,7 @@ var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringV
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 var simulcastStarted = false;
 
-
+$(document).ready(function() {
 	// Initialize the library (console debug enabled)
 	Janus.init({debug: true, callback: function() {
 		// Use a button to start the demo
@@ -515,18 +514,18 @@ function checkEnter(field, event) {
 
 function registerUsername() {
 	// Try a registration
-	$('#gibusername').attr('disabled', true);
+	$('#username').attr('disabled', true);
 	$('#register').attr('disabled', true).unbind('click');
-	var username = $('#gibusername').val();
+	var username = $('#username').val();
 	if(username === "") {
 		bootbox.alert("Insert a username to register (e.g., pippo)");
-		$('#gibusername').removeAttr('disabled');
+		$('#username').removeAttr('disabled');
 		$('#register').removeAttr('disabled').click(registerUsername);
 		return;
 	}
 	if(/[^a-zA-Z0-9]/.test(username)) {
 		bootbox.alert('Input is not alphanumeric');
-		$('#gibusername').removeAttr('disabled').val("");
+		$('#username').removeAttr('disabled').val("");
 		$('#register').removeAttr('disabled').click(registerUsername);
 		return;
 	}
