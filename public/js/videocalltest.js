@@ -51,7 +51,7 @@
 
 var janus = null;
 var videocall = null;
-var opaqueId = "videocalltest-"+Janus.randomString(12);
+
 
 var bitrateTimer = null;
 var spinner = null;
@@ -74,6 +74,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   	server = "http://" + window.location.hostname + ":8088/janus";
   else
   	server = "https://" + window.location.hostname + ":8089/janus";
+    var opaqueId = "videocalltest-"+Janus.randomString(12);
 	// Initialize the library (console debug enabled)
 	Janus.init({debug: true, callback: function() {
 		// Use a button to start the demo
