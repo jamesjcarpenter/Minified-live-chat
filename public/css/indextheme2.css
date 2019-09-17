@@ -562,7 +562,7 @@ pre {
  }
 
  #callwrapper {
-    position:absolute;
+    position:fixed;
       width:300px;
       height:300px;
      right:25%;
