@@ -349,14 +349,14 @@
   }
   
   #btnwrapping {
-    text-align:center;
-    width:auto;
+    position:fixed;
     display:block;
-    /* left:41%; */
+    margin:0 auto;
+    left:41%;
     top:7.5%;
     width:70%;
-    /* min-width:6.75vmin;
-    min-height:6.31vmin; */
+    min-width:6.75vmin;
+    min-height:6.31vmin;
   }
   #secreticon {
     text-align:center;
