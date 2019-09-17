@@ -328,9 +328,9 @@
 						<div class="col-md-6 container hide" id="login">
 							<div class="input-group margin-bottom-sm">
 								<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-								<input class="form-control" type="text" placeholder="Choose a username" autocomplete="off" id="usernameinput"></input>
+								<!-- <input class="form-control" type="text" placeholder="Choose a username" autocomplete="off" id="usernameinput"></input> -->
 							</div>
-							<button class="btn btn-success margin-bottom-sm" autocomplete="off" id="register">Register</button> <span class="hide label label-info" id="youok"></span>
+							<!-- <button class="btn btn-success margin-bottom-sm" autocomplete="off" id="register">Register</button> <span class="hide label label-info" id="youok"></span> -->
 						</div>
 						<div class="col-md-6 container hide" id="phone">
 							<div class="input-group margin-bottom-sm">
@@ -347,13 +347,13 @@
 							<div class="panel-heading">
 								<h3 class="panel-title">Local
 									<div class="btn-group btn-group-xs pull-right hide">
-										<button class="btn btn-danger" autocomplete="off" id="toggleaudio">Disable audio</button>
-										<button class="btn btn-danger" autocomplete="off" id="togglevideo">Disable video</button>
+										<!-- <button class="btn btn-danger" autocomplete="off" id="toggleaudio">Disable audio</button>
+										<button class="btn btn-danger" autocomplete="off" id="togglevideo">Disable video</button> -->
 										<div class="btn-group btn-group-xs">
-											<button autocomplete="off" id="bitrateset" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+											<!-- <button autocomplete="off" id="bitrateset" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 												Bandwidth<span class="caret"></span>
-											</button>
-											<ul id="bitrate" class="dropdown-menu" role="menu">
+											</button> -->
+											<!-- <ul id="bitrate" class="dropdown-menu" role="menu">
 												<li><a href="#" id="0">No limit</a></li>
 												<li><a href="#" id="128">Cap to 128kbit</a></li>
 												<li><a href="#" id="256">Cap to 256kbit</a></li>
@@ -361,7 +361,7 @@
 												<li><a href="#" id="1024">Cap to 1mbit</a></li>
 												<li><a href="#" id="1500">Cap to 1.5mbit</a></li>
 												<li><a href="#" id="2000">Cap to 2mbit</a></li>
-											</ul>
+											</ul> -->
 										</div>
 									</div>
 								</h3>
@@ -369,14 +369,15 @@
 							<div class="panel-body" id="videoleft"></div>
 						</div>
 						<div class="input-group margin-bottom-sm">
-							<span class="input-group-addon"><i class="fa fa-cloud-upload fa-fw"></i></span>
+							<!-- <span class="input-group-addon"> -->
+              <i class="fa fa-cloud-upload fa-fw"></i></span>
 							<input class="form-control" type="text" placeholder="Write a DataChannel message to your peer" autocomplete="off" id="datasend" onkeypress="return checkEnter(this, event);" disabled></input>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Remote Stream <span class="label label-info hide" id="callee"></span> <span class="label label-primary hide" id="curres"></span> <span class="label label-info hide" id="curbitrate"></span></h3>
+							<span class="ui text">Remote Stream</span> <span class="label label-info hide" id="callee"></span> <span class="label label-primary hide" id="curres"></span> <span class="label label-info hide" id="curbitrate"></span>
 							</div>
 							<div class="panel-body" id="videoright"></div>
 						</div>
