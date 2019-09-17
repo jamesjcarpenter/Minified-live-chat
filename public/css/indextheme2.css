@@ -578,8 +578,8 @@ pre {
   height:60px;
   z-index:9999;
   margin:0 auto;
-  bottom:-10px;
-  left:42%;
+  bottom:-1px;
+  left:47%;
 }
 
 .input-group-addon {
