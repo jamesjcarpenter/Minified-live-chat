@@ -351,10 +351,10 @@
   #btnwrapping {
     position:fixed;
     display:block;
-    top:5em;
     margin:0 auto;
     left:30%;
     right:60%;
+    top:15%;
     min-width:1.5vmin;
     min-height:6.31vmin;
   }
