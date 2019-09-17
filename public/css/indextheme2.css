@@ -570,6 +570,9 @@ pre {
   z-index:9999;
 }
 
+#datarecv {
+  margin-top:15vh;
+}
 #register {
   margin-top:3vh;
   width:150px;
