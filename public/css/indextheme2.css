@@ -566,7 +566,7 @@ pre {
   width:70%;
 }
 
-#peer {
+/* #peer {
   text-align:center;
   z-index:9999;
   width:280px;
@@ -583,7 +583,7 @@ pre {
   margin:0 auto;
   bottom:0;
   left:15em;
-}
+} */
 
 .input-group-addon {
   display:none;
