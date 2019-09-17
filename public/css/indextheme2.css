@@ -564,7 +564,6 @@ pre {
 #peer {
   text-align:center;
   bottom:0;
-  margin-left:14vw;
   position:fixed;
   z-index:9999;
   display:block;
@@ -574,7 +573,6 @@ pre {
 }
 #call {
   text-align:center;
-  margin-left:20.5vw;
   bottom:0;
   width:130px;
   margin:0 auto;
