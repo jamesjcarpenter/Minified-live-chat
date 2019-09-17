@@ -359,13 +359,13 @@
   }
   
   #mediasettings{
-    position:fixed;
+    position:relative;
     display:inline-block;
     top:2.5em;
     margin:0 auto;
     left:19.5em;
     min-width:1.5vmin;
-    min-height:3.31vmin;
+    min-height:6.31vmin;
   }
   
   .label{
