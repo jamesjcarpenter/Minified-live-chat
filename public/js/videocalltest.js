@@ -559,7 +559,7 @@ function doCall() {
 		$('#peer').removeAttr('disabled').val("");
 		$('#call').removeAttr('disabled').click(doCall);
 		return;
-	}
+	} else {
 	// Call this user
 	videocall.createOffer(
 		{
