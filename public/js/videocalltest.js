@@ -46,14 +46,16 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
+window.addEventListener('DOMContentLoaded', (event) => {
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
 else
 	server = "https://" + window.location.hostname + ":8089/janus";
+
 var janus = null;
 var videocall = null;
-var opaqueId = "videocalltest-"+ Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+var opaqueId = "videocalltest-"+Janus.randomString(12);
 
 var bitrateTimer = null;
 var spinner = null;
@@ -497,6 +499,7 @@ var simulcastStarted = false;
 				});
 		});
 	}});
+});
 
 function checkEnter(field, event) {
 	var theCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
