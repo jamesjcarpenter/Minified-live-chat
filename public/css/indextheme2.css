@@ -576,16 +576,16 @@ pre {
   height:35px;
 }
 #peer {
-  width:30vmin;
-  height:7vmin;
+  width:26vmin;
+  height:6vmin;
     z-index:-1;
   background-color:#2e2e2e!important;
 }
 #call {
-  width:20vmin;
-  height:7vmin;
+  width:17vmin;
+  height:6vmin;
   z-index:-1;
-  margin-right:5px;
+  margin-right:10px;
 }
 
 .input-group-addon {
