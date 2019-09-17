@@ -568,6 +568,7 @@ pre {
      right:25%;
      left:50%;
      margin-left:-150px;
+     bottom:0px;
  }
 #peer {
   text-align:center;
