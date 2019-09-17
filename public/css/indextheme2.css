@@ -351,9 +351,7 @@
   #btnwrapping {
     text-align:center;
     width:auto;
-    position:fixed;
     display:block;
-    margin:0 auto;
     /* left:41%; */
     top:7.5%;
     width:70%;
