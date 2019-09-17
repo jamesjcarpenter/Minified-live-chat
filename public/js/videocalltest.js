@@ -49,9 +49,9 @@
 window.addEventListener('DOMContentLoaded', (event) => {
 var server = null;
 if(window.location.protocol === 'http:')
-	server = "http://" + window.location.hostname + ":8088/janus";
+	server = "ws://" + window.location.hostname + ":8088/janus";
 else
-	server = "https://" + window.location.hostname + ":8089/janus";
+	server = "wss://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var videocall = null;
@@ -101,18 +101,18 @@ var simulcastStarted = false;
                     videocall.send({"message": register});
                   }, 5500); // delay 500 ms
 									$('#videocall').removeClass('hide').show();
-									$('#login').removeClass('hide').show();
-									$('#registernow').removeClass('hide').show();
-									$('#register').click(registerUsername);
-									$('#usernameinput').focus();
-                  $( "#usernameinput" ).keypress(function() {
-                    return checkEnter(this, event);
-                  });
-									$('#start').removeAttr('disabled').html("Stop")
-										.click(function() {
-											$(this).attr('disabled', true);
-											janus.destroy();
-										});
+									// $('#login').removeClass('hide').show();
+									// $('#registernow').removeClass('hide').show();
+									// $('#register').click(registerUsername);
+									// $('#usernameinput').focus();
+                  // $( "#usernameinput" ).keypress(function() {
+                  //   return checkEnter(this, event);
+                  // });
+									// $('#start').removeAttr('disabled').html("Stop")
+									// 	.click(function() {
+									// 		$(this).attr('disabled', true);
+									// 		// janus.destroy();
+									// 	});
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
