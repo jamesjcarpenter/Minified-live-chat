@@ -375,7 +375,9 @@
     background-color:	#383838!important;
   }
   
-
+#mail {
+  right:35px;
+}
   #username{
     padding-left:1.56vw;
     bottom:0.40vw;
