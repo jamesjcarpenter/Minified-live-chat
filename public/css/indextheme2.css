@@ -566,24 +566,18 @@ pre {
   width:70%;
 }
 
-/* #peer {
-  text-align:center;
+#peer {
   z-index:9999;
   width:280px;
   height:60px;
-  margin:0 auto;
-  bottom:0px;
-  left:17.5em;
+  position:relative;
 }
 #call {
-    text-align:center;
   width:130px;
   height:60px;
   z-index:9999;
-  margin:0 auto;
-  bottom:0;
-  left:15em;
-} */
+  position:relative;
+}
 
 .input-group-addon {
   display:none;
