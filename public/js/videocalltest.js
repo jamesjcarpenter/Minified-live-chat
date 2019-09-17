@@ -727,4 +727,6 @@ function updateSimulcastButtons(substream, temporal) {
 		$('#tl-2').removeClass('btn-primary btn-info btn-success').addClass('btn-success');
 		$('#tl-1').removeClass('btn-primary btn-success').addClass('btn-primary');
 		$('#tl-0').removeClass('btn-primary btn-success').addClass('btn-primary');
-	}
+	 }
+  }
+}
