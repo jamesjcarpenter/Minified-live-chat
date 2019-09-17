@@ -544,19 +544,19 @@ function checkEnter(field, event) {
 
 function doCall() {
 	// Call someone
-	// $('#peer').attr('disabled', true);
-	// $('#call').attr('disabled', true).unbind('click');
+	$('#peer').attr('disabled', true);
+	$('#call').attr('disabled', true).unbind('click');
 	var username = $('#peer').val();
-	// if(username === "") {
-	// 	bootbox.alert("Insert a username to call (e.g., pluto)");
-	// 	$('#peer').removeAttr('disabled');
-	// 	$('#call').removeAttr('disabled').click(doCall);
-	// 	return;
-	// }
-	// if(/[^a-zA-Z0-9]/.test(username)) {
-	// 	bootbox.alert('Input is not alphanumeric');
-	// 	$('#peer').removeAttr('disabled').val("");
-	// 	$('#call').removeAttr('disabled').click(doCall);
+	if(username === "") {
+		bootbox.alert("Insert a username to call (e.g., pluto)");
+		$('#peer').removeAttr('disabled');
+		$('#call').removeAttr('disabled').click(doCall);
+		return;
+	}
+	if(/[^a-zA-Z0-9]/.test(username)) {
+		bootbox.alert('Input is not alphanumeric');
+		$('#peer').removeAttr('disabled').val("");
+		$('#call').removeAttr('disabled').click(doCall);
 	// // Call this user
 	videocall.createOffer({
 			// By default, it's sendrecv for audio and video...
