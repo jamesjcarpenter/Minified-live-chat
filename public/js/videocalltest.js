@@ -108,8 +108,11 @@ var simulcastStarted = false;
                   // $( "#usernameinput" ).keypress(function() {
                   //   return checkEnter(this, event);
                   // });
-									$('#start').removeAttr('disabled').html("Stop")
-                },
+									$('#start').removeAttr('disabled').html("Stop").click(function() {
+											$(this).attr('disabled', true);
+											// janus.destroy();
+										});
+								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
 									bootbox.alert("  -- Error attaching plugin... " + error);
