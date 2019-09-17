@@ -353,7 +353,6 @@
     display:block;
     margin:0 auto;
     left:25%;
-    right:50%;
     top:7.5%;
     width:70%;
     /* min-width:6.75vmin;
@@ -567,7 +566,7 @@ pre {
 #callwrapper{
   position:fixed;
   bottom:3.9%;
-  left:30%;
+  left:25%;
   width:auto;
 }
 
