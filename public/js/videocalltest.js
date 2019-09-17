@@ -577,7 +577,7 @@ function doCall() {
 			}
 		});
   }
-
+}
 function doHangup() {
 	// Hangup a call
 	$('#call').attr('disabled', true).unbind('click');
