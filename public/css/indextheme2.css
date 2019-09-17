@@ -571,6 +571,7 @@ pre {
   
   text-align:center;
   bottom:0;
+  position:relative;
   z-index:9999;
 }
 
