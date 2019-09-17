@@ -78,7 +78,7 @@ var socket = io.connect('anomic.io/');
     function addPrompt(){
       bootbox.prompt("Enter username.");
       socket.username = $(this).val();
-    });
+    };
     //   socket.emit('adduser',
     //   $('.ui.mini.basic.modal.start')
     //   .modal({  
