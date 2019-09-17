@@ -574,14 +574,14 @@ pre {
   z-index:9999;
   width:280px;
   height:60px;
-  display:inline-block;
+  display:inline;
   position:relative;
 }
 #call {
   width:130px;
   height:60px;
   z-index:9999;
-  display:inline-block;
+  display:inline;
   position:relative;
 }
 
