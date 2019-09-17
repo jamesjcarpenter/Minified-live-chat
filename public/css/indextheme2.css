@@ -562,14 +562,16 @@ pre {
  }
 
 #peer {
-  margin-top:17.5vh;
+  left:15vw;
+  bottom:8vh;
   position:absolute;
   z-index:9999;
   width:180px;
   height:25px;
 }
 #call {
-  margin-top:19.5vh;
+  left:15vw;
+  bottom:3vh;
   width:100px;
   height:30px;
   display:block;
