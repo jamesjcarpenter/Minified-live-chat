@@ -96,7 +96,7 @@ var simulcastStarted = false;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
 									// Prepare the username registratio
                   
-                  nmyusername = $('#connecteduser').attr('name');
+                  myusername = $('#connecteduser').attr('name');
 									$('#videocall').removeClass('hide').show();
 									$('#login').removeClass('hide').show();
 									$('#registernow').removeClass('hide').show();
