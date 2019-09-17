@@ -585,6 +585,7 @@ pre {
   height:60px;
   z-index:9999;
   position:relative;
+  margin-right:5px;
 }
 
 .input-group-addon {
