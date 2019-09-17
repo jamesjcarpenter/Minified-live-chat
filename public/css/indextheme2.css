@@ -565,6 +565,7 @@ pre {
   text-align:center;
   bottom:0;
   z-index:9999;
+  position:fixed;
   margin-left: auto;
   width:180px;
   height:60px;
@@ -572,6 +573,7 @@ pre {
 #call {
   text-align:center;
   bottom:0;
+  position:fixed;
   margin-right: auto;
   width:130px;
   height:60px;
