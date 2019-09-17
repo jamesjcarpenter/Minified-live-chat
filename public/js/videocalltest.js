@@ -64,7 +64,7 @@ var audioenabled = false;
 var videoenabled = false;
 
 var myusername = null;
-my username = $('#connecteduser').attr('name');
+myusername = $('#connecteduser').attr('name');
 var yourusername = null;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
