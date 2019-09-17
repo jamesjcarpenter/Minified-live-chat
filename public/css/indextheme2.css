@@ -281,10 +281,12 @@
   }
   
   #imagelabel{
-    padding:2px;
-    color:white;
+    padding:5px;
   }
   
+  .ui.white.text{
+    color:white;
+  }
   
   #youtubeapi {
     display:block;
