@@ -349,6 +349,7 @@
   }
   
   #btnwrapping {
+    text-align:center;
     position:fixed;
     display:block;
     margin:0 auto;
