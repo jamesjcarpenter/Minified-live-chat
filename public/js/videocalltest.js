@@ -46,19 +46,20 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-
-
+window.addEventListener('DOMContentLoaded', (event) => {
+var server = null;
+if(window.location.protocol === 'http:')
+	server = "http://" + window.location.hostname + ":8088/janus";
+else
+	server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var videocall = null;
-
+var opaqueId = "videocalltest-"+Janus.randomString(12);
 
 var bitrateTimer = null;
 var spinner = null;
 
-$( "usernameinput" ).keypress(function() {
-  return checkEnter(this, event);
-});
 var audioenabled = false;
 var videoenabled = false;
 
@@ -68,13 +69,7 @@ var yourusername = null;
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 var simulcastStarted = false;
-window.addEventListener('DOMContentLoaded', (event) => {
-  var server = null;
-  if(window.location.protocol === 'http:')
-  	server = "http://" + window.location.hostname + ":8088/janus";
-  else
-  	server = "https://" + window.location.hostname + ":8089/janus";
-    var opaqueId = "videocalltest-"+Janus.randomString(12);
+
 	// Initialize the library (console debug enabled)
 	Janus.init({debug: true, callback: function() {
 		// Use a button to start the demo
@@ -105,6 +100,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#usernameinput').focus();
+                  $( "usernameinput" ).keypress(function() {
+                    return checkEnter(this, event);
+                  });
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
