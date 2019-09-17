@@ -577,14 +577,14 @@ pre {
   height:35px;
 }
 #peer {
-  width:280px;
-  height:60px;
+  width:30vmin;
+  height:10vmin;
     z-index:-1;
   background-color:#2e2e2e!important;
 }
 #call {
-  width:130px;
-  height:60px;
+  width:17vmin;
+  height:10vmin;
   z-index:-1;
   margin-right:5px;
 }
