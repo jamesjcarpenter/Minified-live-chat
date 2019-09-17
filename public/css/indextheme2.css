@@ -581,6 +581,8 @@ pre {
   width:130px;
   height:60px;
   z-index:9999;
+  display:inline-block;
+  position:relative;
   bottom:-0.35em;
   left:50%;
   right:40%;
