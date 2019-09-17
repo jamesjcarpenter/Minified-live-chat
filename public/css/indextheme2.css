@@ -573,9 +573,10 @@ pre {
   width:auto;
 }
 #logosrc {
-width:10.5vw;
+width:8.5vw;
 height:auto;
   padding:0px;
+  border:2px solid white;
 }
 
 #mail {
