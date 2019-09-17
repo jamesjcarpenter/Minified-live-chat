@@ -562,24 +562,22 @@ pre {
  }
 
 #peer {
-  text-align:center;
-  position:fixed;
+
   z-index:9999;
   width:280px;
   height:60px;
   margin:0 auto;
-  bottom:0px;
-  left:30%;
+  bottom:0;
+  left:17.5em;
 }
 #call {
-    text-align:center;
-  position:fixed;
+
   width:130px;
   height:60px;
   z-index:9999;
   margin:0 auto;
-  bottom:-3px;
-  right:55%;
+  bottom:0;
+  left:15em;
 }
 
 .input-group-addon {
