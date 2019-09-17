@@ -73,27 +73,7 @@ var socket = io.connect('anomic.io/');
        socket.emit('join', roomId);
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', addPrompt());
-    
-    function addPrompt(){
-      //   socket.emit('adduser',
-        $('.ui.mini.basic.modal.start')
-        .modal({  
-          blurring: true,
-          closable  : false,
-          onDeny    : function(){
-            window.alert('Wait not yet!');
-            return false;
-          },
-          onApprove : function() {
-            window.close();
-          }
-      
-      
-        }).modal('show'));
-      });
-      // socket.username = $('#addusername').val();
-    };
+		socket.emit('adduser', bootbox.prompt({"Enter username."}));
     //   socket.emit('adduser',
     //   $('.ui.mini.basic.modal.start')
     //   .modal({  
