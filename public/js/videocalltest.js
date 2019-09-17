@@ -53,7 +53,7 @@ else
 	server = "https://" + window.location.hostname + ":8089/janus";
 var janus = null;
 var videocall = null;
-var opaqueId = "videocalltest-"+ randomString(12);
+var opaqueId = "videocalltest-"+ Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
 var bitrateTimer = null;
 var spinner = null;
