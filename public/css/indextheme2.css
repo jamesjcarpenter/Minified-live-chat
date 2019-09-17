@@ -566,6 +566,7 @@ pre {
   bottom:2vh;
   position:absolute;
   z-index:9999;
+    margin:0 auto;
   width:180px;
   height:25px;
 }
@@ -573,6 +574,7 @@ pre {
   left:15vw;
   bottom:1vh;
   width:100px;
+  margin:0 auto;
   height:30px;
   display:block;
   position:relative;
