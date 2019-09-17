@@ -73,7 +73,9 @@ var socket = io.connect('anomic.io/');
        socket.emit('join', roomId);
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', prompt("Enter username."));
+		socket.emit('adduser', 
+  $('.ui.modal').modal('show');
+    ));
 	});
   
   // socket.on('addname', function (username) {
