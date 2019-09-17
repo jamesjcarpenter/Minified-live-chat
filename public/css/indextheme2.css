@@ -298,6 +298,11 @@
     border: 22px outset rgba(104, 104, 232, 0.8);
     border-radius: 21px 21px 9px 9px;
   }
+  
+  #copyinput {
+    background-color:#2e2e2e!important;
+    color:white;
+  }
   #message{
     padding-top:12.5px;
     padding-left:20px;
