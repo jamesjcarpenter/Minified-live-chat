@@ -561,6 +561,7 @@ pre {
    color: #00FFFF!important; 
  }
 #callwrapper{
+  text-align:center;
   position:fixed;
   bottom:0;
   width:70%;
