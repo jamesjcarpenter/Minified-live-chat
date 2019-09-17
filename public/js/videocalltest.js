@@ -47,7 +47,6 @@
 // the whole session.
 //
 window.addEventListener('DOMContentLoaded', (event) => {
-$('#appendus').append('<input class="form-control" type="text" placeholder="Choose a username" autocomplete="off" id="usernameinput" onkeypress="return checkEnter(this, event);"></input>');
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -61,6 +60,9 @@ var opaqueId = "videocalltest-"+Janus.randomString(12);
 var bitrateTimer = null;
 var spinner = null;
 
+$( "#usernameinput" ).keypress(function() {
+  return checkEnter(this, event);
+});
 var audioenabled = false;
 var videoenabled = false;
 

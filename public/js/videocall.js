@@ -56,9 +56,6 @@ var opaqueId = "videocalltest-"+ Math.random().toString(36).substring(2, 15) + M
 var bitrateTimer = null;
 var spinner = null;
 
-$( "#usernameinput" ).keypress(function() {
-  return checkEnter(this, event);
-});
 var audioenabled = false;
 var videoenabled = false;
 
