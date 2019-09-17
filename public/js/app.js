@@ -120,6 +120,9 @@ var socket = io.connect('anomic.io/');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
       console.log($('.ui.mini.button.pm').attr('name'))
+      var d = document.createElement('div');
+      d.id = 'sockettest';
+      d.innerHTML = 'id' + '' + socket.id + '' + socket.username;
       
       $('.ui.mini.button.pm').click(function() {
         // $("#PMbutton").unbind();
