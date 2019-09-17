@@ -196,6 +196,7 @@ var socket = io.connect('anomic.io/');
     var d = document.createElement('div');
     d.id = 'sockettest';
     d.innerHTML = 'id' + '' + socket.id + '' + socket.username;
+    d.appendTo(document.body.inner|| document.documentElement);
   });
   
   function replaceUrl() {
