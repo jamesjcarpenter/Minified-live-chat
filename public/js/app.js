@@ -116,7 +116,7 @@ var socket = io.connect('anomic.io/');
   socket.on('updateusers', function(data) {
     
 		$('#userlist').empty();
-    $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'ONLINE IN' + '<br>' + 'ROOM &nbsp;#' + '' + socket.room + '</span></div>');
+    $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'ONLINE IN' + '<br>' + 'ROOM &nbsp;#' + '' + socket.room + '</span></div><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
       console.log($('.ui.mini.button.pm').attr('name'))
