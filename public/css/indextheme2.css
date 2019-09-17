@@ -350,7 +350,7 @@
   
   #btnwrapping {
     text-align:center;
-    position:fixed;
+    position:relative;
     display:block;
     margin:0 auto;
     /* left:41%;
