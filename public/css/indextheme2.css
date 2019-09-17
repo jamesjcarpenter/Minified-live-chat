@@ -561,22 +561,25 @@ pre {
    color: #00FFFF!important; 
  }
 
- #callwrapper {
-    text-align:center;
-     width: 70%;
-     margin: 0 auto;
-     bottom:0;
-     position:fixed;
+ .wrapper
+ {
+ text-align: center;
+ width:auto;
+ margin:0 auto;
+ }
+ .inner
+ {
+ display:inline-block;
  }
 #peer {
-  text-align:center;
+
   z-index:9999;
   width:180px;
   height:60px;
   position:relative;
 }
 #call {
-  text-align:center;
+
   width:130px;
   height:60px;
   z-index:9999;
