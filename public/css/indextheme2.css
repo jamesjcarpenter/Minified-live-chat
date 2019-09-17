@@ -572,11 +572,11 @@ pre {
  }
 #peer {
   z-index:9999;
-  width:250px;
+  width:280px;
   height:60px;
   position:fixed;
   bottom:0px;
-  left:40%;
+  left:35%;
   right:40%;
 }
 #call {
@@ -586,7 +586,7 @@ pre {
   position:fixed;
   bottom:0px;
   left:50%;
-  right:25%;
+  right:15%;
 }
 
 .input-group-addon {
