@@ -571,6 +571,10 @@ pre {
   width:60%;
 }
 
+#mail {
+  width:60px;
+  height:35px;
+}
 #peer {
   width:280px;
   height:60px;
