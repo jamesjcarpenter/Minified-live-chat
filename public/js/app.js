@@ -25,6 +25,7 @@ $('#youtubeopen').click( function() {
 });
 
 
+$('#logo').append('<img src="images/anomiclogo.png" />');
   
 
 
