@@ -566,14 +566,14 @@ pre {
  }
 #callwrapper{
   position:fixed;
-  bottom:3.5%;
+  bottom:3.9%;
   left:30%;
   width:auto;
 }
 
 #mail {
-  width:60px;
-  height:35px;
+  width:7vmin;
+  height:5vmin;
 }
 #peer {
   width:26vmin;
