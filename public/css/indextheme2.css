@@ -574,7 +574,7 @@ pre {
   height:60px;
   position:fixed;
   bottom:0px;
-  left:35%;
+  left:36.5%;
   right:40%;
 }
 #call {
@@ -583,7 +583,7 @@ pre {
   z-index:9999;
   position:fixed;
   bottom:-0.25em;
-  left:47%;
+  left:50%;
   right:40%;
 }
 
