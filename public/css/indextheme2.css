@@ -572,16 +572,16 @@ pre {
 }
 
 #peer {
-  z-index:9999;
   width:280px;
   height:60px;
+    z-index:-1;
   position:relative;
   background-color:#2e2e2e!important;
 }
 #call {
   width:130px;
   height:60px;
-  z-index:9999;
+  z-index:-1;
   position:relative;
   margin-right:5px;
 }
