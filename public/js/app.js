@@ -73,11 +73,22 @@ var socket = io.connect('anomic.io/');
        socket.emit('join', roomId);
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
-		socket.emit('adduser', 
-  $('.ui.modal').modal('show');
-    ));
-	});
-  
+    socket.emit('adduser',
+    $('.ui.modal')
+    .modal({  
+      blurring: true,
+      closable  : false,
+      onDeny    : function(){
+        window.alert('Wait not yet!');
+        return false;
+      },
+      onApprove : function() {
+        window.close();
+      }
+    
+    
+    }).modal('show'));
+  });
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
   // 
