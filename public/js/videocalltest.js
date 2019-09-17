@@ -47,6 +47,9 @@
 // the whole session.
 //
 window.addEventListener('DOMContentLoaded', (event) => {
+  $( "usernameinput" ).keypress(function() {
+    return checkEnter(this, event);
+  });
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -100,9 +103,6 @@ var simulcastStarted = false;
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#usernameinput').focus();
-                  $( "usernameinput" ).keypress(function() {
-                    return checkEnter(this, event);
-                  });
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
