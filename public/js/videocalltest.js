@@ -108,11 +108,7 @@ var simulcastStarted = false;
                   // $( "#usernameinput" ).keypress(function() {
                   //   return checkEnter(this, event);
                   // });
-									// $('#start').removeAttr('disabled').html("Stop")
-									// 	.click(function() {
-									// 		$(this).attr('disabled', true);
-									// 		// janus.destroy();
-									// 	});
+									$('#start').removeAttr('disabled').html("Stop")
 								},
 								error: function(error) {
 									Janus.error("  -- Error attaching plugin...", error);
