@@ -524,45 +524,24 @@ function checkEnter(field, event) {
 	}
 }
 
-function registerUsername() {
-	// Try a registration
-	$('#usernameinput').attr('disabled', true);
-	$('#register').attr('disabled', true).unbind('click');
-	var username = $('#usernameinput').val();
-	if(username === "") {
-		bootbox.alert("Insert a username to register (e.g., pippo)");
-		$('#usernameinput').removeAttr('disabled');
-		$('#register').removeAttr('disabled').click(registerUsername);
-		return;
-	}
-	if(/[^a-zA-Z0-9]/.test(username)) {
-		bootbox.alert('Input is not alphanumeric');
-		$('#usernameinput').removeAttr('disabled').val("");
-		$('#register').removeAttr('disabled').click(registerUsername);
-		return;
-	}
-	var register = { "request": "register", "username": username };
-	videocall.send({"message": register});
-}
 
 function doCall() {
 	// Call someone
-	$('#peer').attr('disabled', true);
-	$('#call').attr('disabled', true).unbind('click');
+	// $('#peer').attr('disabled', true);
+	// $('#call').attr('disabled', true).unbind('click');
 	var username = $('#peer').val();
-	if(username === "") {
-		bootbox.alert("Insert a username to call (e.g., pluto)");
-		$('#peer').removeAttr('disabled');
-		$('#call').removeAttr('disabled').click(doCall);
-		return;
-	}
-	if(/[^a-zA-Z0-9]/.test(username)) {
-		bootbox.alert('Input is not alphanumeric');
-		$('#peer').removeAttr('disabled').val("");
-		$('#call').removeAttr('disabled').click(doCall);
-	// Call this user
-	videocall.createOffer(
-		{
+	// if(username === "") {
+	// 	bootbox.alert("Insert a username to call (e.g., pluto)");
+	// 	$('#peer').removeAttr('disabled');
+	// 	$('#call').removeAttr('disabled').click(doCall);
+	// 	return;
+	// }
+	// if(/[^a-zA-Z0-9]/.test(username)) {
+	// 	bootbox.alert('Input is not alphanumeric');
+	// 	$('#peer').removeAttr('disabled').val("");
+	// 	$('#call').removeAttr('disabled').click(doCall);
+	// // Call this user
+	videocall.createOffer({
 			// By default, it's sendrecv for audio and video...
 			media: { data: true },	// ... let's negotiate data channels as well
 			// If you want to test simulcasting (Chrome and Firefox only), then
