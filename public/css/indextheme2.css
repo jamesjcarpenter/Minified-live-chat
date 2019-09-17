@@ -566,7 +566,8 @@ pre {
   bottom:0;
   position:absolute;
   z-index:9999;
-    margin:0 auto;
+  display:block;
+  margin:0 auto;
   width:180px;
   height:25px;
 }
