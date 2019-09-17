@@ -563,7 +563,7 @@ pre {
 
 #peer {
   left:15vw;
-  bottom:8vh;
+  bottom:2vh;
   position:absolute;
   z-index:9999;
   width:180px;
@@ -571,7 +571,7 @@ pre {
 }
 #call {
   left:15vw;
-  bottom:3vh;
+  bottom:1vh;
   width:100px;
   height:30px;
   display:block;
