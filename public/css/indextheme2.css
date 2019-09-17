@@ -562,27 +562,25 @@ pre {
  }
 
  #callwrapper {
-   position:fixed;
     text-align:center;
     width:300px;
     height:300px;
     margin-left:-150px;
     bottom:0px;
     left:50%;
+    position:fixed;
  }
 #peer {
   z-index:9999;
   width:280px;
   height:60px;
-  display:inline;
-  position:absolute;
+  margin:0 auto;
 }
 #call {
   width:130px;
   height:60px;
   z-index:9999;
-  display:inline;
-  position:absolute;
+  margin:0 auto;
 }
 
 .input-group-addon {
