@@ -565,7 +565,6 @@ pre {
   text-align:center;
   bottom:0;
   z-index:9999;
-  display:block;
   margin-left: auto;
   width:180px;
   height:60px;
@@ -576,7 +575,6 @@ pre {
   margin-right: auto;
   width:130px;
   height:60px;
-  display:block;
   z-index:9999;
 }
 
