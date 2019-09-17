@@ -74,7 +74,7 @@ var socket = io.connect('anomic.io/');
     
 		// call the server-side function 'adduser' and send one parameter (value of prompt)
     socket.emit('adduser',
-    $('.ui.modal')
+    $('.ui.mini.basic.modal.start')
     .modal({  
       blurring: true,
       closable  : false,
