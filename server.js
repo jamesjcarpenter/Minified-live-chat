@@ -403,7 +403,7 @@ io.sockets.on('connection', function (socket) {
     });
 
 
-
+    socket.emit(addusername);
 
     socket.on('adduser', function(username){
     // store the username in the socket session for this client

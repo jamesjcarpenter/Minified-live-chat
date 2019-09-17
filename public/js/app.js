@@ -84,11 +84,11 @@ var socket = io.connect('anomic.io/');
       },
       onApprove : function() {
         window.close();
+        socket.username = this.val();
       }
     
     
     }).modal('show'));
-    socket.username = $("#addusername").val();
   });
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
