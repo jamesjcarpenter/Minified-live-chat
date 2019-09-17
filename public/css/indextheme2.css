@@ -563,7 +563,7 @@ pre {
 #callwrapper{
   position:fixed;
   bottom:0;
-  left:30%;
+  left:25%;
   width:70%;
 }
 
@@ -572,6 +572,7 @@ pre {
   width:280px;
   height:60px;
   position:relative;
+  background-color:#2e2e2e!important;
 }
 #call {
   width:130px;
