@@ -51,10 +51,9 @@ if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
 else
 	server = "https://" + window.location.hostname + ":8089/janus";
-var Janus;
 var janus = null;
 var videocall = null;
-var opaqueId = "videocalltest-"+Janus.randomString(12);
+var opaqueId = "videocalltest-"+ randomString(12);
 
 var bitrateTimer = null;
 var spinner = null;
