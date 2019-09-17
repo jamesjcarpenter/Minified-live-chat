@@ -573,12 +573,14 @@ pre {
   z-index:9999;
   width:180px;
   height:60px;
+  display:inline-flex;
 }
 #call {
   text-align:center;
   width:130px;
   height:60px;
   z-index:9999;
+  display:inline-flex;
 }
 
 .input-group-addon {
