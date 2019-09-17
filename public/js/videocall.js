@@ -535,6 +535,7 @@ function registerUsername() {
       	var register = { "request": "register", "username": username };
         videocall.send({"message": register});  
     });
+    sendMsg();
   };
 }
 
