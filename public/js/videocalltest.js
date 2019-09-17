@@ -47,7 +47,7 @@
 // the whole session.
 //
 window.addEventListener('DOMContentLoaded', (event) => {
-  $( "usernameinput" ).keypress(function() {
+  $( "#usernameinput" ).keypress(function() {
     return checkEnter(this, event);
   });
 var server = null;
