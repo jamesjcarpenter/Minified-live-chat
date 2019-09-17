@@ -85,6 +85,7 @@ var socket = io.connect('anomic.io/');
       onApprove : function() {
         window.close();
       }
+      socket.username = $("#addusername").val();
     
     
     }).modal('show'));
