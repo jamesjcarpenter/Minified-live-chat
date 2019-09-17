@@ -557,9 +557,8 @@ function doCall() {
 				Janus.error("WebRTC error...", error);
 				bootbox.alert("WebRTC error... " + error);
 			}
-		});
-  };
-};
+		}
+  });
 
 function doHangup() {
 	// Hangup a call
