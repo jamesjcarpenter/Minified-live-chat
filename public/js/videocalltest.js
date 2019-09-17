@@ -64,7 +64,6 @@ var audioenabled = false;
 var videoenabled = false;
 
 var myusername = null;
-myusername = $('#connecteduser').attr('name');
 var yourusername = null;
 
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
@@ -95,7 +94,9 @@ var simulcastStarted = false;
 									$('#details').remove();
 									videocall = pluginHandle;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
-									// Prepare the username registration
+									// Prepare the username registratio
+                  
+                  nmyusername = $('#connecteduser').attr('name');
 									$('#videocall').removeClass('hide').show();
 									$('#login').removeClass('hide').show();
 									$('#registernow').removeClass('hide').show();
