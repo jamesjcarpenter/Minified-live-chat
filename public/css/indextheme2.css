@@ -569,7 +569,7 @@ pre {
   height:60px;
   margin:0 auto;
   bottom:0px;
-  left:40%;
+  left:30%;
 }
 #call {
     text-align:center;
@@ -579,7 +579,7 @@ pre {
   z-index:9999;
   margin:0 auto;
   bottom:-20px;
-  left:44%;
+  left:36%;
 }
 
 .input-group-addon {
