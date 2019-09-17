@@ -358,7 +358,9 @@
     min-width:6.75vmin;
     min-height:6.31vmin;
   }
-  
+  #secreticon {
+    margin-right:1em;
+  }
   .label{
     background-color:	#383838!important;
   }
