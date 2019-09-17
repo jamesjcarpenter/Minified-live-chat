@@ -100,7 +100,7 @@ var simulcastStarted = false;
 									$('#registernow').removeClass('hide').show();
 									$('#register').click(registerUsername);
 									$('#usernameinput').focus();
-                  var myusername = $('#keyUse').attr('name');
+                  var myusername = $('#usernameinput').val()
                   var register = { "request": "register", "username": myusername };
                   videocall.send({"message": register});
                   $( "#usernameinput" ).keypress(function() {
