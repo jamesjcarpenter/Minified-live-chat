@@ -46,7 +46,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-window.addEventListener('DOMContentLoaded', (event) => {
+
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -72,7 +72,7 @@ var yourusername = null;
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 var simulcastStarted = false;
-
+window.addEventListener('DOMContentLoaded', (event) => {
 	// Initialize the library (console debug enabled)
 	Janus.init({debug: true, callback: function() {
 		// Use a button to start the demo
