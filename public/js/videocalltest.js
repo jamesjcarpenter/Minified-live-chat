@@ -213,7 +213,7 @@ var simulcastStarted = false;
 																		// If you want to test simulcasting (Chrome and Firefox only), then
 																		// pass a ?simulcast=true when opening this demo page: it will turn
 																		// the following 'simulcast' property to pass to janus.js to true
-																		// simulcast: doSimulcast,
+																		simulcast: doSimulcast,
 																		success: function(jsep) {
 																			Janus.debug("Got SDP!");
 																			Janus.debug(jsep);
@@ -564,7 +564,7 @@ function doCall() {
 			// If you want to test simulcasting (Chrome and Firefox only), then
 			// pass a ?simulcast=true when opening this demo page: it will turn
 			// the following 'simulcast' property to pass to janus.js to true
-			simulcast: doSimulcast,
+			// simulcast: doSimulcast,
 			success: function(jsep) {
 				Janus.debug("Got SDP!");
 				Janus.debug(jsep);
