@@ -567,7 +567,6 @@ pre {
       height:300px;
      right:25%;
      left:50%;
-     margin-left:-150px;
      bottom:0px;
  }
 #peer {
@@ -586,7 +585,7 @@ pre {
   position:fixed;
   bottom:0px;
   left:50%;
-  right:15%;
+  right:20%;
 }
 
 .input-group-addon {
