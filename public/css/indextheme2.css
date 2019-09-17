@@ -564,16 +564,17 @@ pre {
 #peer {
   text-align:center;
   bottom:0;
-  left:5vw;
+  left:20vw;
   position:fixed;
   z-index:9999;
   display:block;
   width:180px;
-  height:25px;
+  height:60px;
 }
 #call {
   text-align:center;
   bottom:0;
+    left:25vw;
   width:130px;
   height:60px;
   display:block;
