@@ -570,6 +570,10 @@ pre {
   z-index:9999;
 }
 
+.input-group-addon {
+  display:none;
+}
+
 #datarecv {
   margin-top:15vh;
 }
