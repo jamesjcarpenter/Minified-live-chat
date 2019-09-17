@@ -575,14 +575,20 @@ pre {
   z-index:9999;
   width:180px;
   height:60px;
-  position:relative;
+  position:fixed;
+  bottom:0px;
+  left:50%;
+  right:25%;
 }
 #call {
   text-align:center;
   width:130px;
   height:60px;
   z-index:9999;
-  position:relative;
+  position:fixed;
+  bottom:0px;
+  left:50%;
+  right:25%;
 }
 
 .input-group-addon {
