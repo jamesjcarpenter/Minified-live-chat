@@ -565,17 +565,17 @@ pre {
     text-align:center;
      width: 70%;
      margin: 0 auto;
+     bottom:0;
+     position:fixed;
  }
 #peer {
   text-align:center;
-  bottom:0;
   z-index:9999;
   width:180px;
   height:60px;
 }
 #call {
   text-align:center;
-  bottom:0;
   width:130px;
   height:60px;
   z-index:9999;
