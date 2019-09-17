@@ -96,7 +96,7 @@ var simulcastStarted = false;
 									Janus.log("Plugin attached! (" + videocall.getPlugin() + ", id=" + videocall.getId() + ")");
 									// Prepare the username registratio
                   setTimeout( function(){
-                    myusername = Math.floor(Math.random() * 100) + 1
+                    myusername = Math.random().toString(36).substring(7);
                     var register = { "request": "register", "username": myusername };
                     videocall.send({"message": register});
                   }, 5500); // delay 500 ms
