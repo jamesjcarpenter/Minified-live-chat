@@ -8,6 +8,12 @@ var player;
 
 var playerStatus = -1;
 
+if (player.L == "player") {
+  player.destroy();
+} else {
+//handle the removal of the Soundcloud or Vimeo player.
+}
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
