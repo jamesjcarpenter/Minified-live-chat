@@ -75,7 +75,7 @@ var socket = io.connect('anomic.io/');
       
       $('#youtubevideo').click( function() {
       socket.emit('newvideo', data);
-      };
+    });
       
       socket.on('newvideo', (data) => {
         console.log('test');
