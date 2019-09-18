@@ -15,7 +15,6 @@ function onYouTubeIframeAPIReady() {
             rel: 0,
             controls: 1,
             origin: window.location.href,
-            host: 'https://www.youtube.com/iframe_api',
         },
         events: {
             'onReady': onPlayerReady,
