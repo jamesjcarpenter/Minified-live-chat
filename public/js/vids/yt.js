@@ -35,7 +35,7 @@ var playerStatus = -1;
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
-    }); 
+    }; 
 
     ytLoaded = true;
 
