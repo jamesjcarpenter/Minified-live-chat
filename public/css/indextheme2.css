@@ -585,8 +585,7 @@ cursor: pointer;
 }
 
 #containerchoose{
-z-index:9999;
-left:30%;
+left:20%;
 position: fixed;
 }
 

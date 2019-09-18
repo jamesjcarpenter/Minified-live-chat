@@ -248,8 +248,10 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									Janus.listDevices(initDevices);
+									$('#containerchoose').hide();
 									$('#mediasettings').click( function() {
 										$('.ui.medium.inverted.modal').modal('show');
+										$('#containerchoose').show();
 									});
 				// 					var go =	{
         // "request" : "rtp_forward",
