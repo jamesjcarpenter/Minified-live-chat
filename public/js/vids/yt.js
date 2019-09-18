@@ -13,14 +13,15 @@ function onYouTubeIframeAPIReady() {
         playerVars: {
             autoplay: 0,
             rel: 0,
-            controls: 1
+            controls: 1,
+            host: 'https://www.anomic.io/'
         },
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
     });
-    // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
+    document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
 }
 
