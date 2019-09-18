@@ -1,5 +1,3 @@
-$(document).ready(function() {
-
 // Calls the play video function on the server
 $('#playButton').click( function(roomnum) {
 playVideo(roomnum)
@@ -682,5 +680,4 @@ socket.on('changeVideoClient', function(data) {
 socket.on('changeTime', function(data) {
     var time = data.time
     player.seekTo(time);
-});
 });
