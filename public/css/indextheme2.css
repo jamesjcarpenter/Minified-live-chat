@@ -589,7 +589,7 @@ text-align:center;
 left:50%;
 top:17.5em;
 position:fixed;
-background-color:#303030;
+background-color:#242424;
 color:white;
 padding:1.25em;
 }
@@ -604,7 +604,7 @@ padding:1.25em;
   color:white;
 }
 #audio-device{
-  background-color:#242424;
+  background-color:#303030;
   color:white;
   width:200px;
   text-align:center;
@@ -614,7 +614,7 @@ padding:1.25em;
 }
 
 #video-device{
-  background-color:#242424;
+  background-color:#303030;
   color:white;
   width:200px;
   text-align:center;
@@ -624,7 +624,7 @@ padding:1.25em;
 }
 
 #labeldevice{
-  background-color:#303030;
+  background-color:#242424;
   color:white;
   padding:1.5em;
 }
