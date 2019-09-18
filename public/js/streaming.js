@@ -108,7 +108,7 @@ var selectedStream = null;
 									$('#update-streams').click(updateStreamsList);
 									setTimeout( function(){
 										updateStreamsList();
-									}, 2500);
+									}, 6500);
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
