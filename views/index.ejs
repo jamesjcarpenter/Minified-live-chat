@@ -411,6 +411,46 @@
 </div>
 <!-- VIDEO CALL ENDS HERE -->
 
+<!--- STREAMING START -->
+<div class="container hide" id="streams">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Streams <i id="update-streams" class="fa fa-refresh" title="Update list of streams" style="cursor: pointer;"></i></h3>
+        </div>
+        <div class="panel-body" id="list">
+          <div class="btn-group btn-group-sm">
+            <button class="btn btn-primary" autocomplete="off" id="watch">Watch or Listen</button>
+            <div class="btn-group btn-group-sm">
+              <button autocomplete="off" id="streamset" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Streams list<span class="caret"></span>
+              </button>
+              <ul id="streamslist" class="dropdown-menu" role="menu">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Stream
+            <span class="label label-info hide" id="status"></span>
+            <span class="label label-primary hide" id="curres"></span>
+            <span class="label label-info hide" id="curbitrate"></span>
+          </h3>
+        </div>
+        <div class="panel-body" id="stream"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<!-- STREAMING END -->
+
 <div class="ui center grid" id="youtubeplaywrap">
 <div class="ui longer modal"id="youtubemodal">
   <div class="bootstrap">
