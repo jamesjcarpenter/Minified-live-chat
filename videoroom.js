@@ -88,6 +88,12 @@ var mystream = null;
 var mypvtid = null;
 var fwd = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 
+var audioDeviceId = null;
+var videoDeviceId = null;
+
+var audioenabled = false;
+var videoenabled = false;
+
 var feeds = [];
 var bitrateTimer = [];
 
