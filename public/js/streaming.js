@@ -307,6 +307,7 @@ function updateStreamsList() {
 	var body = { "request": "list" };
 	Janus.debug("Sending message (" + JSON.stringify(body) + ")");
 	
+	var streaming;
 	streaming.send({"message": body, success: function(result) {
 		setTimeout(function() {
 			$('#update-streams').removeClass('fa-spin').click(updateStreamsList);
