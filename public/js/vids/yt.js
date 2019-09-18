@@ -8,7 +8,7 @@ var player;
 
 var playerStatus = -1;
 
-if (player.L == "player") {
+if (player.M == "player") {
   player.destroy();
 } else {
 //handle the removal of the Soundcloud or Vimeo player.
