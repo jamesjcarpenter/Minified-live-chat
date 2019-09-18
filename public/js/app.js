@@ -24,7 +24,7 @@ $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
 });
 
-
+$('.ytp-cued-thumbnail-overlay-image').hide();
 
       // $('#logo').append($('<img src="images/robotsleep.png" />').text());
 
