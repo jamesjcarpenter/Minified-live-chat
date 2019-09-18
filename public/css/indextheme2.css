@@ -605,18 +605,20 @@ color:white;
 #audio-device{
   background-color:#3D3D3D;
   color:white;
+  width:200px;
+  text-align:center;
 }
 
 #video-device{
   background-color:#3D3D3D;
   color:white;
+  width:200px;
+  text-align:center;
 }
 
 #labeldevice{
   background-color:#3D3D3D;
   color:white;
-  width:auto;
-  width:200px;
 }
 
 #mail {
