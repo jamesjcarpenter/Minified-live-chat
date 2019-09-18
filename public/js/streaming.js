@@ -79,8 +79,6 @@ var simulcastStarted = false, svcStarted = false;
 var selectedStream = null;
 
 window.addEventListener('DOMContentLoaded', (event) => {
-	var Janus;
-	var streaming = null;
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
