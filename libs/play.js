@@ -1,8 +1,8 @@
 module.exports.sockets = function(https) {
 var express = require('express');
 var app = express();
-require('socket.io');
-require('../server.js');
+var socketio = require('socket.io');
+var server = require('../server.js');
 // var server = require('http').createServer(app);
 
 users = [];
