@@ -113,7 +113,7 @@ function initDevices(devices) {
 		var label = device.label;
 		if(label === null || label === undefined || label === "")
 			label = device.deviceId;
-		var option = $('<option value="' + device.deviceId + '">' + label + '</option>' + '<br>');
+		var option = $('<option value="' + device.deviceId + '">' + label + '</option>');
 		if(device.kind === 'audioinput') {
 			$('#audio-device').append(option);
 		} else if(device.kind === 'videoinput') {
