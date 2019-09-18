@@ -31,7 +31,6 @@ function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';
     document.getElementById('player').style.borderColor = '#00000000';
 }
-});
 function changeBorderColor(playerStatus) {
     var color;
     if (playerStatus == -1) {
@@ -143,3 +142,4 @@ socket.on('get playlist videos', function(data) {
         }
     )
 })
+});
