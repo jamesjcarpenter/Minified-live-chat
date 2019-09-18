@@ -1,14 +1,14 @@
 (function (window) {
-  var CLOCK_PORT = 5001,
+	var CLOCK_PORT = 5001,
 		EPSILON = -1 / 15,
 		DURATION = 149.619,
 
 		maxOffset = 1 / 30,
-		video = $('.video-stream.html5-main-video'),
-		clock = $('.ytp-time-current').val(),
-		videoTime = $('.ytp-time-duration').val(),
-		volume = $('.ytp-volume-panel').val(),
-		muted = $('.ytp-mute-button.ytp-button').val(),
+		video = document.getElementById('video'),
+		clock = document.getElementById('clock'),
+		videoTime = document.getElementById('video-time'),
+		volume = document.getElementById('volume'),
+		muted = document.getElementById('muted'),
 
 		targetTime = 0,
 		serverUrl,
@@ -112,7 +112,7 @@
 	/*
 	This runs whenever either the clock accuracy changes or the video duration changes.
 	*/
-	if ('mozId' in navigator) {
+	if (!video.buffered || 'mozId' in navigator) {
 		isBuffered = function (time) {
 			return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
 		};
@@ -121,7 +121,8 @@
 	}
 
 	serverUrl = location.protocol + '//' + location.hostname + ':' + CLOCK_PORT + '/time-server';
-  var remoteClock = remoteClock(serverUrl, stateUpdate);
+  var remoteClock = player.getCurrentTime() || 0;
+	remoteClock = new RemoteClock(serverUrl, stateUpdate);
 
 	video.muted = true;
 	video.addEventListener('durationchange', stateUpdate, false);
