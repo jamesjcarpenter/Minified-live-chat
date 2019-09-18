@@ -389,62 +389,62 @@ const YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
 const VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
 const DM_API_KEY = '3b47b316af2962e6c94c';
 
-io.sockets.on('connection', function (socket) {
-  
-  socket.emit('askForUserId');
-
-  socket.on('userIdReceived', (userId) => {
-    sessionsMap[userId] = socket.id;
-    console.log(sessionsMap[userId])
-  });
-    // let setRoom;
-    
-    // const ioChat = io.of("/room" + "");
-    socket.on('join', function(room) {
-      socket.room = room;
-      socket.join(room);
-      // console.log(socket.join(room))
-      // console.log(room);
-    });
-
-    socket.on('console', function(data){
-      console.log('test');
-    });
-
-
-    socket.on('adduser', function(username){
-    // store the username in the socket session for this client
-    socket.username = username;
-    var id = socket.id;
-    
-    
-    
-    
-    ids[id] = id;
-    // var username = socket.id;
-    // store the room name in the socket session for this client
-    // add the client's username to the global list
-    usernames[username] = username;
-    
-
-    console.log(usernames)
-    
-    socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
-    // echo to room 1 that a person has connected to their room
-    socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
-      io.in(socket.room).emit('updateusers', usernames, socket.id);
-    // console.log(usernames);
-      io.in(socket.room).emit('updaterooms', rooms, socket.room);
-    
-    // socket.broadcast.to(socket.room).emit('addname', socket.username);
-    
-    socket.on('connect', function(client) {
-        ids.splice(ids.indexOf(socket.id), 1);
-
-        socket.on('disconnect', function() {
-          ids.splice(ids.indexOf(socket.id), 1);
-  });
-});
+// io.sockets.on('connection', function (socket) {
+// 
+//   socket.emit('askForUserId');
+// 
+//   socket.on('userIdReceived', (userId) => {
+//     sessionsMap[userId] = socket.id;
+//     console.log(sessionsMap[userId])
+//   });
+//     // let setRoom;
+// 
+//     // const ioChat = io.of("/room" + "");
+//     socket.on('join', function(room) {
+//       socket.room = room;
+//       socket.join(room);
+//       // console.log(socket.join(room))
+//       // console.log(room);
+//     });
+// 
+//     socket.on('console', function(data){
+//       console.log('test');
+//     });
+// 
+// 
+//     socket.on('adduser', function(username){
+//     // store the username in the socket session for this client
+//     socket.username = username;
+//     var id = socket.id;
+// 
+// 
+// 
+// 
+//     ids[id] = id;
+//     // var username = socket.id;
+//     // store the room name in the socket session for this client
+//     // add the client's username to the global list
+//     usernames[username] = username;
+// 
+// 
+//     console.log(usernames)
+// 
+//     socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
+//     // echo to room 1 that a person has connected to their room
+//     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
+//       io.in(socket.room).emit('updateusers', usernames, socket.id);
+//     // console.log(usernames);
+//       io.in(socket.room).emit('updaterooms', rooms, socket.room);
+// 
+//     // socket.broadcast.to(socket.room).emit('addname', socket.username);
+// 
+//     socket.on('connect', function(client) {
+//         ids.splice(ids.indexOf(socket.id), 1);
+// 
+//         socket.on('disconnect', function() {
+//           ids.splice(ids.indexOf(socket.id), 1);
+//   });
+// });
 
 // console.log
 // 
