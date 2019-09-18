@@ -608,6 +608,8 @@ color:white;
   width:200px;
   text-align:center;
   left:50%;
+  position:relative;
+  display:inline-block;
 }
 
 #video-device{
@@ -616,6 +618,8 @@ color:white;
   width:200px;
   text-align:center;
   left:50%;
+  position:relative;
+  display:inline-block;
 }
 
 #labeldevice{
