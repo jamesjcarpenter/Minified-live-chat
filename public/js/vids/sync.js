@@ -286,9 +286,9 @@ function enqueueVideo(roomnum, rawId) {
       })
     } else if (videoId != "invalid") {
         socket.emit('enqueue video', {
-            room: roomnum,
+            room: socket.room,
             videoId: videoId,
-            user: username
+            user: socket.username
         })
     } else {
         console.log("User entered an invalid video url :(")
