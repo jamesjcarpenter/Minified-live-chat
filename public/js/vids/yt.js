@@ -4,21 +4,9 @@ tag.src = 'https://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
+
 
 var playerStatus = -1;
-
-if (player.M == "player") {
-  player.destroy();
-} else {
-//handle the removal of the Soundcloud or Vimeo player.
-}
-
-if (player.destroy) {
-  player.destroy();
-} else {
-//handle the removal of the Soundcloud or Vimeo player.
-}
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
