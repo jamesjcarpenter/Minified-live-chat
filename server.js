@@ -47,7 +47,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 app.use(cors())
 const uuidv4 = require('uuid/v4')
-
+app.options('*', cors()) // include before other routes
 
 app.use(function(req, res, next) {
    res.locals.url = {
