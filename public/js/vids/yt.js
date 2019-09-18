@@ -1,5 +1,3 @@
-window.addEventListener('load', () => {
-
 var tag = document.createElement('script');
 tag.id = 'iframe-demo';
 tag.src = 'https://www.youtube.com/iframe_api';
@@ -7,11 +5,10 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
-
-
 var playerStatus = -1;
 
 
+window.addEventListener('load', () => {
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
@@ -32,6 +29,7 @@ function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';
     document.getElementById('player').style.borderColor = '#00000000';
 }
+});
 function changeBorderColor(playerStatus) {
     var color;
     if (playerStatus == -1) {
@@ -143,4 +141,3 @@ socket.on('get playlist videos', function(data) {
         }
     )
 })
-});
