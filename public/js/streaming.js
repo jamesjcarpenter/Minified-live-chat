@@ -54,6 +54,7 @@ var streaming = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
 
 var bitrateTimer = null;
+var spinner = null;
 
 var servers = null, serversIndex = 0;
 var iceServers;
@@ -195,6 +196,9 @@ var selectedStream = null;
 											$('#waitingvideo').remove();
 											if(this.videoWidth)
 												$('#remotevideo').removeClass('hide').show();
+											if(spinner !== null && spinner !== undefined)
+												spinner.stop();
+											spinner = null;
 											var videoTracks = stream.getVideoTracks();
 											if(videoTracks === null || videoTracks === undefined || videoTracks.length === 0)
 												return;
@@ -253,6 +257,9 @@ var selectedStream = null;
 									$('#stream').append(
 										'<input class="form-control" type="text" id="datarecv" disabled></input>'
 									);
+									if(spinner !== null && spinner !== undefined)
+										spinner.stop();
+									spinner = null;
 								},
 								ondata: function(data) {
 									Janus.debug("We got data from the DataChannel! " + data);
@@ -336,7 +343,13 @@ function startStream() {
 	streaming.send({"message": body});
 	// No remote video yet
 	$('#stream').append('<video class="rounded centered" id="waitingvideo" width=320 height=240 />');
-
+	if(spinner == null) {
+		var target = document.getElementById('stream');
+		spinner = new Spinner({top:100}).spin(target);
+	} else {
+		spinner.spin();
+	}
+}
 
 function stopStream() {
 	$('#watch').attr('disabled', true).unbind('click');
@@ -578,4 +591,5 @@ function updateSvcButtons(spatial, temporal) {
 		$('#tl-1').removeClass('btn-primary btn-success').addClass('btn-primary');
 		$('#tl-0').removeClass('btn-primary btn-success').addClass('btn-primary');
 	}
+}
 });
