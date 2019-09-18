@@ -33,7 +33,7 @@ function changeHost(roomnum) {
         });
         socket.emit('notify alerts', {
             alert: 1,
-            user: username
+            user: socket.username
         })
     }
 }
