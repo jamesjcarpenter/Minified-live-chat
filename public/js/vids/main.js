@@ -1,5 +1,4 @@
-
-(function (window) {
+window.addEventListener('load', () => {
   
   var CLOCK_PORT = 5001,
 		EPSILON = -1 / 15,
