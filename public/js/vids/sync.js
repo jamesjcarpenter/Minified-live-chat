@@ -80,7 +80,7 @@ function syncVideo(roomnum) {
 function getTime() {
     switch (currPlayer) {
         case 0:
-            return player.getCurrentTime();
+            return getCurrentTime();
             break;
         case 1:
             return dailyPlayer.currentTime;
