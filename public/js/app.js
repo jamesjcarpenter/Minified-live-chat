@@ -72,7 +72,16 @@ var socket = io.connect('anomic.io/');
       socket.on('askForUserId', () => {
         socket.emit(socket.id);
       });
-
+      
+      $('#youtubevideo').click( function() {
+      socket.emit('newvideo', data);
+      };
+      
+      socket.on('newvideo', data){
+        console.log('test')
+      };
+    
+    
       socket.on('private-message', (data, message) => {
         console.log('You received a message');
         console.log(message.data);
