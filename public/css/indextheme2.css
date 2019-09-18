@@ -605,10 +605,14 @@ color:white;
 #audio-device{
   background-color:#3D3D3D;
   color:white;
+  width:7.5em;
+  height:4em;
 }
 
 #video-device{
   background-color:#3D3D3D;
+  width:7.5em;
+  height:4em;
   color:white;
 }
 
