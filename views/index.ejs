@@ -6,18 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <script src="/socket.io/socket.io.js"></script>
-      <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css"id="semthemecss">
-      <link rel="stylesheet" type="text/css" href="css/indextheme.css" id="themecss">
+      <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css"id="semthemecss"content="<%= styleNonce %>">
+      <link rel="stylesheet" type="text/css" href="css/indextheme.css" id="themecss"content="<%= styleNonce %>">
       <link rel="stylesheet" type="text/css" href="css/iso_bootstrap3.3.7min.css"content="<%= styleNonce %>">
-          <link href="css/animate.css" rel="stylesheet"content="<%= styleNonce %>">
-        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/jquery/dist/jquery.min.js"content="<%= styleNonce %>"></script>
         <script src="js/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/purify.js"></script>
-        <script type="text/javascript" src="js/adapter.min.js"></script>
-      <script type="text/javascript" src="js/jquery.blockUI.min.js"></script>
-      <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="js/bootbox.min.js"></script>
-      <script type="text/javascript" src="js/toastr.min.js"></script>
+        <script type="text/javascript" src="js/purify.js"content="<%= styleNonce %>"></script>
+        <script type="text/javascript" src="js/adapter.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="js/jquery.blockUI.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="js/bootbox.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="js/toastr.min.js"content="<%= styleNonce %>"></script>
   <title>anomic - chat online</title>
   <h3 class="ui tiny center aligned icon header">
   <i class="ui tiny circular user secret icon" id="secreticon"></i>
@@ -654,14 +653,14 @@
   <!-- Scripts -->
   <script src="js/io.js"></script>
   <script src="js/app.js"></script>
-  <!-- <script src="js/youtubeapi.js"type="text/javascript"></script> -->
+  <script src="js/youtubeapi.js"type="text/javascript"></script>
   <script src="https://apis.google.com/js/client.js?onload=init"></script>
   <script src="https://apis.google.com/js/platform.js"></script>
   
     <script src="js/vids/bootstrap.bundle.min.js"></script>
     <script src="js/vids/bootstrap-notify.min.js"></script>
     <!-- Plugin JavaScript -->
-    <script src="js/vids/easing.min.js"></script>
+
     
     <script src="js/vids/sync.js"></script>
 <script src="js/vids/player.js"></script>
@@ -669,9 +668,10 @@
 <script src="js/vids/events.js"></script>
 <script src="js/vids/notify.js"></script>
     <script src="js/vids/indexed.js"></script>
-    
+    <script src="js/vids/main.js"></script>
 <!-- Youtube -->
 <script src="js/vids/yt.js"></script>
+<script src="https://api.dmcdn.net/all.js"></script>
 <!-- Daily Motion -->
 
 <!-- Vimeo -->
@@ -679,10 +679,10 @@
 
 <!-- HTML5 Player -->
 
-<script src="js/vids/main.js"></script>
-<script src="https://api.dmcdn.net/all.js"></script>
+
+
     <!-- Vimeo -->
-    <script src="https://player.vimeo.com/api/player.js"></script>
+
   
   <script id="chat-template" type="text/x-handlebars-template">  </script>
   <script src="https://www.webrtc-experiment.com/Canvas-Designer/canvas-designer-widget.js"></script>
@@ -690,15 +690,12 @@
   <script src="js/transin.js"></script>
   <script src="js/transout.js"></script>
     <!-- <script src="js/videocalltest.js"></script> -->
-      <script src="js/streaming.js"></script>
+    <script src="js/streaming.js"></script>
   <script src="semantic/dist/semantic.min.js"></script>
   <script src="js/handlebars.min.js "></script>
-  <!-- <script src="js/yt.js"></script> -->
-  <script src="libs/gen.js"></script>
   <script src="./janus.js"></script>
   <script src="js/scriptForChat.js"></script>
   <script src="./videoroom.js"></script>
-  <script src="js/copy.js"></script>
   </div>
   </div>
 </body>
