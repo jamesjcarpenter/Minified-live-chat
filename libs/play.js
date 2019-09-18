@@ -52,10 +52,11 @@ var given_room = ""
 
 var io = socketio.listen(https);
 
-var roomno = socket.room;
+
 
 io.sockets.on('connection', function(socket) {
     // Connect Socket
+    var roomno = socket.room;
     given_room = socket.room;
     connections.push(socket);
     console.log('Connected: %s sockets connected', connections.length);
