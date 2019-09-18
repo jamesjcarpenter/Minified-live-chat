@@ -681,4 +681,4 @@ socket.on('changeTime', function(data) {
     var time = data.time
     player.seekTo(time);
 });
-}, 2500);
+}, 7500);
