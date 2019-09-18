@@ -171,13 +171,13 @@ function restartCapture() {
 	// Negotiate WebRTC
 	var body = { "audio": true, "video": true };
 	Janus.debug("Sending message (" + JSON.stringify(body) + ")");
-	echotest.send({"message": body});
+	sfutest.send({"message": body});
 	Janus.debug("Trying a createOffer too (audio/video sendrecv)");
 	var replaceAudio = $('#audio-device').val() !== audioDeviceId;
 	audioDeviceId = $('#audio-device').val();
 	var replaceVideo = $('#video-device').val() !== videoDeviceId;
 	videoDeviceId = $('#video-device').val();
-	echotest.createOffer(
+	sfutest.createOffer(
 		{
 			// We provide a specific device ID for both audio and video
 			media: {
@@ -202,7 +202,7 @@ function restartCapture() {
 			success: function(jsep) {
 				Janus.debug("Got SDP!");
 				Janus.debug(jsep);
-				echotest.send({"message": body, "jsep": jsep});
+				sfutest.send({"message": body, "jsep": jsep});
 			},
 			error: function(error) {
 				Janus.error("WebRTC error:", error);
