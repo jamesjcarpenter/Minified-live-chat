@@ -345,9 +345,7 @@ function startStream() {
 	$('#stream').append('<video class="rounded centered" id="waitingvideo" width=320 height=240 />');
 	if(spinner == null) {
 		var target = document.getElementById('stream');
-		var	spinner = new Spinner({top:100}).spin(target);
 	} else {
-		spinner.spin();
 	}
 }
 
