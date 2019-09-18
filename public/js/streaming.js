@@ -307,6 +307,7 @@ function updateStreamsList() {
 	Janus.debug("Sending message (" + JSON.stringify(body) + ")");
 	
 	setTimeout( function(){
+
 	streaming.send({"message": body, success: function(result) {
 		setTimeout(function() {
 			$('#update-streams').removeClass('fa-spin').click(updateStreamsList);
@@ -331,7 +332,7 @@ function updateStreamsList() {
 				$('#streamset').html($(this).html()).parent().removeClass('open');
 				return false;
 
-			});	
+			})
 		}, 5500);
 			$('#watch').removeAttr('disabled').unbind('click').click(startStream);
 		}
