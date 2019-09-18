@@ -94,6 +94,118 @@ var bitrateTimer = [];
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
+function initDevices(devices) {
+	$('#devices').removeClass('hide');
+	$('#devices').parent().removeClass('hide');
+	$('#choose-device').click(restartCapture);
+	var audio = $('#audio-device').val();
+	var video = $('#video-device').val();
+	$('#audio-device, #video-device').find('option').remove();
+
+	devices.forEach(function(device) {
+		var label = device.label;
+		if(label === null || label === undefined || label === "")
+			label = device.deviceId;
+		var option = $('<option value="' + device.deviceId + '">' + label + '</option>');
+		if(device.kind === 'audioinput') {
+			$('#audio-device').append(option);
+		} else if(device.kind === 'videoinput') {
+			$('#video-device').append(option);
+		} else if(device.kind === 'audiooutput') {
+			// Apparently only available from Chrome 49 on?
+			// https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/setSinkId
+			// Definitely missing in Safari at the moment: https://bugs.webkit.org/show_bug.cgi?id=179415
+			$('#output-devices').removeClass('hide');
+			$('#audiooutput').append('<li><a href="#" id="' + device.deviceId + '">' + label + '</a></li>');
+			$('#audiooutput a').unbind('click')
+				.click(function() {
+					var deviceId = $(this).attr("id");
+					var label = $(this).text();
+					Janus.log("Trying to set device " + deviceId + " (" + label + ") as sink for the output");
+					if($('#peervideo').length === 0) {
+						Janus.error("No remote video element available");
+						bootbox.alert("No remote video element available");
+						return false;
+					}
+					if(!$('#peervideo').get(0).setSinkId) {
+						Janus.error("SetSinkId not supported");
+						bootbox.warn("SetSinkId not supported");
+						return false;
+					}
+					$('#peervideo').get(0).setSinkId(deviceId)
+						.then(function() {
+							Janus.log('Audio output device attached:', deviceId);
+							$('#outputdeviceset').html(label + '<span class="caret"></span>').parent().removeClass('open');
+						}).catch(function(error) {
+							Janus.error(error);
+							bootbox.alert(error);
+						});
+					return false;
+				});
+		}
+	});
+
+	$('#audio-device').val(audio);
+	$('#video-device').val(video);
+
+	$('#change-devices').click(function() {
+		// A different device has been selected: hangup the session, and set it up again
+		$('#audio-device, #video-device').attr('disabled', true);
+		$('#change-devices').attr('disabled', true);
+		if(firstTime) {
+			firstTime = false;
+			restartCapture();
+			return;
+		}
+		restartCapture();
+	});
+}
+
+function restartCapture() {
+	// Negotiate WebRTC
+	var body = { "audio": true, "video": true };
+	Janus.debug("Sending message (" + JSON.stringify(body) + ")");
+	echotest.send({"message": body});
+	Janus.debug("Trying a createOffer too (audio/video sendrecv)");
+	var replaceAudio = $('#audio-device').val() !== audioDeviceId;
+	audioDeviceId = $('#audio-device').val();
+	var replaceVideo = $('#video-device').val() !== videoDeviceId;
+	videoDeviceId = $('#video-device').val();
+	echotest.createOffer(
+		{
+			// We provide a specific device ID for both audio and video
+			media: {
+				audio: {
+					deviceId: {
+						exact: audioDeviceId
+					}
+				},
+				replaceAudio: replaceAudio,	// This is only needed in case of a renegotiation
+				video: {
+					deviceId: {
+						exact: videoDeviceId
+					}
+				},
+				replaceVideo: replaceVideo,	// This is only needed in case of a renegotiation
+				data: true	// Let's negotiate data channels as well
+			},
+			// If you want to test simulcasting (Chrome and Firefox only), then
+			// pass a ?simulcast=true when opening this demo page: it will turn
+			// the following 'simulcast' property to pass to janus.js to true
+			simulcast: doSimulcast,
+			success: function(jsep) {
+				Janus.debug("Got SDP!");
+				Janus.debug(jsep);
+				echotest.send({"message": body, "jsep": jsep});
+			},
+			error: function(error) {
+				Janus.error("WebRTC error:", error);
+				bootbox.alert("WebRTC error... " + JSON.stringify(error));
+			}
+		});
+}
+
+
 $(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
