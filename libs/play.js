@@ -49,8 +49,8 @@ var given_room = ""
 // Update the playlist/queue
 var QueueVideos = queueVideos();
 function queueVideos() {
-    var vidlist = io.sockets.adapter.rooms['room-' + socket.roomnum].queue
-    var currPlayer = io.sockets.adapter.rooms['room-' + socket.roomnum].currPlayer
+    var vidlist = io.adapter.rooms['room-' + socket.roomnum].queue
+    var currPlayer = io.adapter.rooms['room-' + socket.roomnum].currPlayer
     io.in("room-" + socket.roomnum).emit('get vidlist', {
         vidlist: vidlist,
         currPlayer: currPlayer,
