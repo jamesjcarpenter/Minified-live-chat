@@ -32,8 +32,10 @@ rooms = [];
 // Store all of the sockets and their respective room numbers
 userrooms = {}
 
-YT3_API_KEY = YT3_API_KEY
-DM_API_KEY = DM_API_KEY
+const YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
+const VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
+const DM_API_KEY = '3b47b316af2962e6c94c';
+
 
 // Set given room for url parameter
 var given_room = ""
