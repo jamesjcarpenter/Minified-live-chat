@@ -36,7 +36,7 @@ playNext(roomnum)
  
  
 $('#dropdown1').click( function(roomnum) {
-changePlayer(roomnum, 0)"
+changePlayer(roomnum, 0);
 });
 
 $('#dropdown2').click( function(roomnum) {
@@ -48,7 +48,7 @@ changePlayer(roomnum, 2)
 });
 
 $('#dropdown4').click( function(roomnum) {
-changePlayer(roomnum, 3)"
+changePlayer(roomnum, 3);
 }); 
 
 
