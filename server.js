@@ -159,8 +159,6 @@ const {
   PORT = 443,
   NODE_ENV = 'development',
 
-  YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM',
-  DM_API_KEY = '',
   SESS_NAME = 'sid',
   SESS_SECRET = 'awW$weQI90a!W21',
   SESS_LIFETIME = TWO_HOURS
@@ -386,9 +384,8 @@ var clients = [];
 var users = {};
 
 var ids = {};
-
-YT3_API_KEY = process.env.YT3_API_KEY
-DM_API_KEY = process.env.DM_API_KEY
+var YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
+var DM_API_KEY = '';
 
 io.sockets.on('connection', function (socket) {
   
