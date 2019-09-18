@@ -23,7 +23,7 @@ function onYouTubeIframeAPIReady() {
             playsinline: 1,
             rel: 0,
             controls: 1,
-            origin:'https://www.anomic.io/room?name=1',
+            origin:'https://anomic.io',
             videoId: 'M7lc1UVf-VE'
         },
         events: {
