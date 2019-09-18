@@ -1,5 +1,5 @@
 // Calls the play video function on the server
-$( window ).load(function() {
+$(window).on('load', function(){
 
 
 $('#playButton').click( function(roomnum) {

@@ -1,6 +1,6 @@
 // These functions just simply play or pause the player
 // Created for event listeners
-$( window ).load(function() {
+$(window).on('load', function(){
 //-----------------------------------------------------------------------------
 
 function playOther(roomnum) {

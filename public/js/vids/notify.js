@@ -1,5 +1,4 @@
-$( window ).load(function() {
-
+$(window).on('load', function(){
 // 0. Enqueue
 // 1. Host Change
 // 2. Empty Queue

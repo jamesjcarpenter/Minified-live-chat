@@ -1,4 +1,4 @@
-      $( window ).load(function() {
+$(window).on('load', function(){
       
         var socket = io.connect();
        var roomnum = 1

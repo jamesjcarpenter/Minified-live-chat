@@ -1,4 +1,4 @@
-$( window ).load(function() {
+$(window).on('load', function(){
 
 var tag = document.createElement('script');
 tag.id = 'iframe-demo';

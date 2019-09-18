@@ -1,4 +1,4 @@
-$( window ).load(function() {
+$(window).on('load', function(){
 (function (window) {
   
   var CLOCK_PORT = 5001,

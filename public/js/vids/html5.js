@@ -9,7 +9,7 @@
 //         URL.revokeObjectURL(this.src);
 //     }
 // }
-$( window ).load(function() {
+$(window).on('load', function(){
 var media = document.querySelector('video');
 
 // Event listeners
