@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 // var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+var io = require('socket.io')
 users = [];
 connections = [];
 rooms = [];
@@ -26,6 +26,9 @@ io.on('connection', function(socket) {
    //Send this event to everyone in the room.
    io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
 })*/
+
+module.exports.sockets = function(https) {
+  io = socketio.listen(https);
 
 var roomno = 1;
 
@@ -932,3 +935,4 @@ io.sockets.on('connection', function(socket) {
     }
 
 })
+};
