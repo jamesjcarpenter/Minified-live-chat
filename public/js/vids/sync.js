@@ -6,7 +6,7 @@ playVideo(roomnum)
 
 $('#syncbutton').click( function(roomnum) {
 syncAlert();
-syncVideo(roomnum);
+socket.emit('sync host');
 });
 
 $('#loveButton').click( function(roomnum) {
