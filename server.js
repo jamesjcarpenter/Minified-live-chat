@@ -390,7 +390,7 @@ const VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe
 const DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
-  
+
   socket.emit('askForUserId');
 
   socket.on('userIdReceived', (userId) => {
@@ -403,6 +403,9 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
+      socket.emit('get host data', data);
+      
+        socket.emit('auto sync', data);
       // console.log(socket.join(room))
       // console.log(room);
     });
@@ -415,6 +418,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
+    socket.username = host;
     var id = socket.id;
     
     
