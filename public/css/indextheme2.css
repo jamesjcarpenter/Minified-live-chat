@@ -585,8 +585,10 @@ cursor: pointer;
 }
 
 #containerchoose{
-left:20%;
-position: fixed;
+text-align:center;
+position: relative;
+background-color:#3D3D3D;
+color:white;
 }
 
 #devices {
