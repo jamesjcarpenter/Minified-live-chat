@@ -452,6 +452,28 @@
 </div>
 </h4> -->
 <!-- STREAMING END -->
+
+<div id="roomArea">
+    <!-- Heading Row -->
+    <div class="row my-4" style="margin-top: 0px !important;">
+        <div class="col-lg-7">
+
+            <div class="nonmobile-hide"><b>Note: </b>Only the host can control the video using the native video player controls </div>
+            <div class="mobile-hide"><b>Mobile User</b>, please play the video once manually to give the browser permission to control the video player. </div>
+            <!-- <hr style="height:0pt; visibility:hidden;" /> -->
+
+            <div style="margin: 10px" class="dropdown">
+                <button style="background-color: #007bff" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-video"></i> Player
+                </button>
+                <div class="form-control dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" id="dropdown1"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a class="dropdown-item" id="dropdown2"><img width="14px" height="14px" src="img/dailymotion-logo.svg" alt="Daily Motion Logo"> Daily Motion</a>
+                    <a class="dropdown-item" id="dropdown3"><i class="fab fa-vimeo"></i> Vimeo</a>
+                    <a class="dropdown-item" id="dropdown4"><i class="fas fa-file-video"></i> HTML5 Player (.mp4/.webm) (Beta)</a>
+                </div>
+            </div>
+
 <h4 class="bootstrap"id="players">
   <div id='playerArea'>
                       <div class="video" id="player"></div>
@@ -461,7 +483,7 @@
                       <iframe class="video" id="player-daily" frameborder="0" width="640" height="360" allowfullscreen allow="autoplay"></iframe>
                   </div>
                   <div id='vimeoArea'>
-                      <iframe class="video" id="player-vimeo" src="" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                      <iframe class="video" id="player-vimeo" src="https://player.vimeo.com/video/76979871?origin=https://www.anomic.io/" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                   </div>
                   <div id='HTML5Area'>
                       <div class="html5player">

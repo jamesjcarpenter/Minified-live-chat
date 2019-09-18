@@ -1,39 +1,58 @@
 // Calls the play video function on the server
 window.addEventListener('load', () => {
 $('#playButton').click( function(roomnum) {
-playVideo()
+playVideo(roomnum)
 });
 
 
 $('#syncbutton').click( function(roomnum) {
-syncVideo();
+syncVideo(roomnum);
 syncAlert();
 });
 
 $('#loveButton').click( function(roomnum) {
-loveLive()
+loveLive(roomnum)
 });
 
 $('#hostbutton').click( function(roomnum) {
-changeHost()
+changeHost(roomnum)
 });
 
 $('#enqueueButton').click( function(roomnum) {
-enqueueVideoParse()
+enqueueVideoParse(roomnum)
 });
 
 $('#changeButton').click( function(roomnum) {
-changeVideoParse()
+changeVideoParse(roomnum)
 });
 
 $('#previousButton').click( function(roomnum) {
-prevVideo()
+prevVideo(roomnum)
 });
 
 $('#nextButton').click( function(roomnum) {
-playNext()
+playNext(roomnum)
 });
  
+ 
+$('#dropdown1').click( function(roomnum) {
+changePlayer(roomnum, 0)"
+});
+
+$('#dropdown2').click( function(roomnum) {
+changePlayer(roomnum, 1)
+});
+
+$('#dropdown3').click( function(roomnum) {
+changePlayer(roomnum, 2)
+});
+
+$('#dropdown4').click( function(roomnum) {
+changePlayer(roomnum, 3)"
+}); 
+
+
+<a class="dropdown-item" id="dropdown1"><i class="fab fa-youtube"></i> YouTube</a>
 
 
 function playVideo(roomnum) {
