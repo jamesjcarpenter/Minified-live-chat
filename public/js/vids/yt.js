@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+
 
 
 var tag = document.createElement('script');
@@ -131,4 +131,3 @@ socket.on('get title', function(data, callback) {
         }
     )
 })
-});
