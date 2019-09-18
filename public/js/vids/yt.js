@@ -130,7 +130,7 @@ socket.on('get playlist videos', function(data) {
             part: 'snippet,contentDetails',
             playlistId: playlistId,
             maxResults: '50',
-            key: data.api_key
+            key: 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM'
         },
         function(data) {
           // Iterate through all of the playlist videos
