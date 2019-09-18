@@ -119,7 +119,6 @@ var $messageForm = $('#messageForm');
                     }
                 });
                 $username.val('');
-            }
         });
         socket.on('get users', function(data) {
             var html = '';
