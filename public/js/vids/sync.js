@@ -1,56 +1,3 @@
-// Calls the play video function on the server
-window.addEventListener('load', () => {
-
-$('#playButton').click( function(roomnum) {
-playVideo(roomnum)
-});
-
-
-$('#syncbutton').click( function(roomnum) {
-syncVideo(roomnum);
-syncAlert();
-});
-
-$('#loveButton').click( function(roomnum) {
-loveLive(roomnum)
-});
-
-$('#hostbutton').click( function(roomnum) {
-changeHost(roomnum)
-});
-
-$('#enqueueButton').click( function(roomnum) {
-enqueueVideoParse(roomnum)
-});
-
-$('#changeButton').click( function(roomnum) {
-changeVideoParse(roomnum)
-});
-
-$('#previousButton').click( function(roomnum) {
-prevVideo(roomnum)
-});
-
-$('#nextButton').click( function(roomnum) {
-playNext(roomnum)
-});
- 
- 
-$('#dropdown1').click( function(roomnum) {
-changePlayer(roomnum, 0);
-});
-
-$('#dropdown2').click( function(roomnum) {
-changePlayer(roomnum, 1)
-});
-
-$('#dropdown3').click( function(roomnum) {
-changePlayer(roomnum, 2)
-});
-
-$('#dropdown4').click( function(roomnum) {
-changePlayer(roomnum, 3);
-}); 
 
 // Calls the play video function on the server
 function playVideo(roomnum) {
@@ -677,9 +624,60 @@ socket.on('changeVideoClient', function(data) {
 
 });
 
+
+$('#playButton').click( function(roomnum) {
+playVideo(roomnum)
+});
+
+
+$('#syncbutton').click( function(roomnum) {
+syncVideo(roomnum);
+syncAlert();
+});
+
+$('#loveButton').click( function(roomnum) {
+loveLive(roomnum)
+});
+
+$('#hostbutton').click( function(roomnum) {
+changeHost(roomnum)
+});
+
+$('#enqueueButton').click( function(roomnum) {
+enqueueVideoParse(roomnum)
+});
+
+$('#changeButton').click( function(roomnum) {
+changeVideoParse(roomnum)
+});
+
+$('#previousButton').click( function(roomnum) {
+prevVideo(roomnum)
+});
+
+$('#nextButton').click( function(roomnum) {
+playNext(roomnum)
+});
+ 
+ 
+$('#dropdown1').click( function(roomnum) {
+changePlayer(roomnum, 0);
+});
+
+$('#dropdown2').click( function(roomnum) {
+changePlayer(roomnum, 1)
+});
+
+$('#dropdown3').click( function(roomnum) {
+changePlayer(roomnum, 2)
+});
+
+$('#dropdown4').click( function(roomnum) {
+changePlayer(roomnum, 3);
+}); 
+
 // Change time
 socket.on('changeTime', function(data) {
     var time = data.time
     player.seekTo(time);
-});
 });
