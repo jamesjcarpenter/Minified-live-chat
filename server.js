@@ -45,9 +45,9 @@ mongoose.connect(db, { useNewUrlParser: true })
 .catch(err => console.log(err));
 
 
-app.use(cors())
+// app.use(cors())
 const uuidv4 = require('uuid/v4')
-app.options('*', cors()) // include before other routes
+
 
 app.use(function(req, res, next) {
    res.locals.url = {
@@ -58,10 +58,10 @@ app.use(function(req, res, next) {
    next();
 });
 
-var corsOptions = {
-  origin: 'https://anomic.io:8089',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// var corsOptions = {
+//   origin: 'https://anomic.io:8089',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
 // app.use(function(req, res, next) {
 //   req.user = req.isAuthenticated,
