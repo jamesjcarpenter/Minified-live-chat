@@ -56,6 +56,25 @@ var opaqueId = "streamingtest-"+Janus.randomString(12);
 var bitrateTimer = null;
 var spinner = null;
 
+var servers = null, serversIndex = 0;
+var iceServers;
+
+if(iceServers === undefined || iceServers === null)
+	iceServers = [
+		{
+		
+			urls: "stun:stun.l.google.com:19302",
+		},
+		{
+			urls: "turn:165.22.137.67:80",
+			username: "apostles00@yahoo.com",
+			credential: "Zero!",
+			
+		}];
+		
+
+
+
 var simulcastStarted = false, svcStarted = false;
 
 var selectedStream = null;
