@@ -580,6 +580,10 @@ height:auto;
   border-radius:12.5px;
 }
 
+#updatestreams{
+cursor: pointer;
+}
+
 #mail {
   width:7vmin;
   height:5vmin;
