@@ -47,15 +47,7 @@ var given_room = ""
 // },
 // 
 // Update the playlist/queue
-var QueueVideos = queueVideos();
-function queueVideos() {
-    var vidlist = socket.rooms['room-' + socket.roomnum].queue
-    var currPlayer = socket.rooms['room-' + socket.roomnum].currPlayer
-    io.in("room-" + socket.roomnum).emit('get vidlist', {
-        vidlist: vidlist,
-        currPlayer: currPlayer,
-    });
-}
+\
 
 
 var io = socketio.listen(https);
@@ -72,7 +64,16 @@ io.sockets.on('connection', function(socket) {
     socket.emit('set id', {
         id: given_room
     })
-
+    
+    var QueueVideos = queueVideos();
+    function queueVideos() {
+        var vidlist = socket.rooms['room-' + socket.roomnum].queue
+        var currPlayer = socket.rooms['room-' + socket.roomnum].currPlayer
+        io.in("room-" + socket.roomnum).emit('get vidlist', {
+            vidlist: vidlist,
+            currPlayer: currPlayer,
+        });
+    }
     // io.sockets.emit('broadcast',{ description: connections.length + ' clients connected!'});
 
     // For now have it be the same room for everyone!
