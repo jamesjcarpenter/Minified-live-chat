@@ -335,7 +335,7 @@ function updateStreamsList() {
 			$('#watch').removeAttr('disabled').unbind('click').click(startStream);
 		}
 	}});
-	}, 5500);
+}, 10500);
 }
 
 function startStream() {
