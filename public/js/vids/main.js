@@ -1,34 +1,5 @@
-function timeBuffered(time) {
-  var i;
-  if (!video.buffered) {
-    return true;
-  }
-
-  for (i = 0; i < video.buffered.length; i++) {
-    if (video.buffered.start(i) > time) {
-      return false;
-    }
-    if (video.buffered.end(i) >= time) {
-      return true;
-    }
-  }
-  return false;
-}
-
-/*
-This runs whenever either the clock accuracy changes or the video duration changes.
-*/
-if (!video.buffered || 'mozId' in navigator) {
-  isBuffered = function (time) {
-    return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
-  };
-} else {
-  isBuffered = timeBuffered;
-}
-
-window.addEventListener('load', () => {
 (function (window) {
-  
+window.addEventListener('load', () => {  
   var CLOCK_PORT = 5001,
 		EPSILON = -1 / 15,
 		DURATION = 149.619,
@@ -122,6 +93,33 @@ window.addEventListener('load', () => {
 		checkSync(evt || 'clock update');
 	}
 
+	function timeBuffered(time) {
+		var i;
+		if (!video.buffered) {
+			return true;
+		}
+
+		for (i = 0; i < video.buffered.length; i++) {
+			if (video.buffered.start(i) > time) {
+				return false;
+			}
+			if (video.buffered.end(i) >= time) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/*
+	This runs whenever either the clock accuracy changes or the video duration changes.
+	*/
+	if (!video.buffered || 'mozId' in navigator) {
+		isBuffered = function (time) {
+			return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
+		};
+	} else {
+		isBuffered = timeBuffered;
+	}
 
 	serverUrl = location.protocol + '//' + location.hostname + ':' + CLOCK_PORT + '/time-server';
 	remoteClock = new RemoteClock(serverUrl, stateUpdate);
@@ -150,5 +148,5 @@ window.addEventListener('load', () => {
 		window.removeEventListener('touchstart', touchstart, true);
 	}, true);
 	updateClockDisplay();
-}(this));
 });
+}(this));
