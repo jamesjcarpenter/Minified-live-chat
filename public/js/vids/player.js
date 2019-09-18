@@ -231,7 +231,6 @@ socket.on('createHTML5', function(data) {
 
         betaAlert()
     }
-});
 
 
 changeSinglePlayer(roomnum, playerId){
@@ -275,3 +274,4 @@ changeSinglePlayer(roomnum, playerId){
       })
 
 }
+});
