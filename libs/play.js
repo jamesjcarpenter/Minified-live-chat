@@ -1,32 +1,5 @@
-module.exports.sockets = function(https) {
-var express = require('express');
-var app = express();
-var socketio = require('socket.io');
-var server = require('../server.js');
-// var server = require('http').createServer(app);
-
-users = [];
-connections = [];
-rooms = [];
-// Store all of the sockets and their respective room numbers
-userrooms = {}
-
-const YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
-const VM_API_KEY = '391139eb93265d3cf5752d05c673651cfa9b257f';
-const DM_API_KEY = '3b47b316af2962e6c94c';
-
-// Set given room for url parameter
-var given_room = ""
-
-// Update the room usernames
 
 
-
-
-var roomno = 1;
-
-const room = socket.room;
-const roomnum = socket.room;
 
 
 //var roomno = 1;
@@ -40,14 +13,52 @@ io.on('connection', function(socket) {
    io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
 })*/
 
-
+module.exports.sockets = function(https) {
   // Update all users
 // function updateUsernames() {
 //     // io.sockets.emit('get users', users);
 //     // console.log(users)
 // }
 
+var express = require('express');
+var app = express();
+var server = require('../server.js');
+
+// var server = require('http').createServer(app);
+var socketio = require('socket.io')
+users = [];
+connections = [];
+rooms = [];
+// Store all of the sockets and their respective room numbers
+userrooms = {}
+
+YT3_API_KEY = YT3_API_KEY
+DM_API_KEY = DM_API_KEY
+
+// Set given room for url parameter
+var given_room = ""
+
+// Update the room usernames
+RoomUsers: function(roomnum) {
+    var roomUsers = io.sockets.adapter.rooms['room-' + socket.roomnum].users
+    io.sockets.in("room-" + roomnum).emit('get users', roomUsers);
+},
+
+// Update the playlist/queue
+QueueVideos: function() {
+    var vidlist = io.sockets.adapter.rooms['room-' + socket.roomnum].queue
+    var currPlayer = io.sockets.adapter.rooms['room-' + socket.roomnum].currPlayer
+    io.sockets.in("room-" + socket.roomnum).emit('get vidlist', {
+        vidlist: vidlist,
+        currPlayer: currPlayer,
+    });
+}
+
+
 var io = socketio.listen(https);
+
+var roomno = 1;
+
 io.sockets.on('connection', function(socket) {
     // Connect Socket
     given_room = socket.room;
@@ -950,5 +961,5 @@ io.sockets.on('connection', function(socket) {
         }
     }
 
-  })
+})
 };
