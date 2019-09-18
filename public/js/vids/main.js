@@ -1,5 +1,7 @@
 (function (window) {
-	var CLOCK_PORT = 5001,
+  setTimeout( function(){
+  
+  var CLOCK_PORT = 5001,
 		EPSILON = -1 / 15,
 		DURATION = 149.619,
 
@@ -112,15 +114,14 @@
 	/*
 	This runs whenever either the clock accuracy changes or the video duration changes.
 	*/
-  setTimeout( function(){
-    if (!video.buffered || 'mozId' in navigator) {
-      isBuffered = function (time) {
-        return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
-      };
-    } else {
-      isBuffered = timeBuffered;
-    }
-  }, 2500);
+	if (!video.buffered || 'mozId' in navigator) {
+		isBuffered = function (time) {
+			return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
+		};
+	} else {
+		isBuffered = timeBuffered;
+	}
+
 	serverUrl = location.protocol + '//' + location.hostname + ':' + CLOCK_PORT + '/time-server';
 	remoteClock = new RemoteClock(serverUrl, stateUpdate);
 
@@ -148,4 +149,5 @@
 		window.removeEventListener('touchstart', touchstart, true);
 	}, true);
 	updateClockDisplay();
-}(this));
+}(this);
+}, 2500));
