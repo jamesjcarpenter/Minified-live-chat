@@ -589,6 +589,24 @@ left:20%;
 position: fixed;
 }
 
+#devices {
+  background-color:#3D3D3D;
+  color:white;
+}
+#audio-device{
+  background-color:#3D3D3D;
+  color:white;
+}
+
+#video-device{
+  background-color:#3D3D3D;
+  color:white;
+}
+
+#labeldevice{
+  background-color:#3D3D3D;
+  color:white;
+}
 
 #mail {
   width:7vmin;
