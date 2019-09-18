@@ -14,6 +14,12 @@ if (player.L == "player") {
 //handle the removal of the Soundcloud or Vimeo player.
 }
 
+if (player.destroy) {
+  player.destroy();
+} else {
+//handle the removal of the Soundcloud or Vimeo player.
+}
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
