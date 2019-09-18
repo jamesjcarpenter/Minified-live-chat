@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 // var server = require('http').createServer(app);
-var io = require('socket.io')
+var socketio = require('socket.io')
 users = [];
 connections = [];
 rooms = [];
@@ -28,7 +28,7 @@ io.on('connection', function(socket) {
 })*/
 
 module.exports.sockets = function(https) {
-  io = socketio.listen(https);
+var io = socketio.listen(https);
 
 var roomno = 1;
 
