@@ -35,12 +35,12 @@ function onYouTubeIframeAPIReady() {
     });
     // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
+            $('#player').append('iframe class="video" id="player" allowfullscreen="0" rel="0" width="640" height="360" src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="1"></iframe>');
 }
 
 function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';
     document.getElementById('player').style.borderColor = '#00000000';
-        $('#player').append('iframe class="video" id="player" allowfullscreen="0" rel="0" width="640" height="360" src="https://www.youtube.com/embed/M7lc1UVf-VE" frameborder="1"></iframe>');
 }
 
 function changeBorderColor(playerStatus) {
