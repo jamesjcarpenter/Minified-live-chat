@@ -595,6 +595,12 @@ width:40em;
 padding:1.25em;
 }
 
+#player{
+  position:fixed;
+  z-index:9999;
+  left:45%;
+  top:39em;
+}
 
 #players{
 position:fixed;
