@@ -8,11 +8,8 @@ playVideo(roomnum)
 
 
 $('#syncbutton').click( function(roomnum) {
+syncVideo(roomnum);
 syncAlert();
-
-setTimeout( function(){
-  syncVideo(roomnum);
-}, 150);
 });
 
 $('#loveButton').click( function(roomnum) {
