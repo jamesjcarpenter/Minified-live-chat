@@ -7,7 +7,13 @@ var currPlayer = 0
 
 // Gets all the player data
 socket.on('getPlayerData', function(data) {
-    var roomnum = data.room
+
+  console.log(url);
+  function getImageDirectoryByFullURL(url){
+      return url.substr(url.lastIndexOf("=")+1);
+  }
+  
+  const roomnum = (url.substr(url.lastIndexOf("=")+1));
     var caller = data.caller
 
     switch (currPlayer) {

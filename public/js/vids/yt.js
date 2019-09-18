@@ -7,7 +7,12 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var playerStatus = -1;
 
+console.log(url);
+function getImageDirectoryByFullURL(url){
+    return url.substr(url.lastIndexOf("=")+1);
+}
 
+const roomnum = (url.substr(url.lastIndexOf("=")+1));
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {

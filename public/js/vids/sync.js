@@ -34,6 +34,12 @@ $('#nextButton').click( function(roomnum) {
 playNext()
 });
 
+console.log(url);
+function getImageDirectoryByFullURL(url){
+    return url.substr(url.lastIndexOf("=")+1);
+}
+
+const roomnum = (url.substr(url.lastIndexOf("=")+1));
 
 
 function playVideo(roomnum) {
@@ -436,7 +442,7 @@ function changeSinglePlayer(playerId) {
 // Client Synchronization Stuff //
 //------------------------------//
 
-var roomnum = 1
+var roomnum = (url.substr(url.lastIndexOf("=")+1));
 var id = "M7lc1UVf-VE"
 
 // Calls the play/pause function
@@ -491,10 +497,10 @@ socket.on('syncVideoClient', function(data) {
 
     // There should no longer be any need to sync a video change
     // Video should always be the same
-    if (id != videoId){
-        console.log(id == videoId)
-        changeVideoId(roomnum, videoId)
-    }
+    // if (id != videoId){
+    //     console.log(id == videoId)
+    //     changeVideoId(roomnum, videoId)
+    // }
 
     // This switchs you to the correct player
     // Should only happen when a new socket joins late
