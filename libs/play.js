@@ -1,18 +1,4 @@
-var express = require('express');
-var app = express();
-// var server = require('http').createServer(app);
-var socketio = require('socket.io')
-users = [];
-connections = [];
-rooms = [];
-// Store all of the sockets and their respective room numbers
-userrooms = {}
 
-YT3_API_KEY = process.env.YT3_API_KEY
-DM_API_KEY = process.env.DM_API_KEY
-
-// Set given room for url parameter
-var given_room = ""
 
 
 
@@ -28,6 +14,45 @@ io.on('connection', function(socket) {
 })*/
 
 module.exports.sockets = function(https) {
+  // Update all users
+// function updateUsernames() {
+//     // io.sockets.emit('get users', users);
+//     // console.log(users)
+// }
+
+var express = require('express');
+var app = express();
+// var server = require('http').createServer(app);
+var socketio = require('socket.io')
+users = [];
+connections = [];
+rooms = [];
+// Store all of the sockets and their respective room numbers
+userrooms = {}
+
+YT3_API_KEY = YT3_API_KEY
+DM_API_KEY = DM_API_KEY
+
+// Set given room for url parameter
+var given_room = ""
+
+// Update the room usernames
+RoomUsers: function(roomnum) {
+    var roomUsers = io.sockets.adapter.rooms['room-' + socket.roomnum].users
+    io.sockets.in("room-" + roomnum).emit('get users', roomUsers);
+},
+
+// Update the playlist/queue
+QueueVideos: function() {
+    var vidlist = io.sockets.adapter.rooms['room-' + socket.roomnum].queue
+    var currPlayer = io.sockets.adapter.rooms['room-' + socket.roomnum].currPlayer
+    io.sockets.in("room-" + socket.roomnum).emit('get vidlist', {
+        vidlist: vidlist,
+        currPlayer: currPlayer,
+    });
+}
+
+
 var io = socketio.listen(https);
 
 var roomno = 1;
