@@ -587,7 +587,7 @@ cursor: pointer;
 #containerchoose{
 text-align:center;
 left:50%;
-top:80%;
+margin-top:50%;
 position:absolute;
 margin:0 auto;
 background-color:#3D3D3D;
