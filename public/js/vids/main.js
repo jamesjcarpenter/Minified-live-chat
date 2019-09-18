@@ -1,5 +1,4 @@
 (function (window) {
-window.addEventListener('load', () => {  
   var CLOCK_PORT = 5001,
 		EPSILON = -1 / 15,
 		DURATION = 149.619,
@@ -148,5 +147,4 @@ window.addEventListener('load', () => {
 		window.removeEventListener('touchstart', touchstart, true);
 	}, true);
 	updateClockDisplay();
-});
 }(this));
