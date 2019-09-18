@@ -1,6 +1,56 @@
 // Calls the play video function on the server
+$('#playButton').click( function(roomnum) {
+playVideo(roomnum)
+});
 
 
+$('#syncbutton').click( function(roomnum) {
+syncVideo(roomnum);
+syncAlert();
+});
+
+$('#loveButton').click( function(roomnum) {
+loveLive(roomnum)
+});
+
+$('#hostbutton').click( function(roomnum) {
+changeHost(roomnum)
+});
+
+$('#enqueueButton').click( function(roomnum) {
+enqueueVideoParse(roomnum)
+});
+
+$('#changeButton').click( function(roomnum) {
+changeVideoParse(roomnum)
+});
+
+$('#previousButton').click( function(roomnum) {
+prevVideo(roomnum)
+});
+
+$('#nextButton').click( function(roomnum) {
+playNext(roomnum)
+});
+ 
+ 
+$('#dropdown1').click( function(roomnum) {
+changePlayer(roomnum, 0);
+});
+
+$('#dropdown2').click( function(roomnum) {
+changePlayer(roomnum, 1)
+});
+
+$('#dropdown3').click( function(roomnum) {
+changePlayer(roomnum, 2)
+});
+
+$('#dropdown4').click( function(roomnum) {
+changePlayer(roomnum, 3);
+}); 
+
+// Calls the play video function on the server
 function playVideo(roomnum) {
     // dailyPlayer.play();
     //vimeoPlayer.play()
@@ -9,6 +59,7 @@ function playVideo(roomnum) {
     });
 
     // Doesn't work well unless called in server
+    //io.sockets.in("room-"+roomnum).emit('playVideoClient');
 }
 
 // Calls the sync function on the server
@@ -238,7 +289,7 @@ function enqueueVideo(roomnum, rawId) {
         socket.emit('enqueue video', {
             room: roomnum,
             videoId: videoId,
-            user: socket.username
+            user: username
         })
     } else {
         console.log("User entered an invalid video url :(")
@@ -401,7 +452,7 @@ function changeSinglePlayer(playerId) {
 // Client Synchronization Stuff //
 //------------------------------//
 
-var roomnum = 1;
+var roomnum = 1
 var id = "M7lc1UVf-VE"
 
 // Calls the play/pause function
@@ -623,56 +674,6 @@ socket.on('changeVideoClient', function(data) {
     }, 1000);
 
 });
-$('#playButton').click( function(roomnum) {
-playVideo(roomnum)
-});
-
-
-$('#syncbutton').click( function(roomnum) {
-syncVideo(roomnum);
-syncAlert();
-});
-
-$('#loveButton').click( function(roomnum) {
-loveLive(roomnum)
-});
-
-$('#hostbutton').click( function(roomnum) {
-changeHost(roomnum)
-});
-
-$('#enqueueButton').click( function(roomnum) {
-enqueueVideoParse(roomnum)
-});
-
-$('#changeButton').click( function(roomnum) {
-changeVideoParse(roomnum)
-});
-
-$('#previousButton').click( function(roomnum) {
-prevVideo(roomnum)
-});
-
-$('#nextButton').click( function(roomnum) {
-playNext(roomnum)
-});
- 
- 
-$('#dropdown1').click( function(roomnum) {
-changePlayer(roomnum, 0);
-});
-
-$('#dropdown2').click( function(roomnum) {
-changePlayer(roomnum, 1)
-});
-
-$('#dropdown3').click( function(roomnum) {
-changePlayer(roomnum, 2)
-});
-
-$('#dropdown4').click( function(roomnum) {
-changePlayer(roomnum, 3);
-}); 
 
 // Change time
 socket.on('changeTime', function(data) {
