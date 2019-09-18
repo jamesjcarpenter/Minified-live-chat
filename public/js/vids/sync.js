@@ -78,7 +78,7 @@ function syncVideo(roomnum) {
     switch (currPlayer) {
         case 0:
           ytplayer = $(".video-stream.html5-main-video");
-          ytplayer.getTime();
+            getTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
             break;
