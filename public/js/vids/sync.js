@@ -1,36 +1,37 @@
 // Calls the play video function on the server
 
-$('#playButton').click( function() {
-playVideo(roomnum)
+$('#playButton').click( function(roomnum) {
+playVideo()
 });
 
 
-$('#syncbutton').click( function() {
-syncVideo(roomnum);syncAlert()
+$('#syncbutton').click( function(roomnum) {
+syncVideo();
+syncAlert();
 });
 
-$('#loveButton').click( function() {
-loveLive(roomnum)
+$('#loveButton').click( function(roomnum) {
+loveLive()
 });
 
-$('#hostbutton').click( function() {
-changeHost(roomnum)
+$('#hostbutton').click( function(roomnum) {
+changeHost()
 });
 
-$('#enqueueButton').click( function() {
-enqueueVideoParse(roomnum)
+$('#enqueueButton').click( function(roomnum) {
+enqueueVideoParse()
 });
 
-$('#changeButton').click( function() {
-changeVideoParse(roomnum)
+$('#changeButton').click( function(roomnum) {
+changeVideoParse()
 });
 
-$('#previousButton').click( function() {
-prevVideo(roomnum)
+$('#previousButton').click( function(roomnum) {
+prevVideo()
 });
 
-$('#nextButton').click( function() {
-playNext(roomnum)
+$('#nextButton').click( function(roomnum) {
+playNext()
 });
 
 
