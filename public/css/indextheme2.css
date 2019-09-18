@@ -588,6 +588,7 @@ cursor: pointer;
 text-align:center;
 left:30%;
 top:40%;
+position:absolute;
 margin:0 auto;
 background-color:#3D3D3D;
 color:white;
@@ -605,14 +606,10 @@ color:white;
 #audio-device{
   background-color:#3D3D3D;
   color:white;
-  width:20.5em;
-  height:2em;
 }
 
 #video-device{
   background-color:#3D3D3D;
-  width:20.5em;
-  height:2em;
   color:white;
 }
 
