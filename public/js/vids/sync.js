@@ -77,7 +77,8 @@ function syncVideo(roomnum) {
 
     switch (currPlayer) {
         case 0:
-            currTime = $('.ytp-time-current').val();
+          ytplayer = $(".video-stream.html5-main-video");
+          ytplayer.getCurrentTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
             break;
@@ -159,7 +160,7 @@ function getTime() {
         case 3:
             ytplayer = $(".video-stream.html5-main-video");
             ytplayer.getCurrentTime();
-            return media.currentTime;
+            return ytplayer.getCurrentTime();
             break;
         default:
             console.log("Error invalid player id")
