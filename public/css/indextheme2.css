@@ -589,22 +589,22 @@ text-align:center;
 left:50%;
 top:17.5em;
 position:fixed;
-background-color:#3D3D3D;
+background-color:#303030;
 color:white;
-padding:2.5em;
+padding:1.25em;
 }
 
 #labelingstyle{
-  background-color:#3D3D3D;
+  background-color:#242424;
   color:white;
 }
 
 #devices {
-  background-color:#3D3D3D;
+  background-color:#242424;
   color:white;
 }
 #audio-device{
-  background-color:#3D3D3D;
+  background-color:#242424;
   color:white;
   width:200px;
   text-align:center;
@@ -614,7 +614,7 @@ padding:2.5em;
 }
 
 #video-device{
-  background-color:#3D3D3D;
+  background-color:#242424;
   color:white;
   width:200px;
   text-align:center;
@@ -626,7 +626,7 @@ padding:2.5em;
 #labeldevice{
   background-color:#3D3D3D;
   color:white;
-  padding:3.5em;
+  padding:1.5em;
 }
 
 #mail {
