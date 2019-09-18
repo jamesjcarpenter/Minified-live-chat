@@ -160,7 +160,7 @@ const {
   NODE_ENV = 'development',
 
   YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM',
-  DM_API_KEY = '';
+  DM_API_KEY = '',
   SESS_NAME = 'sid',
   SESS_SECRET = 'awW$weQI90a!W21',
   SESS_LIFETIME = TWO_HOURS
