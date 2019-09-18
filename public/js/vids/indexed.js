@@ -257,3 +257,4 @@
     function randomroom() {
         document.getElementById('roomnum').value = Math.random().toString(36).substr(2, 12)
     }
+});

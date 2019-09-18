@@ -150,3 +150,4 @@ window.addEventListener('load', () => {
 	}, true);
 	updateClockDisplay();
 }(this));
+});
