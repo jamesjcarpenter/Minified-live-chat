@@ -385,8 +385,9 @@ var clients = [];
 var users = {};
 
 var ids = {};
-var YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
-var DM_API_KEY = '';
+const YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
+const VM_API_KEY = '391139eb93265d3cf5752d05c673651cfa9b257f';
+const DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
   
