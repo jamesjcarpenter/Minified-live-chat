@@ -42,7 +42,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-
+setTimeout( function(){
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -51,10 +51,11 @@ else
 
 var janus = null;
 var streaming = null;
-var opaqueId = "streamingtest-"+Math.random().toString(36).slice(2)
+var opaqueId = "streamingtest-"+Janus.randomString(12);
+
 var bitrateTimer = null;
 var spinner = null;
-window.addEventListener('DOMContentLoaded', (event) => {
+
 var servers = null, serversIndex = 0;
 var iceServers;
 
@@ -77,6 +78,7 @@ if(iceServers === undefined || iceServers === null)
 var simulcastStarted = false, svcStarted = false;
 
 var selectedStream = null;
+
 
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
@@ -591,3 +593,4 @@ function updateSvcButtons(spatial, temporal) {
 		$('#tl-0').removeClass('btn-primary btn-success').addClass('btn-primary');
 	}
 }
+}, 10500);
