@@ -23,6 +23,7 @@ function syncVideo(roomnum) {
 
     switch (currPlayer) {
         case 0:
+            var player;
             currTime = player.getCurrentTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
@@ -32,6 +33,7 @@ function syncVideo(roomnum) {
             state = dailyPlayer.paused;
             break;
         case 2:
+        var player;
             vimeoPlayer.getCurrentTime().then(function(seconds) {
                 // seconds = the current playback position
                 currTime = seconds
@@ -86,6 +88,7 @@ function getTime() {
             return dailyPlayer.currentTime;
             break;
         case 2:
+        var player;
             vimeoPlayer.getCurrentTime().then(function(seconds) {
                 // seconds = the current playback position
                 return seconds
@@ -356,16 +359,17 @@ function loveLive(roomnum) {
     })
 }
 
-// Get time - DEPRECATED
-// socket.on('getTime', function(data) {
-//     var caller = data.caller
-//     var time = player.getCurrentTime()
-//     console.log("Syncing new socket to time: " + time)
-//     socket.emit('change time', {
-//         time: time,
-//         id: caller
-//     });
-// });
+Get time - DEPRECATED
+socket.on('getTime', function(data) {
+    var caller = data.caller
+    var player;
+    var time = player.getCurrentTime()
+    console.log("Syncing new socket to time: " + time)
+    socket.emit('change time', {
+        time: time,
+        id: caller
+    });
+});
 
 // This just calls the sync host function in the server
 socket.on('getData', function(data) {
@@ -476,6 +480,7 @@ socket.on('syncVideoClient', function(data) {
         // This syncs the time and state
         switch (currPlayer) {
             case 0:
+              var player;
                 var clientTime = player.getCurrentTime();
                 // Only seek if off by more than .1 seconds
                 // CURRENTLY ALL SET TO TRUE TO TO SYNCING ISSUES
