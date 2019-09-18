@@ -1,5 +1,4 @@
 // Calls the play video function on the server
-setTimeout( function(){
 $('#playButton').click( function(roomnum) {
 playVideo(roomnum)
 });
@@ -681,4 +680,3 @@ socket.on('changeTime', function(data) {
     var time = data.time
     player.seekTo(time);
 });
-}, 15500);
