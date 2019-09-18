@@ -11,8 +11,12 @@ var player;
 
 var playerStatus = -1;
 
-function onYouTubeIframeAPIReady() {
-  const player = new YT.Player('player', {
+    
+    window.onYouTubeIframeAPIReady = function() {
+    console.log("YouTube API Ready");
+
+    player = new YT.Player('player', { 
+        videoId: curVideoId,
         playerVars: {
             height: '360',
             width: '640',
@@ -31,8 +35,14 @@ function onYouTubeIframeAPIReady() {
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
-        }
-    });
+    }); 
+
+    ytLoaded = true;
+
+    if (windowWidth) { // if document loaded first
+        resizePlayer();
+    }
+ };
     // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
 }
