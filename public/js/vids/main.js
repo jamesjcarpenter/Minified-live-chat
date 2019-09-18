@@ -4,11 +4,11 @@
 		DURATION = 149.619,
 
 		maxOffset = 1 / 30,
-		video = document.getElementById('video'),
-		clock = document.getElementById('clock'),
-		videoTime = document.getElementById('video-time'),
-		volume = document.getElementById('volume'),
-		muted = document.getElementById('muted'),
+		video = $('.video-stream.html5-main-video'),
+		clock = $('.ytp-time-current').val(),
+		videoTime = $('.ytp-time-duration').val(),
+		volume = $('.ytp-volume-panel').val(),
+		muted = $('.ytp-mute-button.ytp-button').val(),
 
 		targetTime = 0,
 		serverUrl,
