@@ -25,6 +25,7 @@ function onYouTubeIframeAPIReady() {
             rel: 0,
             controls: 1,
             origin:'https://www.anomic.io/',
+            host: 'https://www.youtube.com/',
             videoId: 'M7lc1UVf-VE'
         },
         events: {
