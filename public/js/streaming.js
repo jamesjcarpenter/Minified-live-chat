@@ -101,6 +101,7 @@ var selectedStream = null;
 								plugin: "janus.plugin.streaming",
 								opaqueId: opaqueId,
 								success: function(pluginHandle) {
+									$('#details').remove();
 									streaming = pluginHandle;
 									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
 									// Setup streaming session
@@ -112,6 +113,10 @@ var selectedStream = null;
 										.click(function() {
 											$(this).attr('disabled', true);
 											clearInterval(bitrateTimer);
+											janus.destroy();
+											$('#streamslist').attr('disabled', true);
+											$('#watch').attr('disabled', true).unbind('click');
+											$('#start').attr('disabled', true).html("Bye").unbind('click');
 										});
 								},
 								error: function(error) {
