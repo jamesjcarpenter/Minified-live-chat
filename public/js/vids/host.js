@@ -2,11 +2,6 @@
 // Host stuff
 var host = false
 var notifyfix = false
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
-}
-
 
 // Sets the host for the room
 socket.on('setHost', function(data) {
@@ -38,7 +33,7 @@ function changeHost(roomnum) {
         });
         socket.emit('notify alerts', {
             alert: 1,
-            user: username
+            user: data.username
         })
     }
 }
