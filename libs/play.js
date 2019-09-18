@@ -40,11 +40,7 @@ const DM_API_KEY = '3b47b316af2962e6c94c';
 // Set given room for url parameter
 var given_room = ""
 
-// Update the room usernames
-// RoomUsers: function(roomnum) {
-//     var roomUsers = io.sockets.adapter.rooms['room-' + socket.roomnum].users
-//     io.sockets.in("room-" + roomnum).emit('get users', roomUsers);
-// },
+
 // 
 // Update the playlist/queue
 
@@ -56,6 +52,7 @@ var io = socketio.listen(https);
 
 io.sockets.on('connection', function(socket) {
     // Connect Socket
+    var username = usernames[username] = username;
     var roomno = socket.room;
     given_room = socket.room;
     connections.push(socket);
@@ -75,7 +72,7 @@ io.sockets.on('connection', function(socket) {
             currPlayer: currPlayer,
         });
     }
-    // io.sockets.emit('broadcast',{ description: connections.length + ' clients connected!'});
+
 
     // For now have it be the same room for everyone!
     //socket.join("room-"+roomno);
