@@ -105,10 +105,7 @@ var selectedStream = null;
 									streaming = pluginHandle;
 									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
 									// Setup streaming session
-									setTimeout( function(){
-										updateStreamsList();
-									}, 5500);
-									$('#update-streams').click(updateStreamsList);
+									$('#update-streams').click(updateStreamsList());
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
