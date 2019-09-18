@@ -5,7 +5,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
-youtubePlayer.destroy();
+
 var playerStatus = -1;
 
 function onYouTubeIframeAPIReady() {
@@ -15,7 +15,7 @@ function onYouTubeIframeAPIReady() {
             rel: 0,
             controls: 1,
             origin: window.location.href,
-            host: 'https://youtube.com',
+            host: 'https://www.youtube.com/iframe_api',
         },
         events: {
             'onReady': onPlayerReady,
