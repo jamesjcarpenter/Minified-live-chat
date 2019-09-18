@@ -1208,6 +1208,7 @@ function Janus(gatewayCallbacks) {
 		}
 		Janus.httpAPICall(server + "/" + sessionId, {
 			verb: 'POST',
+      json: true,
 			withCredentials: withCredentials,
 			body: request,
       headers: {
