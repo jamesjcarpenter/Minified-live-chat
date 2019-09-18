@@ -273,7 +273,7 @@ function enqueueVideo(roomnum, rawId) {
         socket.emit('enqueue video', {
             room: roomnum,
             videoId: videoId,
-            user: username
+            user: socket.username
         })
     } else {
         console.log("User entered an invalid video url :(")
