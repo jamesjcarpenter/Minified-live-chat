@@ -94,6 +94,12 @@ var firstTime = true;
 var audioenabled = false;
 var videoenabled = false;
 
+
+var capture = null;
+var role = null;
+var source = null;
+var screentest = null;
+
 var feeds = [];
 var bitrateTimer = [];
 
@@ -247,7 +253,6 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									Janus.listDevices(initDevices);
 									$('#containerchoose').hide();
 									$('#mediasettings').click( function() {
 										$('.ui.medium.inverted.modal').modal('show');
@@ -575,6 +580,7 @@ function publishOwnFeed(useAudio) {
 	$('#unpublish').click(unpublishOwnFeed);
 	$('#videolocal').parent().parent().unblock();
 	$('#videolocal').show();
+	Janus.listDevices(initDevices);
 	sfutest.createOffer(
 		{
 			// Add data:true here if you want to publish datachannels as well
