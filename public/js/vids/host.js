@@ -2,7 +2,7 @@
 // Host stuff
 var host = false
 var notifyfix = false
-
+var username;
 // Sets the host for the room
 socket.on('setHost', function(data) {
     notifyfix = true
