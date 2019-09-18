@@ -4,11 +4,10 @@ tag.src = 'https://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+var player;
 
 var playerStatus = -1;
 
-
-window.addEventListener('load', () => {
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
@@ -29,7 +28,7 @@ function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';
     document.getElementById('player').style.borderColor = '#00000000';
 }
-});
+
 function changeBorderColor(playerStatus) {
     var color;
     if (playerStatus == -1) {
@@ -99,12 +98,11 @@ function play() {
 socket.on('get title', function(data, callback) {
     var videoId = data.videoId
     var user = data.user
-
     $.get(
         "https://www.googleapis.com/youtube/v3/videos", {
             part: 'snippet',
             id: videoId,
-            key: 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM'
+            key: data.api_key
         },
         function(data) {
             // enqueueNotify(user, data.items[0].snippet.title)
@@ -118,26 +116,6 @@ socket.on('get title', function(data, callback) {
                 videoId: videoId,
                 title: data.items[0].snippet.title
             })
-        }
-    )
-})
-
-socket.on('get playlist videos', function(data) {
-    var playlistId = data.playlistId
-    var user = data.user
-
-    $.get(
-        "https://www.googleapis.com/youtube/v3/playlistItems", {
-            part: 'snippet,contentDetails',
-            playlistId: playlistId,
-            maxResults: '50',
-            key: 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM'
-        },
-        function(data) {
-          // Iterate through all of the playlist videos
-          for (let video of data.items) {
-            enqueueVideo(roomnum, video.contentDetails.videoId)
-          }
         }
     )
 })
