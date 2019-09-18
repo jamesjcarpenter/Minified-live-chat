@@ -59,7 +59,6 @@ function playVideo(roomnum) {
     });
 
     // Doesn't work well unless called in server
-    //io.sockets.in("room-"+roomnum).emit('playVideoClient');
 }
 
 // Calls the sync function on the server

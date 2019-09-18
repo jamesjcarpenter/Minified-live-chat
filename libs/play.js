@@ -321,8 +321,11 @@ io.sockets.on('connection', function(socket) {
 
     // Play video
     socket.on('play video', function(data) {
-        var roomnum = data.room
-        io.sockets.in("room-" + roomnum).emit('playVideoClient');
+        var roomnum = socket.room;
+        socket.emit('sync host');
+        io.sockets.in("room-" + roomnum).emit('playVideoClient', {
+            getCurrentTime: currTime
+        });
     });
 
     // Event Listener Functions
