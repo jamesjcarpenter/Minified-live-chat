@@ -452,7 +452,7 @@ function changeSinglePlayer(playerId) {
 // Client Synchronization Stuff //
 //------------------------------//
 
-var roomnum = (url.substr(url.lastIndexOf("=")+1));
+var roomnum = 1;
 var id = "M7lc1UVf-VE"
 
 // Calls the play/pause function
