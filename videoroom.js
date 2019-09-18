@@ -245,7 +245,7 @@ $(document).ready(function() {
 					//				$('#username').focus();
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
-									
+									Janus.listDevices(initDevices);
 				// 					var go =	{
         // "request" : "rtp_forward",
         // "room" : myroom,
