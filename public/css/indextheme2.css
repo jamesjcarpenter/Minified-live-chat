@@ -597,7 +597,8 @@ padding:1.25em;
 
 
 #players{
-left:50em;
+position:fixed;
+left:50%;
 top:20em;
 width:600px;
 height:400px;  
