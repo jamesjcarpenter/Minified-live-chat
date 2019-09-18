@@ -7,7 +7,7 @@ function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("=")+1);
 }
 
-const roomnum = (url.substr(url.lastIndexOf("=")+1));
+
 // Sets the host for the room
 socket.on('setHost', function(data) {
     notifyfix = true

@@ -2,12 +2,6 @@
 // 1. Host Change
 // 2. Empty Queue
 // 3. Beta Message
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
-}
-
-const roomnum = (url.substr(url.lastIndexOf("=")+1));
 // Enqueue Notify (0)
 socket.on('enqueueNotify', function(data) {
     console.log("Enqueue Notify Alert")

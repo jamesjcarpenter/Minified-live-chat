@@ -33,13 +33,7 @@ prevVideo()
 $('#nextButton').click( function(roomnum) {
 playNext()
 });
-
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
-}
-
-const roomnum = (url.substr(url.lastIndexOf("=")+1));
+ 
 
 
 function playVideo(roomnum) {
