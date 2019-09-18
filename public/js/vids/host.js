@@ -2,7 +2,7 @@
 // Host stuff
 var host = false
 var notifyfix = false
-var username;
+var username = socket.username;
 // Sets the host for the room
 socket.on('setHost', function(data) {
     notifyfix = true
@@ -33,7 +33,7 @@ function changeHost(roomnum) {
         });
         socket.emit('notify alerts', {
             alert: 1,
-            user: username
+            user: socket.username
         })
     }
 }
