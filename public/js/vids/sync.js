@@ -53,9 +53,7 @@ changePlayer(roomnum, 3);
 }); 
 
 
-function getCurrentTime(roomnum) {
-currTime = $('.ytp-time-current').val();
-};
+
 // Calls the play video function on the server
 function playVideo(roomnum) {
     // dailyPlayer.play();
@@ -79,6 +77,9 @@ function syncVideo(roomnum) {
 
     switch (currPlayer) {
         case 0:
+          function getCurrentTime() {
+            currTime = $('.ytp-time-current').val();
+            };
             currTime = player.getCurrentTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
