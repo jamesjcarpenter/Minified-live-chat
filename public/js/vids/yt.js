@@ -13,16 +13,25 @@ var playerStatus = -1;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
-            autoplay: 0,
+            height: '360',
+            width: '640',
+            autoplay: 1,
+            modestbranding: 1,
+            enablejsapi: 1,
+            fs: 0,
+            disablekb: 1,
+            playsinline: 1,
             rel: 0,
             controls: 1,
+            origin:'https://anomic.io/',
+            videoId: 'M7lc1UVf-VE'
         },
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
     });
-    document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
+    // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
 }
 
