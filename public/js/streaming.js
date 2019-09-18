@@ -298,6 +298,7 @@ var selectedStream = null;
 });
 
 function updateStreamsList() {
+	streaming = pluginHandle;
 	$('#update-streams').unbind('click').addClass('fa-spin');
 	var body = { "request": "list" };
 	Janus.debug("Sending message (" + JSON.stringify(body) + ")");
