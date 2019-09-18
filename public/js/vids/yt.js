@@ -42,7 +42,7 @@ var playerStatus = -1;
     if (windowWidth) { // if document loaded first
         resizePlayer();
     }
- };
+ });
     // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
 }
