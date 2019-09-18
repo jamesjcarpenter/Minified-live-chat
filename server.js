@@ -402,7 +402,9 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
 
-
+    socket.on('console', function(data){
+      console.log('test');
+    });
 
 
     socket.on('adduser', function(username){

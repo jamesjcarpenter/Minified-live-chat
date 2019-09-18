@@ -78,7 +78,7 @@ var socket = io.connect('anomic.io/');
     });
       
       socket.on('newvideo', (data) => {
-        console.log('test');
+        socket.emit('console', data);
         });
     
     
