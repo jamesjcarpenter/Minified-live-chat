@@ -112,14 +112,15 @@
 	/*
 	This runs whenever either the clock accuracy changes or the video duration changes.
 	*/
-	if (!video.buffered || 'mozId' in navigator) {
-		isBuffered = function (time) {
-			return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
-		};
-	} else {
-		isBuffered = timeBuffered;
-	}
-
+  setTimeout( function(){
+    if (!video.buffered || 'mozId' in navigator) {
+      isBuffered = function (time) {
+        return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
+      };
+    } else {
+      isBuffered = timeBuffered;
+    }
+  }, 2500);
 	serverUrl = location.protocol + '//' + location.hostname + ':' + CLOCK_PORT + '/time-server';
 	remoteClock = new RemoteClock(serverUrl, stateUpdate);
 
