@@ -52,6 +52,10 @@ $('#dropdown4').click( function(roomnum) {
 changePlayer(roomnum, 3);
 }); 
 
+
+function getCurrentTime(roomnum) {
+currTime = $('.ytp-time-current').val();
+};
 // Calls the play video function on the server
 function playVideo(roomnum) {
     // dailyPlayer.play();
