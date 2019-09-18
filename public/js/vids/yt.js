@@ -5,11 +5,10 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
-
+youtubePlayer.destroy();
 var playerStatus = -1;
 
 function onYouTubeIframeAPIReady() {
-  youtubePlayer.destroy();
     player = new YT.Player('player', {
         playerVars: {
             autoplay: 0,
