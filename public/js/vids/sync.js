@@ -40,7 +40,8 @@ function playVideo(roomnum) {
     // dailyPlayer.play();
     //vimeoPlayer.play()
     socket.emit('play video', {
-        room: roomnum
+        room: roomnum,
+        player: player,
     });
 
     // Doesn't work well unless called in server

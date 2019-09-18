@@ -7,13 +7,13 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
-
+var player;
 
 var playerStatus = -1;
 
 
 function onYouTubeIframeAPIReady() {
-  var player = new YT.Player('player', {
+    player = new YT.Player('player', {
         playerVars: {
             autoplay: 0,
             rel: 0,
