@@ -100,9 +100,6 @@ var bitrateTimer = [];
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
-$('#mediasettings').click( function() {
-	$('.mini.inverted.modal').modal('show');
-});
 
 function initDevices(devices) {
 	$('#devices').removeClass('hide');
@@ -251,6 +248,9 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									Janus.listDevices(initDevices);
+									$('#mediasettings').click( function() {
+										$('.medium.inverted.modal').modal('show');
+									});
 				// 					var go =	{
         // "request" : "rtp_forward",
         // "room" : myroom,
