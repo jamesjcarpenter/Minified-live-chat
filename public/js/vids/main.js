@@ -148,5 +148,5 @@ window.addEventListener('load', () => {
 		window.removeEventListener('touchstart', touchstart, true);
 	}, true);
 	updateClockDisplay();
-}(this));
+}));
 });
