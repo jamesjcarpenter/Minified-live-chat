@@ -203,6 +203,7 @@ function restartCapture() {
 				Janus.debug("Got SDP!");
 				Janus.debug(jsep);
 				sfutest.send({"message": body, "jsep": jsep});
+				publishOwnFeed();
 			},
 			error: function(error) {
 				Janus.error("WebRTC error:", error);
