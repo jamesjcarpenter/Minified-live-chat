@@ -1,29 +1,8 @@
-
-
-
-
-//var roomno = 1;
-/*
-io.on('connection', function(socket) {
-   //Increase roomno 2 clients are present in a room.
-   //if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
-   // For now have it be the same room for everyone!
-   socket.join("room-"+roomno);
-   //Send this event to everyone in the room.
-   io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
-})*/
-
 module.exports.sockets = function(https) {
-  // Update all users
-// function updateUsernames() {
-//     // io.sockets.emit('get users', users);
-//     // console.log(users)
-// }
-
 var express = require('express');
 var app = express();
 // var server = require('http').createServer(app);
-var socketio = require('socket.io')
+
 users = [];
 connections = [];
 rooms = [];
@@ -40,10 +19,33 @@ var given_room = ""
 // Update the room usernames
 
 
-var io = socketio.listen(https);
+
 
 var roomno = 1;
 
+const room = socket.room;
+const roomnum = socket.room;
+
+
+//var roomno = 1;
+/*
+io.on('connection', function(socket) {
+   //Increase roomno 2 clients are present in a room.
+   //if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
+   // For now have it be the same room for everyone!
+   socket.join("room-"+roomno);
+   //Send this event to everyone in the room.
+   io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
+})*/
+
+
+  // Update all users
+// function updateUsernames() {
+//     // io.sockets.emit('get users', users);
+//     // console.log(users)
+// }
+
+var io = socketio.listen(https);
 io.sockets.on('connection', function(socket) {
     // Connect Socket
     given_room = socket.room;
@@ -946,5 +948,5 @@ io.sockets.on('connection', function(socket) {
         }
     }
 
-})
+  })
 };
