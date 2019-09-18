@@ -596,6 +596,13 @@ padding:1.25em;
 }
 
 
+#players{
+width:600px;
+height:400px;  
+text-align:center;
+z-index:9999;
+}
+
 #html5-input {
     display: none;
 }

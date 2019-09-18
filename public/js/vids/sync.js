@@ -1,4 +1,9 @@
 // Calls the play video function on the server
+
+
+
+
+
 function playVideo(roomnum) {
     // dailyPlayer.play();
     //vimeoPlayer.play()

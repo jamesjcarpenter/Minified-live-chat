@@ -453,7 +453,7 @@
 </div>
 </h4> -->
 <!-- STREAMING END -->
-<h4 class="bootstrap">
+<h4 class="bootstrap"id="players">
   <div id='dailyArea'>
                  <iframe class="video" id="player-daily" frameborder="0" width="640" height="360" allowfullscreen allow="autoplay"></iframe>
              </div>
@@ -473,13 +473,13 @@
              <!----------------------------------- PLAYER AREA ----------------------------------->
              <!-- <hr> -->
              <div>
-                 <button id="playButton" onclick="playVideo(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="fa fa-play"></i> Play / <i class="fa fa-pause"></i> Pause</button>
+                 <button id="playButton" style="margin-top:.5rem" class="btn btn-primary"><i class="fa fa-play"></i> Play / <i class="fa fa-pause"></i> Pause</button>
 
-                 <button id="syncbutton" onclick="syncVideo(roomnum);syncAlert()" style="margin-top:.5rem" class="btn btn-primary"><i class="fa fa-sync"></i> Sync</button>
+                 <button id="syncbutton"style="margin-top:.5rem" class="btn btn-primary"><i class="fa fa-sync"></i> Sync</button>
 
-                 <button id="loveButton" onclick="loveLive(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="far fa-heart"></i> Random K-pop</button>
+                 <button id="loveButton" style="margin-top:.5rem" class="btn btn-primary"><i class="far fa-heart"></i> Random K-pop</button>
                  <!-- <br/> -->
-                 <button id="hostbutton" onclick="changeHost(roomnum)" style="margin-top:.5rem" class="btn btn-primary"><i class="fas fa-users"></i> Make me the host!</button>
+                 <button id="hostbutton" style="margin-top:.5rem" class="btn btn-primary"><i class="fas fa-users"></i> Make me the host!</button>
                  <!-- Turn off the lights -->
                  <button id="lightButton" style="margin-top:.5rem" class="btn btn-primary switch"><i style="pointer-events:none;" class="fas fa-lightbulb"></i></button>
              </div>
@@ -489,14 +489,14 @@
 
              <div class="topbotmargins">
                  <input type="Video" style="max-width: 200px; margin-right: .5rem; margin-bottom: .5rem; float: left;" class="form-control" id="inputVideoId" placeholder="Video ID / URL">
-                 <button id="enqueueButton" onclick="enqueueVideoParse(roomnum)" class="btn btn-primary"><i class="fas fa-plus"></i> Add to Queue</button>
-                 <button id="emptyButton" onclick="emptyQueue(roomnum)" class="btn btn-primary"><i class="fas fa-trash"></i> Empty Queue</button>
+                 <button id="enqueueButton" class="btn btn-primary"><i class="fas fa-plus"></i> Add to Queue</button>
+                 <button id="emptyButton" class="btn btn-primary"><i class="fas fa-trash"></i> Empty Queue</button>
              </div>
              <div>
                  <!-- <a class="ghost-button-full-color"><i class="far fa-times-circle"></i></a> -->
-                 <button id="changeButton" onclick="changeVideoParse(roomnum)" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Change Video</button>
-                 <button id="previousButton" onclick="prevVideo(roomnum)" class="btn btn-primary"><i class="fas fa-step-backward"></i> Previous</button>
-                 <button id="nextButton" onclick="playNext(roomnum)" class="btn btn-primary"><i class="fas fa-step-forward"></i> Next</button>
+                 <button id="changeButton" class="btn btn-primary"><i class="fas fa-exchange-alt"></i> Change Video</button>
+                 <button id="previousButton" class="btn btn-primary"><i class="fas fa-step-backward"></i> Previous</button>
+                 <button id="nextButton" class="btn btn-primary"><i class="fas fa-step-forward"></i> Next</button>
 
                  <br/>
 
@@ -569,11 +569,10 @@
                          <div class="modal-body">
                              <p>Send a friend your unique room link so they can watch videos too!</p>
                              <!-- <p style="text-align: center;" id="invite">vynchronize.herokuapp.com/ROOMNUM</p> -->
-                             <input class="inv_input" id="inv_input" type="text" value="vynchronize.herokuapp.com/ROOMNUM" class="field left" readonly>
                          </div>
                          <div class="modal-footer">
                              <div style="opacity: 1" class="tooltip">
-                                 <button type="button" class="btn btn-default" onclick="copyInvite()" onmouseout="outFunc()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span><i class="fas fa-clipboard"></i> Copy to Clipboard</button>
+                                 <button type="button" class="btn btn-default"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span><i class="fas fa-clipboard"></i> Copy to Clipboard</button>
                              </div>
                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                          </div>
