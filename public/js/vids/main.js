@@ -122,8 +122,7 @@ window.addEventListener('load', () => {
 	}
 
 	serverUrl = location.protocol + '//' + location.hostname + ':' + CLOCK_PORT + '/time-server';
-	var remoteClock;
-  remoteClock = new RemoteClock(serverUrl, stateUpdate);
+  var remoteClock = new RemoteClock(serverUrl, stateUpdate);
 
 	video.muted = true;
 	video.addEventListener('durationchange', stateUpdate, false);
