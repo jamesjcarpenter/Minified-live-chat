@@ -1,3 +1,5 @@
+setTimeout( function(){
+
 
 
 var tag = document.createElement('script');
@@ -130,3 +132,4 @@ socket.on('get title', function(data, callback) {
         }
     )
 })
+}, 200);
