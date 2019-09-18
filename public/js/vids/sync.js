@@ -1,10 +1,12 @@
 // Calls the play video function on the server
 $('#playButton').click( function(roomnum) {
+  getTime();
 playVideo(roomnum)
 });
 
 
 $('#syncbutton').click( function(roomnum) {
+  getTime();
 syncVideo();
 syncAlert();
 socket.emit('sync host', roomnum);
@@ -12,22 +14,27 @@ socket.emit('sync video', roomnum);
 });
 
 $('#loveButton').click( function(roomnum) {
+  getTime();
 loveLive(roomnum)
 });
 
 $('#hostbutton').click( function(roomnum) {
+  getTime();
 changeHost(roomnum)
 });
 
 $('#enqueueButton').click( function(roomnum) {
+  getTime();
 enqueueVideoParse(roomnum)
 });
 
 $('#changeButton').click( function(roomnum) {
+  getTime();
 changeVideoParse(roomnum)
 });
 
 $('#previousButton').click( function(roomnum) {
+  getTime();
 prevVideo(roomnum)
 });
 
@@ -77,7 +84,7 @@ function syncVideo(roomnum) {
 
     switch (currPlayer) {
         case 0:
-          ytplayer = $(".video-stream.html5-main-video");
+          player = $(".video-stream.html5-main-video");
             getTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
@@ -136,17 +143,18 @@ function getTime() {
     switch (currPlayer) {
         case 0:
           ytplayer = $(".video-stream.html5-main-video");
-          ytplayer.getCurrentTime();
-            return ytplayer.getCurrentTime();
+          getTime();
+            return ytplayer.getTime();
             break;
         case 1:
         ytplayer = $(".video-stream.html5-main-video");
-        ytplayer.getCurrentTime();
+        getTime();
             return dailyPlayer.currentTime;
             break;
         case 2:
         ytplayer = $(".video-stream.html5-main-video");
-        ytplayer.getCurrentTime();
+        getTime();
+        ytplayer.getTime()
             vimeoPlayer.getCurrentTime().then(function(seconds) {
                 // seconds = the current playback position
                 return seconds
@@ -159,8 +167,8 @@ function getTime() {
             break;
         case 3:
             ytplayer = $(".video-stream.html5-main-video");
-            ytplayer.getCurrentTime();
-            return ytplayer.getCurrentTime();
+            getTime();
+            return ytplayer.getTime();
             break;
         default:
             console.log("Error invalid player id")
