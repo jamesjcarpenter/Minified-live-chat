@@ -478,21 +478,21 @@ const DM_API_KEY = '3b47b316af2962e6c94c';
     //   console.log('private message event triggered');
     // });
     
-    socket.on("typing", function() {
-      socket.to(socket.room).broadcast.emit("typing", socket.username + "  is typing...");
-    });
+    // socket.on("typing", function() {
+    //   socket.to(socket.room).broadcast.emit("typing", socket.username + "  is typing...");
+    // });
 	  // when the client emits 'adduser', this listens and executes
 		// send client to room 1
 		// echo to client they've connected
-	});
+	// });
 
 	// when the client emits 'sendchat', this listens and executes
-  socket.on('sendchat', function (data) {
+  // socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
-  		io.in(socket.room).emit('updatechat', socket.username, data);
-          console.log(usernames)
-            console.log(ids)
-  	});
+  	// 	io.in(socket.room).emit('updatechat', socket.username, data);
+    //       console.log(usernames)
+    //         console.log(ids)
+  	// });
     
     // socket.on('sendurl', function (data) {
     // 		// we tell the client to execute 'updatechat' with 2 parameters
@@ -514,17 +514,17 @@ const DM_API_KEY = '3b47b316af2962e6c94c';
 	// });
 
 	// when the user disconnects.. perform this
-	socket.on('disconnect', function(){
-    socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'left the room');
+	// socket.on('disconnect', function(){
+  //   socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'left the room');
 		// remove the username from global usernames list
 		// update list of users in chat, client-side
 		// echo globally that this client has left
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
-		socket.leave(socket.room);
-    delete usernames[socket.username];
- 	  io.in(socket.room).emit('updateusers', usernames);
-	});
-});
+// 		socket.leave(socket.room);
+//     delete usernames[socket.username];
+//  	  io.in(socket.room).emit('updateusers', usernames);
+// 	});
+// });
 
 
 
