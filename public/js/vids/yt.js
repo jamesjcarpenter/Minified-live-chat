@@ -9,6 +9,7 @@ var player;
 var playerStatus = -1;
 
 function onYouTubeIframeAPIReady() {
+  youtubePlayer.destroy();
     player = new YT.Player('player', {
         playerVars: {
             autoplay: 0,
