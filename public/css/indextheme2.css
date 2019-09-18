@@ -587,7 +587,7 @@ cursor: pointer;
 #containerchoose{
 text-align:center;
 left:50%;
-top:20em;
+top:17.5em;
 position:fixed;
 background-color:#3D3D3D;
 color:white;
@@ -610,7 +610,7 @@ padding:5em;
   text-align:center;
   position:relative;
   display:inline-block;
-  padding:5em;
+  padding:0.25em;
 }
 
 #video-device{
@@ -620,7 +620,7 @@ padding:5em;
   text-align:center;
   position:relative;
   display:inline-block;
-  padding:5em;
+  padding:0.25em;
 }
 
 #labeldevice{
