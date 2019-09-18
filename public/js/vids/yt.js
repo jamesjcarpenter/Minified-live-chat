@@ -13,8 +13,7 @@ function onYouTubeIframeAPIReady() {
         playerVars: {
             autoplay: 0,
             rel: 0,
-            controls: 1,
-            origin: window.location.href,
+            controls: 1
         },
         events: {
             'onReady': onPlayerReady,
@@ -104,7 +103,7 @@ socket.on('get title', function(data, callback) {
         "https://www.googleapis.com/youtube/v3/videos", {
             part: 'snippet',
             id: videoId,
-            key: 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM',
+            key: data.api_key
         },
         function(data) {
             // enqueueNotify(user, data.items[0].snippet.title)
