@@ -1,3 +1,5 @@
+window.addEventListener('load', () => {
+
 var tag = document.createElement('script');
 tag.id = 'iframe-demo';
 tag.src = 'https://www.youtube.com/iframe_api';
@@ -10,7 +12,6 @@ var player;
 var playerStatus = -1;
 
 
-window.addEventListener('load', () => {
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
