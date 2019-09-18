@@ -1,7 +1,9 @@
 // Calls the play video function on the server
+var player = $('.video-stream.html5-main-video');
+
+
 $('#playButton').click( function(roomnum) {
 playVideo(roomnum)
-console.log(player.getCurrentTime)
 });
 
 
@@ -35,7 +37,6 @@ prevVideo(roomnum)
 
 $('#nextButton').click( function(roomnum) {
 playNext(roomnum)
-console.log(player.getCurrentTime)
 });
  
  
@@ -426,7 +427,6 @@ function loveLive(roomnum) {
 socket.on('getData', function(data) {
     console.log("Hi im the host, you called?")
     socket.emit('sync host', {});
-    console.log(player.getCurrentTime)
     //socket.emit('change video', { time: time });
 });
 
@@ -674,7 +674,6 @@ socket.on('changeVideoClient', function(data) {
 
     // Auto sync with host after 1000ms of changing video
     setTimeout(function() {
-      console.log(player.getCurrentTime)
         console.log("resyncing with host after video change")
         socket.emit('sync host', {});
     }, 1000);
@@ -683,7 +682,6 @@ socket.on('changeVideoClient', function(data) {
 
 // Change time
 socket.on('changeTime', function(data) {
-  console.log(player.getCurrentTime)
     var time = data.time
     player.seekTo(time);
 });
