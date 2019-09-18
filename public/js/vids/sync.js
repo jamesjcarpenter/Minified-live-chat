@@ -1,6 +1,6 @@
 // Calls the play video function on the server
 $('#playButton').click( function(roomnum) {
-  getTime();
+
 playVideo(roomnum)
 });
 
@@ -14,27 +14,27 @@ socket.emit('sync video', roomnum);
 });
 
 $('#loveButton').click( function(roomnum) {
-  getTime();
+
 loveLive(roomnum)
 });
 
 $('#hostbutton').click( function(roomnum) {
-  getTime();
+
 changeHost(roomnum)
 });
 
 $('#enqueueButton').click( function(roomnum) {
-  getTime();
+
 enqueueVideoParse(roomnum)
 });
 
 $('#changeButton').click( function(roomnum) {
-  getTime();
+
 changeVideoParse(roomnum)
 });
 
 $('#previousButton').click( function(roomnum) {
-  getTime();
+
 prevVideo(roomnum)
 });
 
