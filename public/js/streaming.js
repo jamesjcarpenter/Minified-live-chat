@@ -42,6 +42,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
+window.addEventListener('DOMContentLoaded', (event) => {
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -78,7 +79,7 @@ var simulcastStarted = false, svcStarted = false;
 
 var selectedStream = null;
 
-window.addEventListener('DOMContentLoaded', (event) => {
+
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
@@ -100,20 +101,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 								plugin: "janus.plugin.streaming",
 								opaqueId: opaqueId,
 								success: function(pluginHandle) {
-									$('#details').remove();
 									streaming = pluginHandle;
 									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
 									// Setup streaming session
 									$('#update-streams').click(updateStreamsList);
-									updateStreamsList();
+									setTimeout( function(){
+										updateStreamsList();
+									}, 2500);
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
 											clearInterval(bitrateTimer);
-											janus.destroy();
-											$('#streamslist').attr('disabled', true);
-											$('#watch').attr('disabled', true).unbind('click');
-											$('#start').attr('disabled', true).html("Bye").unbind('click');
 										});
 								},
 								error: function(error) {
