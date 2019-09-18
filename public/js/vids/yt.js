@@ -37,7 +37,7 @@ var playerStatus = -1;
             'onStateChange': onPlayerStateChange
     },
 
-    ytLoaded = true;
+    ytLoaded = true,
 
     if (windowWidth) { // if document loaded first
         resizePlayer();
