@@ -1,7 +1,5 @@
 //-----------------------------------------------------------------------------
 // Host stuff
-
-
 var host = false
 var notifyfix = false
 
@@ -35,7 +33,7 @@ function changeHost(roomnum) {
         });
         socket.emit('notify alerts', {
             alert: 1,
-            user: data.username
+            user: username
         })
     }
 }
@@ -169,4 +167,5 @@ socket.on('hostControls', function(data) {
         document.getElementById('player').src = document.getElementById('player').src.replace("&controls=0", "&controls=1")
     }
 });
+
 //-----------------------------------------------------------------------------
