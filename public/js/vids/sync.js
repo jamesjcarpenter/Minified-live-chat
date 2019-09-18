@@ -1,58 +1,41 @@
 // Calls the play video function on the server
+window.addEventListener('load', () => {
 $('#playButton').click( function(roomnum) {
-playVideo(roomnum)
+playVideo()
 });
 
 
 $('#syncbutton').click( function(roomnum) {
-syncVideo(roomnum);
+syncVideo();
 syncAlert();
-socket.emit('sync host', roomnum);
-socket.emit('sync video', roomnum);
 });
 
 $('#loveButton').click( function(roomnum) {
-loveLive(roomnum)
+loveLive()
 });
 
 $('#hostbutton').click( function(roomnum) {
-changeHost(roomnum)
+changeHost()
 });
 
 $('#enqueueButton').click( function(roomnum) {
-enqueueVideoParse(roomnum)
+enqueueVideoParse()
 });
 
 $('#changeButton').click( function(roomnum) {
-changeVideoParse(roomnum)
+changeVideoParse()
 });
 
 $('#previousButton').click( function(roomnum) {
-prevVideo(roomnum)
+prevVideo()
 });
 
 $('#nextButton').click( function(roomnum) {
-playNext(roomnum)
+playNext()
 });
  
- 
-$('#dropdown1').click( function(roomnum) {
-changePlayer(roomnum, 0);
-});
 
-$('#dropdown2').click( function(roomnum) {
-changePlayer(roomnum, 1)
-});
 
-$('#dropdown3').click( function(roomnum) {
-changePlayer(roomnum, 2)
-});
-
-$('#dropdown4').click( function(roomnum) {
-changePlayer(roomnum, 3);
-}); 
-
-// Calls the play video function on the server
 function playVideo(roomnum) {
     // dailyPlayer.play();
     //vimeoPlayer.play()
@@ -288,7 +271,7 @@ function enqueueVideo(roomnum, rawId) {
       })
     } else if (videoId != "invalid") {
         socket.emit('enqueue video', {
-            room: socket.room,
+            room: roomnum,
             videoId: videoId,
             user: socket.username
         })
@@ -453,7 +436,7 @@ function changeSinglePlayer(playerId) {
 // Client Synchronization Stuff //
 //------------------------------//
 
-var roomnum = 1
+var roomnum = (url.substr(url.lastIndexOf("=")+1));
 var id = "M7lc1UVf-VE"
 
 // Calls the play/pause function
@@ -680,4 +663,5 @@ socket.on('changeVideoClient', function(data) {
 socket.on('changeTime', function(data) {
     var time = data.time
     player.seekTo(time);
+});
 });
