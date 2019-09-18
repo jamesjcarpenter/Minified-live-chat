@@ -359,7 +359,7 @@ function loveLive(roomnum) {
     })
 }
 
-Get time - DEPRECATED
+
 socket.on('getTime', function(data) {
     var caller = data.caller
     var player;
