@@ -80,7 +80,7 @@ var namePos = Math.abs(url.substr(url.lastIndexOf("=")+1));
 var myroom = null;
  if(window.location.protocol === 'http:');
 		myroom = namePos;
-$('#containerchoose').hide();
+
 var myusername = null;
 var myid = null;
 var mystream = null;
@@ -248,19 +248,9 @@ $(document).ready(function() {
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": socket.username };
 									sfutest.send({"message": register});
 									Janus.listDevices(initDevices);
+									$('#containerchoose').hide();
 									$('#mediasettings').click( function() {
-										$('.ui.medium.inverted.modal')
-  										.modal({
-    										closable  : false,
-    										onDeny    : function(){
-      									window.alert('Please choose an option.');
-      									return false;
-    										},
-    										onApprove : function() {
-      									window.alert('Switching your media..');
-    										}
-												}).modal('show');
-										
+										$('.ui.medium.inverted.modal').modal('show');
 										$('#containerchoose').show();
 									});
 				// 					var go =	{
