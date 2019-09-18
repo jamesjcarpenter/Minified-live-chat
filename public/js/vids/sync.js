@@ -134,15 +134,18 @@ function syncVideo(roomnum) {
 function getTime() {
     switch (currPlayer) {
         case 0:
-          currTime = $('.ytp-time-current').val();
-            return player.getCurrentTime();
+          ytplayer = $(".video-stream.html5-main-video");
+          ytplayer.getCurrentTime();
+            return ytplayer.getCurrentTime();
             break;
         case 1:
-            currTime = $('.ytp-time-current').val();
+        ytplayer = $(".video-stream.html5-main-video");
+        ytplayer.getCurrentTime();
             return dailyPlayer.currentTime;
             break;
         case 2:
-        currTime = $('.ytp-time-current').val();
+        ytplayer = $(".video-stream.html5-main-video");
+        ytplayer.getCurrentTime();
             vimeoPlayer.getCurrentTime().then(function(seconds) {
                 // seconds = the current playback position
                 return seconds
@@ -154,7 +157,8 @@ function getTime() {
             });
             break;
         case 3:
-      currTime = $('.ytp-time-current').val();
+            ytplayer = $(".video-stream.html5-main-video");
+            ytplayer.getCurrentTime();
             return media.currentTime;
             break;
         default:
