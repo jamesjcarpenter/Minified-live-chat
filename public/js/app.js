@@ -77,9 +77,9 @@ var socket = io.connect('anomic.io/');
       socket.emit('newvideo', data);
       };
       
-      socket.on('newvideo', data){
-        console.log('test')
-      };
+      socket.on('newvideo', (data) => {
+        console.log('test');
+        });
     
     
       socket.on('private-message', (data, message) => {
