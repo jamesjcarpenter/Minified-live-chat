@@ -100,6 +100,10 @@ var bitrateTimer = [];
 var doSimulcast = (getQueryStringValue("simulcast") === "yes" || getQueryStringValue("simulcast") === "true");
 var doSimulcast2 = (getQueryStringValue("simulcast2") === "yes" || getQueryStringValue("simulcast2") === "true");
 
+$('#mediasettings').click( function() {
+	$('.mini.inverted.modal').modal('show');
+});
+
 function initDevices(devices) {
 	$('#devices').removeClass('hide');
 	$('#devices').parent().removeClass('hide');
