@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+setTimeout( function(){
 
 var currPlayer = 0
 
@@ -233,8 +233,7 @@ socket.on('createHTML5', function(data) {
         betaAlert()
     }
 });
-});
-
+}, 2500);
 // changeSinglePlayer(roomnum, playerId){
 //
 // 	return new Promise((resolve, reject) => {
