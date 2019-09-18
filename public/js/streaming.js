@@ -107,7 +107,6 @@ var selectedStream = null;
 									// Setup streaming session
 									setTimeout( function(){
 										updateStreamsList();
-										clearInterval(bitrateTimer);
 									}, 5500);
 									$('#update-streams').click(updateStreamsList);
 									$('#start').removeAttr('disabled').html("Stop")
