@@ -1,6 +1,5 @@
-var dailyPlayer;
-var DM;
-
+var dailyPlayer
+window.addEventListener('load', () => {
 setTimeout(function() {
     DM.init({
         status: false, // check login status
@@ -96,3 +95,4 @@ function dailyPlay() {
     } else
         dailyPlayer.pause();
 }
+});
