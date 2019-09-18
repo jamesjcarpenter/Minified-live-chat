@@ -6,10 +6,8 @@ playVideo()
 
 
 $('#syncbutton').click( function(roomnum) {
-      syncAlert();
-  setTimeout( function(){
-    syncVideo();
-  }, 100);
+syncVideo();
+syncAlert();
 });
 
 $('#loveButton').click( function(roomnum) {
@@ -394,15 +392,15 @@ function loveLive(roomnum) {
 }
 
 // Get time - DEPRECATED
-socket.on('getTime', function(data) {
-    var caller = data.caller
-    var time = player.getCurrentTime()
-    console.log("Syncing new socket to time: " + time)
-    socket.emit('change time', {
-        time: time,
-        id: caller
-    });
-});
+// socket.on('getTime', function(data) {
+//     var caller = data.caller
+//     var time = player.getCurrentTime()
+//     console.log("Syncing new socket to time: " + time)
+//     socket.emit('change time', {
+//         time: time,
+//         id: caller
+//     });
+// });
 
 // This just calls the sync host function in the server
 socket.on('getData', function(data) {
@@ -493,10 +491,10 @@ socket.on('syncVideoClient', function(data) {
 
     // There should no longer be any need to sync a video change
     // Video should always be the same
-    // if (id != videoId){
-    //     console.log(id == videoId)
-    //     changeVideoId(roomnum, videoId)
-    // }
+    if (id != videoId){
+        console.log(id == videoId)
+        changeVideoId(roomnum, videoId)
+    }
 
     // This switchs you to the correct player
     // Should only happen when a new socket joins late
