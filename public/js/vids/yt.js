@@ -104,7 +104,7 @@ socket.on('get title', function(data, callback) {
         "https://www.googleapis.com/youtube/v3/videos", {
             part: 'snippet',
             id: videoId,
-            key: data.api_key
+            key: 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM'
         },
         function(data) {
             // enqueueNotify(user, data.items[0].snippet.title)
