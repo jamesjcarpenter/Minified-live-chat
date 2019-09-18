@@ -249,7 +249,7 @@ $(document).ready(function() {
 									sfutest.send({"message": register});
 									Janus.listDevices(initDevices);
 									$('#mediasettings').click( function() {
-										$('.medium.inverted.modal').modal('show');
+										$('ui.inverted.modal').modal('show');
 									});
 				// 					var go =	{
         // "request" : "rtp_forward",
