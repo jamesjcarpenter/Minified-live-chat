@@ -6,8 +6,10 @@ playVideo()
 
 
 $('#syncbutton').click( function(roomnum) {
-syncVideo()
-
+      syncAlert();
+  setTimeout( function(){
+    syncVideo();
+  }, 700);
 });
 
 $('#loveButton').click( function(roomnum) {
@@ -392,15 +394,15 @@ function loveLive(roomnum) {
 }
 
 // Get time - DEPRECATED
-// socket.on('getTime', function(data) {
-//     var caller = data.caller
-//     var time = player.getCurrentTime()
-//     console.log("Syncing new socket to time: " + time)
-//     socket.emit('change time', {
-//         time: time,
-//         id: caller
-//     });
-// });
+socket.on('getTime', function(data) {
+    var caller = data.caller
+    var time = player.getCurrentTime()
+    console.log("Syncing new socket to time: " + time)
+    socket.emit('change time', {
+        time: time,
+        id: caller
+    });
+});
 
 // This just calls the sync host function in the server
 socket.on('getData', function(data) {
