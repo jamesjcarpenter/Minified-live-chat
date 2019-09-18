@@ -12,7 +12,7 @@ var player;
 var playerStatus = -1;
 
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
+  const player = new YT.Player('player', {
         playerVars: {
             height: '360',
             width: '640',
