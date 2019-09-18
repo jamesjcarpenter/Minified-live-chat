@@ -9,7 +9,7 @@ $('#syncbutton').click( function(roomnum) {
       syncAlert();
   setTimeout( function(){
     syncVideo();
-  }, 700);
+  }, 100);
 });
 
 $('#loveButton').click( function(roomnum) {
