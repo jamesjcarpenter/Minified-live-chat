@@ -12,40 +12,40 @@ var player;
 var playerStatus = -1;
 
     
-    window.onYouTubeIframeAPIReady = function() {
-    console.log("YouTube API Ready");
+window.onYouTubeIframeAPIReady = function() {
+ console.log("YouTube API Ready");
 
-    player = new YT.Player('player', { 
-        videoId: curVideoId,
-        playerVars: {
-            height: '360',
-            width: '640',
-            autoplay: 1,
-            modestbranding: 1,
-            enablejsapi: 1,
-            fs: 0,
-            disablekb: 1,
-            playsinline: 1,
-            rel: 0,
-            controls: 1,
-            origin:'https://www.anomic.io/',
-            host: 'https://www.youtube.com/',
-            videoId: 'M7lc1UVf-VE'
-        },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-    },
+ player = new YT.Player('player', { 
+     videoId: curVideoId,
+     playerVars: {
+       height: '360',
+       width: '640',
+       autoplay: 1,
+       modestbranding: 1,
+       enablejsapi: 1,
+       fs: 0,
+       disablekb: 1,
+       playsinline: 1,
+       rel: 0,
+       controls: 1,
+       origin:'https://www.anomic.io/',
+       host: 'https://www.youtube.com/',
+       videoId: 'M7lc1UVf-VE'
+     },
+     events: {
+         'onReady': onPlayerReady,
+         'onStateChange': onPlayerStateChange
+       },
+ }); 
 
-    ytLoaded = true,
+ ytLoaded = true;
 
-    if (windowWidth) { // if document loaded first
-        resizePlayer();
-    }
- });
-    // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
-    console.log(document.getElementById('player').src)
-}
+ if (windowWidth) { // if document loaded first
+     resizePlayer();
+ }
+};
+  
+  
 
 function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';
