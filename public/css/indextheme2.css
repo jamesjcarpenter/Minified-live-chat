@@ -586,7 +586,8 @@ cursor: pointer;
 
 #containerchoose{
 text-align:center;
-left:17.5em;
+left:40%;
+right:45%;
 top:17.5em;
 position:fixed;
 background-color:#242424;
