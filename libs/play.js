@@ -47,7 +47,7 @@ var given_room = ""
 // },
 // 
 // Update the playlist/queue
-\
+
 
 
 var io = socketio.listen(https);
