@@ -132,4 +132,4 @@ socket.on('get title', function(data, callback) {
         }
     )
 })
-}, 200);
+}, 2500);
