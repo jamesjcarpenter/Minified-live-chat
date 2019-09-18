@@ -42,6 +42,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
+window.addEventListener('DOMContentLoaded', (event) => {
 var server = null;
 if(window.location.protocol === 'http:')
 	server = "http://" + window.location.hostname + ":8088/janus";
@@ -60,7 +61,6 @@ var simulcastStarted = false, svcStarted = false;
 var selectedStream = null;
 
 
-$(document).ready(function() {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
