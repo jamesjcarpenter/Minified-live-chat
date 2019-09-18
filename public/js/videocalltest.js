@@ -55,7 +55,7 @@ else
 
 var janus = null;
 var videocall = null;
-var opaqueId = "videocalltest-"+Janus.randomString(12);
+var opaqueId = "videocalltest-"+Math.random().toString(36).slice(2)
 
 var bitrateTimer = null;
 var spinner = null;

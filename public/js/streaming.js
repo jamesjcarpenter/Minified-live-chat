@@ -51,7 +51,6 @@ else
 
 var janus = null;
 var streaming = null;
-var Janus = null;
 var opaqueId = "streamingtest-"+Janus.randomString(12);
 
 var bitrateTimer = null;
