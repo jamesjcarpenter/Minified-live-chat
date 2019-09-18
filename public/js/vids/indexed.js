@@ -1,4 +1,6 @@
-var $messageForm = $('#messageForm');
+        window.addEventListener('load', () => {
+        
+        var $messageForm = $('#messageForm');
         var $message = $('#message');
         var $chat = $('#chat');
         var $roomArea = $('#roomArea');
