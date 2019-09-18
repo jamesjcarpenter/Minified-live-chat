@@ -584,6 +584,13 @@ height:auto;
 cursor: pointer;
 }
 
+#containerchoose{
+z-index:9999;
+left:30%;
+position: fixed;
+}
+
+
 #mail {
   width:7vmin;
   height:5vmin;
