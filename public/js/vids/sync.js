@@ -6,7 +6,9 @@ playVideo()
 
 
 $('#syncbutton').click( function(roomnum) {
-syncAlert();
+syncAlert()
+
+syncVideo()
 });
 
 $('#loveButton').click( function(roomnum) {
