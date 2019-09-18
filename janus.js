@@ -938,9 +938,10 @@ function Janus(gatewayCallbacks) {
 		Janus.httpAPICall(server, {
 			verb: 'POST',
 			withCredentials: withCredentials,
+      headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
 			body: request,
-      method: 'POST',
-      json: true,
 			success: function(json) {
 				Janus.debug(json);
 				if(json["janus"] !== "success") {
@@ -1059,6 +1060,9 @@ function Janus(gatewayCallbacks) {
 			verb: 'POST',
 			async: asyncRequest,	// Sometimes we need false here, or destroying in onbeforeunload won't work
 			withCredentials: withCredentials,
+      headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
 			body: request,
 			success: function(json) {
 				Janus.log("Destroyed session:");
@@ -1206,6 +1210,9 @@ function Janus(gatewayCallbacks) {
 			verb: 'POST',
 			withCredentials: withCredentials,
 			body: request,
+      headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
 			success: function(json) {
 				Janus.debug(json);
 				if(json["janus"] !== "success") {
@@ -1358,6 +1365,9 @@ function Janus(gatewayCallbacks) {
 			verb: 'POST',
 			withCredentials: withCredentials,
 			body: request,
+      headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
 			success: function(json) {
 				Janus.debug("Message sent!");
 				Janus.debug(json);
@@ -1424,6 +1434,9 @@ function Janus(gatewayCallbacks) {
 			verb: 'POST',
 			withCredentials: withCredentials,
 			body: request,
+      headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
 			success: function(json) {
 				Janus.vdebug("Candidate sent!");
 				Janus.vdebug(json);
@@ -1637,6 +1650,9 @@ function Janus(gatewayCallbacks) {
 			async: asyncRequest,	// Sometimes we need false here, or destroying in onbeforeunload won't work
 			withCredentials: withCredentials,
 			body: request,
+      headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
 			success: function(json) {
 				Janus.log("Destroyed handle:");
 				Janus.debug(json);
@@ -3161,7 +3177,10 @@ function Janus(gatewayCallbacks) {
 					Janus.httpAPICall(server + "/" + sessionId + "/" + handleId, {
 						verb: 'POST',
 						withCredentials: withCredentials,
-						body: request
+						body: request,
+            headers: {
+              "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+          },
 					});
 				}
 			}
