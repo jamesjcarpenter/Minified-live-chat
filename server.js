@@ -158,12 +158,12 @@ const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
   PORT = 443,
   NODE_ENV = 'development',
-  
+
+  YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM',
+  DM_API_KEY = '';
   SESS_NAME = 'sid',
   SESS_SECRET = 'awW$weQI90a!W21',
   SESS_LIFETIME = TWO_HOURS
-  YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM',
-  DM_API_KEY = '';
 } = process.env
 const IN_PROD = NODE_ENV === 'production'
 const cons = require('consolidate');
