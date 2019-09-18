@@ -391,7 +391,7 @@ io.sockets.on('connection', function(socket) {
     });
 
     // Sync video
-    socket.on('sync video', function(data) {
+    io.use('sync video', function(data) {
         if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
             var roomnum = data.room
             var currTime = data.time
@@ -410,7 +410,7 @@ io.sockets.on('connection', function(socket) {
 
     // Enqueue video
     // Gets title then calls back
-    socket.on('enqueue video', function(data) {
+    io.use('enqueue video', function(data) {
         if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
             test = false
             var user = data.user
@@ -665,7 +665,7 @@ io.sockets.on('connection', function(socket) {
     })
 
     // Get video id based on player
-    socket.on('get video', function(callback) {
+    io.use('get video', function(callback) {
         if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
             // Gets current video from room variable
             switch (io.sockets.adapter.rooms['room-' + socket.roomnum].currPlayer) {
@@ -785,7 +785,7 @@ io.sockets.on('connection', function(socket) {
     });
 
     // This just calls the syncHost function
-    socket.on('sync host', function(data) {
+    io.use('sync host', function(data) {
         if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
             //socket.broadcast.to(host).emit('syncVideoClient', { time: time, state: state, videoId: videoId });
             var host = io.sockets.adapter.rooms['room-' + socket.roomnum].host
@@ -839,7 +839,7 @@ io.sockets.on('connection', function(socket) {
     })
 
     // Get host data
-    socket.on('get host data', function(data) {
+    io.use('get host data', function(data) {
         if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
             var roomnum = data.room
             var host = io.sockets.adapter.rooms['room-' + roomnum].host
@@ -909,7 +909,7 @@ io.sockets.on('connection', function(socket) {
 
     //------------------------------------------------------------------------------
     // Async get current time
-    socket.on('auto sync', function(data) {
+    io.use('auto sync', function(data) {
         var async = require("async");
         var http = require("http");
 
