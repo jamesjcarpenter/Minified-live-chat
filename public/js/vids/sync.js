@@ -1,6 +1,9 @@
 // Calls the play video function on the server
-var player = $('.video-stream.html5-main-video');
+player.addEventListener(YT.PlayerState.PLAYING, onVideoPlaying, false);
 
+function onVideoPlaying() {
+  console.log('currentTime:', player.getCurrentTime(), 'duration:', player.getDuration());
+}
 
 $('#playButton').click( function(roomnum) {
 playVideo(roomnum)
