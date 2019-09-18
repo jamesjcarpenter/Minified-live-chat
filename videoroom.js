@@ -90,7 +90,7 @@ var fwd = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 
 var audioDeviceId = null;
 var videoDeviceId = null;
-
+var firstTime = true;
 var audioenabled = false;
 var videoenabled = false;
 
@@ -156,8 +156,8 @@ function initDevices(devices) {
 
 	$('#change-devices').click(function() {
 		// A different device has been selected: hangup the session, and set it up again
-		$('#audio-device, #video-device').attr('disabled', true);
-		$('#change-devices').attr('disabled', true);
+		// $('#audio-device, #video-device').attr('disabled', true);
+		// $('#change-devices').attr('disabled', true);
 		if(firstTime) {
 			firstTime = false;
 			restartCapture();
