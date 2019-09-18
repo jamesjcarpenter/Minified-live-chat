@@ -51,7 +51,7 @@ var QueueVideos = queueVideos();
 function queueVideos() {
     var vidlist = io.sockets.adapter.rooms['room-' + socket.roomnum].queue
     var currPlayer = io.sockets.adapter.rooms['room-' + socket.roomnum].currPlayer
-    io.sockets.in("room-" + socket.roomnum).emit('get vidlist', {
+    io.in("room-" + socket.roomnum).emit('get vidlist', {
         vidlist: vidlist,
         currPlayer: currPlayer,
     });
