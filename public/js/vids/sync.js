@@ -2,36 +2,36 @@
 
 $('#playButton').click( function() {
 playVideo(roomnum)
-};
+});
 
 
 $('#syncbutton').click( function() {
 syncVideo(roomnum);syncAlert()
-};
+});
 
 $('#loveButton').click( function() {
 loveLive(roomnum)
-};
+});
 
 $('#hostbutton').click( function() {
 changeHost(roomnum)
-};
+});
 
 $('#enqueueButton').click( function() {
 enqueueVideoParse(roomnum)
-};
+});
 
 $('#changeButton').click( function() {
 changeVideoParse(roomnum)
-};
+});
 
 $('#previousButton').click( function() {
 prevVideo(roomnum)
-};
+});
 
 $('#nextButton').click( function() {
 playNext(roomnum)
-};
+});
 
 
 
