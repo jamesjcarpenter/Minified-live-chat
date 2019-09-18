@@ -253,6 +253,7 @@ var selectedStream = null;
 									$('#stream').append(
 										'<input class="form-control" type="text" id="datarecv" disabled></input>'
 									);
+								},
 								ondata: function(data) {
 									Janus.debug("We got data from the DataChannel! " + data);
 									$('#datarecv').val(data);
@@ -335,6 +336,7 @@ function startStream() {
 	streaming.send({"message": body});
 	// No remote video yet
 	$('#stream').append('<video class="rounded centered" id="waitingvideo" width=320 height=240 />');
+
 
 function stopStream() {
 	$('#watch').attr('disabled', true).unbind('click');
