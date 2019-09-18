@@ -20,75 +20,75 @@ var $messageForm = $('#messageForm');
         //         send_message();
         //     }
         // });
-        // $messageForm.submit(function(e) {
-        //     e.preventDefault();
-        //     // console.log("Submitted");
-        //     socket.emit('send message', $message.val());
-        //     $message.val('');
-        // // });
-        // socket.on('new message', function(data) {
-        //     var last_div = $('.chat > div:last')[0]
-        //     // This checks for the last user
-        //     // If you are the last user, attach the message instead of creating a new div
-        //     if (last_div !== undefined) {
-        //         var myRegex = /.*<strong>(.+)<\/strong>.*/g
-        //         var match = myRegex.exec(last_div.innerHTML)
-        //         console.log(last_div.innerHTML)
-        //         var last_user = ""
-        //         if (match != null) {
-        //             console.log("found the user!" + match[1])
-        //             last_user = match[1]
-        //         }
-        //     }
-        //     if (data.user != last_user) {
-        //         $chat.append('<div class="well well-sm message-well"><strong>' + data.user + '</strong>: ' + data.msg + '</div>');
-        //         // $vidlist.append('<div class="vid-item"><div class="thumb"><img src="http://img.youtube.com/vi/eg6kNoJmzkY/0.jpg"></div><div class="desc">Jessica Hernandez & the Deltas - Dead Brains</div></div>');
-        //     }
-        //     // If you sent the last message, append to previous
-        //     else {
-        //         last_div.innerHTML = last_div.innerHTML + " <br> " + data.msg
-        //         // $vidlist.append('<div class="vid-item"><div class="thumb"><img src="http://img.youtube.com/vi/eg6kNoJmzkY/0.jpg"></div><div class="desc">Jessica Hernandez & the Deltas - Dead Brains</div></div>');
-        //     }
-        //     // $chat.scrollTop = $chat.scrollHeight;
-        //     // Auto scroll on each message send!
-        //     $('div#chat').scrollTop($('div#chat')[0].scrollHeight)
-        // });
-        // // Submit user form
-        // $userForm.submit(function(e) {
-        //     e.preventDefault();
-        //     // console.log("Submitted");
-        //     // New User
-        //     // Get rid of trailing/leading whitespace
-        //     // var roomnum_val = $roomnum.val().trim();
-        //     // If name not entered
-        //     if ($username.val() == "") {
-        //         console.log("ENTER A NAME")
-        //         var noname = document.getElementById('missinginfo')
-        //         noname.innerHTML = "Surely you have a name right? Enter it below!"
-        //     }
-        //     // If name is too long
-        //     else if ($username.val().length > 30) {
-        //         console.log("NAME IS TOO LONG")
-        //         var noname = document.getElementById('missinginfo')
-        //         noname.innerHTML = "Your name can't possibly be over 30 characters!"
-        //     }
-        //     // If roomnate
-        //     else if ($roomnum.val().length > 50) {
-        //         console.log("ROOM NAME IS TOO LONG")
-        //         var noname = document.getElementById('missinginfo')
-        //         noname.innerHTML = "How are you going to remember a room code that has more than 50 characters?"
-        //     }
-        //     // If Room contains symbols
-        //     // Can only be reached if the user decided to be sneaky and paste them!
-        //     else if (!nosymbols.test($roomnum.val())) {
-        //         console.log("ENTER A PROPER ROOMNUMBER")
-        //         var noname = document.getElementById('missinginfo')
-        //         noname.innerHTML = ""
-        //         var noname2 = document.getElementById('missinginfo2')
-        //         noname2.innerHTML = "Please enter a room ID without symbols or leading/trailing whitespace!"
-        //     } else {
-        //         username = $username.val()
-              socket.emit('new user', $username.val(), function(data) {
+        $messageForm.submit(function(e) {
+            e.preventDefault();
+            // console.log("Submitted");
+            socket.emit('send message', $message.val());
+            $message.val('');
+        });
+        socket.on('new message', function(data) {
+            var last_div = $('.chat > div:last')[0]
+            // This checks for the last user
+            // If you are the last user, attach the message instead of creating a new div
+            if (last_div !== undefined) {
+                var myRegex = /.*<strong>(.+)<\/strong>.*/g
+                var match = myRegex.exec(last_div.innerHTML)
+                console.log(last_div.innerHTML)
+                var last_user = ""
+                if (match != null) {
+                    console.log("found the user!" + match[1])
+                    last_user = match[1]
+                }
+            }
+            if (data.user != last_user) {
+                $chat.append('<div class="well well-sm message-well"><strong>' + data.user + '</strong>: ' + data.msg + '</div>');
+                // $vidlist.append('<div class="vid-item"><div class="thumb"><img src="http://img.youtube.com/vi/eg6kNoJmzkY/0.jpg"></div><div class="desc">Jessica Hernandez & the Deltas - Dead Brains</div></div>');
+            }
+            // If you sent the last message, append to previous
+            else {
+                last_div.innerHTML = last_div.innerHTML + " <br> " + data.msg
+                // $vidlist.append('<div class="vid-item"><div class="thumb"><img src="http://img.youtube.com/vi/eg6kNoJmzkY/0.jpg"></div><div class="desc">Jessica Hernandez & the Deltas - Dead Brains</div></div>');
+            }
+            // $chat.scrollTop = $chat.scrollHeight;
+            // Auto scroll on each message send!
+            $('div#chat').scrollTop($('div#chat')[0].scrollHeight)
+        });
+        // Submit user form
+        $userForm.submit(function(e) {
+            e.preventDefault();
+            // console.log("Submitted");
+            // New User
+            // Get rid of trailing/leading whitespace
+            // var roomnum_val = $roomnum.val().trim();
+            // If name not entered
+            if ($username.val() == "") {
+                console.log("ENTER A NAME")
+                var noname = document.getElementById('missinginfo')
+                noname.innerHTML = "Surely you have a name right? Enter it below!"
+            }
+            // If name is too long
+            else if ($username.val().length > 30) {
+                console.log("NAME IS TOO LONG")
+                var noname = document.getElementById('missinginfo')
+                noname.innerHTML = "Your name can't possibly be over 30 characters!"
+            }
+            // If roomnate
+            else if ($roomnum.val().length > 50) {
+                console.log("ROOM NAME IS TOO LONG")
+                var noname = document.getElementById('missinginfo')
+                noname.innerHTML = "How are you going to remember a room code that has more than 50 characters?"
+            }
+            // If Room contains symbols
+            // Can only be reached if the user decided to be sneaky and paste them!
+            else if (!nosymbols.test($roomnum.val())) {
+                console.log("ENTER A PROPER ROOMNUMBER")
+                var noname = document.getElementById('missinginfo')
+                noname.innerHTML = ""
+                var noname2 = document.getElementById('missinginfo2')
+                noname2.innerHTML = "Please enter a room ID without symbols or leading/trailing whitespace!"
+            } else {
+                username = $username.val()
+                socket.emit('new user', $username.val(), function(data) {
                     if (data) {
                         $userFormArea.hide();
                         $roomArea.show();
@@ -119,6 +119,7 @@ var $messageForm = $('#messageForm');
                     }
                 });
                 $username.val('');
+            }
         });
         socket.on('get users', function(data) {
             var html = '';
