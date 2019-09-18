@@ -14,7 +14,7 @@ function onYouTubeIframeAPIReady() {
             autoplay: 0,
             rel: 0,
             controls: 1,
-            origin: "https://" + window.location.hostname + ":8089/janus";
+            origin: "https://" + window.location.hostname + ":8089/janus",
         },
         events: {
             'onReady': onPlayerReady,
