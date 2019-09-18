@@ -52,8 +52,6 @@ changePlayer(roomnum, 3);
 }); 
 
 
-<a class="dropdown-item" id="dropdown1"><i class="fab fa-youtube"></i> YouTube</a>
-
 
 function playVideo(roomnum) {
     // dailyPlayer.play();
