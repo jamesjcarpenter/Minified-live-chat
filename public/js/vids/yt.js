@@ -1,4 +1,4 @@
-
+window.addEventListener('load', () => {
 
 
 var tag = document.createElement('script');
@@ -10,7 +10,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 
 var playerStatus = -1;
-window.addEventListener('load', () => {
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
@@ -32,7 +32,6 @@ function onYouTubeIframeAPIReady() {
             'onStateChange': onPlayerStateChange
         }
     });
-  });
     // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
 }
@@ -132,3 +131,4 @@ socket.on('get title', function(data, callback) {
         }
     )
 })
+});
