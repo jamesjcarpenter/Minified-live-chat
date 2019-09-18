@@ -105,10 +105,7 @@ var selectedStream = null;
 									streaming = pluginHandle;
 									Janus.log("Plugin attached! (" + streaming.getPlugin() + ", id=" + streaming.getId() + ")");
 									// Setup streaming session
-									setTimeout( function(){
 									$('#update-streams').click(updateStreamsList);
-										updateStreamsList();
-									}, 5500);
 									$('#start').removeAttr('disabled').html("Stop")
 										.click(function() {
 											$(this).attr('disabled', true);
@@ -302,12 +299,9 @@ var selectedStream = null;
 });
 
 function updateStreamsList() {
-		setTimeout( function(){
 	$('#update-streams').unbind('click').addClass('fa-spin');
 	var body = { "request": "list" };
 	Janus.debug("Sending message (" + JSON.stringify(body) + ")");
-	
-	var streaming;
 	streaming.send({"message": body, success: function(result) {
 		setTimeout(function() {
 			$('#update-streams').removeClass('fa-spin').click(updateStreamsList);
@@ -336,7 +330,6 @@ function updateStreamsList() {
 			$('#watch').removeAttr('disabled').unbind('click').click(startStream);
 		}
 	}});
-}, 10500);
 }
 
 function startStream() {
