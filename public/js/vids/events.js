@@ -1,6 +1,6 @@
 // These functions just simply play or pause the player
 // Created for event listeners
-$(window).on('load', function(){
+
 //-----------------------------------------------------------------------------
 
 function playOther(roomnum) {
@@ -165,4 +165,3 @@ function playNext(roomnum) {
         }
     })
 }
-});

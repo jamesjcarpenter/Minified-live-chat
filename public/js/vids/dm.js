@@ -1,4 +1,3 @@
-$(window).on('load', function(){
 
 var dailyPlayer
     DM.init({
@@ -94,4 +93,3 @@ function dailyPlay() {
     } else
         dailyPlayer.pause();
 }
-});

@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+
 
 var currPlayer = 0
 
@@ -276,4 +276,3 @@ socket.on('createHTML5', function(data) {
 //       })
 //
 // }
-});

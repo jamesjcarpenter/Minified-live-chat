@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+
 var vimeoPlayer = new Vimeo.Player('player-vimeo');
 
 
@@ -49,4 +49,3 @@ function vimeoPlay() {
         console.log("Error: Could not retrieve Vimeo Player state")
     });
 }
-});

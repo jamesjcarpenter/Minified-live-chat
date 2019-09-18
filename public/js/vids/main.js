@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+
 (function (window) {
   
   var CLOCK_PORT = 5001,
@@ -150,4 +150,3 @@ $(window).on('load', function(){
 	}, true);
 	updateClockDisplay();
 }(this));
-});

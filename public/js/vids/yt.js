@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+
 
 var tag = document.createElement('script');
 tag.id = 'iframe-demo';
@@ -121,4 +121,3 @@ socket.on('get title', function(data, callback) {
         }
     )
 })
-});
