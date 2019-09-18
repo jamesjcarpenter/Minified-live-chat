@@ -113,7 +113,7 @@ window.addEventListener('load', () => {
 	/*
 	This runs whenever either the clock accuracy changes or the video duration changes.
 	*/
-	if (!video.buffered) {
+	if ('mozId' in navigator) {
 		isBuffered = function (time) {
 			return (time - video.currentTime < 5) && video.readyState >= 3 || timeBuffered(time);
 		};
