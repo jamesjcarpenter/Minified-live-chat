@@ -24,7 +24,7 @@ function onYouTubeIframeAPIReady() {
             playsinline: 1,
             rel: 0,
             controls: 1,
-            origin:'https://www.anomic.io',
+            origin:'https://www.anomic.io/',
             videoId: 'M7lc1UVf-VE'
         },
         events: {
