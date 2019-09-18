@@ -1,18 +1,11 @@
 // Calls the play video function on the server
-player.addEventListener(YT.PlayerState.PLAYING, onVideoPlaying, false);
-
-function onVideoPlaying() {
-  console.log('currentTime:', player.getCurrentTime(), 'duration:', player.getDuration());
-}
-
 $('#playButton').click( function(roomnum) {
 playVideo(roomnum)
 });
 
 
 $('#syncbutton').click( function(roomnum) {
-console.log(player.getCurrentTime)
-syncVideo();
+syncVideo(roomnum);
 syncAlert();
 socket.emit('sync host', roomnum);
 socket.emit('sync video', roomnum);
