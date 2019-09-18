@@ -14,7 +14,7 @@ function onYouTubeIframeAPIReady() {
             autoplay: 0,
             rel: 0,
             controls: 1,
-            origin: 'https://www.anomic.io/'
+            origin: window.location.href;
         },
         events: {
             'onReady': onPlayerReady,
