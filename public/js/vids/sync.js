@@ -23,7 +23,7 @@ function syncVideo(roomnum) {
 
     switch (currPlayer) {
         case 0:
-            currTime = player.getCurrentTime();
+            currTime = player.getCurrTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
             break;
