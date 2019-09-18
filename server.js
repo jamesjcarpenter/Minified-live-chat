@@ -372,7 +372,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-// require("./libs/chat.js").sockets(https);
+require("./libs/play.js").sockets(https);
 
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -384,6 +384,10 @@ var clients = [];
 var users = {};
 
 var ids = {};
+
+YT3_API_KEY = process.env.YT3_API_KEY
+DM_API_KEY = process.env.DM_API_KEY
+
 io.sockets.on('connection', function (socket) {
   
   socket.emit('askForUserId');

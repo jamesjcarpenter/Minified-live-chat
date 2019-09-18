@@ -595,6 +595,38 @@ width:40em;
 padding:1.25em;
 }
 
+
+#html5-input {
+    display: none;
+}
+
+.html5player:hover .controls, html5player:focus .controls {
+    opacity: 1;
+}
+
+
+#initArea {
+    display: none;
+}
+
+#dailyArea {
+    display: none;
+}
+
+#vimeoArea {
+    display: none;
+}
+
+#HTML5Area {
+    display: none;
+}
+
+#page {
+    display: none;
+}
+
+
+
 #labelingstyle{
   background-color:#242424;
   color:white;
