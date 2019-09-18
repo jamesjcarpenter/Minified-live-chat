@@ -35,7 +35,9 @@ playNext()
 });
  
 
-setInterval(function(){console.log(player.getCurrentTime()); }, 7000);
+setInterval(function(){console.log(player.getCurrentTime()); }, 2000);
+
+setInterval(function(){console.log(player.getTime()); }, 2000);
 function playVideo(roomnum) {
     // dailyPlayer.play();
     //vimeoPlayer.play()
