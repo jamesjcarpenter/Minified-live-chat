@@ -54,7 +54,7 @@ var streaming = null;
 var opaqueId = "streamingtest-"+Math.random().toString(36).slice(2)
 var bitrateTimer = null;
 var spinner = null;
-
+window.addEventListener('DOMContentLoaded', (event) => {
 var servers = null, serversIndex = 0;
 var iceServers;
 
@@ -78,7 +78,6 @@ var simulcastStarted = false, svcStarted = false;
 
 var selectedStream = null;
 
-window.addEventListener('DOMContentLoaded', (event) => {
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
