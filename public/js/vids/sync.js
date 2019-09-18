@@ -77,10 +77,7 @@ function syncVideo(roomnum) {
 
     switch (currPlayer) {
         case 0:
-          function getCurrentTime() {
             currTime = $('.ytp-time-current').val();
-            };
-            currTime = player.getCurrentTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
             break;
@@ -137,12 +134,15 @@ function syncVideo(roomnum) {
 function getTime() {
     switch (currPlayer) {
         case 0:
+          currTime = $('.ytp-time-current').val();
             return player.getCurrentTime();
             break;
         case 1:
+            currTime = $('.ytp-time-current').val();
             return dailyPlayer.currentTime;
             break;
         case 2:
+        currTime = $('.ytp-time-current').val();
             vimeoPlayer.getCurrentTime().then(function(seconds) {
                 // seconds = the current playback position
                 return seconds
@@ -154,6 +154,7 @@ function getTime() {
             });
             break;
         case 3:
+      currTime = $('.ytp-time-current').val();
             return media.currentTime;
             break;
         default:
