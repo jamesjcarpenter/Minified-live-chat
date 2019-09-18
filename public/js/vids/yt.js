@@ -13,7 +13,8 @@ function onYouTubeIframeAPIReady() {
         playerVars: {
             autoplay: 0,
             rel: 0,
-            controls: 1
+            controls: 1,
+            origin:'https://www.anomic.io/'
         },
         events: {
             'onReady': onPlayerReady,
