@@ -1,6 +1,6 @@
+$( window ).load(function() {
+
 var dailyPlayer
-window.addEventListener('load', () => {
-setTimeout(function() {
     DM.init({
         status: false, // check login status
         cookie: true // enable cookies to allow the server to access the session
@@ -86,7 +86,6 @@ setTimeout(function() {
     //     player.pause();
     // });
 
-}, 1000);
 
 // Play/pause function for dailymotion
 function dailyPlay() {

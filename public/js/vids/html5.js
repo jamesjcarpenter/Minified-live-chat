@@ -9,7 +9,7 @@
 //         URL.revokeObjectURL(this.src);
 //     }
 // }
-
+$( window ).load(function() {
 var media = document.querySelector('video');
 
 // Event listeners
@@ -46,3 +46,4 @@ function htmlLoadVideo(videoId) {
     console.log("changing video to: " + videoId)
     media.src = videoId
 }
+});

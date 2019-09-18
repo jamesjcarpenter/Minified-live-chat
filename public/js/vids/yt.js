@@ -1,3 +1,5 @@
+$( window ).load(function() {
+
 var tag = document.createElement('script');
 tag.id = 'iframe-demo';
 tag.src = 'https://www.youtube.com/iframe_api';
@@ -119,3 +121,4 @@ socket.on('get title', function(data, callback) {
         }
     )
 })
+});

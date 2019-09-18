@@ -1,3 +1,5 @@
+$( window ).load(function() {
+
 // 0. Enqueue
 // 1. Host Change
 // 2. Empty Queue
@@ -226,3 +228,4 @@ function betaAlert() {
         z_index: 1031,
     })
 }
+});

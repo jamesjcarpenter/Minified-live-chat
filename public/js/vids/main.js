@@ -1,5 +1,5 @@
+$( window ).load(function() {
 (function (window) {
-  setTimeout( function(){
   
   var CLOCK_PORT = 5001,
 		EPSILON = -1 / 15,
@@ -150,4 +150,4 @@
 	}, true);
 	updateClockDisplay();
 }(this));
-}, 2500);
+});

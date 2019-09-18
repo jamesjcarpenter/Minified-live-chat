@@ -1,5 +1,7 @@
 //-----------------------------------------------------------------------------
 // Host stuff
+
+$( window ).load(function() {
 var host = false
 var notifyfix = false
 
@@ -167,5 +169,5 @@ socket.on('hostControls', function(data) {
         document.getElementById('player').src = document.getElementById('player').src.replace("&controls=0", "&controls=1")
     }
 });
-
+});
 //-----------------------------------------------------------------------------

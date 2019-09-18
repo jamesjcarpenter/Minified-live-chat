@@ -1,3 +1,5 @@
+      $( window ).load(function() {
+      
         var socket = io.connect();
        var roomnum = 1
        var id = "M7lc1UVf-VE"
@@ -263,3 +265,4 @@
        function randomroom() {
            document.getElementById('roomnum').value = Math.random().toString(36).substr(2, 12)
        }
+});

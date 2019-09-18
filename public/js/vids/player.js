@@ -1,3 +1,5 @@
+$( window ).load(function() {
+
 var currPlayer = 0
 
 // 0 - YouTube
@@ -274,3 +276,4 @@ socket.on('createHTML5', function(data) {
 //       })
 //
 // }
+});

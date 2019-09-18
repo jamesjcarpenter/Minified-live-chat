@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+$( window ).load(function() {
 var vimeoPlayer = new Vimeo.Player('player-vimeo');
 
 
