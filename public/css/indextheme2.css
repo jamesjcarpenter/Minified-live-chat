@@ -591,6 +591,7 @@ top:20em;
 position:fixed;
 background-color:#3D3D3D;
 color:white;
+padding:5em;
 }
 
 #labelingstyle{
@@ -609,6 +610,7 @@ color:white;
   text-align:center;
   position:relative;
   display:inline-block;
+  padding:5em;
 }
 
 #video-device{
@@ -618,11 +620,13 @@ color:white;
   text-align:center;
   position:relative;
   display:inline-block;
+  padding:5em;
 }
 
 #labeldevice{
   background-color:#3D3D3D;
   color:white;
+  padding:5em;
 }
 
 #mail {
