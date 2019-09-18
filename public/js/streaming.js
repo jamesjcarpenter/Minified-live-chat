@@ -329,7 +329,7 @@ function updateStreamsList() {
 		}
 	}});
 }
-});
+
 function startStream() {
 	Janus.log("Selected video id #" + selectedStream);
 	if(selectedStream === undefined || selectedStream === null) {
@@ -592,3 +592,4 @@ function updateSvcButtons(spatial, temporal) {
 		$('#tl-0').removeClass('btn-primary btn-success').addClass('btn-primary');
 	}
 }
+});
