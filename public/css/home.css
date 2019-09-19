@@ -10,8 +10,8 @@ background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%)!important;  b
     .masthead.segment {
       min-height: 700px;
       padding: 1em 0em;
-      background-image: url(./images/flowerseam.jpg) !important;
-      background-repeat: no-repeat !important;
+      /* background-image: url(./images/flowerseam.jpg) !important;
+      background-repeat: no-repeat !important; */
       background-position: center !important;
       min-width:100%!important;
       /* background-color:#8b5353!important; */
