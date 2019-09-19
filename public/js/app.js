@@ -97,7 +97,7 @@ var socket = io.connect('anomic.io/');
         $("#timeHolder").text(time);
         
       
-      }, 3000);
+      }, 15000);
       
       $('#youtubevideo').click( function() {
       socket.emit('newvideo', data);
