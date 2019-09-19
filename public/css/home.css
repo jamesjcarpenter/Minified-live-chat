@@ -1,5 +1,5 @@
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
-  body { visibility:hidden !important;      background-color: #303030!important;
+  body { visibility:hidden !important;      background-color: #262626!important;
         color:white;
   }
     .hidden.menu {
@@ -13,8 +13,8 @@
       background-repeat: no-repeat !important;
       background-position: center !important;
       min-width:100%!important;
-      color:white!important; background-color: #923cb5!important;
-      background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%)!important; background-size:100%!important;
+      color:white!important;
+      background-image: linear-gradient(147deg, #923cb5 0%, #303030 74%)!important; background-size:100%!important;
     }
     .masthead .logo.item img {
       margin-right: 1em;
