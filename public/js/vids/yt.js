@@ -46,7 +46,7 @@ $('#syncbutton').click( function(roomnum) {
               var time;
               time = player.getCurrentTime();
               $("#timeHolder").text(time);
-          }, 100);
+          }, 300);
       }
       else { // not playing
           clearInterval(myTimer);
