@@ -1,8 +1,10 @@
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
-  body { visibility:hidden !important;
+  body { visibility:hidden !important;      background-color: #303030!important;
+        color:white;
   }
     .hidden.menu {
-      display: none;
+      display: none;      background-color: #303030!important;
+            color:white;
     }
 
     .masthead.segment {
@@ -19,7 +21,7 @@
       
     }
     
-    .ui .raised .segment {
+    .ui.raised.segment {
       background-color: #303030!important;
       color:white;
     }
