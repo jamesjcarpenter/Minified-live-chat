@@ -42,11 +42,11 @@ $('#syncbutton').click( function(roomnum) {
     }
   function onPlayerStateChange(event){
       if(event.data==1) { // playing
-          myTimer = setInterval(function(){ 
-              var time;
-              time = player.getCurrentTime();
-              $("#timeHolder").text(time);
-          }, 300);
+          // myTimer = setInterval(function(){ 
+          //     var time;
+          //     time = player.getCurrentTime();
+          //     $("#timeHolder").text(time);
+          // }, 100);
       }
       else { // not playing
           clearInterval(myTimer);
