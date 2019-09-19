@@ -58,6 +58,12 @@ function syncVideo(roomnum) {
 
     switch (currPlayer) {
         case 0:
+        setInterval(function(){
+          var time = player.getCurrentTime();
+          var currTime = player.getCurrentTime();
+          //var volume = player.getVolume();
+          console.log("Get Current Time: " + time);
+        },1000); 
             currTime = player.getCurrentTime();
             state = playerStatus
             console.log("I am host and my current time is " + currTime + state)
