@@ -39,7 +39,6 @@
 #timerButtons {
 text-align:center;
 bottom:0;
-left:20%;
   z-index:9999;
   position:fixed;
 }
@@ -49,7 +48,7 @@ left:20%;
 }
 
 #timerValue {
-	font-size: 14em;
+	font-size: 5em;
   color:white;
   z-index:9999;
 }
