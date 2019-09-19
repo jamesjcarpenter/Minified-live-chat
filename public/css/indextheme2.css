@@ -37,8 +37,9 @@
     
 #timeContainer,
 #timerButtons {
-  left:40%;
-  top:40em;
+text-align:center;
+bottom:0;
+left:20%;
   z-index:9999;
   position:fixed;
 }
