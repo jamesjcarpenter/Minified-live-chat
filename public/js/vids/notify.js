@@ -1,8 +1,8 @@
-
 // 0. Enqueue
 // 1. Host Change
 // 2. Empty Queue
 // 3. Beta Message
+
 // Enqueue Notify (0)
 socket.on('enqueueNotify', function(data) {
     console.log("Enqueue Notify Alert")

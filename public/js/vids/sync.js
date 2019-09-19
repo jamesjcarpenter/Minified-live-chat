@@ -34,10 +34,7 @@ $('#nextButton').click( function(roomnum) {
 playNext()
 });
  
-
-setInterval(function(){console.log(player.getCurrentTime()); }, 2000);
-
-setInterval(function(){console.log(player.getTime()); }, 2000);
+// Calls the play video function on the server
 function playVideo(roomnum) {
     // dailyPlayer.play();
     //vimeoPlayer.play()
@@ -46,6 +43,7 @@ function playVideo(roomnum) {
     });
 
     // Doesn't work well unless called in server
+    //io.sockets.in("room-"+roomnum).emit('playVideoClient');
 }
 
 // Calls the sync function on the server
@@ -275,7 +273,7 @@ function enqueueVideo(roomnum, rawId) {
         socket.emit('enqueue video', {
             room: roomnum,
             videoId: videoId,
-            user: socket.username
+            user: username
         })
     } else {
         console.log("User entered an invalid video url :(")
@@ -438,7 +436,7 @@ function changeSinglePlayer(playerId) {
 // Client Synchronization Stuff //
 //------------------------------//
 
-var roomnum = (url.substr(url.lastIndexOf("=")+1));
+var roomnum = 1
 var id = "M7lc1UVf-VE"
 
 // Calls the play/pause function
@@ -665,5 +663,4 @@ socket.on('changeVideoClient', function(data) {
 socket.on('changeTime', function(data) {
     var time = data.time
     player.seekTo(time);
-});
 });

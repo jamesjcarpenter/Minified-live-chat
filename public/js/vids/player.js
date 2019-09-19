@@ -1,5 +1,3 @@
-
-
 var currPlayer = 0
 
 // 0 - YouTube
