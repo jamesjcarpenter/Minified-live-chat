@@ -15,6 +15,7 @@ const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
 module.exports.sockets = function(server) {
+  server.listen(443);
   users = [];
   connections = [];
   rooms = [];
