@@ -58,9 +58,17 @@ app.use(function(req, res, next) {
    next();
 });
 
+var whitelist = ['https://www.anomic.io:8089', 'https://www.anomic.io/room?name=*']
 var corsOptions = {
-  origin: 'https://anomic.io:8089',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  "preflightContinue": false,
+  origin: function (origin, callback) {
+   if (whitelist.indexOf(origin) !== -1) {
+     callback(null, true)
+     "optionsSuccessStatus": 204
+   } else {
+     callback(new Error('Error'))
+   }
+ }
 }
 
 // app.use(function(req, res, next) {
