@@ -96,11 +96,11 @@ var socket = io.connect('anomic.io/');
       socket.emit('newvideo', data);
     });
     
-    socket.on('timesync', (time) => {
-      setInterval(function(){ 
-        getCurrentTime();
-      }, 7000);
-    });
+    // socket.on('timesync', (time) => {
+    //   setInterval(function(){ 
+    //     getCurrentTime();
+    //   }, 10000);
+    // });
       
       socket.on('newvideo', (data) => {
         socket.emit('console', data);
