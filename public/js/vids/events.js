@@ -9,7 +9,7 @@ function playOther(room) {
     });
 }
 
-unction syncVideo(room) {
+function syncVideo(room) {
     var currTime = 0
     var state
     var videoId = id
