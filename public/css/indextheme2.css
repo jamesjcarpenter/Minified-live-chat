@@ -37,8 +37,8 @@
     
 #timeContainer,
 #timerButtons {
-	margin-left: auto;
-	margin-right: auto;
+  left:40%;
+  top:40em;
   z-index:9999;
   position:fixed;
 }
@@ -48,6 +48,7 @@
 }
 
 #timerValue {
+	font-size: 14em;
   color:white;
   z-index:9999;
 }
