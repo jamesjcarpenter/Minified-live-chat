@@ -669,9 +669,9 @@ padding:1.25em;
 #players{
 position:fixed;
 bottom:0;
-width:600px;
-height:400px;  
-text-align:center;
+width:100%;
+height:100%;  
+left:25%;
 z-index:9998;
 }
 
