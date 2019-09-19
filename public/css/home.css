@@ -21,7 +21,7 @@
       
     }
     
-    .ui.raised.segment {
+    #roomsseg {
       background-color: #303030!important;
       color:white;
     }
