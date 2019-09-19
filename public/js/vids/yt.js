@@ -21,10 +21,7 @@ window.onYouTubeIframeAPIReady = function() {
   });
 }
 
-$('#syncbutton').click( function(roomnum) {
 
-  getTime();
-});
 //
 
     // 4. The API will call this function when the video player is ready.
@@ -44,11 +41,9 @@ $('#syncbutton').click( function(roomnum) {
           clearInterval(myTimer);
       }
   }
-  socket.on('timesync', () => {
     setInterval(function(){ 
       getTime();
     }, 7000);
-  });
   
   function getTime() {
   return player.getCurrentTime();
