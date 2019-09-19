@@ -411,6 +411,10 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
 
+
+    socket.emit('timesync', time);
+  
+    
     socket.on('console', function(data){
       console.log('test');
     });

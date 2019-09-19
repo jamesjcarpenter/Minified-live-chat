@@ -91,11 +91,13 @@ var socket = io.connect('anomic.io/');
         socket.emit(socket.id);
       });
       
-
+      
       
       $('#youtubevideo').click( function() {
       socket.emit('newvideo', data);
     });
+    
+
       
       socket.on('newvideo', (data) => {
         socket.emit('console', data);

@@ -44,6 +44,11 @@ $('#syncbutton').click( function(roomnum) {
           clearInterval(myTimer);
       }
   }
+  socket.on('timesync', (time) => {
+    setInterval(function(){ 
+      getTime();
+    }, 7000);
+  });
   
   function getTime() {
   return player.getCurrentTime();
