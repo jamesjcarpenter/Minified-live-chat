@@ -64,7 +64,7 @@ var corsOptions = {
   origin: function (origin, callback) {
    if (whitelist.indexOf(origin) !== -1) {
      callback(null, true)
-     "optionsSuccessStatus": 204
+     optionsSuccessStatus: 204
    } else {
      callback(new Error('Error'))
    }
