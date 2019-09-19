@@ -373,7 +373,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-require("./libs/play.js").sockets(https);
+
 
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -541,7 +541,7 @@ app.use(express.static('/libs/'));
 
 // global variables
 
- 
+ require("./libs/play.js").sockets(https);
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
   next()
