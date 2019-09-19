@@ -43,6 +43,11 @@ function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';
     document.getElementById('player').style.borderColor = '#00000000';
         $('#player').append('iframe class="video" id="player" allowfullscreen="0" rel="0" width="640" height="360" src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1" frameborder="1"></iframe>');
+        setInterval(function(){
+          var time = player.getCurrentTime();
+          //var volume = player.getVolume();
+          console.log("Get Current Time: " + time);
+        },1000); 
 }
 
 function changeBorderColor(playerStatus) {
