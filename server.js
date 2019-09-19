@@ -373,7 +373,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-require("./libs/play.js").sockets(https);
+
 
 
 var rooms = ['1','2','3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -441,6 +441,8 @@ io.sockets.on('connection', function (socket) {
       io.in(socket.room).emit('updaterooms', rooms, socket.room);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
+    require("./libs/play.js").sockets(https);
+    
     
     socket.on('connect', function(client) {
         ids.splice(ids.indexOf(socket.id), 1);

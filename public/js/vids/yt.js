@@ -23,7 +23,7 @@ window.onYouTubeIframeAPIReady = function() {
 
 $('#syncbutton').click( function(roomnum) {
 
-    syncVideo();
+  getTime();
 });
 
 

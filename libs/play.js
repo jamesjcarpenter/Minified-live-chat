@@ -50,13 +50,6 @@ module.exports.sockets = function(https) {
   
   io.sockets.on('connection', function(socket) {
       // Connect Socket
-      connections.push(socket);
-      console.log('Connected: %s sockets connected', connections.length);
-  
-      // Set default room, if provided in url
-      socket.emit('set id', {
-          id: given_room
-      })
   
       // io.sockets.emit('broadcast',{ description: connections.length + ' clients connected!'});
   
@@ -68,21 +61,17 @@ module.exports.sockets = function(https) {
   
       // reset url parameter
       // Workaround because middleware was not working right
-      socket.on('reset url', function(data) {
-          given_room = ""
-      });
-  
       // Disconnect
-      socket.on('disconnect', function(data) {
+
   
           // If socket username is found
-          if (users.indexOf(socket.username) != -1) {
-              users.splice((users.indexOf(socket.username)), 1);
-              updateUsernames();
-          }
-  
-          connections.splice(connections.indexOf(socket), 1);
-          console.log(socket.id + ' Disconnected: %s sockets connected', connections.length);
+          // if (users.indexOf(socket.username) != -1) {
+          //     users.splice((users.indexOf(socket.username)), 1);
+          //     updateUsernames();
+          // }
+          // 
+          // connections.splice(connections.indexOf(socket), 1);
+          // console.log(socket.id + ' Disconnected: %s sockets connected', connections.length);
           // console.log(io.sockets.adapter.rooms['room-' + socket.roomnum])
           // console.log(socket.roomnum)
   
@@ -816,7 +805,7 @@ module.exports.sockets = function(https) {
           var http = require("http");
   
           //Delay of 5 seconds
-          var delay = 5000;
+          var delay = 1000;
   
           async.forever(
   
