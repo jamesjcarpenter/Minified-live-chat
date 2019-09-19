@@ -1,10 +1,14 @@
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
-  body { visibility:hidden !important;color:white!important; background-color: #923cb5!important;
-background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%)!important;  background-repeat: no-repeat!important;
-  width:auto!important; height:auto!important;
+  body { visibility:hidden !important;
   }
     .hidden.menu {
       display: none;
+    }
+    
+    html {
+      color:white!important; background-color: #923cb5!important;
+    background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%)!important;  background-repeat: no-repeat!important;
+      width:auto!important; height:auto!important;
     }
 
     .masthead.segment {
