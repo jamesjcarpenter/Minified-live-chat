@@ -33,7 +33,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             myTimer = setInterval(function(){ 
                 var time;
                 time = player.getCurrentTime();
-                $("#timeHolder").text(time);
+                $("#timerValue").text(time);
             }, 100);
         }
         else { // not playing
