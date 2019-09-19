@@ -13,8 +13,8 @@
       background-repeat: no-repeat !important;
       background-position: center !important;
       min-width:100%!important;
-      color:white!important; background-color: #8d5185;
-background-image: linear-gradient(315deg, #8d5185 0%, #a1bafe 74%);
+      color:white!important; background-color: #8d5185!important;
+background-image: linear-gradient(315deg, #8d5185 0%, #a1bafe 74%)!important;
     }
     .masthead .logo.item img {
       margin-right: 1em;
@@ -30,8 +30,8 @@ background-image: linear-gradient(315deg, #8d5185 0%, #a1bafe 74%);
     }
     #roomsseg {
       display:block!important;
-      color:white!important;       background-color: #1b1333;
-            background-image: linear-gradient(147deg, #1b1333 0%, #262142 74%);
+      color:white!important;       background-color: #8d5185!important;
+background-image: linear-gradient(315deg, #8d5185 0%, #a1bafe 74%)!important;
       color:white;
     }
     .masthead .ui.menu .ui.button {
