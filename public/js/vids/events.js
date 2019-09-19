@@ -3,9 +3,58 @@
 
 //-----------------------------------------------------------------------------
 
-function playOther(roomnum) {
+function playOther(room) {
     socket.emit('play other', {
-        room: roomnum
+        room: socket.room
+    });
+}
+
+unction syncVideo(room) {
+    var currTime = 0
+    var state
+    var videoId = id
+
+    // var syncText = document.getElementById("syncbutton")
+    // console.log(syncText.innerHTML)
+    // syncText.innerHTML = "<i class=\"fas fa-sync fa-spin\"></i> Sync"
+
+    switch (currPlayer) {
+        case 0:
+            currTime = player.getCurrentTime();
+            state = playerStatus
+            console.log("I am host and my current time is " + currTime + state)
+
+    // Required due to vimeo asyncronous functionality
+    if (currPlayer != 2) {
+        socket.emit('sync video', {
+            room: socket.room,
+            time: currTime,
+            state: state,
+            videoId: videoId
+        });
+    }
+}
+
+
+function prevVideo(room) {
+    // This gets the previous video
+    socket.emit('change previous video', {
+        room: socket.room
+    }, function(data) {
+        // Actually change the video!
+        var prevTime = data.time
+        var time = getTime()
+        socket.emit('change video', {
+            room: roomnum,
+            videoId: data.videoId,
+            time: time,
+            prev: true
+        }, function(data) {
+            // Set to the previous time
+            setTimeout(function() {
+                seekTo(prevTime)
+            }, 1200);
+        });
     });
 }
 
@@ -44,9 +93,9 @@ socket.on('justPlay', function(data) {
     }
 });
 
-function pauseOther(roomnum) {
+function pauseOther(room) {
     socket.emit('pause other', {
-        room: roomnum
+        room: socket.room
     });
     //socket.broadcast.to("room-"+roomnum).emit('justPlay');
 }
@@ -81,9 +130,9 @@ socket.on('justPause', function(data) {
     player.pauseVideo()
 });
 
-function seekOther(roomnum, currTime) {
+function seekOther(room, currTime) {
     socket.emit('seek other', {
-        room: roomnum,
+        room: socket.room,
         time: currTime
     });
     // socket.emit('getData');
@@ -148,7 +197,7 @@ socket.on('justSeek', function(data) {
 });
 
 // Needs to grab the next video id and change the video
-function playNext(roomnum) {
+function playNext(room) {
     socket.emit('play next', {}, function(data) {
         var videoId = data.videoId
 

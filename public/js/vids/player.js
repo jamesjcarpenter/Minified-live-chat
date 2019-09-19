@@ -7,7 +7,7 @@ var currPlayer = 0
 
 // Gets all the player data
 socket.on('getPlayerData', function(data) {
-    var roomnum = data.room
+    var roomn = socket.room
     var caller = data.caller
 
     switch (currPlayer) {
@@ -15,7 +15,7 @@ socket.on('getPlayerData', function(data) {
             var currTime = player.getCurrentTime()
             var state = playerStatus
             socket.emit('get host data', {
-                room: roomnum,
+                room: socket.room,
                 currTime: currTime,
                 state: state,
                 caller: caller
@@ -25,7 +25,7 @@ socket.on('getPlayerData', function(data) {
             var currTime = dailyPlayer.currentTime
             var state = dailyPlayer.paused;
             socket.emit('get host data', {
-                room: roomnum,
+                room: socket.room,
                 currTime: currTime,
                 state: state,
                 caller: caller
@@ -42,7 +42,7 @@ socket.on('getPlayerData', function(data) {
                     var state = paused
 
                     socket.emit('get host data', {
-                        room: roomnum,
+                        room: socket.room,
                         currTime: currTime,
                         state: state,
                         caller: caller
@@ -63,7 +63,7 @@ socket.on('getPlayerData', function(data) {
             var currTime = media.currentTime
             var state = media.paused
             socket.emit('get host data', {
-                room: roomnum,
+                room: socket.room,
                 currTime: currTime,
                 state: state,
                 caller: caller

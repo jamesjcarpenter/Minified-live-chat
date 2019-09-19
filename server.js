@@ -412,7 +412,19 @@ io.sockets.on('connection', function (socket) {
     });
 
 
-    socket.emit('timesync');
+    
+    socket.on('sync host', function(data) {
+        if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
+            //socket.broadcast.to(host).emit('syncVideoClient', { time: time, state: state, videoId: videoId });
+            var host = io.sockets.adapter.rooms['room-' + socket.roomnum].host
+            // If not host, recall it on host
+            if (socket.id != host) {
+                socket.broadcast.to(host).emit('getData')
+            } else {
+                socket.emit('syncHost')
+            }
+        }
+    })
   
     
     socket.on('console', function(data){
