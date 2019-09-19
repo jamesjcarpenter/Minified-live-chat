@@ -95,11 +95,7 @@ var socket = io.connect('anomic.io/');
       $('#youtubevideo').click( function() {
       socket.emit('newvideo', data);
     });
-      
-      socket.on('newvideo', (data) => {
-        socket.emit('console', data);
-        });
-    
+
     
       socket.on('private-message', (data, message) => {
         console.log('You received a message');
