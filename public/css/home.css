@@ -13,7 +13,7 @@ background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%);
       background-repeat: no-repeat !important;
       background-position: center !important;
       min-width:100%!important;
-      background-color:#8b5353!important;
+      /* background-color:#8b5353!important; */
       color:white;
     }
     .masthead .logo.item img {
