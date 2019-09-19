@@ -69,7 +69,11 @@ function onPlayerStateChange(event) {
     //changeBorderColor(event.data);
     //socket.emit('player status', event.data);
     playerStatus = event.data;
-    
+    setInterval(function(){
+      var time = player.getCurrentTime();
+      //var volume = player.getVolume();
+      console.log("Get Current Time: " + time);
+    },1000); 
     // Event Listeners
     switch (playerStatus) {
         case 0:
