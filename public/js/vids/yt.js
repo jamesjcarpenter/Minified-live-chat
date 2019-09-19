@@ -37,7 +37,7 @@ function onYouTubeIframeAPIReady() {
     console.log(document.getElementById('player').src)
 }
 
-function getCurrent(){
+var player = function getCurrent(){
   player.getCurrentTime() || 0;
 };
 
