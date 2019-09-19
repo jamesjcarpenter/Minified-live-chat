@@ -30,8 +30,8 @@
     }
     #roomsseg {
       display:block!important;
-      color:white!important; background-color: #923cb5!important;
-      background-image: linear-gradient(320deg, #923cb5 30%, #303030 74%)!important; background-size:100%!important;
+      color:white!important; background-color: #c277e0!important;
+      background-image: linear-gradient(320deg, #c277e0 20%, #303030 74%)!important; background-size:100%!important;
       color:white;
     }
     .masthead .ui.menu .ui.button {
