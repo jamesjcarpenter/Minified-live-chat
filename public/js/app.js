@@ -282,7 +282,7 @@ socket.on('connect', function(data) {
       
       function getTime() {
           return player.getCurrentTime();
-        });
+        };
       
       var map = {
         "<3": "\u2764\uFE0F",
