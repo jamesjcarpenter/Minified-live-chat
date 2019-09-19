@@ -19,8 +19,6 @@ window.onYouTubeIframeAPIReady = function() {
     "height": "315",
     "width": "560",
     "videoId": "bHQqvYy5KYo",
-    "host": "https://www.youtube.com/",
-    "origin": "https://www.anomic.io/",
     "modestbranding": "1",
     "events": {
       "onReady": onPlayerReady,
@@ -38,6 +36,7 @@ $('#syncbutton').click( function(roomnum) {
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
       getTime();
+      socket.emit('sync host', data);
       event.target.playVideo();
       
     }

@@ -91,7 +91,13 @@ var socket = io.connect('anomic.io/');
         socket.emit(socket.id);
       });
       
-
+      setInterval(function(){ 
+        var time;
+        time = player.getCurrentTime();
+        $("#timeHolder").text(time);
+        
+      
+      }, 3000);
       
       $('#youtubevideo').click( function() {
       socket.emit('newvideo', data);
