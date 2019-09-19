@@ -38,7 +38,6 @@ $('#syncbutton').click( function(roomnum) {
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
       getTime();
-      socket.emit('sync host', data);
       event.target.playVideo();
       
     }
