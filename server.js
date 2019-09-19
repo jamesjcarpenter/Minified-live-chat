@@ -416,6 +416,35 @@ io.sockets.on('connection', function (socket) {
     });
 
 
+    socket.on('autosync', function(data) {
+        var async = require("async");
+        var http = require("http");
+
+        //Delay of 5 seconds
+        var delay = 5000;
+
+        async.forever(
+
+            function(next) {
+                // Continuously update stream with data
+                var time = io.sockets.in(socket.room).emit('getTime', {});
+                // Store data in database
+                console.log(time);
+
+                console.log("i am auto syncing")
+                socket.emit('syncHost');
+
+                //Repeat after the delay
+                setTimeout(function() {
+                    next();
+                }, delay)
+            },
+            function(err) {
+                console.error(err);
+            }
+        );
+    });
+
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
@@ -441,7 +470,7 @@ io.sockets.on('connection', function (socket) {
       io.in(socket.room).emit('updaterooms', rooms, socket.room);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
-    require("./libs/play.js").sockets(https);
+    // require("./libs/play.js").sockets(https);
     
     
     socket.on('connect', function(client) {
