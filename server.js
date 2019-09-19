@@ -412,7 +412,7 @@ io.sockets.on('connection', function (socket) {
     });
 
 
-    socket.emit('timesync', time);
+    socket.emit('timesync');
   
     
     socket.on('console', function(data){

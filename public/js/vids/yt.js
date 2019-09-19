@@ -44,7 +44,7 @@ $('#syncbutton').click( function(roomnum) {
           clearInterval(myTimer);
       }
   }
-  socket.on('timesync', (time) => {
+  socket.on('timesync', () => {
     setInterval(function(){ 
       getTime();
     }, 7000);
