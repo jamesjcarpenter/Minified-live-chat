@@ -44,6 +44,13 @@ left:5%;
   position:fixed;
 }
 
+#timeHolder {
+  color:white;
+  z-index:9999;
+  font-size:10em;
+  text-align:center;
+}
+
 #timeContainer {
 	margin-top: 1em;
 }
