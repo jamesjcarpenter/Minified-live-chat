@@ -37,7 +37,7 @@ function onYouTubeIframeAPIReady() {
     console.log(document.getElementById('player').src)
 }
 
-var player = function getCurrent(){
+function getCurrent(roomnum){
   player.getCurrentTime() || 0;
 };
 
