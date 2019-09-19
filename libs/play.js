@@ -50,13 +50,13 @@ module.exports.sockets = function(https) {
   
   io.sockets.on('connection', function(socket) {
       // Connect Socket
-      connections.push(socket);
+      // connections.push(socket);
       console.log('Connected: %s sockets connected', connections.length);
   
       // Set default room, if provided in url
-      socket.emit('set id', {
-          id: given_room
-      })
+      // socket.emit('set id', {
+      //     id: given_room
+      // })
   
       // io.sockets.emit('broadcast',{ description: connections.length + ' clients connected!'});
   
@@ -76,12 +76,12 @@ module.exports.sockets = function(https) {
       socket.on('disconnect', function(data) {
   
           // If socket username is found
-          if (users.indexOf(socket.username) != -1) {
-              users.splice((users.indexOf(socket.username)), 1);
-              updateUsernames();
-          }
-  
-          connections.splice(connections.indexOf(socket), 1);
+          // if (users.indexOf(socket.username) != -1) {
+          //     users.splice((users.indexOf(socket.username)), 1);
+          //     updateUsernames();
+          // }
+          // 
+          // connections.splice(connections.indexOf(socket), 1);
           console.log(socket.id + ' Disconnected: %s sockets connected', connections.length);
           // console.log(io.sockets.adapter.rooms['room-' + socket.roomnum])
           // console.log(socket.roomnum)
@@ -130,18 +130,18 @@ module.exports.sockets = function(https) {
           // This stores the room data for all sockets
           userrooms[socket.id] = data
   
-          var host = null
-          var init = false
-  
+          var host = socket.id
+          var init = true
+          socket.emit('setHost');
           // Sets default room value to 1
           if (socket.roomnum == null || socket.roomnum == "") {
               console.log(socket.room);
           }
   
           // Adds the room to a global array
-          if (!rooms.includes(socket.roomnum)) {
-              rooms.push(socket.roomnum);
-          }
+          // if (!rooms.includes(socket.roomnum)) {
+          //     rooms.push(socket.roomnum);
+          // }
   
           // Checks if the room exists or not
           // console.log(io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined)
@@ -161,7 +161,7 @@ module.exports.sockets = function(https) {
   
           // Actually join the room
           console.log(socket.username + " connected to room-" + socket.roomnum)
-          socket.join("room-" + socket.roomnum);
+          // socket.join("room-" + socket.roomnum);
   
           // Sets the default values when first initializing
           if (init) {
@@ -179,22 +179,12 @@ module.exports.sockets = function(https) {
               // Previous Video
               io.sockets.adapter.rooms['room-' + socket.roomnum].prevVideo = {
                   yt: {
-                      id: 'M7lc1UVf-VE',
-                      time: 0
-                  },
-                  dm: {
-                      id: 'x26m1j4',
-                      time: 0
-                  },
-                  vimeo: {
-                      id: '76979871',
-                      time: 0
-                  },
-                  html5: {
-                      id: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                      id: 'bHQqvYy5KYo',
                       time: 0
                   }
               }
+              
+              
               // Host username
               io.sockets.adapter.rooms['room-' + socket.roomnum].hostName = socket.username
               // Keep list of online users
@@ -202,9 +192,6 @@ module.exports.sockets = function(https) {
               // Set an empty queue
               io.sockets.adapter.rooms['room-' + socket.roomnum].queue = {
                   yt: [],
-                  dm: [],
-                  vimeo: [],
-                  html5: []
               }
           }
   
@@ -261,7 +248,7 @@ module.exports.sockets = function(https) {
           // Get time from host which calls change time for that socket
           if (socket.id != host) {
               //socket.broadcast.to(host).emit('getTime', { id: socket.id });
-              console.log("call the damn host " + host)
+              console.log("need host" + host);
   
               // Set a timeout so the video can load before it syncs
               setTimeout(function() {
@@ -293,8 +280,8 @@ module.exports.sockets = function(https) {
           updateRoomUsers(socket.roomnum)
   
           // This is all of the rooms
-          // io.sockets.adapter.rooms['room-1'].currVideo = "this is the video"
-          // console.log(io.sockets.adapter.rooms['room-1']);
+          io.sockets.adapter.rooms['room-1'].currVideo = "this is the video"
+          console.log(io.sockets.adapter.rooms['room-1']);
       });
       // ------------------------------------------------------------------------
   
