@@ -74,7 +74,6 @@ var socket = io.connect('anomic.io/');
   socket.on('connect', function(){
     
     
-    socket.emit('autosync', data);
       
     socket.room = {};
     var roomId = url.substr(url.lastIndexOf("=")+1);
@@ -91,10 +90,7 @@ var socket = io.connect('anomic.io/');
         socket.emit(socket.id);
       });
       
-      
-      $('#youtubevideo').click( function() {
-      socket.emit('newvideo', data);
-    });
+
 
     
       socket.on('private-message', (data, message) => {
@@ -218,10 +214,6 @@ var socket = io.connect('anomic.io/');
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div class="ui left pointing label"id="message"name="data"><div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
     replaceUrl();
-    var d = document.createElement('div');
-    d.id = 'sockettest';
-    d.innerHTML = 'id' + '' + socket.id + '' + socket.username;
-    d.appendTo(document.body.inner|| document.documentElement);
   });
   
   function replaceUrl() {
