@@ -684,8 +684,8 @@ z-index:9998;
 }
 
 #player {
-    position:fixed;
     text-align:center;
+    
 }
 #initArea {
     display: none;
