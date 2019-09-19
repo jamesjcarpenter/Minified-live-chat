@@ -27,11 +27,6 @@ module.exports.sockets = function(https) {
   // Set given room for url parameter
   var given_room = ""
   
-  app.use(express.static(__dirname + '/'));
-  
-  server.listen(process.env.PORT || 3000);
-  console.log('Server Started . . .');
-  
   
   // app.param('room', function(req,res, next, room){
   //     console.log("testing")
@@ -41,24 +36,17 @@ module.exports.sockets = function(https) {
   // });
   
   
-  app.get('/:room', function(req, res) {
-      given_room = req.params.room
-      res.sendFile(__dirname + '/index.html');
-  });
-  
-  
   //var roomno = 1;
-  /*
-  io.on('connection', function(socket) {
-     //Increase roomno 2 clients are present in a room.
-     //if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
-     // For now have it be the same room for everyone!
-     socket.join("room-"+roomno);
-     //Send this event to everyone in the room.
-     io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
-  })*/
   
-  var roomno = 1;
+  // io.on('connection', function(socket) {
+  //    //Increase roomno 2 clients are present in a room.
+  //    if(io.nsps['/'].adapter.rooms["room-"+roomno] && io.nsps['/'].adapter.rooms["room-"+roomno].length > 1) roomno++;
+  //    // For now have it be the same room for everyone!
+  //    socket.join("room-"+roomno);
+  //    //Send this event to everyone in the room.
+  //    io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
+  // })
+  
   
   io.sockets.on('connection', function(socket) {
       // Connect Socket
@@ -147,8 +135,7 @@ module.exports.sockets = function(https) {
   
           // Sets default room value to 1
           if (socket.roomnum == null || socket.roomnum == "") {
-              socket.roomnum = '1'
-              userrooms[socket.id] = '1'
+              console.log(socket.room);
           }
   
           // Adds the room to a global array
