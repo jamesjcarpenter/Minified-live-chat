@@ -541,7 +541,7 @@ app.use(express.static('/libs/'));
 
 // global variables
 
- require("./libs/play.js").sockets(https);
+ require("./libs/play.js").sockets(server);
 app.use(function(req, res, next) {
   isAuthenticated: req.isAuthenticated(),
   next()

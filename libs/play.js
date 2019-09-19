@@ -14,7 +14,7 @@ const chatModel = mongoose.model("Chat");
 const roomModel = mongoose.model("Room");
 
 //reatime magic begins here
-module.exports.sockets = function(https) {
+module.exports.sockets = function(server) {
   users = [];
   connections = [];
   rooms = [];
