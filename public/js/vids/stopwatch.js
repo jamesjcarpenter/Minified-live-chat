@@ -8,7 +8,6 @@
  * - add responsive css styles
  * - add save functionality with cookies
  */
-window.addEventListener('load', () => {
 // Initialize our variables
 var timerDiv = document.getElementById('timerValue'),
 	start = document.getElementById('watchstart'),
@@ -75,7 +74,7 @@ function timer() {
 // timer(); // autostart timer
 
 /* Start button */
-timer();
+start.onclick = timer;
 
 /* Stop button */
 stop.onclick = function() {
@@ -131,7 +130,6 @@ function getCookie(name) {
 	}
 	return null;
 }
-});
 /**
  * TODO: Continue timing the timer while away...
  */
