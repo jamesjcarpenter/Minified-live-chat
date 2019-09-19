@@ -32,13 +32,14 @@ function onYouTubeIframeAPIReady() {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
-        function getCurrent(){
-          player.getCurrentTime() || 0;
-      };
     });
     // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
 }
+
+function getCurrent(){
+  player.getCurrentTime() || 0;
+};
 
 function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';
