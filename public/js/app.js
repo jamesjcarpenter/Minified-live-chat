@@ -73,7 +73,7 @@ var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-
+    socket.emit('sync host', data);
       
     socket.room = {};
     var roomId = url.substr(url.lastIndexOf("=")+1);
@@ -96,7 +96,11 @@ var socket = io.connect('anomic.io/');
       socket.emit('newvideo', data);
     });
     
-
+    socket.on('timesync', (time) => {
+      setInterval(function(){ 
+        getCurrentTime();
+      }, 7000);
+    });
       
       socket.on('newvideo', (data) => {
         socket.emit('console', data);
