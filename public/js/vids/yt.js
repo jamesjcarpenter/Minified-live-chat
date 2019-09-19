@@ -32,6 +32,7 @@ function onYouTubeIframeAPIReady() {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
+        var videoPos = !player.getCurrentTime ? 0.0 : player.getCurrentTime();
     });
     // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
