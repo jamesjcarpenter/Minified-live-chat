@@ -21,7 +21,15 @@
       
     }
     
+    a {
+    color:white!important;  
+    }
+    
+    a:hover {
+    color:white!important;  
+    }
     #roomsseg {
+      display:block!important;
       background-color: #303030!important;
       color:white;
     }
