@@ -672,89 +672,9 @@ module.exports.sockets = function(https) {
       })
   
       // Change video player
-      socket.on('change player', function(data) {
-          if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
-              var roomnum = data.room
-              var playerId = data.playerId
-  
-              io.sockets.in("room-" + roomnum).emit('pauseVideoClient');
-              // console.log(playerId)
-              switch (playerId) {
-                  case 0:
-                      io.sockets.in("room-" + roomnum).emit('createYoutube', {});
-                      break;
-                  case 1:
-                      io.sockets.in("room-" + roomnum).emit('createDaily', {});
-                      break;
-                  case 2:
-                      io.sockets.in("room-" + roomnum).emit('createVimeo', {});
-                      break;
-                  case 3:
-                      io.sockets.in("room-" + roomnum).emit('createHTML5', {});
-                      break;
-                  default:
-                      console.log("Error invalid player id")
-              }
-  
-              // This changes the room variable to the player id
-              io.sockets.adapter.rooms['room-' + roomnum].currPlayer = playerId
-              // console.log(io.sockets.adapter.rooms['room-' + socket.roomnum].currPlayer)
-  
-              // This syncs the host whenever the player changes
-              host = io.sockets.adapter.rooms['room-' + socket.roomnum].host
-              socket.broadcast.to(host).emit('getData')
-          }
-  
-      })
-  
-      // Change video player
-      socket.on('change single player', function(data) {
-          if (io.sockets.adapter.rooms['room-' + socket.roomnum] !== undefined) {
-              var playerId = data.playerId
-  
-              switch (playerId) {
-                  case 0:
-                      socket.emit('createYoutube', {});
-                      break;
-                  case 1:
-                      socket.emit('createDaily', {});
-                      break;
-                  case 2:
-                      socket.emit('createVimeo', {});
-                      break;
-                  case 3:
-                      socket.emit('createHTML5', {});
-                      break;
-                  default:
-                      console.log("Error invalid player id")
-              }
-              // After changing the player, resync with the host
-              host = io.sockets.adapter.rooms['room-' + socket.roomnum].host
-              socket.broadcast.to(host).emit('getData')
-          }
-      })
   
   
-      // Send Message in chat
-      socket.on('send message', function(data) {
-          var encodedMsg = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-          // console.log(data);
-          io.sockets.in("room-" + socket.roomnum).emit('new message', {
-              msg: encodedMsg,
-              user: socket.username
-          });
-      });
   
-      // New User
-      socket.on('new user', function(data, callback) {
-          callback(true);
-          // Data is username
-          var encodedUser = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-          socket.username = encodedUser;
-          //console.log(socket.username)
-          users.push(socket.username);
-          updateUsernames();
-      });
   
       // Changes time for a specific socket
       socket.on('change time', function(data) {
@@ -891,7 +811,7 @@ module.exports.sockets = function(https) {
   
       //------------------------------------------------------------------------------
       // Async get current time
-      socket.on('auto sync', function(data) {
+      socket.on('autosync', function(data) {
           var async = require("async");
           var http = require("http");
   
@@ -902,9 +822,9 @@ module.exports.sockets = function(https) {
   
               function(next) {
                   // Continuously update stream with data
-                  //var time = io.sockets.in("room-"+1).emit('getTime', {});
-                  //Store data in database
-                  //console.log(time);
+                  var time = io.sockets.in(socket.room).emit('getTime', {});
+                  // Store data in database
+                  console.log(time);
   
                   console.log("i am auto syncing")
                   socket.emit('syncHost');

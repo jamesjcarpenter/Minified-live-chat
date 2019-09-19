@@ -21,6 +21,12 @@ window.onYouTubeIframeAPIReady = function() {
   });
 }
 
+$('#syncbutton').click( function(roomnum) {
+
+    syncVideo();
+});
+
+
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
       event.target.playVideo();
@@ -38,3 +44,7 @@ window.onYouTubeIframeAPIReady = function() {
           clearInterval(myTimer);
       }
   }
+  
+  function getTime() {
+  return player.getCurrentTime();
+  };

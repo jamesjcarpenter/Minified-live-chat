@@ -84,6 +84,8 @@ var socket = io.connect('anomic.io/');
         }, 1000);
     }
     
+    socket.emit('autosync', data);
+      
     socket.room = {};
     var roomId = url.substr(url.lastIndexOf("=")+1);
     socket.room = roomId;
@@ -98,6 +100,8 @@ var socket = io.connect('anomic.io/');
       socket.on('askForUserId', () => {
         socket.emit(socket.id);
       });
+      
+
       
       $('#youtubevideo').click( function() {
       socket.emit('newvideo', data);
