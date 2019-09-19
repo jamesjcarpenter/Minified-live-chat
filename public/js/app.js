@@ -73,16 +73,6 @@ var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-    function timer(){
-        var sec = 30;
-        var timer = setInterval(function(){
-            $('safeTimerDisplay').innerHTML='00:'+sec;
-            sec--;
-            if (sec < 0) {
-                clearInterval(timer);
-            }
-        }, 1000);
-    }
     
     socket.emit('autosync', data);
       

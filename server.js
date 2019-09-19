@@ -404,9 +404,9 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
-      socket.emit('get host data');
+      // socket.emit('get host data');
       
-        socket.emit('auto sync');
+        // socket.emit('auto sync');
       // console.log(socket.join(room))
       // console.log(room);
     });
