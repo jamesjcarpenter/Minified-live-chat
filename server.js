@@ -20,7 +20,7 @@ server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
-global.io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server);
 
 //... 
 //..
