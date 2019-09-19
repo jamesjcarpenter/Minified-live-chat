@@ -30,7 +30,7 @@
     }
     #roomsseg {
       display:block!important;
-      background-color: #303030!important;
+      background-color: #4d4d4d!important;
       color:white;
     }
     .masthead .ui.menu .ui.button {
@@ -44,7 +44,9 @@
     }
     
     #peopleshape {
-      
+      display:block!important;
+      background-color: #4d4d4d!important;
+      color:white;
     }
     .masthead h2 {
       font-size: 1.7em;
