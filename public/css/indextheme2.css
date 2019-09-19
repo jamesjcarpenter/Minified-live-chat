@@ -684,11 +684,11 @@ z-index:9998;
 }
 
 #player {
-    text-align:center;
+    left:25%;
     bottom:0;
     position:absolute;
-    width:200px;
-    height:110px;  
+    width:290px;
+    height:180px;  
 }
 #initArea {
     display: none;
