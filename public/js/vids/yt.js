@@ -37,6 +37,7 @@ function onYouTubeIframeAPIReady() {
     console.log(document.getElementById('player').src)
 }
 
+window.addEventListener('load', () => {
 function timer(){
     var sec = 30;
     var timer = setInterval(function(){
@@ -47,6 +48,7 @@ function timer(){
         }
     }, 1000);
 }
+});
 
 function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';

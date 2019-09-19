@@ -30,6 +30,10 @@
       z-index:9999;
     }
     
+    #safeTimerDisplay {
+      color:white;
+    }
+    
     #roomname {
       text-align:left;
       z-index:9999;
