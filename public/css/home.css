@@ -11,11 +11,10 @@
       position:fixed;
       background-repeat: no-repeat !important;
       background-position: center !important;
-background-color: #923cb5!important;
-background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%)!important;
       height:100%!important;
       width:100%!important;
       display:block!important;
+      background-color:#191919!important;
       z-index:-1;
     }
     .masthead.segment {
@@ -25,6 +24,8 @@ background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%)!important;
       background-position: center !important;
       min-width:100%!important;
       color:white!important; 
+      background-color: #923cb5!important;
+      background-image: linear-gradient(147deg, #923cb5 0%, #000000 74%)!important;
             min-width:100%!important;
     }
     .masthead .logo.item img {
