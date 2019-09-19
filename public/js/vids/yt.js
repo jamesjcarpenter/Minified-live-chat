@@ -37,9 +37,16 @@ function onYouTubeIframeAPIReady() {
     console.log(document.getElementById('player').src)
 }
 
-function getCurrent(roomnum){
-  player.getCurrentTime() || 0;
-};
+function timer(){
+    var sec = 30;
+    var timer = setInterval(function(){
+        document.getElementById('safeTimerDisplay').innerHTML='00:'+sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timer);
+        }
+    }, 1000);
+}
 
 function onPlayerReady(event) {
     //document.getElementById('player').style.borderColor = '#FF6D00';

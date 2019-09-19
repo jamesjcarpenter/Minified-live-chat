@@ -5,7 +5,7 @@ playVideo(roomnum)
 
 
 $('#syncbutton').click( function(roomnum) {
-getCurrent(roomnum);
+
 syncVideo(roomnum);
 syncAlert();
 });
