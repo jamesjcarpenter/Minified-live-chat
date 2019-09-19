@@ -685,8 +685,6 @@ z-index:9998;
 
 #player {
     position:fixed;
-    width:100%;
-    height:100%;
     text-align:center;
 }
 #initArea {
