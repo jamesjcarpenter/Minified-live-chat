@@ -1,5 +1,5 @@
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
-  body { visibility:hidden !important; background-color: 	#303030!important; color:white;
+  body { visibility:hidden !important; background-color: 	#171717!important; color:white;
   }
     .hidden.menu {
       display: none;
@@ -12,9 +12,16 @@
       background-repeat: no-repeat !important;
       background-position: center !important;
       min-width:100%!important;
+      background-color:#6f6f6f;
+      color:white;
     }
     .masthead .logo.item img {
       margin-right: 1em;
+    }
+    
+    .ui .raised .segment {
+      background-color: #303030!important;
+      color:white;
     }
     .masthead .ui.menu .ui.button {
       margin-left: 0.5em;
