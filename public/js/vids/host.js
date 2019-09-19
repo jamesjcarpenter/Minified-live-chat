@@ -5,6 +5,7 @@ var notifyfix = false
 
 // Sets the host for the room
 socket.on('setHost', function(data) {
+    var roomnum = socket.room;
     notifyfix = true
     console.log("You are the new host!")
     host = true
@@ -33,13 +34,13 @@ function changeHost(roomnum) {
         });
         socket.emit('notify alerts', {
             alert: 1,
-            user: username
+            user: socket.username
         })
     }
 }
 // Change the host label
 socket.on('changeHostLabel', function(data) {
-    var user = data.username
+    var user = socket.username
     // Change label
     var hostlabel = document.getElementById('hostlabel')
     hostlabel.innerHTML = "<i class=\"fas fa-user\"></i> Current Host: " + user
