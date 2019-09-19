@@ -32,7 +32,9 @@ function onYouTubeIframeAPIReady() {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
-        var currTime = player.getCurrentTime() || 0;
+        function getCurrent(){
+          player.getCurrentTime() || 0;
+      };
     });
     // document.getElementById('player').src = document.getElementById('player').src + '&controls=0'
     console.log(document.getElementById('player').src)
@@ -68,7 +70,7 @@ function onPlayerStateChange(event) {
     //changeBorderColor(event.data);
     //socket.emit('player status', event.data);
     playerStatus = event.data;
-
+    
     // Event Listeners
     switch (playerStatus) {
         case 0:

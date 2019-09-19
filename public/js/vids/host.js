@@ -5,7 +5,6 @@ var notifyfix = false
 
 // Sets the host for the room
 socket.on('setHost', function(data) {
-    var roomnum = socket.room;
     notifyfix = true
     console.log("You are the new host!")
     host = true

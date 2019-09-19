@@ -1,37 +1,37 @@
 // Calls the play video function on the server
-window.addEventListener('load', () => {
 $('#playButton').click( function(roomnum) {
-playVideo()
+playVideo(roomnum)
 });
 
 
 $('#syncbutton').click( function(roomnum) {
-syncVideo();
+getCurrent();
+syncVideo(roomnum);
 syncAlert();
 });
 
 $('#loveButton').click( function(roomnum) {
-loveLive()
+loveLive(roomnum)
 });
 
 $('#hostbutton').click( function(roomnum) {
-changeHost()
+changeHost(roomnum)
 });
 
 $('#enqueueButton').click( function(roomnum) {
-enqueueVideoParse()
+enqueueVideoParse(roomnum)
 });
 
 $('#changeButton').click( function(roomnum) {
-changeVideoParse()
+changeVideoParse(roomnum)
 });
 
 $('#previousButton').click( function(roomnum) {
-prevVideo()
+prevVideo(roomnum)
 });
 
 $('#nextButton').click( function(roomnum) {
-playNext()
+playNext(roomnum)
 });
  
 // Calls the play video function on the server
@@ -663,5 +663,4 @@ socket.on('changeVideoClient', function(data) {
 socket.on('changeTime', function(data) {
     var time = data.time
     player.seekTo(time);
-});
 });
