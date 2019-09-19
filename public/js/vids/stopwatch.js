@@ -11,7 +11,7 @@
 window.addEventListener('load', () => {
 // Initialize our variables
 var timerDiv = document.getElementById('timerValue'),
-	start = document.getElementById('start'),
+	start = document.getElementById('watchstart'),
 	stop = document.getElementById('stop'),
 	reset = document.getElementById('reset'),
 	t;
@@ -75,7 +75,7 @@ function timer() {
 // timer(); // autostart timer
 
 /* Start button */
-start.onclick = timer;
+timer();
 
 /* Stop button */
 stop.onclick = function() {
@@ -94,7 +94,7 @@ reset.onclick = function() {
  * by @websightdesigns
  */
 
-$('#start').on('click', function() {
+$('#watchstart').on('click', function() {
 	$('#stop').removeAttr('disabled');
 	$('#reset').removeAttr('disabled');
 });
