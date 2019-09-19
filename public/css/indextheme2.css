@@ -34,6 +34,59 @@
       color:white;
     }
     
+    
+#timeContainer,
+#timerButtons {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#timeContainer {
+	margin-top: 1em;
+}
+
+#timerValue {
+	font-size: 1.5em;
+}
+
+#timerButtons {
+	text-align: center;
+}
+
+#timerButtons button {
+	font-size: 0.8em;
+}
+
+@media (min-width: 768px) {
+	#timeContainer,
+	#timerButtons {
+		width: 210px;
+	}
+
+
+	#timeContainer {
+		width: 184px;
+	}
+	#timerButtons button {
+		max-width: 32.75%;
+		display: inline-block;
+	}
+
+
+	#timeContainer {
+		width: 100%;
+	}
+	#timerButtons button {
+		width: 100%;
+		max-width: 100%;
+		clear: both;
+		display: block;
+		margin-bottom: 0.75em;
+	}
+
+
+    
+    
     #roomname {
       text-align:left;
       z-index:9999;
