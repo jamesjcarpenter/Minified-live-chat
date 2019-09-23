@@ -1,7 +1,5 @@
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
     body { visibility:hidden !important; width:100%; background-color: 	#303030!important; color:white;
-      text-shadow: 4px 4px 4px #474747;
-  font-family: 'Changa', sans-serif;
     }
     #attachmenu { background-color: 		#383838!important;
     }
@@ -20,11 +18,11 @@
       margin:0 auto!important;
       margin-top:4.85em!important;
       margin-bottom:0em!important;
-      right:0vw!important; 
-      margin-right:5vw!important; 
+      right:1.8vw!important; 
+      margin-right:5.75vw!important; 
       position:fixed!important;
-      position:fixed!important;
-      width:18.5vw!important;
+      min-width:15.5vw!important;
+      max-width:16vw!important;
     }
     
     #cpybutton {
@@ -35,12 +33,7 @@
     #safeTimerDisplay {
       color:white;
     }
-    .bootstrap{
-      
-      display:none;
-    };
     
-
     
 #timeContainer,
 #timerButtons {
@@ -105,40 +98,7 @@ left:5%;
 	}
 
 
-  #mask1 {
-    position:absolute;
-    width:70vw;
-    top:-30em;
-left:0em;
-    height:auto;
-    z-index:-1;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: blur(5px);
-    filter: brightness(0.4);
-    filter: contrast(200%);
-    filter: drop-shadow(16px 16px 20px blue);
-    filter: grayscale(50%);
-    opacity:0.009;
-
-  }
-  
-  #send1 {
-    position:absolute;
-    width:70vw;
-    top:-10em;
-right:0em;
-    height:auto;
-    z-index:-1;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: blur(5px);
-    filter: brightness(0.4);
-    filter: contrast(200%);
-    filter: drop-shadow(16px 16px 20px blue);
-    filter: grayscale(50%);
-    opacity:0.009;
-  }
+    
     
     #roomname {
       text-align:left;
@@ -258,9 +218,6 @@ right:0em;
       font-size: 13px;
       width: 80%;
       height:auto;
-      font-family: 'Be Vietnam', sans-serif;
-      font-weight:300;
-      text-shadow: 4px 4px 4px #474747;
     }
     
     #userlist {
@@ -424,9 +381,6 @@ right:0em;
   #copyinput {
     background-color:	#3D3D3D!important;
     color:white;
-    font-family: 'Be Vietnam', sans-serif;
-    font-weight:200;
-    text-shadow: 4px 4px 4px #474747;
   }
   #message{
     padding-top:12.5px;
@@ -473,18 +427,6 @@ right:0em;
     width:70%;
     min-width:6.75vmin;
     min-height:6.31vmin;
-  }
-  
-  #publish {
-    -webkit-box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65); 
-    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.65);
-    border:solid green 2px;
-  }
-  
-  #mediasettings {
-    -webkit-box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65); 
-    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.65);  
-    border:solid purple 2px;
   }
   #secreticon {
     text-align:center;
@@ -701,19 +643,11 @@ pre {
   width:auto;
 }
 #logosrc {
-width:3vw;
+width:7.5vw;
 height:auto;
-  padding:10px;
+  padding:5px;
+  border:1px solid #3D3D3D;
   border-radius:12.5px;
-}
-#logotext {
-  text-shadow: 4px 4px 4px #474747;
-  font-family: 'Fredoka One', cursive;
-  font-weight:600;
-  font-size:20px;
-  z-index:9999;
-  color:white;
-  text-shadow: 2px 2px 2px #000000;
 }
 
 #updatestreams{
@@ -824,14 +758,10 @@ z-index:9998;
   background-color:#2e2e2e!important;
 }
 #call {
-  width:6vw;
-  min-width:5.95vw;
-  height:auto;
+  width:17vmin;
+  height:6vmin;
   z-index:-1;
-  border-radius: 55px;
-  padding:12.5px;
-  margin-left:1.5em;
-  display:inline;
+  margin-right:10px;
 }
 
 .input-group-addon {
