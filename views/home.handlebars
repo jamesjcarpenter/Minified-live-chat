@@ -6,7 +6,6 @@
   <meta property="csp-nonce" content="{{ styleNonce }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-      <script src="./scripts/socket.io/socket.io.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Changa&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="dist/semantic.css">
@@ -17,7 +16,7 @@
 <!-- animsition.js -->
 
   <!-- Site Properties -->
-  <title>Homepage</title>
+  <title>anomic.io - Online Video & Text Chatrooms!</title>
 </head>
 <body>
 <!-- Following Menu -->
@@ -34,7 +33,6 @@
         <a class="toc item">
           <i class="sidebar icon"></i> -->
         <!-- </a> -->
-        <img src="images/homebtn.png"id="homebtn">
         <!-- <a class="active item" id="logotext"><img src="images/homebtn.png"id="homebtn"/></a> -->
         <!-- <a class="item">about</a>            {{#if user}} -->
         <a href="/profile" class="item">view profile</a>
@@ -57,7 +55,7 @@
       <!-- <div class="ui large right pointing label"id="rightlabel"><p id="innertx"> anomic is the #1 place to chat online!</p></div>
         <div class="ui large left pointing label"id="leftlabel0"><p id="innertx1">Stream video live, chat, and hang out with friends.</p></div> -->
       <!-- <div class="ui large left pointing label"id="leftlabel2"><p id="innertx"> anomic is a free app to video conference, instant message, and watch videos with your friends!</p></div> -->
-      <img id="appstore" src="images/apple-store-coming-2.png"/>
+      <img id="appstore" src="images/apple-store-coming-2.png"alt="Coming to the Apple store"/>
       <div class="ui header">
       <div class="ui animated huge primary button" tabindex="0" id="join-btn">
 <div id="join-btn" class="visible content">create a room <i class="right user plus icon"></i></div>
@@ -111,16 +109,39 @@
     </div>
   </div>
 </div>
-<div id="logotext">ANOMIC</div>
+<a href="/home" class="item">
+<div id="logotext">ANOMIC<img src="images/homebtn.png"id="homebtn"></div>
+</a>
+
+<a href="/pro" class="item">
 <div id="texthead">UPGRADE TO PRO</div>
+</a>
+
+<a href="/rooms" class="item">
 <div id="texthead2">VIEW ROOMS</div>
+</a>
+
+<a href="/store" class="item">
 <div id="texthead3">STORE</div>
+</a>
+
+
 {{{body}}} 
+{{#if user}}
+<div id="texthead5">LOG OUT</div>
 
-<span class="ui white text"id="description"><p>An online video chat community.</p></span>
-<span class="ui white text"id="description2"><p>Meet new people. Chat, chill & hangout!</p></span>
-
-
+{{else}}
+<a href="users/login" class="item">
+<div id="texthead4">LOG IN</div>
+</a>
+<a href="users/register" class="item">
+<div id="texthead5">SIGN UP</div>
+</a>
+{{/if}}
+<div class="ui header">
+<h1 class="ui white text"id="description"><p>Anomic - an online video chatting community.</p></h1>
+<h2 class="ui white text"id="description2"><p>Meet new people. Chat, chill & hangout!</p></h2>
+</div>
 <!-- 
     <h3 class="ui center aligned header"></h3>
   </div> -->
@@ -208,6 +229,8 @@
 <i class="circular center aligned theater masks icon"id="chatsicon"></i> 
 live chats
 </h2>
+
+<p id="btnwrapper">
 <div id="threebtn">
 <div class="three ui buttons">
   <button class="ui inverted button">PROMOTED</button>
@@ -215,6 +238,7 @@ live chats
   <button class="ui inverted button">MOST POPULAR</button>
 </div>
 </div>
+</p>
   <br>
   <br>
   
@@ -469,7 +493,7 @@ live chats
   </div>
 </div>
 </div>
-{{ socket.rooms }}
+<!-- {{ socket.rooms }} -->
 <br>
 <br>
 <br>
@@ -505,6 +529,8 @@ live chats
 </div>
 </div>
 </div>
+<script src="./js/io.js"></script>
+<script src="./js/socket.io.js"></script>
 <script src="./js/animhome.js"></script>
 <script src="./js/reset.js"></script>
 <script src="dist/semantic.min.js"></script>

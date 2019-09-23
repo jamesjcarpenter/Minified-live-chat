@@ -113,9 +113,9 @@ font-family: 'Changa', sans-serif;
     z-index:9999;
     opacity:0.95;
     margin-left:0.35em;
-    position:absolute;
-    left:30%;
-    top:0.75em;
+    position:relative;
+    left:5.75%;
+    top:0.25em;
     }
     
     #mask1 {
@@ -152,16 +152,17 @@ font-family: 'Changa', sans-serif;
     font-size:52px;
     font-weight:1500;
     color:white;
-    top:4em;
-        left:30%;
-    position:absolute;
+    margin-top:3.5em;
     text-shadow: 4px 4px 4px #474747;
 font-family: 'Changa', sans-serif;
     }
     
     #threebtn {
-      width:33.5vw;
-      left:32.75%;
+      width:100%;
+      text-align:center;
+      min-width:43.5vw;
+      max-width:45.5vw;
+      left:26.85%;
       padding-top:5em;
       padding-bottom:10em;
       position:relative;
@@ -172,11 +173,9 @@ font-family: 'Changa', sans-serif;
     font-size:32px;
     font-weight:1200;
     color:white;
-    top:10em;
-    left:35%;
-    position:absolute;
+    margin-top:1em;
     text-shadow: 4px 4px 4px #474747;
-font-family: 'Changa', sans-serif;
+    font-family: 'Changa', sans-serif;
     }
     
     #roomspace {
@@ -213,6 +212,12 @@ font-family: 'Changa', sans-serif;
     left:1em;
     top:0.5em;
     position:absolute;
+    }
+    
+    a.item {
+      white-space: nowrap;
+      overflow-x:hidden;
+      overflow-y:hidden;
     }
     
     
@@ -252,6 +257,30 @@ font-family: 'Changa', sans-serif;
     position:absolute;
     }
   
+  
+    #texthead4 {
+    text-shadow: 4px 4px 4px #474747;
+    font-family: 'Changa', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    z-index:9999;
+    color:white;
+      left:90.5%;
+    top:1em;
+    position:absolute;
+    }
+    
+    #texthead5 {
+      text-shadow: 4px 4px 4px #474747;
+      font-family: 'Changa', sans-serif;
+      font-weight:600;
+      font-size:16px;
+      z-index:9999;
+      color:white;
+        left:95.5%;
+      top:1em;
+      position:absolute;
+      }
     
     #join-btn {
       position:relative;
