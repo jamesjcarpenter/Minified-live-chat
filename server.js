@@ -216,6 +216,9 @@ app.use(express.urlencoded({ extended: false }));
 // })
 
 var username;
+
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -229,24 +232,6 @@ app.use(function(req, res, next) {
       req.user === username;
       next();
 });
-
-
-
-// ROUTES
-app.use('/', express.static(__dirname + '/public'));
-
-app.use('/scripts', express.static(__dirname + '/node_modules/'));
-
-app.use(express.static(path.join(__dirname, 'semantic')))
-
-app.use(express.static(path.join(__dirname, 'jan')))
-
-app.use('*/css',express.static('public/css'));
-app.use('*/js',express.static('public/js'));
-app.use('*/images',express.static('public/images'));
-
-
-
 var routes = require('./routes/index.js');
 var users = require('./routes/users');
 var user = require('./models/user');
