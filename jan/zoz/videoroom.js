@@ -80,8 +80,8 @@ console.log(url.substr(url.lastIndexOf("/")+1));
 
 var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 
-		var url = url.substr(url.lastIndexOf("/")+1)
-		var v = url.toLowerCase(),
+		var urlget = url.substr(url.lastIndexOf("/")+1)
+		var v = urlget.toLowerCase(),
 				out = [];
 		
 		for(var i = 0; i < v.length; i++){
@@ -94,7 +94,7 @@ var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 		}
 		
 		console.log(out.join(''));
-var namePos = '' + out.join('');
+var namePos = out.join('');
 
 
 var myroom = null;
