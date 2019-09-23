@@ -95,7 +95,7 @@ var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 		}
 		
 		console.log(out.join(''));
-namePos = '' + out.join('');
+namePos = out.join('');
 
 
 var myroom = null;
