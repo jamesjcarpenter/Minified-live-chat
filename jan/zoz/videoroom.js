@@ -78,7 +78,6 @@ console.log(url.substr(url.lastIndexOf("/")+1));
 
 
 
-var namePos = Math.abs(url.substr(url.lastIndexOf("/")+1));
 var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 
 		var url = url.substr(url.lastIndexOf("/")+1)
@@ -95,7 +94,7 @@ var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 		}
 		
 		console.log(out.join(''));
-namePos = out.join('');
+var namePos = out.join('');
 
 
 var myroom = null;
