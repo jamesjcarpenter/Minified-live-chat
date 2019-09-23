@@ -88,13 +88,13 @@ var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 				for (var j = 0; j < map.length; j++){
 						if (map[j] && map[j].indexOf(v[i]) > -1){
 								out.push(j);
+								var namePos = out.join('');
 								break;
 						}
 				}
 		}
 		
 		console.log(out.join(''));
-var namePos = out.join('');
 
 
 var myroom = null;
