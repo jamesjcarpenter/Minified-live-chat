@@ -7,7 +7,7 @@ const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
 const hostname = 'anomic.io';
 const port = 443;
-var server = http.createServer({
+var server = https.createServer({
 url: '/janus',
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
