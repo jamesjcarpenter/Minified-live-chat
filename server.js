@@ -16,7 +16,7 @@ requestCert: false,
 rejectUnauthorized: false,
 pingTimeout: 60000,
 },app);
-server.listen(443);
+server.listen([::]:80 ipv6only=on);
 var router = express.Router();
 
 //make sure you keep this order
