@@ -6,10 +6,12 @@
   <meta property="csp-nonce" content="{{ styleNonce }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <script src="/socket.io/socket.io.js"></script>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
-    <link rel="stylesheet" type="text/css" href="css/home.css">
-    <script src="./node_modules/jquery/dist/jquery.js"></script>
+      <script src="./scripts/socket.io/socket.io.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Changa&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="./css/home.css">
+    <script src="scripts/jquery/dist/jquery.js"></script>
       <!-- animsition.css -->
     
 <!-- animsition.js -->
@@ -26,14 +28,15 @@
 <!-- Page Contents -->
 
   
-  <div class="ui inverted vertical masthead center aligned segment">
+  <div class="ui inverted vertical masthead center aligned segment"id="gradpanel">
     <div class="ui container">
-      <div class="ui large secondary inverted pointing menu">
+      <!-- <div class="ui large secondary inverted pointing menu"id="gradpanel">
         <a class="toc item">
-          <i class="sidebar icon"></i>
-        </a>
-        <a class="active item">home</a>
-        <a class="item">about</a>            {{#if user}}
+          <i class="sidebar icon"></i> -->
+        <!-- </a> -->
+        <img src="images/homebtn.png"id="homebtn">
+        <!-- <a class="active item" id="logotext"><img src="images/homebtn.png"id="homebtn"/></a> -->
+        <!-- <a class="item">about</a>            {{#if user}} -->
         <a href="/profile" class="item">view profile</a>
         <a class="right item">
                         <b><h4 id="greeting">wb, {{user.name}}&nbsp;&nbsp;<i class="fitted small thumbs up icon"></i></h4></b>
@@ -44,17 +47,19 @@
             </form>
           {{else}}
           <div class="right item">
-          <a href="/users/login" class="ui inverted button" id="btnlogin">log in</a>
-          <a href="/users/register" class="ui inverted button"id="btnlogin">sign up</a>
+          <!-- <a href="/users/login" class="ui inverted button" id="btnlogin">log in</a>
+          <a href="/users/register" class="ui inverted button"id="btnlogin">sign up</a> -->
           {{/if}}
         </div>
       </div>
     <div class="ui text container">
-      <h1 class="ui inverted header">
-        anomic
-      </h1>
+      <h1 class="ui inverted header"id="header"></h1>
+      <!-- <div class="ui large right pointing label"id="rightlabel"><p id="innertx"> anomic is the #1 place to chat online!</p></div>
+        <div class="ui large left pointing label"id="leftlabel0"><p id="innertx1">Stream video live, chat, and hang out with friends.</p></div> -->
+      <!-- <div class="ui large left pointing label"id="leftlabel2"><p id="innertx"> anomic is a free app to video conference, instant message, and watch videos with your friends!</p></div> -->
+      <img id="appstore" src="images/apple-store-coming-2.png"/>
       <div class="ui header">
-      <div class="ui animated huge primary button" tabindex="0">
+      <div class="ui animated huge primary button" tabindex="0" id="join-btn">
 <div id="join-btn" class="visible content">create a room <i class="right user plus icon"></i></div>
 <div class="ui mini inverted basic modal">
   <div class="ui centered large header">
@@ -106,18 +111,24 @@
     </div>
   </div>
 </div>
-
+<div id="logotext">ANOMIC</div>
+<div id="texthead">UPGRADE TO PRO</div>
+<div id="texthead2">VIEW ROOMS</div>
+<div id="texthead3">STORE</div>
 {{{body}}} 
 
+<span class="ui white text"id="description"><p>An online video chat community.</p></span>
+<span class="ui white text"id="description2"><p>Meet new people. Chat, chill & hangout!</p></span>
 
 
+<!-- 
     <h3 class="ui center aligned header"></h3>
-  </div>
-  <h2 class="ui center aligned icon header">
+  </div> -->
+  <!-- <h2 class="ui center aligned icon header">
   <i class="circular center aligned camera retro icon"></i>
   livestreams
-  </h2>
-<div class="container">
+  </h2> -->
+<!-- <div class="container">
 <div class="ui basic segment">
 </div>
 <div class="centered ui grid">
@@ -177,200 +188,280 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="ui ignored grey icon direction buttons">
+  </div> -->
+  <!-- <div class="ui ignored grey icon direction buttons">
     <div class="ui button left" id="liveuserbutton1" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
     <div class="ui icon button right" id="liveuserbutton2" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
   </div>
 </div>
 </div>
+</div> -->
+<!-- <div class="ui basic segment">
 </div>
-<div class="ui basic segment">
-</div>
-<div class="ui basic segment">
+<div class="ui basic segment"> -->
 </div>
 <div class="ui basic segment">
 </div>
 <div class="ui small basic segment">
 </div>
-<h2 class="ui center aligned icon header">
-<i class="circular center aligned wechat icon"></i>
+<h2 class="ui center aligned icon header" id="chatheader">
+<i class="circular center aligned theater masks icon"id="chatsicon"></i> 
 live chats
 </h2>
+<div id="threebtn">
+<div class="three ui buttons">
+  <button class="ui inverted button">PROMOTED</button>
+  <button class="ui inverted button">NEAR YOU</button>
+  <button class="ui inverted button">MOST POPULAR</button>
+</div>
+</div>
   <br>
   <br>
-  
   
   <div class="scroll container" id="#scroller">
   <div class="ui container">
-    <div id="remote-videos" class="ui relaxed grid">
-      <div class="four wide column">
+    <div id="remote-videos" class="ui relaxed sixteen wide column grid"id="grid">
+       <div class="sixteen wide column"></div>
+      <div class="five wide column"id="columns">
       <div data-aos="fade-down-right">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/robotsleep.png">
-        <a href="/room?name=1" class="item">r9
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+          <img class="ui centered image" src="images/ttimechat.jpeg">
+          <h4 class="ui center aligned header"><a href="/room?name=2">anomic</h4>
+
+          <div class="ui divider"id="divider">
+          </div>
         </h4>
-        <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
+          <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-right">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/ttimechat.jpeg">
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+
+        <img class="ui centered image" src="images/ttimechat.jpeg">
         <h4 class="ui center aligned header"><a href="/room?name=2">ttimechat</h4>
+<div class="ui divider"id="divider">
+</div>
                   <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-left">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/herbology.gif">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/herbology.gif">
         <h4 class="ui center aligned header"><a href="/room?name=3">herbology</h4>
+          <div class="ui divider"id="divider">
+          </div>
                   <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
     </div>
   </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-left">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/glitchify.gif">
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/glitchify.gif">
         <h4 class="ui center aligned header"><a href="/room?name=4">glitchify</h4>
+          <div class="ui divider"id="divider">
+          </div>
                   <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
     </div>
+    <div class="ui basic segment"></div>
+      <div class="ui basic segment"></div>
   </div></a>
-      <div class="four wide column">
+  
+      <div class="five wide column">
       <div data-aos="fade-down-left">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/dabbit.jpeg">
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/dabbit.jpeg">
         <h4 class="ui center aligned header"><a href="/room?name=5">dabbit</h4>
+          <div class="ui divider"id="divider">
+          </div>
                   <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
+      <i class="video camera icon"></i>
+      <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-left">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/pinoyextreme101.jpg">
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/pinoyextreme101.jpg">
         <h4 class="ui center aligned header"><a href="/room?name=6">pinoyextreme101</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
+      <i class="video camera icon"></i>
+      <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-right">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/gts3.jpeg">
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/gts3.jpeg">
         <h4 class="ui center aligned header"><a href="/room?name=7">gts3</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-right">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/th3outcasts.png">
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/th3outcasts.png">
+        <div class="ui divider"id="divider">
+        </div>
         <h4 class="ui center aligned header"><a href="/room?name=8">th3outcasts</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
+      <div class="ui basic segment"></div>
+        <div class="ui basic segment"></div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-right">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/robotsleep.png">
-        <h4 class="ui center aligned header"><a href="/room?name=9" class="item">r9
+        <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/robotsleep.png">
+        <h4 class="ui center aligned header"><a href="/room?name=9" class="item">
+          <div class="ui divider"id="divider">
+          </div>r9
         </h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
     </div></a>
     </div>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-right">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/ttimechat.jpeg">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/ttimechat.jpeg">
         <h4 class="ui center aligned header"><a href="/room?name=10" class="item">ttimechat</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-left">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/herbology.gif">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/herbology.gif">
         <h4 class="ui center aligned header"><a href="/room?name=11" class="item">herbology</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
     </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-left">
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/glitchify.gif">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/glitchify.gif">
         <h4 class="ui center aligned header"><a href="/room?name=12" class="item">glitchify</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
     </div>
+    <div class="ui basic segment"></div>
+      <div class="ui basic segment"></div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-left">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/dabbit.jpeg">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/dabbit.jpeg">
+        <div class="ui divider"id="divider">
+        </div>
         <h4 class="ui center aligned header"><a href="/room?name=13" class="item">dabbit</h4>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
+      <i class="video camera icon"></i>
+      <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column" id="infinite-scrolling">
+      <div class="five wide column" id="infinite-scrolling">
       <div data-aos="fade-down-left">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/pinoyextreme101.jpg">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/pinoyextreme101.jpg">
         <h4 class="ui center aligned header"><a href="/room?name=14" class="item">pinoyextreme101</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
       </br>
+      <i class="video camera icon"></i>
+      <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-right">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/gts3.jpeg">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/gts3.jpeg">
         <h4 class="ui center aligned header"><a href="/room?name=15" class="item">gts3</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div>
       </div>
     </div></a>
-      <div class="four wide column">
+      <div class="five wide column">
       <div data-aos="fade-down-right">
         <br>
-        <div id="roomsseg" class="ui raised segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
-        <img class="ui centered circular medium image" src="images/th3outcasts.png">
+        <div id="rightlabelroom"  class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <img class="ui centered image" src="images/th3outcasts.png">
         <h4 class="ui center aligned header"><a href="/room?name=16" class="item">th3outcasts</h4>
+          <div class="ui divider"id="divider">
+          </div>
         <p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p>
         <br>
+        <i class="video camera icon"></i>
+        <i class="users icon"></i>
       </div></a>
       </div>
       </div>
@@ -414,25 +505,22 @@ live chats
 </div>
 </div>
 </div>
-
-<script src="js/reset.js"></script>
-<script src="semantic/dist/semantic.min.js"></script>
-<script src="semantic/dist/components/visibility.js"></script>
-<script src="semantic/dist/components/sidebar.js"></script>
-<script src="semantic/dist/components/transition.js"></script>
+<script src="./js/animhome.js"></script>
+<script src="./js/reset.js"></script>
+<script src="dist/semantic.min.js"></script>
+<script src="dist/components/visibility.js"></script>
+<script src="dist/components/sidebar.js"></script>
+<script src="dist/components/transition.js"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="js/fadeinout.js"></script>
-<script src="js/jquery-textTweener.min.js"></script>
-<script src="js/scrollbox.js"></script>
-<script src="js/texttween.js"></script>
-<script src="js/transin.js"></script>
-<script src="js/transitions.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/modal.js"></script>
-<script src="js/header.js"></script>
-<script src="js/usercheck.js"></script>
-<script src="js/room.js"></script>
+<script src="./js/fadeinout.js"></script>
+<script src="./js/scrollbox.js"></script>
+<script src="./js/transin.js"></script>
+<script src="./js/transitions.js"></script>
+<script src="./js/aos.js"></script>
+<script src="./js/modal.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/room.js"></script>
 <script src="scripts/handlebars/dist/handlebars.min.js "></script>
 </body>
 

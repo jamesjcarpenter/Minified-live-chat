@@ -5,21 +5,21 @@
   <meta property="csp-nonce" content="<%= styleNonce %>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <script src="/socket.io/socket.io.js"></script>
-      <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css"id="semthemecss"content="<%= styleNonce %>">
-      <link rel="stylesheet" type="text/css" href="css/indextheme2.css" id="themecss"content="<%= styleNonce %>">
-      <link rel="stylesheet" type="text/css" href="css/iso_bootstrap3.3.7min.css"content="<%= styleNonce %>">
-        <script src="./node_modules/jquery/dist/jquery.min.js"content="<%= styleNonce %>"></script>
-        <script src="js/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/purify.js"content="<%= styleNonce %>"></script>
-        <script type="text/javascript" src="js/adapter.min.js"content="<%= styleNonce %>"></script>
-      <script type="text/javascript" src="js/jquery.blockUI.min.js"content="<%= styleNonce %>"></script>
-      <script type="text/javascript" src="js/bootstrap.min.js"content="<%= styleNonce %>"></script>
-      <script type="text/javascript" src="js/bootbox.min.js"content="<%= styleNonce %>"></script>
-      <script type="text/javascript" src="js/toastr.min.js"content="<%= styleNonce %>"></script>
+      <link rel="stylesheet" type="text/css" href="../dist/semantic.min.css"id="semthemecss"content="<%= styleNonce %>">
+      <link rel="stylesheet" type="text/css" href="../css/indextheme2.css" id="themecss"content="<%= styleNonce %>">
+      <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Be+Vietnam|Roboto+Mono&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="../css/iso_bootstrap3.3.7min.css"content="<%= styleNonce %>">
+        <script src="../scripts/jquery/dist/jquery.min.js"content="<%= styleNonce %>"></script>
+        <script src="../js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../js/purify.js"content="<%= styleNonce %>"></script>
+        <script type="text/javascript" src="../js/adapter.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="../js/jquery.blockUI.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="../js/bootstrap.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="../js/bootbox.min.js"content="<%= styleNonce %>"></script>
+      <script type="text/javascript" src="../js/toastr.min.js"content="<%= styleNonce %>"></script>
   <title>anomic - chat online</title>
   <h3 class="ui tiny center aligned icon header">
-  <i class="ui tiny circular user secret icon" id="secreticon"></i>
 </h3>
 </head>
 <body>
@@ -69,8 +69,10 @@
 <div class="ui fixed attached vertical labeled icon gray menu" id="attachmenu">
   <a href="/home">
       <div class="ui basic segment">
-<h5 id="logo"><img id="logosrc" src="images/robotsleep.png" /></h5>
+<h5 id="logo"><img id="logosrc" src="images/homebtn.png" /></h5>
       </div>
+    <span class="ui text small"id="logotext">  ANOMIC</span>
+      
   </a>
   <div class="ui basic segment">
   </div>
@@ -139,7 +141,6 @@
               </div>
         </div>
       </div>
-                  
               <div class="five column doubling ui stackable grid"id="camgrid">
                 			<div class="ui basic header">
 <div class="bootstrap">
@@ -337,12 +338,10 @@
 							<!-- </div> -->
 							<!-- <button class="btn btn-success margin-bottom-sm" autocomplete="off" id="register">Register</button> <span class="hide label label-info" id="youok"></span> -->
 						<!-- </div> -->
-						<div class="col-md-6 container hide" id="phone">
-							<div class="input-group margin-bottom-sm">
-                <i class="fa fa-phone fa-fw"></i>
+						<div id="phone">
                 <div id="callwrapper">
 								<input class="form-control" type="text" placeholder="..." autocomplete="off" id="peer"></input>
-              <button class="btn btn-success margin-bottom-sm" autocomplete="off" id="call">Call&nbsp;&nbsp;<i class="phone icon"></i></button>
+              <button class="btn btn-success margin-bottom-sm" autocomplete="off" id="call">&nbsp;&nbsp;<i class="phone icon"></i></button>
               </div>
 						</div>
 					</div>
@@ -456,7 +455,8 @@
     <div id="timeHolder"></div>
     
     
-
+    <!-- <img src="images/sad3.png"id="send1"/>
+    <img src="images/sad4.png"id="mask1"/> -->
 
 
 
@@ -503,17 +503,17 @@
 <div id="roomNam"></div>
 <div id="chatForm"></div>
   <!-- Scripts -->
-  <script src="js/io.js"></script>
-  <script src="js/app.js"></script>
+  <script src="./js/io.js"></script>
+  <script src="./js/app.js"></script>
   <script src="https://apis.google.com/js/client.js?onload=init"></script>
   <script src="https://apis.google.com/js/platform.js"></script>
   
-    <script src="js/vids/bootstrap.bundle.min.js"></script>
-    <script src="js/vids/bootstrap-notify.min.js"></script>
+    <script src="./js/vids/bootstrap.bundle.min.js"></script>
+    <script src="./js/vids/bootstrap-notify.min.js"></script>
     <!-- Plugin JavaScript -->
 
 <!-- Youtube -->
-<script src="js/vids/yt.js"></script>
+<script src="./js/vids/yt.js"></script>
 <!-- <script src="js/vids/events.js"></script> -->
 <!-- Daily Motion -->
 <!-- Vimeo -->
@@ -525,18 +525,18 @@
 
     <!-- Vimeo -->
 
-  
+        <script src="./js/socket.io.js"></script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
   <!-- <script src="https://www.webrtc-experiment.com/Canvas-Designer/canvas-designer-widget.js"></script> -->
   <script id="chat-content-template" type="text/x-handlebars-template"></script>
-  <script src="js/transin.js"></script>
-  <script src="js/transout.js"></script>
-    <!-- <script src="js/videocalltest.js"></script> -->
-    <script src="js/streaming.js"></script>
-  <script src="semantic/dist/semantic.min.js"></script>
-  <script src="js/handlebars.min.js "></script>
-  <script src="./janus.js"></script>
-  <script src="./videoroom.js"></script>
+  <script src="../js/transin.js"></script>
+  <script src="../js/transout.js"></script>
+    <script src="js/videocalltest.js"></script>
+    <script src="../js/streaming.js"></script>
+  <script src="../dist/semantic.min.js"></script>
+  <script src="../js/handlebars.min.js "></script>
+  <script src="/zoz/janus.js"></script>
+  <script src="/zoz/videoroom.js"></script>
   </div>
   </div>
 </body>

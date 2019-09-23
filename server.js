@@ -58,17 +58,9 @@ app.use(function(req, res, next) {
    next();
 });
 
-var whitelist = ['https://www.anomic.io:8089', 'https://www.anomic.io/room?name=*']
 var corsOptions = {
-  "preflightContinue": false,
-  origin: function (origin, callback) {
-   if (whitelist.indexOf(origin) !== -1) {
-     callback(null, true)
-     optionsSuccessStatus: 204
-   } else {
-     callback(new Error('Error'))
-   }
- }
+  origin: 'https://anomic.io:8089',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
 // app.use(function(req, res, next) {
@@ -224,9 +216,6 @@ app.use(express.urlencoded({ extended: false }));
 // })
 
 var username;
-
-app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/'));
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -240,6 +229,22 @@ app.use(function(req, res, next) {
       req.user === username;
       next();
 });
+
+// ROUTES
+app.use('/', express.static(__dirname + '/public'));
+
+app.use('/scripts', express.static(__dirname + '/node_modules/'));
+
+app.use(express.static(path.join(__dirname, 'semantic')))
+
+app.use(express.static(path.join(__dirname, 'jan')))
+
+app.use('*/css',express.static('public/css'));
+app.use('*/js',express.static('public/js'));
+app.use('*/images',express.static('public/images'));
+
+
+
 var routes = require('./routes/index.js');
 var users = require('./routes/users');
 var user = require('./models/user');
