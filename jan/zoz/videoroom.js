@@ -49,44 +49,6 @@ else
 	server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
-
-var url = window.location.href;
-console.log(url);
-function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("/")+1);
-}
-console.log(url.substr(url.lastIndexOf("/")+1));
-
-
-
-
-var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
-
-		var urlget = url.substr(url.lastIndexOf("/")+1)
-		var v = urlget.toLowerCase(),
-				out = [];
-		
-		for(var i = 0; i < v.length; i++){
-				for (var j = 0; j < map.length; j++){
-						if (map[j] && map[j].indexOf(v[i]) > -1){
-								out.push(j);
-								break;
-						}
-				}
-		}
-		
-		console.log(out.join(''));
-var namePos = out.join('');
-
-
-var myroom = null;
- if(window.location.protocol === 'http:');
-		myroom = namePos;
-		
-			if(window.location.protocol === 'https:');
-			 myroom = namePos;
-			 
-			 
 var sfutest = null;
 var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
@@ -247,6 +209,41 @@ function restartCapture() {
 
 
 $(document).ready(function() {
+	var url = window.location.href;
+	console.log(url);
+	function getImageDirectoryByFullURL(url){
+	    return url.substr(url.lastIndexOf("/")+1);
+	}
+	console.log(url.substr(url.lastIndexOf("/")+1));
+	
+	
+	
+	
+	var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
+	
+			var urlget = url.substr(url.lastIndexOf("/")+1)
+			var v = urlget.toLowerCase(),
+					out = [];
+			
+			for(var i = 0; i < v.length; i++){
+					for (var j = 0; j < map.length; j++){
+							if (map[j] && map[j].indexOf(v[i]) > -1){
+									out.push(j);
+									break;
+							}
+					}
+			}
+			
+			console.log(out.join(''));
+	var namePos = out.join('');
+	
+	
+	var myroom = null;
+	 if(window.location.protocol === 'http:');
+			myroom = namePos;
+			
+				if(window.location.protocol === 'https:');
+				 myroom = namePos;
 	// Initialize the library (all console debuggers enabled)
 	Janus.init({debug: "all", callback: function() {
 		// Use a button to start the demo
