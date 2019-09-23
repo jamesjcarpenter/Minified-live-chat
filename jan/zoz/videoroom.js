@@ -97,9 +97,9 @@ var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 var namePos = out.join('');
 
 
-var myroom = null;
+var myroom = 2;
  if(window.location.protocol === 'http:');
-		myroom = '2';
+		myroom = namePos;
 		
 			if(window.location.protocol === 'https:');
 			 myroom = namePos;
