@@ -100,6 +100,9 @@ var namePos = out.join('');
 var myroom = null;
  if(window.location.protocol === 'http:');
 		myroom = namePos;
+		
+		if(window.location.protocol === 'https:');
+			 myroom = namePos;
 
 var myusername = null;
 var myid = null;
