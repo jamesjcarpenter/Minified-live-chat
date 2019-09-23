@@ -104,7 +104,7 @@ var myroom = null;
 		if(window.location.protocol === 'https:');
 			 myroom = namePos;
 
-var myusername = null;
+var myusername = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 var myid = null;
 var mystream = null;
 // We use this other ID just to map our subscriptions to us
@@ -446,8 +446,7 @@ $(document).ready(function() {
 													
 													var newroom = { "request": "create", "room": myroom, "ptype": "publisher", "display": myusername };
 													sfutest.send({"message": newroom});
-													var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": myusername };
-													sfutest.send({"message": register});
+													joinThis();
 												} else {
 													bootbox.alert(msg["error"]);
 												}
@@ -944,6 +943,13 @@ function addSimulcastButtons(feed, temporal) {
 			feeds[index].send({message: { request: "configure", temporal: 2 }});
 		});
 }
+
+function joinThis() {
+	
+	var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": myusername };
+	sfutest.send({"message": register});
+	
+};
 
 function updateSimulcastButtons(feed, substream, temporal) {
 	// Check the substream
