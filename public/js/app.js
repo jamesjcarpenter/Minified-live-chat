@@ -252,14 +252,14 @@ socket.on('connect', function(data) {
     //     $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
     // });
 
-      socket.emit('autosync', data);
+      // socket.emit('autosync', data);
+      // 
+      // getTime();
       
-      getTime();
       
-      
-      function getTime() {
-          return player.getCurrentTime();
-        };
+      // function getTime() {
+      //     return player.getCurrentTime();
+      //   };
       
       var map = {
         "<3": "\u2764\uFE0F",
