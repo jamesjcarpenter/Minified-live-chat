@@ -7,7 +7,7 @@ const _ = require("lodash");
 const eventEmitter = new events.EventEmitter();
 const hostname = 'anomic.io';
 const port = 443;
-var server = https.createServer({
+var server = http.createServer({
 url: '/janus',
 cert: fs.readFileSync('./config/ssli/anomic_io.crt'),
 ca: fs.readFileSync('./config/ssli/anomic_io.ca-bundle'),
@@ -16,7 +16,7 @@ requestCert: false,
 rejectUnauthorized: false,
 pingTimeout: 60000,
 },app);
-server.listen(443);
+server.listen(80);
 var router = express.Router();
 
 //make sure you keep this order
