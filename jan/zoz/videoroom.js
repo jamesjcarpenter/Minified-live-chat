@@ -446,6 +446,8 @@ $(document).ready(function() {
 													
 													var newroom = { "request": "create", "room": myroom, "ptype": "publisher", "display": myusername };
 													sfutest.send({"message": newroom});
+													var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": myusername };
+													sfutest.send({"message": register});
 												} else {
 													bootbox.alert(msg["error"]);
 												}
