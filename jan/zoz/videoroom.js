@@ -49,25 +49,7 @@ else
 	server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
-var sfutest = null;
-var opaqueId = "videoroomtest-"+Janus.randomString(12);
 
-var servers = null, serversIndex = 0;
-var iceServers;
-
-if(iceServers === undefined || iceServers === null)
-	iceServers = [
-		{
-		
-			urls: "stun:stun.l.google.com:19302",
-		},
-		{
-			urls: "turn:165.22.137.67:80",
-			username: "apostles00@yahoo.com",
-			credential: "Zero!",
-			
-		}];
-		
 var url = window.location.href;
 console.log(url);
 function getImageDirectoryByFullURL(url){
@@ -97,12 +79,33 @@ var map = [' ',,'abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
 var namePos = out.join('');
 
 
-var myroom = 2;
+var myroom = null;
  if(window.location.protocol === 'http:');
 		myroom = namePos;
 		
 			if(window.location.protocol === 'https:');
 			 myroom = namePos;
+			 
+			 
+var sfutest = null;
+var opaqueId = "videoroomtest-"+Janus.randomString(12);
+
+var servers = null, serversIndex = 0;
+var iceServers;
+
+if(iceServers === undefined || iceServers === null)
+	iceServers = [
+		{
+		
+			urls: "stun:stun.l.google.com:19302",
+		},
+		{
+			urls: "turn:165.22.137.67:80",
+			username: "apostles00@yahoo.com",
+			credential: "Zero!",
+			
+		}];
+		
 
 var myusername = null;
 var myid = null;
