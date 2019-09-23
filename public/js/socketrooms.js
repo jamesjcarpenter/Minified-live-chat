@@ -1,6 +1,7 @@
-$(document).ready(function() {
 
     var socket = io.connect('https://www.anomic.io/443');
+
+    $(document).ready(function() {
 
     var values = [];
     
