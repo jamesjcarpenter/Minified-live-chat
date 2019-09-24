@@ -464,10 +464,10 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-var clients = io.sockets.adapter.rooms[userId];
+var clients = io.sockets.adapter.rooms[users];
   if(clients) {
-    Object.keys(clients.sockets).forEach(function (userId){
-      console.log("client socket id: " + sessionsMap[userId]);
+    Object.keys(clients.sockets).forEach(function (users){
+      console.log("client socket id: " + io.sockets.adapter.rooms[users]);
     })
   };
 // console.log
