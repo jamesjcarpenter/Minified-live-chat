@@ -418,17 +418,12 @@ io.sockets.on('connection', function (socket) {
       socket.room = room;
       socket.join(room);
       // socket.emit('get host data');
-      io.of('/').in(room).clients(function(error,clients){
-           var numClients=clients.length;
-           console.log("online users:" + numClients);
-       });
+      
         // socket.emit('auto sync');
       // console.log(socket.join(room))
       // console.log(room);
     });
 
-    console.log(io.sockets.adapter.rooms);
-    // console.log(io.sockets);
     socket.on('console', function(data){
       console.log('test');
     });
@@ -440,13 +435,16 @@ io.sockets.on('connection', function (socket) {
     var id = socket.id;
     
     
+    
+    
     ids[id] = id;
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
     
-    
+
+    console.log(usernames)
     
     socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
@@ -480,9 +478,19 @@ io.sockets.on('connection', function (socket) {
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
-      // console.log(io.sockets.adapter.rooms);
-        // console.log(io.sockets.adapter);
-        // console.log(io.sockets);
+      console.log(io.sockets.adapter.rooms);
+      io.of('/').in(room).clients(function(error,clients){
+           var numClients=clients.length;
+           console.log("online users:" + numClients);
+       });
+        // socket.emit('auto sync');
+      // console.log(socket.join(room))
+      // console.log(room);
+
+    // console.log(io.sockets);
+    
+    
+    
   // });
     // console.log(socket.emit('getusers',  '' + usernames));
     // socket.on("set-room", function(room) {
