@@ -419,6 +419,7 @@ io.sockets.on('connection', function (socket) {
       rooms.push(room);
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
+    console.log(Object.keys(socket.rooms));
       // socket.emit('get host data');
       
         // socket.emit('auto sync');
