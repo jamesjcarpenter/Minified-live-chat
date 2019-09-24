@@ -464,21 +464,22 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-var clients = io.sockets.adapter.rooms[users];
-  if(clients) {
-    Object.keys(clients.sockets).forEach(function (users){
-      console.log("client socket id: " + io.sockets.adapter.rooms[users]);
-    })
-  };
+// var clients = io.sockets.adapter.rooms[users];
+//   if(clients) {
+//     Object.keys(clients.sockets).forEach(function (users){
+//       console.log("client socket id: " + io.sockets.adapter.rooms[users]);
+//     })
+//   };
 // console.log
 // 
 //     io.of('/').in(socket.room).clients((error, clients) => {
 //     if (error) throw error;
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
-    console.log(clients); 
-    console.log(io.sockets.adapter.rooms);
+    // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
+      console.log(io.sockets.adapter.rooms);
+        console.log(io.sockets.adapter.usernames);
   // });
     // console.log(socket.emit('getusers',  '' + usernames));
     // socket.on("set-room", function(room) {
