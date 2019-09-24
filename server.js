@@ -438,13 +438,13 @@ io.sockets.on('connection', function (socket) {
     
     
     ids[id] = id;
+    rooms[room] = room;
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
     
-
-    console.log(usernames)
+    
     
     socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
