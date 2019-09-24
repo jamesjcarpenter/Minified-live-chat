@@ -436,7 +436,7 @@ io.sockets.on('connection', function (socket) {
     
     
     
-    
+    var room = null;
     ids[id] = id;
     io.sockets.adapter.rooms[socket.room] = room;
     // var username = socket.id;
