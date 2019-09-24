@@ -479,7 +479,7 @@ io.sockets.on('connection', function (socket) {
     // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
       console.log(io.sockets.adapter.rooms);
-      io.of('/').in(room).clients(function(error,clients){
+      io.of('/').in(socket.room).clients(function(error,clients){
            var numClients=clients.length;
            console.log("online users:" + numClients);
        });
