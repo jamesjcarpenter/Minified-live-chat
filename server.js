@@ -404,7 +404,7 @@ process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/H
 process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
-let set = new Set();
+
   socket.emit('askForUserId');
 
   socket.on('userIdReceived', (userId) => {
@@ -416,9 +416,9 @@ let set = new Set();
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
+      rooms.push(room);
       socket.join(room);
-      set.delete(room)
-      set.add(room)
+    socket.emit('updaterooms', rooms, socket.room);
       // socket.emit('get host data');
       
         // socket.emit('auto sync');
@@ -489,7 +489,7 @@ let set = new Set();
       // console.log(socket.join(room))
       // console.log(room);
 
-    console.log(io.sockets);
+    // console.log(io.sockets);
     
     
     
