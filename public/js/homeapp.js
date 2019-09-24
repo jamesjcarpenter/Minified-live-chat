@@ -338,10 +338,8 @@ socket.on('connect', function(data) {
       $('#roomlist').empty();
       $.each(rooms, function(key, value) {
         if(value == current_room){
-          value.substr(value.lastIndexOf("/")+1);
           $('#roomlist').append('<div>' + value + '</div>');
-          console.log(key);
-          console.log(value);
+          console.log(value.substr(value.lastIndexOf("/")+1));
         }
         else {
           $('#roomlist').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
