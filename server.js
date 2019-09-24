@@ -478,7 +478,7 @@ io.sockets.on('connection', function (socket) {
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
-      console.log(io.sockets.adapter.rooms);
+      // console.log(io.sockets.adapter.rooms);
       io.of('/').in(socket.room).clients(function(error,clients){
            var numClients=clients.length;
            console.log("online users:" + numClients);
@@ -487,7 +487,7 @@ io.sockets.on('connection', function (socket) {
       // console.log(socket.join(room))
       // console.log(room);
 
-    // console.log(io.sockets);
+    console.log(io.sockets);
     
     
     
