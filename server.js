@@ -427,6 +427,8 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
 
+    // console.log(io.sockets.adapter.rooms);
+    console.log(io.sockets);
     socket.on('console', function(data){
       console.log('test');
     });
@@ -443,9 +445,7 @@ io.sockets.on('connection', function (socket) {
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
-    io.sockets.adapter.rooms(function (err, rooms) {
-      console.log(rooms); // an array containing all rooms (accross every node)
-    });
+    
     
     
     socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
