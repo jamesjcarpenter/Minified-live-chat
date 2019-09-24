@@ -71,27 +71,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
-  
-  
   socket.on('connect', function(){
     
-    var values = [];
-    
-    
-    for (var i = 0; i < socket.rooms.length; i++)
-    {
-        var room = socket.rooms[i];
-        if (values.indexOf(room[1] === -1) {
-        
-        values.push(room[1]);
-      };
-        
-    };
-
-      console.log(values);
-      $('#roomlist').append('<span class="ui white text">' + '' + values + '</span');
-    $.each(data, function(key, value) {
-      $('#roomlist').append('' + '<span class="ui white text">' + key + '</span>' + value + '<span class="ui white text">' + '' + '</span>' + '<br>');
     
       
     socket.room = {};
@@ -140,17 +121,18 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  // console.log(Object.keys.usernames);
-  // socket.on('getusers', function (usernames) {
-  //   for(key in usernames) {
-  //   if(usernames.hasOwnProperty(key)) {
-  //       var value = usernames[key];
-  //       //do something with value;
-  //     }
-  //   }
-  //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
-  // 
-  // });
+  console.log(socket.usernames);
+  socket.on('getusers', function (usernames) {
+    for(key in usernames) {
+    if(usernames.hasOwnProperty(key)) {
+        var value = usernames[key];
+        console.log(usersnames[key]);
+        //do something with value;
+      }
+    }
+   $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
+  
+  });
   
 
   socket.on('updateusers', function(data) {

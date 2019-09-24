@@ -469,10 +469,9 @@ io.sockets.on('connection', function (socket) {
 //     if (error) throw error;
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
-    // console.log(clients); 
-    // console.log(rooms);
-    // socket.emit('clientlist', clients);
-    // socket.emit('getusers',  '' + usernames);
+    console.log(clients); 
+    console.log(rooms);
+    socket.emit('getusers',  '' + usernames);
   // });
     // console.log(socket.emit('getusers',  '' + usernames));
     // socket.on("set-room", function(room) {
