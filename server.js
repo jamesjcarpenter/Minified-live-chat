@@ -420,7 +420,7 @@ io.sockets.on('connection', function (socket) {
       // socket.emit('get host data');
       io.of('/').in(room).clients(function(error,clients){
            var numClients=clients.length;
-           console.log("numclients:  " + numClients);
+           console.log("online users:" + numClients);
        });
         // socket.emit('auto sync');
       // console.log(socket.join(room))
