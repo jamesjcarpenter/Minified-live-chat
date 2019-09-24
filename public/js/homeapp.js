@@ -341,7 +341,7 @@ socket.on('connect', function(data) {
       $('#roomlist').empty();
       $.each(rooms, function(key, value) {
         if(value == current_room){
-          room.substr(room.lastIndexOf("/")+1);
+          value.substr(value.lastIndexOf("/")+1);
           $('#roomlist').append('<div>' + value + '</div>');
         }
         else {

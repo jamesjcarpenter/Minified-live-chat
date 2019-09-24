@@ -424,9 +424,4 @@ font-family: 'Changa', sans-serif;
       #btnlogout {
         display: none !important;
     }
-    #spanrooms {
-    position:absolute;
-    left:40%;
-    top:20%;
-    font-size:17px;
-    }
+    
