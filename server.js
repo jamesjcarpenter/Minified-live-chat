@@ -427,8 +427,8 @@ io.sockets.on('connection', function (socket) {
       // console.log(room);
     });
 
-    // console.log(io.sockets.adapter.rooms);
-    console.log(io.sockets);
+    console.log(io.sockets.adapter.rooms);
+    // console.log(io.sockets);
     socket.on('console', function(data){
       console.log('test');
     });
