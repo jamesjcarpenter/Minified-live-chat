@@ -341,10 +341,10 @@ socket.on('connect', function(data) {
       $('#roomlist').empty();
       $.each(rooms, function(key, value) {
         if(value == current_room){
-          $('#roomlist').append('<div>' + value.substr(value.lastIndexOf("/")+1) + '</div>');
+          $('#roomlist').append('<div>' + value.substr(value.lastIndexOf("/")+1); + '</div>');
         }
         else {
-          $('#roomlist').empty();
+          $('#roomlist').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
         }
       });
     });
