@@ -423,7 +423,7 @@ io.sockets.on('connection', function (socket) {
       // console.log(socket.join(room))
       // console.log(room);
     });
-
+socket.emit('updaterooms', rooms, 'room1');
     socket.on('console', function(data){
       console.log('test');
     });

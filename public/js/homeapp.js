@@ -90,7 +90,17 @@ var socket = io.connect('anomic.io/');
         socket.emit(socket.id);
       });
       
-
+      socket.on('updaterooms', function(rooms, current_room) {
+		$('#roomlist').empty();
+		$.each(rooms, function(key, value) {
+			if(value){
+				$('#roomlist').append('<div>' + value + '</div>');
+			}
+			else {
+				$('#roomlist').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+			}
+		});
+	});
 
     
       socket.on('private-message', (data, message) => {
