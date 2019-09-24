@@ -418,9 +418,10 @@ io.sockets.on('connection', function (socket) {
       socket.room = room;
       socket.join(room);
       // socket.emit('get host data');
-      var clients = io.of('/').clients(room); 
-      
-      console.log(clients);
+      io.of('/').in(room).clients(function(error,clients){
+           var numClients=clients.length;
+           console.log(numClients);
+       });
         // socket.emit('auto sync');
       // console.log(socket.join(room))
       // console.log(room);
