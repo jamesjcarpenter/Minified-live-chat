@@ -480,7 +480,7 @@ let set = new Set();
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
-      // console.log(io.sockets.adapter.rooms);
+      console.log(io.sockets.adapter.rooms);
       io.of('/').in(socket.room).clients(function(error,clients){
            var numClients=clients.length;
            console.log("online users:" + numClients);
