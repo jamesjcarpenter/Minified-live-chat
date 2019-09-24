@@ -438,7 +438,7 @@ io.sockets.on('connection', function (socket) {
     
     
     ids[id] = id;
-    rooms[room] = room;
+    io.sockets.adapter.rooms[socket.room] = room;
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
