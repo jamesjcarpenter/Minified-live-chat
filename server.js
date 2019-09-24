@@ -478,8 +478,9 @@ io.sockets.on('connection', function (socket) {
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
-      console.log(io.sockets.adapter.rooms);
-        console.log(io.sockets.adapter.usernames);
+      // console.log(io.sockets.adapter.rooms);
+        console.log(io.sockets.adapter);
+        console.log(io.sockets);
   // });
     // console.log(socket.emit('getusers',  '' + usernames));
     // socket.on("set-room", function(room) {
