@@ -443,19 +443,7 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
-    var values = [];
-    
-    
-    for (var i = 0; i < socket.rooms.length; i++)
-    {
-        var room = socket.rooms[i];
-        if(values.indexOf(room[1] === -1) values.push(room[1]);
-        
-    };
 
-      console.log(values);
-      
-      
     console.log(usernames)
     
     socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);

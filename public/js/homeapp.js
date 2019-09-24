@@ -86,9 +86,9 @@ var socket = io.connect('anomic.io/');
     };
 
       console.log(values);
-      
-    $.each(data, function(key, values) {
-      $('#roomlist').append('' + '<span class="ui white text">' + key + '</span>' + '<span class="ui white text">' + '' + values + '</span>' + '<br>');
+      $('#roomlist').append('<span class="ui white text">' + '' + values + '</span');
+    $.each(data, function(key, value) {
+      $('#roomlist').append('' + '<span class="ui white text">' + key + '</span>' + value + '<span class="ui white text">' + '' + '</span>' + '<br>');
     
       
     socket.room = {};
