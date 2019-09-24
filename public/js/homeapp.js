@@ -338,7 +338,7 @@ socket.on('connect', function(data) {
       $('#roomlist').empty();
       $.each(rooms, function(key, value) {
         if(value == current_room){
-          $('#rightlabelroom1').append('<div class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">' + '<img class="ui centered image" src="images/ttimechat.jpeg">' + '<h4 class="ui center aligned header"><a href="/room?name=2">' + value + '</h4>' + '<div class="ui divider"id="divider"></div></h4>' + '<p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p><br>' + '<i class="video camera icon"></i><i class="users icon"></i></div></div>' + value + '</div>');
+          $('#roomlist').append('<div>' + value + '</div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
         }
         else {
