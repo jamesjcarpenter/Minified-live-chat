@@ -71,8 +71,24 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
 var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
+  
+  
   socket.on('connect', function(){
     
+    var values = [];
+    
+    
+    for (var i = 0; i < socket.rooms.length; i++)
+    {
+        var room = socket.rooms[i];
+        if(values.indexOf(room[1] === -1) values.push(room[1]);
+        
+    };
+
+      console.log(values);
+      
+    $.each(data, function(key, values) {
+      $('#roomlist').append('' + '<span class="ui white text">' + key + '</span>' + '<span class="ui white text">' + '' + values + '</span>' + '<br>');
     
       
     socket.room = {};
@@ -121,7 +137,7 @@ var socket = io.connect('anomic.io/');
   // 
   // });
   
-  console.log(Object.keys.usernames);
+  // console.log(Object.keys.usernames);
   // socket.on('getusers', function (usernames) {
   //   for(key in usernames) {
   //   if(usernames.hasOwnProperty(key)) {
