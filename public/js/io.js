@@ -1,1 +1,1 @@
-var socket = io.connect('anomic.io/');
+// var socket = io.connect('anomic.io/');
