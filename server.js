@@ -457,17 +457,19 @@ io.sockets.on('connection', function (socket) {
     
     socket.on('connect', function(client) {
         ids.splice(ids.indexOf(socket.id), 1);
-      io.sockets.adapter.rooms.splice(io.sockets.adapter.rooms.indexOf(socket.rooms), 1);
-
-        socket.on('disconnect', function() {
-        io.sockets.adapter.rooms.splice(io.sockets.adapter.rooms.indexOf(socket.rooms), 1);
 
         socket.on('disconnect', function() {
           ids.splice(ids.indexOf(socket.id), 1);
-        });
-      });
   });
+});
 
+
+var clients = io.sockets.adapter.rooms[roomId];
+  if(clients) {
+    Object.keys(clients.sockets).forEach(function (socketId){
+      console.log("client socket id: " + socketId );
+    })
+  };
 // console.log
 // 
 //     io.of('/').in(socket.room).clients((error, clients) => {
