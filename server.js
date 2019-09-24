@@ -467,7 +467,7 @@ io.sockets.on('connection', function (socket) {
 var clients = io.sockets.adapter.rooms[userId];
   if(clients) {
     Object.keys(clients.sockets).forEach(function (userId){
-      console.log("client socket id: " + userId );
+      console.log("client socket id: " + sessionsMap[userId]);
     })
   };
 // console.log
