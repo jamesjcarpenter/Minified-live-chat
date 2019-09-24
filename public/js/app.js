@@ -73,9 +73,8 @@ var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-    
       
-    socket.room = {};
+    socket.room = [];
     var roomId = url.substr(url.lastIndexOf("=")+1);
     socket.room = roomId;
     // console.log("roomId : "+roomId);

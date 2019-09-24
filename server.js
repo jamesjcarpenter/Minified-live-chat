@@ -418,7 +418,9 @@ io.sockets.on('connection', function (socket) {
       socket.room = room;
       socket.join(room);
       // socket.emit('get host data');
+      var clients = io.of('/').clients(room); 
       
+      console.log(clients);
         // socket.emit('auto sync');
       // console.log(socket.join(room))
       // console.log(room);
@@ -435,10 +437,7 @@ io.sockets.on('connection', function (socket) {
     var id = socket.id;
     
     
-    
-    var room = null;
     ids[id] = id;
-    io.sockets.adapter.rooms[socket.room] = room;
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
@@ -479,8 +478,8 @@ io.sockets.on('connection', function (socket) {
     // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
       // console.log(io.sockets.adapter.rooms);
-        console.log(io.sockets.adapter);
-        console.log(io.sockets);
+        // console.log(io.sockets.adapter);
+        // console.log(io.sockets);
   // });
     // console.log(socket.emit('getusers',  '' + usernames));
     // socket.on("set-room", function(room) {
