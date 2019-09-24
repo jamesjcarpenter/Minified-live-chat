@@ -172,6 +172,7 @@ left:5%;
     margin-left:4.5em;
     position:relative;
     overflow-y:hidden;
+    white-space: nowrap;
     }
     #videos{
         display:block;
@@ -445,6 +446,7 @@ left:5%;
     color:white;
     opacity:0.8;
     z-index:1000;
+    white-space: nowrap;
   }
   #useravatar{
     top:17px;
@@ -786,6 +788,7 @@ z-index:9998;
   display:block;
   position:absolute;
   z-index:9999;
+  white-space: nowrap;
 }
 #emojiPickerWrap {
 margin: 10px 0 0 0;
