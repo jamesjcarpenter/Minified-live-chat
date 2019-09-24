@@ -4,17 +4,7 @@ var socket = io.connect('anomic.io/');
   
   socket.on('connect', function(){
     
-    var values = [];
-    
-    
-    for (var i = 0; i < socket.rooms.length; i++)
-    {
-        var room = socket.rooms[i];
-        if(values.indexOf(room[1] === -1) values.push(room[1]);
-        
-    };
 
-      console.log(values);
       
     $.each(data, function(key, values) {
       $('#roomlist').append('' + '<span class="ui white text">' + key + '</span>' + '<span class="ui white text">' + '' + values + '</span>' + '<br>');
