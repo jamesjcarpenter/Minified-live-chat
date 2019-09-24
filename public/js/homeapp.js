@@ -80,7 +80,7 @@ var socket = io.connect('anomic.io/');
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
 
-       socket.emit('adduser', prompt("Enter username."));
+       // socket.emit('adduser', prompt("Enter username."));
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
@@ -340,8 +340,6 @@ socket.on('connect', function(data) {
         if(value == current_room){
           $('#roomlist').append('<div>' + value + '</div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
-        }
-        else {
           $('#roomlist').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
         }
       });
