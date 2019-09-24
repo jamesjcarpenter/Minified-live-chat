@@ -389,7 +389,7 @@ app.use((err, req, res, next) => {
 
 
 
-var rooms = {};
+var rooms = [];
 // usernames which are currently connected to the chat
 var usernames = {};
 // rooms which are currently available in chat
@@ -471,6 +471,7 @@ io.sockets.on('connection', function (socket) {
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     console.log(clients); 
     console.log(rooms);
+    console.log(socket.rooms);
     socket.emit('getusers',  '' + usernames);
   // });
     // console.log(socket.emit('getusers',  '' + usernames));
