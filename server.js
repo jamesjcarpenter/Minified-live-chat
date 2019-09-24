@@ -423,7 +423,7 @@ io.sockets.on('connection', function (socket) {
       // console.log(socket.join(room))
       // console.log(room);
     });
-socket.emit('updaterooms', rooms, 'room1');
+
     socket.on('console', function(data){
       console.log('test');
     });
@@ -470,8 +470,7 @@ socket.emit('updaterooms', rooms, 'room1');
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     console.log(clients); 
-    console.log(rooms);
-    console.log(socket.rooms);
+    console.log(io.sockets.adapter.rooms);
     socket.emit('getusers',  '' + usernames);
   // });
     // console.log(socket.emit('getusers',  '' + usernames));
