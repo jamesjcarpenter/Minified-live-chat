@@ -126,7 +126,7 @@ var socket = io.connect('anomic.io/');
     for(key in usernames) {
     if(usernames.hasOwnProperty(key)) {
         var value = usernames[key];
-        console.log(usersnames[key]);
+        console.log(value);
         //do something with value;
       }
     }
