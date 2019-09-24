@@ -344,7 +344,7 @@ socket.on('connect', function(data) {
           $('#roomlist').append('<div>' + value.substr(value.lastIndexOf("/")+1) + '</div>');
         }
         else {
-          $('#roomlist').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+          $('#roomlist').empty();
         }
       });
     });
