@@ -439,7 +439,6 @@ io.sockets.on('connection', function (socket) {
     
     
     
-    
     ids[id] = id;
     // var username = socket.id;
     // store the room name in the socket session for this client
@@ -454,7 +453,7 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
       io.in(socket.room).emit('updateusers', usernames, socket.id);
     // console.log(usernames);
-      io.in(socket.room).emit('updaterooms', rooms, socket.room);
+      socket.emit('updaterooms', rooms, socket.room);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
