@@ -443,7 +443,9 @@ io.sockets.on('connection', function (socket) {
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
-    
+    io.adapter.allRooms(function (err, rooms) {
+      console.log(rooms); // an array containing all rooms (accross every node)
+    });
     
     
     socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);

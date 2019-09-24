@@ -309,9 +309,9 @@ socket.on('connect', function(data) {
   
   
   socket.on('updateroomusers', function(roomusers, username) {
-  $("#roomlist").empty();
+  $("#roomusers").empty();
   $.each(roomusers, function (key, value) {
-  $('#roomlist').append('+value+');
+  $('#roomusers').append('+value+');
   });
   });
   
@@ -338,13 +338,13 @@ socket.on('connect', function(data) {
   }); 
   
   socket.on('updaterooms', function(rooms, current_room) {
-      $('#roomlist').empty();
+      $('#rooms').empty();
       $.each(rooms, function(key, value) {
         if(value == current_room){
-          $('#roomlist').append('<div>' + value + '</div>');
+          $('#rooms').append('<div>' + value + '</div>');
         }
         else {
-          $('#roomlist').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+          $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
         }
       });
     });
