@@ -81,7 +81,10 @@ var socket = io.connect('anomic.io/');
     for (var i = 0; i < socket.rooms.length; i++)
     {
         var room = socket.rooms[i];
-        if(values.indexOf(room[1] === -1) values.push(room[1]);
+        if (values.indexOf(room[1] === -1) {
+        
+        values.push(room[1]);
+      };
         
     };
 
