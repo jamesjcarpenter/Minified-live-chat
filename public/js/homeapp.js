@@ -1,4 +1,3 @@
-var socket = io.connect('anomic.io/');
 window.addEventListener('load', () => {
   
   // Chat platform
@@ -70,7 +69,7 @@ $(document).ready(function() {
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
-
+var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     

@@ -1,6 +1,5 @@
-var socket = io.connect('anomic.io/');
 window.addEventListener('load', () => {
-  
+  var socket = io.connect('anomic.io/');
   // Chat platform
   // Local Video
 $('#start').click();
