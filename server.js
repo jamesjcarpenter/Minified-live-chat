@@ -409,7 +409,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('userIdReceived', (userId) => {
     sessionsMap[userId] = socket.id;
-    console.log(sessionsMap[userId])
+    // console.log(sessionsMap[userId])
   });
     // let setRoom;
     
@@ -527,8 +527,8 @@ io.sockets.on('connection', function (socket) {
   socket.on('sendchat', function (data) {
   		// we tell the client to execute 'updatechat' with 2 parameters
   		io.in(socket.room).emit('updatechat', socket.username, data);
-          console.log(usernames)
-            console.log(ids)
+          // console.log(usernames)
+          //   console.log(ids)
   	});
     
     // socket.on('sendurl', function (data) {

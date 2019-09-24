@@ -11,9 +11,9 @@ var url = window.location.href;
 
 console.log(url);
 function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
+    return url.substr(url.lastIndexOf("/")+1);
 }
-console.log(url.substr(url.lastIndexOf("=")+1));
+console.log(url.substr(url.lastIndexOf("/")+1));
 
 $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
@@ -74,7 +74,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     
       
     socket.room = [];
-    var roomId = url.substr(url.lastIndexOf("=")+1);
+    var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
     // console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
