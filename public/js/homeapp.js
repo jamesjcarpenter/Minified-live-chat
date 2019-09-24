@@ -74,8 +74,6 @@ var socket = io.connect('anomic.io/');
   socket.on('connect', function(){
     
     
-      
-    socket.room = {};
     var roomId = url.substr(url.lastIndexOf("=")+1);
     socket.room = roomId;
     // console.log("roomId : "+roomId);
