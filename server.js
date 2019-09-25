@@ -416,7 +416,7 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      rooms.push(room - 1);
+      rooms.push(room);
       console.log(rooms.push(room));
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
@@ -427,6 +427,26 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     console.log(rooms);
     }
+    
+    function find_duplicates(rooms) {
+  var len=rooms.length,
+      out=[],
+      counts={};
+
+  for (var i=0;i<len;i++) {
+    var item = rooms[i];
+    counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
+    if (counts[item] === 2) {
+      out.push(item);
+    }
+  }
+
+  return out;
+  console.log(out);
+}
+
+find_duplicates(rooms); 
+    
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
       
