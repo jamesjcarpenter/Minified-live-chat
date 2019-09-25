@@ -24,12 +24,20 @@
 
 
 
- var server = null;
- if(window.location.protocol === 'http:')
-         server = "http://" + window.location.hostname + ":8088/janus";
- else
-         server = "https://" + window.location.hostname + ":8089/janus";
-
+ var server = [
+ "https://127.0.0.1:8080/janus",
+ "http://172.17.0.2:8080/janus",
+ "https://www.anomic.io:8089/janus",
+ "https://www.anomic.io:8080/janus",
+ "127.0.0.1",
+ "localhost:8080",
+ "/janus",
+ "wss://" + window.location.hostname + ":8080",
+ "wss://" + window.location.hostname + ":8089",
+ "172.17.0.2:8089/janus",
+ "172.17.0.2:8088/janus",
+ "172.17.0.2:8080/janus",
+ ];
 // List of sessions
 Janus.sessions = {};
 

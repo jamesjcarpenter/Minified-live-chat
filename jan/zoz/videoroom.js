@@ -52,6 +52,9 @@ var server = [
 "/janus",
 "wss://" + window.location.hostname + ":8080",
 "wss://" + window.location.hostname + ":8089",
+"172.17.0.2:8089/janus",
+"172.17.0.2:8088/janus",
+"172.17.0.2:8080/janus",
 ];
 
 var janus = null;
