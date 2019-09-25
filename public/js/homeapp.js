@@ -338,14 +338,11 @@ socket.on('connect', function(data) {
   socket.on('updatehomepage', function(rooms, curRoom) {
       $.each(rooms, function(key, value, curRoom) {
         if(value == curRoom){
-          if ($('#roomlist').val(room)){
-            return false;
-        } else {
-            $('#roomlist').empty();
-            $('#roomlist').append('<div>' + curRoom + '</div>');
-          // console.log(value.substr(value.lastIndexOf("/")+1));
+          $('#roomlist').empty();
+          $('#roomlist').append('<div>' + curRoom + '</div>');
+          console.log(value.substr(value.lastIndexOf("/")+1));
         };
-      };
+      });
     });
 
     socket.on('disconnect', function(){
