@@ -462,7 +462,7 @@ io.sockets.on('connection', function (socket) {
     usernames[username] = username;
     
 
-    console.log(usernames)
+    console.log(usernames.splice(usernames.indexOf(username), 1)))
     
     socket.emit('serverupdatechat', '' + socket.username + 'joined' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
@@ -481,12 +481,12 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-var clients = io.sockets.adapter.rooms[users];
-  if(clients) {
-    Object.keys(clients.sockets).forEach(function (users){
-      console.log("client socket id: " + io.sockets.adapter.rooms[users]);
-    })
-  };
+// var clients = io.sockets.adapter.rooms[users];
+//   if(clients) {
+//     Object.keys(clients.sockets).forEach(function (users){
+//       console.log("client socket id: " + io.sockets.adapter.rooms[users]);
+//     })
+//   };
 // console.log
 // 
 //     io.of('/').in(socket.room).clients((error, clients) => {
