@@ -16,7 +16,7 @@ requestCert: false,
 rejectUnauthorized: false,
 pingTimeout: 60000,
 },app);
-server.listen(8080);
+server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
