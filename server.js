@@ -417,8 +417,22 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       rooms.push(room);
+      duplicateRoom(rooms)
+      function duplicateRoom() {
+      var map = {}, i, size;
+      
+      for (i = 0; size = rooms.length; i < size; i++){
+        if(map[rooms[i]]){
+          return false;
+        }
+        map[rooms[i]] = true;
+      }
+      return true;
+    };
+      
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
+    
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
