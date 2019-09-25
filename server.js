@@ -416,8 +416,6 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      
-      var rooms = io.sockets.adapter.rooms;
       rooms.push(room);
       console.log(rooms.push(room));
       socket.join(room);
@@ -427,6 +425,7 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log(rooms[i]);
+    console.log(rooms);
     }
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
