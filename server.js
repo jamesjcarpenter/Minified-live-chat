@@ -420,8 +420,8 @@ io.sockets.on('connection', function (socket) {
       socket.join(room);
     io.emit('updaterooms', rooms, socket.room);
     
-    for (var i = 0; i < io.sockets.rooms.length; i++) {
-    console.log(io.sockets.rooms[i]);
+    for (var i = 0; i < io.rooms.length; i++) {
+    console.log(io.rooms[i]);
 }
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
