@@ -421,7 +421,7 @@ io.sockets.on('connection', function (socket) {
       function duplicateRoom() {
       var map = {}, i, size;
       
-      for (i = 0; size = rooms.length; i < size; i++){
+      for (i = 0; size = rooms.length; i < size, i++){
         if(map[rooms[i]]){
           return false;
         }
