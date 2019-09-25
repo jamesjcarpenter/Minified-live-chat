@@ -501,7 +501,7 @@ io.sockets.on('connection', function (socket) {
       io.of('/').in(socket.room).clients(function(error,clients){
            var numClients=clients.length;
            console.log("online users:" + numClients);
-           io.emit('updateactive', numClients);
+           socket.emit('updateactive', numClients);
        });
         // socket.emit('auto sync');
       // console.log(socket.join(room))

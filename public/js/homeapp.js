@@ -79,7 +79,7 @@ var socket = io.connect('anomic.io/');
     // console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
-    
+     socket.emit('getusers');
 
        // socket.emit('adduser', prompt("Enter username."));
 
@@ -120,17 +120,17 @@ var socket = io.connect('anomic.io/');
   // });
   
   // console.log(socket.usernames);
-  socket.on('getusers', function (usernames) {
-    for(key in usernames) {
-    if(usernames.hasOwnProperty(key)) {
-        var value = usernames[key];
-        console.log(value);
-        //do something with value;
-      }
-    }
-   $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
-  
-  });
+  // socket.on('getusers', function (usernames) {
+  //   for(key in usernames) {
+  //   if(usernames.hasOwnProperty(key)) {
+  //       var value = usernames[key];
+  //       console.log(value);
+  //       //do something with value;
+  //     }
+  //   }
+  //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
+  // 
+  // });
   
 
   socket.on('updateusers', function(data) {
@@ -340,7 +340,7 @@ socket.on('connect', function(data) {
   });
   
   socket.on('updateactive', function(numClients) {
-    // $('#globallist').empty();
+    $('#globallist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
     // $.each(data, function(key, value) {
       $('#globallist').append('' + numClients);
