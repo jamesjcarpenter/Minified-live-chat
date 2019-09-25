@@ -425,7 +425,7 @@ io.sockets.on('connection', function (socket) {
     // io.emit('updaterooms', rooms, socket.room);
     
           console.log('io: ' + rooms.length);
-    
+    socket.emit('roomcount', rooms, socket.rooms);
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
     var curRoom = rooms[i]

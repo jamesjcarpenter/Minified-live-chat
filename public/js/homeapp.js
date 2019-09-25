@@ -335,11 +335,15 @@ socket.on('connect', function(data) {
     },3500);
   }); 
   
+  socket.on('roomcount', function(rooms) {
+          $('#rmcount').append('' + rooms.length);
+  });
+  
   socket.on('updateactive', function(numClients) {
+    $('#globallist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
-    $.each(function(numClients) {
-      $('#globallist').empty();
-      $('#globallist').append('<h3 class="ui label">CURRENTLY CONNECTED:' + numClients + '</h3');
+    // $.each(data, function(key, value) {
+      $('#globallist').append('' + numClients);
   });
   
   
