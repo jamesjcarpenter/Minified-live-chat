@@ -417,10 +417,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
-      if (rooms.indexOf(room) == 0) {
+      if (rooms.indexOf(room) == -1) {
       rooms.push(room);
     } else {
-      return;
+      return false;
     };
     // io.emit('updaterooms', rooms, socket.room);
     io.emit('updatehomepage', rooms, socket.room);
