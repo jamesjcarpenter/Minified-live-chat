@@ -345,7 +345,7 @@ socket.on('connect', function(data) {
             $('#roomlist').append('<div>' + curRoom + '</div>');
           // console.log(value.substr(value.lastIndexOf("/")+1));
         };
-      });
+      };
     });
 
     socket.on('disconnect', function(){
