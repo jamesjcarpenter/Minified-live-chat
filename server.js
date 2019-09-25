@@ -419,7 +419,7 @@ io.sockets.on('connection', function (socket) {
       rooms.push(room);
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
-          console.log('io' + io.sockets.adapter.rooms.length);
+          console.log('io' + io.sockets.adapter.rooms[room].length);
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
