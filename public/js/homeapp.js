@@ -335,6 +335,14 @@ socket.on('connect', function(data) {
     },3500);
   }); 
   
+  socket.on('updateactive', function(numClients) {
+    $('#globallist').empty();
+    // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+    // $.each(data, function(key, value) {
+      $('#userlist').append('' + numClients);
+  });
+  
+  
   socket.on('updatehomepage', function(rooms, curRoom) {
       $.each(rooms, function(key, value, curRoom) {
           // $('#roomlist').empty();

@@ -464,11 +464,14 @@ io.sockets.on('connection', function (socket) {
     
 
     console.log(usernames)
+    console.log(ids)
     
     socket.emit('serverupdatechat', '' + socket.username + 'joined' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
-      io.in(socket.room).emit('updateusers', usernames, socket.id);
+    
+    //update users for current room
+      io.socket.in(socket.room).emit('updateusers', usernames, socket.id);
     // console.log(usernames);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
@@ -500,6 +503,7 @@ io.sockets.on('connection', function (socket) {
       io.of('/').in(socket.room).clients(function(error,clients){
            var numClients=clients.length;
            console.log("online users:" + numClients);
+           io.emit('updateactive', numClients);
        });
         // socket.emit('auto sync');
       // console.log(socket.join(room))

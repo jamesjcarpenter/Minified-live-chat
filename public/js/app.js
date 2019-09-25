@@ -309,8 +309,6 @@ socket.on('connect', function(data) {
   $("#roomusers").empty();
   $.each(roomusers, function (key, value) {
   $('#roomusers').append('+value+');
-  console.log(key);
-  console.log(value);
   });
   });
   
