@@ -391,7 +391,7 @@ app.use((err, req, res, next) => {
 
 var rooms = [];
 // usernames which are currently connected to the chat
-var usernames = [];
+var usernames = {};
 // rooms which are currently available in chat
 const sessionsMap = {};
 var clients = [];
@@ -460,11 +460,8 @@ io.sockets.on('connection', function (socket) {
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
-    if (usernames.indexOf(username) == -1) {
-    usernames.push(username);
-  } else {
-    return false;
-  };
+    usernames[username] = username;
+    
     
     socket.emit('serverupdatechat', '' + socket.username + 'joined' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
