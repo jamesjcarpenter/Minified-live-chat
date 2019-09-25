@@ -4,7 +4,11 @@
 // refer to the guidelines there with respect to absolute vs. relative
 // paths and the like.
 //
-var server = "https://165.22.137.67:8089/";
+var server = null;
+if(window.location.protocol === 'http:')
+	server = "http://" + window.location.hostname + ":7088/admin";
+else
+	server = "https://" + window.location.hostname + ":7889/admin";
 // If you don't want the page to prompt you for a password, insert it here
 var secret = "";
 
