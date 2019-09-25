@@ -417,6 +417,11 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
+      if (room.indexOf(rooms) >= 0) {
+      rooms.push(room);
+    } else {
+      return false;
+    };
     // io.emit('updaterooms', rooms, socket.room);
     io.emit('updatehomepage', rooms, socket.room);
     
@@ -425,12 +430,6 @@ io.sockets.on('connection', function (socket) {
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
-    if (rooms.indexOf(room) >= 0) {
-    rooms.push(room);
-  } else {
-    return false;
-    console.log(rooms);
-  };
     console.log('rooms: ' + rooms);
     
     }
