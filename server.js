@@ -419,7 +419,7 @@ io.sockets.on('connection', function (socket) {
       rooms.push(room);
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
-  });
+  
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
       
@@ -454,12 +454,13 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
       io.in(socket.room).emit('updateusers', usernames, socket.id);
     // console.log(usernames);
-    
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
-      socket.emit('updaterooms', rooms, socket.room, curRoom);
-    };
+    }
+    
+      socket.emit('updaterooms', rooms, socket.room);
+    
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     socket.on('connect', function(client) {
