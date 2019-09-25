@@ -58,10 +58,10 @@ app.use(function(req, res, next) {
    next();
 });
 
-var corsOptions = {
-  origin: 'https://www.anomic.io:8080',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+// var corsOptions = {
+//   origin: 'https://www.anomic.io:8080',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
 // app.use(function(req, res, next) {
 //   req.user = req.isAuthenticated,
