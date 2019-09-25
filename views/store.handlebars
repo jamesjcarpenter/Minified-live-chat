@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <script src="../semantic/dist/semantic.min.js"></script>
+  <script src="../semantic/dist/semantic.js"></script>
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/site.css">
+    <link rel="stylesheet" type="text/css" href="../css/logincss.css">
+
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/divider.css">
+  <script src="../semantic/dist/components/form.js"></script>
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/form.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/input.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/message.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/icon.css">
+  <script src="../js/login.js"></script>
+  <!-- Sidebar Menu -->
+  <div class="ui vertical inverted sidebar menu">
+    <a class="active item">Home</a>
+    <a class="item">Login</a>
+    <a class="item">Signup</a>
+  </div>
+  
+  
+  <!-- Page Contents -->
+  <div class="pusher">
+    
+    <div class="ui inverted vertical masthead center aligned segment">
+  
+      <div class="ui padded container">
+        <div class="ui large secondary inverted pointing menu">
+          <a class="toc item">
+            <i class="sidebar icon"></i>
+          </a>
+          <a href="/home" class="active item">home</a>
+          <a class="item">about</a>
+          <div class="right item">
+            <a href="/users/login" class="ui inverted button">log in</a>
+            <a href="/users/register" class="ui inverted button">sign up</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</head>
+<body>
+  
+
+<div class="ui padded middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui black image header">
+      <i class="keyboard icon"></i>
+      <div class="content">
+        
+      </div>
+    </h2>
+    <form class="ui large form" action="/users/login" method="POST">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="name" name="name" id="name" placeholder="Username">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" id="password" placeholder="Password">
+          </div>
+        </div>
+        <div class="ui fluid large inverted green submit button">Login<i class="right arrow icon"></i></div>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+    
+      <div class="ui horizontal divider">
+    Or
+  </div>
+  <a href="/register" class="ui labeled icon green button">
+    CREATE NEW ACCOUNT
+    <i class="add icon"></i>
+    <script src="../js/transin.js"></script>
+    <script src="../js/transout.js"></script>
+  </a>
+</body>
+
+</html>
