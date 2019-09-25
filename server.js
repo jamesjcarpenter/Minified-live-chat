@@ -416,7 +416,7 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      console.log(room);
+      console.log(socket.room);
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
     
