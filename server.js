@@ -422,6 +422,8 @@ io.sockets.on('connection', function (socket) {
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
+    var curRoom = rooms[i]
+    socket.emit('current', curRoom);
     }
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
