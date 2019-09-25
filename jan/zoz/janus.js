@@ -24,7 +24,7 @@
 
 
 
-var server = "https://165.22.137.67:8089/janus";
+var server = "https://165.22.137.67:10104/janus";
 
 // List of sessions
 Janus.sessions = {};
