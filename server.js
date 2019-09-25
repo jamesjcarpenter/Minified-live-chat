@@ -417,7 +417,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       socket.join(room);
-      if (rooms.indexOf(room) === -1) {
+      if (rooms.indexOf(room) == 0) {
       rooms.push(room);
     } else {
       return;
