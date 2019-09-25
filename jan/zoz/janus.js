@@ -26,8 +26,8 @@
 
  var server = null;
  if(window.location.protocol === 'http:')
-         server = "/janus"
-         else
+         server = "/janus/"
+if(window.location.protocol === 'https:')
          	server = "/janus"
 
 // List of sessions
