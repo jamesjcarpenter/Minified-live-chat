@@ -79,7 +79,7 @@ var socket = io.connect('anomic.io/');
     // console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
-     socket.emit('getusers');
+    
 
        // socket.emit('adduser', prompt("Enter username."));
 
