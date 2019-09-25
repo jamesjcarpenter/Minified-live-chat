@@ -462,7 +462,7 @@ io.sockets.on('connection', function (socket) {
     usernames[username] = username;
     
 
-    console.log(usernames.splice(usernames.indexOf(username), 1)))
+    console.log(usernames.splice(usernames.indexOf(username), 1))
     
     socket.emit('serverupdatechat', '' + socket.username + 'joined' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
