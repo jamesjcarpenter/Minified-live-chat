@@ -454,15 +454,16 @@ io.sockets.on('connection', function (socket) {
     var id = socket.id;
     
     
-    
     ids[id] = id;
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
+    
+    function spliceIi(){
     usernames.splice(usernames.indexOf(socket.username), 1);
-
-    console.log(usernames)
+  };
+    console.log(spliceIi(usernames))
     
     socket.emit('serverupdatechat', '' + socket.username + 'joined' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
