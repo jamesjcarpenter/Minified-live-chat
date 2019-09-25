@@ -419,6 +419,10 @@ io.sockets.on('connection', function (socket) {
       rooms.push(room);
       socket.join(room);
     io.emit('updaterooms', rooms, socket.room);
+    
+    for (var i = 0; i < io.sockets.adapter.rooms.length; i++) {
+    console.log(io.sockets.adapter.rooms[i]);
+    }
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
       
