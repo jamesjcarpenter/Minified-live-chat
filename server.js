@@ -59,7 +59,7 @@ app.use(function(req, res, next) {
 });
 
 var corsOptions = {
-  origin: 'https://www.anomic.io:8080',
+  origin: 'https://www.anomic.io:8089',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
