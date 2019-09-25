@@ -26,11 +26,7 @@
 
  var server = null;
  if(window.location.protocol === 'http:')
-          		server = "https://172.17.0.2:8080
-/janus";
-if(window.location.protocol === 'https:')
-         	 		server = "  https://172.17.0.2:8080
-/janus";
+         	 		server = "https://165.22.137.67:8080/";
 
 // List of sessions
 Janus.sessions = {};
