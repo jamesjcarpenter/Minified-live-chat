@@ -417,11 +417,9 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       rooms.push(room);
-      console.log('io' + io.socket.adapter.rooms.length);
       socket.join(room);
-      var rooms
     socket.emit('updaterooms', rooms, socket.room);
-    
+          console.log('io' + io.socket.adapter.rooms.length);
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
