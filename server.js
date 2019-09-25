@@ -419,6 +419,8 @@ io.sockets.on('connection', function (socket) {
       socket.join(room);
       if (room.indexOf(rooms) >= -1) {
       rooms.push(room);
+    } else {
+      return false;
     };
     // io.emit('updaterooms', rooms, socket.room);
     io.emit('updatehomepage', rooms, socket.room);
