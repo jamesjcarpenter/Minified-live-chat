@@ -428,7 +428,6 @@ io.sockets.on('connection', function (socket) {
     console.log('rooms: ' + rooms);
     }
     
-    function find_duplicates(socket, rooms) {
       var len=rooms.length,
       out=[],
       counts={};
@@ -444,9 +443,7 @@ io.sockets.on('connection', function (socket) {
   return out;
   console.log('out' + out);
   console.log('item' + item);
-}
 
-find_duplicates(rooms[i]); 
     
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
