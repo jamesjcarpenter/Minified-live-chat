@@ -120,41 +120,41 @@ var socket = io.connect('anomic.io/');
   // });
   
   // console.log(socket.usernames);
-  socket.on('getusers', function (usernames) {
-    for(key in usernames) {
-    if(usernames.hasOwnProperty(key)) {
-        var value = usernames[key];
-        console.log(value);
-        //do something with value;
-      }
-    }
-   $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
-  
-  });
+  // socket.on('getusers', function (usernames) {
+  //   for(key in usernames) {
+  //   if(usernames.hasOwnProperty(key)) {
+  //       var value = usernames[key];
+  //       console.log(value);
+  //       //do something with value;
+  //     }
+  //   }
+  //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
+  // 
+  // });
   
 
-  socket.on('updateusers', function(data) {
-    
-		$('#userlist').empty();
-    // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
-		$.each(data, function(key, value) {
-			$('#userlist').append('<a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
-      console.log($('.ui.mini.button.pm').attr('name'))
-      
-      $('.ui.mini.button.pm').click(function() {
-        // $("#PMbutton").unbind();
-        $(".ui.mini.button.pm").each(function(){
-          var userToPM;
-          userToPM = $('.ui.mini.button.pm').attr('name')
-          console.log(userToPM);
-          socket.emit('private-message', data, message, userToPM);
-          });
-        });
-          socket.on('msgStart', function() {
-              console.log(userToPM);
-            });
-    });
-  });
+  // socket.on('updateusers', function(data) {
+  // 
+	// 	$('#userlist').empty();
+  //   // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+	// 	$.each(data, function(key, value) {
+	// 		$('#userlist').append('<a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
+  //     console.log($('.ui.mini.button.pm').attr('name'))
+  // 
+  //     $('.ui.mini.button.pm').click(function() {
+  //       // $("#PMbutton").unbind();
+  //       $(".ui.mini.button.pm").each(function(){
+  //         var userToPM;
+  //         userToPM = $('.ui.mini.button.pm').attr('name')
+  //         console.log(userToPM);
+  //         socket.emit('private-message', data, message, userToPM);
+  //         });
+  //       });
+  //         socket.on('msgStart', function() {
+  //             console.log(userToPM);
+  //           });
+  //   });
+  // });
   
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
@@ -306,12 +306,12 @@ socket.on('connect', function(data) {
   
   
   
-  socket.on('updateroomusers', function(roomusers, username) {
-  $("#roomusers").empty();
-  $.each(roomusers, function (key, value) {
-  $('#roomusers').append('+value+');
-  });
-  });
+  // socket.on('updateroomusers', function(roomusers, username) {
+  // $("#roomusers").empty();
+  // $.each(roomusers, function (key, value) {
+  // $('#roomusers').append('+value+');
+  // });
+  // });
   
   $('#data').keyup(function(){
     if($('#data').val()){
