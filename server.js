@@ -416,14 +416,15 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
+      io.sockets.adapter.rooms.push(room);
+      console.log(rooms.push(room));
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
     
-    for (var i = 0; i < rooms.length; i++) {
-    console.log(rooms[i]);
-    var curRoom = rooms[i]
-    rooms.push(rooms[i]);
-    console.log(rooms[i]);
+    for (var i = 0; i < io.sockets.adapter.rooms.length; i++) {
+    console.log(io.sockets.adapter.rooms);
+    var curRoom = io.sockets.adapter.rooms[i]
+    console.log(io.sockets.adapter.rooms[i]);
     }
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
