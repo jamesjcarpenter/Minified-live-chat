@@ -346,7 +346,7 @@ socket.on('connect', function(data) {
   socket.on('updatehomepage', function(rooms, curRoom) {
       $.each(rooms, function(key, value, rooms) {
           // $('#roomlist').empty();
-          $('#roomlist').append('<div>' + rooms[i] + '</div>');
+          $('#roomlist').append('<div>' + key + '</div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
           // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
       });
