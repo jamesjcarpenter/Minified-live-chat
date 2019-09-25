@@ -424,6 +424,7 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     rooms.push(curRoom);
+    console.log(rooms.push(curRoom));
     console.log('rooms: ' + rooms);
     }
     
