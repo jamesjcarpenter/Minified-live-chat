@@ -417,32 +417,31 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       rooms.push('room: ' + room);
-      console.log('room push' + rooms.push(room));
+      // console.log('room push' + rooms.push(room));
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
-    console.log('rooms i ' + rooms[i]);
     console.log('rooms: ' + rooms);
     }
     
-      var len=rooms.length,
-      out=[],
-      counts={};
-
-      for (var i=0;i<len;i++) {
-        var item = rooms[i];
-        counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
-        if (counts[item] === 2) {
-          out.push(item);
-        }
-      }
-
-  return out;
-  console.log('out' + out);
-  console.log('item' + item);
+  //     var len=rooms.length,
+  //     out=[],
+  //     counts={};
+  // 
+  //     for (var i=0;i<len;i++) {
+  //       var item = rooms[i];
+  //       counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
+  //       if (counts[item] === 2) {
+  //         out.push(item);
+  //       }
+  //     }
+  // 
+  // return out;
+  // console.log('out' + out);
+  // console.log('item' + item);
 
     
     console.log('testing: ' + Object.keys(socket.room));
