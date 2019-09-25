@@ -423,7 +423,6 @@ io.sockets.on('connection', function (socket) {
       return false;
     };
     // io.emit('updaterooms', rooms, socket.room);
-    io.emit('updatehomepage', rooms, socket.room);
     
           console.log('io: ' + rooms.length);
     
@@ -431,7 +430,7 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
-    
+        io.emit('updatehomepage', rooms, socket.room);
     }
     
     
