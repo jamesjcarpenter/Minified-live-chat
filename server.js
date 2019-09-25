@@ -430,7 +430,7 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
-        io.emit('updatehomepage', rooms, rooms[i]);
+        io.emit('updatehomepage', rooms, socket.room);
     }
     
     
