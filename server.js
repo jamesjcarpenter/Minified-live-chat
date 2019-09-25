@@ -471,7 +471,7 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
     
     //update users for current room
-      io.socket.in(socket.room).emit('updateusers', usernames, socket.id);
+      io.sockets.in(socket.room).emit('updateusers', usernames, socket.id);
     // console.log(usernames);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
