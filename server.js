@@ -404,7 +404,7 @@ process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/H
 process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
-
+        io.emit('updatehomepage', rooms, socket.room);
   socket.emit('askForUserId');
 
   socket.on('userIdReceived', (userId) => {
@@ -430,7 +430,6 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
-        io.emit('updatehomepage', rooms, socket.room);
     }
     
     
