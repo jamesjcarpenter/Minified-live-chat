@@ -418,7 +418,7 @@ io.sockets.on('connection', function (socket) {
       socket.room = room;
       rooms.push(room);
       socket.join(room);
-    io.sockets.emit('updaterooms', rooms, socket.room);
+    socket.emit('updaterooms', rooms, socket.room);
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
       
