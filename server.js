@@ -422,12 +422,6 @@ io.sockets.on('connection', function (socket) {
     } else {
       return false;
     };
-  
-    if (usernames.indexOf(username) == -1) {
-    usernames.push(username);
-  } else {
-    return false;
-  }
     
     // io.emit('updaterooms', rooms, socket.room);
     io.emit('updatehomepage', rooms, socket.room);
@@ -467,7 +461,11 @@ io.sockets.on('connection', function (socket) {
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
-    
+    if (usernames.indexOf(username) == -1) {
+    usernames.push(username);
+  } else {
+    return false;
+  }
     
     socket.emit('serverupdatechat', '' + socket.username + 'joined' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
