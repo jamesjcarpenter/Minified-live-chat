@@ -428,18 +428,18 @@ io.sockets.on('connection', function (socket) {
     console.log('rooms: ' + rooms);
     }
     
-    function find_duplicates(rooms) {
-  var len=rooms.length,
+    function find_duplicates(socket, rooms) {
+      var len=rooms.length,
       out=[],
       counts={};
 
-  for (var i=0;i<len;i++) {
-    var item = rooms[i];
-    counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
-    if (counts[item] === 2) {
-      out.push(item);
-    }
-  }
+      for (var i=0;i<len;i++) {
+        var item = rooms[i];
+        counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
+        if (counts[item] === 2) {
+          out.push(item);
+        }
+      }
 
   return out;
   console.log('out' + out);
