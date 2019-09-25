@@ -417,19 +417,6 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       rooms.push(room);
-      duplicateRoom(rooms)
-      function duplicateRoom() {
-      var map = {}, i, size;
-      
-      for (i = 0; size = rooms.length; i < size, i++){
-        if(map[rooms[i]]){
-          return false;
-        }
-        map[rooms[i]] = true;
-      }
-      return true;
-    };
-      
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
     
@@ -502,7 +489,7 @@ io.sockets.on('connection', function (socket) {
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     // console.log(clients); 
     socket.emit('getusers',  '' + usernames);
-      console.log(io.sockets.adapter.rooms);
+      console.log('adapter' + io.sockets.adapter.rooms);
       io.of('/').in(socket.room).clients(function(error,clients){
            var numClients=clients.length;
            console.log("online users:" + numClients);

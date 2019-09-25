@@ -336,9 +336,9 @@ socket.on('connect', function(data) {
   }); 
   
   socket.on('updaterooms', function(rooms, curRoom) {
-      $('#roomlist').empty();
       $.each(rooms, function(key, value, curRoom) {
         if(value == curRoom){
+          $('#roomlist').empty();
           $('#roomlist').append('<div>' + curRoom + '</div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
         }
