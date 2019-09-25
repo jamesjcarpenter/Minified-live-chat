@@ -24,9 +24,7 @@
 
 
 
- var server = null;
- if(window.location.protocol === 'http:')
-         	 		server = "https://165.22.137.67:8080/";
+ var server = "https://165.22.137.67:8089/";
 
 // List of sessions
 Janus.sessions = {};
