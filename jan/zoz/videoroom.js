@@ -42,12 +42,11 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-var server = [
-	"165.22.137.67:8080/janus",
-	"165.22.137.67:8088/janus",
-	"165.22.137.67:8089/janus",
-
-];
+var server = null;
+if(window.location.protocol === 'http:')
+	server = "http://" + window.location.hostname + ":8088/janus";
+else
+	server = "https://" + window.location.hostname + ":8089/janus";
 
 var janus = null;
 var sfutest = null;
