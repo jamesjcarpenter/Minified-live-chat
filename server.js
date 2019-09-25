@@ -459,7 +459,7 @@ io.sockets.on('connection', function (socket) {
     var curRoom = rooms[i]
     }
     
-      socket.emit('updaterooms', rooms, socket.room);
+      socket.emit('updaterooms', rooms, socket.room, curRoom);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
