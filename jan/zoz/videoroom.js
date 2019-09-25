@@ -43,10 +43,8 @@
 // the whole session.
 //
 var server = null;
-if(window.location.protocol === 'http:')
-				server = "/janus/"
-if(window.location.protocol === 'https:')
-				 server = "/janus"
+
+		server = "http://165.22.137.67:8088/janus";
 				 
 				 
 var janus = null;
