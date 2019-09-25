@@ -459,7 +459,7 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
       socket.emit('updaterooms', rooms, socket.room, curRoom);
-    };
+    });
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     socket.on('connect', function(client) {
