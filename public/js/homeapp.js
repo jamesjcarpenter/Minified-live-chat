@@ -79,12 +79,7 @@ var socket = io.connect('anomic.io/');
     // console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
-     
-     socket.on('current', function(curRoom) {
-       $('#roomlist').empty();
-       $('#roomlist').append('<div>' + curRoom + '</div>');
-           console.log(curRoom);
-     });
+    
 
        // socket.emit('adduser', prompt("Enter username."));
 
@@ -340,18 +335,18 @@ socket.on('connect', function(data) {
     },3500);
   }); 
   
-  // socket.on('updaterooms', function(rooms, current_room) {
-  //     $('#roomlist').empty();
-  //     $.each(rooms, function(key, value) {
-  //       if(value == current_room){
-  //         $('#roomlist').append('<div>' + value + '</div>');
-  //         console.log(value.substr(value.lastIndexOf("/")+1));
-  //       }
-  //       else {
-  //         $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
-  //       }
-  //     });
-  //   });
+  socket.on('updaterooms', function(rooms, curRoom) {
+      $('#roomlist').empty();
+      $.each(rooms, function(key, value, curRoom) {
+        if(value == curRoom){
+          $('#roomlist').append('<div>' + curRoom + '</div>');
+          console.log(value.substr(value.lastIndexOf("/")+1));
+        }
+        else {
+          $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
+        }
+      });
+    });
 
     socket.on('disconnect', function(){
     		// remove the username from global usernames list
