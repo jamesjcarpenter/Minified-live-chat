@@ -475,7 +475,6 @@ io.sockets.on('connection', function (socket) {
     
     socket.on('connect', function(client) {
         ids.splice(ids.indexOf(socket.id), 1);
-        usernames.splice(usernames.indexOf(socket.username), 1);
 
         socket.on('disconnect', function() {
           ids.splice(ids.indexOf(socket.id), 1);
