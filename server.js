@@ -395,7 +395,7 @@ var usernames = {};
 // rooms which are currently available in chat
 const sessionsMap = {};
 var clients = [];
-var users = {};
+var users = [];
 
 var ids = {};
 
@@ -481,12 +481,12 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-// var clients = io.sockets.adapter.rooms[users];
-//   if(clients) {
-//     Object.keys(clients.sockets).forEach(function (users){
-//       console.log("client socket id: " + io.sockets.adapter.rooms[users]);
-//     })
-//   };
+var clients = io.sockets.adapter.rooms[users];
+  if(clients) {
+    Object.keys(clients.sockets).forEach(function (users){
+      console.log("client socket id: " + io.sockets.adapter.rooms[users]);
+    })
+  };
 // console.log
 // 
 //     io.of('/').in(socket.room).clients((error, clients) => {
