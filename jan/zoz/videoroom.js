@@ -42,7 +42,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-var server = "/janus"
+var server = "https://172.17.0.2:8089/janus"
 
 var janus = null;
 var sfutest = null;
