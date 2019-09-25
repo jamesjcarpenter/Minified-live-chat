@@ -418,7 +418,7 @@ io.sockets.on('connection', function (socket) {
       socket.room = room;
       rooms.push(room);
       socket.join(room);
-    io.sockets.emit('updaterooms', rooms, socket.room);
+    io.emit('updaterooms', rooms, socket.room);
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
       
@@ -453,7 +453,7 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
       io.in(socket.room).emit('updateusers', usernames, socket.id);
     // console.log(usernames);
-      socket.emit('updaterooms', rooms, socket.room);
+      io.emit('updaterooms', rooms, socket.room);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
