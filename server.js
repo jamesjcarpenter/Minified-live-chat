@@ -416,8 +416,7 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      rooms.push('room: ' + room);
-      // console.log('room push' + rooms.push(room));
+      // rooms.push(room);
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
     
@@ -427,22 +426,6 @@ io.sockets.on('connection', function (socket) {
     console.log('rooms: ' + rooms);
     }
     
-  //     var len=rooms.length,
-  //     out=[],
-  //     counts={};
-  // 
-  //     for (var i=0;i<len;i++) {
-  //       var item = rooms[i];
-  //       counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
-  //       if (counts[item] === 2) {
-  //         out.push(item);
-  //       }
-  //     }
-  // 
-  // return out;
-  // console.log('out' + out);
-  // console.log('item' + item);
-
     
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
