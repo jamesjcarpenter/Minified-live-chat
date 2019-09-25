@@ -42,7 +42,7 @@
 // in the presented order. The first working server will be used for
 // the whole session.
 //
-var server = "https://165.22.137.67:8089/janus";
+var server = "https://165.22.137.67:10104/janus";
 				 
 				 
 var janus = null;
