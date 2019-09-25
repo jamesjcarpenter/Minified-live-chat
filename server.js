@@ -416,16 +416,27 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      rooms.push(room);
-      socket.join(room);
+      
+    function isIn(room, rooms) {
+      return rooms.indexOf(room) > -1;
+    };
+      if (isIn(room, [rooms.length]) {
+      } else {
+        rooms.push(room);
+        socket.join(room);
+      };
+    };
+  
     // io.emit('updaterooms', rooms, socket.room);
     io.emit('updatehomepage', rooms, socket.room);
+    
           console.log('io: ' + rooms.length);
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
+    
     }
     
     
