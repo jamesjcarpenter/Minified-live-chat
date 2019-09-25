@@ -59,7 +59,7 @@ app.use(function(req, res, next) {
 });
 
 var corsOptions = {
-  origin: 'https://172.17.0.2:8080/janus',
+  origin: 'https://www.anomic.io:8089',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
