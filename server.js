@@ -416,7 +416,6 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      rooms.push(room);
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
           console.log('io' + io.sockets.adapter.rooms[room].length);
@@ -424,6 +423,7 @@ io.sockets.on('connection', function (socket) {
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
+    rooms.push(curRoom);
     console.log('rooms: ' + rooms);
     }
     
