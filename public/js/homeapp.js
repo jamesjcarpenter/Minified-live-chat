@@ -337,14 +337,10 @@ socket.on('connect', function(data) {
   
   socket.on('updatehomepage', function(rooms, curRoom) {
       $.each(rooms, function(key, value, curRoom) {
-        if(value == curRoom){
           $('#roomlist').empty();
           $('#roomlist').append('<div>' + curRoom + '</div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
-        }
-        else {
           $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
-        }
       });
     });
 
