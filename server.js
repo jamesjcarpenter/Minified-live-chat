@@ -389,7 +389,7 @@ app.use((err, req, res, next) => {
 
 
 
-var rooms = [];
+var rooms = {};
 // usernames which are currently connected to the chat
 var usernames = {};
 // rooms which are currently available in chat
