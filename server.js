@@ -423,10 +423,11 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     rooms.push(rooms[i]);
+    console.log(rooms[i]);
     }
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
-          console.log(rooms[i]);
+      
         // socket.emit('auto sync');
       // console.log(socket.join(room))
       // console.log(room);
