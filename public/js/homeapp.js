@@ -335,7 +335,7 @@ socket.on('connect', function(data) {
     },3500);
   }); 
   
-  socket.on('updaterooms', function(rooms, curRoom) {
+  socket.on('updatehomepage', function(rooms, curRoom) {
       $.each(rooms, function(key, value, curRoom) {
         if(value == curRoom){
           $('#roomlist').empty();

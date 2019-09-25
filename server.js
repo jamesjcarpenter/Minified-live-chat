@@ -417,9 +417,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(room) {
       socket.room = room;
       rooms.push(room);
-      console.log('io' + rooms[room[i]].length);
       socket.join(room);
-    socket.emit('updaterooms', rooms, socket.room);
+    // io.emit('updaterooms', rooms, socket.room);
+    io.emit('updatehomepage', rooms, socket.room);
+          console.log('io: ' + rooms.length);
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
@@ -457,12 +458,11 @@ io.sockets.on('connection', function (socket) {
 
     console.log(usernames)
     
-    socket.emit('serverupdatechat', 'connected to room #' + '' + socket.room);
+    socket.emit('serverupdatechat', '' + socket.username + 'joined' + '' + socket.room);
     // echo to room 1 that a person has connected to their room
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
       io.in(socket.room).emit('updateusers', usernames, socket.id);
     // console.log(usernames);
-      socket.emit('updaterooms', rooms, socket.room);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
