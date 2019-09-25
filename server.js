@@ -416,18 +416,17 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      console.log(socket.room);
       socket.join(room);
     socket.emit('updaterooms', rooms, socket.room);
     
     for (var i = 0; i < rooms.length; i++) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
-    console.log(rooms[i]);
+    rooms.push(rooms[i]);
     }
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
-      
+          console.log(rooms[i]);
         // socket.emit('auto sync');
       // console.log(socket.join(room))
       // console.log(room);
