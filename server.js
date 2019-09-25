@@ -460,7 +460,6 @@ io.sockets.on('connection', function (socket) {
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
-    usernames[username] = username;
     if (usernames.indexOf(username) == -1) {
     usernames.push(username);
   } else {
