@@ -340,18 +340,18 @@ socket.on('connect', function(data) {
     },3500);
   }); 
   
-  socket.on('updaterooms', function(rooms, current_room) {
-      $('#roomlist').empty();
-      $.each(rooms, function(key, value) {
-        if(value == current_room){
-          $('#roomlist').append('<div>' + value + '</div>');
-          console.log(value.substr(value.lastIndexOf("/")+1));
-        }
-        else {
-          $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
-        }
-      });
-    });
+  // socket.on('updaterooms', function(rooms, current_room) {
+  //     $('#roomlist').empty();
+  //     $.each(rooms, function(key, value) {
+  //       if(value == current_room){
+  //         $('#roomlist').append('<div>' + value + '</div>');
+  //         console.log(value.substr(value.lastIndexOf("/")+1));
+  //       }
+  //       else {
+  //         $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
+  //       }
+  //     });
+  //   });
 
     socket.on('disconnect', function(){
     		// remove the username from global usernames list
