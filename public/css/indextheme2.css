@@ -462,7 +462,7 @@ right:0em;
     margin:0 auto;
     margin-left:45px;
     bottom:5px;
-    background-color:	#404040!important;
+    background-color:	#262626!important;
     color:white;
     word-wrap: break-word;
     position:justify;
@@ -852,7 +852,7 @@ z-index:9998;
   width:26vmin;
   height:6vmin;
     z-index:-1;
-  background-color:#2e2e2e!important;
+background-color: 			#1c1c1c!important;
 }
 #call {
   width:6vw;
