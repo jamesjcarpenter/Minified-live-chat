@@ -18,7 +18,7 @@
       <script type="text/javascript" src="../js/bootstrap.min.js"content="<%= styleNonce %>"></script>
       <script type="text/javascript" src="../js/bootbox.min.js"content="<%= styleNonce %>"></script>
       <script type="text/javascript" src="../js/toastr.min.js"content="<%= styleNonce %>"></script>
-  <title>anomic.io - Online Video & Text Chatrooms! - New Room</title>
+  <title>anomic - chat online</title>
   <h3 class="ui tiny center aligned icon header">
 </h3>
 </head>
@@ -95,14 +95,14 @@
   </div>
   <div class="ui basic segment">
   </div>
-  <a class="item"id="btns">
-    <i class="users icon"id="userscheck"></i>
+  <div class="ui label">
+    <i class="large users icon"></i></div>
 </a>
-<a class="item"id="btns">
-  <i class="paint brush icon"id="canvasdraw"></i>
+<div class="ui label">
+  <i class="large paint brush icon"></i></div>
 </a>
-<a class="item"id="btns">
-  <i class="video camera icon"></i>
+<div class="ui label">
+  <i class="large video camera icon"></i></div>
 </a>
     <div class="inline field">
         <div class="ui toggle checkbox">
@@ -111,9 +111,9 @@
       </div>
   </a>
   <a class="item">
-    <div class="icon button"id="youtubeopen">
-      <i class="large red inverted youtube icon"id="youtubeopen"></i>
-    </div>
+    <button class="icon button"id="youtubeopen">
+      <i class="red inverted youtube icon"></i>
+    </button>
     <div class="inline field">
         <div class="ui toggle checkbox">
           <input type="checkbox" tabindex="0" class="hidden">
@@ -322,11 +322,9 @@
 </div>
 <div id="number">
 </div>
-
-<div id="userlistwrap">
 <ul class="list-group" id="userlist">
 </ul>
-</div>
+
 
 <!-- VIDEO CALL BEGINS HERE -->
 <div class="bootstrap">
@@ -453,8 +451,8 @@
 </h4> -->
 <!-- STREAMING END -->
 
-<div id="player"></div>
-    <div id="timeHolder"></div>
+<!-- <div id="player"></div>
+    <div id="timeHolder"></div> -->
     
     
     <!-- <img src="images/sad3.png"id="send1"/>
@@ -498,21 +496,6 @@
       </h1>
     </h5>
   <!-- end device selection     -->
-  
-  <div class="ui small modal users"></div>
-  
-  <div class="ui longer large modal">
-    
-  <canvas class="whiteboard" ></canvas>
-
-  <div class="colors">
-    <div class="color black"></div>
-    <div class="color red"></div>
-    <div class="color green"></div>
-    <div class="color blue"></div>
-    <div class="color yellow"></div>
-  </div>
-  </div>
 <div id="youtubeplaywrap">
 <div id="vidWtch"></div>
 <div id="loading"></div>
@@ -530,7 +513,7 @@
     <!-- Plugin JavaScript -->
 
 <!-- Youtube -->
-<script src="./js/vids/yt.js"></script>
+<!-- <script src="./js/vids/yt.js"></script> -->
 <!-- <script src="js/vids/events.js"></script> -->
 <!-- Daily Motion -->
 <!-- Vimeo -->
@@ -538,10 +521,10 @@
 
 <!-- HTML5 Player -->
 
-<script src="./js/socketcanvas.js"></script>
+
 
     <!-- Vimeo -->
-    <script src="./js/moment.min.js"></script>
+
         <script src="./js/socket.io.js"></script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
   <!-- <script src="https://www.webrtc-experiment.com/Canvas-Designer/canvas-designer-widget.js"></script> -->
@@ -552,8 +535,8 @@
     <script src="../js/streaming.js"></script>
   <script src="../dist/semantic.min.js"></script>
   <script src="../js/handlebars.min.js "></script>
-  <!-- <script src="/zoz/janus.js"></script>
-  <script src="/zoz/videoroom.js"></script> -->
+  <script src="/zoz/janus.js"></script>
+  <script src="/zoz/videoroom.js"></script>
   </div>
   </div>
 </body>
