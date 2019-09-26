@@ -1,39 +1,75 @@
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-    body { visibility:hidden !important; width:100%; background-color: 	#303030!important; color:white;
+    body { visibility:hidden !important; width:100%; background-color: 	#121212!important; color:white;
+      text-shadow: 4px 4px 4px #474747;
+  font-family: 'Changa', sans-serif;
     }
-    #attachmenu { background-color: 		#383838!important;
+    #attachmenu { background-color: 		#1c1c1c!important; width:9.5vw;
     }
     html { padding-top:1px; overflow-y: hidden; overflow-x: hidden; color:white;}
     #data.content {
-      background-color: 			#2e2e2e!important;
+      background-color: 			#1c1c1c!important;
       color:white;
       outline:none !important;
       min-height:15.5vh;
     }
     .ui.divider {
-      background-color: 		#383838!important;
+      background-color: 		#1c1c1c!important;
+    }
+    
+    #userlistwrap {
+    overflow-x:hidden;
+    overflow-y:auto;  
     }
     
     #chatrail {
       margin:0 auto!important;
       margin-top:4.85em!important;
       margin-bottom:0em!important;
-      right:1.8vw!important; 
-      margin-right:5.75vw!important; 
+      right:0vw!important; 
+      margin-right:5vw!important; 
       position:fixed!important;
-      min-width:15.5vw!important;
-      max-width:16vw!important;
+      position:fixed!important;
+      width:18.5vw!important;
     }
     
     #cpybutton {
-      background-color: #000000;
+      background-color: #1c1c1c;
       z-index:9999;
     }
     
     #safeTimerDisplay {
       color:white;
     }
+    .bootstrap{
+      
+      display:none;
+    };
     
+    .whiteboard {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+    }
+    
+    .colors {
+      position: fixed;
+    }
+    
+    .color {
+      display: inline-block;
+      height: 48px;
+      width: 48px;
+    }
+    
+    .color.black { background-color: black; }
+    .color.red { background-color: red; }
+    .color.green { background-color: green; }
+    .color.blue { background-color: blue; }
+    .color.yellow { background-color: yellow; }
     
 #timeContainer,
 #timerButtons {
@@ -98,7 +134,40 @@ left:5%;
 	}
 
 
-    
+  #mask1 {
+    position:absolute;
+    width:70vw;
+    top:-30em;
+left:0em;
+    height:auto;
+    z-index:-1;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: blur(5px);
+    filter: brightness(0.4);
+    filter: contrast(200%);
+    filter: drop-shadow(16px 16px 20px blue);
+    filter: grayscale(50%);
+    opacity:0.009;
+
+  }
+  
+  #send1 {
+    position:absolute;
+    width:70vw;
+    top:-10em;
+right:0em;
+    height:auto;
+    z-index:-1;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: blur(5px);
+    filter: brightness(0.4);
+    filter: contrast(200%);
+    filter: drop-shadow(16px 16px 20px blue);
+    filter: grayscale(50%);
+    opacity:0.009;
+  }
     
     #roomname {
       text-align:left;
@@ -108,7 +177,7 @@ left:5%;
       color:white;
       font-size:16px;
       top:0.25em;
-      background-color:#303030!important;
+      background-color:#1c1c1c!important;
     }
     
     #typing {
@@ -172,7 +241,6 @@ left:5%;
     margin-left:4.5em;
     position:relative;
     overflow-y:hidden;
-    white-space: nowrap;
     }
     #videos{
         display:block;
@@ -219,6 +287,9 @@ left:5%;
       font-size: 13px;
       width: 80%;
       height:auto;
+      font-family: 'Be Vietnam', sans-serif;
+      font-weight:300;
+      text-shadow: 4px 4px 4px #474747;
     }
     
     #userlist {
@@ -238,7 +309,7 @@ left:5%;
           width: 100%;
           overflow-y: auto;
           overflow-x:hidden;
-          background-color: 	#383838!important;
+          background-color: 	#1c1c1c!important;
       }
       #youtubemodal {
         overflow-y:scroll;
@@ -255,7 +326,6 @@ left:5%;
       #youtubeopen{
         text-align:center;
         margin: 0 auto;
-        padding:16px;
       }
       #scroller{
         min-height: 9vh;
@@ -268,7 +338,7 @@ left:5%;
       background-color: #303030!important;
     }
     #servermessage {
-      background-color:	#3D3D3D!important;
+      background-color:	#262626!important;
       color:white;
       font-size:10px;
       width: 80%;
@@ -278,16 +348,16 @@ left:5%;
       display:none;
     }
     .ui.center.aligned.header {
-      background-color: #303030!important;
+      background-color: #1c1c1c!important;
     }
-    #chat-content { padding-top:30px!important; height: 530px; width: 385px; overflow-y: scroll; overflow-x: hidden; line-height:1.06; position:relative;background-color: 	#404040!important;}
+    #chat-content { padding-top:30px!important; height: 530px; width: 385px; overflow-y: scroll; overflow-x: hidden; line-height:1.06; position:relative;background-color: 	#1c1c1c!important;}
     #local-video { display:block!important; width:100%; max-height:100%;position:relative;}
     #remote-videos { display:block!important; width:100%; height:100%; position:relative;right:2.5vw;}
     #chat { display:block!important;margin-right:60px;position:relative;}
     #youtube-buttons { max-width: 100%;padding-top:12.4vh;}
     .youtubewrapper { position:absolute; bottom:-44vw; right:-23.5vw; margin:0 auto;}
-    #slidersound { padding-top:20px;  background-color: 		#383838!important;}
-    #conversation{display:block!important; background-color: 	#383838!important;    word-wrap: break-word;
+    #slidersound { padding-top:20px;  background-color: 		#1c1c1c!important;}
+    #conversation{display:block!important; background-color: 	#1c1c1c!important;    word-wrap: break-word;
         position:justify;
         font-size: 12px;
         width: 80%;
@@ -338,7 +408,7 @@ left:5%;
       margin-bottom:0px;
       min-width:200px;
       display:inline-grid;
-      background-color: 		#383838!important;
+      background-color: 		#1c1c1c!important;
       word-wrap: break-word;
       position:justify;
       font-size: 12px;
@@ -375,13 +445,16 @@ left:5%;
     margin:0 auto;
     position:fixed;
     width:23.15vw;
-    border: 22px outset rgba(104, 104, 232, 0.8);
+    border: 22px outset #6f6fe1;
     border-radius: 21px 21px 9px 9px;
   }
   
   #copyinput {
-    background-color:	#3D3D3D!important;
+    background-color:#1c1c1c!important;
     color:white;
+    font-family: 'Be Vietnam', sans-serif;
+    font-weight:200;
+    text-shadow: 4px 4px 4px #474747;
   }
   #message{
     padding-top:12.5px;
@@ -429,12 +502,29 @@ left:5%;
     min-width:6.75vmin;
     min-height:6.31vmin;
   }
+  
+  #publish {
+    -webkit-box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65); 
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.65);
+    border:solid green 2px;
+  }
+  
+  #mediasettings {
+    -webkit-box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65); 
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.65);  
+    border:solid purple 2px;
+  }
   #secreticon {
     text-align:center;
     width:auto;
   }
   .label{
     background-color:	#383838!important;
+  }
+  
+  #btns {
+  width:auto;
+  text-align:center;  
   }
   
   #username{
@@ -446,7 +536,6 @@ left:5%;
     color:white;
     opacity:0.8;
     z-index:1000;
-    white-space: nowrap;
   }
   #useravatar{
     top:17px;
@@ -593,7 +682,7 @@ div.no-video-container {
     margin-top:-2.4em;
     overflow-x:hidden;
     margin-bottom:2.3em;
-    background-color: 	#383838!important;
+    background-color: 	#1c1c1c!important;
 }
 #scroller{
   min-height: 77vh;
@@ -645,11 +734,19 @@ pre {
   width:auto;
 }
 #logosrc {
-width:7.5vw;
+width:3vw;
 height:auto;
-  padding:5px;
-  border:1px solid #3D3D3D;
+  padding:10px;
   border-radius:12.5px;
+}
+#logotext {
+  text-shadow: 4px 4px 4px #474747;
+  font-family: 'Fredoka One', cursive;
+  font-weight:600;
+  font-size:20px;
+  z-index:9999;
+  color:white;
+  text-shadow: 2px 2px 2px #000000;
 }
 
 #updatestreams{
@@ -760,10 +857,14 @@ z-index:9998;
   background-color:#2e2e2e!important;
 }
 #call {
-  width:17vmin;
-  height:6vmin;
+  width:6vw;
+  min-width:5.95vw;
+  height:auto;
   z-index:-1;
-  margin-right:10px;
+  border-radius: 55px;
+  padding:12.5px;
+  margin-left:1.5em;
+  display:inline;
 }
 
 .input-group-addon {
@@ -788,7 +889,6 @@ z-index:9998;
   display:block;
   position:absolute;
   z-index:9999;
-  white-space: nowrap;
 }
 #emojiPickerWrap {
 margin: 10px 0 0 0;
