@@ -247,6 +247,7 @@ right:0em;
         position:fixed;
         min-width:30vmin;
         min-height:70vmin;
+        z-index:9999;
     }
     
     
@@ -259,6 +260,7 @@ right:0em;
       max-height:100%;
       vertical-align: baseline;
       height:auto;
+              z-index:9999;
     }
     #themechanger{
       position:absolute;
