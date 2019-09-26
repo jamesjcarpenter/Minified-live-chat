@@ -333,7 +333,7 @@ right:0em;
       }
     
     #videolocal.panel-body {
-      background-color: #303030!important;
+      background-color: 	#121212!important;
     }
     #servermessage {
       background-color:	#262626!important;
@@ -732,9 +732,10 @@ pre {
   width:auto;
 }
 #logosrc {
-width:3vw;
+width:6vw;
 height:auto;
   padding:10px;
+  min-width:5vw;
   border-radius:12.5px;
 }
 #logotext {
