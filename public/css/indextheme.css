@@ -345,8 +345,6 @@ right:0em;
       font-size: 12px;
       width: 80%;
       height:auto;
-      font-family: 'Be Vietnam', sans-serif;
-      font-weight:50;
     }
     
     #userlist {
@@ -591,6 +589,8 @@ background-color: 	#fcfff9!important;
     color:black;
     opacity:0.8;
     z-index:1000;
+    font-family: 'Be Vietnam', sans-serif;
+    font-weight:100;
   }
   #useravatar{
     top:17px;
