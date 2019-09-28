@@ -591,6 +591,7 @@ background-color: 	#fcfff9!important;
     color:black;
     z-index:1000;
     font-weight:500;
+      font-family: 'Changa', sans-serif;
   }
   #useravatar{
     top:17px;
