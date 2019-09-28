@@ -233,7 +233,7 @@ right:0em;
     
     
     #date {
-    color:#FFFFFF;
+    color:black;
     margin-left:4.5em;
     position:relative;
     overflow-y:hidden;
@@ -463,7 +463,7 @@ right:0em;
     margin-left:45px;
     bottom:5px;
     background-color:	#262626!important;
-    color:white;
+    color:black;
     word-wrap: break-word;
     position:justify;
     font-size: 12px;
@@ -531,7 +531,7 @@ right:0em;
     padding-right:1.21vw;
     margin:0 auto;
     margin-bottom:0;
-    color:white;
+    color:black;
     opacity:0.8;
     z-index:1000;
   }
