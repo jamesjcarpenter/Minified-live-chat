@@ -420,12 +420,9 @@ right:0em;
     }
     
     #msgmsg{
-        background-color: #FFFFFF!important;
         color:black;
         font-size:10px;
         margin-left:40px;
-        width: 80%;
-        height:auto;
         font-family: 'Roboto', sans-serif;
       }
     .page-header {
