@@ -342,12 +342,11 @@ right:0em;
     #messagedata{
       word-wrap: break-word;
       position:justify;
-      font-size: 13px;
+      font-size: 11px;
       width: 80%;
       margin-left:60px;
       height:auto;
       font-family: 'Be Vietnam', sans-serif;
-      font-weight:50;
     }
     
     #userlist {
@@ -591,6 +590,7 @@ background-color: 	#fcfff9!important;
     margin-bottom:0;
     color:black;
     z-index:1000;
+    font-weight:500;
   }
   #useravatar{
     top:17px;
