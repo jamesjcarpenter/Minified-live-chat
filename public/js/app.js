@@ -148,9 +148,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '</li>');
       $('#profilepic2').empty();
-      $('#profilepic').empty();
     $('#profilepic2').append('<h5 class="ui text"id="profilepic2">' + key + '</h5>');
-    $('#profilepic').append('<img class="ui rounded image" id="profilepic" src="/images/avatarsmall.jpg"/>');
       console.log($('.ui.mini.button.pm').attr('name'))
       
       $('.ui.mini.button.pm').click(function() {
@@ -240,7 +238,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
         $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#blocktext").empty();
-        $("#blocktext").append('<h4 class="ui text" id="blocktext">' + url.substr(url.lastIndexOf("=")+1) + '</h4>');
+        $("#blocktext").append('<h4 class="ui text" id="blocktext">' + url.substr(url.lastIndexOf("/")+1) + '</h4>');
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
