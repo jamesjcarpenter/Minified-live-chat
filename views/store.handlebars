@@ -2,32 +2,20 @@
 <html>
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+      <link rel="stylesheet" type="text/css" href="../dist/semantic.min.css">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <script src="../semantic/dist/semantic.min.js"></script>
-  <script src="../semantic/dist/semantic.js"></script>
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/site.css">
+  <script src="../dist/semantic.min.js"></script>
+  <script src="../dist/semantic.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/store.css">
+  <link href="https://fonts.googleapis.com/css?family=Changa&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/logincss.css">
 
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/container.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/grid.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/header.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/image.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/menu.css">
-
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/divider.css">
-  <script src="../semantic/dist/components/form.js"></script>
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/segment.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/form.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/input.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/button.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/list.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/message.css">
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/components/icon.css">
+  <script src="../dist/components/form.js"></script>
   <script src="../js/login.js"></script>
+  <title>anomic.io - Online Video & Text Chatrooms! - Login</title>
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
     <a class="active item">Home</a>
@@ -38,7 +26,7 @@
   
   <!-- Page Contents -->
   <div class="pusher">
-    
+    <div id="background"></div>
     <div class="ui inverted vertical masthead center aligned segment">
   
       <div class="ui padded container">
@@ -62,41 +50,151 @@
 <div class="ui padded middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui black image header">
-      <i class="keyboard icon"></i>
+      <i class="inverted shopping cart icon"></i>
       <div class="content">
-        
+      virtual store
       </div>
-    </h2>
-    <form class="ui large form" action="/users/login" method="POST">
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            <input type="name" name="name" id="name" placeholder="Username">
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            <input type="password" name="password" id="password" placeholder="Password">
-          </div>
-        </div>
-        <div class="ui fluid large inverted green submit button">Login<i class="right arrow icon"></i></div>
-      </div>
-
-      <div class="ui error message"></div>
-
-    </form>
+        <div class="ui center aligned header"><h1>Membership upgrades</h1></div>
+    </h2>   
     
-      <div class="ui horizontal divider">
-    Or
+    <div class="scroll container" id="#scroller">
+    <div class="ui container">
+      <div id="remote-videos" class="ui relaxed sixteen wide column grid"id="grid">
+         <div class="sixteen wide column"></div>
+        <div class="five wide column"id="columns">
+        <div data-aos="fade-down-right">
+          <div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+            <i class="ui massive inverted circular mask icon"id="icon1"></i>
+  
+            <div class="ui divider"id="divider">
+            </div>
+          </h4>
+          <div class="ui list">
+            <div class="item">
+              <div class="header"><h4>HIGH QUALITY</h4></div>
+              <p>Fullscreen video</p>
+            </div>
+            <br>
+            <div class="item">
+              <div class="header"><h4>GOLD</h4></div>
+              <p>Colored nickname</p>
+            </div>
+                <br>
+            <div class="item">
+              <div class="header"><h4>NO ADVERTISEMENTS</h4></div>
+            </div>
+                <br>
+            <div class="item">
+              <div class="header"><h4>"GOLD" BADGES</h4></div>
+            </div>
+                <br>
+            <div class="item">
+              <div class="header"><h4>PRIORITY</h4></div>
+              <p>Directory listing</p>
+            </div>
+                <br>
+                <br>
+            <div class="item">
+              <div class="header"><h3>+ BONUS COINS</h3></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div></a>        <div class="ui basic segment"></div>
+        <div class="five wide column">
+        <div data-aos="fade-down-right">
+          <div id="rightlabelroom2" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+            <i class="ui massive inverted circular mask icon"id="icon1"></i>
+  <div class="ui divider"id="divider">
   </div>
-  <a href="/register" class="ui labeled icon green button">
+</h4>
+<div class="ui list">
+  <div class="item">
+    <div class="header"><h4>HIGH QUALITY</h4></div>
+    <p>Fullscreen video</p>
+  </div>
+  <br>
+  <div class="item">
+    <div class="header"><h4>GOLD</h4></div>
+    <p>Colored nickname</p>
+  </div>
+      <br>
+  <div class="item">
+    <div class="header"><h4>NO ADVERTISEMENTS</h4></div>
+  </div>
+      <br>
+  <div class="item">
+    <div class="header"><h4>"GOLD" BADGES</h4></div>
+  </div>
+      <br>
+  <div class="item">
+    <div class="header"><h4>PRIORITY</h4></div>
+    <p>Directory listing</p>
+  </div>
+      <br>
+      <br>
+  <div class="item">
+    <div class="header"><h3>+ BONUS COINS</h3></div>
+  </div>
+</div>
+</div>
+</div>
+</div></a>          <div class="ui basic segment"></div>
+        <div class="five wide column">
+        <div data-aos="fade-down-left">
+          <div id="rightlabelroom3" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+            <i class="ui massive inverted circular mask icon"id="icon1"></i>
+            <div class="ui divider"id="divider">
+            </div>
+        </h4>
+        <div class="ui list">
+          <div class="item">
+            <div class="header"><h4>HIGH QUALITY</h4></div>
+            <p>Fullscreen video</p>
+          </div>
+          <br>
+          <div class="item">
+            <div class="header"><h4>GOLD</h4></div>
+            <p>Colored nickname</p>
+          </div>
+              <br>
+          <div class="item">
+            <div class="header"><h4>NO ADVERTISEMENTS</h4></div>
+          </div>
+              <br>
+          <div class="item">
+            <div class="header"><h4>"GOLD" BADGES</h4></div>
+          </div>
+              <br>
+          <div class="item">
+            <div class="header"><h4>PRIORITY</h4></div>
+            <p>Directory listing</p>
+          </div>
+              <br>
+              <br>
+          <div class="item">
+            <div class="header"><h3>+ BONUS COINS</h3></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div></a>  
+      
+
+
+  <!-- <a href="/register" class="ui labeled icon black button"id="create">
     CREATE NEW ACCOUNT
     <i class="add icon"></i>
+  </a> -->
+  <br>
+  <br> 
+  <img id="side1"src="images/send1.png"/>
+    <img id="side2"src="images/mask2.png"/>
+  <!-- <img src="images/twitterbtn.png" id="tweetbtn" />
+  <img src="images/facebookbutton.png" id="fbbtn" /> -->
     <script src="../js/transin.js"></script>
     <script src="../js/transout.js"></script>
-  </a>
+    <script src="./js/room.js"></script>
 </body>
 
 </html>

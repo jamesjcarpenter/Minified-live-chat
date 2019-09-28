@@ -26,25 +26,34 @@ $('#youtubeopen').click( function() {
 
 $('.ytp-cued-thumbnail-overlay-image').hide();
 
+
+$('#canvasdraw').click( function() {
+  $('.ui.longer.large.modal').modal('show');
+});
+
+$('#userscheck').click( function() {
+  $('.ui.small.modal.users').modal('show');
+});
+
       // $('#logo').append($('<img src="images/robotsleep.png" />').text());
 
 
-    document.getElementById('themecss').href = 'css/indextheme2.css';
-    $('.ui.button').addClass('inverted');
-    $('.icon').addClass('inverted');
-    $('.ui.medium.left.pointing.label').addClass('inverted');
-    $('.large.ui.teal.secondary.button.inverted').removeClass('large ui teal').addClass('large ui black');
-    $('#cpybutton').removeClass('ui teal').addClass('ui black');
+    // document.getElementById('themecss').href = 'css/indextheme2.css';
+    // $('.ui.button').addClass('inverted');
+    // $('.icon').addClass('inverted');
+    // $('.ui.medium.left.pointing.label').addClass('inverted');
+    // $('.large.ui.teal.secondary.button.inverted').removeClass('large ui teal').addClass('large ui black');
+    // $('#cpybutton').removeClass('ui teal').addClass('ui black');
     
     
-    // document.getElementById('themechange').onclick = function () { 
-    //     document.getElementById('themecss').href = 'css/indextheme.css';
-    //     $('.ui.button').removeClass('inverted');
-    //     $('.icon').removeClass('inverted');
-    //     $('.ui.medium.left.pointing.label').removeClass('inverted');
-    //     $('.large.ui.teal.secondary.button.inverted').addClass('large ui teal').removeClass('large ui black');
-    //     $('#cpybutton').removeClass('ui teal').removeClass('ui black');
-    // };
+    document.getElementById('lightbulb').onclick = function () { 
+        document.getElementById('themecss').href = 'css/indextheme.css';
+        $('.ui.button').removeClass('inverted');
+        $('.icon').removeClass('inverted');
+        $('.ui.medium.left.pointing.label').removeClass('inverted');
+        $('.large.ui.teal.secondary.button.inverted').addClass('large ui teal').removeClass('large ui black');
+        $('#cpybutton').removeClass('ui teal').removeClass('ui black');
+    };
 
 function fixedEncodeURIComponent(str) {
   return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
@@ -137,7 +146,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
+			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '</li>');
       console.log($('.ui.mini.button.pm').attr('name'))
       
       $('.ui.mini.button.pm').click(function() {

@@ -58,6 +58,11 @@ router.get('/', function(req, res, options) {
   res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
+
+router.get('/store', function(req, res, options) {
+  res.render('store.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" type="text/css" href="../dist/semantic.min.css"id="semthemecss"content="<%= styleNonce %>">
-      <link rel="stylesheet" type="text/css" href="../css/indextheme2.css" id="themecss"content="<%= styleNonce %>">
+      <link rel="stylesheet" type="text/css" href="../css/indextheme.css" id="themecss"content="<%= styleNonce %>">
       <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Be+Vietnam|Roboto+Mono&display=swap" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="../css/iso_bootstrap3.3.7min.css"content="<%= styleNonce %>">
@@ -18,14 +18,13 @@
       <script type="text/javascript" src="../js/bootstrap.min.js"content="<%= styleNonce %>"></script>
       <script type="text/javascript" src="../js/bootbox.min.js"content="<%= styleNonce %>"></script>
       <script type="text/javascript" src="../js/toastr.min.js"content="<%= styleNonce %>"></script>
-  <title>anomic - chat online</title>
-  <h3 class="ui tiny center aligned icon header">
-</h3>
+  <title>anomic.io - Online Video & Text Chatrooms! - New Room</title>
+  <h3 class="ui block centered header"id="blockhead">
+    <img class="ui circular image" id="roompic" src="images/jenny.jpg"/> <h4 class="ui text" id="blocktext">Room Title</h4>
+        <img class="ui rounded image" id="profilepic" src="images/jenny.jpg"/><h5 class="ui text"id="profilepic2">Username</h5>
+  </h3>
 </head>
 <body>
-
-
-</div>
   <div class="ui rail internal right"id="copywrapper">
   <div class="ui action input" id="inputwrapper">
   <input type="text" value='' id="copyinput">
@@ -69,54 +68,34 @@
 <div class="ui fixed attached vertical labeled icon gray menu" id="attachmenu">
   <a href="/home">
       <div class="ui basic segment">
-<h5 id="logo"><img id="logosrc" src="images/homebtn.png" /></h5>
+<h5 id="logo"><img id="logosrc" src="images/homebtn2.png" /></h5>
       </div>
     <span class="ui text small"id="logotext">  ANOMIC</span>
       
   </a>
-  <div class="ui basic segment">
-  </div>
-  <a class="item">
-      <div class="ui basic segment">
 <h5><i></i></h5>
-      </div>
-  </a>
-  <div class="ui basic segment">
+<div class="ui horizontal divider"></div>
+<div class="ui basic segment"></div>
+<div class="ui basic segment"></div>
+<div class="ui basic segment"></div>
+<a class="item">
+  <div class="icon button"id="youtubeopen">
+    <i class="large red inverted youtube icon"id="youtubeopen"></i>
   </div>
-  <div class="ui basic segment">
-  </div>
-  <div class="ui basic segment">
-  </div>
-  <div class="ui basic segment">
-  </div>
-  <div class="ui basic segment">
-  </div>
-  <div class="ui basic segment">
-  </div>
-  <div class="ui basic segment">
-  </div>
-  <div class="ui label">
-    <i class="large users icon"></i></div>
 </a>
-<div class="ui label">
-  <i class="large paint brush icon"></i></div>
+  <a class="item"id="btns">
+    <i class="users icon"id="userscheck"></i>
 </a>
-<div class="ui label">
-  <i class="large video camera icon"></i></div>
+<a class="item"id="pb">
+  <i class="paint brush icon"id="canvasdraw"></i>
 </a>
-    <div class="inline field">
-        <div class="ui toggle checkbox">
-          <input type="checkbox" tabindex="0" class="hidden">
-        </div>
-      </div>
-  </a>
-  <a class="item">
-    <button class="icon button"id="youtubeopen">
-      <i class="red inverted youtube icon"></i>
-    </button>
-    <div class="inline field">
-        <div class="ui toggle checkbox">
-          <input type="checkbox" tabindex="0" class="hidden">
+<a class="item"id="videocam">
+  <i class="video camera icon"></i>
+</a>
+<a class="item"id="bulb">
+  <i class="large lightbulb icon"></i>
+  
+</a>
         </div>
       </div>
   </a>
@@ -134,7 +113,7 @@
         <div class="ui icon buttons" id="btnplacement">
           <div class="ui small buttons">
             <div id="btnwrapping">
-              <button id="publish" class="ui inverted green button">Broadcast&nbsp; &nbsp;<i class="camera icon"></i> </button>
+              <button id="publish" class="ui green button">Broadcast&nbsp; &nbsp;<i class="camera icon"></i> </button>
                   <button class="ui purple secondary button"id="mediasettings">Media Settings&nbsp; &nbsp;<i class="cogs icon"></i></button>
                 </div>
                 </div>
@@ -285,12 +264,11 @@
           <!-- Chat Room Messages -->
   <!-- TEMPLATES -->
   <!-- Remote Video Template -->
-  
 <div id="roomname"></div>
-  
+
   <div class="ui right attached internal rail" id="chatrail">
         <div id="draggable">
-          <div id="chatbox"class="ui divider">
+          <div id="chatbox">
             <br>          <div id='scrollable'>
     	<div id="type"></div><div id="conversation"><div id="message"></div><div id="privatemessages"></div></div>
               <div id="sanitized"></div>
@@ -322,9 +300,11 @@
 </div>
 <div id="number">
 </div>
+
+<div id="userlistwrap"class="list">
 <ul class="list-group" id="userlist">
 </ul>
-
+</div>
 
 <!-- VIDEO CALL BEGINS HERE -->
 <div class="bootstrap">
@@ -451,8 +431,8 @@
 </h4> -->
 <!-- STREAMING END -->
 
-<!-- <div id="player"></div>
-    <div id="timeHolder"></div> -->
+<!-- <div id="player"></div> -->
+    <div id="timeHolder"></div>
     
     
     <!-- <img src="images/sad3.png"id="send1"/>
@@ -496,6 +476,21 @@
       </h1>
     </h5>
   <!-- end device selection     -->
+  
+  <div class="ui small modal users"></div>
+  
+  <div class="ui longer large modal">
+    
+  <canvas class="whiteboard" ></canvas>
+
+  <div class="colors">
+    <div class="color black"></div>
+    <div class="color red"></div>
+    <div class="color green"></div>
+    <div class="color blue"></div>
+    <div class="color yellow"></div>
+  </div>
+  </div>
 <div id="youtubeplaywrap">
 <div id="vidWtch"></div>
 <div id="loading"></div>
@@ -521,10 +516,10 @@
 
 <!-- HTML5 Player -->
 
-
+<script src="./js/socketcanvas.js"></script>
 
     <!-- Vimeo -->
-
+    <script src="./js/moment.min.js"></script>
         <script src="./js/socket.io.js"></script>
   <script id="chat-template" type="text/x-handlebars-template">  </script>
   <!-- <script src="https://www.webrtc-experiment.com/Canvas-Designer/canvas-designer-widget.js"></script> -->
@@ -535,8 +530,8 @@
     <script src="../js/streaming.js"></script>
   <script src="../dist/semantic.min.js"></script>
   <script src="../js/handlebars.min.js "></script>
-  <script src="/zoz/janus.js"></script>
-  <script src="/zoz/videoroom.js"></script>
+  <!-- <script src="/zoz/janus.js"></script>
+  <script src="/zoz/videoroom.js"></script> -->
   </div>
   </div>
 </body>
