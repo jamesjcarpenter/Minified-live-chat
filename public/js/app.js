@@ -221,7 +221,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
     $('#conversation').append($('<img id="useravatar" class="ui avatar image" src="/images/avatarsmall.jpg"></img><tag id="username"name="avatar"><span class="ui small text"><samp></samp></span></tag>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#conversation').append($('<h6 class="ui left pointing label"id="messagedata"name="data"></h6>').text(data));
+    $('#conversation').append($('<h6 class="ui left pointing label"id="message"name="data"></h6>').text(data));
     replaceUrl();
   });
   
