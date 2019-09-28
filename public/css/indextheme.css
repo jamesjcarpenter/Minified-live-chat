@@ -590,8 +590,7 @@ background-color: 	#fcfff9!important;
     margin-bottom:0;
     color:black;
     z-index:1000;
-    font-weight:1200;
-      font-family: 'Changa', sans-serif;
+    font-style:oblique;
   }
   #useravatar{
     top:17px;
