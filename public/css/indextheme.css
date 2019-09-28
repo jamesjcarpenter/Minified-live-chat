@@ -1,6 +1,6 @@
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
     body { visibility:hidden !important; width:100%; background-color: 	#fcfff9!important; color:black;
-  font-family: 'Changa', sans-serif;
+  /* font-family: 'Changa', sans-serif; */
     }
     #attachmenu { background-color: 		#1c1c1c!important; width:9.5vw;
     }
@@ -340,11 +340,14 @@ right:0em;
     .h5 {color:white;}
     .h6 {color:white;}
     #messagedata{
+      display:block;
       word-wrap: break-word;
       position:justify;
-      font-size: 12px;
+      font-size: 13px;
       width: 80%;
       height:auto;
+      font-family: 'Be Vietnam', sans-serif;
+      font-weight:50;
     }
     
     #userlist {
@@ -512,6 +515,7 @@ background-color: 	#fcfff9!important;
     font-weight:200;
   }
   #message{
+          display:block;
     padding-top:12.5px;
     padding-left:20px;
     padding-right:20px;
@@ -587,10 +591,7 @@ background-color: 	#fcfff9!important;
     margin:0 auto;
     margin-bottom:0;
     color:black;
-    opacity:0.8;
     z-index:1000;
-    font-family: 'Be Vietnam', sans-serif;
-    font-weight:100;
   }
   #useravatar{
     top:17px;
