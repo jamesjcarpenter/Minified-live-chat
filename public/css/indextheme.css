@@ -302,7 +302,7 @@ right:0em;
     
     
     #date {
-    color:#FFFFFF;
+    color:#808080;
     margin-left:4.5em;
     position:relative;
     overflow-y:hidden;
@@ -342,12 +342,11 @@ right:0em;
     #messagedata{
       word-wrap: break-word;
       position:justify;
-      font-size: 13px;
+      font-size: 12px;
       width: 80%;
       height:auto;
       font-family: 'Be Vietnam', sans-serif;
-      font-weight:300;
-      text-shadow: 4px 4px 4px #474747;
+      font-weight:50;
     }
     
     #userlist {
@@ -589,7 +588,7 @@ background-color: 	#fcfff9!important;
     padding-right:1.21vw;
     margin:0 auto;
     margin-bottom:0;
-    color:white;
+    color:black;
     opacity:0.8;
     z-index:1000;
   }
