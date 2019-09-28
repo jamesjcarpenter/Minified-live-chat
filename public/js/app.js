@@ -227,7 +227,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   
   function replaceUrl() {
     
-    $(".ui.left.pointing.label").each(function(){
+    $(".ui.small.text").each(function(){
         $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
       });
       
