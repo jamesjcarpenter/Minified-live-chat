@@ -331,8 +331,15 @@ right:0em;
       bottom:1vw;
       z-index:1000;
     }
+    .p {
+      color:white;}
+    .h1 {color:white;}
+    .h2 {color:white;}
+    .h3 {color:white;}
+    .h4 {color:white;}
+    .h5 {color:white;}
+    .h6 {color:white;}
     #messagedata{
-      display:block;
       word-wrap: break-word;
       position:justify;
       font-size: 13px;
@@ -514,10 +521,14 @@ background-color: 	#fcfff9!important;
     margin:0 auto;
     margin-left:45px;
     bottom:5px;
+    background-color:	#fcfff9!important;
       color:black;
     word-wrap: break-word;
     position:justify;
+    font-size: 12px;
     line-height:195%;
+    width: 80%;
+    height:auto;
   }
   
   #emojimsg{
