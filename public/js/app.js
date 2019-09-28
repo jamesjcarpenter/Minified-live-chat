@@ -46,7 +46,7 @@ $('#userscheck').click( function() {
     // $('#cpybutton').removeClass('ui teal').addClass('ui black');
     
     
-    document.getElementById('lightbulb').onclick = function () { 
+    document.getElementById('bulb').onclick = function () { 
         document.getElementById('themecss').href = 'css/indextheme.css';
         $('.ui.button').removeClass('inverted');
         $('.icon').removeClass('inverted');
