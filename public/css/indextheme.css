@@ -590,7 +590,7 @@ background-color: 	#fcfff9!important;
     margin-bottom:0;
     color:black;
     z-index:1000;
-    /* font-weight:800; */
+    font-weight:800;
   }
   #useravatar{
     top:17px;
