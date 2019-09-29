@@ -455,9 +455,9 @@ io.sockets.on('connection', function (socket) {
           console.log(req.room);
           console.log(req.session.chat);
         });
-      };
+      });
     });
-  });
+    
     
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
