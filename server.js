@@ -456,7 +456,7 @@ io.sockets.on('connection', function (socket) {
           console.log(req.session.chat);
         });
       };
-    };
+    });
     
     
     console.log('testing: ' + Object.keys(socket.room));
