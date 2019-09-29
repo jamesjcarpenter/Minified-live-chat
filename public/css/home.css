@@ -220,6 +220,7 @@ font-family: 'Changa', sans-serif;
   width: 100%;
   /* max-width: calc(100% - 20px); */
   background: #1c1c1c;
+  opacity:0.6;
   overflow: auto;
 }
   
