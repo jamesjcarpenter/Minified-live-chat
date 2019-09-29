@@ -308,7 +308,7 @@ app.post('/newroom', function(req, res, next) {
       console.log(req.room);
       console.log(req.session.chat);
       
-      res.redirect('/room?name=' + '' + req.body.name1);
+      res.redirect('/room/' + '' + req.body.name1);
       res.render('index.ejs', { room: newRoom, chat: req.session.chat });
     });
 
