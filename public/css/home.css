@@ -211,6 +211,16 @@ font-family: 'Changa', sans-serif;
   font-family: 'Changa', sans-serif;
   }
   
+  .autoscroller {
+  margin: 10px auto;
+  padding: 5px 10px;
+  height: 250px;
+  width: 700px;
+  max-width: calc(100% - 20px);
+  background: #efefef;
+  overflow: auto;
+}
+  
   #globallist {
   color:white;  
   text-align:center;  

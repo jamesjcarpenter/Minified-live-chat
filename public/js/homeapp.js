@@ -143,7 +143,33 @@ var socket = io.connect('anomic.io/');
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<a class="ui black circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
-      $('#userlist').children().animate({'margin-top': '-=' + ($('#userlist').children().height()-100)}, 10000);
+      
+      
+      
+      var div = $('.autoscroller');
+
+$('.autoscroller').bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(evt) {
+    if (evt.type === 'DOMMouseScroll' || evt.type === 'keyup' || evt.type === 'mousewheel') {
+
+    }
+    if (evt.originalEvent.detail < 0 || (evt.originalEvent.wheelDelta && evt.originalEvent.wheelDelta > 0)) { 
+        clearInterval(autoscroller);
+    }
+    if (evt.originalEvent.detail > 0 || (evt.originalEvent.wheelDelta && evt.originalEvent.wheelDelta < 0)) { 
+        clearInterval(autoscroller);
+    }
+});
+
+var autoscroller = setInterval(function(){
+    var pos = div.scrollTop();
+    if ((div.scrollTop() + div.innerHeight()) >= div[0].scrollHeight) {
+        clearInterval(autoscroller);
+    }
+    div.scrollTop(pos + 1);
+}, 50);
+      
+      
+      
       console.log($('.ui.mini.button.pm').attr('name'))
       
       $('.ui.mini.button.pm').click(function() {
