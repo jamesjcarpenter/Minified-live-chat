@@ -283,8 +283,9 @@ font-family: 'Changa', sans-serif;
       }
     
     #join-btn {
-      position:relative;
+      position:absolute;
         top:260px;
+        z-index:9999;
     }
     .masthead .logo.item img {
       margin-right: 1em;
