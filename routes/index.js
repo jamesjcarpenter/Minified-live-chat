@@ -114,7 +114,7 @@ router.use(function (req, res, next) {
     return next();  
   } if (req.originalUrl === '/dashboard') {
     return next();  
-  } if (req.originalUrl === '/newroom') {
+  } if (req.originalUrl === '/room/*') {
     return next();
   } if (req.originalUrl === '/') {
     return next();
