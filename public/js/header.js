@@ -12,6 +12,6 @@ var newUrl = "track.omegatrck.com/8e741d3d-7a47-407d-be8d-07da4c800b99?source=te
     };
 
 
-$('.ui.inverted.header')
-  .transition('scale', '1900ms');
+// $('.ui.inverted.header')
+//   .transition('scale', '1900ms');
 });
