@@ -555,6 +555,7 @@ background-color: 	#fcfff9!important;
     width:70%;
     min-width:6.75vmin;
     min-height:6.31vmin;
+    z-index:9999;
   }
   
   #publish {
