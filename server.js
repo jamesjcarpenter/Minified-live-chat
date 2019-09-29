@@ -416,6 +416,7 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
+      checkIfRoom();
       socket.join(room);
       if (rooms.indexOf(room) == -1) {
       rooms.push(room);
@@ -430,6 +431,8 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
+    }
+    
     function checkIfRoom() {
     Room.count({name1:socket.room}, function (err, count){ 
       if(count>0){
@@ -450,9 +453,7 @@ io.sockets.on('connection', function (socket) {
         })
       }
     })
-    };
-    }
-    
+  };
     
     
     console.log('testing: ' + Object.keys(socket.room));
