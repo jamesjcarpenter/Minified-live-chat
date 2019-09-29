@@ -142,7 +142,7 @@ var socket = io.connect('anomic.io/');
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
+			$('#userlist').append('<a class="ui black circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
       console.log($('.ui.mini.button.pm').attr('name'))
       
       $('.ui.mini.button.pm').click(function() {
@@ -355,7 +355,7 @@ socket.on('connect', function(data) {
   socket.on('updatehomepage', function(rooms, curRoom) {
       $('#goa').empty();
       $.each(rooms, function(key, value, curRoom) {
-          $('#goa').append('<div class="five wide column"><a href="/room/' + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' + value + '</h3>' + '<p>sasdkjsakjdnaskjndkajsdnjkasnjkdsan</p>'  + '</div></div></a>' + '<div class="ui basic segment"id="seg"></div>');
+          $('#goa').append('<div class="five wide column"><a href="/room/' + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' + value + '</h3>' + '<p id="desc">aaa</p>'  + '</div></div></a>' + '<div class="ui basic segment"id="seg"></div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
           // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
       });
