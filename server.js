@@ -438,25 +438,10 @@ io.sockets.on('connection', function (socket) {
       if(count>0){
           console.log('room exists');
       } else {
-        var newRoom = new Room({
-          name1: req.body.name1,
-          name2: req.body.name1,
-          members: [],
-          createdOn: today,
-          updatedOn: today    
-        });
-        
-        
-        console.log(newRoom.name1);
-        // save the user
-        newRoom.save(function(err) {
-          if (err) throw err;
-          console.log('Room created!');
-          console.log(req.room);
-          console.log(req.session.chat);
-        });
-      });
-    });
+        console.log('room doesnt exist')
+      }
+    })
+  };
     
     
     console.log('testing: ' + Object.keys(socket.room));
