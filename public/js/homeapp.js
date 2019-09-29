@@ -26,7 +26,7 @@ $('#youtubeopen').click( function() {
 
 
 $('#submitroom').click( function() {
-window.location = 'https://anomic.io/room/' + $('urlname').val();
+window.location = 'https://anomic.io/room/' + $('#urlname').val();
 });
 
 $('.ytp-cued-thumbnail-overlay-image').hide();
