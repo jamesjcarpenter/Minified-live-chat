@@ -2,11 +2,11 @@ window.addEventListener('load', () => {
   
   // Chat platform
   // Local Video
-// $('#start').click();
-// $('#start').hide();
-// $('#bitrateset').hide();
-// $('#start2').click();
-// $('#start2').hide();
+$('#start').click();
+$('#start').hide();
+$('#bitrateset').hide();
+$('#start2').click();
+$('#start2').hide();
 var url = window.location.href;
 
 console.log(url);
@@ -15,14 +15,14 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("/")+1));
 
-// $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
-// $("#data").focus();
-// 
-// $('.input-group-addon').remove();
-// 
-// $('#youtubeopen').click( function() {
-//   $('.ui.longer.modal').modal('show');
-// });
+$('#copyinput').val($('#copyinput').val() + '' + window.location.href);
+$("#data").focus();
+
+$('.input-group-addon').remove();
+
+$('#youtubeopen').click( function() {
+  $('.ui.longer.modal').modal('show');
+});
 
 
 $('.ytp-cued-thumbnail-overlay-image').hide();
@@ -53,20 +53,20 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
-// $(document).ready(function() {
-//     $(".arrow-right").bind("click", function(event) {
-//         event.preventDefault();
-//         $(".vid-list-container").stop().animate({
-//             scrollLeft: "+=336"
-//         }, 750);
-//     });
-//     $(".arrow-left").bind("click", function(event) {
-//         event.preventDefault();
-//         $(".vid-list-container").stop().animate({
-//             scrollLeft: "-=336"
-//         }, 750);
-//     });
-// });
+$(document).ready(function() {
+    $(".arrow-right").bind("click", function(event) {
+        event.preventDefault();
+        $(".vid-list-container").stop().animate({
+            scrollLeft: "+=336"
+        }, 750);
+    });
+    $(".arrow-left").bind("click", function(event) {
+        event.preventDefault();
+        $(".vid-list-container").stop().animate({
+            scrollLeft: "-=336"
+        }, 750);
+    });
+});
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
@@ -353,8 +353,9 @@ socket.on('connect', function(data) {
   
   
   socket.on('updatehomepage', function(rooms, curRoom) {
+      $('#roomlist').empty();
       $.each(rooms, function(key, value, curRoom) {
-          $('#scroller').append('<div class="ui container"><div class="ui relaxed sixteen wide column grid"id="grid"><div class="sixteen wide column"id="goa"></div><div class="five wide column"><div data-aos="fade-down-left"><div id="rightlabelroom" class="ui right pointed label"><img class="ui centered image" src="images/glitchify.gif"><h4 class="ui center aligned header"><a href="/room?name=4">' + value + '</h4><div class="ui divider"id="divider"></div><p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p><br><i class="video camera icon"></i><i class="users icon"></i></div></div><div class="ui basic segment"></div><div class="ui basic segment"></div></div></a>');
+          $('#goa').append('<div class="ui segment"><h3>' + value + '</h3></div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
           // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
       });
