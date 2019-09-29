@@ -308,7 +308,7 @@ app.post('/newroom', function(req, res, next) {
       console.log(req.room);
       console.log(req.session.chat);
       
-      res.redirect('/room/' + '' + req.body.name1);
+      res.redirect('/room/:name1' + '' + req.body.name1);
       res.render('index.ejs', { room: newRoom, chat: req.session.chat });
     });
 
@@ -396,7 +396,7 @@ var usernames = {};
 const sessionsMap = {};
 var clients = [];
 var users = [];
-
+var roomAdmin;
 var ids = {};
 
 process.env.YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';

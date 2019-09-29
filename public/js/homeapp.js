@@ -25,10 +25,6 @@ $('#youtubeopen').click( function() {
 });
 
 
-$('#submitroom').click( function() {
-window.location = 'https://anomic.io/room/' + $('#urlname').val();
-});
-
 $('.ytp-cued-thumbnail-overlay-image').hide();
 
       // $('#logo').append($('<img src="images/robotsleep.png" />').text());
@@ -78,7 +74,6 @@ var socket = io.connect('anomic.io/');
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-    
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
     // console.log("roomId : "+roomId);
@@ -94,7 +89,11 @@ var socket = io.connect('anomic.io/');
         socket.emit(socket.id);
       });
       
-        
+      $('#submitroom').click( function() {
+      window.location = 'https://anomic.io/room/' + $('#urlname').val();
+      socket.emit('admin', socket.id);
+      });
+      
     
       socket.on('private-message', (data, message) => {
         console.log('You received a message');
