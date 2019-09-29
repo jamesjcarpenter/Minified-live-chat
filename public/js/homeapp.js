@@ -2,11 +2,11 @@ window.addEventListener('load', () => {
   
   // Chat platform
   // Local Video
-$('#start').click();
-$('#start').hide();
-$('#bitrateset').hide();
-$('#start2').click();
-$('#start2').hide();
+// $('#start').click();
+// $('#start').hide();
+// $('#bitrateset').hide();
+// $('#start2').click();
+// $('#start2').hide();
 var url = window.location.href;
 
 console.log(url);
@@ -15,14 +15,14 @@ function getImageDirectoryByFullURL(url){
 }
 console.log(url.substr(url.lastIndexOf("/")+1));
 
-$('#copyinput').val($('#copyinput').val() + '' + window.location.href);
-$("#data").focus();
-
-$('.input-group-addon').remove();
-
-$('#youtubeopen').click( function() {
-  $('.ui.longer.modal').modal('show');
-});
+// $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
+// $("#data").focus();
+// 
+// $('.input-group-addon').remove();
+// 
+// $('#youtubeopen').click( function() {
+//   $('.ui.longer.modal').modal('show');
+// });
 
 
 $('.ytp-cued-thumbnail-overlay-image').hide();
@@ -53,20 +53,20 @@ function fixedEncodeURIComponent(str) {
   });
 }
 
-$(document).ready(function() {
-    $(".arrow-right").bind("click", function(event) {
-        event.preventDefault();
-        $(".vid-list-container").stop().animate({
-            scrollLeft: "+=336"
-        }, 750);
-    });
-    $(".arrow-left").bind("click", function(event) {
-        event.preventDefault();
-        $(".vid-list-container").stop().animate({
-            scrollLeft: "-=336"
-        }, 750);
-    });
-});
+// $(document).ready(function() {
+//     $(".arrow-right").bind("click", function(event) {
+//         event.preventDefault();
+//         $(".vid-list-container").stop().animate({
+//             scrollLeft: "+=336"
+//         }, 750);
+//     });
+//     $(".arrow-left").bind("click", function(event) {
+//         event.preventDefault();
+//         $(".vid-list-container").stop().animate({
+//             scrollLeft: "-=336"
+//         }, 750);
+//     });
+// });
 
 var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
