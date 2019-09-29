@@ -285,7 +285,6 @@ font-family: 'Changa', sans-serif;
     #join-btn {
       position:relative;
         top:260px;
-      display:none;
     }
     .masthead .logo.item img {
       margin-right: 1em;
