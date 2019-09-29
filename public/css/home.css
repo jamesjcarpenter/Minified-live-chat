@@ -212,6 +212,7 @@ font-family: 'Changa', sans-serif;
   }
   
   .autoscroller {
+  margin-top:500px;
   margin: 10px auto;
   padding: 5px 10px;
   height: 250px;
@@ -221,12 +222,6 @@ font-family: 'Changa', sans-serif;
   overflow: auto;
   border-radius:55px;
 }
-  
-  #usewrap {
-    position:absolute;
-    top:70%;
-    left:40%;
-  }
   
   #globallist {
   color:white;  
