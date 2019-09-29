@@ -353,9 +353,9 @@ socket.on('connect', function(data) {
   
   
   socket.on('updatehomepage', function(rooms, curRoom) {
-      $('#roomlist').empty();
+      $('#goa').empty();
       $.each(rooms, function(key, value, curRoom) {
-          $('#remotevideos').append('<div class="five wide column"><div data-aos="fade-down-left"><div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted=""><img class="ui centered image" src="images/glitchify.gif"><h4 class="ui center aligned header"><a href="/room?name=4">' + value + '</h4><div class="ui divider"id="divider"></div><p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p><br><i class="video camera icon"></i><i class="users icon"></i></div></div><div class="ui basic segment"></div><div class="ui basic segment"></div></div></a>');
+          $('#goa').append('<div class="five wide column"><div data-aos="fade-down-left"><div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted=""><img class="ui centered image" src="images/glitchify.gif"><h4 class="ui center aligned header"><a href="/room?name=4">' + value + '</h4><div class="ui divider"id="divider"></div><p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p><br><i class="video camera icon"></i><i class="users icon"></i></div></div><div class="ui basic segment"></div><div class="ui basic segment"></div></div></a>');
           console.log(value.substr(value.lastIndexOf("/")+1));
           // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
       });
