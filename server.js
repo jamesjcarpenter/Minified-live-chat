@@ -430,18 +430,15 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
-    checkIfRoom();
-    }
-    
     function checkIfRoom() {
-    Room.count({name1:rooms[i]}, function (err, count){ 
+    Room.count({name1:socket.room}, function (err, count){ 
       if(count>0){
           console.log('room exists');
       } else {
         console.log('room doesnt exist')
         var newRoom = new Room({
-          name1: rooms[i],
-          name2: rooms[i],
+          name1: socket.room,
+          name2: socket.room,
           members: [],
           createdOn: today,
           updatedOn: today    
@@ -453,7 +450,9 @@ io.sockets.on('connection', function (socket) {
         })
       }
     })
-  };
+    };
+    }
+    
     
     
     console.log('testing: ' + Object.keys(socket.room));
