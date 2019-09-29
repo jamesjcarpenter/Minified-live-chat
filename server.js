@@ -430,25 +430,33 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
+    checkIfRoom();
+    }
     
+    function checkIfRoom() {
     Room.count({name1:rooms[i]}, function (err, count){ 
       if(count>0){
           console.log('room exists');
       } else {
         var newRoom = new Room({
-          name1: curRoom,
-          name2: curRoom,
+          name1: req.body.name1,
+          name2: req.body.name1,
           members: [],
           createdOn: today,
           updatedOn: today    
         });
+        
+        
+        console.log(newRoom.name1);
+        // save the user
         newRoom.save(function(err) {
           if (err) throw err;
           console.log('Room created!');
-        };
-      });
-    }); 
-    }
+          console.log(req.room);
+          console.log(req.session.chat);
+        });
+      };
+    };
     
     
     console.log('testing: ' + Object.keys(socket.room));
