@@ -219,10 +219,13 @@ font-family: 'Changa', sans-serif;
   max-width: calc(100% - 20px);
   background: #1c1c1c;
   overflow: auto;
+  border-radius:55px;
 }
   
   #usewrap {
-  margin-top:30em;  
+    position:absolute;
+    top:70%;
+    left:40%;
   }
   
   #globallist {
