@@ -362,7 +362,7 @@ socket.on('connect', function(data) {
     		// update list of users in chat, client-side
     		socket.emit('updateusers', socket.usernames);
     		// echo globally that this client has left
-    		socket.broadcast.emit('serverupdatechat', '' + socket.username + ' has disconnected');
+    		socket.emit('serverupdatechat', '' + socket.username + ' has disconnected');
     		socket.leave(socket.room);
         delete socket.usernames[socket.username];
     	});

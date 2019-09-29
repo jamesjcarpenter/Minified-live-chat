@@ -340,6 +340,7 @@ socket.on('connect', function(data) {
   }); 
   
   socket.on('roomcount', function(rooms) {
+          $('#rmcount').empty();
           $('#rmcount').append('' + rooms.length);
   });
   
