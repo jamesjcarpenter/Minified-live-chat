@@ -202,16 +202,26 @@ font-family: 'Changa', sans-serif;
     
   #userlist {
   color:white;  
-  text-shadow: 4px 4px 4px #474747;
-  font-family: 'Fredoka One', cursive;
-  font-weight:600;
-  font-size:20px;
-  z-index:9999;
+  text-align:center;  
+  font-size:32px;
+  font-weight:1200;
   color:white;
-  left:30%;
-  top:20%;
-  position:absolute;
+  margin-top:1em;
+  text-shadow: 4px 4px 4px #474747;
+  font-family: 'Changa', sans-serif;
   }
+  
+  #globallist {
+  color:white;  
+  text-align:center;  
+  font-size:32px;
+  font-weight:1200;
+  color:white;
+  margin-top:1em;
+  text-shadow: 4px 4px 4px #474747;
+  font-family: 'Changa', sans-serif;
+  }
+    
     
     #logotext {
     text-shadow: 4px 4px 4px #474747;
