@@ -457,7 +457,7 @@ io.sockets.on('connection', function (socket) {
         });
       };
     });
-    
+  });
     
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
