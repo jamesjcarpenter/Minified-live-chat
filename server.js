@@ -430,6 +430,22 @@ io.sockets.on('connection', function (socket) {
     console.log(rooms[i]);
     var curRoom = rooms[i]
     console.log('rooms: ' + rooms);
+    
+    Room.count({name1:rooms[i]}, function (err, count){ 
+      if(count>0){
+          console.log('room exists');
+      } else {
+        var newRoom = new Room({
+          name1: curRoom,
+          name2: curRoom,
+          members: [],
+          createdOn: today,
+          updatedOn: today    
+        });
+        newRoom.save(function(err) {
+          if (err) throw err;
+          console.log('Room created!');
+      }); 
     }
     
     
