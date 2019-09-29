@@ -213,7 +213,7 @@ font-family: 'Changa', sans-serif;
   
   .autoscroller {
   position:absolute;
-  top:50%;
+  top:110%;
   left:40%;
   margin: 10px auto;
   padding: 5px 10px;
