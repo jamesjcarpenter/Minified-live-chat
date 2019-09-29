@@ -354,7 +354,7 @@ socket.on('connect', function(data) {
   
   socket.on('updatehomepage', function(rooms, curRoom) {
       $.each(rooms, function(key, value, curRoom) {
-          $('<div class="five wide column"><div data-aos="fade-down-left"><div id="rightlabelroom" class="ui right pointed label"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted=""><img class="ui centered image" src="images/glitchify.gif"><h4 class="ui center aligned header"><a href="/room?name=4">' + value + '</h4><div class="ui divider"id="divider"></div><p>Lorem ipsum dolor sit amet, ad odio erroribus vel, iuvaret incorrupte id pro, ut dicta dolor perpetua pro.</p><br><i class="video camera icon"></i><i class="users icon"></i></div></div><div class="ui basic segment"></div><div class="ui basic segment"></div></div></a>').appendTo('#scroller');
+          $('<div class="five wide column"><div data-aos="fade-down-left"><div class="ui right pointed label"><img class="ui centered image" src="images/glitchify.gif"><h4 class="ui center aligned header"><a href="/room?name=4">' + value + '</h4><div class="ui divider"id="divider"></div><p>aaa234</p><br><i class="video camera icon"></i><i class="users icon"></i></div></div><div class="ui basic segment"></div><div class="ui basic segment"></div></div></a>').appendTo('#goa');
           console.log(value.substr(value.lastIndexOf("/")+1));
           // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
       });
