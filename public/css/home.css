@@ -211,6 +211,17 @@ font-family: 'Changa', sans-serif;
   font-family: 'Changa', sans-serif;
   }
   
+  #user1list {
+  color:white;  
+  text-align:center;  
+  font-size:32px;
+  font-weight:1200;
+  color:white;
+  margin-top:1em;
+  text-shadow: 4px 4px 4px #474747;
+  font-family: 'Changa', sans-serif;
+  }
+  
   .autoscroller {
   position:absolute;
   top:75%;
