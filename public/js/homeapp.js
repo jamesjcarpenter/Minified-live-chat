@@ -348,7 +348,7 @@ socket.on('connect', function(data) {
     $('#globallist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
     // $.each(data, function(key, value) {
-      $('#globallist').append('' + numClients);
+      $('#globallist').append('<div id="#globallist">' + numClients + '</div>');
   });
   
   
