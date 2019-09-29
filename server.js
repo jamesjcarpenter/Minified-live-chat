@@ -439,6 +439,18 @@ io.sockets.on('connection', function (socket) {
           console.log('room exists');
       } else {
         console.log('room doesnt exist')
+        var newRoom = new Room({
+          name1: rooms[i],
+          name2: rooms[i],
+          members: [],
+          createdOn: today,
+          updatedOn: today    
+        });
+        
+        newRoom.save(function(err) {
+          if (err) throw err;
+          console.log('Room created!');
+        })
       }
     })
   };
