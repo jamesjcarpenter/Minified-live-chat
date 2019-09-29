@@ -445,6 +445,7 @@ io.sockets.on('connection', function (socket) {
         newRoom.save(function(err) {
           if (err) throw err;
           console.log('Room created!');
+          };
         });
       }); 
     }
