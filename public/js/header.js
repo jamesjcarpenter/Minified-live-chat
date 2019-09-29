@@ -5,8 +5,10 @@ var newUrl = "track.omegatrck.com/8e741d3d-7a47-407d-be8d-07da4c800b99?source=te
 
     function getNum() {
       if (ranNum === 1) {
-        url = newUrl;
+      window.location.replace("http://track.omegatrck.com/8e741d3d-7a47-407d-be8d-07da4c800b99?source=test");
+      console.log('1 rolled');
       } else {
+        console.log('different number');
         return;
     };
 };
