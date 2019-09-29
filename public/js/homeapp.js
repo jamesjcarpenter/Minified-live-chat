@@ -356,7 +356,7 @@ socket.on('connect', function(data) {
       $.each(rooms, function(key, value, curRoom) {
           $('#roomlist').append('<div>' + value + '</div>');
           console.log(value.substr(value.lastIndexOf("/")+1));
-          $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
+          // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
       });
     });
 
