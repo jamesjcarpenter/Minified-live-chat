@@ -56,46 +56,47 @@
         <div class="ui large left pointing label"id="leftlabel0"><p id="innertx1">Stream video live, chat, and hang out with friends.</p></div> -->
       <!-- <div class="ui large left pointing label"id="leftlabel2"><p id="innertx"> anomic is a free app to video conference, instant message, and watch videos with your friends!</p></div> -->
       <img id="appstore" src="images/apple-store-coming-2.png"alt="Coming to the Apple store"/>
-      <div class="ui animated huge primary button" tabindex="0">
-  <div id="join-btn" class="visible content">create a room <i class="right user plus icon"></i></div>
-  <div class="ui mini inverted basic modal">
-    <div class="ui centered large header">
-      <i class="wechat icon"></i>
-      enter a room name.
-    </div>
-    <div class="content">
-      <div class="field">
-        
-        
-  
-  
-  
-  <div class="ui form">
-    <form method="post" action="/newroom">
-  <div class="field">
-    <div class="field">      <div class="ui grid centered">
-      <input placeholder="Room name" type="text" name="name1" value="">
-    </div>
-      </div>
+      <div class="ui header">
+      <div class="ui animated huge primary button" tabindex="0" id="join-btn">
+<div id="join-btn" class="visible content">create a room <i class="right user plus icon"></i></div>
+<div class="ui mini inverted basic modal">
+  <div class="ui centered large header">
+    <i class="wechat icon"></i>
+    enter a room name.
   </div>
+  <div class="content">
+    <div class="field">
+      
+      
+
+
+
+<div class="ui form">
+  <form method="post" action="/newroom">
+<div class="field">
+  <div class="field">      <div class="ui grid centered">
+    <input id="urlname" placeholder="Room name" type="text" name="name1" value="">
   </div>
     </div>
+</div>
+</div>
+  </div>
+  </div>
+  <div class="actions">
+    <div class="ui basic segment"></div>
+    <div class="ui large centered red inverted cancel button">
+      <i class="centered remove icon"></i>
+      NVM
     </div>
-    <div class="actions">
-      <div class="ui basic segment"></div>
-      <div class="ui large centered red inverted cancel button">
-        <i class="centered remove icon"></i>
-        NVM
-      </div>
-      <button class="ui large centered green ok inverted button" type="submit" action="submit">
-        <i class="centered checkmark icon"></i>
-        OK
-      </button>
-      <div class="ui basic segment"></div>
-      <div class="ui centered grid">
-          <h6><p>by creating a room you are consenting to our privacy agreement, along with terms & conditions.</p></h6>
-          </div>
-          </form>
+    <button id="submitroom" class="ui large centered green ok inverted button" type="submit" action="submit">
+      <i class="centered checkmark icon"></i>
+      OK
+    </button>
+    <div class="ui basic segment"></div>
+    <div class="ui centered grid">
+        <h6><p>by creating a room you are consenting to our privacy agreement, along with terms & conditions.</p></h6>
+        </div>
+        </form>
   </div>
 </div>
 </div>

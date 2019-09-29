@@ -11,9 +11,9 @@ var url = window.location.href;
 
 console.log(url);
 function getImageDirectoryByFullURL(url){
-    return url.substr(url.lastIndexOf("=")+1);
+    return url.substr(url.lastIndexOf("/")+1);
 }
-console.log(url.substr(url.lastIndexOf("=")+1));
+console.log(url.substr(url.lastIndexOf("/")+1));
 
 $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
 $("#data").focus();
@@ -22,6 +22,11 @@ $('.input-group-addon').remove();
 
 $('#youtubeopen').click( function() {
   $('.ui.longer.modal').modal('show');
+});
+
+
+$('#submitroom').click( function() {
+window.location = 'https://anomic.io/room/' + document.getElementById('urlname').value();
 });
 
 $('.ytp-cued-thumbnail-overlay-image').hide();
@@ -74,7 +79,7 @@ var socket = io.connect('anomic.io/');
   socket.on('connect', function(){
     
     
-    var roomId = url.substr(url.lastIndexOf("=")+1);
+    var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
     // console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
@@ -488,13 +493,13 @@ window.onunload = function() {
 }
 
 
-var designer = new CanvasDesigner();
+// var designer = new CanvasDesigner();
 
 // both links are mandatory
 // widget.html will internally use widget.js
-designer.widgetHtmlURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.html'; // you can place this file anywhere
-designer.widgetJsURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.js';     // you can place this file anywhere
+// designer.widgetHtmlURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.html'; // you can place this file anywhere
+// designer.widgetJsURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.js';     // you can place this file anywhere
 
 // <iframe> will be appended to "document.body"
-designer.appendTo(document.body.inner|| document.documentElement);
+// designer.appendTo(document.body.inner|| document.documentElement);
 });
