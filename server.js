@@ -442,7 +442,7 @@ io.sockets.on('connection', function (socket) {
         var newRoom = new Room({
           name1: socket.room,
           name2: socket.room,
-          members: [],
+          members: users,
           createdOn: today,
           updatedOn: today    
         });
