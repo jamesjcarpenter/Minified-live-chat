@@ -369,7 +369,7 @@ socket.on('connect', function(data) {
     		socket.emit('updateusers', socket.usernames);
     		// echo globally that this client has left
     		socket.emit('serverupdatechat', '' + socket.username + ' has disconnected');
-    		socket.leave(socket.room);
+    		// socket.leave(socket.room);
         delete socket.usernames[socket.username];
     	});
 
