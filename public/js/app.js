@@ -147,18 +147,22 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
-      var $container = $('#userlist');
-      $('<div class="orb"></div>').data('num', socket.id).appendTo($container);
+      var $container = $('#imagelabel');
+      $('<div class="ui mini button pm"></div>').data('id', socket.id).appendTo($container);
     
-      console.log($('.orb').data('num'));
+      console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
       
       
       
       $('.ui.mini.button.pm').click(function() {
         // $("#PMbutton").unbind();
         $(".ui.mini.button.pm").each(function(){
-          var userToPM;
-          userToPM = $('.ui.mini.button.pm').attr('name')
+          var value;
+          value = $( ".ui.mini.button.pm" ).data( "blah" );
+          
+          console.log(value);
+                
+                
           console.log(userToPM);
           socket.emit('private-message', data, message, userToPM);
           });
