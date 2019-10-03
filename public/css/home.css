@@ -1,6 +1,6 @@
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
   body { 
-        color:white;background-color: black;visibility:none!important;
+        color:white;background-color: black;visibility:hidden!important;
   }
     .hidden.menu {
       display: none;
@@ -9,7 +9,8 @@
 
     #top1 {
     background-color: black;
-    min-height:50px;
+    min-height:70px;
+    margin-top:-20px;
     position:fixed;
     top:0;
     left:0;
