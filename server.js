@@ -543,7 +543,7 @@ var clients = io.sockets.adapter.rooms[users];
     if (error) throw error;
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
-    console.log(clients); 
+    console.log('clients:  ' + clients); 
   });
     
     
