@@ -147,7 +147,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + socket.id + '">' + key  + '</span>' + '</a>' + '</li>');
-      $(this).prepend('' + socket.id);
+      $('' + socket.id).appendTo(this);
       
       
       $('.ui.mini.button.pm').click(function() {
@@ -369,7 +369,7 @@ socket.on('connect', function(data) {
     		socket.emit('updateusers', socket.usernames);
     		// echo globally that this client has left
     		socket.emit('serverupdatechat', '' + socket.username + ' has disconnected');
-    		// socket.leave(socket.room);
+    		socket.leave(socket.room);
         delete socket.usernames[socket.username];
     	});
 
