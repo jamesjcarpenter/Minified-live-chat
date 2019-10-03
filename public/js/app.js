@@ -152,7 +152,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   
   socket.on('updateids', function(data) {
     var $container = $('.pmwrap');
-    $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', socket.id).appendTo($container);
+    $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', sockets.id).appendTo($container);
   
     console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
     
@@ -165,7 +165,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         value = $(this).data( "id" );
         });
       });
-  
+  });
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
     //   $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
