@@ -12,10 +12,7 @@
       display: none;
             color:white;
     }
-    #signup {
-    z-index:9999;
-    position:absolute;  
-    }
+    
 
     #terms {
     font-weight:400;
@@ -125,6 +122,7 @@
     left:-11%;  
     width:35vw;
     opacity:0.025;
+    z-index:-1;
     }
     #side2 {
     position:fixed;
@@ -132,6 +130,7 @@
     right:-5%;  
     width:35vw;
         opacity:0.01;
+        z-index:-1;
     }
     
     /* #create {
