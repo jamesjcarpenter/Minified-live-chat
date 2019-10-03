@@ -136,7 +136,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         //do something with value;
       }
     }
-   $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(ids));
+			$('#userlist').append('<span class="ui white text id" data-value="' + '">' + key  + '</span>' + '</a>' + '</li>');
   
   });
   
