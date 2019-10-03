@@ -330,6 +330,7 @@ socket.on('connect', function(data) {
     $.each(data, function(key, value) {
       $('#userlist').append('' + numClients);
   });
+});
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
