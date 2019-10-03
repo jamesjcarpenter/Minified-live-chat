@@ -130,13 +130,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   
   console.log(Object.keys.usernames);
   socket.on('getids', function (ids) {
-    for(key in ids) {
-    if(ids.hasOwnProperty(key)) {
-        var value = ids[key];
+    for(id in ids) {
+    if(ids.hasOwnProperty(id)) {
+        var value = ids[id];
         //do something with value;
       }
     }
-			$('#userlist').append('<span class="ui white text id" data-value="' + '">' + key  + '</span>' + '</a>' + '</li>');
+			$('#userlist').append('<span class="ui white text id" data-value="' + '">' + id  + '</span>' + '</a>' + '</li>');
   
   });
   
