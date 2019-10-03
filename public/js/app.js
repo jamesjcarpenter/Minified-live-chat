@@ -171,7 +171,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         socket.emit('private-message', data, message, userToPM);
         });
       });
-  
+  });
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
     //   $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
