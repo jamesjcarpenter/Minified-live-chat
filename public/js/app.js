@@ -143,6 +143,23 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
   socket.on('updateusers', function(data) {
     
+    var nicknames = [
+    		  { Name: socket.username, SocketID: socket.id }
+    		];
+        
+        
+  var markup = "<li><b>${Name}</b> (${SocketID})</li>";
+
+// Compile the markup as a named template
+$.template( "movieTemplate", markup );
+
+// Render the template with the movies data and insert
+// the rendered HTML under the "movieList" element
+$.tmpl( "movieTemplate", nicknames )
+  .appendTo( "#userlist" );
+    
+    
+    
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
