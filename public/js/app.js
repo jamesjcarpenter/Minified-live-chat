@@ -147,16 +147,29 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
-                
-                
-          console.log(userToPM);
-          socket.emit('private-message', data, message, userToPM);
-          });
-        });
-          socket.on('msgStart', function() {
-              console.log(userToPM);
-            });
     });
+  });
+  
+  socket.on('updateids', function(data) {
+    var $container = $('.pmwrap');
+    $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', socket.id).appendTo($container);
+  
+    console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
+    
+    
+    
+    $('.ui.mini.button.pm').click(function() {
+      // $("#PMbutton").unbind();
+      $(this).each(function(){
+        var value;
+        value = $(this).data( "id" );
+        
+              
+              
+        console.log(userToPM);
+        socket.emit('private-message', data, message, userToPM);
+        });
+      });
   
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
@@ -239,23 +252,6 @@ socket.on('serverupdateuser', function (server) {
   $('#profilepic2').empty();
   $('#profilepic2').append('<h5 class="ui text"id="profilepic2"></h5>').text(server);
   console.log($('.ui.mini.button.pm').attr('name'))
-  
-  var $container = $('.ui.gray.circular.image.label');
-  $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', socket.id).appendTo($container);
-
-  console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
-  
-  
-  
-  $('.ui.mini.button.pm').click(function() {
-    // $("#PMbutton").unbind();
-    $(".ui.mini.button.pm").each(function(){
-      var value;
-      value = $('.ui.mini.button.pm').data( "id" );
-      
-      console.log(value);
-    });
-  });
   
 });
 
