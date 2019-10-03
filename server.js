@@ -477,7 +477,12 @@ io.sockets.on('connection', function (socket) {
     socket.username = username;
     var id = socket.id;
     
-    
+    socket.emit('idget', ids, socket.id);
+    for (var i = 0; i < ids.length; i++) {
+    console.log(ids[i]);
+    var curId = ids[i]
+    console.log('ids: ' + ids);
+    }
     
     ids[id] = id;
     // var username = socket.id;
@@ -495,12 +500,10 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
     
     socket.emit('serverupdateuser', '' + socket.username);
-    
-    io.emit('serverupdateid', '' + socket.id);
     // echo to room 1 that a person has connected to their room
     
     //update users for current room
-      io.emit('updateusers', usernames, ids);
+      io.emit('updateusers', usernames, socket.id);
     // console.log(usernames);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);

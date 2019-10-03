@@ -146,7 +146,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + value + '">' + key  + '</span>' + '</a>' + '</li>');
+			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + userinfo + '">' + key  + '</span>' + '</a>' + '</li>');
       $('.ui.mini.button.pm').click(function() {
         // $("#PMbutton").unbind();
         $(".ui.mini.button.pm").each(function(){
@@ -243,11 +243,6 @@ socket.on('serverupdateuser', function (server) {
   $('#profilepic2').empty();
   $('#profilepic2').append('<h5 class="ui text"id="profilepic2"></h5>').text(server);
   console.log($('.ui.mini.button.pm').attr('name'))
-  
-});
-
-socket.on('serverupdateid', function (server) {
-  $('.ui.small.text').append('<div id="id" data-value="' + '">').text(server);
   
 });
   // on load of page
