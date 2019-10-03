@@ -157,7 +157,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
               console.log(userToPM);
             });
     });
-  });
   
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
