@@ -147,8 +147,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
-      $container = $('#userlist')
-      $('<div class="socketinfo"></div>').data(socket.id).appendTo($container);
+      $('<div class="socketinfo"></div>').data(socket.id).appendTo('.list.user');
       
       
       
