@@ -121,7 +121,7 @@ font-family: 'Changa', sans-serif;
     z-index:9999;
     opacity:0.95;
     margin-left:0.35em;
-    position:relative;
+    position:fixed;
     left:5.75%;
     top:0.25em;
     }
@@ -219,7 +219,7 @@ font-family: 'Changa', sans-serif;
     color:white;
     left:1em;
     top:0.5em;
-    position:absolute;
+    position:fixed;
     }
     
     a.item {
