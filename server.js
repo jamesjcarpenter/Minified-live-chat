@@ -489,7 +489,7 @@ io.sockets.on('connection', function (socket) {
     console.log(usernames)
     console.log(ids)
     
-    console.log('ids array:  ' + ids[id] = id)
+    console.log('ids array:  ' + ids[id])
     
     socket.emit('serverupdatechat', 'you joined the room' + ' ' + socket.room);
     // echo to room 1 that a person has connected to their room
