@@ -536,12 +536,12 @@ var clients = io.sockets.adapter.rooms[users];
   if(clients) {
     Object.keys(clients.sockets).forEach(function (users){
       console.log("client socket id: " + io.sockets.adapter.rooms[users]);
+        io.emit('idcount', clients);
     })
   };
 
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
-    io.emit('idcount', clients);
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     console.log('clients:  ' + clients); 
   });
