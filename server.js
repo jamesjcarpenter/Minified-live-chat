@@ -487,7 +487,7 @@ io.sockets.on('connection', function (socket) {
     ids[id] = id;
 
     console.log(usernames)
-    console.log(id[ids])
+    console.log(io.sockets.adapter.rooms[ids])
     
     console.log('single id:  ' + ids[id])
     
@@ -497,7 +497,7 @@ io.sockets.on('connection', function (socket) {
     
     socket.emit('serverupdateuser', '' + socket.username);
     // echo to room 1 that a person has connected to their room
-        // socket.emit('serverupdateids', '' + id[ids]);
+    
     
     let user = {     // an object
       name: socket.username,  // by key "name" store value "John"
