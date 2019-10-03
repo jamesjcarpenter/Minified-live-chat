@@ -475,7 +475,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
-    socket.id = id;
+    id = socket.id;
     
     
 
