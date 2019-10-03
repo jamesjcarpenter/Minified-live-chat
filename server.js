@@ -477,12 +477,6 @@ io.sockets.on('connection', function (socket) {
     socket.username = username;
     var id = socket.id;
     
-    socket.emit('idget', ids, socket.id);
-    for (var i = 0; i < ids.length; i++) {
-    console.log(ids[i]);
-    var curId = ids[i]
-    console.log('ids: ' + ids);
-    }
     
     ids[id] = id;
     // var username = socket.id;
@@ -490,10 +484,15 @@ io.sockets.on('connection', function (socket) {
     // add the client's username to the global list
     usernames[username] = username;
     
-    
+    socket.emit('idget', ids, socket.id);
+    for (var i = 0; i < ids.length; i++) {
+    console.log(ids[i]);
+    var curId = ids[i]
+    console.log('ids: ' + ids);
+    }
 
     console.log(usernames)
-    console.log(ids)
+    console.log("ids: " + ids.length)
     
     socket.emit('serverupdatechat', 'you joined the room' + ' ' + socket.room);
     // echo to room 1 that a person has connected to their room
