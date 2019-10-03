@@ -384,8 +384,9 @@ font-family: 'Changa', sans-serif;
       .secondary.pointing.menu .toc.item {
         display: block;
       }
-      .masthead.segment {
+      .ui.inverted.masthead.center.aligned.segment {
         min-height: 50px;
+        margin-top:-50px;
       }
       .masthead h1.ui.header {
         font-size: 2em;
