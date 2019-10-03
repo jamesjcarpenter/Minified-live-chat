@@ -483,7 +483,11 @@ io.sockets.on('connection', function (socket) {
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
-    
+    // var ids = Object.keys(io.sockets.connected);
+    // ids.forEach(function(id) {
+    // var socket = io.sockets.connected[id];
+    // io.sockets.in
+    //   });
     ids[id] = id;
     
     console.log('idss: ' + ids.length);
@@ -528,19 +532,22 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-// var clients = io.sockets.adapter.rooms[users];
-//   if(clients) {
-//     Object.keys(clients.sockets).forEach(function (users){
-//       console.log("client socket id: " + io.sockets.adapter.rooms[users]);
-//     })
-//   };
-// console.log
-// 
-//     io.of('/').in(socket.room).clients((error, clients) => {
-//     if (error) throw error;
+var clients = io.sockets.adapter.rooms[users];
+  if(clients) {
+    Object.keys(clients.sockets).forEach(function (users){
+      console.log("client socket id: " + io.sockets.adapter.rooms[users]);
+    })
+  };
+
+    io.of('/').in(socket.room).clients((error, clients) => {
+    if (error) throw error;
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
-    // console.log(clients); 
+    console.log(clients); 
+  };
+    
+    
+    
     socket.emit('getusers',  '' + usernames);
       console.log('adapter' + io.sockets.adapter.rooms);
       io.of('/').in(socket.room).clients(function(error,clients){
