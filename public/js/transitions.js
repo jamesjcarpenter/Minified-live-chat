@@ -1,7 +1,7 @@
- $('.h6').first().remove();
+
 window.addEventListener('load', () => {
   
-
+ $('.h6').first().remove();
    $(".pusher")
     .transition({
       animation  : 'scale in',
