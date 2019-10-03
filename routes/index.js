@@ -67,6 +67,15 @@ router.get('/register', function(req, res, options) {
   res.render('register.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
+router.get('/pro', function(req, res, options) {
+  res.render('store.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
+
+router.get('/rooms', function(req, res, options) {
+   res.render('rooms.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
+});
+
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 

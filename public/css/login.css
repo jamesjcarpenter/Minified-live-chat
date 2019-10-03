@@ -12,6 +12,10 @@
       display: none;
             color:white;
     }
+    #signup {
+    z-index:9999;
+    position:absolute;  
+    }
 
     #terms {
     font-weight:400;
