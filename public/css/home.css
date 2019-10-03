@@ -327,12 +327,13 @@ font-family: 'Changa', sans-serif;
     
     #join-btn {
       position:absolute;
-        top:40%;
-        left:30%;
+        top:70%;
+        left:50%;
         color:white;
         background-color:#1c1c1c;
         width:20vw;
         height:auto;
+        text-align:center;
     }
     .masthead .logo.item img {
       margin-right: 1em;
