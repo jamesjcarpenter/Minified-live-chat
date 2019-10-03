@@ -158,7 +158,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         // $("#PMbutton").unbind();
         $(".ui.mini.button.pm").each(function(){
           var value;
-          value = $( ".ui.mini.button.pm" ).data( "blah" );
+          value = $( ".ui.mini.button.pm" ).data( "id" );
           
           console.log(value);
                 
