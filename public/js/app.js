@@ -152,7 +152,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   
   socket.on('updateids', function(data) {
     var $container = $('.pmwrap');
-    $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', sockets.id).appendTo($container);
+    $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', io.socket.id).appendTo($container);
   
     console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
     
