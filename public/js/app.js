@@ -147,10 +147,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '</li>');
-      $('#profilepic2').empty();
-    $('#profilepic2').append('<h5 class="ui text"id="profilepic2">' + key + '</h5>');
-      console.log($('.ui.mini.button.pm').attr('name'))
-      
       $('.ui.mini.button.pm').click(function() {
         // $("#PMbutton").unbind();
         $(".ui.mini.button.pm").each(function(){
@@ -235,6 +231,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   socket.on('serverupdatechat', function (server, username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
+    $('#profilepic2').empty();
+  $('#profilepic2').append('<h5 class="ui text"id="profilepic2">' + username + '</h5>');
+    console.log($('.ui.mini.button.pm').attr('name'))
+    
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
         $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#blocktext").empty();
