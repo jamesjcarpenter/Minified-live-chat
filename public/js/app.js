@@ -146,8 +146,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '</li>');
-      $( "#userlist" ).data("userid", socket.id);
+			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-last-value="">' + key  + '</span>' + '</a>' + '</li>');
+      $( ".ui.white.text.user" ).data( "lastValue" ) === socket.id;
       $('.ui.mini.button.pm').click(function() {
         // $("#PMbutton").unbind();
         $(".ui.mini.button.pm").each(function(){
