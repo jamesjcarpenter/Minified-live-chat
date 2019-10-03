@@ -405,6 +405,14 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
+      
+        for(var i = rooms.length - 1; i >= 0; i--) {
+          if(rooms[i] === 'home') {
+              rooms.splice(i, 1);
+            }
+          }
+          
+          
   socket.emit('askForUserId');
 
   socket.on('userIdReceived', (userId) => {
