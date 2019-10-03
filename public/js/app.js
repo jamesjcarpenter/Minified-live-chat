@@ -244,8 +244,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
 
 socket.on('serverupdateuser', function (server) {
-  // $('#profilepic2').empty();
-  $('#userlist').append('<h5 class="ui text"id="profilepic2"></h5>').text(server);
+  $('#profilepic2').empty();
+  $('#profilepic2').append('<h5 class="ui text"id="profilepic2"></h5>').text(server);
   console.log($('.ui.mini.button.pm').attr('name'))
   
 });
