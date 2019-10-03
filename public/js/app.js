@@ -142,28 +142,26 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   
 
   socket.on('updateusers', function(data) {
-    
-    var nicknames = [
-    		  { Name: socket.username, SocketID: socket.id }
-    		];
-        
-        
-  var markup = "<li><b>${Name}</b> (${SocketID})</li>";
-
-// Compile the markup as a named template
-$.template( "movieTemplate", markup );
-
-// Render the template with the movies data and insert
-// the rendered HTML under the "movieList" element
-$.tmpl( "movieTemplate", nicknames )
-  .appendTo( "#userlist" );
-    
-    
-    
-		$('#userlist').empty();
+  
+    var containerElm = document.getElementById('userlist');
+    var str = '';
+    for(var i=0, len=data.length; i<len; i++){
+      var divStr = '<div class="person">'+
+           '<label for="name">Name: </label> <span id="name">'+data[i].id+'</span><br>'+
+           '<label for="age">Age: </label> <span id="age">'+data[i].username+'</span><br>'+
+           '<button type="button" class="bdel" id="button">Delete person</button> '+
+           '</div> ';
+           str = str + divStr;
+         }
+         containerElm.innerHTML = str;
+  
+		// $('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + user + '">' + key  + '</span>' + '</a>' + '</li>');
+      
+      
+      
       $('.ui.mini.button.pm').click(function() {
         // $("#PMbutton").unbind();
         $(".ui.mini.button.pm").each(function(){
