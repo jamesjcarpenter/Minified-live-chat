@@ -129,16 +129,16 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // });
   
   console.log(Object.keys.usernames);
-  // socket.on('getusers', function (usernames) {
-  //   for(key in usernames) {
-  //   if(usernames.hasOwnProperty(key)) {
-  //       var value = usernames[key];
-  //       //do something with value;
-  //     }
-  //   }
-  //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
-  // 
-  // });
+  socket.on('getids', function (ids) {
+    for(key in ids) {
+    if(ids.hasOwnProperty(key)) {
+        var value = ids[key];
+        //do something with value;
+      }
+    }
+   $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(ids));
+  
+  });
   
 
   socket.on('updateusers', function(data) {
@@ -146,8 +146,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + socket.id + '">' + key  + '</span>' + '</a>' + '</li>');
-      $(this).append('').text(socket.id);
+			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + '">' + key  + '</span>' + '</a>' + '</li>');
+      
       
       
       $('.ui.mini.button.pm').click(function() {

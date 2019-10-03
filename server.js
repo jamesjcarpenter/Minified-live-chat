@@ -505,6 +505,8 @@ io.sockets.on('connection', function (socket) {
       io.emit('updateusers', usernames, user);
     // console.log(usernames);
     
+    
+    socket.emit('getids',  '' + ids);
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     socket.on('connect', function(client) {
