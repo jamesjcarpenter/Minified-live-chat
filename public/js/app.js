@@ -245,6 +245,11 @@ socket.on('serverupdateuser', function (server) {
   console.log($('.ui.mini.button.pm').attr('name'))
   
 });
+
+socket.on('serverupdateuser', function (server) {
+  $('.ui.small.text').data(server);
+  
+});
   // on load of page
 socket.on('connect', function(data) {
     // when the client clicks SEND
