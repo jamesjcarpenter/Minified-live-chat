@@ -1,6 +1,6 @@
 @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
   body { 
-        color:white;background-color: black;
+        color:white;background-color: black;visibility:none!important;
   }
     .hidden.menu {
       display: none;
