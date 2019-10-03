@@ -405,12 +405,6 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
-      
-        for(var i = rooms.length - 1; i >= 0; i--) {
-          if(rooms[i] === 'home') {
-              rooms.splice(i, 1);
-            }
-          }
           
           
   socket.emit('askForUserId');
@@ -611,7 +605,7 @@ io.sockets.on('connection', function (socket) {
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
     delete usernames[socket.username];
- 	  io.in(socket.room).emit('updateusers', usernames);
+ 	  io.in(socket.room).emit('updateusers', usernames, socket.id);
 	});
 });
 
