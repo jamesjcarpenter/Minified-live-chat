@@ -162,16 +162,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       // $("#PMbutton").unbind();
       $(this).each(function(){
         var value;
-        var pmUse = $(this).val();
-        value = $(pmUse).data( "id" );
-        
-              
-              
-        console.log(userToPM);
-        socket.emit('private-message', data, message, userToPM);
+        value = $(this).data( "id" );
         });
       });
-  });
+  
       // function addBack(){
     //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
     //   $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
