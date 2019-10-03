@@ -508,6 +508,8 @@ io.sockets.on('connection', function (socket) {
     // console.log(usernames);
     io.sockets.emit('updateids', Object.keys(ids));
     
+    console.log(Object.keys(ids));
+    
     socket.emit('getids',  '' + ids);
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
