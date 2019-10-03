@@ -232,7 +232,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       
     };
     
-    socket.on('serverupdateid', function (server, ids[id], data) {
+    socket.on('serverupdateid', function (server, id, data) {
         $('#userlist').append($('<div class="ui small grey label"><span class="ui small text"></span></div>').text(server));
         });
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
