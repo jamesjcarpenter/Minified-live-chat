@@ -63,6 +63,10 @@ router.get('/store', function(req, res, options) {
   res.render('store.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
+router.get('/register', function(req, res, options) {
+  res.render('register.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+});
+
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
 
 
@@ -109,7 +113,7 @@ router.use(function (req, res, next) {
     return next(); 
   } if (req.originalUrl === '/room') {
     return next(); 
-  } if (req.originalUrl === '/register') {
+  } if (req.originalUrl === '/users/register') {
     return next(); 
   } if (req.originalUrl === '/profile') {
     return next();  

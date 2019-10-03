@@ -34,6 +34,7 @@
   <link rel="stylesheet" type="text/css" href="../semantic/dist/components/message.css">
   <link rel="stylesheet" type="text/css" href="../semantic/dist/components/icon.css">
 
+  <title>anomic.io - Online Video & Text Chatrooms! - Registration</title>
 
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
@@ -45,7 +46,7 @@
   
   <!-- Page Contents -->
   <div class="pusher">
-    
+    <div id="background"></div>
     <div class="ui inverted vertical masthead center aligned segment">
   
       <div class="ui padded container">
@@ -68,13 +69,15 @@
 <div class="ui middle padded aligned center aligned grid">
   <div class="column">
     <h2 class="ui black image header">
-      <i class="users icon"></i>
+      <i class="inverted users icon"></i>
       <div class="content">
         create an account
       </div>
     </h2>
     <form class="ui large form" action="/users/register"method="POST">
-      <div class="ui stacked segment">
+      <img id="side1"src="images/send1.png"/>
+        <img id="side2"src="images/mask2.png"/>
+      <div class="ui stacked segment"id="seg">
         <div class="field">
           <div class="ui left icon input">
             
@@ -94,46 +97,50 @@
             <input = "text-input" type="text" type="password" name="password" id="password" placeholder="Password">
           </div>
         </div>
+        <h6><p id="terms">By accessing this website you hereby accept the User Terms & Conditions and Privacy Agreement, located <a href="/terms">here.</a></p>
+          <br>
+        <p id="conditions">These terms and conditions outline the rules and regulations for the use of anomic.io.</p></h6>
         <div class="inline field">
           <div class="ui checkbox">
-            <input type="checkbox" id="terms">
-            <label for="terms">I agree to the terms and conditions</label>
+            <input type="checkbox" id="chk">
           </div>
         </div>
-        <div class="ui fluid large inverted green submit button">Create my account<i class="right arrow icon"></i></div>
+        <div class="ui large inverted green submit button"id="submitbtn">
+          Create my account<i class="right arrow icon"></i></div>
       </div>
 
       <div class="ui error message"></div>
 
     </form>
     
-      <div class="ui horizontal divider">
+      <div class="ui horizontal divider"id="divid">
     Or
   </div>
-  <a href="/users/login" class="ui labeled icon green button">
+  <a href="/users/login" class="ui labeled icon button" id="login">
     LOGIN TO EXISTING ACCOUNT
     <i class="add icon"></i>
   </a>
   <br>
   <br>
   <br>
-  <h6><p>By accessing this website you hereby accept the User Terms & Conditions and Privacy Agreement, located here.</p>
-  <p>These terms and conditions outline the rules and regulations for the use of hardchat.io.</p></h6>
+            <span class="ui medium white text"id="reset"><a>Forgot your account password? Reset it here</a></span>
 </div>
 </div>
-<div class="left aligned ui grid">
-  <div class="ten wide left aligned column">
-<div class="ui teal icon message medium">
-<i class="inbox icon"></i>
+</div>
+<!-- <div class="left aligned ui grid"> -->
+  <!-- <div class="ten wide left aligned column"> -->
+<div class="ui teal icon message medium"id="mailto"></div>
+<!-- <i class="inbox icon"></i>
 <div class="content">
 <div class="header">
   Have you heard about our mailing list?
 </div>
 <p>We'll send you all the updates.</p>
-</div>
+</div> -->
 </div>
 <script src="../js/transin.js"></script>
-<script src="../js/registrate.js"></script>
 </body>
 
+
+<script src="./js/toastmsg.js"></script>
 </html>
