@@ -1,7 +1,7 @@
 
 window.addEventListener('load', () => {
   
-$(".h6").remove();
+$(".body.h6").remove();
    $(".pusher")
     .transition({
       animation  : 'scale in',
