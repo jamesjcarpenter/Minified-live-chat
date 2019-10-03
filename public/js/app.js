@@ -150,7 +150,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
   
-  socket.on('updateids', function(data) {
+  socket.on('updateids', function(data, ids) {
     var $container = $('.pmwrap');
     $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', ids).appendTo($container);
   
