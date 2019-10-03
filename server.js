@@ -495,6 +495,8 @@ io.sockets.on('connection', function (socket) {
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
     
     socket.emit('serverupdateuser', '' + socket.username);
+    
+    io.emit('serverupdateuser', '' + socket.id);
     // echo to room 1 that a person has connected to their room
     
     //update users for current room
