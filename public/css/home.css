@@ -10,7 +10,7 @@
     #top1 {
     background-color: black;
     min-height:50px;
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     width:100%;
