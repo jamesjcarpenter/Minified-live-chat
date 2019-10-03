@@ -326,12 +326,12 @@ font-family: 'Changa', sans-serif;
       }
     
     #join-btn {
-      position:absolute;
-        top:70%;
-        left:50%;
+      position:relative;
+      margin-top:15%;
+      margin-left:5%;
         color:white;
         background-color:#1c1c1c;
-        width:20vw;
+        width:12.5vw;
         height:auto;
         text-align:center;
     }
