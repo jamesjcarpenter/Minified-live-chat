@@ -150,10 +150,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
   
-  socket.on('idcount', function(rooms, ) {
-          $('#userlist').append('' + clients);
-  });
-  
   socket.on('updateids', function(data) {
     var $container = $('.pmwrap');
     $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', socket.id).appendTo($container);
@@ -328,7 +324,12 @@ socket.on('connect', function(data) {
     });
   });
   
-  
+  socket.on('updateactive', function(numClients) {
+    // $('#userlist').empty();
+    // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+    $.each(data, function(key, value) {
+      $('#userlist').append('' + numClients);
+  });
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
