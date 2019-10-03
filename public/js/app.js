@@ -151,7 +151,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   });
   
   socket.on('idcount', function(rooms) {
-          $('#userlist').append('' + ids.length);
+          $('#userlist').append('' + clients);
   });
   
   socket.on('updateids', function(data) {

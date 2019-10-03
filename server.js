@@ -541,7 +541,7 @@ var clients = io.sockets.adapter.rooms[users];
 
     io.of('/').in(socket.room).clients((error, clients) => {
     if (error) throw error;
-  
+    io.emit('idcount', clients);
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     console.log('clients:  ' + clients); 
   });
