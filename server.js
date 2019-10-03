@@ -487,7 +487,7 @@ io.sockets.on('connection', function (socket) {
     ids[id] = id;
 
     console.log(usernames)
-    console.log(io.sockets.adapter.rooms)
+    console.log(io.sockets.adapter.rooms[sockets])
     
     console.log('single id:  ' + ids[id])
     
