@@ -398,7 +398,7 @@ var clients = [];
 var users = [];
 var roomAdmin;
 var ids = {};
-var id;
+
 process.env.YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
 process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
 process.env.DM_API_KEY = '3b47b316af2962e6c94c';
@@ -475,7 +475,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
-    socket.id = id;
+    var id = socket.id;
     
     
     
@@ -498,7 +498,7 @@ io.sockets.on('connection', function (socket) {
     // echo to room 1 that a person has connected to their room
     
     //update users for current room
-      io.emit('updateusers', usernames, id);
+      io.emit('updateusers', usernames, socket.id);
     // console.log(usernames);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
