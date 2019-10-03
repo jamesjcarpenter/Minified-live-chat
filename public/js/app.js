@@ -151,11 +151,19 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   });
   
   socket.on('updateids', function(data) {
-    var $container = $('.pmwrap');
-    $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', socket.id).appendTo($container);
-  
-    console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
     
+    
+    
+    // var $container = $('.pmwrap');
+    
+    $('.pmwrap').each(function(i) {
+      
+      var id = $(this).data('id');
+
+    $(this).prepend('<div class="ui mini button pm"id="pmbtn">' + $(this).data('id', socket.id) + '</div>');
+    
+    console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
+    });
     
     
     $('.ui.mini.button.pm').click(function() {
@@ -163,6 +171,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       $(this).each(function(){
         var value;
         value = $(this).data( "id" );
+        console.log(value);
         });
       });
   });
@@ -324,13 +333,13 @@ socket.on('connect', function(data) {
     });
   });
   
-  socket.on('updatecli', function(goClients) {
-    // $('#userlist').empty();
-    // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
-    $.each(data, function(key, value) {
-      $('#userlist').append('' + goClients);
-  });
-});
+//   socket.on('goClients', function(clients) {
+//     // $('#userlist').empty();
+//     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+//     $.each(data, function(key, value) {
+//       $('#userlist').append('' + clients);
+//   });
+// });
   
   socket.on('updateroomusers', function(roomusers, username) {
   $("#roomusers").empty();
