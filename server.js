@@ -398,7 +398,6 @@ var clients = [];
 var users = [];
 var roomAdmin;
 var ids = {};
-var id;
 
 process.env.YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
 process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
@@ -420,7 +419,6 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
-      socket.id = id;
       checkIfRoom();
       socket.join(room);
       if (rooms.indexOf(room) == -1) {
@@ -428,9 +426,6 @@ io.sockets.on('connection', function (socket) {
     } else {
       return false;
     };
-    
-    
-  
     // io.emit('updaterooms', rooms, socket.room);
     
           console.log('io: ' + rooms.length);
@@ -484,26 +479,15 @@ io.sockets.on('connection', function (socket) {
     
     
     ids[id] = id;
-    
-    if (ids.indexOf(id) == -1) {
-    ids.push(id);
-  } else {
-    return false;
-  };
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
     
-    socket.emit('idget', ids, socket.id);
-    for (var i = 0; i < ids.length; i++) {
-    console.log(ids[i]);
-    var curId = ids[i]
-    console.log('ids: ' + ids);
-    }
+    
 
     console.log(usernames)
-    console.log("ids: " + ids.length)
+    console.log(ids)
     
     socket.emit('serverupdatechat', 'you joined the room' + ' ' + socket.room);
     // echo to room 1 that a person has connected to their room
@@ -512,8 +496,13 @@ io.sockets.on('connection', function (socket) {
     socket.emit('serverupdateuser', '' + socket.username);
     // echo to room 1 that a person has connected to their room
     
+    
+    let user = {     // an object
+      name: socket.username,  // by key "name" store value "John"
+      id: socket.id       // by key "age" store value 30
+    };
     //update users for current room
-      io.emit('updateusers', usernames, socket.id);
+      io.emit('updateusers', usernames, user);
     // console.log(usernames);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
