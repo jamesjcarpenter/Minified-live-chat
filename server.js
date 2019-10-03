@@ -419,6 +419,7 @@ io.sockets.on('connection', function (socket) {
     // const ioChat = io.of("/room" + "");
     socket.on('join', function(room) {
       socket.room = room;
+      socket.id = id;
       checkIfRoom();
       socket.join(room);
       if (rooms.indexOf(room) == -1) {
@@ -426,6 +427,14 @@ io.sockets.on('connection', function (socket) {
     } else {
       return false;
     };
+    
+    
+    
+    if (ids.indexOf(id) == -1) {
+    ids.push(id);
+  } else {
+    return false;
+  };
     // io.emit('updaterooms', rooms, socket.room);
     
           console.log('io: ' + rooms.length);
