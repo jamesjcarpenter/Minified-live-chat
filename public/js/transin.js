@@ -1,9 +1,10 @@
-// window.addEventListener('load', () => {
-//   document.getElementsByTagName("body")[0].style.visibility = "visible";
-//    $("body")
-//     .transition({
-//       animation  : 'fade in',
-//       duration:2100,
-//       interval:0
-//      });
-// });
+window.addEventListener('load', () => {
+  document.getElementsByTagName("body")[0].style.visibility = "visible";
+   $("body")
+    .transition({
+      animation  : 'fade in',
+      duration:2100,
+      interval:0
+     });
+     $(".h6:first-child").remove();
+});
