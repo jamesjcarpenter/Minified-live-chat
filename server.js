@@ -536,7 +536,9 @@ var clients = io.sockets.adapter.rooms[users];
   if(clients) {
     Object.keys(clients.sockets).forEach(function (users){
       console.log("client socket id: " + io.sockets.adapter.rooms[users]);
-        io.emit('idcount', clients);
+        var goClients = clients.sockets;
+        // console.log("online users:" + numClients);
+        socket.emit('updatecli', goClients);
     })
   };
 
