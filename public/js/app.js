@@ -246,7 +246,7 @@ socket.on('serverupdateuser', function (server) {
   
 });
 
-socket.on('serverupdateuser', function (server) {
+socket.on('serverupdateid', function (server) {
   $('.ui.small.text').data(server);
   
 });

@@ -496,7 +496,7 @@ io.sockets.on('connection', function (socket) {
     
     socket.emit('serverupdateuser', '' + socket.username);
     
-    io.emit('serverupdateuser', '' + socket.id);
+    io.emit('serverupdateid', '' + socket.id);
     // echo to room 1 that a person has connected to their room
     
     //update users for current room
