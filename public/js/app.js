@@ -231,10 +231,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // listener, whenever the server emits 'updaterooms', this updates the room the client is in
   socket.on('serverupdatechat', function (server, username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
-    $('#profilepic2').empty();
-  $('#profilepic2').append('<h5 class="ui text"id="profilepic2">' + username + '</h5>');
-    console.log($('.ui.mini.button.pm').attr('name'))
-    
         $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
         $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
         $("#blocktext").empty();
@@ -242,6 +238,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
+
+socket.on('serverupdateuser', function (server) {
+  $('#profilepic2').empty();
+  $('#profilepic2').append('<h5 class="ui text"id="profilepic2"></h5>').text(server));
+  console.log($('.ui.mini.button.pm').attr('name'))
+  
+});
   // on load of page
 socket.on('connect', function(data) {
     // when the client clicks SEND
