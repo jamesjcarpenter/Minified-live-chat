@@ -146,7 +146,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + '">' + key  + '</span>' + '</a>' + '</li>');
+			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + JSON.stringify(socket.id) + '">' + key  + '</span>' + '</a>' + '</li>');
       
       
       
@@ -249,10 +249,7 @@ socket.on('serverupdateuser', function (server) {
   
 });
 
-socket.on('serverupdateid', function (server) {
-  $('#userlist').append('<h5 class="ui text"></h5>').text(server);
-  
-});
+
 
   // on load of page
 socket.on('connect', function(data) {

@@ -498,7 +498,7 @@ io.sockets.on('connection', function (socket) {
     socket.emit('serverupdateuser', '' + socket.username);
     // echo to room 1 that a person has connected to their room
     
-        socket.emit('serverupdateid', '' + socket.id);
+    
     let user = {     // an object
       name: socket.username,  // by key "name" store value "John"
       id: socket.id       // by key "age" store value 30
