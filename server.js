@@ -544,7 +544,7 @@ var clients = io.sockets.adapter.rooms[users];
   
     // Returns an array of client IDs like ["Anw2LatarvGVVXEIAAAD"]
     console.log(clients); 
-  };
+  });
     
     
     
