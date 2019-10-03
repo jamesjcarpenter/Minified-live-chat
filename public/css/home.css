@@ -7,6 +7,14 @@
             color:white;
     }
 
+    #top1 {
+    background-color: black;
+    min-height:50px;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    }
     #background {
       position:fixed;
       background-repeat: no-repeat !important;
