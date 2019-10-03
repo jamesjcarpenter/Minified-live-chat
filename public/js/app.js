@@ -247,7 +247,7 @@ socket.on('serverupdateuser', function (server) {
 });
 
 socket.on('serverupdateid', function (server) {
-  $('.ui.small.text').data(server);
+  $('.ui.small.text').append('<div id="id" data-value="' + '">').text(server);
   
 });
   // on load of page
