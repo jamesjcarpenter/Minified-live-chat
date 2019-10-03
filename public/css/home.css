@@ -7,6 +7,10 @@
             color:white;
     }
 
+    .h6 {
+    display:none;  
+    }
+
     #background {
       position:fixed;
       background-repeat: no-repeat !important;
