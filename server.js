@@ -497,7 +497,7 @@ io.sockets.on('connection', function (socket) {
     // echo to room 1 that a person has connected to their room
     
     //update users for current room
-      io.emit('updateusers', '' + usernames, '' + socket.id);
+      io.emit('updateusers', usernames, socket.id);
     // console.log(usernames);
     
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
@@ -605,7 +605,7 @@ io.sockets.on('connection', function (socket) {
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
 		socket.leave(socket.room);
     delete usernames[socket.username];
- 	  io.in(socket.room).emit('updateusers', usernames, socket.id);
+ 	  io.in(socket.room).emit('updateusers', usernames);
 	});
 });
 
