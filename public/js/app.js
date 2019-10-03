@@ -80,7 +80,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    
+    var id = socket.io.engine.id;
       
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
@@ -145,7 +145,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + JSON.stringify(ids[id]) + '">' + key  + '</span>' + '</a>' + '</li>');
+			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user" data-value="' + JSON.stringify(id) + '">' + key  + '</span>' + '</a>' + '</li>');
       
       
       
