@@ -10,7 +10,7 @@
     #top1 {
     background-color: black;
     min-height:50px;
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     width:100%;
@@ -238,7 +238,7 @@ font-family: 'Changa', sans-serif;
     color:white;
       left:40%;
     top:1em;
-    position:absolute;
+    position:fixed;
     }
     
     #texthead2 {
@@ -250,7 +250,7 @@ font-family: 'Changa', sans-serif;
     color:white;
       left:50%;
     top:1em;
-    position:absolute;
+    position:fixed;
     }
   
     #texthead3 {
@@ -262,7 +262,7 @@ font-family: 'Changa', sans-serif;
     color:white;
       left:60%;
     top:1em;
-    position:absolute;
+    position:fixed;
     }
   
   
@@ -275,7 +275,7 @@ font-family: 'Changa', sans-serif;
     color:white;
       left:90.5%;
     top:1em;
-    position:absolute;
+    position:fixed;
     }
     
     #texthead5 {
@@ -287,7 +287,7 @@ font-family: 'Changa', sans-serif;
       color:white;
         left:95.5%;
       top:1em;
-      position:absolute;
+    position:fixed;
       }
     
     #join-btn {
