@@ -150,13 +150,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
   
-  socket.on('updateids', function(data) {
+  socket.on('updateids', function(clients) {
     
     
     
     // var $container = $('.pmwrap');
     
-    $('.pmwrap').each(function(i) {
+    $(clients).each(function(i) {
       
       var id = $(this).data('id');
 
