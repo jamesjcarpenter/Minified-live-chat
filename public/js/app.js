@@ -150,7 +150,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
   
-  socket.on('idcount', function(rooms) {
+  socket.on('idcount', function(rooms, users) {
           $('#userlist').append('' + clients);
   });
   
