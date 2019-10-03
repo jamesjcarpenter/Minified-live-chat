@@ -2,29 +2,145 @@
   body { visibility:hidden !important;
         color:white;
   }
+  
+  h1, h2, h3, h4, h5, h6, span, p {
+    color:white;
+    font-family: 'Changa';
+    text-shadow: 4px 4px 4px #474747;
+  }
     .hidden.menu {
       display: none;
             color:white;
     }
 
+    #terms {
+    font-weight:400;
+    font-size:16px; 
+    color:white;
+    width:21.5vw;
+    margin:0 auto;
+    text-align:center;
+    padding:10px;
+    }
+    
+    #termsbox{
+      font-weight:200;
+      font-size:12px; 
+      color:white;
+          margin-top:3.5em;
+    }
+    
+    .ui.checkbox .checkbox {
+    margin-right:25px;
+    }
+    #login{
+    background-color:#1c1c1c;
+  text-shadow: 1px 2px 1px #474747;  
+    }
+    
+    #mailto {
+    visibility:hidden;  
+    }
+    
+    #reset {
+    padding:10px;
+    white-space: nowrap;
+    }
+    
+    .text-input {
+      background-color:#262626!important;
+      color:white;
+      padding:10px;
+    }
+    
+    #password {
+      display:inline-block;
+    background-color: #262626!important; 
+    color:white;
+    }
+    #seg {
+      display:block;
+      width:25vw;
+      height:36.5vh;
+      text-align: center;
+      color:white;
+      background-color:#1c1c1c;
+    }
+    
+    
+    
+    #tweetbtn {
+    width:12.25vw;
+    border-radius:10px;  
+    position:absolute;
+    left:24%;
+    bottom:-25%;
+    border-radius:2px;  
+    }
+    
+    
+    #fbbtn {
+
+    width:13.75vw;
+    border-radius:2px;  
+    position:absolute;
+    left:20.75%;
+    bottom:-37.25%
+    }
+    
+    .ui.horizontal.divider {
+    color:white;  
+    }
+    
+    #submitbtn {
+    /* background-color:#3700B3; */
+    position:relative; 
+    margin-top:3em; 
+    /* color:white; */
+    }
+    
+    .ui.black.image.header .inverted.users.icon {
+    padding:10px;
+    padding-right:5px;  
+    }
+    #conditions {
+    font-weight:100;
+    font-size:14px; 
+    padding:10px;
+    }
+    .content {
+    color:white; 
+      font-family: 'Fredoka One';
+      font-weight:100;
+    font-size:32px; 
+    }
+    
+    #side1 {
+    position:fixed;
+    bottom:0%;
+    left:-11%;  
+    width:35vw;
+    opacity:0.025;
+    }
+    #side2 {
+    position:fixed;
+    top:-11%;
+    right:-5%;  
+    width:35vw;
+        opacity:0.01;
+    }
+    
+    /* #create {
+        background-color:#3700B3;
+        color:white;  
+    } */
     #background {
-      position:fixed;
-      background-repeat: no-repeat !important;
-      background-position: center !important;
-      height:100%!important;
-      width:100%!important;
-      display:block!important;
-      z-index:-1;
-      background-image: linear-gradient(to top, rgba(0, 47, 75, .15), rgba(220, 66, 37, .5)), url("images/anomiclanding8.png");  
-      background-repeat: no-repeat !important;
-      background-position: right !important;
-      background-size:cover;
-      overflow: hidden;
-      width:auto;
-      background-color:white;
-       background-attachment: fixed;
-       -webkit-box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65); 
-       box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65);
+      background: rgb(255,255,255); /* Old browsers */
+      background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+
     }
     
     .ui.centered.image {
@@ -39,6 +155,7 @@
       background-repeat: no-repeat !important;
       background-position: center !important;
                   color:white;
+background-color: #cccccc;
       /* opacity:0; */
     }
     #lemur1 {
@@ -113,9 +230,9 @@ font-family: 'Changa', sans-serif;
     z-index:9999;
     opacity:0.95;
     margin-left:0.35em;
-    position:relative;
-    left:5.75%;
-    top:0.25em;
+    position:absolute;
+    left:30%;
+    top:0.75em;
     }
     
     #mask1 {
@@ -126,7 +243,7 @@ font-family: 'Changa', sans-serif;
       height:auto;
       -webkit-transform: scaleX(-1);
       transform: scaleX(-1);
-        opacity:0.25;
+        opacity:0.98;
     }
     
     #send1 {
@@ -152,17 +269,16 @@ font-family: 'Changa', sans-serif;
     font-size:52px;
     font-weight:1500;
     color:white;
-    margin-top:3.5em;
+    top:4em;
+        left:30%;
+    position:absolute;
     text-shadow: 4px 4px 4px #474747;
 font-family: 'Changa', sans-serif;
     }
     
     #threebtn {
-      width:100%;
-      text-align:center;
-      min-width:43.5vw;
-      max-width:45.5vw;
-      left:26.85%;
+      width:33.5vw;
+      left:32.75%;
       padding-top:5em;
       padding-bottom:10em;
       position:relative;
@@ -173,9 +289,11 @@ font-family: 'Changa', sans-serif;
     font-size:32px;
     font-weight:1200;
     color:white;
-    margin-top:1em;
+    top:10em;
+    left:35%;
+    position:absolute;
     text-shadow: 4px 4px 4px #474747;
-    font-family: 'Changa', sans-serif;
+font-family: 'Changa', sans-serif;
     }
     
     #roomspace {
@@ -200,7 +318,15 @@ font-family: 'Changa', sans-serif;
   width:60vw;  
   }
     
-
+  #name {
+  background-color:#262626;
+  }
+  #loginbtn {
+  margin-top:3.5em;  
+  }
+  #forgotpw {
+    margin-top:2em;
+  }
     
     #logotext {
     text-shadow: 4px 4px 4px #474747;
@@ -212,12 +338,6 @@ font-family: 'Changa', sans-serif;
     left:1em;
     top:0.5em;
     position:absolute;
-    }
-    
-    a.item {
-      white-space: nowrap;
-      overflow-x:hidden;
-      overflow-y:hidden;
     }
     
     
@@ -257,30 +377,6 @@ font-family: 'Changa', sans-serif;
     position:absolute;
     }
   
-  
-    #texthead4 {
-    text-shadow: 4px 4px 4px #474747;
-    font-family: 'Changa', sans-serif;
-    font-weight:600;
-    font-size:16px;
-    z-index:9999;
-    color:white;
-      left:90.5%;
-    top:1em;
-    position:absolute;
-    }
-    
-    #texthead5 {
-      text-shadow: 4px 4px 4px #474747;
-      font-family: 'Changa', sans-serif;
-      font-weight:600;
-      font-size:16px;
-      z-index:9999;
-      color:white;
-        left:95.5%;
-      top:1em;
-      position:absolute;
-      }
     
     #join-btn {
       position:relative;
