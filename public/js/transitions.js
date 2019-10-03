@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
   
-  $(".h6:first").remove();
+ $(".h6").first().remove();
    $(".pusher")
     .transition({
       animation  : 'scale in',
