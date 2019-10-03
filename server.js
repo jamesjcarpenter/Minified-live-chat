@@ -430,12 +430,7 @@ io.sockets.on('connection', function (socket) {
     };
     
     
-    
-    if (ids.indexOf(id) == -1) {
-    ids.push(id);
-  } else {
-    return false;
-  };
+  
     // io.emit('updaterooms', rooms, socket.room);
     
           console.log('io: ' + rooms.length);
@@ -489,6 +484,12 @@ io.sockets.on('connection', function (socket) {
     
     
     ids[id] = id;
+    
+    if (ids.indexOf(id) == -1) {
+    ids.push(id);
+  } else {
+    return false;
+  };
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
