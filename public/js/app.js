@@ -150,6 +150,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
   
+  socket.on('idcount', function(rooms) {
+          $('#userlist').append('' + ids.length);
+  });
+  
   socket.on('updateids', function(data) {
     var $container = $('.pmwrap');
     $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', socket.id).appendTo($container);

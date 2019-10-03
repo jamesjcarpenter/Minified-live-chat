@@ -397,7 +397,7 @@ const sessionsMap = {};
 var clients = [];
 var users = [];
 var roomAdmin;
-var ids = {};
+var ids = [];
 
 process.env.YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
 process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
@@ -475,7 +475,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
-    var id = socket.id;
+    socket.id = id;
     
     
 
@@ -485,6 +485,14 @@ io.sockets.on('connection', function (socket) {
     usernames[username] = username;
     
     ids[id] = id;
+    
+    console.log('idss: ' + ids.length);
+    socket.emit('idcount', ids, socket.id);
+    for (var i = 0; i < ids.length; i++) {
+      console.log(ids[i]);
+      var curId = ids[i]
+      console.log('idZ: ' + ids);
+      }
 
     console.log(usernames)
     console.log(io.sockets)
