@@ -405,6 +405,7 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
+    
           
           
   socket.emit('askForUserId');
@@ -474,7 +475,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     socket.username = username;
-    var id = socket.id;
+    socket.id = id;
     
     
     
