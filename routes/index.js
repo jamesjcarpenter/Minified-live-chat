@@ -109,7 +109,7 @@ router.use(function (req, res, next) {
     return next(); 
   } if (req.originalUrl === '/room') {
     return next(); 
-  } if (req.originalUrl === '/users/register') {
+  } if (req.originalUrl === '/register') {
     return next(); 
   } if (req.originalUrl === '/profile') {
     return next();  
