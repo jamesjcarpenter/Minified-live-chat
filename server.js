@@ -478,14 +478,14 @@ io.sockets.on('connection', function (socket) {
     var id = socket.id;
     
     
-    ids[id] = id;
+
     // var username = socket.id;
     // store the room name in the socket session for this client
     // add the client's username to the global list
     usernames[username] = username;
     
-    
-
+    ids[id] = id;
+    io.sockets.emit(ids);
     console.log(usernames)
     console.log(ids)
     
@@ -506,11 +506,9 @@ io.sockets.on('connection', function (socket) {
     //update users for current room
       io.emit('updateusers', usernames, user);
     // console.log(usernames);
-    io.sockets.emit('updateids', Object.keys(ids));
+    // io.sockets.emit('updateids', usernames, user);
     
-    console.log(Object.keys(ids));
-    
-    socket.emit('getids',  '' + ids);
+    io.sockets.emit('updateids',  '' + ids);
     // socket.broadcast.to(socket.room).emit('addname', socket.username);
     
     socket.on('connect', function(client) {
