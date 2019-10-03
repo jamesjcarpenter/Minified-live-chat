@@ -491,8 +491,6 @@ io.sockets.on('connection', function (socket) {
     
     console.log('single id:  ' + ids[id])
     
-    socket.emit('serverupdateid', 'users socket id:' + '' + ids[id]);
-    
     socket.emit('serverupdatechat', 'you joined the room' + ' ' + socket.room);
     // echo to room 1 that a person has connected to their room
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
@@ -501,7 +499,10 @@ io.sockets.on('connection', function (socket) {
     // echo to room 1 that a person has connected to their room
     
     
-
+    let user = {     // an object
+      name: socket.username,  // by key "name" store value "John"
+      id: socket.id       // by key "age" store value 30
+    };
     //update users for current room
       io.emit('updateusers', usernames, user);
     // console.log(usernames);
