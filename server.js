@@ -486,6 +486,13 @@ io.sockets.on('connection', function (socket) {
         if (err) console.log(err);
     });
     
+    
+    socket.on('findUser', function(username){
+    Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
+    if(res!=null)
+        io.to(res.socketId).emit('my message', msg);
+      })
+    });
 
     // var username = socket.id;
     // store the room name in the socket session for this client
