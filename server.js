@@ -492,7 +492,7 @@ io.sockets.on('connection', function (socket) {
     ids[id] = id;
     
 
-    socket.on('connected', function(user) { // add user data on connection
+    socket.on('connect', function(user) { // add user data on connection
     var c=new Connect({
         socketId : socket.id,
         client : socket.username
