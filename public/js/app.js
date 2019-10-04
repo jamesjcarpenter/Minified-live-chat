@@ -152,8 +152,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
   
-  $('.ui.white.text.user').click( function() {
-    var userUse = $(this).val();
+  $('.ui.button.pm').click( function() {
+    var userUse = $('.ui.white.text.user').val();
     socket.emit('findUser', username, { userNameOfUserToFind : userUse } );
   });
     
