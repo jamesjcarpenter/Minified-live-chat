@@ -154,6 +154,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   
   $('.ui.white.text.user').click( function() {
     var userUse = $(this).val();
+    console.log(userUse)
     socket.emit('findUser', { userNameOfUserToFind : userUse } );
   });
     
