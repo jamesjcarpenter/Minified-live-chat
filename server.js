@@ -490,8 +490,8 @@ io.sockets.on('connection', function (socket) {
     socket.on('findUser', function(username){
     var userNameOfUserToFind;
     Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
-    if(res)
-        io.to(res.socketId).emit('my message', msg);
+    if(res!=null)
+        io.to(res.`${socketId}`).emit('my message', msg);
       })
     });
 
