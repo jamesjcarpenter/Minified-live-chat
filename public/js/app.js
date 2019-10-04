@@ -151,7 +151,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user">' + key  + '</span>' + '<div class="ui button pm"></div>' + '</a>' + '</li>');
       $('.ui.button.pm').click( function() {
         var userUse = $('.ui.white.text.user').val();
-        socket.emit('findUser', key + { userNameOfUserToFind : userUse } );
+        socket.emit('findUser', { userNameOfUserToFind : userUse } );
       });
     });
   });
@@ -384,13 +384,13 @@ socket.on('connect', function(data) {
   //   });
 
     socket.on('disconnect', function(){
+        socket.leave(socket.room);
+        delete socket.usernames[socket.username];
     		// remove the username from global usernames list
     		// update list of users in chat, client-side
     		socket.emit('updateusers', socket.usernames);
     		// echo globally that this client has left
     		socket.emit('serverupdatechat', '' + socket.username + ' has disconnected');
-    		socket.leave(socket.room);
-        delete socket.usernames[socket.username];
     	});
 
     // function switchRoom(room){
