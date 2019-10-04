@@ -406,15 +406,14 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
   
-  io.sockets.on('connection', function(user) { // add user data on connection
-      var c=new Connect({
-          socketId : socket.id,
-          client : user
-      })
-      c.save(function (err, data) {
-          if (err) console.log(err);
-      });
-    })
+        var c=new Connect({
+            socketId : socket.id,
+            client : socket
+        })
+        c.save(function (err, data) {
+            if (err) console.log(err);
+        });
+  
   
         io.emit('updatehomepage', rooms, socket.room);
     
