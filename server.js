@@ -404,11 +404,7 @@ process.env.YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
 process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
 process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
-
-
-
 io.sockets.on('connection', function (socket) {
-  
         io.emit('updatehomepage', rooms, socket.room);
     
           
@@ -484,7 +480,7 @@ io.sockets.on('connection', function (socket) {
     
     var c=new Connect({
         socketId : socket.id,
-        client : username
+        client : socket.username
     })
     c.save(function (err, data) {
         if (err) console.log(err);
@@ -535,6 +531,11 @@ io.sockets.on('connection', function (socket) {
     socket.emit('serverupdateuser', '' + socket.username);
     // echo to room 1 that a person has connected to their room
     
+    
+    // let user = {     // an object
+    //   name: socket.username,  // by key "name" store value "John"
+    //   id: socket.id       // by key "age" store value 30
+    // };
     //update users for current room
       io.emit('updateusers', usernames, user);
     // console.log(usernames);
@@ -642,7 +643,6 @@ var clients = io.sockets.adapter.rooms[users];
 
 	// when the user disconnects.. perform this
 	socket.on('disconnect', function(){
-    Connect.findOne({socketId : socket.id}).remove().exec(); 
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'left the room');
 		// remove the username from global usernames list
 		// update list of users in chat, client-side
@@ -651,7 +651,7 @@ var clients = io.sockets.adapter.rooms[users];
 		socket.leave(socket.room);
     delete usernames[socket.username];
  	  io.in(socket.room).emit('updateusers', usernames);
-    
+    Connect.findOne({socketId : socket.id}).remove().exec(); 
 	});
 });
 
