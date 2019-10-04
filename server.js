@@ -404,15 +404,8 @@ process.env.YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
 process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
 process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
-io.sockets.on('connection', function (socket, user) {
-      var c=new Connect({
-          socketId : socket.id,
-          client : socket.username
-      })
-      c.save(function (err, data) {
-          if (err) console.log(err);
-      });
-});
+
+
 
 io.sockets.on('connection', function (socket) {
   
@@ -489,6 +482,13 @@ io.sockets.on('connection', function (socket) {
     socket.username = username;
     id = socket.id;
     
+    var c=new Connect({
+        socketId : socket.id,
+        client : socket.username
+    })
+    c.save(function (err, data) {
+        if (err) console.log(err);
+    });
     
     
     socket.on('findUser', function(username){
