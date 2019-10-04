@@ -149,12 +149,11 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user">' + key  + '</span>' + '<div class="ui button pm"></div>' + '</a>' + '</li>');
+      $('.ui.button.pm').click( function() {
+        var userUse = $('.ui.white.text.user').val();
+        socket.emit('findUser', username, { userNameOfUserToFind : userUse } );
+      });
     });
-  });
-  
-  $('.ui.button.pm').click( function() {
-    var userUse = $('.ui.white.text.user').val();
-    socket.emit('findUser', username, { userNameOfUserToFind : userUse } );
   });
     
     
