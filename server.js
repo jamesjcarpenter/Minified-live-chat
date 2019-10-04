@@ -492,7 +492,6 @@ io.sockets.on('connection', function (socket) {
     Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
     if(res!=null)
     console.log(res);
-    console.log(res.socketId);
         io.to(res.socketId).emit('my message', msg);
       })
     });
@@ -532,10 +531,10 @@ io.sockets.on('connection', function (socket) {
     // echo to room 1 that a person has connected to their room
     
     
-    // let user = {     // an object
-    //   name: socket.username,  // by key "name" store value "John"
-    //   id: socket.id       // by key "age" store value 30
-    // };
+    let user = {     // an object
+      name: socket.username,  // by key "name" store value "John"
+      id: socket.id       // by key "age" store value 30
+    };
     //update users for current room
       io.emit('updateusers', usernames, user);
     // console.log(usernames);
