@@ -478,6 +478,13 @@ io.sockets.on('connection', function (socket) {
     socket.username = username;
     id = socket.id;
     
+    var c=new Connect({
+        socketId : socket.id,
+        client : socket.username
+    })
+    c.save(function (err, data) {
+        if (err) console.log(err);
+    });
     
 
     // var username = socket.id;
@@ -492,18 +499,7 @@ io.sockets.on('connection', function (socket) {
     ids[id] = id;
     
 
-    socket.on('connect', function(user) { // add user data on connection
-    var c=new Connect({
-        socketId : socket.id,
-        client : socket.username
-    })
-    c.save(function (err, data) {
-        if (err) console.log(err);
-    });
-})
-socket.on('disconnect', function() { //remove user data from model when a socket disconnects
-    Connect.findOne({socketId : socket.id}).remove().exec(); 
-})
+
     
     console.log('idss: ' + ids.length);
     socket.emit('idcount', ids, socket.id);
@@ -645,6 +641,7 @@ var clients = io.sockets.adapter.rooms[users];
 		socket.leave(socket.room);
     delete usernames[socket.username];
  	  io.in(socket.room).emit('updateusers', usernames);
+    Connect.findOne({socketId : socket.id}).remove().exec(); 
 	});
 });
 
