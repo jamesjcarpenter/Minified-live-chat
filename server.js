@@ -408,7 +408,7 @@ io.sockets.on('connection', function (socket) {
   
         var c=new Connect({
             socketId : socket.id,
-            client : socket
+            client : socket.username
         })
         c.save(function (err, data) {
             if (err) console.log(err);
