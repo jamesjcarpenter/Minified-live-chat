@@ -151,7 +151,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 			$('#userlist').append('<li><a class="ui gray circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text user">' + key  + '</span>' + '<div class="ui button pm"></div>' + '</a>' + '</li>');
       $('.ui.button.pm').click( function() {
         var userUse = $('.ui.white.text.user').val();
-        socket.emit('findUser', username, { userNameOfUserToFind : userUse } );
+        socket.emit('findUser', { userNameOfUserToFind : userUse } );
       });
     });
   });
