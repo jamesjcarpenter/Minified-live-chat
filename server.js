@@ -37,6 +37,7 @@ const Chat = require("./models/chat");
 const User = require("./models/user");
 const Room = require("./models/roomschema");
 const Image = require("./models/profileimg");
+var Connect = require("./models/connect");
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const db = require('./config/keys').MongoURI;
@@ -489,6 +490,20 @@ io.sockets.on('connection', function (socket) {
     // io.sockets.in
     //   });
     ids[id] = id;
+    
+
+    socket.on('connected', function(user) { // add user data on connection
+    var c=new Connect({
+        socketId : socket.id,
+        client : socket.username
+    })
+    c.save(function (err, data) {
+        if (err) console.log(err);
+    });
+})
+socket.on('disconnect', function() { //remove user data from model when a socket disconnects
+    Connect.findOne({socketId : socket.id}).remove().exec(); 
+})
     
     console.log('idss: ' + ids.length);
     socket.emit('idcount', ids, socket.id);
