@@ -491,7 +491,7 @@ io.sockets.on('connection', function (socket) {
     var userNameOfUserToFind;
     Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
     if(res!=null)
-    `${socketId}` = res.socketId;
+    res.socketId = `${socketId}`
         io.to(`${socketId}`).emit('my message', msg);
       })
     });
