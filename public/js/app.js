@@ -99,7 +99,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       });
       
 
-          socket.emit('connected', username); //userName is unique
+          socket.emit('connected', user); //userName is unique
           
           
       socket.on('private-message', (data, message) => {
