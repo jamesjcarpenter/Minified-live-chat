@@ -384,7 +384,7 @@ socket.on('connect', function(data) {
   //   });
 
     socket.on('disconnect', function(){
-        socket.leave(room);
+        socket.leave(roomId);
         delete socket.usernames[socket.username];
     		// remove the username from global usernames list
     		// update list of users in chat, client-side
