@@ -80,7 +80,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    
+
+    socket.emit('connected', userName); //userName is unique
       
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
