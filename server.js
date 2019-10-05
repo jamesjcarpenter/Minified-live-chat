@@ -492,7 +492,7 @@ io.sockets.on('connection', function (socket) {
     };
     
     
-    socket.on('findUser', function(){
+    socket.on('findUser', function(socket){
     var userNameOfUserToFind;
     Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
     if(res!=null)
