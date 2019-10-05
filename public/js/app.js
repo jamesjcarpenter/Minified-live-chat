@@ -80,8 +80,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-
-    // socket.emit('connected', userName); //userName is unique
+    
       
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
@@ -99,9 +98,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       });
       
 
-          socket.emit('connected', socket.username); //userName is unique
-          
-          
+      socket.on('connect', function() {
+          socket.emit('connected', userName); //userName is unique
+      })
+    
       socket.on('private-message', (data, message) => {
         console.log('You received a message');
         console.log(message.data);
@@ -384,13 +384,13 @@ socket.on('connect', function(data) {
   //   });
 
     socket.on('disconnect', function(){
-        socket.leave(roomId);
-        delete socket.usernames[socket.username];
     		// remove the username from global usernames list
     		// update list of users in chat, client-side
     		socket.emit('updateusers', socket.usernames);
     		// echo globally that this client has left
     		socket.emit('serverupdatechat', '' + socket.username + ' has disconnected');
+    		socket.leave(socket.room);
+        delete socket.usernames[socket.username];
     	});
 
     // function switchRoom(room){

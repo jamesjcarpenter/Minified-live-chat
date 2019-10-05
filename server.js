@@ -405,17 +405,6 @@ process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/H
 process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
-  
-  
-  socket.on('connected', function(user) {
-    var c=new Connect({
-        socketId : socket.id,
-        client : user
-    })
-    c.save(function (err, data) {
-        if (err) console.log(err);
-    });
-  })
         io.emit('updatehomepage', rooms, socket.room);
     
           
@@ -489,12 +478,28 @@ io.sockets.on('connection', function (socket) {
     socket.username = username;
     id = socket.id;
     
-    // let user = {     // an object
-    //   name: socket.username,  // by key "name" store value "John"
-    //   id: socket.id       // by key "age" store value 30
-    // };
+    var c=new Connect({
+        socketId : socket.id,
+        client : socket.username
+    })
+    c.save(function (err, data) {
+        if (err) console.log(err);
+    });
+    
+    let user = {     // an object
+      name: socket.username,  // by key "name" store value "John"
+      id: socket.id       // by key "age" store value 30
+    };
     
     
+    socket.on('findUser', function(socket){
+    var userNameOfUserToFind;
+    Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
+    if(res!=null)
+    console.log(res);
+        io.to(res.socketId).emit('my message', msg);
+      })
+    });
 
     // var username = socket.id;
     // store the room name in the socket session for this client
@@ -529,14 +534,7 @@ io.sockets.on('connection', function (socket) {
     
     socket.emit('serverupdateuser', '' + socket.username);
     // echo to room 1 that a person has connected to their room
-  socket.on('findUser', function(){
-    var userNameOfUserToFind;
-    Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
-    if(res!=null)
-      console.log(res);
-        io.to(res.socketId).emit('my message', msg);
-      });
-    });
+  
     //update users for current room
       io.emit('updateusers', usernames, user);
     // console.log(usernames);
