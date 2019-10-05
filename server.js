@@ -486,8 +486,13 @@ io.sockets.on('connection', function (socket) {
         if (err) console.log(err);
     });
     
+    let user = {     // an object
+      name: socket.username,  // by key "name" store value "John"
+      id: socket.id       // by key "age" store value 30
+    };
     
-    socket.on('findUser', function(username){
+    
+    socket.on('findUser', function(){
     var userNameOfUserToFind;
     Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
     if(res!=null)
@@ -529,12 +534,7 @@ io.sockets.on('connection', function (socket) {
     
     socket.emit('serverupdateuser', '' + socket.username);
     // echo to room 1 that a person has connected to their room
-    
-    
-    let user = {     // an object
-      name: socket.username,  // by key "name" store value "John"
-      id: socket.id       // by key "age" store value 30
-    };
+  
     //update users for current room
       io.emit('updateusers', usernames, user);
     // console.log(usernames);
@@ -647,7 +647,7 @@ var clients = io.sockets.adapter.rooms[users];
 		// update list of users in chat, client-side
 		// echo globally that this client has left
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
-		socket.leave(socket.room);
+		socket.leave(room);
     delete usernames[socket.username];
  	  io.in(socket.room).emit('updateusers', usernames);
     Connect.findOne({socketId : socket.id}).remove().exec(); 
