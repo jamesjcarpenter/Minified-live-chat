@@ -647,7 +647,7 @@ var clients = io.sockets.adapter.rooms[users];
 		// update list of users in chat, client-side
 		// echo globally that this client has left
 		// socket.broadcast.emit('updatechat', 'SERVER', socket.username + ' has disconnected');
-		socket.leave(room);
+		// socket.leave(room);
     delete usernames[socket.username];
  	  io.in(socket.room).emit('updateusers', usernames);
     Connect.findOne({socketId : socket.id}).remove().exec(); 
