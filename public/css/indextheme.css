@@ -80,9 +80,6 @@ height:125px;
 
 .ui.white.text.user {
   color:white;
-  position:absolute;
-  top:45%;
-  left:3%;
 }
 
 #pb {
@@ -356,9 +353,9 @@ right:0em;
     #userlist {
       color:white;
       text-align:left;
-      position:fixed;
+      position:absolute;
       left:0.25em;
-      top:40.5em;
+      top:36.5em;
       z-index:9999;
       overflow:auto;
     }
