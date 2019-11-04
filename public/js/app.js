@@ -81,7 +81,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-      socket.emit('adduser',
+      socket.on('getusername',
       $('.ui.mini.basic.modal.start')
       .modal({  
         blurring: true,
