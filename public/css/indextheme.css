@@ -358,7 +358,8 @@ right:0em;
       top:30.75em;
       z-index:9999;
       overflow:auto;
-      width:5vw;
+      width:130px;
+      height:965px;
     }
     
     #scrollingheight {
