@@ -475,7 +475,8 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
-    socket.username = util.inspect(username);
+    util.inspect(username);
+    socket.username = username;
     id = socket.id;
     
     // var c=new Connect({
