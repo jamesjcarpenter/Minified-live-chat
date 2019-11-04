@@ -80,7 +80,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // toggle sidebar
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
-    modalFunction();
+    
     function modalFunction(){
     $('.ui.mini.basic.modal.start')
     .modal({
@@ -90,14 +90,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         return false;
       },
       onApprove : function() {
-        window.alert('Approved!');
         console.log(this.val())
-    console.log($('#addusername').val())
+        console.log($('#addusername').val())
+        window.alert('Approved!');
       }
     .modal('show')
     });
-    }
-    //
+
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
