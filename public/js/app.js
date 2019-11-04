@@ -91,7 +91,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
        socket.emit('adduser', function (data) {
         $('.ui.mini.basic.modal.start').modal('show');
         username = $(this).val();
-       }
+       });
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
       socket.on('askForUserId', () => {
