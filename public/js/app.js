@@ -89,9 +89,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
 
-     $(function () {
+     $(function (useName) {
      $('.ui.mini.basic.modal.start').modal('show');
-     var useName;
      useName = $('#addusername').val();
      return useName;
     });
