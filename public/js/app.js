@@ -95,12 +95,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
           var objReturn = JSON.stringify(userReturn)
           objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
           objReturn = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"");
+          socket.username = objReturn;
+          socket.emit ('adduser', socket.username);
           $('.ui.mini.basic.modal.start').modal('hide')
         }
     
     
       }).modal('show'));
-      socket.username = objReturn;
     });
 
     socket.room = [];
