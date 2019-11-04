@@ -78,6 +78,13 @@ height:125px;
   border-bottom:1px solid	#282828;
 }
 
+.ui.white.text.user {
+  color:white;
+  position:absolute;
+  top:30%;
+  left:3%;
+}
+
 #pb {
     border-bottom:1px solid	#282828;
 }
