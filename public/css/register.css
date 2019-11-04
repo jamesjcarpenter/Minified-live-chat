@@ -63,7 +63,10 @@
       display:block;
       min-width:28vw;
       height:65.5vh;
-      margin-right:3vw;
+      position:absolute;
+      left:50%;
+      top:20%;
+      margin-left:-14vw;
       text-align: center;
       color:white;
       background-color:#1c1c1c;
