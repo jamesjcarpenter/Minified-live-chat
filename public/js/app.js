@@ -81,21 +81,24 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-    function modalFunction(){
-    $('.ui.mini.basic.modal.start')
-    .modal({
-      closable  : false,
-      onDeny    : function(){
-        window.alert('Wait not yet!');
-        return false;
-      },
-      onApprove : function() {
-        console.log(this.val())
-        console.log($('#addusername').val())
-        window.alert('Approved!');
-      }
-    .modal('show')
+      socket.emit('adduser',
+      $('.ui.mini.basic.modal.start')
+      .modal({  
+        blurring: true,
+        closable  : false,
+        onDeny    : function(){
+          window.alert('Wait not yet!');
+          return false;
+        },
+        onApprove : function() {
+          socket.username = $('#addusername').val();
+          window.close();
+        }
+    
+    
+      }).modal('show'));
     });
+	});
 
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
@@ -104,7 +107,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
 
-       socket.emit('adduser', prompt("Enter username."));
+      //  socket.emit('adduser', prompt("Enter username."));
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
@@ -138,7 +141,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // 
     //   }).modal('show'));
     // });
-	// });
+	});
   
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
