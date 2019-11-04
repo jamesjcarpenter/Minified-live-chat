@@ -1,6 +1,1 @@
-$('.ui.mini.inverted.basic.modal')
-.modal({  
-  blurring: true,
-})
-$('.ui.mini.inverted.basic.modal')
-.modal('attach events', '.ui.huge.animated.primary.button', 'show');
+$(".ui.mini.inverted.basic.modal").modal({blurring:!0}),$(".ui.mini.inverted.basic.modal").modal("attach events",".ui.huge.animated.primary.button","show");
