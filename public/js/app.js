@@ -97,8 +97,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     
     
       }).modal('show'));
-    });
-	});
 
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
@@ -141,7 +139,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // 
     //   }).modal('show'));
     // });
-	});
   
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
