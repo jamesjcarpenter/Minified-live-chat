@@ -138,7 +138,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // 
     //   }).modal('show'));
     // });
-	});
+	// });
   
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
