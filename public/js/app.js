@@ -91,11 +91,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       },
       onApprove : function() {
         window.alert('Approved!');
+        console.log(this.val())
+    console.log($('#addusername').val())
       }
     .modal('show')
-    
-    console.log(this.val())
-    console.log($('#addusername').val())
     });
 
     socket.room = [];
