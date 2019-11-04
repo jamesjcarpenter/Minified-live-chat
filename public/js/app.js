@@ -89,10 +89,11 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
 
-       socket.emit('adduser', () => {
 
-          socket.username = document.getElementById("blocktext").value;
-       });
+     function getUsername(){
+      var username = document.getElementById("blocktext").value;
+      };
+       socket.emit('adduser', username);
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
