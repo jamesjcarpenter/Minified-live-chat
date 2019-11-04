@@ -104,12 +104,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
             var userReturn = $('#addusername').val();
             var objReturn = JSON.stringify(userReturn)
             objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
-            var userName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
-            addUser();
+            username = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
+            document.write(username)
+            socket.emit ('adduser', username);
       };
-      function addUser(){
-        socket.emit ('adduser', userName);
-      }
 
       socket.on('connect', function() {
           socket.emit('connected', userName); //userName is unique
