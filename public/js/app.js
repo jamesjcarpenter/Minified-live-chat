@@ -81,6 +81,23 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
+    function modalFunction(){
+    $('.ui.mini.basic.modal.start')
+    .modal({
+      closable  : false,
+      onDeny    : function(){
+        window.alert('Wait not yet!');
+        return false;
+      },
+      onApprove : function() {
+        window.alert('Approved!');
+      }
+    .modal('show')
+    
+    console.log(this.val())
+    console.log($('#addusername').val())
+    });
+
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
@@ -88,9 +105,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
 
-       socket.emit('adduser', function (data) {
-        $('.ui.mini.basic.modal.start').modal('show');
-       }
+       socket.emit('adduser', prompt("Enter username."));
+
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
       socket.on('askForUserId', () => {
