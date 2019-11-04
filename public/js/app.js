@@ -96,7 +96,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
           objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
           objReturn = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"");
           username = objReturn;
-          socket.emit ('adduser', username);
+          socket.emit (username);
           $('.ui.mini.basic.modal.start').modal('hide')
         }
     
