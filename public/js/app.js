@@ -115,9 +115,9 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       });
       
 
-      socket.on('connect', function() {
-          socket.emit('connected', userName); //userName is unique
-      })
+      // socket.on('connect', function() {
+      //     socket.emit('connected', userName); //userName is unique
+      // })
     
       socket.on('private-message', (data, message) => {
         console.log('You received a message');
