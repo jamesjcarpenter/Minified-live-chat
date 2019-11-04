@@ -95,7 +95,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
           var objReturn = JSON.stringify(userReturn)
           var goGf
           goGf = objReturn.replace(/\"([^(\")"]+)\":/g,"$1:");
-          socket.emit ('adduser', goGf);
+          socket.username = goGf;
+          socket.emit ('adduser', socket.username);
           $('.ui.mini.basic.modal.start').modal('hide')
         }
     
