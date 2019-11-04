@@ -388,7 +388,7 @@ app.use((err, req, res, next) => {
 });
 //chat
 
-
+const util = require('util');
 
 var rooms = [];
 // usernames which are currently connected to the chat
