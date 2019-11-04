@@ -478,13 +478,13 @@ io.sockets.on('connection', function (socket) {
     socket.username = username;
     id = socket.id;
     
-    var c=new Connect({
-        socketId : socket.id,
-        client : socket.username
-    })
-    c.save(function (err, data) {
-        if (err) console.log(err);
-    });
+    // var c=new Connect({
+    //     socketId : socket.id,
+    //     client : socket.username
+    // })
+    // c.save(function (err, data) {
+    //     if (err) console.log(err);
+    // });
     
     let user = {     // an object
       name: socket.username,  // by key "name" store value "John"
