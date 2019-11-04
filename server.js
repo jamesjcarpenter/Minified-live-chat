@@ -389,7 +389,7 @@ app.use((err, req, res, next) => {
 //chat
 
 
-
+var roomDesc = "Default room description."
 var rooms = [];
 // usernames which are currently connected to the chat
 var usernames = {};
