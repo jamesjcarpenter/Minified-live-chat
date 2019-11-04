@@ -37,6 +37,10 @@
     background-color:#1c1c1c;
   text-shadow: 1px 2px 1px #474747;  
   padding:20px;
+  position:absolute;
+  top:70%;
+  left:50%;
+  margin-left:-146px;
     }
     
     #mailto {
