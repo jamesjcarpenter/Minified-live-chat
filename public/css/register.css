@@ -36,6 +36,7 @@
     #login{
     background-color:#1c1c1c;
   text-shadow: 1px 2px 1px #474747;  
+  padding:20px;
     }
     
     #mailto {
@@ -65,6 +66,7 @@
       text-align: center;
       color:white;
       background-color:#1c1c1c;
+      padding-bottom:20px;
     }
     
     .ui.horizontal.divider {
@@ -74,6 +76,7 @@
     #submitbtn {
     margin-top:1em;
     position:relative;  
+    padding:20px;
     }
     
     .ui.black.image.header .inverted.users.icon {
