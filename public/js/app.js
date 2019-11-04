@@ -81,14 +81,14 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-
+function getUsername(){
      $('.ui.mini.basic.modal.start').modal('show')
       var userReturn = $('#addusername').val();
       var objReturn = JSON.stringify(userReturn)
       objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
       var useName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
       socket.emit ('adduser', useName);
-      
+};
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
