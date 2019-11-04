@@ -545,15 +545,4 @@ window.onunload = function() {
     $('#start').show();
     $('#start').click();
 }
-
-
-var designer = new CanvasDesigner();
-
-// both links are mandatory
-// widget.html will internally use widget.js
-designer.widgetHtmlURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.html'; // you can place this file anywhere
-designer.widgetJsURL = 'https://www.webrtc-experiment.com/Canvas-Designer/widget.js';     // you can place this file anywhere
-
-// <iframe> will be appended to "document.body"
-designer.appendTo(document.body.inner|| document.documentElement);
 });
