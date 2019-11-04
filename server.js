@@ -476,8 +476,8 @@ io.sockets.on('connection', function (socket) {
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
     util.inspect(username);
-    socket.username = username;
-    id = socket.id;
+    // socket.username = username;
+    // id = socket.id;
     
     // var c=new Connect({
     //     socketId : socket.id,
@@ -488,7 +488,7 @@ io.sockets.on('connection', function (socket) {
     // });
     
     let user = {     // an object
-      name: socket.username,  // by key "name" store value "John"
+      username: socket.username,  // by key "name" store value "John"
       id: socket.id       // by key "age" store value 30
     };
     
