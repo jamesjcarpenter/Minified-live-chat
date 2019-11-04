@@ -91,8 +91,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
        socket.emit('adduser', 
        function(){
-          var userName = document.getElementById("name").value;
-          document.write(userName);
+          username = document.getElementById("blocktext").value;
+          document.write(username);
        });
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
