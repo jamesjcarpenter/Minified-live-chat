@@ -81,6 +81,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
+      
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
@@ -89,7 +90,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      socket.emit('join', roomId);
 
 
-
+     function getUsername(){
+      var useName = "ree";
+      socket.emit('adduser', useName);  
+    };
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
@@ -97,16 +101,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         socket.emit(socket.id);
       });
       
-
-      getUsername();
-      function getUsername(){
-           $('.ui.mini.basic.modal.start').modal('show')
-            var userReturn = $('#addusername').val();
-            var objReturn = JSON.stringify(userReturn)
-            objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
-            var username = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
-            socket.emit ('adduser', username);
-      };
 
       socket.on('connect', function() {
           socket.emit('connected', userName); //userName is unique
