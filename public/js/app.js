@@ -81,17 +81,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-
-
-    getUsername();
-function getUsername(){
-     $('.ui.mini.basic.modal.start').modal('show')
-      var userReturn = $('.ui.mini.basic.modal.start').val();
-      var objReturn = JSON.stringify(userReturn)
-      objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
-      var useName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
-      socket.emit ('adduser', useName);
-};
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
@@ -108,6 +97,16 @@ function getUsername(){
         socket.emit(socket.id);
       });
       
+
+      getUsername();
+      function getUsername(){
+           $('.ui.mini.basic.modal.start').modal('show')
+            var userReturn = $('.ui.mini.basic.modal.start').val();
+            var objReturn = JSON.stringify(userReturn)
+            objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
+            var userName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
+            socket.emit ('adduser', userName);
+      };
 
       socket.on('connect', function() {
           socket.emit('connected', userName); //userName is unique
