@@ -82,23 +82,12 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   socket.on('connect', function(){
     
 
-    function getUsername(){
-  $('.ui.mini.basic.modal.start')
-  .modal({  
-    blurring: true,
-    closable  : false,
-    onDeny    : function(){
-      window.alert('Wait not yet!');
-      return false;
-    },
-    onApprove : function() {
+     $('.ui.mini.basic.modal.start').modal('show')
       var userReturn = $('#addusername').val();
       var objReturn = JSON.stringify(userReturn)
       objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
       var useName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
       socket.emit ('adduser', useName);
-      $('.ui.mini.basic.modal.start').modal('hide')
-    }
 
 
   }).modal('show');
