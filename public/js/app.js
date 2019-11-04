@@ -92,6 +92,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
      function getUsername(){
       var useName = "ree";
+      socket.username = useName;
       socket.emit('adduser', useName);  
     };
 
