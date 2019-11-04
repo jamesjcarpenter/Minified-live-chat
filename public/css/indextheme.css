@@ -355,9 +355,10 @@ right:0em;
       text-align:left;
       position:absolute;
       left:0.25em;
-      top:36.5em;
+      top:29.5em;
       z-index:9999;
       overflow:auto;
+      width:5vw;
     }
     
     #scrollingheight {
