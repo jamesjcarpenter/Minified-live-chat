@@ -90,11 +90,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      socket.emit('join', roomId);
 
 
-     function getUsername(){
-      var useName = "ree";
-      socket.username = useName;
-      socket.emit('adduser', useName);  
-    };
+     
+       socket.emit('adduser', prompt("Enter username."));
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
