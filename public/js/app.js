@@ -96,7 +96,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       }
     .modal('show')
     });
-  }
+    }
+    //
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
