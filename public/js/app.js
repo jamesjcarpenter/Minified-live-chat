@@ -86,7 +86,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     getUsername();
 function getUsername(){
      $('.ui.mini.basic.modal.start').modal('show')
-      var userReturn = $('#addusername').val();
+      var userReturn = $('.ui.mini.basic.modal.start').val();
       var objReturn = JSON.stringify(userReturn)
       objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
       var useName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
