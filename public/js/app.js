@@ -88,10 +88,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
       var useName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
       socket.emit ('adduser', useName);
-
-
-  }).modal('show');
-};
       
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
