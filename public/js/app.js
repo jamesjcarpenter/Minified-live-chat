@@ -81,8 +81,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-    
-
+      
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;
@@ -90,38 +89,18 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
 
-      //  socket.emit('adduser', prompt("Enter username."));
+       socket.emit('adduser', prompt("Enter username."));
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
       socket.on('askForUserId', () => {
         socket.emit(socket.id);
       });
-      socket.emit('adduser',
-      $('.ui.mini.basic.modal.start')
-      .modal({  
-        blurring: true,
-        closable  : false,
-        onDeny    : function(){
-          window.alert('Wait not yet!');
-          return false;
-        },
-        onApprove : function() {
-          var userReturn = $('#addusername').val();
-          var objReturn = JSON.stringify(userReturn)
-          objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
-          username = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
-          socket.emit ('adduser', username);
-          $('.ui.mini.basic.modal.start').modal('hide')
-        }
-    
-    
-      }).modal('show'));
-    });
+      
 
-      // socket.on('connect', function() {
-      //     socket.emit('connected', userName); //userName is unique
-      // })
+      socket.on('connect', function() {
+          socket.emit('connected', userName); //userName is unique
+      })
     
       socket.on('private-message', (data, message) => {
         console.log('You received a message');
@@ -144,6 +123,32 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // 
     //   }).modal('show'));
     // });
+  });
+  
+
+
+//   socket.emit('adduser',
+//   $('.ui.mini.basic.modal.start')
+//   .modal({  
+//     blurring: true,
+//     closable  : false,
+//     onDeny    : function(){
+//       window.alert('Wait not yet!');
+//       return false;
+//     },
+//     onApprove : function() {
+//       var userReturn = $('#addusername').val();
+//       var objReturn = JSON.stringify(userReturn)
+//       objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
+//       username = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
+//       socket.emit ('adduser', username);
+//       $('.ui.mini.basic.modal.start').modal('hide')
+//     }
+
+
+//   }).modal('show'));
+// });
+
   
   // socket.on('addname', function (username) {
   //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
