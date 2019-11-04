@@ -60,7 +60,7 @@
     }
     #seg {
       display:block;
-      width:25vw;
+      min-width:25vw;
       height:65.5vh;
       text-align: center;
       color:white;
