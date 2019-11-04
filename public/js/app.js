@@ -105,9 +105,11 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
             var objReturn = JSON.stringify(userReturn)
             objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
             var userName = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
-           socket.username = userName;
-            socket.emit ('adduser', socket.username);
+            addUser();
       };
+      function addUser(){
+        socket.emit ('adduser', userName);
+      }
 
       socket.on('connect', function() {
           socket.emit('connected', userName); //userName is unique
