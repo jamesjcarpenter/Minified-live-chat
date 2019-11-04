@@ -93,7 +93,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         onApprove : function() {
           var userReturn = $('#addusername').val();
           var objReturn = JSON.stringify(userReturn)
-          objReturn = json.replace(/\"([^(\")"]+)\":/g,"$1:");
+          objReturn = objReturn.replace(/\"([^(\")"]+)\":/g,"$1:");
           socket.emit ('adduser', { objReturn : objReturn});
           $('.ui.mini.basic.modal.start').modal('hide')
         }
