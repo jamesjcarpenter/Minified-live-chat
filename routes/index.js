@@ -60,7 +60,8 @@ router.get('/', function(req, res, options) {
 
 
 router.get('/store', function(req, res, options) {
-  res.render('store.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  // res.render('store.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/register', function(req, res, options) {
@@ -73,7 +74,8 @@ router.get('/pro', function(req, res, options) {
 
 
 router.get('/rooms', function(req, res, options) {
-   res.render('rooms.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
+  //  res.render('rooms.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
+  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 // , { name: req.params.name, chat: req.session.chat, username: req.user }
@@ -89,7 +91,8 @@ router.get('/room/:name1', function(req, res, options) {
 });
 
 router.get('/profile', function(req, res, options) {
-      res.render('profile.handlebars');
+      // res.render('profile.handlebars');
+      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 
@@ -100,11 +103,13 @@ router.get('/admin', function(req, res, options) {
   username = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
-   res.render('admin.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  //  res.render('admin.ejs', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/dashboard', function(req, res, options) {
-      res.render('dashboard.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+      // res.render('dashboard.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+      res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 router.get('/home', function(req, res, options) {
