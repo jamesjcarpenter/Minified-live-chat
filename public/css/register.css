@@ -99,7 +99,7 @@
     }
     .content {
     color:white; 
-      font-family: 'Fredoka One';
+      font-family: 'Changa';
       font-weight:100;
     font-size:32px; 
     }
@@ -205,7 +205,7 @@
       font-weight:300;
       color:white;
       margin-top:1em; 
-      text-shadow: 4px 4px 4px #474747;
+      text-shadow: 2px 2px 2px #474747;
 font-family: 'Changa', sans-serif;
     }
     
@@ -214,7 +214,7 @@ font-family: 'Changa', sans-serif;
       font-weight:1200;
       color:white;
       margin-top:1em; 
-      text-shadow: 4px 4px 4px #474747;
+      text-shadow: 2px 2px 2px #474747;
 font-family: 'Changa', sans-serif;
     }
     
@@ -266,7 +266,7 @@ font-family: 'Changa', sans-serif;
     top:4em;
         left:30%;
     position:absolute;
-    text-shadow: 4px 4px 4px #474747;
+    text-shadow: 2px 2px 2px #474747;
 font-family: 'Changa', sans-serif;
     }
     
