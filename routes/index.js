@@ -69,7 +69,7 @@ router.get('/register', function(req, res, options) {
 });
 
 router.get('/pro', function(req, res, options) {
-  res.render('store.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 
