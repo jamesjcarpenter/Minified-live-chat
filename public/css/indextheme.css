@@ -2,7 +2,7 @@
     body { visibility:hidden !important; width:100%; background-color: 	#fcfff9!important; color:black;
   font-family: 'Changa', sans-serif;
     }
-    #attachmenu { background-color: 		#1c1c1c!important; width:195px;
+    #attachmenu { background-color: 		#1c1c1c!important; width:10vw;
     }
     
     
@@ -399,7 +399,7 @@ right:0em;
       background-color: #303030!important;
     }
     #servermessage {
-      background-color:	#262626!important;
+      background-color:	#fcfff9!important;
       color:white;
       font-size:10px;
       width: 80%;
