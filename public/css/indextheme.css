@@ -312,8 +312,11 @@ right:0em;
     #videos{
         display:block;
         position:fixed;
-        min-width:30vmin;
+        min-width:22.5vmin;
         min-height:70vmin;
+        top:30%;
+        left:25%;
+        margin:0 auto;
     }
     
     
