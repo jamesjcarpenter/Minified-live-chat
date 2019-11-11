@@ -1,1 +1,549 @@
-var _0x3c9a=['room','join','Enter\x20username.','emit','adduser','askForUserId','connected','private-message','data','keys','usernames','#userlist','empty','each','append','<li><span\x20class=\x22ui\x20white\x20text\x20user\x22>','</span><span\x20class=\x22ui\x20small\x20white\x20text\x20pm\x22></div></a></li>','.span.ui.white.text.user','.ui.small.white.text.pm','updateids','<div\x20class=\x22ui\x20mini\x20button\x20pm\x22id=\x22pmbtn\x22></div>','socket\x20id\x20for\x20user','.ui.mini.button.pm','updatechat','#conversation','<div\x20class=\x22ui\x20container\x22><div\x20class=\x22ui\x20medium\x20basic\x20segment\x22></div></div>','#scrollable','scrollHeight','#data','<img\x20id=\x22useravatar\x22\x20class=\x22ui\x20avatar\x20image\x22\x20src=\x22/images/avatarsmall.jpg\x22></img><span\x20class=\x22ui\x20small\x20text\x22\x20id=\x22username\x22name=\x22avatar\x22><b></b></span>','text','<span\x20class=\x22ui\x20small\x20text\x22\x20id=\x22date\x22name=\x22date\x22></span>','parse','<div\x20id=\x22messagedata\x22><p\x20class=\x22messaging\x22><span\x20class=\x22ui\x20small\x20text\x22></span></p></div></div>','.messaging','html','replace','<a\x20href=\x22$1\x22>$1</a>\x20','serverupdatechat','<div\x20class=\x22ui\x20container\x22><div\x20class=\x22ui\x20small\x20basic\x20segment\x22></div></div>','prop','<div\x20class=\x22ui\x20small\x20grey\x20label\x22id=\x22servermessage\x22><span\x20class=\x22ui\x20small\x20text\x22></span></div>','#blocktext','#profilepic2','<h5\x20class=\x22ui\x20text\x22id=\x22profilepic2\x22></h5>','attr','name','#datasend','\x5c$1','oninput','value','sendchat','keypress','which','blur','updateroomusers','#roomusers','keyup','typing','#typing','<div\x20class=\x22ui\x20text\x20container\x22><span\x20class=\x22ui\x20small\x20text\x22\x20id=\x22typing\x22></span></div>','updateusers','username','leave','onunload','addEventListener','load','anomic.io/','#start','hide','#bitrateset','#start2','click','location','href','log','lastIndexOf','#copyinput','val','focus','.input-group-addon','remove','#youtubeopen','.ui.longer.modal','modal','.ytp-cued-thumbnail-overlay-image','#canvasdraw','.ui.longer.large.modal','show','#userscheck','.ui.small.modal.users','.icon','addClass','inverted','getElementById','onclick','themecss','css/indextheme.css','.ui.button','removeClass','.ui.medium.left.pointing.label','.large.ui.teal.secondary.button.inverted','large\x20ui\x20teal','large\x20ui\x20black','ui\x20black','ready','.arrow-right','bind','preventDefault','animate','+=336','.arrow-left','.vid-list-container','stop','-=336','stringify','now','toLocaleTimeString','connect','substr'];(function(_0x4124e6,_0x1d637a){var _0x515459=function(_0x3450ec){while(--_0x3450ec){_0x4124e6['push'](_0x4124e6['shift']());}};_0x515459(++_0x1d637a);}(_0x3c9a,0xb9));var _0x3450=function(_0x40f17f,_0x53e585){_0x40f17f=_0x40f17f-0x0;var _0x3b3208=_0x3c9a[_0x40f17f];return _0x3b3208;};window[_0x3450('0x0')](_0x3450('0x1'),()=>{var _0x1a807b=io['connect'](_0x3450('0x2'));$(_0x3450('0x3'))['click'](),$(_0x3450('0x3'))[_0x3450('0x4')](),$(_0x3450('0x5'))['hide'](),$(_0x3450('0x6'))[_0x3450('0x7')](),$(_0x3450('0x6'))[_0x3450('0x4')]();var _0x3f78b0=window[_0x3450('0x8')][_0x3450('0x9')];console[_0x3450('0xa')](_0x3f78b0),console['log'](_0x3f78b0['substr'](_0x3f78b0[_0x3450('0xb')]('/')+0x1)),$(_0x3450('0xc'))[_0x3450('0xd')]($(_0x3450('0xc'))[_0x3450('0xd')]()+''+window[_0x3450('0x8')][_0x3450('0x9')]),$('#data')[_0x3450('0xe')](),$(_0x3450('0xf'))[_0x3450('0x10')](),$(_0x3450('0x11'))[_0x3450('0x7')](function(){$(_0x3450('0x12'))[_0x3450('0x13')]('show');}),$(_0x3450('0x14'))[_0x3450('0x4')](),$(_0x3450('0x15'))[_0x3450('0x7')](function(){$(_0x3450('0x16'))[_0x3450('0x13')](_0x3450('0x17'));}),$(_0x3450('0x18'))['click'](function(){$(_0x3450('0x19'))[_0x3450('0x13')]('show');}),$(_0x3450('0x1a'))[_0x3450('0x1b')](_0x3450('0x1c')),document[_0x3450('0x1d')]('bulb')[_0x3450('0x1e')]=function(){document[_0x3450('0x1d')](_0x3450('0x1f'))[_0x3450('0x9')]=_0x3450('0x20'),$(_0x3450('0x21'))[_0x3450('0x22')](_0x3450('0x1c')),$(_0x3450('0x1a'))[_0x3450('0x22')](_0x3450('0x1c')),$(_0x3450('0x23'))[_0x3450('0x22')](_0x3450('0x1c')),$(_0x3450('0x24'))['addClass'](_0x3450('0x25'))[_0x3450('0x22')](_0x3450('0x26')),$('#cpybutton')[_0x3450('0x22')]('ui\x20teal')[_0x3450('0x22')](_0x3450('0x27'));},$(document)[_0x3450('0x28')](function(){$(_0x3450('0x29'))[_0x3450('0x2a')]('click',function(_0x1a807b){_0x1a807b[_0x3450('0x2b')](),$('.vid-list-container')['stop']()[_0x3450('0x2c')]({'scrollLeft':_0x3450('0x2d')},0x2ee);}),$(_0x3450('0x2e'))['bind']('click',function(_0x1a807b){_0x1a807b[_0x3450('0x2b')](),$(_0x3450('0x2f'))[_0x3450('0x30')]()[_0x3450('0x2c')]({'scrollLeft':_0x3450('0x31')},0x2ee);});});var _0x132abf=JSON[_0x3450('0x32')](new Date(Date[_0x3450('0x33')]())[_0x3450('0x34')]());_0x1a807b['on'](_0x3450('0x35'),function(){_0x1a807b['room']=[];var _0x132abf=_0x3f78b0[_0x3450('0x36')](_0x3f78b0[_0x3450('0xb')]('/')+0x1);_0x1a807b[_0x3450('0x37')]=_0x132abf,_0x1a807b['emit'](_0x3450('0x38'),_0x132abf);var _0x547740=prompt(_0x3450('0x39'));$(function(){_0x1a807b[_0x3450('0x3a')](_0x3450('0x3b'),_0x547740);}),_0x1a807b['on'](_0x3450('0x3c'),()=>{_0x1a807b[_0x3450('0x3a')](_0x1a807b['id']);}),_0x1a807b['on'](_0x3450('0x35'),function(){_0x1a807b[_0x3450('0x3a')](_0x3450('0x3d'),userName);}),_0x1a807b['on'](_0x3450('0x3e'),(_0x1a807b,_0x3f78b0)=>{console[_0x3450('0xa')]('You\x20received\x20a\x20message'),console[_0x3450('0xa')](_0x3f78b0[_0x3450('0x3f')]);});}),console['log'](Object[_0x3450('0x40')][_0x3450('0x41')]),_0x1a807b['on']('updateusers',function(_0x1a807b){$(_0x3450('0x42'))[_0x3450('0x43')](),$[_0x3450('0x44')](_0x1a807b,function(_0x1a807b,_0x3f78b0){$('#userlist')[_0x3450('0x45')](_0x3450('0x46')+_0x1a807b+_0x3450('0x47')),console[_0x3450('0xa')]($(_0x3450('0x48'))[_0x3450('0xd')]()),$(_0x3450('0x49'))[_0x3450('0x7')](function(){});});}),_0x1a807b['on'](_0x3450('0x4a'),function(_0x1a807b){$[_0x3450('0x44')](_0x1a807b,function(_0x1a807b,_0x3f78b0){var _0x132abf=$(_0x3450('0x42'));$(_0x3450('0x4b'))[_0x3450('0x3f')]('id',_0x1a807b)['appendTo'](_0x132abf),console['log'](_0x3450('0x4c')+$(_0x3450('0x4d'))['data']('id'));}),$('.ui.mini.button.pm')[_0x3450('0x7')](function(){$(this)[_0x3450('0x44')](function(){$(this)[_0x3450('0x3f')]('id');});});}),_0x1a807b['on'](_0x3450('0x4e'),function(_0x1a807b,_0x3f78b0){$(_0x3450('0x4f'))[_0x3450('0x45')](_0x3450('0x50')),$(_0x3450('0x51'))[_0x3450('0x2c')]({'scrollTop':$(_0x3450('0x51'))['prop'](_0x3450('0x52'))},0x12c),$(_0x3450('0x53'))[_0x3450('0xe')](),$('#conversation')[_0x3450('0x45')]($(_0x3450('0x54'))[_0x3450('0x55')](_0x1a807b)),$(_0x3450('0x4f'))[_0x3450('0x45')]($(_0x3450('0x56'))[_0x3450('0x55')](JSON[_0x3450('0x57')](_0x132abf))),$(_0x3450('0x4f'))[_0x3450('0x45')]($(_0x3450('0x58'))[_0x3450('0x55')](_0x3f78b0)),$(_0x3450('0x59'))[_0x3450('0x44')](function(){$(this)[_0x3450('0x5a')]($(this)[_0x3450('0x5a')]()[_0x3450('0x5b')](/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g,_0x3450('0x5c')));});}),_0x1a807b['on'](_0x3450('0x5d'),function(_0x1a807b,_0x132abf,_0x12822e){$(_0x3450('0x4f'))[_0x3450('0x45')](_0x3450('0x5e')),$(_0x3450('0x51'))[_0x3450('0x2c')]({'scrollTop':$(_0x3450('0x51'))[_0x3450('0x5f')](_0x3450('0x52'))},0x44c),$(_0x3450('0x4f'))[_0x3450('0x45')]($(_0x3450('0x60'))[_0x3450('0x55')](_0x1a807b)),$(_0x3450('0x61'))[_0x3450('0x43')](),$('#blocktext')[_0x3450('0x45')]('<h4\x20class=\x22ui\x20text\x22\x20id=\x22blocktext\x22>'+_0x3f78b0['substr'](_0x3f78b0[_0x3450('0xb')]('/')+0x1)+'</h4>');}),_0x1a807b['on']('serverupdateuser',function(_0x1a807b){$(_0x3450('0x62'))[_0x3450('0x43')](),$('#profilepic2')[_0x3450('0x45')](_0x3450('0x63'))[_0x3450('0x55')](_0x1a807b),console['log']($(_0x3450('0x4d'))[_0x3450('0x64')](_0x3450('0x65')));}),_0x1a807b['on'](_0x3450('0x35'),function(_0x3f78b0){$(_0x3450('0x66'))['click'](function(){var _0x3f78b0=$(_0x3450('0x53'))['val']()['trim']();$(_0x3450('0x53'))[_0x3450('0xd')]('');var _0x132abf={'<3':'❤️','</3':'💔',':D':'😂',':)':'😀',';)':'😉',':(':'☹️',':p':'😋',';p':'😜',':\'(':'😢','8)':'😎'};function _0x4d24a0(_0x1a807b){return _0x1a807b[_0x3450('0x5b')](/([()[{*+.$^\\|?])/g,_0x3450('0x67'));}document[_0x3450('0x1d')](_0x3450('0x3f'))[_0x3450('0x68')]=function(){for(var _0x1a807b in _0x132abf){var _0x3f78b0=new RegExp(_0x4d24a0(_0x1a807b),'gim');this[_0x3450('0x69')]=this[_0x3450('0x69')]=this[_0x3450('0x69')][_0x3450('0x5b')](_0x3f78b0,_0x132abf[_0x1a807b]);}},_0x1a807b[_0x3450('0x3a')](_0x3450('0x6a'),_0x3f78b0);}),$(_0x3450('0x53'))[_0x3450('0x6b')](function(_0x1a807b){0xd==_0x1a807b[_0x3450('0x6c')]&&($(this)[_0x3450('0x6d')](),$(_0x3450('0x66'))[_0x3450('0xe')]()['click']());});}),_0x1a807b['on'](_0x3450('0x6e'),function(_0x1a807b,_0x3f78b0){$(_0x3450('0x6f'))[_0x3450('0x43')](),$[_0x3450('0x44')](_0x1a807b,function(_0x1a807b,_0x3f78b0){$(_0x3450('0x6f'))[_0x3450('0x45')]('+value+');});}),$(_0x3450('0x53'))[_0x3450('0x70')](function(){$(_0x3450('0x53'))[_0x3450('0xd')]()?($(_0x3450('0x66'))[_0x3450('0x17')](),_0x1a807b['emit'](_0x3450('0x71'))):$(_0x3450('0x66'))[_0x3450('0x4')]();}),_0x1a807b['on']('typing',function(_0x1a807b){var _0x3f78b0;clearTimeout(_0x3f78b0),$(_0x3450('0x72'))[_0x3450('0x45')](_0x3450('0x73'))[_0x3450('0x55')](_0x1a807b),_0x3f78b0=setTimeout(function(){$(_0x3450('0x72'))[_0x3450('0x43')]();},0xdac);}),_0x1a807b['on']('disconnect',function(){_0x1a807b[_0x3450('0x3a')](_0x3450('0x74'),_0x1a807b[_0x3450('0x41')]),_0x1a807b['emit'](_0x3450('0x5d'),_0x1a807b[_0x3450('0x75')]+'\x20has\x20disconnected'),_0x1a807b[_0x3450('0x76')](_0x1a807b[_0x3450('0x37')]),delete _0x1a807b[_0x3450('0x41')][_0x1a807b['username']];}),window[_0x3450('0x77')]=function(){$(_0x3450('0x3'))[_0x3450('0x17')](),$(_0x3450('0x3'))[_0x3450('0x7')]();};});
+window.addEventListener('load', () => {
+    var socket = io.connect('anomic.io/');
+    // Chat platform
+    // Local Video
+  $('#start').click();
+  $('#start').hide();
+  $('#bitrateset').hide();
+  $('#start2').click();
+  $('#start2').hide();
+  var url = window.location.href;
+  
+  console.log(url);
+  function getImageDirectoryByFullURL(url){
+      return url.substr(url.lastIndexOf("/")+1);
+  }
+  console.log(url.substr(url.lastIndexOf("/")+1));
+  
+  $('#copyinput').val($('#copyinput').val() + '' + window.location.href);
+  $("#data").focus();
+  
+  $('.input-group-addon').remove();
+  
+  $('#youtubeopen').click( function() {
+    $('.ui.longer.modal').modal('show');
+  });
+  
+  $('.ytp-cued-thumbnail-overlay-image').hide();
+  
+  
+  $('#canvasdraw').click( function() {
+    $('.ui.longer.large.modal').modal('show');
+  });
+  
+  $('#userscheck').click( function() {
+    $('.ui.small.modal.users').modal('show');
+  });
+  
+        // $('#logo').append($('<img src="images/robotsleep.png" />').text());
+  
+  
+      // document.getElementById('themecss').href = 'css/indextheme2.css';
+      // $('.ui.button').addClass('inverted');
+      $('.icon').addClass('inverted');
+      // $('.ui.medium.left.pointing.label').addClass('inverted');
+      // $('.large.ui.teal.secondary.button.inverted').removeClass('large ui teal').addClass('large ui black');
+      // $('#cpybutton').removeClass('ui teal').addClass('ui black');
+      
+      
+      document.getElementById('bulb').onclick = function () { 
+          document.getElementById('themecss').href = 'css/indextheme.css';
+          $('.ui.button').removeClass('inverted');
+          $('.icon').removeClass('inverted');
+          $('.ui.medium.left.pointing.label').removeClass('inverted');
+          $('.large.ui.teal.secondary.button.inverted').addClass('large ui teal').removeClass('large ui black');
+          $('#cpybutton').removeClass('ui teal').removeClass('ui black');
+      };
+  
+  function fixedEncodeURIComponent(str) {
+    return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+      return '%' + c.charCodeAt(0).toString(16);
+    });
+  }
+  
+  $(document).ready(function() {
+      $(".arrow-right").bind("click", function(event) {
+          event.preventDefault();
+          $(".vid-list-container").stop().animate({
+              scrollLeft: "+=336"
+          }, 750);
+      });
+      $(".arrow-left").bind("click", function(event) {
+          event.preventDefault();
+          $(".vid-list-container").stop().animate({
+              scrollLeft: "-=336"
+          }, 750);
+      });
+  });
+  
+  var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
+    // toggle sidebar
+    // Add validation rules to Create/Join Room Form
+    socket.on('connect', function(){
+      
+        
+      socket.room = [];
+      var roomId = url.substr(url.lastIndexOf("/")+1);
+      socket.room = roomId;
+      // console.log("roomId : "+roomId);
+      //event to get chat history on button click or as room is set.
+       socket.emit('join', roomId);
+  
+       var nick = prompt("Enter username.")
+  
+  
+       
+       $(function () {
+         socket.emit('adduser', nick);
+       });
+  
+    // call the server-side function 'adduser' and send one parameter (value of prompt)
+        //empty messages.
+        socket.on('askForUserId', () => {
+          socket.emit(socket.id);
+        });
+        
+  
+        socket.on('connect', function() {
+            socket.emit('connected', userName); //userName is unique
+        })
+      
+        socket.on('private-message', (data, message) => {
+          console.log('You received a message');
+          console.log(message.data);
+          });
+      //   socket.emit('adduser',
+      //   $('.ui.mini.basic.modal.start')
+      //   .modal({  
+      //     blurring: true,
+      //     closable  : false,
+      //     onDeny    : function(){
+      //       window.alert('Wait not yet!');
+      //       return false;
+      //     },
+      //     onApprove : function() {
+      //       socket.username = $('#addusername').val();
+      //       window.close();
+      //     }
+      // 
+      // 
+      //   }).modal('show'));
+      // });
+    });
+    
+  
+  
+  //   socket.emit('adduser',
+  //   $('.ui.mini.basic.modal.start')
+  //   .modal({  
+  //     blurring: true,
+  //     closable  : false,
+  //     onDeny    : function(){
+  //       window.alert('Wait not yet!');
+  //       return false;
+  //     },
+  //     onApprove : function() {
+  //       var userReturn = $('#addusername').val();
+  //       var objReturn = JSON.stringify(userReturn)
+  //       objReturn =  objReturn.replace(/\\"/g,"\uFFFF"); //U+ FFFF
+  //       username = objReturn.replace(/\"([^"]+)\":/g,"$1:").replace(/\uFFFF/g,"\\\"").slice(1, -1)
+  //       socket.emit ('adduser', username);
+  //       $('.ui.mini.basic.modal.start').modal('hide')
+  //     }
+  
+  
+  //   }).modal('show'));
+  // });
+  
+    
+    // socket.on('addname', function (username) {
+    //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
+    // 
+    // });
+    
+    console.log(Object.keys.usernames);
+    // socket.on('getusers', function (usernames) {
+    //   for(key in usernames) {
+    //   if(usernames.hasOwnProperty(key)) {
+    //       var value = usernames[key];
+    //       //do something with value;
+    //     }
+    //   }
+    //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
+    // 
+    // });
+    
+  
+    socket.on('updateusers', function(data) {
+      
+          $('#userlist').empty();
+      // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+          $.each(data, function(key, value) {
+              $('#userlist').append('<li><span class="ui white text user">' + key  + '</span>' + '<span class="ui small white text pm"></div>' + '</a>' + '</li>');
+        console.log($('.span.ui.white.text.user').val())
+        $('.ui.small.white.text.pm').click( function() {
+          // var userUse = $('.span.ui.white.text.user').val()
+          // socket.emit('findUser', { userNameOfUserToFind : userUse } );
+        });
+      });
+    });
+      
+      
+      
+    
+    socket.on('updateids', function(clients) {
+    $.each(clients, function(key, value) {
+      var $container = $('#userlist');
+      $('<div class="ui mini button pm"id="pmbtn"></div>').data('id', key).appendTo($container);
+    
+      console.log('socket id for user' + $('.ui.mini.button.pm').data('id'));
+    });
+      
+      
+      $('.ui.mini.button.pm').click(function() {
+        // $("#PMbutton").unbind();
+        $(this).each(function(){
+          var value;
+          value = $(this).data( "id" );
+          });
+        });
+    });
+        // function addBack(){
+      //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
+      //   $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
+      //   $('#messagingthem').hide();
+      //   $('#goback').hide();
+      // };
+      //   $(document).ready(function(){ 
+      // 
+      //   $(".ui.mini.button.pm").each(function(){
+      //     var userToPM = $(this).attr('id');
+      //     console.log(userToPM);
+      //    $('.ui.mini.button.pm').click(function() {
+      //      // $("#PMbutton").unbind();
+      //      addBack();
+      //      console.log(userToPM);
+      //      return false; 
+      //      $('.ui.left.pointing.label').hide();
+      //      $('#messagingthem').show();
+      //      $('#PMbutton').hide();
+      // 
+      //      $( "#userlist").find(userId).text();
+      //       socket.emit('private-message', userId);
+      // 
+      //     $('#data').keypress(function(e) {
+      //     if(e.which == 13) {
+      //         $(this).blur();
+      //         $('#datasend').focus().click();
+      //         var message = $('#data').val().trim();
+  
+    //        };
+    //      });
+    //    });
+    // 
+    //         $('#goback').click(function() {
+    //            $('.ui.left.pointing.label').show();
+    //            $('#PMbutton').show();
+    //            $('#messagingthem').hide();
+    //            $('#goback').hide();
+    //            $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
+    //          });
+    //      });
+    //    });
+    //       // socket.emit('private-message', message);
+    // 
+      // 	});
+      // });
+    
+    // create our webrtc connection
+    socket.on('updatechat', function (username, data) {
+      $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+      $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
+      $("#data").focus();
+      // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
+      $('#conversation').append($('<i class="theater masks icon"id="useravatar"></i>').text(username));
+      $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
+      $('#conversation').append($('<div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
+      replaceUrl();
+    });
+    
+    function replaceUrl() {
+      
+      $(".messaging").each(function(){
+          $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+        });
+        
+      };
+    // listener, whenever the server emits 'updaterooms', this updates the room the client is in
+    socket.on('serverupdatechat', function (server, username, data) {
+      $('#conversation').append('<div class="ui container"><div class="ui small basic segment"></div></div>');
+          $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 1100);
+          $('#conversation').append($('<div class="ui small grey label"id="servermessage"><span class="ui small text"></span></div>').text(server));
+          $("#blocktext").empty();
+          $("#blocktext").append('<h4 class="ui text" id="blocktext">' + url.substr(url.lastIndexOf("/")+1) + '</h4>');
+            });
+  //$('#publisher').append('<h4>' + username + '</h4>');
+  
+  
+  socket.on('serverupdateuser', function (server) {
+    $('#profilepic2').empty();
+    $('#profilepic2').append('<h5 class="ui text"id="profilepic2"></h5>').text(server);
+    console.log($('.ui.mini.button.pm').attr('name'))
+    
+  });
+  
+  
+  
+    // on load of page
+  socket.on('connect', function(data) {
+      // when the client clicks SEND
+      $('#datasend').click( function() {
+        var message = $('#data').val().trim();
+        $('#data').val('');
+        
+        
+        // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
+      //   var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
+      //   var str = '' + msgUrl;
+      //   if (re.test(message)) {
+      //     message = str.replace(re)
+      //   };
+      // 
+      //   $("#autlink").each(function(){
+      //     $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+      // });
+  
+        // socket.emit('autosync', data);
+        // 
+        // getTime();
+        
+        
+        // function getTime() {
+        //     return player.getCurrentTime();
+        //   };
+        
+        var map = {
+          "<3": "\u2764\uFE0F",
+          "</3": "\uD83D\uDC94",
+          ":D": "\uD83D\uDE02",
+          ":)": "\uD83D\uDE00",
+          ";)": "\uD83D\uDE09",
+          ":(": "\u2639\uFE0F",
+          ":p": "\uD83D\uDE0B",
+          ";p": "\uD83D\uDE1C",
+          ":'(": "\uD83D\uDE22",
+          "8)": "\uD83D\uDE0E"
+        };
+        
+        function escapeSpecialChars(regex) {
+          return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
+        }
+        
+        document.getElementById('data').oninput = function() {
+          for (var i in map) {
+            var regex = new RegExp(escapeSpecialChars(i), 'gim');
+            this.value = this.value = this.value.replace(regex, map[i]);
+          }
+        };
+        
+        // var re = new RegExp(/:\)|:-\)|:\(|:-\(|;\);-\)|:-O|8-|:P|:D|:\||:S|:\$|:@|8o\||\+o\(|\(H\)|\(C\)|\(\?\)/g); 
+        // var str = '';
+        // if (re.test(message)) {
+        //   message = str.replace(emote, str);
+        //   socket.emit('sendchat', message);
+        // };
+        // tell server to execute 'sendchat' and send along one parameter
+        // tell server to execute 'sendchat' and send along one parameter
+        socket.emit('sendchat', message);
+      });
+  
+      // when the client hits ENTER on their keyboard
+      $('#data').keypress(function(e) {
+        if(e.which == 13) {
+          $(this).blur();
+          $('#datasend').focus().click();
+        }
+      });
+    });
+    
+  //   socket.on('goClients', function(clients) {
+  //     // $('#userlist').empty();
+  //     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+  //     $.each(data, function(key, value) {
+  //       $('#userlist').append('' + clients);
+  //   });
+  // });
+    
+    socket.on('updateroomusers', function(roomusers, username) {
+    $("#roomusers").empty();
+    $.each(roomusers, function (key, value) {
+    $('#roomusers').append('+value+');
+    });
+    });
+    
+    $('#data').keyup(function(){
+      if($('#data').val()){
+        $('#datasend').show(); //showing send button.
+        socket.emit('typing');
+      }
+      else{
+        $('#datasend').hide(); //hiding send button to prevent sending empty messages.
+      }
+    });
+    
+    socket.on('typing',function(message){
+      var setTime;
+      //clearing previous setTimeout function.
+      clearTimeout(setTime);
+      //showing typing message.
+      $('#typing').append('<div class="ui text container"><span class="ui small text" id="typing">' + '' + '</span></div>').text(message);
+      //showing typing message only for few seconds.
+      setTime = setTimeout(function(){
+        $('#typing').empty();
+      },3500);
+    }); 
+    
+    // socket.on('updaterooms', function(rooms, current_room) {
+    //     $('#rooms').empty();
+    //     $.each(rooms, function(key, value) {
+    //       if(value == current_room){
+    //         $('#rooms').append('<div>' + value + '</div>');
+    //       }
+    //       else {
+    //         $('#rooms').append('<div><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+    //       }
+    //     });
+    //   });
+  
+      socket.on('disconnect', function(){
+              // remove the username from global usernames list
+              // update list of users in chat, client-side
+              socket.emit('updateusers', socket.usernames);
+              // echo globally that this client has left
+              socket.emit('serverupdatechat', '' + socket.username + ' has disconnected');
+              socket.leave(socket.room);
+          delete socket.usernames[socket.username];
+          });
+  
+      // function switchRoom(room){
+      //   socket.broadcast.emit('switchRoom', room);
+      // }
+  
+    // socket.on('onlineStack',function(stack){
+    //    $('#list').empty();
+    //    $('#list').append($('<li>').append($('<button id="ubtn" class="btn btn-danger btn-block btn-lg"></button>').text("Group").css({"font-size":"18px"})));
+    //    var totalOnline = 0;
+    //    for (var user in stack){
+    //      //setting txt1. shows users button.
+    //      if(user == username){
+    //        var txt1 = $('<button class="boxF disabled"> </button>').text(user).css({"font-size":"18px"});
+    //      }
+    //      else{
+    //        var txt1 = $('<button id="ubtn" class="btn btn-success  btn-md">').text(user).css({"font-size":"18px"});
+    //      }
+    //      //setting txt2. shows online status.
+    //      if(stack[user] == "Online"){
+    //        var txt2 = $('<span class="badge"></span>').text("*"+stack[user]).css({"float":"right","color":"#009933","font-size":"18px"});
+    //        totalOnline++;
+    // 
+    //      }
+    //      else{
+    //        var txt2 = $('<span class="badge"></span>').text(stack[user]).css({"float":"right","color":"#a6a6a6","font-size":"18px"});
+    //      }
+    //      //listing all users.
+    //      $('#list').append($('<li>').append(txt1,txt2));
+    //      $('#totalOnline').text(totalOnline);
+    //    }//end of for.
+    //    $('#scrl1').scrollTop($('#scrl1').prop("scrollHeight"));
+    //  }); //end of receiving onlineStack event.
+  
+    // create an array to hold all the usernames of the poeple in a specific room
+   // var roomusers = [];
+   //  // get all the clients in ‘room1′
+   //  // var clients = io.sockets.adapter.rooms[];
+   //  var clients;
+   //  // clients.length;
+   //  // loop through clients in ‘room1′ and add their usernames to the roomusers array
+   // for(var i = 0; i < clients.length; i++) {
+   //  roomusers[roomusers.length] = clients[i].username;
+   //  }
+   //  // broadcast to everyone in room 1 the usernames of the clients connected.
+   //  io.sockets.to(socket.room).emit('updateroomusers', roomusers);
+    
+    //index.html code
+  
+  
+    //Post Local Message
+  
+  
+    // Display Chat Interface
+  //  const showChatRoom = (room) => {
+  //    formEl.hide();
+  //    const html = chatTemplate({ room });
+  //    chatEl.html(html);
+  //    const postForm = $('form');
+  //    postForm.form({
+  //      message: 'empty',
+  //    });
+  //    $('#post-btn').on('click', () => {
+  //      const message = $('#post-message').val();
+  //      postMessage(message);
+  //    });
+  //    $('#post-message').on('keyup', (event) => {
+  //      if (event.keyCode === 13) {
+  //        const message = $('#post-message').val();
+  //        postMessage(message);
+  //      }
+  //    });
+  //  };
+  
+    // Register new Chat Room
+  
+  
+    // Join existing Chat Room
+  //  const joinRoom = (roomName) => {
+      // eslint-disable-next-line no-console
+    //  console.log(`Joining Room: ${roomName}`);
+    //  webrtc.joinRoom(roomName);
+  //    showChatRoom(roomName);
+    //  postMessage(`${username} joined chatroom`);
+  //  };
+  
+    // Receive message from remote user
+  //    webrtc.connection.on('message', (data) => {
+  //    if (data.type === 'chat') {
+  //      const message = data.payload;
+  //      messages.push(message);
+  //      updateChatMessages();
+  //   }
+  //  });
+  
+    // Room Submit Button Handler
+  
+  //   $('.jiggle .placeholder')
+  //   .transition({
+  //     animation : 'jiggle',
+  //     duration  : 1300,
+  //   });
+  // 
+  //   $('.jiggle #local-video')
+  //   .transition({
+  //     animation : 'jiggle',
+  //     duration  : 1300,
+  //   });
+  //   $('.ui.checkbox')
+  //   .checkbox()
+  // ;
+  // });
+  // $('.event .content .summary .date .ui #newmsg')
+  // .transition({
+  //   animation : 'fly in',
+  //   duration  : 1200,
+  // });
+  
+  window.onunload = function() {
+      $('#start').show();
+      $('#start').click();
+  }
+  });
+  
