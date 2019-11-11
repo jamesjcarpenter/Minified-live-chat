@@ -340,11 +340,11 @@ right:0em;
     #messagedata{
       word-wrap: break-word;
       position:justify;
-      font-size: 11px;
+      font-size: 12px;
       width: 80%;
       margin-left:60px;
       height:auto;
-      font-family: 'Be Vietnam', sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
     
     #userlist {
