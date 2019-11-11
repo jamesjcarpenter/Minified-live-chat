@@ -391,7 +391,7 @@ right:0em;
       }
     
     #videolocal.panel-body {
-      background-color: #303030!important;
+      background-color: #fcfff9!important;
     }
     #servermessage {
       background-color:	#fcfff9!important;
@@ -590,8 +590,9 @@ background-color: 	#fcfff9!important;
     margin:0 auto;
     margin-bottom:0;
     color:black;
+    font-size:11px;
     z-index:1000;
-      font-weight:700;
+      font-weight:600;
   }
   #useravatar{
     top:17px;
