@@ -339,7 +339,7 @@ $(document).ready(function() {
 									$('#bitrate').parent().parent().removeClass('hide').show();
 									$('#bitrate a').click(function() {
 										var id = $(this).attr("id");
-										var bitrate = parseInt(id)*1000;
+										var bitrate = 64000;
 										if(bitrate === 0) {
 											Janus.log("Not limiting bandwidth via REMB");
 										} else {
@@ -489,10 +489,11 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
-										$('#videolocal').append('<button class="ui mini compact icon button" id="mute" style="position: absolute; bottom: -40px; left: 118px; margin: 15px;"><i class="volume up icon"></i></button>');
-										$('#mute').click(toggleMute);
+										$('#videolocal').append('<button class="ui small compact icon button" id="mute" style="position: absolute; bottom: -40px; left: 118px; margin: 15px;"><i class="volume up icon"></i></button>');
+                                        $('#mute').click(toggleMute);
+                                        $('#mute').click();
 										// Add an 'unpublish' button
-										$('#videolocal').append('<button class="ui mini compact icon button" id="unpublish" style="position: absolute; bottom: -40px; right: 118px; margin: 15px;"><i class="times circle icon"></button>');
+										$('#videolocal').append('<button class="ui small compact icon button" id="unpublish" style="position: absolute; bottom: -40px; right: 118px; margin: 15px;"><i class="times circle icon"></button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
