@@ -269,11 +269,8 @@ $(document).ready(function() {
 									sfutest = pluginHandle;
 									Janus.log("Plugin attached! (" + sfutest.getPlugin() + ", id=" + sfutest.getId() + ")");
 									Janus.log("  -- This is a publisher/manager");
-									// Prepare the username registration
-						//			$('#videojoin').removeClass('hide').show();
-							//		$('#registernow').removeClass('hide').show();
-							//		$('#register').click(registerUsername);
-					//				$('#username').focus();
+
+									
 									var register = { "request": "join", "room": myroom, "ptype": "publisher", "display": myusername };
                                     sfutest.send({"message": register});
                                     var assumeRoom = {"request": "edit", "room": myroom, "new_bitrate": 64000, "new_publishers": 14 };
@@ -283,18 +280,6 @@ $(document).ready(function() {
 										$('.ui.medium.inverted.modal').modal('show');
 										$('#containerchoose').show();
 									});
-				// 					var go =	{
-        // "request" : "rtp_forward",
-        // "room" : myroom,
-        // "publisher_id" : opaqueId,
-        // "host" : "anomic.io",
-        // "audio_port" : fwd,
-        // "video_port" : fwd,
-        // "video_port_2" : fwd,
-        // "video_port_3" : fwd,
-        // "data_port" : fwd,
-				// 	}
-				// 	sfutest.send({"message": go});
 					var ju = {"request" : "listforwarders",  "room" : myroom }
 									sfutest.send({"message": ju});
 									$('#start').removeAttr('disabled').html("Stop")
@@ -714,12 +699,6 @@ function newRemoteFeed(id, display, audio, video) {
 						}
 						remoteFeed.rfid = msg["id"];
 						remoteFeed.rfdisplay = msg["display"];
-						// if(remoteFeed.spinner === undefined || remoteFeed.spinner === null) {
-						// 	var target = document.getElementById('videoremote'+remoteFeed.rfindex);
-						// 	remoteFeed.spinner = new Spinner({top:100}).spin(target);
-						// } else {
-						// 	remoteFeed.spinner.spin();
-						// }
 						Janus.log("Successfully attached to feed " + remoteFeed.rfid + " (" + remoteFeed.rfdisplay + ") in room " + msg["room"]);
 						$('#remote'+remoteFeed.rfindex).removeClass('hide').html(remoteFeed.rfdisplay).show();
 					} else if(event === "event") {
