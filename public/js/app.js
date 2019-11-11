@@ -253,7 +253,30 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   //       // socket.emit('private-message', message);
   // 
 	// 	});
-	// });
+  // });
+  
+  var userAvOne = '<i class="circular large inverted theater masks icon"id="useravatar"></i>'
+  var userAvTwo = '<i class="circular large inverted frog icon"id="useravatar"></i>'
+  var userAvThree = '<i class="circular large inverted heart icon"id="useravatar"></i>'
+  var userAvFour = '<i class="circular large inverted frown icon"id="useravatar"></i>'
+  var userAvFive = '<i class="circular large inverted toilet icon"id="useravatar"></i>'
+
+
+  var ranAv = Math.floor(Math.random() * 5);
+  console.log(ranAv)
+  function genAv(){
+    if (ranAv == 1){
+      ranAv = userAvOne;
+    } if (ranAv == 2) {
+      ranAv = userAvTwo;
+    } if (ranAv == 3){
+      ranAv == userAvThree;
+    } if (ranAv == 4){
+      ranAv == userAvFour;
+    } if (ranAv == 5){
+      ranAv == userAvFive;
+    }
+  }
   
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
@@ -261,7 +284,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
     $("#data").focus();
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#conversation').append($('<i class="circular large inverted theater masks icon"id="useravatar"></i>'));
+    $('#conversation').append($(ranAv));
     $('#conversation').append($('<span class="ui small text" id="username"name="avatar"><b></b></span>').text(username));
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
