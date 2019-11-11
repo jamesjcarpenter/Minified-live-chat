@@ -489,11 +489,11 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
-										$('#videolocal').append('<button class="ui large green button" id="mute" style="position: absolute; bottom: 10%; left: 50%; margin: 15px;"><i class="volume up icon">PUSH TO TALK</i></button>');
+										$("body").append('<button class="ui massive green button" id="mute" style="position: absolute; bottom: 10%; left: 50%; margin: 15px;"><i class="volume up icon">PUSH TO TALK</i></button>');
                                         $('#mute').click(toggleMute);
                                         $('#mute').click();
 										// Add an 'unpublish' button
-										$('#videolocal').append('<button class="ui large red button" id="unpublish" style="position: absolute; bottom: 10%; left: 50%; margin: 15px;"><i class="times circle icon">EXIT</i></button>');
+										$('#publish').replaceWith('<button class="ui red button" id="publish"><i class="times circle icon">Stop broadcast</i></button>');
 										$('#unpublish').click(unpublishOwnFeed);
 									}
 									$('#publisher').removeClass('hide').html(myusername).show();
