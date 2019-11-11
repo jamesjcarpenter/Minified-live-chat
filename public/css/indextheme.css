@@ -313,7 +313,9 @@ right:0em;
     
     
     #videos {
-      vertical-align: baseline;
+      position:absolute;
+      top:10%;
+      left:10%;
       margin:auto;
       left:12.5em;
       top:10em;
