@@ -311,11 +311,11 @@ right:0em;
     }
     #videos{
         display:block;
-        position:fixed;
+        position:absolute;
         min-width:22.5vmin;
         min-height:70vmin;
         top:30%;
-        left:45%;
+        left:20%;
         margin:0 auto;
     }
     
