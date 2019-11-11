@@ -280,6 +280,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     }
   }
   
+  console.log(ranAv);
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
