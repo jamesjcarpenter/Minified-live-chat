@@ -260,11 +260,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   var userAvThree = '<i class="circular large inverted heart icon"id="useravatar"></i>'
   var userAvFour = '<i class="circular large inverted frown icon"id="useravatar"></i>'
   var userAvFive = '<i class="circular large inverted toilet icon"id="useravatar"></i>'
-
+  var ranAv = Math.floor(Math.random() * 10);
 
   console.log(ranAv)
   function genAv(){
-    var ranAv = Math.floor(Math.random() * 10);
     if (ranAv == 1){
       ranAv = userAvOne;
       return ranAv;
