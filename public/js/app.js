@@ -262,7 +262,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   var userAvFive = '<i class="circular large inverted toilet icon"id="useravatar"></i>'
 
 
-  var ranAv = Math.floor(Math.random() * 5);
+  var ranAv = Math.floor(Math.random() * 10);
   console.log(ranAv)
   function genAv(){
     if (ranAv == 1){
@@ -275,6 +275,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       ranAv == userAvFour;
     } if (ranAv == 5){
       ranAv == userAvFive;
+    } else {
+      ranAv = userAvOne;
     }
   }
   
