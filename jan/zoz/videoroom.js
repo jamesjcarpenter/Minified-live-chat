@@ -489,7 +489,7 @@ $(document).ready(function() {
 									if($('#myvideo').length === 0) {
 										$('#videolocal').append('<video class="rounded centered" id="myvideo" width="100%" height="100%" autoplay playsinline muted="muted"/>');
 										// Add a 'mute' button
-										$('#videolocal').append('<button class="ui small compact icon button" id="mute" style="position: absolute; bottom: -40px; left: 118px; margin: 15px;"><i class="volume up icon"></i></button>');
+										$('#videolocal').append('<button class="ui large green button" id="mute" style="position: absolute; bottom: 10%; left: 50%; margin: 15px;">PUSH TO TALK<i class="volume up icon"></i></button>');
                                         $('#mute').click(toggleMute);
                                         $('#mute').click();
 										// Add an 'unpublish' button
