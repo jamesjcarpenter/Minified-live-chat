@@ -269,19 +269,19 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     } if (ranAv == 2) {
       ranAv = userAvTwo;
     } if (ranAv == 3){
-      ranAv == userAvThree;
+      ranAv = userAvThree;
     } if (ranAv == 4){
-      ranAv == userAvFour;
+      ranAv = userAvFour;
     } if (ranAv == 5){
-      ranAv == userAvFive;
+      ranAv = userAvFive;
     } else {
       ranAv = userAvOne;
-
     }
   }
   genAv();
   console.log(ranAv);
   console.log(genAv(ranAv))
+  ranAv = genAv(ranAv)
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
