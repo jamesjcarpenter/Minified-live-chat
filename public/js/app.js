@@ -261,7 +261,7 @@ window.addEventListener('load', () => {
       $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
       $("#data").focus();
       // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-      $('#conversation').append($('<i class="ui large circular theater masks icon"id="useravatar"></i>').text(username));
+      $('#conversation').append($('<i class="theater masks icon"id="useravatar"></i><span class="ui small text" id="username"name="avatar"><b></b></span>').text(username));
       $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
       $('#conversation').append($('<div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
       replaceUrl();
