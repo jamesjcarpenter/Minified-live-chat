@@ -309,16 +309,19 @@ right:0em;
     position:relative;
     overflow-y:hidden;
     }
-    #videos{
-        display:block;
-        position:absolute;
-        min-width:22.5vmin;
-        min-height:70vmin;
-        top:12.5%;
-        left:13%;
-        margin:0 auto;
-    }
+
     
+    
+    #videos {
+      vertical-align: baseline;
+      margin:auto;
+      left:12.5em;
+      top:10em;
+      width:60%; 
+      max-height:100%;
+      vertical-align: baseline;
+      height:auto;
+    }
     #themechanger{
       position:absolute;
       left:0.2vw;
