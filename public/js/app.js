@@ -262,25 +262,32 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   var userAvFive = '<i class="circular large inverted toilet icon"id="useravatar"></i>'
 
 
-  var ranAv = Math.floor(Math.random() * 10);
   console.log(ranAv)
   function genAv(){
+    var ranAv = Math.floor(Math.random() * 10);
     if (ranAv == 1){
       ranAv = userAvOne;
+      return ranAv;
     } if (ranAv == 2) {
       ranAv = userAvTwo;
+      return ranAv;
     } if (ranAv == 3){
       ranAv == userAvThree;
+      return ranAv;
     } if (ranAv == 4){
       ranAv == userAvFour;
+      return ranAv;
     } if (ranAv == 5){
       ranAv == userAvFive;
+      return ranAv;
     } else {
       ranAv = userAvOne;
+      return ranAv;
     }
   }
-  
+  genAv();
   console.log(ranAv);
+  console.log(genAv(ranAv))
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
     $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
