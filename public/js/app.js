@@ -264,15 +264,15 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
   console.log(ranAv)
   function genAv(){
-    if (ranAv == 1){
+    if (ranAv = 1){
       ranAv = userAvOne;
-    } if (ranAv == 2) {
+    } if (ranAv = 2) {
       ranAv = userAvTwo;
-    } if (ranAv == 3){
+    } if (ranAv = 3){
       ranAv = userAvThree;
-    } if (ranAv == 4){
+    } if (ranAv = 4){
       ranAv = userAvFour;
-    } if (ranAv == 5){
+    } if (ranAv = 5){
       ranAv = userAvFive;
     } else {
       ranAv = userAvOne;
