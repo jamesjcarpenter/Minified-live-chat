@@ -75,7 +75,7 @@
         create an account
       </div>
     </h2>
-    <form class="ui large form" action="/users/register"method="POST">
+    <form class="ui large form" action="/register"method="POST">
       <img id="side1"src="images/send1.png"/>
         <img id="side2"src="images/mask2.png"/>
       <div class="ui stacked segment"id="seg">
@@ -83,19 +83,19 @@
           <div class="ui left icon input">
             
             <i class="mail icon"></i>
-            <input class="text-input" type="text" name="email" placeholder="Email">
+            <input type="text" name="email" placeholder="Email">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input class="text-input" type="text" name="name" id="name" placeholder="Username">
+             <input type="name" name="name" id="name" placeholder="Username">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input = "text-input" type="text" type="password" name="password" id="password" placeholder="Password">
+           <input type="password" name="password" id="password" placeholder="Password">
           </div>
         </div>
         <h6><p id="terms">By accessing this website you hereby accept the User Terms & Conditions and Privacy Agreement, located <a href="/terms">here.</a></p>
@@ -109,7 +109,6 @@
         <div class="ui large inverted green submit button"id="submitbtn">
           Create my account<i class="right arrow icon"></i></div>
       </div>
-</form>
       <div class="ui error message"></div>
 
     </form>
