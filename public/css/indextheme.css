@@ -340,9 +340,9 @@ right:0em;
     #messagedata{
       word-wrap: break-word;
       position:justify;
-      font-size: 12px;
+      font-size: 13px;
       width: 80%;
-      margin-left:65px;
+      margin-left:60px;
       height:auto;
       font-family: 'Roboto', sans-serif;
     }
