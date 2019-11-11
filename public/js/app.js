@@ -266,22 +266,17 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   function genAv(){
     if (ranAv == 1){
       ranAv = userAvOne;
-      return ranAv;
     } if (ranAv == 2) {
       ranAv = userAvTwo;
-      return ranAv;
     } if (ranAv == 3){
       ranAv == userAvThree;
-      return ranAv;
     } if (ranAv == 4){
       ranAv == userAvFour;
-      return ranAv;
     } if (ranAv == 5){
       ranAv == userAvFive;
-      return ranAv;
     } else {
       ranAv = userAvOne;
-      return ranAv;
+
     }
   }
   genAv();
