@@ -341,9 +341,7 @@ app.get('./config/keys.js', function(req, res) {
  res.sendStatus(400);
 });
 
-User.schema.eachPath(function(path) {
-  console.log(path);
-});
+
 
 app.use(function(req, res, next) {
   res.locals.user = req.user;
