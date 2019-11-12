@@ -93,7 +93,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      console.log(nick)
 
      console.log(JSON.stringify(name))
-    console.log(JSON.stringify(username))
+    console.log(JSON.stringify(user.name))
 
      
      $(function () {
