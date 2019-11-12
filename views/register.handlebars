@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-  <meta property="csp-nonce" content="<%= styleNonce %>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-       <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
-      <link rel="stylesheet" type="text/css" href="./css/register.css">
-
-      <link href="https://fonts.googleapis.com/css?family=Changa&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
-      <script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
-  <!-- Standard Meta -->
-  <!-- Site Properties -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="../dist/semantic.min.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <script src="../dist/semantic.min.js"></script>
   <script src="../dist/semantic.js"></script>
-  <script src="../dist/components/form.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/logincss.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
-  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
-  <title>anomic.io - Online Video & Text Chatrooms! - Registration</title>
+  <link rel="stylesheet" type="text/css" href="./css/login.css">
+  <link href="https://fonts.googleapis.com/css?family=Changa&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/logincss.css">
 
+  <script src="../dist/components/form.js"></script>
+  <script src="../js/login.js"></script>
+  <title>anomic.io - Online Video & Text Chatrooms! - Register</title>
   <!-- Sidebar Menu -->
   <div class="ui vertical inverted sidebar menu">
     <a class="active item">Home</a>
@@ -46,87 +38,70 @@
           <a class="item">about</a>
           <div class="right item">
             <a href="/users/login" class="ui inverted button">log in</a>
-            <a href="/users/register" class="ui inverted button">sign up</a>
+            <a href="/users/register" class="ui inverted button"id="signup">sign up</a>
           </div>
         </div>
       </div>
   </div>
 </head>
 <body>
-            <form action="/register" method="post">
-<div class="ui middle padded aligned center aligned grid">
+  
+
+<div class="ui padded middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui black image header">
-      <i class="inverted users icon"></i>
+      <i class="keyboard icon"></i>
       <div class="content">
-        create an account
+        register
       </div>
     </h2>
-      <img id="side1"src="images/send1.png"/>
-        <img id="side2"src="images/mask2.png"/>
+    <form class="ui large form" action="/users/register" method="POST">
       <div class="ui stacked segment"id="seg">
         <div class="field">
-          <div class="ui left icon input">
-            
-            <i class="mail icon"></i>
-            <input type="text" name="email" placeholder="Email">
-          </div>
-        </div>
-        <div class="field">
+          <div class="field">
+                    <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+            </div>
+          <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-             <input type="name" name="name" id="name" placeholder="Username">
+            <input type="name" name="name" id="name" placeholder="Username">
+          </div>
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-           <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password">
           </div>
         </div>
-        <h6><p id="terms">By accessing this website you hereby accept the User Terms & Conditions and Privacy Agreement, located <a href="/terms">here.</a></p>
-          <br>
-        <p id="conditions">These terms and conditions outline the rules and regulations for the use of anomic.io.</p></h6>
-        <div class="inline field">
-          <div class="ui checkbox">
-            <input type="checkbox" id="chk">
-          </div>
-        </div>
-        <div class="ui large inverted green submit button"id="submitbtn">
-          Create my account<i class="right arrow icon"></i></div>
+        <div class="ui large green inverted submit button"id="submitbtn">Create<i class="right arrow icon"></i></div>
+        <br>
+        <br>
+                <span class="ui white text"id="forgotpw">Forgot your password? Reset it by clicking here</span>
       </div>
       <div class="ui error message"></div>
 
+    </form>
     
-      <div class="ui horizontal divider"id="divid">
+      <div class="ui horizontal divider">
     Or
   </div>
-  <a href="/users/login" class="ui labeled icon button" id="login">
-    LOGIN TO EXISTING ACCOUNT
+  <a href="/login" class="ui labeled icon black button"id="create">
+    USE EXISTING ACCOUNT
     <i class="add icon"></i>
   </a>
   <br>
-  <br>
-  <br>
-            <span class="ui medium white text"id="reset"><a>Forgot your account password? Reset it here</a></span>
-</div>
-</div>
-</div>
-    </form>
-<!-- <div class="left aligned ui grid"> -->
-  <!-- <div class="ten wide left aligned column"> -->
-<div class="ui teal icon message medium"id="mailto"></div>
-<!-- <i class="inbox icon"></i>
-<div class="content">
-<div class="header">
-  Have you heard about our mailing list?
-</div>
-<p>We'll send you all the updates.</p>
-</div> -->
-</div>
-<script src="../js/transin.js"></script>
+  <br> 
+  <img id="side1"src="images/send1.png"/>
+    <img id="side2"src="images/mask2.png"/>
+  {{!-- <img src="images/twitterbtn.png" id="tweetbtn" />
+  <img src="images/facebookbutton.png" id="fbbtn" /> --}}
+    <script src="../js/transin.js"></script>
+    <script src="../js/transout.js"></script>
+    <script src="./js/room.js"></script>
 </body>
 
-
-<script src="./js/toastmsg.js"></script>
 </html>
