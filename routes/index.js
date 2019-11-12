@@ -35,7 +35,7 @@ router.get('*', function (req, res, next) {
    console.log('ok');
    console.dir(req.ip)
    console.dir(req.ips)
-   console.log(req.username)
+   console.log(req.user)
    // console.dir(req.method)
    // console.dir(req.path)
    // console.dir(req.route)
