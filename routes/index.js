@@ -38,7 +38,7 @@ router.get('*', function (req, res, next) {
   //  console.log(req.user)
    if(req.isAuthenticated()){
     console.log(req.user.name)
-    var usersName = req.user.name;
+    global.usersName = req.user.name;
     }
    // console.dir(req.method)
    // console.dir(req.path)
@@ -60,7 +60,7 @@ var options = {
 }
  
 router.get('/', function(req, res, options) {
-  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: usersName });
+  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
 });
 
 
@@ -88,16 +88,12 @@ router.get('/rooms', function(req, res, options) {
 
 
 router.get('/room/:name1', function(req, res, options) {
-  // req.user = req.isAuthenticated,
-  // username = req.user.name;
-  // res.locals.query = req.query;
-  //  res.locals.url   = req.originalUrl;
-  //  if(req.isAuthenticated()){
-  //   console.log(req.user.name)
-  //   }
-    var usersName = req.user.name;
+  req.user = req.isAuthenticated,
+  username = req.user.name;
+  res.locals.query = req.query;
+   res.locals.url   = req.originalUrl;
    console.log(usersName)
-   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: usersName });
+   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
 });
 
 router.get('/profile', function(req, res, options) {
