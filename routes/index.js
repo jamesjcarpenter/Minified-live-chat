@@ -92,10 +92,10 @@ router.get('/room/:name1', function(req, res, options) {
   // username = req.user.name;
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
-   if(req.isAuthenticated()){
-    console.log(req.user.name)
+  //  if(req.isAuthenticated()){
+  //   console.log(req.user.name)
+  //   }
     var usersName = req.user.name;
-    }
    console.log(usersName)
    res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: usersName });
 });
