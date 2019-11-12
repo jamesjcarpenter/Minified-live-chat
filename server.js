@@ -391,6 +391,19 @@ app.use((err, req, res, next) => {
 //chat
 
 
+app.use('*', function (req, res, next) {
+  //  console.log(req.user)
+  const usersName;
+   if(req.isAuthenticated()){
+    req.user.name = usersName;
+    console.log(usersName)
+    }
+   // console.dir(req.method)
+   // console.dir(req.path)
+   // console.dir(req.route)
+  next()
+ });
+
 var roomDesc = "Default room description."
 var rooms = [];
 // usernames which are currently connected to the chat
@@ -477,7 +490,7 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
-    socket.username = username;
+    socket.username = usersName;
     id = socket.id;
     
     // var c=new Connect({

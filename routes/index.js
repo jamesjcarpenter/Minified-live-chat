@@ -36,9 +36,7 @@ router.get('*', function (req, res, next) {
    console.dir(req.ip)
    console.dir(req.ips)
   //  console.log(req.user)
-   if(req.isAuthenticated()){
-    console.log(req.user.name)
-    }
+
    // console.dir(req.method)
    // console.dir(req.path)
    // console.dir(req.route)
