@@ -393,7 +393,7 @@ app.use((err, req, res, next) => {
 
 app.use('*', function (req, res, next) {
   //  console.log(req.user)
-  const usersName;
+  const usersName = null;
    if(req.isAuthenticated()){
     req.user.name = usersName;
     console.log(usersName)
