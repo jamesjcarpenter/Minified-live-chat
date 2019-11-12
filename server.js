@@ -473,6 +473,10 @@ io.sockets.on('connection', function (socket) {
       console.log('test');
     });
 
+    if(req.isAuthenticated()){
+      console.log(req.user.name)
+      var usersName = req.user.name;
+      }
 
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
