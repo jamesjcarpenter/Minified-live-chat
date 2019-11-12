@@ -35,8 +35,14 @@ router.get('*', function (req, res, next) {
    console.log('ok');
    console.dir(req.ip)
    console.dir(req.ips)
-   console.log(req.user[0])
-   console.log(req.user[1])
+   console.log(req.user)
+   if(req.isAuthenticated()){
+    //req.isAuthenticated() will return true if user is logged in
+    console.log(req.user.name)
+    next();
+    } else {
+    next();
+  }
    // console.dir(req.method)
    // console.dir(req.path)
    // console.dir(req.route)
