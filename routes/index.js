@@ -35,7 +35,8 @@ router.get('*', function (req, res, next) {
    console.log('ok');
    console.dir(req.ip)
    console.dir(req.ips)
-   console.log(req.params.name)
+
+  //  User.findOne({ })
   //  console.log(username)
    // console.dir(req.method)
    // console.dir(req.path)

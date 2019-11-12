@@ -115,6 +115,7 @@ passport.use(new LocalStrategy({
     res.redirect('/users/login');
   });
   router.use(function (req, res, next) {
+    console.log(res.locals.login)
     res.locals.login = req.isAuthenticated();
     console.log('ok');
     console.log(req.isAuthenticated());
