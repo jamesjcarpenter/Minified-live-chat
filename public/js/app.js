@@ -94,7 +94,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
      
      $(function () {
-       socket.emit('adduser', nick);
+       socket.emit('adduser');
      });
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)

@@ -345,7 +345,6 @@ app.get('./config/keys.js', function(req, res) {
 
 app.use(function(req, res, next) {
   res.locals.user = req.user;
-  global.usersName = req.user.name;
     if(req.user == null){
       username = 'guest';
     }
@@ -390,8 +389,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-
-console.log(usersName)
+global.usersName = req.user.name;
 var roomDesc = "Default room description."
 var rooms = [];
 // usernames which are currently connected to the chat
