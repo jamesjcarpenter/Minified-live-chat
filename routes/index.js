@@ -60,7 +60,7 @@ var options = {
 }
  
 router.get('/', function(req, res, options) {
-  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user });
+  res.render('home.handlebars', { styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: usersName });
 });
 
 
@@ -88,11 +88,16 @@ router.get('/rooms', function(req, res, options) {
 
 
 router.get('/room/:name1', function(req, res, options) {
-  req.user = req.isAuthenticated,
-  username = req.user.name;
-  res.locals.query = req.query;
-   res.locals.url   = req.originalUrl;
-   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user});
+  // req.user = req.isAuthenticated,
+  // username = req.user.name;
+  // res.locals.query = req.query;
+  //  res.locals.url   = req.originalUrl;
+   if(req.isAuthenticated()){
+    console.log(req.user.name)
+    var usersName = req.user.name;
+    }
+   console.log(usersName)
+   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: usersName });
 });
 
 router.get('/profile', function(req, res, options) {

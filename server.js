@@ -390,6 +390,7 @@ app.use((err, req, res, next) => {
 });
 //chat
 
+
 var roomDesc = "Default room description."
 var rooms = [];
 // usernames which are currently connected to the chat
@@ -473,14 +474,10 @@ io.sockets.on('connection', function (socket) {
       console.log('test');
     });
 
-    if(req.isAuthenticated()){
-      console.log(req.user.name)
-      var usersName = req.user.name;
-      }
 
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
-    socket.username = usersName;
+    socket.username = username;
     id = socket.id;
     
     // var c=new Connect({
