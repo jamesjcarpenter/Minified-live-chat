@@ -41,7 +41,8 @@ router.get('*', function (req, res, next) {
     console.log(req.user.name)
     next();
     } else {
-    next();
+    console.log('not logged in')
+    return false;
   }
    // console.dir(req.method)
    // console.dir(req.path)
