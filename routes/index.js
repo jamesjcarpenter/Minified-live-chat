@@ -39,11 +39,7 @@ router.get('*', function (req, res, next) {
    if(req.isAuthenticated()){
     //req.isAuthenticated() will return true if user is logged in
     console.log(req.user.name)
-    next();
-    } else {
-    console.log('not logged in')
-    return false;
-  }
+    }
    // console.dir(req.method)
    // console.dir(req.path)
    // console.dir(req.route)
