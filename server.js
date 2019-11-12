@@ -342,7 +342,8 @@ app.get('./config/keys.js', function(req, res) {
 });
 
 app.use(function(req, res, next) {
-  res.locals.user = req.user || null;
+  res.locals.user = req.user;
+  console.log(req.user)
     if(req.user == null){
       username = 'guest';
     }
@@ -667,7 +668,7 @@ app.use(express.static('/libs/'));
 
  
 app.use(function(req, res, next) {
-  isAuthenticated: req.isAuthenticated(),
+  isAuthenticated : req.isAuthenticated(),
   next()
 });
 //search user (for username/profile pics/db info)
