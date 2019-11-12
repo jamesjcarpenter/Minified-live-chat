@@ -389,7 +389,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-global.usersName = req.user.name;
+
 var roomDesc = "Default room description."
 var rooms = [];
 // usernames which are currently connected to the chat
