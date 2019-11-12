@@ -89,7 +89,7 @@ router.get('/rooms', function(req, res, options) {
 
 router.get('/room/:name1', function(req, res, options) {
   req.user = req.isAuthenticated,
-  username = req.user.name;
+  userName = req.user.name;
   res.locals.query = req.query;
    res.locals.url   = req.originalUrl;
    console.log(userName)
