@@ -342,8 +342,8 @@ app.get('./config/keys.js', function(req, res) {
 });
 
 app.use(function(req, res, next) {
-  console.log(res.locals.user)
   res.locals.user = req.user;
+  console.log(req.user)
     if(req.user == null){
       username = 'guest';
     }
