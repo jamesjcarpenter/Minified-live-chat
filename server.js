@@ -342,13 +342,10 @@ app.get('./config/keys.js', function(req, res) {
 });
 
 app.use(function(req, res, next) {
+  console.log(res.locals.user.name)
   res.locals.user = req.user;
     if(req.user == null){
       username = 'guest';
-    }
-    if(req.user.name == null | undefined){
-      req.user.name = 'guest';
-      next();
     }
   next();
 });
