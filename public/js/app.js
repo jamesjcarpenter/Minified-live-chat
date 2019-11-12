@@ -89,9 +89,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
 
-     console.log(JSON.stringify(user))
-     console.log(JSON.stringify(name))
-
      var nick = prompt("Enter username.")
 
 
