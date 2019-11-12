@@ -390,10 +390,10 @@ app.use((err, req, res, next) => {
 });
 //chat
 
+var usersName = [];
 
-app.use('*', function (req, res, next) {
+app.get('*', function (req, res, next) {
   //  console.log(req.user)
-  const usersName = null;
    if(req.isAuthenticated()){
     req.user.name = usersName;
     console.log(usersName)
