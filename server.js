@@ -390,20 +390,7 @@ app.use((err, req, res, next) => {
 });
 //chat
 
-var usersName = [];
-
-app.get('*', function (req, res, next) {
-  //  console.log(req.user)
-   if(req.isAuthenticated()){
-    req.user.name = usersName;
-    console.log(usersName)
-    }
-   // console.dir(req.method)
-   // console.dir(req.path)
-   // console.dir(req.route)
-  next()
- });
-
+console.log(usersName)
 var roomDesc = "Default room description."
 var rooms = [];
 // usernames which are currently connected to the chat
