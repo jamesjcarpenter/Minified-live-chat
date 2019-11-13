@@ -421,7 +421,7 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
     
-          
+
           
   socket.emit('askForUserId');
 
@@ -505,7 +505,13 @@ io.sockets.on('connection', function (socket) {
       id: socket.id       // by key "age" store value 30
     };
     
-
+    socket.on('checkOwn', function(owner) {
+      if (owner == "true") {
+     socket.emit('serverupdatechat', 'you are the owner of' + ' ' + socket.room);
+    } else {
+      return false;
+    };
+  });
 
 
     socket.on('findUser', function(socket){
