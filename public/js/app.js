@@ -99,26 +99,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      socket.emit('adduser', nick);
      socket.emit('findUser', { name : nick } );
 
-    //  changeUsername();
-
-    //  function changeUsername() {
-    //    $('.ui.mini.basic.modal.start')
-    //    .modal({  
-    //      blurring: true,
-    //      closable  : false,
-    //      onDeny    : function(){
-    //        window.alert('Wait not yet!');
-    //        return false;
-    //      },
-    //      onApprove : function() {
-    //        var aids = $('#addusername').val();
-    //        socket.emit('adduser', aids);
-    //        window.close();
-    //      }
-     
-     
-    //    }).modal('show');
-    //  };
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
@@ -203,13 +183,34 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<li><span class="ui white text user">' + key  + '</span>' + '<span class="ui small white text pm"></div>' + '</a>' + '</li>');
+			$('#userlist').append('<li><span class="ui white text user">' + key  + '</span>' + '<button class="ui small primary button"></button>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
         // socket.emit('findUser', { userNameOfUserToFind : userUse } );
       });
     });
+  });
+
+
+
+  $(".ui.small.primary.button").click(function(){
+    $('.ui.mini.basic.modal.start')
+    .modal({  
+      blurring: true,
+      closable  : false,
+      onDeny    : function(){
+        window.alert('Wait not yet!');
+        return false;
+      },
+      onApprove : function() {
+        var aids = $('#addusername').val();
+        socket.emit('adduser', aids);
+        window.close();
+      }
+  
+  
+    }).modal('show');
   });
   
   socket.on('updateThisUser', function(data) {
