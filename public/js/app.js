@@ -89,7 +89,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
     console.log(isRoomOwner)
-     socket.emit('checkOwn', isRoomOwner)
 
      var nick = $('#getID').attr('value');
     //  "guest-" + Math.floor(1000 + Math.random() * 9000);
@@ -212,7 +211,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       });
     });
   });
-    
+  socket.emit('checkOwn', isRoomOwner)
   
   socket.on('updateThisUser', function(data) {
     
