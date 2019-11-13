@@ -183,7 +183,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
-			$('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
+			$('#userlist').append('<button class="ui button" id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</button>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
