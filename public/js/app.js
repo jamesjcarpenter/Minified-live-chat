@@ -100,22 +100,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      });
 
      $(function () {
-      $('.ui.mini.basic.modal.start')
-      .modal({  
-        blurring: true,
-        closable  : false,
-        onDeny    : function(){
-          window.alert('Wait not yet!');
-          return false;
-        },
-        onApprove : function() {
-          username = $('#addusername').val();
-          socket.emit('changename', username)
-          window.close();
-        }
-    
-    
-      }).modal('show');
+       var aids = "asdf"
+      socket.emit('changename', aids);
     });
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
