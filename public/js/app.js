@@ -96,7 +96,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      console.log(JSON.stringify(name))
 
      socket.emit('adduser', nick);
-     socket.emit('findUser', nick)
+     socket.emit('findUser', { name : nick } );
 
     //  changeUsername();
 
