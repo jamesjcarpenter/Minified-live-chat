@@ -474,8 +474,9 @@ io.sockets.on('connection', function (socket) {
   };
     
   socket.on('checkOwn', function(data){
-    if(data == "true"){
-    console.log('test');
+    data = JSON.stringify(data);
+    if(data == 'true'){
+    console.log('testtesttesttesttesttesttesttesttesttesttesttest');
   }else{
     console.log('at least it emits')
     }
