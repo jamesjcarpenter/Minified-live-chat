@@ -401,7 +401,7 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-app.get('*', function (req, res, next) {
+app.use(function (req, res, next) {
   res.locals.login = req.user;
    console.log('aaaak');
    console.dir(req.ip)
