@@ -194,7 +194,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
 
 
-  $(".span.ui.white.text.user").click(function(){
+  $("#changename").click(function(){
     $('.ui.mini.basic.modal.start')
     .modal({  
       blurring: true,

@@ -19,6 +19,11 @@
     .input{
       outline:none !important;
     }
+    #changename {
+      width:2em;
+      height:1em;
+      display:none;
+    }
 
     #getID {
       display:none;
