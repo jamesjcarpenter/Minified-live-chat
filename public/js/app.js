@@ -117,7 +117,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      
        }).modal('show');
      });
-    });
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
