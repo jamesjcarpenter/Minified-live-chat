@@ -105,6 +105,13 @@ router.get('/room/:name1', function(req, res, options) {
     console.log('not room')
     console.log(isRoomOwner)
   }
+
+  exports.foo = function(req,res){
+    // now use socket.io in your routes file
+    var io = req.app.get('socketio');
+    io.emit('hi!');
+    console.log('hi!!!')
+  }
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
   console.log('passing username as:  ' + userName)
