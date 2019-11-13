@@ -94,8 +94,10 @@ router.get('/room/:name1', function(req, res, options) {
   req.user = req.isAuthenticated;
   if (userName == req.path){
     console.log('users room')
+    console.log(req.path)
   } else {
     console.log('not room')
+    console.log(req.path)
   }
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
