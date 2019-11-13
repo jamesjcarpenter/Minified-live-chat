@@ -276,9 +276,9 @@ app.set('view engine', 'ejs');
 'use strict';
 var sessionstorage = require('sessionstorage');
 
-app.use('/', router);
-app.use('/users', router, users);
-app.use('/room', router, users);
+app.use('/', routes, users);
+app.use('/users', routes, users);
+app.use('/room', routes, users);
 
 
 const multer = require("multer");
