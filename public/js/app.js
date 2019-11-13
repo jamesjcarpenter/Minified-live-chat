@@ -99,9 +99,23 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
        socket.emit('adduser', nick);
      });
 
-     $(function () {
-       var aids = "asdf"
-      socket.emit('changename', aids);
+     $(function () {    //   $('.ui.mini.basic.modal.start')
+       .modal({  
+         blurring: true,
+         closable  : false,
+         onDeny    : function(){
+           window.alert('Wait not yet!');
+           return false;
+         },
+         onApprove : function() {
+           var aids = $('#addusername').val();
+           socket.emit('changename', aids);
+           window.close();
+         }
+     
+     
+       }).modal('show');
+     });
     });
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
