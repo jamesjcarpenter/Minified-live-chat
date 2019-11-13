@@ -81,7 +81,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   // Add validation rules to Create/Join Room Form
   socket.on('connect', function(){
     
-      
+    var isRoomOwner = $('#getID2').attr('value');
     socket.room = [];
     var roomId = url.substr(url.lastIndexOf("/")+1);
     socket.room = roomId;

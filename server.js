@@ -221,6 +221,18 @@ app.use(express.urlencoded({ extended: false }));
 // })
 
 var username;
+
+app.use(function(req, res, next) {
+  if(req.isAuthenticated()){
+    console.log(req.user.name)
+    global.userName = req.user.name;
+    console.log(userName)
+    } else {
+      global.userName = 'guest-' + Math.floor(1000 + Math.random() * 9000);
+    }
+  next()
+});
+
 app.use(function(req, res, next) {
     res.locals.user = req.user; // This is the important line
     exports.token = req.user;
@@ -234,6 +246,9 @@ app.use(function(req, res, next) {
       req.user === username;
       next();
 });
+
+
+
 
 // ROUTES
 app.use('/', express.static(__dirname + '/public'));
@@ -678,10 +693,6 @@ app.use(express.static('/libs/'));
 // global variables
 
  
-app.use(function(req, res, next) {
-  isAuthenticated : req.isAuthenticated(),
-  next()
-});
 //search user (for username/profile pics/db info)
 
 
