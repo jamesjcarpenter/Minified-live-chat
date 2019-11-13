@@ -437,7 +437,13 @@ io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
 
 
-
+        if(isRoomOwner == true){
+          console.log("yeah owner");
+          socket.username = username + ' ' + '[MOD]';
+        } if(isRoomOwner == false){
+          console.log("yeah nah")
+          socket.username = username;
+        }
           
   socket.emit('askForUserId');
 
@@ -508,13 +514,7 @@ io.sockets.on('connection', function (socket) {
     // store the username in the socket session for this client
     id = socket.id;
     
-    if(isRoomOwner == true){
-      console.log("yeah owner");
-      socket.username = username + ' ' + '[MOD]';
-    } if(isRoomOwner == false){
-      console.log("yeah nah")
-      socket.username = username;
-    }
+
 
     // var c=new Connect({
     //     socketId : socket.id,
@@ -552,7 +552,7 @@ io.sockets.on('connection', function (socket) {
     ids[id] = id;
     
 
-
+    
     
     console.log('idss: ' + ids.length);
     socket.emit('idcount', ids, socket.id);
