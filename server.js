@@ -473,20 +473,12 @@ io.sockets.on('connection', function (socket) {
     })
   };
     
-  socket.on('checkOwn', function(data, req, res, next){
-    var isRoomOwner = false;
-    req.user = req.isAuthenticated;
-    nameRoom = req.path.split('/room/').join('')
-    if (userName == nameRoom){
-      console.log('users room')
-      console.log('path is: ' + req.path)
-      console.log('nameroom is:  ' + nameRoom)
-       isRoomOwner = true;
-      console.log(isRoomOwner)
-    } else {
-      isRoomOwner = false;
-      console.log('not room')
-      console.log(isRoomOwner)
+  socket.on('checkOwn', function(data){
+    if(data == 'true'){
+    console.log('testtesttesttesttesttesttesttesttesttesttesttest');
+  } if (data == 'false') {
+    console.log('reg:   ' + data)
+    console.log('stringed:  ' + JSON.stringify(data))
     }
   });
     
