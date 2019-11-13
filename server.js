@@ -510,7 +510,7 @@ io.sockets.on('connection', function (socket) {
     
     if(isRoomOwner == true){
       console.log("yeah owner");
-      socket.username = username + '   ' + '₪ ᴍ ᴏ ᴅ';
+      socket.username = username + '   ' + 'ᴍ';
     } if(isRoomOwner == false){
       console.log("yeah nah")
       socket.username = username;
