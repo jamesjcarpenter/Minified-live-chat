@@ -19,7 +19,9 @@
       display: none;
             color:black;
     }
-
+    #seg7 {
+      margin-top:20%;
+    }
 
     html {
       min-height: 100%;
