@@ -20,7 +20,7 @@ server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
-global.io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server);
 
 //... 
 //..
@@ -158,7 +158,7 @@ app.use(helmet.referrerPolicy({
 app.use(helmet.referrerPolicy())
 
 
-
+app.io = io;
 
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {
@@ -505,16 +505,6 @@ io.sockets.on('connection', function (socket) {
       id: socket.id       // by key "age" store value 30
     };
     
-    socket.on('checkOwn', function(owner) {
-      roomOwn = owner;
-      console.log(owner)
-      console.log(roomOwn)
-      if (roomOwn == true) {
-      socket.emit('serverupdatechat', 'you are the owner of' + ' ' + socket.room);
-    } else {
-      return false;
-    };
-  });
 
 
     socket.on('findUser', function(socket){

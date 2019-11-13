@@ -100,12 +100,11 @@ router.get('/room/:name1', function(req, res, options) {
     console.log('nameroom is:  ' + nameRoom)
      isRoomOwner = true;
     console.log(isRoomOwner)
-    io.socket.emit('serverupdatechat', 'you are the owner of' + ' ' + socket.room);
+    req.app.io.emit('roomOwner');
   } else {
     isRoomOwner = false;
     console.log('not room')
     console.log(isRoomOwner)
-    io.socket.emit('serverupdatechat', 'you are NOT the owner of' + ' ' + socket.room);
   }
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
