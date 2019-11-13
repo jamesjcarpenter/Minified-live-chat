@@ -435,7 +435,7 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
-    console.log("THIS AHFASDJKASDBJHSDFBHJSADBHJASD" + userName)
+    console.log("THIS AHFASDJKASDBJHSDFBHJSADBHJASD" + isRoomOwner)
 
           
   socket.emit('askForUserId');
