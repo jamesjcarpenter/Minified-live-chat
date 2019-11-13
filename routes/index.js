@@ -91,7 +91,12 @@ router.get('/rooms', function(req, res, options) {
 
 
 router.get('/room/:name1', function(req, res, options) {
-  req.user = req.isAuthenticated,
+  req.user = req.isAuthenticated;
+  if (userName === '/room/:name1'){
+    console.log('users room')
+  } else {
+    next();
+  }
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
   console.log('passing username as:  ' + userName)
