@@ -431,7 +431,18 @@ font-family: 'Changa', sans-serif;
     box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65);
   }
   
-  
+  #yourroom {
+    background-color: #303030;
+    width:auto;
+    max-width:20vw;
+    min-height:42.5vh;
+    margin:0 auto;
+    text-align:center;
+    border-radius:11px;
+    padding:20px;
+    -webkit-box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65); 
+    box-shadow: 5px 5px 17px 1px rgba(0,0,0,0.65);
+  }
   #grid {
   width:60vw;  
   }

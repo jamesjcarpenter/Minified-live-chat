@@ -278,13 +278,13 @@
 
 
   {{#if user}}
-  <div class="ui header">
-<span class="ui massive text">YOUR ROOMS</span>
+  <div class="ui centered header">
+<span class="ui centered medium white text">YOUR ROOMS</span>
 </div>
 <a href="/room/{{user.name}}">
 <div class="ui column">
       <div data-aos="fade-down-right">
-        <div id="rightlabelroom" class="ui centered gray segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
+        <div id="yourroom" class="ui centered gray segment"data-tooltip="ACTIVE USERS:" data-position="top right" data-inverted="">
           <img class="ui centered image" src="images/ttimechat.jpeg">
           <h4 class="ui center aligned header"><a href="/room/{{user.name}}">{{user.name}}</h4>
 
