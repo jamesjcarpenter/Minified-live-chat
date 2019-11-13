@@ -553,8 +553,8 @@ io.sockets.on('connection', function (socket) {
       console.log('idZ: ' + ids);
       }
 
-    console.log(usernames)
-    console.log(io.sockets)
+    // console.log(usernames)
+    // console.log(io.sockets)
     
     console.log('single id:  ' + ids[id])
     
