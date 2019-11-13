@@ -99,7 +99,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
        socket.emit('adduser', nick);
      });
 
-     $(function () {    //   $('.ui.mini.basic.modal.start')
+     $(function () {    
+       $('.ui.mini.basic.modal.start')
        .modal({  
          blurring: true,
          closable  : false,
