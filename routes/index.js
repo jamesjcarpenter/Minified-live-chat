@@ -38,7 +38,9 @@ router.get('*', function (req, res, next) {
   //  console.log(req.user)
    if(req.isAuthenticated()){
     // console.log(req.user.name)
-    res.locals.username = req.user.name;
+    global.userName = req.user.name;
+    console.log(userName)
+    console.log(global.userName)
     }
    // console.dir(req.method)
    // console.dir(req.path)
@@ -91,8 +93,8 @@ router.get('/room/:name1', function(req, res, options) {
   req.user = req.isAuthenticated,
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
-   console.log('username is:  ' + user.name)
-   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.username});
+   console.log(req.user)
+   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.user.name});
 });
 
 router.get('/profile', function(req, res, options) {
