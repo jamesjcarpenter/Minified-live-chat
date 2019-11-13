@@ -109,8 +109,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
           return false;
         },
         onApprove : function() {
-          socket.username = $('#addusername').val();
-          socket.emit('changename', socket.username)
+          username = $('#addusername').val();
+          socket.emit('changename', username)
           window.close();
         }
     
