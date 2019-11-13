@@ -495,7 +495,7 @@ io.sockets.on('connection', function (socket) {
     
     socket.on('changename', function(username){
       socket.username = username;
-    }
+    });
 
 
     socket.on('findUser', function(socket){
