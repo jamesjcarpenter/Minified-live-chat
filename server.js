@@ -473,6 +473,13 @@ io.sockets.on('connection', function (socket) {
     })
   };
     
+  socket.on('checkOwn', function(data){
+    if(data == "true"){
+    console.log('test');
+  }else{
+    console.log('at least it emits')
+    }
+  });
     
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');
