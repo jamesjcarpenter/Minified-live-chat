@@ -506,8 +506,8 @@ io.sockets.on('connection', function (socket) {
     };
     
     socket.on('checkOwn', function(owner) {
-      if (owner == "true") {
-     socket.emit('serverupdatechat', 'you are the owner of' + ' ' + socket.room);
+      if (owner == true) {
+      socket.emit('serverupdatechat', 'you are the owner of' + ' ' + socket.room);
     } else {
       return false;
     };
