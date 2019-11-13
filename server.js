@@ -435,7 +435,13 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
-    console.log("THIS AHFASDJKASDBJHSDFBHJSADBHJASD" + isRoomOwner)
+function checkOwner(){
+  if(isRoomOwner == true){
+    console.log("yeah owner");
+  } if(isRoomOwner == false){
+    console.log("yeah nah")
+  }
+}
 
           
   socket.emit('askForUserId');
