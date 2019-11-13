@@ -493,7 +493,11 @@ io.sockets.on('connection', function (socket) {
       id: socket.id       // by key "age" store value 30
     };
     
-    
+    socket.on('changename', function(username){
+      socket.username = username;
+    }
+
+
     socket.on('findUser', function(socket){
     var userNameOfUserToFind;
     Connect.findOne({client : userNameOfUserToFind}).exec(function(err,res) {
