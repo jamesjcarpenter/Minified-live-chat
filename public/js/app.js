@@ -88,7 +88,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // console.log("roomId : "+roomId);
     //event to get chat history on button click or as room is set.
      socket.emit('join', roomId);
-
+    console.log(isRoomOwner)
      socket.emit('checkOwn', isRoomOwner)
 
      var nick = $('#getID').attr('value');
@@ -131,9 +131,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       socket.on('connect', function() {
           socket.emit('connected', userName); //userName is unique
       })
-      socket.on('roomOwner', (data) => {
-        console.log('ROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM');
-        });
+
     
       socket.on('private-message', (data, message) => {
         console.log('You received a message');
