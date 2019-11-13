@@ -95,28 +95,28 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
      console.log(JSON.stringify(name))
 
-     
+     socket.emit('adduser', nick);
 
     //  changeUsername();
 
-     function changeUsername() {
-       $('.ui.mini.basic.modal.start')
-       .modal({  
-         blurring: true,
-         closable  : false,
-         onDeny    : function(){
-           window.alert('Wait not yet!');
-           return false;
-         },
-         onApprove : function() {
-           var aids = $('#addusername').val();
-           socket.emit('adduser', aids);
-           window.close();
-         }
+    //  function changeUsername() {
+    //    $('.ui.mini.basic.modal.start')
+    //    .modal({  
+    //      blurring: true,
+    //      closable  : false,
+    //      onDeny    : function(){
+    //        window.alert('Wait not yet!');
+    //        return false;
+    //      },
+    //      onApprove : function() {
+    //        var aids = $('#addusername').val();
+    //        socket.emit('adduser', aids);
+    //        window.close();
+    //      }
      
      
-       }).modal('show');
-     };
+    //    }).modal('show');
+    //  };
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
