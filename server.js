@@ -401,11 +401,8 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-app.use(function (req, res, next) {
-  res.locals.login = req.user;
-   console.log('aaaak');
-   console.dir(req.ip)
-   console.dir(req.ips)
+app.use(function(req, res, next) {
+   console.log('aaaaaaaaaaaaaaaaaaaaaaaak');
   //  console.log(req.user)
    if(req.isAuthenticated()){
     // console.log(req.user.name)
