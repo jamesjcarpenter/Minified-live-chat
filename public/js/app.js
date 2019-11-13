@@ -110,7 +110,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         },
         onApprove : function() {
           socket.username = $('#addusername').val();
-          socket.emit('changeusername', socket.username)
+          socket.emit('changename', socket.username)
           window.close();
         }
     
