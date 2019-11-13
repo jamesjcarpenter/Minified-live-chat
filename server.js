@@ -356,6 +356,8 @@ app.get('./config/keys.js', function(req, res) {
 
 
 app.use(function(req, res, next) {
+  console.log('TESTING THIS:   ' + global.userName)
+console.log('TESTING THIS AND:   ' + isRoomOwner)
   res.locals.user = req.user;
     if(req.user == null){
       username = 'guest';
@@ -418,8 +420,6 @@ process.env.YT3_API_KEY = 'AIzaSyCuKhQw-AouTjuiEIKquFiJuiWgpffr-LM';
 process.env.VM_API_KEY = 'biQnjEMy7RqMV1Tn37VhPAWxVF7411gbSiglfICUAAaeCwFX1+Gy/HqI4vOe6dYy2qfgAR4qzwqe4guVnUio3ptnObAcqCHseywHAu+EoElpc4bbH88cpDdRQFmx2hAI';
 process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
-console.log('TESTING THIS:   ' + global.userName)
-console.log('TESTING THIS AND:   ' + isRoomOwner)
 
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
