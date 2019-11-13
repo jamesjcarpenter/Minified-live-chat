@@ -436,11 +436,7 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 io.sockets.on('connection', function (socket) {
         io.emit('updatehomepage', rooms, socket.room);
 
-  if(isRoomOwner == true){
-    console.log("yeah owner");
-  } if(isRoomOwner == false){
-    console.log("yeah nah")
-  }
+
 
           
   socket.emit('askForUserId');
@@ -510,9 +506,16 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('adduser', function(username){
     // store the username in the socket session for this client
-    socket.username = username;
     id = socket.id;
     
+    if(isRoomOwner == true){
+      console.log("yeah owner");
+      socket.username = username + ' *MOD*';
+    } if(isRoomOwner == false){
+      console.log("yeah nah")
+      socket.username = username;
+    }
+
     // var c=new Connect({
     //     socketId : socket.id,
     //     client : socket.username
@@ -526,6 +529,7 @@ io.sockets.on('connection', function (socket) {
       id: socket.id       // by key "age" store value 30
     };
     
+
 
 
     socket.on('findUser', function(socket){
