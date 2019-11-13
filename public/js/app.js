@@ -216,7 +216,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(JSON.parse(data), function(key, value) {
-			$('#userlist').append('<li><span class="ui white text user">' + key  + '</span>' + '<span class="ui small white text pm"></div>' + '</a>' + '</li>');
+			$('#userlist').append('<li><span class="ui white text user">' + JSON.stringify(key)  + '</span>' + '<span class="ui small white text pm"></div>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
