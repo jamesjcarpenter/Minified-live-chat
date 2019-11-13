@@ -36,13 +36,13 @@ router.get('*', function (req, res, next) {
    console.dir(req.ip)
    console.dir(req.ips)
   //  console.log(req.user)
-  //  if(req.isAuthenticated()){
-  //   // console.log(req.user.name)
-  //   global.userName = req.user.name;
-  //   // console.log(userName)
-  //   } else {
-  //     global.userName = 'guest-' + Math.floor(1000 + Math.random() * 9000);
-  //   }
+   if(req.isAuthenticated()){
+    // console.log(req.user.name)
+    global.userName = req.user.name;
+    // console.log(userName)
+    } else {
+      global.userName = 'guest-' + Math.floor(1000 + Math.random() * 9000);
+    }
    // console.dir(req.method)
    // console.dir(req.path)
    // console.dir(req.route)
@@ -93,18 +93,18 @@ router.get('/rooms', function(req, res, options) {
 router.get('/room/:name1', function(req, res, options) {
   var isRoomOwner = false;
   req.user = req.isAuthenticated;
-  // nameRoom = req.path.split('/room/').join('')
-  // if (userName == nameRoom){
-  //   console.log('users room')
-  //   console.log('path is: ' + req.path)
-  //   console.log('nameroom is:  ' + nameRoom)
-  //  isRoomOwner = true;
-  //   console.log(isRoomOwner)
-  // } else {
-  //   isRoomOwner = false;
-  //   console.log('not room')
-  //   console.log(isRoomOwner)
-  // }
+  nameRoom = req.path.split('/room/').join('')
+  if (userName == nameRoom){
+    console.log('users room')
+    console.log('path is: ' + req.path)
+    console.log('nameroom is:  ' + nameRoom)
+     isRoomOwner = true;
+    console.log(isRoomOwner)
+  } else {
+    isRoomOwner = false;
+    console.log('not room')
+    console.log(isRoomOwner)
+  }
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
   console.log('passing username as:  ' + userName)
