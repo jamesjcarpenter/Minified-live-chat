@@ -247,6 +247,7 @@ app.use(function(req, res, next) {
     console.log('not room')
     console.log(isRoomOwner)
   }
+  next();
 });
 
 app.use(function(req, res, next) {
