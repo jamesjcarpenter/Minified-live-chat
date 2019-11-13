@@ -99,6 +99,24 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
        socket.emit('adduser', nick);
      });
 
+     $(function () {
+      $('.ui.mini.basic.modal.start')
+      .modal({  
+        blurring: true,
+        closable  : false,
+        onDeny    : function(){
+          window.alert('Wait not yet!');
+          return false;
+        },
+        onApprove : function() {
+          socket.username = $('#addusername').val();
+          window.close();
+        }
+    
+    
+      }).modal('show');
+    });
+
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
       socket.on('askForUserId', () => {
