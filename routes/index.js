@@ -108,7 +108,7 @@ router.get('/room/:name1', function(req, res, options) {
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
   console.log('passing username as:  ' + userName)
-   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: userName, isRoomOwner: isRoomOwner});
+   res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: userName});
 });
 
 router.get('/profile', function(req, res, options) {
