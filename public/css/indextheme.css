@@ -20,9 +20,9 @@
       outline:none !important;
     }
     #changename {
-      width:2em;
-      height:1em;
-      display:none;
+      width:7em;
+      height:4em;
+      background-color: 		#1c1c1c!important
     }
 
     #getID {
