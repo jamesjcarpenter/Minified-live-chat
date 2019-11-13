@@ -47,7 +47,8 @@ router.post('/register', (req, res) => {
           email: email,
           password: password,
           createdOn: today,
-          updatedOn: today
+          updatedOn: today,
+          ownedRoom: name
         });
 
         bcrypt.genSalt(10, (err, salt) => {

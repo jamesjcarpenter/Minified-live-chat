@@ -22,6 +22,7 @@ const UserSchema = new mongoose.Schema({
   is_active: { type: Boolean, default: false },
   createdOn: { type: Date, default: Date.now },
   updatedOn: { type: Date, default: Date.now },
+  ownedRoom: { type: String, required: true }
 });
 var User = module.exports = mongoose.model('User', UserSchema);
 
