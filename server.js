@@ -223,10 +223,10 @@ app.use(express.urlencoded({ extended: false }));
 var username;
 
 app.use(function(req, res, next) {
+  var isRoomOwner = null;
+  var nameRoom = req.path.split('/room/').join('')
   if(req.isAuthenticated()){
     global.userName = req.user.name;
-    var isRoomOwner = null;
-    nameRoom = req.path.split('/room/').join('')
     console.log('userName value is:  ' + userName)
     } else {
       global.userName = 'guest-' + Math.floor(1000 + Math.random() * 9000);
