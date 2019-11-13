@@ -401,11 +401,12 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-app.use(function (req, res, next) {
+app.use('/', function(req, res, next) {
   console.log('TESTING THIS:' + global.userName)
   console.log('TESTING THISAAAAAA:' + global.isRoomOwner)
   next();
-})
+
+    });
 
 var roomDesc = "Default room description."
 var rooms = [];
