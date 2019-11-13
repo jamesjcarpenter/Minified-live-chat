@@ -233,7 +233,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  var isRoomOwner;
+  var isRoomOwner = null;
   nameRoom = req.path.split('/room/').join('')
   if (userName == nameRoom){
     console.log('users room')
