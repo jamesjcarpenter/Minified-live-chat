@@ -474,11 +474,11 @@ io.sockets.on('connection', function (socket) {
   };
     
   socket.on('checkOwn', function(data){
-    data = JSON.stringify(data);
     if(data == 'true'){
     console.log('testtesttesttesttesttesttesttesttesttesttesttest');
   }else{
-    console.log('at least it emits')
+    console.log('reg:   ' + data)
+    console.log('stringed:  ' + JSON.stringify(data))
     }
   });
     
