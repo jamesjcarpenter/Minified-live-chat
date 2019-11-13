@@ -20,7 +20,7 @@ server.listen(443);
 var router = express.Router();
 
 //make sure you keep this order
-var io = require('socket.io').listen(server);
+global.io = require('socket.io').listen(server);
 
 //... 
 //..
@@ -70,7 +70,7 @@ var corsOptions = {
 //   var username = req.user.name;
 //   next();
 // });
-app.set('socketio', io);
+
 
 
 app.use(helmet())

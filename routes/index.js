@@ -100,17 +100,12 @@ router.get('/room/:name1', function(req, res, options) {
     console.log('nameroom is:  ' + nameRoom)
      isRoomOwner = true;
     console.log(isRoomOwner)
+    socket.emit('serverupdatechat', 'you are the owner of' + ' ' + socket.room);
   } else {
     isRoomOwner = false;
     console.log('not room')
     console.log(isRoomOwner)
-  }
-
-  exports.foo = function(req,res){
-    // now use socket.io in your routes file
-    var io = req.app.get('socketio');
-    io.emit('hi!');
-    console.log('hi!!!')
+    socket.emit('serverupdatechat', 'you are NOT the owner of' + ' ' + socket.room);
   }
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
