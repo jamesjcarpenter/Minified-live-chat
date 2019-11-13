@@ -23,6 +23,9 @@
     #getID {
       display:none;
     }
+    #getID2 {
+      display:none;
+    }
     .ui.divider {
 background-color: 	#fffcec!important; 
     }
