@@ -402,8 +402,7 @@ app.use((err, req, res, next) => {
 });
 //chat
 app.use(function (req, res, next) {
-  console.log('TESTING THIS:   ' + global.userName)
-  console.log('TESTING THIS AND:   ' + isRoomOwner)
+  console.log('TESTING THIS:')
   next();
 })
 
