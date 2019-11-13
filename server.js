@@ -473,14 +473,7 @@ io.sockets.on('connection', function (socket) {
     })
   };
     
-  socket.on('checkOwn', function(data){
-    if(data.toString() == 'true'){
-    console.log('testtesttesttesttesttesttesttesttesttesttesttest');
-  } if (data.toString() == 'false') {
-    console.log('reg:   ' + data)
-    console.log('stringed:  ' + JSON.stringify(data))
-    }
-  });
+
     
     console.log('testing: ' + Object.keys(socket.room));
       // socket.emit('get host data');

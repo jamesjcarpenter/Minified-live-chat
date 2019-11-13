@@ -211,7 +211,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       });
     });
   });
-  socket.emit('checkOwn', isRoomOwner)
   
   socket.on('updateThisUser', function(data) {
     
