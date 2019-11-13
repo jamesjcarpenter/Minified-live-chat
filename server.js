@@ -356,8 +356,6 @@ app.get('./config/keys.js', function(req, res) {
 
 
 app.use(function(req, res, next) {
-  console.log('TESTING THIS:   ' + global.userName)
-console.log('TESTING THIS AND:   ' + isRoomOwner)
   res.locals.user = req.user;
     if(req.user == null){
       username = 'guest';
@@ -403,7 +401,11 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-
+app.get('/room/:name1', function(req, res, next){
+  console.log('TESTING THIS:   ' + global.userName)
+  console.log('TESTING THIS AND:   ' + isRoomOwner)
+  next();
+})
 
 var roomDesc = "Default room description."
 var rooms = [];
