@@ -91,7 +91,7 @@ router.get('/room/:name1', function(req, res, options) {
   req.user = req.isAuthenticated,
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
-   console.log('username is:  ' + req.user.name)
+   console.log('username is:  ' + user.name)
    res.render('index.ejs', { error: false, styleNonce: res.locals.styleNonce, name: req.params.name, chat: req.session.chat, username: req.username});
 });
 
