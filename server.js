@@ -534,7 +534,7 @@ io.sockets.on('connection', function (socket) {
     
     socket.on('changename', function(username){
       socket.username = username;
-      io.emit('updateThisUser', username, users);
+      // io.emit('updateThisUser', username, users);
     });
 
     socket.emit('serverupdatechat', 'you joined the room' + ' ' + socket.room);

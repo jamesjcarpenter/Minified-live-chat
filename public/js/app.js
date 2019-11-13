@@ -95,9 +95,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      console.log(JSON.stringify(name))
 
      
-     $(function () {
-       socket.emit('adduser', nick);
-     });
 
      changeUsername();
 
@@ -112,7 +109,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
          },
          onApprove : function() {
            var aids = $('#addusername').val();
-           socket.emit('changename', aids);
+           socket.emit('adduser', aids);
            window.close();
          }
      
