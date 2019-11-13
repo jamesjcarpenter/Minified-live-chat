@@ -77,6 +77,10 @@ app.use(helmet())
 
 app.use(function(req, res, next) {
   res.locals.styleNonce = Buffer.from(uuidv4()).toString('base64')
+  if(req.isAuthenticated()){
+    // console.log(req.user.name)
+    res.locals.username = req.user.name;
+    }
   next();
 });
 //
