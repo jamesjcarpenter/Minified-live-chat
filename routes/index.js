@@ -92,7 +92,7 @@ router.get('/rooms', function(req, res, options) {
 
 router.get('/room/:name1', function(req, res, options) {
   req.user = req.isAuthenticated;
-  if (userName === '/room/:name1'){
+  if (userName == req.path){
     console.log('users room')
   } else {
     console.log('not room')
