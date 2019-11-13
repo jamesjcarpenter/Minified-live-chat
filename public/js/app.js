@@ -96,6 +96,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      console.log(JSON.stringify(name))
 
      socket.emit('adduser', nick);
+     socket.emit('findUser', nick)
 
     //  changeUsername();
 
@@ -193,7 +194,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
   // 
   // });
-  
+
 
   socket.on('updateusers', function(data) {
     
