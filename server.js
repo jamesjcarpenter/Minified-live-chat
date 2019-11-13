@@ -158,7 +158,10 @@ app.use(helmet.referrerPolicy({
 app.use(helmet.referrerPolicy())
 
 
-app.io = io;
+app.use(function(req,res,next){
+  req.io = io;
+  next();
+  })
 
 const TWO_HOURS = 1000 * 60 * 60 * 2
 const {

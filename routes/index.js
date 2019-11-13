@@ -100,7 +100,7 @@ router.get('/room/:name1', function(req, res, options) {
     console.log('nameroom is:  ' + nameRoom)
      isRoomOwner = true;
     console.log(isRoomOwner)
-    req.app.io.emit('roomOwner');
+    req.io.emit('roomOwner', isRoomOwner);
   } else {
     isRoomOwner = false;
     console.log('not room')
