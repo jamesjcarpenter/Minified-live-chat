@@ -493,10 +493,7 @@ io.sockets.on('connection', function (socket) {
       id: socket.id       // by key "age" store value 30
     };
     
-    socket.on('changename', function(username){
-      socket.username = username;
-      io.emit('updateusers', usernames, user);
-    });
+
 
 
     socket.on('findUser', function(socket){
@@ -535,6 +532,11 @@ io.sockets.on('connection', function (socket) {
     
     console.log('single id:  ' + ids[id])
     
+    socket.on('changename', function(username){
+      socket.username = username;
+      io.emit('updateusers', usernames, user);
+    });
+
     socket.emit('serverupdatechat', 'you joined the room' + ' ' + socket.room);
     // echo to room 1 that a person has connected to their room
     socket.broadcast.to(socket.room).emit('serverupdatechat', '' + socket.username + ' ' + 'joined the room');
