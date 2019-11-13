@@ -95,7 +95,7 @@ router.get('/room/:name1', function(req, res, options) {
   if (userName === '/room/:name1'){
     console.log('users room')
   } else {
-    next();
+    console.log('not room')
   }
   // res.locals.query = req.query;
   //  res.locals.url   = req.originalUrl;
