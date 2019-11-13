@@ -401,12 +401,24 @@ app.use((err, req, res, next) => {
   });
 });
 //chat
-routes.use('*', function(req, res, next) {
-  console.log('TESTING THIS:' + global.userName)
-  console.log('TESTING THISAAAAAA:' + global.isRoomOwner)
-  next();
-
-    });
+app.get('*', function (req, res, next) {
+  res.locals.login = req.user;
+   console.log('aaaak');
+   console.dir(req.ip)
+   console.dir(req.ips)
+  //  console.log(req.user)
+   if(req.isAuthenticated()){
+    // console.log(req.user.name)
+    global.userName = req.user.name;
+    // console.log(userName)
+    } else {
+      global.userName = 'guest-' + Math.floor(1000 + Math.random() * 9000);
+    }
+   // console.dir(req.method)
+   // console.dir(req.path)
+   // console.dir(req.route)
+  next()
+ });
 
 var roomDesc = "Default room description."
 var rooms = [];
