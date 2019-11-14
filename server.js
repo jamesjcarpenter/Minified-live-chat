@@ -451,7 +451,9 @@ io.sockets.on('connection', function (socket) {
       socket.room = room;
       checkIfRoom();
       socket.join(room);
-      if (rooms.indexOf(room) == -1) {
+      var aq = rooms.indexOf(room) == -1;
+      var bq = room !== 'home'
+      if (aq && bq) {
       rooms.push(room);
     } else {
       return false;
@@ -583,7 +585,6 @@ io.sockets.on('connection', function (socket) {
 
       function requestRooms() {
         io.emit('updatehomepage', rooms, roomDesc);
-        console.log(rooms)
         };
         setInterval(requestRooms, 2500);
     // console.log(usernames);
