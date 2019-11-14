@@ -80,7 +80,18 @@ window.addEventListener('load', () => {
       //event to get chat history on button click or as room is set.
        socket.emit('join', roomId);
       
-  
+       socket.on('updatehomepage', function(rooms, data) {
+        $('#goa').empty();
+        $.each(rooms, function(key, value, data) {
+            if (value !== null | undefined)
+            $('#goa').append('<div class="five wide column"><a href="/room/'
+             + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
+             + value + '</h3>' + '<p id="desc">' + data + '</p>'  + '</div></div></a>' 
+             + '<div class="ui basic segment"id="seg"></div>');
+            console.log(value.substr(value.lastIndexOf("/")+1));
+            // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
+        });
+      });
          // socket.emit('adduser', prompt("Enter username."));
   
     // call the server-side function 'adduser' and send one parameter (value of prompt)
@@ -93,44 +104,9 @@ window.addEventListener('load', () => {
         window.location = 'https://anomic.io/room/' + $('#urlname').val();
         socket.emit('admin', socket.id);
         });
-        
-      
-      //   socket.emit('adduser',
-      //   $('.ui.mini.basic.modal.start')
-      //   .modal({  
-      //     blurring: true,
-      //     closable  : false,
-      //     onDeny    : function(){
-      //       window.alert('Wait not yet!');
-      //       return false;
-      //     },
-      //     onApprove : function() {
-      //       socket.username = $('#addusername').val();
-      //       window.close();
-      //     }
-      // 
-      // 
-      //   }).modal('show'));
-      // });
       });
     
-    // socket.on('addname', function (username) {
-    //  $('#videolocal').append($('<span class="ui text small"id="camusername"></span>').text(username));
-    // 
-    // });
     
-    // console.log(socket.usernames);
-    // socket.on('getusers', function (usernames) {
-    //   for(key in usernames) {
-    //   if(usernames.hasOwnProperty(key)) {
-    //       var value = usernames[key];
-    //       console.log(value);
-    //       //do something with value;
-    //     }
-    //   }
-    //  $('#userlist').append($('<div class="item"><span class="ui text small"></span></div>').text(usernames));
-    // 
-    // });
     
   
     socket.on('updateusers', function(data) {
@@ -145,54 +121,7 @@ window.addEventListener('load', () => {
         
         
     
-        // function addBack(){
-      //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
-      //   $('#conversation').append('<div class="ui mini button"id="goback">go back</div>');
-      //   $('#messagingthem').hide();
-      //   $('#goback').hide();
-      // };
-      //   $(document).ready(function(){ 
-      // 
-      //   $(".ui.mini.button.pm").each(function(){
-      //     var userToPM = $(this).attr('id');
-      //     console.log(userToPM);
-      //    $('.ui.mini.button.pm').click(function() {
-      //      // $("#PMbutton").unbind();
-      //      addBack();
-      //      console.log(userToPM);
-      //      return false; 
-      //      $('.ui.left.pointing.label').hide();
-      //      $('#messagingthem').show();
-      //      $('#PMbutton').hide();
-      // 
-      //      $( "#userlist").find(userId).text();
-      //       socket.emit('private-message', userId);
-      // 
-      //     $('#data').keypress(function(e) {
-      //     if(e.which == 13) {
-      //         $(this).blur();
-      //         $('#datasend').focus().click();
-      //         var message = $('#data').val().trim();
-  
-    //        };
-    //      });
-    //    });
-    // 
-    //         $('#goback').click(function() {
-    //            $('.ui.left.pointing.label').show();
-    //            $('#PMbutton').show();
-    //            $('#messagingthem').hide();
-    //            $('#goback').hide();
-    //            $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
-    //          });
-    //      });
-    //    });
-    //       // socket.emit('private-message', message);
-    // 
-      // 	});
-      // });
     
-    // create our webrtc connection
 
     
     function replaceUrl() {
@@ -202,33 +131,7 @@ window.addEventListener('load', () => {
         });
         
       };
-    // listener, whenever the server emits 'updaterooms', this updates the room the client is in
-
-  //$('#publisher').append('<h4>' + username + '</h4>');
   
-    // on load of page
-
-        
-        
-        // document.getElementById("#data").value = '<div class="ui left pointing label"id="emojimsg"><img id="joyImg" src="images/images/joy.png" /></div>'
-      //   var re = new RegExp(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/); 
-      //   var str = '' + msgUrl;
-      //   if (re.test(message)) {
-      //     message = str.replace(re)
-      //   };
-      // 
-      //   $("#autlink").each(function(){
-      //     $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
-      // });
-  
-        // socket.emit('autosync', data);
-        // 
-        // getTime();
-        
-        
-        // function getTime() {
-        //     return player.getCurrentTime();
-        //   };
         
         var map = {
           "<3": "\u2764\uFE0F",
@@ -289,18 +192,6 @@ window.addEventListener('load', () => {
         // $('#globallist').append('' + numClients);
     });
     
-    
-    socket.on('updatehomepage', function(rooms, data) {
-        $('#goa').empty();
-        $.each(rooms, function(key, value, data) {
-            $('#goa').append('<div class="five wide column"><a href="/room/'
-             + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
-             + value + '</h3>' + '<p id="desc">' + data + '</p>'  + '</div></div></a>' 
-             + '<div class="ui basic segment"id="seg"></div>');
-            console.log(value.substr(value.lastIndexOf("/")+1));
-            // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
-        });
-      });
   
       socket.on('disconnect', function(){
               // remove the username from global usernames list
