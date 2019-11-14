@@ -25,7 +25,7 @@
     }
 
     #descriptionroom {
-      position:relative;
+      display:inline;
     }
 
     #getID {
