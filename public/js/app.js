@@ -186,7 +186,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 			$('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       if(isRoomOwner == true){
-        $('.ui.white.text.user').append('🌟');
+        $('#changename').append('🌟');
       } if(isRoomOwner == false){
         console.log("yeah nah")
       }
