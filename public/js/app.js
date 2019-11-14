@@ -350,7 +350,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 //$('#publisher').append('<h4>' + username + '</h4>');
 
 socket.on('serverupdateroom', function(data){
-  $("#blocktext").append('<br><br>' + '<p class="ui text" id="blocktext">' + data + '</p>');
+  $("#descriptionroom").append('<br><br>' + '<p class="ui text" id="blocktext">' + data + '</p>');
 })
 
 socket.on('serverupdateuser', function (server) {

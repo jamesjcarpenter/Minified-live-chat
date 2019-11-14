@@ -447,7 +447,9 @@ font-family: 'Changa', sans-serif;
   width:60vw;  
   }
     
-
+  #descriptionroom {
+    position:relative;
+  }
     
     #logotext {
     text-shadow: 1px 1px 1px #000000;
