@@ -98,6 +98,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
      socket.emit('adduser', nick);
      socket.emit('findUser', { name : nick } );
 
+    
 
   // call the server-side function 'adduser' and send one parameter (value of prompt)
       //empty messages.
@@ -351,6 +352,9 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
 socket.on('serverupdateroom', function(data){
   $("#descriptionroom").append('<br><br>' + '<p class="ui text" id="blocktext">' + data + '</p>');
+  if(isRoomOwner){
+    $('#descriptionroom').append('<button class="ui icon button"><i class="edit outline icon"></i></button>')
+  }
 })
 
 socket.on('serverupdateuser', function (server) {
