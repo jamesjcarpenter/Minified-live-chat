@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
   
   
   $('.ytp-cued-thumbnail-overlay-image').hide();
-  
+  var roomDesc = null;
         // $('#logo').append($('<img src="images/robotsleep.png" />').text());
   
   
@@ -80,7 +80,6 @@ window.addEventListener('load', () => {
       //event to get chat history on button click or as room is set.
        socket.emit('join', roomId);
       
-        var roomDesc;
 
        socket.on('updatehomepage', function(rooms, roomDesc) {
         $('#goa').empty();
