@@ -218,20 +218,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     }).modal('show');
   });
   
-  socket.on('updateThisUser', function(data) {
-    
-		$('#userlist').empty();
-    // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
-    data = JSON.stringify(data);
-    $.each(JSON.parse(data), function(key, value) {
-			$('#userlist').append('<li><span class="ui white text user">' + key  + '</span>' + '<span class="ui small white text pm"></div>' + '</a>' + '</li>');
-      console.log($('.span.ui.white.text.user').val())
-      $('.ui.small.white.text.pm').click( function() {
-        // var userUse = $('.span.ui.white.text.user').val()
-        // socket.emit('findUser', { userNameOfUserToFind : userUse } );
-      });
-    });
-  });
     
   
   socket.on('updateids', function(clients) {
