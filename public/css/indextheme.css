@@ -24,6 +24,11 @@
       background-color: 		#1c1c1c!important
     }
 
+    #descriptionroom {
+      position:relative;
+      display:inline-block;
+    }
+
     #getID {
       display:none;
     }
