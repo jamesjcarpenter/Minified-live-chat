@@ -8,7 +8,7 @@ $('#bitrateset').hide();
 $('#start2').click();
 $('#start2').hide();
 var url = window.location.href;
-var isRoomOwner = $('#getID2').attr('value');
+const isRoomOwner = $('#getID2').attr('value');
 console.log(url);
 function getImageDirectoryByFullURL(url){
     return url.substr(url.lastIndexOf("/")+1);
