@@ -228,7 +228,15 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       });
     });
   });
-    
+  
+  socket.on('serverupdateroom', function(data){
+    $("#descriptionroom").append('<br><br>' + '<p class="ui text" id="blocktext">' + data + '</p>');
+    if(isRoomOwner == 'true'){
+      $('#descriptionroom').append('<button class="ui icon button"><i class="edit outline icon"></i></button>')
+    } else {
+      console.log('no')
+    }
+  })
   
   socket.on('updateids', function(clients) {
   $.each(clients, function(key, value) {
@@ -350,14 +358,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
-socket.on('serverupdateroom', function(data){
-  $("#descriptionroom").append('<br><br>' + '<p class="ui text" id="blocktext">' + data + '</p>');
-  if(isRoomOwner == 'true'){
-    $('#descriptionroom').append('<button class="ui icon button"><i class="edit outline icon"></i></button>')
-  } else {
-    console.log('no')
-  }
-})
+
 
 socket.on('serverupdateuser', function (server) {
   $('#profilepic2').empty();
