@@ -584,7 +584,7 @@ io.sockets.on('connection', function (socket) {
       io.emit('updateusers', usernames, username);
 
       function requestRooms() {
-        io.emit('updatehomepage', rooms, room, roomDesc);
+        io.emit('updatehomepage', room, rooms, roomDesc);
         };
         setInterval(requestRooms, 2500);
     // console.log(usernames);
