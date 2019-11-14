@@ -185,7 +185,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$.each(data, function(key, value) {
 			$('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
-      addOne();
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
         // socket.emit('findUser', { userNameOfUserToFind : userUse } );
@@ -193,13 +192,14 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
 
+    addOne();
     function addOne(){
-      $('#starmod').empty();
+      $('.starmod').empty();
       if(isRoomOwner == 'true'){
-        $('.ui.white.text.user').append('<div id="starmod"></div>');
-        $('.ui.small.text').append('<div id="starmod"></div>');
-        $('#profilepic2').append('<div id="starmod"></div>');
-        $('#starmod').append('🌟')
+        $('.ui.white.text.user').append('<div class="starmod"></div>');
+        $('.ui.small.text').append('<div class="starmod"></div>');
+        $('#profilepic2').append('<div class="starmod"></div>');
+        $('.starmod').append('🌟')
       } if(isRoomOwner == 'false'){
         console.log("yeah nah")
       }
@@ -327,7 +327,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
     replaceUrl();
-    addOne();
   });
   
   function replaceUrl() {
@@ -352,7 +351,6 @@ socket.on('serverupdateuser', function (server) {
   $('#profilepic2').empty();
   $('#profilepic2').append('<h5 class="ui text"id="profilepic2"></h5>').text(server);
   console.log($('.ui.mini.button.pm').attr('name'))
-  addOne();
 });
 
 
