@@ -195,7 +195,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
     function addOne(){
       if(isRoomOwner == 'true'){
-        $('#changename').append('🌟');
+        $('.ui.white.text.user').append(' 🌟');
       } if(isRoomOwner == 'false'){
         console.log("yeah nah")
       }
