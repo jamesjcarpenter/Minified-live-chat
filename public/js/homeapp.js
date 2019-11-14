@@ -92,8 +92,8 @@ window.addEventListener('load', () => {
              + '<div class="ui basic segment"id="seg"></div>');
             console.log(value.substr(value.lastIndexOf("/")+1));
 
-            } else {
-                console.log('it')
+            } if (value == 'home' | ''){
+                console.log('no')
             }
             // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
         });
