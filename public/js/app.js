@@ -105,7 +105,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       socket.on('askForUserId', () => {
         socket.emit(socket.id);
       });
-      
+
+
 
       socket.on('connect', function() {
           socket.emit('connected', userName); //userName is unique
@@ -185,6 +186,11 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$.each(data, function(key, value) {
 			$('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
+      if(isRoomOwner == true){
+        $('.ui.white.text.user').append('🌟');
+      } if(isRoomOwner == false){
+        console.log("yeah nah")
+      }
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
         // socket.emit('findUser', { userNameOfUserToFind : userUse } );
