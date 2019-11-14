@@ -183,14 +183,9 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$('#userlist').empty();
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
+			$('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
-      if(isRoomOwner == true){
-        $('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + 
-        '   ' + '🌟' + '</a>' + '</li>');
-      } if(isRoomOwner == false){
-        $('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
-        console.log("yeah nah")
-      }
+      addOne();
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
         // socket.emit('findUser', { userNameOfUserToFind : userUse } );
@@ -198,7 +193,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
 
-
+    function addOne(){
+      if(isRoomOwner == true){
+        $('#changename').append('🌟');
+      } if(isRoomOwner == false){
+        console.log("yeah nah")
+      }
+    }
 
   $(".span.ui.white.text.user").click(function(){
     $('.ui.mini.basic.modal.start')
