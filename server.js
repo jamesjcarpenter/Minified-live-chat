@@ -580,7 +580,7 @@ io.sockets.on('connection', function (socket) {
     // echo to room 1 that a person has connected to their room
   
     //update users for current room
-      io.emit('updateusers', usernames, user);
+      io.emit('updateusers', usernames, username);
     // console.log(usernames);
     io.emit('updateids', clients);
     
