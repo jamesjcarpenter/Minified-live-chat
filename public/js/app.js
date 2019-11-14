@@ -185,6 +185,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$.each(data, function(key, value) {
 			$('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
+      addOne();
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
         // socket.emit('findUser', { userNameOfUserToFind : userUse } );
@@ -192,7 +193,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
 
-  (function(){
+    function addOne(){
       if(isRoomOwner == 'true'){
         $('.ui.white.text.user').append(' 🌟');
         $('.ui.small.text').append(' 🌟');
@@ -200,7 +201,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       } if(isRoomOwner == 'false'){
         console.log("yeah nah")
       }
-    })();
+    }
 
   $(".span.ui.white.text.user").click(function(){
     $('.ui.mini.basic.modal.start')
@@ -324,6 +325,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
     $('#conversation').append($('<div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
     replaceUrl();
+    addOne();
   });
   
   function replaceUrl() {
@@ -348,7 +350,7 @@ socket.on('serverupdateuser', function (server) {
   $('#profilepic2').empty();
   $('#profilepic2').append('<h5 class="ui text"id="profilepic2"></h5>').text(server);
   console.log($('.ui.mini.button.pm').attr('name'))
-  
+  addOne();
 });
 
 
