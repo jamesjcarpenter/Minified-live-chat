@@ -148,22 +148,6 @@ window.addEventListener('load', () => {
         
         
         
-        console.log($('.ui.mini.button.pm').attr('name'))
-        
-        $('.ui.mini.button.pm').click(function() {
-          // $("#PMbutton").unbind();
-          $(".ui.mini.button.pm").each(function(){
-            var userToPM;
-            userToPM = $('.ui.mini.button.pm').attr('name')
-            console.log(userToPM);
-            socket.emit('private-message', data, message, userToPM);
-            });
-          });
-            socket.on('msgStart', function() {
-                console.log(userToPM);
-              });
-      });
-    });
     
         // function addBack(){
       //   $('#conversation').append('<span class="ui small white text"id="messagingthem">Messaging' + key + '</span>')
