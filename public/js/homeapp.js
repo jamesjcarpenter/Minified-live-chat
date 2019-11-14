@@ -88,12 +88,9 @@ window.addEventListener('load', () => {
             if (value !== null | undefined){
             $('#goa').append('<div class="five wide column"><a href="/room/'
              + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
-             + value + '</h3>' + '<p id="desc">' + roomDesc + '</p>'  + '</div></div></a>' 
+             + value + '</h3>' + '<p id="desc">' + key + roomDesc + '</p>'  + '</div></div></a>' 
              + '<div class="ui basic segment"id="seg"></div>');
             console.log(value.substr(value.lastIndexOf("/")+1));
-
-            } if (value == 'home' | ''){
-                console.log('no')
             }
             // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
         });
