@@ -185,7 +185,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 		$.each(data, function(key, value) {
 			$('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
-      addOne();
       $('.ui.small.white.text.pm').click( function() {
         // var userUse = $('.span.ui.white.text.user').val()
         // socket.emit('findUser', { userNameOfUserToFind : userUse } );
@@ -193,13 +192,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     });
   });
 
-    function addOne(){
-      if(isRoomOwner == 'true'){
-        $('.ui.white.text.user').append(' 🌟');
-      } if(isRoomOwner == 'false'){
-        console.log("yeah nah")
-      }
-    }
+
 
   $(".span.ui.white.text.user").click(function(){
     $('.ui.mini.basic.modal.start')
@@ -220,6 +213,20 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     }).modal('show');
   });
   
+  socket.on('updateThisUser', function(data) {
+    
+		$('#userlist').empty();
+    // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+    data = JSON.stringify(data);
+    $.each(JSON.parse(data), function(key, value) {
+			$('#userlist').append('<li><span class="ui white text user">' + key  + '</span>' + '<span class="ui small white text pm"></div>' + '</a>' + '</li>');
+      console.log($('.span.ui.white.text.user').val())
+      $('.ui.small.white.text.pm').click( function() {
+        // var userUse = $('.span.ui.white.text.user').val()
+        // socket.emit('findUser', { userNameOfUserToFind : userUse } );
+      });
+    });
+  });
     
   
   socket.on('updateids', function(clients) {
