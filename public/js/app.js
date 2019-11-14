@@ -352,7 +352,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
 socket.on('serverupdateroom', function(data){
   $("#descriptionroom").append('<br><br>' + '<p class="ui text" id="blocktext">' + data + '</p>');
-  if(isRoomOwner){
+  if(isRoomOwner == 'true'){
     $('#descriptionroom').append('<button class="ui icon button"><i class="edit outline icon"></i></button>')
   } else {
     console.log('no')
