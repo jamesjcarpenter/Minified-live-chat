@@ -196,9 +196,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     function addOne(){
       $('#starmod').empty();
       if(isRoomOwner == 'true'){
-        $('.ui.white.text.user').append('<div id="starmod"> 🌟 </div>');
-        $('.ui.small.text').append('<div id="starmod"> 🌟 </div>');
-        $('#profilepic2').append('<div id="starmod"> 🌟 </div>');
+        $('.ui.white.text.user').append('<div id="starmod"></div>');
+        $('.ui.small.text').append('<div id="starmod"></div>');
+        $('#profilepic2').append('<div id="starmod"></div>');
+        $('#starmod').append('🌟')
       } if(isRoomOwner == 'false'){
         console.log("yeah nah")
       }
