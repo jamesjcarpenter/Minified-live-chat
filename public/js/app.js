@@ -349,6 +349,9 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
           });
 //$('#publisher').append('<h4>' + username + '</h4>');
 
+socket.on('serverupdateroom', function(data){
+  $("#blocktext").append('<br><br>' + '<p class="ui text" id="blocktext">' + roomDesc + '</p>');
+})
 
 socket.on('serverupdateuser', function (server) {
   $('#profilepic2').empty();
