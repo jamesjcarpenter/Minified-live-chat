@@ -434,7 +434,6 @@ process.env.DM_API_KEY = '3b47b316af2962e6c94c';
 
 
 io.sockets.on('connection', function (socket) {
-        io.emit('updatehomepage', rooms, roomDesc);
 
 
 
@@ -530,7 +529,7 @@ io.sockets.on('connection', function (socket) {
     };
     
 
-
+    io.emit('updatehomepage', rooms, roomDesc);
 
     socket.on('findUser', function(socket){
     var userNameOfUserToFind;
