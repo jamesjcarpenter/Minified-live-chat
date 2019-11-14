@@ -528,8 +528,10 @@ io.sockets.on('connection', function (socket) {
       id: socket.id       // by key "age" store value 30
     };
     
-
+    function requestRooms() {
     io.emit('updatehomepage', rooms, roomDesc);
+    };
+    setInterval(requestRooms, 10000);
 
     socket.on('findUser', function(socket){
     var userNameOfUserToFind;
