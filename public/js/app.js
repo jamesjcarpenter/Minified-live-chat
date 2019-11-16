@@ -207,6 +207,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   function exitThePm(){
     $('#pmarrow').unbind();
     $('#messages').show();
+    $('#conversation').show();
     $('#servermessage').show();
     $('#pmtext').remove();
     $('#pmarrow').remove();
