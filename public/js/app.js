@@ -347,14 +347,14 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   console.log(genAv(ranAv))
   // create our webrtc connection
   socket.on('updatechat', function (username, data) {
-    $('#conversation').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
+    $('#message').append('<div class="ui container"><div class="ui medium basic segment"></div></div>');
     $('#scrollable').animate({ scrollTop: 		$('#scrollable').prop('scrollHeight')}, 300);
     $("#data").focus();
     // $('#usercam').empty().append($('<span class="ui text small "></span>').text(username));
-    $('#conversation').append($('' + ranAv));
-    $('#conversation').append($('<span class="ui small text" id="username"name="avatar"><b></b></span>').text(username));
-    $('#conversation').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
-    $('#conversation').append($('<div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
+    $('#message').append($('' + ranAv));
+    $('#message').append($('<span class="ui small text" id="username"name="avatar"><b></b></span>').text(username));
+    $('#message').append($('<span class="ui small text" id="date"name="date"></span>').text(JSON.parse(date)));
+    $('#message').append($('<div id="messagedata"><p class="messaging"><span class="ui small text"></span></p></div></div>').text(data));
     replaceUrl();
   });
   
