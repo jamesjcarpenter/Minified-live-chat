@@ -594,6 +594,11 @@ io.sockets.on('connection', function (socket) {
         setInterval(requestRooms, 2500);
     // console.log(usernames);
     io.emit('updateids', clients);
+
+    function upRooms() {
+      io.emit('updateroomdesc', rooms, roomDesc);
+      };
+      setInterval(upRooms, 2500);
     
     socket.emit('getids',  '' + ids);
     // socket.broadcast.to(socket.room).emit('addname', socket.username);

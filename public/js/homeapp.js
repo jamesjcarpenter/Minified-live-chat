@@ -87,13 +87,19 @@ window.addEventListener('load', () => {
             if (value !== 'home'){
             $('#goa').append('<div class="five wide column"><a href="/room/'
              + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
-             + value + '</h3>' + '<p id="desc">' + roomDesc + '</p>'  + '</div></div></a>' 
+             + value + '</h3>' + '<p id="desc">' + '</p>'  + '</div></div></a>' 
              + '<div class="ui basic segment"id="seg"></div>');
             console.log(value.substr(value.lastIndexOf("/")+1));
             }
             // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
         });
       });
+
+      socket.on('updateroomdesc', function(roomDesc) {
+        $.each(rooms, function(key, value, roomDesc) {
+          $('#goa').append('<p>' + roomDesc + '</p>')
+      });
+    });
          // socket.emit('adduser', prompt("Enter username."));
   
     // call the server-side function 'adduser' and send one parameter (value of prompt)
