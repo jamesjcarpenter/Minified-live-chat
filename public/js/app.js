@@ -196,6 +196,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     $(this).unbind();
     $('#messages').hide();
     $('#servermessage').hide();
+    $('#pmtext').remove();
+    $('#pmarrow').remove();
     $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
     $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
     socket.emit('findUser', userUse);
@@ -205,14 +207,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     $('#pmarrow').unbind();
     $('#messages').show();
     $('#servermessage').show();
+    $('#pmtext').remove();
+    $('#pmarrow').remove();
     $('.ui.mini.primary.pm.button').bind('click', pmAnother);
     };
-
-    $('#pmarrow').click(function(e){
-      e.preventDefault();
-      $("#pmarrow").remove();
-      $('#pmtext').remove();
-  });
 
   $(".span.ui.white.text.user").click(function(){
     $('.ui.mini.basic.modal.start')
