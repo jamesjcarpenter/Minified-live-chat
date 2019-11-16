@@ -189,7 +189,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       console.log($('.span.ui.white.text.user').val())
       $('.ui.mini.primary.pm.button').click( function() {
         var userUse = $('.ui.mini.primary.pm.button').attr('value')
-        socket.emit('findUser', { userNameOfUserToFind : userUse } );
+        socket.emit('findUser', { username : userUse } );
       });
     });
   });

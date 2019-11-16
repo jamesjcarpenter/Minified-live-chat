@@ -543,7 +543,7 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('findUser', function(socket){
     var userNameOfUserToFind;
-     User.findOne({ userNameOfUserToFind : socket }).exec(function(err,res) {
+     User.findOne({ username : socket }).exec(function(err,res) {
        console.log(res);
         // io.to(res.socketId).emit('my message', msg);
       })
