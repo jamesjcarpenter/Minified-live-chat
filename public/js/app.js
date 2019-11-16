@@ -194,9 +194,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     var userUse = $(this).attr('value')
     $(this).unbind();
     $('#message').hide();
-    $('#username').hide();
-    $('#useravatar').hide();
-    $('#messagedata').hide();
+    $('#conversation').hide();
     $('#servermessage').hide();
     $('#pmtext').remove();
     $('#pmarrow').remove();
@@ -208,12 +206,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
   }
   function exitThePm(){
     $('#pmarrow').unbind();
-    $('#message').show();
-    $('#username').show();
-    $('#useravatar').show();
-    $('#messagedata').show();
-    $('#servermessage').show();
-
+    $('#messages').show();
+    $('#conversation').show();
     $('#servermessage').show();
     $('#pmtext').remove();
     $('#pmarrow').remove();
