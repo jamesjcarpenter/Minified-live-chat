@@ -201,8 +201,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       function exitThePm(){
         $('#messages').show();
         $('#servermessage').show();
-        $('#pmtext').hide();
-        $(this).hide();
+        $('#pmtext').remove();
+        $(this).remove();
         $('.ui.mini.primary.pm.button').bind('click', pmAnother);
         };
     });
