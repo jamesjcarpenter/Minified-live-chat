@@ -592,10 +592,10 @@ io.sockets.on('connection', function (socket) {
     //update users for current room
       io.emit('updateusers', usernames, username);
 
-      function requestRooms() {
-        io.emit('updateuserhome', usernames.length);
+      function requestUse() {
+        io.emit('updateuserhome', clients);
         };
-        setInterval(requestRooms, 2500);
+        setInterval(requestUse, 2500);
 
       function requestRooms() {
         io.emit('updatehomepage', rooms, roomDesc);
