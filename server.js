@@ -201,24 +201,24 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
-// const SocketAntiSpam  = require('socket-anti-spam');
-// 
-// const socketAntiSpam = new SocketAntiSpam({
-//   banTime:            1,         // Ban time in minutes
-//   kickThreshold:      16,          // User gets kicked after this many spam score
-//   kickTimesBeforeBan: 3,          // User gets banned after this many kicks
-//   banning:            true,       // Uses temp IP banning after kickTimesBeforeBan
-//   io:                 io,  // Bind the socket.io variable
-// })
-// 
-// // Call functions with created reference 'socketAntiSpam'
-// socketAntiSpam.event.on('ban', data => {
-//   console.log('You have been banned for 1 minute due to spam. Please wait 1 minute then refresh.');
-// })
-// 
-// socketAntiSpam.event.on('kick', data => {
-//   console.log('You have been kicked due to spam, please refresh');
-// })
+const SocketAntiSpam  = require('socket-anti-spam');
+
+const socketAntiSpam = new SocketAntiSpam({
+  banTime:            1,         // Ban time in minutes
+  kickThreshold:      16,          // User gets kicked after this many spam score
+  kickTimesBeforeBan: 3,          // User gets banned after this many kicks
+  banning:            true,       // Uses temp IP banning after kickTimesBeforeBan
+  io:                 io,  // Bind the socket.io variable
+})
+
+// Call functions with created reference 'socketAntiSpam'
+socketAntiSpam.event.on('ban', data => {
+  console.log('You have been banned for 1 minute due to spam. Please wait 1 minute then refresh.');
+})
+
+socketAntiSpam.event.on('kick', data => {
+  console.log('You have been kicked due to spam, please refresh');
+})
 
 var username;
 
