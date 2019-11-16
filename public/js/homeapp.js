@@ -88,7 +88,7 @@ window.addEventListener('load', () => {
              + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
              + value + '</h3>' + '<p id="desc">' + JSON.stringify(roomDesc) + '</p>' + '</div></div></a>' 
              + '<div class="ui basic segment"id="seg"></div>');
-             $('#goa').append('<p id="userlist"></p>')
+             $('#goa').append('<p id="roomusers"></p>')
             console.log(value.substr(value.lastIndexOf("/")+1));
             }
             // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
@@ -187,13 +187,13 @@ window.addEventListener('load', () => {
     
 
     
-    socket.on('updateactive', function(numClients) {
-      $('#globallist').empty();
-      $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
-      $.each(data, function(key, value) {
-        $('#globallist').append('' + numClients);
-      });
-    });
+    // socket.on('updateactive', function(numClients) {
+    //   $('#globallist').empty();
+    //   $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
+    //   $.each(data, function(key, value) {
+    //     $('#globallist').append('' + numClients);
+    //   });
+    // });
     
   
       socket.on('disconnect', function(){
