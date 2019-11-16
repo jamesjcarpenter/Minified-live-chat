@@ -190,6 +190,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       $('.ui.mini.primary.pm.button').click( function() {
         var userUse = $(this).attr('value')
         $('#messages').hide();
+        $(this).unbind();
         $('#servermessage').hide();
         $('#conversation').append('<p>PMING  ' + $(this).attr('value') + '</p>')
         $('#conversation').append('<button class="ui button"><i class="angle double left icon" id="pmarrow"></i></button>')
@@ -198,7 +199,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       $('#pmarrow').click( function() {
         $('#messages').show();
         $('#servermessage').show();
-        $('#pmarrow').hide();
+        $(this).hide();
       });
     });
   });
