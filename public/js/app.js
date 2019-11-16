@@ -200,6 +200,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         $('#servermessage').show();
         $('#pmtext').hide();
         $(this).hide();
+        $('.ui.mini.primary.pm.button').bind('click');
        });
       });
     });
