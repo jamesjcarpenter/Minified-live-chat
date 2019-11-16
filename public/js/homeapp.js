@@ -111,11 +111,9 @@ window.addEventListener('load', () => {
     
   
     socket.on('updateusers', function(data) {
-      
-          $('#userlist').empty();
       // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
           $.each(data, function(key, value) {
-              $('#userlist').append('<a class="ui black circular image label"id="imagelabel"><img src="/images/avatarsmall.jpg">' + '<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
+              $('#goa').append('<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
           });     
        });
         
