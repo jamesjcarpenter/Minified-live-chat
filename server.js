@@ -544,10 +544,10 @@ io.sockets.on('connection', function (socket) {
     socket.on('findUser', function(socket){
     var userNameOfUserToFind;
     console.log(socket)
-     User.findOne({ name : socket }).exec(function(err,res) {
-       console.log(res);
-        // io.to(res.socketId).emit('my message', msg);
-      })
+    //  User.findOne({ name : socket }).exec(function(err,res) {
+    //    console.log(res);
+    //     // io.to(res.socketId).emit('my message', msg);
+    //   })
     });
 
     // var username = socket.id;
