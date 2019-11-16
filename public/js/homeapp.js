@@ -95,7 +95,7 @@ window.addEventListener('load', () => {
         });
       });
 
-      socket.on('updateroomdesc', function(roomDesc) {
+      socket.on('updateroomdesc', function(rooms, roomDesc) {
         $.each(rooms, function(key, value, roomDesc) {
           $('#goa').append('<p>' + roomDesc + '</p>')
       });
