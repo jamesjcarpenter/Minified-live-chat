@@ -187,6 +187,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       $('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + 
       '<button class="ui mini primary pm button" value="'+ value + '"></button>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
+      $('.ui.mini.primary.pm.button').bind('click', pmAnother);
       function pmAnother(){
         var userUse = $(this).attr('value')
         $('#messages').hide();
@@ -203,7 +204,6 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         $(this).hide();
         $('.ui.mini.primary.pm.button').bind('click', pmAnother);
         };
-      });
     });
   });
 
