@@ -114,7 +114,7 @@ window.addEventListener('load', () => {
     socket.on('updateuserhome', function(data) {
       // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
           $.each(data, function(key, value) {
-              $('#goa').append('<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
+              $('#userlist').append('<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
               console.log('key for usershome is:  ' + key)
               console.log('value for usershome is:  ' + value)
           });     
