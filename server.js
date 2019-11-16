@@ -453,9 +453,8 @@ io.sockets.on('connection', function (socket) {
       socket.join(room);
       var aq = rooms.indexOf(room) == -1;
       var bq = room !== 'home';
-      var zq = room !== '';
-      var dq = aq + bq + zq;
-      if (dq) {
+      var zq = aq + bq;
+      if (zq || room !== undefined, null) {
       rooms.push(room);
     } else {
       return false;
