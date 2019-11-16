@@ -196,6 +196,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
         $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
         socket.emit('findUser', { username : userUse } );
+        $('#pmarrow').bind('click', exitThePm);
       }
       function exitThePm(){
         $('#messages').show();
