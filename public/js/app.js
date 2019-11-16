@@ -185,10 +185,10 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
 		$.each(data, function(key, value) {
       $('#userlist').append('<tag id="changename"><li><span class="ui white text user">' + key  + '</span>' + '</a>' + 
-      '<button class="ui mini primary pm button" value="'+ value + '"></button>' + '</li>');
+      '<button class="ui mini primary pm button" id="bty" value="'+ value + '"></button>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       $('.ui.mini.primary.pm.button').click( function() {
-        var userUse = $('.ui.mini.primary.pm.button').attr('value')
+        var userUse = $('#bty').attr('value')
         socket.emit('findUser', { username : userUse } );
       });
     });
