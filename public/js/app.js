@@ -193,7 +193,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
 
   function pmAnother(){
     var userUse = $(this).attr('value')
-    $(this).unbind('click', pmAnother);
+    $(this).unbind();
     $('#messages').hide();
     $('#servermessage').hide();
     $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
@@ -202,13 +202,17 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     $('#pmarrow').bind('click', exitThePm);
   }
   function exitThePm(){
-    $('#pmarrow').unbind('click', exitThePm);
+    $('#pmarrow').unbind();
     $('#messages').show();
     $('#servermessage').show();
-    $('#pmtext').remove();
-    $('#pmarrow').remove();
     $('.ui.mini.primary.pm.button').bind('click', pmAnother);
     };
+
+    $('#pmarrow').click(function(e){
+      e.preventDefault();
+      $("#pmarrow").remove();
+      $('#pmtext').remove();
+  });
 
   $(".span.ui.white.text.user").click(function(){
     $('.ui.mini.basic.modal.start')
