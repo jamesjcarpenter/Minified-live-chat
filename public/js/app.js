@@ -190,12 +190,14 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       $('.ui.mini.primary.pm.button').click( function() {
         var userUse = $(this).attr('value')
         $('#messages').hide();
+        $('#servermessage').hide();
         $('#conversation').append('<p>PMING  ' + $(this).attr('value') + '</p>')
-        $('#conversation').append('<i class="icon arrow" id="pmarrow"></i>')
+        $('#conversation').append('<button class="angle double left icon" id="pmarrow"></button>')
         socket.emit('findUser', { username : userUse } );
       });
       $('#pmarrow').click( function() {
         $('#messages').show();
+        $('#servermessage').show();
         $('#pmarrow').hide();
       });
     });
