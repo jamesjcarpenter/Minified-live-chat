@@ -189,6 +189,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       console.log($('.span.ui.white.text.user').val())
       $('.ui.mini.primary.pm.button').click( function() {
         var userUse = $(this).attr('value')
+        $('#messages').hide();
+        $('#conversation').append('<p>PMING' + $(this).attr('value') + '</p>')
         socket.emit('findUser', { username : userUse } );
       });
     });
