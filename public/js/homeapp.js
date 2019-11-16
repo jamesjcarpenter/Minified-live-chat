@@ -84,7 +84,7 @@ window.addEventListener('load', () => {
        socket.on('updatehomepage', function(rooms, roomDesc) {
         $('#goa').empty();
         $.each(rooms, function(key, value, roomDesc) {
-            if (value !== null | undefined){
+            if (value !== 'home' | ''){
             $('#goa').append('<div class="five wide column"><a href="/room/'
              + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
              + value + '</h3>' + '<p id="desc">' + roomDesc + '</p>'  + '</div></div></a>' 
