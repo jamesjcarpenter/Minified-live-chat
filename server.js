@@ -420,7 +420,7 @@ app.use(function(req, res, next) {
  });
 
 
-const bans = socketAntiSpam.getBans()
+// const bans = socketAntiSpam.getBans()
 var roomDesc = "Default room description."
 var rooms = [];
 // usernames which are currently connected to the chat
