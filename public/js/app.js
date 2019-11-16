@@ -192,12 +192,13 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         $('#messages').hide();
         $(this).unbind();
         $('#servermessage').hide();
-        $('#conversation').append('<p>PMING  ' + $(this).attr('value') + '</p>')
-        $('#conversation').append('<button class="ui button"><i class="angle double left icon" id="pmarrow"></i></button>')
+        $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
+        $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
         socket.emit('findUser', { username : userUse } );
       $('#pmarrow').click( function() {
         $('#messages').show();
         $('#servermessage').show();
+        $('#pmtext').hide();
         $(this).hide();
        });
       });
