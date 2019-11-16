@@ -82,13 +82,13 @@ window.addEventListener('load', () => {
 
        socket.on('updatehomepage', function(rooms, roomDesc) {
         $('#goa').empty();
-        $('#goa').append('<p id="userlist"></p>')
         $.each(rooms, function(key, value, roomDesc) {
             if (value !== 'home'){
             $('#goa').append('<div class="five wide column"><a href="/room/'
              + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
              + value + '</h3>' + '<p id="desc">' + JSON.stringify(roomDesc) + '</p>' + '</div></div></a>' 
              + '<div class="ui basic segment"id="seg"></div>');
+             $('#goa').append('<p id="userlist"></p>')
             console.log(value.substr(value.lastIndexOf("/")+1));
             }
             // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
@@ -111,10 +111,10 @@ window.addEventListener('load', () => {
     
     
   
-    socket.on('updateusers', function(data) {
+    socket.on('updateusershome', function(data) {
       // $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
           $.each(data, function(key, value) {
-              $('#goa').append('<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
+              $('#userlist').append('<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
           });     
        });
         

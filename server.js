@@ -591,7 +591,7 @@ io.sockets.on('connection', function (socket) {
   
     //update users for current room
       io.emit('updateusers', usernames, username);
-
+      io.emit('updateuserhome', usernames.length);
       function requestRooms() {
         io.emit('updatehomepage', rooms, roomDesc);
         };
