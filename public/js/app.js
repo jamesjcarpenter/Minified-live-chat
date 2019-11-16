@@ -188,7 +188,7 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       '<button class="ui mini primary pm button" value="'+ value + '"></button>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       $('.ui.mini.primary.pm.button').click( function() {
-        var userUse = $('.ui.mini.primary.pm.button').attr('value')
+        var userUse = $(this).attr('value')
         socket.emit('findUser', { username : userUse } );
       });
     });
