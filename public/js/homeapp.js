@@ -88,7 +88,7 @@ window.addEventListener('load', () => {
              + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
              + value + '</h3>' + '<p id="desc">' + JSON.stringify(roomDesc) + '</p>' + '</div></div></a>' 
              + '<div class="ui basic segment"id="seg"></div>');
-             $('#goa').append('<p id="roomusers"></p>')
+             $('#goa').append('<p id="userlist"></p>')
             console.log(value.substr(value.lastIndexOf("/")+1));
             }
             // $('#roomlist').append('<div><a href="#" id="linkroom">' + value + '</a></div>');
@@ -111,8 +111,8 @@ window.addEventListener('load', () => {
     
     
   
-    socket.on('updateuserhome', function(room) {
-    $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + room.length + '</span></div><br><br>');   
+    socket.on('updateuserhome', function(data) {
+    $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + clients.length + '</span></div><br><br>');   
     // $.each(data, function(key, value) {
           //     $('#userlist').append('<span class="ui white text">' + key  + '</span>' + '</a>' + '<br>');
           //     console.log('key for usershome is:  ' + key)
