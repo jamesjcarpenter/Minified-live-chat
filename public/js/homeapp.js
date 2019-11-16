@@ -192,6 +192,7 @@ window.addEventListener('load', () => {
       $('#userlist').append('<div class="list-group-item-heading"><span class="ui white text">' + 'online' + '<br>' + 'room &nbsp;#' + '' + socket.room + '</span></div><br><br>');
       $.each(data, function(key, value) {
         $('#globallist').append('' + numClients);
+      });
     });
     
   
