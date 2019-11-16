@@ -194,7 +194,9 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
     var userUse = $(this).attr('value')
     $(this).unbind();
     $('#message').hide();
-    $('#conversation').hide();
+    $('#username').hide();
+    $('#useravatar').hide();
+    $('#messagedata').hide();
     $('#servermessage').hide();
     $('#pmtext').remove();
     $('#pmarrow').remove();
