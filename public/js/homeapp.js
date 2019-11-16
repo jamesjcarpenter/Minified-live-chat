@@ -83,8 +83,7 @@ window.addEventListener('load', () => {
 
        socket.on('updatehomepage', function(rooms, roomDesc) {
         $('#goa').empty();
-        var room = socket.room;
-        $.each(rooms, function(room, value, roomDesc) {
+        $.each(rooms, function(key, value, roomDesc) {
             if (value !== null | undefined){
             $('#goa').append('<div class="five wide column"><a href="/room/'
              + value + '">' + '<div class="ui segment"id="rightlabelroom"><h3>' 
