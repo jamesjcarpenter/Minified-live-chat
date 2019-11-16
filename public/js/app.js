@@ -195,11 +195,11 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
         $('#conversation').append('<p>PMING  ' + $(this).attr('value') + '</p>')
         $('#conversation').append('<button class="ui button"><i class="angle double left icon" id="pmarrow"></i></button>')
         socket.emit('findUser', { username : userUse } );
-      });
       $('#pmarrow').click( function() {
         $('#messages').show();
         $('#servermessage').show();
         $(this).hide();
+       });
       });
     });
   });
