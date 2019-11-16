@@ -453,11 +453,15 @@ io.sockets.on('connection', function (socket) {
       socket.join(room);
       var aq = rooms.indexOf(room) == -1;
       var bq = room !== 'home';
-      var zq = aq + bq;
-      if (zq || room !== undefined, null) {
-      rooms.push(room);
-    } else {
-      return false;
+      if (room == 'home') {
+        return false;
+      } if (room == ''){
+        return false;
+      }
+      if (room == 'login'){
+        return false;
+      } else {
+        rooms.push(room);
     };
     // io.emit('updaterooms', rooms, socket.room);
     
