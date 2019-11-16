@@ -545,7 +545,7 @@ io.sockets.on('connection', function (socket) {
     var userNameOfUserToFind;
     console.log(socket)
      User.findOne({ name : socket }).exec(function(err,res) {
-       console.log(res);
+       console.log(res.socket.id);
         // io.to(res.socketId).emit('my message', msg);
       })
     });
