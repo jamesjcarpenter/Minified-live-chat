@@ -190,8 +190,8 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       $('.ui.mini.primary.pm.button').bind('click', pmAnother);
       function pmAnother(){
         var userUse = $(this).attr('value')
-        $('#messages').hide();
         $(this).unbind('click', pmAnother);
+        $('#messages').hide();
         $('#servermessage').hide();
         $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
         $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
