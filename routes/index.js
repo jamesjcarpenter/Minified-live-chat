@@ -176,6 +176,7 @@ router.post('/logout', (req, res, options) => {
     res.clearCookie(SESS_NAME)
     }
   })
+  res.redirect('/home')
 })
 
 //const Janus = require('../src/Janus')
