@@ -188,15 +188,15 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       '<button class="ui mini primary pm button" value="'+ value + '"></button>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       $('.ui.mini.primary.pm.button').bind('click', pmAnother);
+      $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
+      $('#pmarrow').bind('click', exitThePm);
       function pmAnother(){
         var userUse = $(this).attr('value')
         $('#messages').hide();
         $(this).unbind('click', pmAnother);
         $('#servermessage').hide();
         $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
-        $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
         socket.emit('findUser', { username : userUse } );
-        $('#pmarrow').bind('click', exitThePm);
       }
       function exitThePm(){
         $('#messages').show();
