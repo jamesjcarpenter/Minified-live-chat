@@ -188,28 +188,27 @@ var date = JSON.stringify(new Date(Date.now()).toLocaleTimeString())
       '<button class="ui mini primary pm button" value="'+ value + '"></button>' + '</li>');
       console.log($('.span.ui.white.text.user').val())
       $('.ui.mini.primary.pm.button').bind('click', pmAnother);
-      function pmAnother(){
-        var userUse = $(this).attr('value')
-        $(this).unbind('click', pmAnother);
-        $('#messages').hide();
-        $('#servermessage').hide();
-        $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
-        $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
-        socket.emit('findUser', userUse);
-        $('#pmarrow').bind('click', exitThePm);
-      }
-      function exitThePm(){
-        $('#pmarrow').unbind('click', exitThePm);
-        $('#messages').show();
-        $('#servermessage').show();
-        $('#pmtext').remove();
-        $('#pmarrow').remove();
-        $('.ui.mini.primary.pm.button').bind('click', pmAnother);
-        };
     });
   });
 
-
+  function pmAnother(){
+    var userUse = $(this).attr('value')
+    $(this).unbind('click', pmAnother);
+    $('#messages').hide();
+    $('#servermessage').hide();
+    $('#conversation').append('<p id="pmtext">PMING  ' + $(this).attr('value') + '</p>')
+    $('#conversation').append('<button class="ui button"id="pmarrow"><i class="angle double left icon"></i></button>')
+    socket.emit('findUser', userUse);
+    $('#pmarrow').bind('click', exitThePm);
+  }
+  function exitThePm(){
+    $('#pmarrow').unbind('click', exitThePm);
+    $('#messages').show();
+    $('#servermessage').show();
+    $('#pmtext').remove();
+    $('#pmarrow').remove();
+    $('.ui.mini.primary.pm.button').bind('click', pmAnother);
+    };
 
   $(".span.ui.white.text.user").click(function(){
     $('.ui.mini.basic.modal.start')
