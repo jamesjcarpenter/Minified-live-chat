@@ -755,7 +755,7 @@ div.no-video-container {
     min-height: 77vh;
     width: 100%;
     overflow-y: auto;
-    min-width:21.5vw;
+    max-width:21.5vw;
     margin-top:-2.4em;
     word-wrap: break-word;
     margin-bottom:2.3em;
