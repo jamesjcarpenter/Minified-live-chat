@@ -293,6 +293,7 @@ right:0em;
     
     #conversation {
     position:relative!important;
+    margin-top:2em;
     width:100%!important;
     min-width:55vw;
     max-width:33vw;
@@ -309,7 +310,7 @@ right:0em;
       width:100%!important;
       min-width:21.22vw!important;
       bottom:55px;
-      padding-bottom:3em;
+      padding-bottom:1em;
     }
     
     #data {
@@ -756,7 +757,7 @@ div.no-video-container {
     overflow-y: auto;
     min-width:21.5vw;
     margin-top:-2.4em;
-    overflow-x:hidden;
+    word-wrap: break-word;
     margin-bottom:2.3em;
 background-color: 	#fcfff9!important;
 }
