@@ -294,7 +294,7 @@ right:0em;
     #conversation {
     position:relative!important;
     min-width:19.5vw;
-    height:46vh!important;
+    height:51vh!important;
     padding:20px!important;
     max-width:100%!important;
     max-height:100%!important;  
@@ -309,7 +309,7 @@ right:0em;
       width:100%!important;
       min-width:21.22vw!important;
       padding-top:1em;
-      bottom:0;
+      bottom:-20px;
     }
     
     #data {
