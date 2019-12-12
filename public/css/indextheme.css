@@ -12,6 +12,7 @@
       color:black;
       outline:none !important;
       min-height:15.5vh;
+      padding-bottom:3em!important;
     }
     input::placeholder{
       color:black;
