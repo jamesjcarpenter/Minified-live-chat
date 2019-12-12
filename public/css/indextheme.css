@@ -12,7 +12,6 @@
       color:black;
       outline:none !important;
       min-height:15.5vh;
-      padding-bottom:3em!important;
     }
     input::placeholder{
       color:black;
@@ -310,6 +309,7 @@ right:0em;
       width:100%!important;
       min-width:21.22vw!important;
       bottom:55px;
+      padding-bottom:3em;
     }
     
     #data {
@@ -319,6 +319,7 @@ right:0em;
     min-height:100%!important;
     max-height:100%!important;  
     margin-top:2em;
+    word-wrap: break-word;
     }
     
     
