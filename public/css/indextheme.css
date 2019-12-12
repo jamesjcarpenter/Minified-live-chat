@@ -300,6 +300,7 @@ right:0em;
     padding:20px!important;
     max-width:100%!important;
     max-height:100%!important;  
+    overflow-wrap: break-word;
     }
     
     #inputfocus {
@@ -427,6 +428,7 @@ right:0em;
         position:justify;
         font-size: 12px;
         width: 80%;
+        overflow-wrap: break-word;
     }
     #videolocal { background-color: 	#fcfff9!important; }
     .i {
@@ -749,9 +751,9 @@ div.no-video-container {
     overflow-y: auto;
     min-width:18.5vw;
     margin-top:-2.4em;
-    overflow-x:hidden;
+    overflow-wrap: break-word;
     margin-bottom:2.3em;
-background-color: 	#fcfff9!important;
+    background-color: 	#fcfff9!important;
 }
 #scroller{
   min-height: 77vh;
