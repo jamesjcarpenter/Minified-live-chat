@@ -306,10 +306,8 @@ right:0em;
       position:absolute!important;
       min-height:13.3vh!important;
       min-width:21.22vw!important;
-      right:0;
-      bottom:0;
-      padding-right:1em;
-      padding-bottom:1em;
+      right:-5%;
+      bottom:-15%;
     }
     
     #data {
