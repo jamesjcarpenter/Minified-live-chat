@@ -294,13 +294,9 @@ right:0em;
     #conversation {
     position:relative!important;
     top:3em;
-    width:100%!important;
-    min-width:55vw;
-    max-width:33vw;
+    width:33vw;
     height:55vh!important;
     padding:20px!important;
-    max-width:100%!important;
-    max-height:100%!important;  
     }
     
     #inputfocus {
@@ -753,20 +749,14 @@ div.no-video-container {
 #scrollable{
     float: left;
     min-height: 77vh;
-    width: 100%;
     overflow-y: auto;
-    max-width:21.5vw;
+    width:11.5vw;
     margin-top:-2.4em;
     word-wrap: break-word;
     margin-bottom:2.3em;
 background-color: 	#fcfff9!important;
 }
-#scroller{
-  min-height: 77vh;
-  width: 100%;
-  overflow-y: auto;
-  min-width:21.5vw;
-}
+
 
 #smileImg {
   margin:0 auto;
