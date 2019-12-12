@@ -746,7 +746,7 @@ div.no-video-container {
 
 #scrollable{
     float: left;
-    min-height: 65vh;
+    min-height: 70vh;
     width: 100%;
     overflow-y: auto;
     min-width:25.5vw;
