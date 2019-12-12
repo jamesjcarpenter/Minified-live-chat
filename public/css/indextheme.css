@@ -294,12 +294,12 @@ right:0em;
     #conversation {
     position:relative!important;
     min-width:19.5vw;
-    height:67vh!important;
+    height:42vh!important;
     padding:20px!important;
     max-width:100%!important;
     max-height:100%!important;  
     overflow-wrap: break-word;
-    padding-bottom:3em;
+    padding-bottom:1em;
     }
     
     #inputfocus {
@@ -308,7 +308,7 @@ right:0em;
       min-height:13.3vh!important;
       width:100%!important;
       min-width:21.22vw!important;
-      bottom:85px;
+      bottom:45px;
     }
     
     #data {
