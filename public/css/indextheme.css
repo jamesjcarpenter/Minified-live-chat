@@ -427,7 +427,7 @@ right:0em;
     #conversation{display:block!important; background-color: 	#fcfff9!important;    word-wrap: break-word;
         position:justify;
         font-size: 12px;
-        width: 50%;
+        width: 80%;
         overflow-wrap: break-word;
     }
     #videolocal { background-color: 	#fcfff9!important; }
@@ -749,7 +749,7 @@ div.no-video-container {
     min-height: 77vh;
     width: 100%;
     overflow-y: auto;
-    min-width:18.5vw;
+    min-width:12.5vw;
     margin-top:-2.4em;
     overflow-wrap: break-word;
     margin-bottom:2.3em;
