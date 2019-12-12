@@ -293,20 +293,22 @@ right:0em;
     
     #conversation {
     position:relative!important;
-    top:3em;
-    width:33vw;
-    height:55vh!important;
+    width:100%!important;
+    min-width:55vw;
+    max-width:55vw;
+    height:76vh!important;
     padding:20px!important;
+    max-width:100%!important;
+    max-height:100%!important;  
     }
     
     #inputfocus {
       position:relative!important;
-      margin-left:1.55em;
+      margin-left:1.35em;
       min-height:13.3vh!important;
       width:100%!important;
       min-width:21.22vw!important;
-      bottom:55px;
-      padding-bottom:1em;
+      bottom:85px;
     }
     
     #data {
@@ -316,7 +318,6 @@ right:0em;
     min-height:100%!important;
     max-height:100%!important;  
     margin-top:2em;
-    word-wrap: break-word;
     }
     
     
@@ -376,15 +377,6 @@ right:0em;
       height:965px;
     }
     
-    #scrollingheight {
-          float: left;
-          min-height: 9vh;
-          max-width:1.5vw;
-          width: 100%;
-          overflow-y: auto;
-          overflow-x:hidden;
-          background-color: 	#1c1c1c!important;
-      }
       #youtubemodal {
         overflow-y:scroll;
         overflow-x:hidden;
@@ -431,7 +423,11 @@ right:0em;
     #youtube-buttons { max-width: 100%;padding-top:12.4vh;}
     .youtubewrapper { position:absolute; bottom:-44vw; right:-23.5vw; margin:0 auto;}
     #slidersound { padding-top:20px;  background-color: 		#1c1c1c!important;}
-
+    #conversation{display:block!important; background-color: 	#fcfff9!important;    word-wrap: break-word;
+        position:justify;
+        font-size: 12px;
+        width: 80%;
+    }
     #videolocal { background-color: 	#fcfff9!important; }
     .i {
       background-color: white;
@@ -749,14 +745,20 @@ div.no-video-container {
 #scrollable{
     float: left;
     min-height: 77vh;
+    width: 100%;
     overflow-y: auto;
-    width:11.5vw;
+    width:5vw;
     margin-top:-2.4em;
-    word-wrap: break-word;
+    overflow-x:hidden;
     margin-bottom:2.3em;
 background-color: 	#fcfff9!important;
 }
-
+#scroller{
+  min-height: 77vh;
+  width: 100%;
+  overflow-y: auto;
+  min-width:21.5vw;
+}
 
 #smileImg {
   margin:0 auto;
