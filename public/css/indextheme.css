@@ -434,11 +434,7 @@ right:0em;
     #youtube-buttons { max-width: 100%;padding-top:12.4vh;}
     .youtubewrapper { position:absolute; bottom:-44vw; right:-23.5vw; margin:0 auto;}
     #slidersound { padding-top:20px;  background-color: 		#1c1c1c!important;}
-    #conversation{display:block!important; background-color: 	#fcfff9!important;    word-wrap: break-word;
-        position:justify;
-        font-size: 12px;
-        max-width: 80%;
-    }
+
     #videolocal { background-color: 	#fcfff9!important; }
     .i {
       background-color: white;
