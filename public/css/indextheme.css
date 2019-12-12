@@ -427,7 +427,7 @@ right:0em;
     #conversation{display:block!important; background-color: 	#fcfff9!important;    word-wrap: break-word;
         position:justify;
         font-size: 12px;
-        width: 80%;
+        width: 50%;
         overflow-wrap: break-word;
     }
     #videolocal { background-color: 	#fcfff9!important; }
