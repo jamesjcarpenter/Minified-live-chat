@@ -293,9 +293,7 @@ right:0em;
     
     #conversation {
     position:relative!important;
-    width:100%!important;
-    min-width:55vw;
-    max-width:55vw;
+    width:18.5vw;
     height:76vh!important;
     padding:20px!important;
     max-width:100%!important;
@@ -749,7 +747,7 @@ div.no-video-container {
     min-height: 77vh;
     width: 100%;
     overflow-y: auto;
-    min-width:12.5vw;
+    min-width:18.5vw;
     margin-top:-2.4em;
     overflow-wrap: break-word;
     margin-bottom:2.3em;
