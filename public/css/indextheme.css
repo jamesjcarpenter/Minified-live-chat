@@ -295,7 +295,7 @@ right:0em;
     position:relative!important;
     width:100%!important;
     min-width:55vw;
-    max-width:55vw;
+    max-width:33vw;
     height:76vh!important;
     padding:20px!important;
     max-width:100%!important;
@@ -437,7 +437,7 @@ right:0em;
     #conversation{display:block!important; background-color: 	#fcfff9!important;    word-wrap: break-word;
         position:justify;
         font-size: 12px;
-        width: 80%;
+        max-width: 80%;
     }
     #videolocal { background-color: 	#fcfff9!important; }
     .i {
