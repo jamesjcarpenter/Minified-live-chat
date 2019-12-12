@@ -294,7 +294,7 @@ right:0em;
     #conversation {
       position:relative!important;
       min-width:19.5vw;
-      height:70vh!important;
+      height:66vh!important;
       padding:20px!important;
       max-width:100%!important;
       max-height:100%!important;  
@@ -305,11 +305,11 @@ right:0em;
     #inputfocus {
       position:relative!important;
       margin-left:1.35em;
-      min-height:13.3vh!important;
+      min-height:14.3vh!important;
       width:100%!important;
       min-width:21.22vw!important;
       padding:1em;
-      bottom:60px;
+      bottom:80px;
     }
     
     #data {
